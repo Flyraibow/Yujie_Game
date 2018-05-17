@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		ECADF33420AD368400B77618 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF33320AD368400B77618 /* main.cpp */; };
+		ECADF34620AD37F900B77618 /* ByteBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF34420AD37F900B77618 /* ByteBuffer.cpp */; };
+		ECADF34A20AD384300B77618 /* SailingHeroPackager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF34820AD384300B77618 /* SailingHeroPackager.cpp */; };
+		ECADF34E20AD3A8F00B77618 /* ProjectPackagerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF34C20AD3A8F00B77618 /* ProjectPackagerBase.cpp */; };
+		ECADF35220AD3D9000B77618 /* ObjectData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF35020AD3D9000B77618 /* ObjectData.cpp */; };
+		ECADF35520AD3E6900B77618 /* LanguageData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF35320AD3E6900B77618 /* LanguageData.cpp */; };
+		ECADF35820AD408F00B77618 /* ReadCSV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF35620AD408F00B77618 /* ReadCSV.cpp */; };
+		ECADF35B20AD4E4E00B77618 /* LanguageWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF35920AD4E4E00B77618 /* LanguageWriter.cpp */; };
+		ECADF35E20AD54C400B77618 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF35C20AD54C400B77618 /* Utils.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +33,22 @@
 /* Begin PBXFileReference section */
 		ECADF33020AD368400B77618 /* ResourcePackager */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ResourcePackager; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECADF33320AD368400B77618 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		ECADF34420AD37F900B77618 /* ByteBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ByteBuffer.cpp; sourceTree = "<group>"; };
+		ECADF34520AD37F900B77618 /* ByteBuffer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ByteBuffer.hpp; sourceTree = "<group>"; };
+		ECADF34820AD384300B77618 /* SailingHeroPackager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SailingHeroPackager.cpp; sourceTree = "<group>"; };
+		ECADF34920AD384300B77618 /* SailingHeroPackager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SailingHeroPackager.hpp; sourceTree = "<group>"; };
+		ECADF34C20AD3A8F00B77618 /* ProjectPackagerBase.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectPackagerBase.cpp; sourceTree = "<group>"; };
+		ECADF34D20AD3A8F00B77618 /* ProjectPackagerBase.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ProjectPackagerBase.hpp; sourceTree = "<group>"; };
+		ECADF35020AD3D9000B77618 /* ObjectData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectData.cpp; sourceTree = "<group>"; };
+		ECADF35120AD3D9000B77618 /* ObjectData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ObjectData.hpp; sourceTree = "<group>"; };
+		ECADF35320AD3E6900B77618 /* LanguageData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LanguageData.cpp; sourceTree = "<group>"; };
+		ECADF35420AD3E6900B77618 /* LanguageData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LanguageData.hpp; sourceTree = "<group>"; };
+		ECADF35620AD408F00B77618 /* ReadCSV.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ReadCSV.cpp; sourceTree = "<group>"; };
+		ECADF35720AD408F00B77618 /* ReadCSV.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ReadCSV.hpp; sourceTree = "<group>"; };
+		ECADF35920AD4E4E00B77618 /* LanguageWriter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LanguageWriter.cpp; sourceTree = "<group>"; };
+		ECADF35A20AD4E4E00B77618 /* LanguageWriter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LanguageWriter.hpp; sourceTree = "<group>"; };
+		ECADF35C20AD54C400B77618 /* Utils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Utils.cpp; sourceTree = "<group>"; };
+		ECADF35D20AD54C400B77618 /* Utils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Utils.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +81,57 @@
 		ECADF33220AD368400B77618 /* ResourcePackager */ = {
 			isa = PBXGroup;
 			children = (
+				ECADF34F20AD3D6700B77618 /* Data */,
+				ECADF34B20AD38AF00B77618 /* FileWrite */,
+				ECADF34720AD381200B77618 /* ProjectPackager */,
+				ECADF33A20AD379800B77618 /* FileReader */,
 				ECADF33320AD368400B77618 /* main.cpp */,
 			);
 			path = ResourcePackager;
+			sourceTree = "<group>";
+		};
+		ECADF33A20AD379800B77618 /* FileReader */ = {
+			isa = PBXGroup;
+			children = (
+				ECADF34420AD37F900B77618 /* ByteBuffer.cpp */,
+				ECADF34520AD37F900B77618 /* ByteBuffer.hpp */,
+				ECADF35620AD408F00B77618 /* ReadCSV.cpp */,
+				ECADF35720AD408F00B77618 /* ReadCSV.hpp */,
+			);
+			path = FileReader;
+			sourceTree = "<group>";
+		};
+		ECADF34720AD381200B77618 /* ProjectPackager */ = {
+			isa = PBXGroup;
+			children = (
+				ECADF34920AD384300B77618 /* SailingHeroPackager.hpp */,
+				ECADF34820AD384300B77618 /* SailingHeroPackager.cpp */,
+				ECADF34D20AD3A8F00B77618 /* ProjectPackagerBase.hpp */,
+				ECADF34C20AD3A8F00B77618 /* ProjectPackagerBase.cpp */,
+			);
+			path = ProjectPackager;
+			sourceTree = "<group>";
+		};
+		ECADF34B20AD38AF00B77618 /* FileWrite */ = {
+			isa = PBXGroup;
+			children = (
+				ECADF35920AD4E4E00B77618 /* LanguageWriter.cpp */,
+				ECADF35A20AD4E4E00B77618 /* LanguageWriter.hpp */,
+				ECADF35C20AD54C400B77618 /* Utils.cpp */,
+				ECADF35D20AD54C400B77618 /* Utils.hpp */,
+			);
+			path = FileWrite;
+			sourceTree = "<group>";
+		};
+		ECADF34F20AD3D6700B77618 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				ECADF35020AD3D9000B77618 /* ObjectData.cpp */,
+				ECADF35120AD3D9000B77618 /* ObjectData.hpp */,
+				ECADF35320AD3E6900B77618 /* LanguageData.cpp */,
+				ECADF35420AD3E6900B77618 /* LanguageData.hpp */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,7 +190,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECADF34E20AD3A8F00B77618 /* ProjectPackagerBase.cpp in Sources */,
+				ECADF35520AD3E6900B77618 /* LanguageData.cpp in Sources */,
+				ECADF34620AD37F900B77618 /* ByteBuffer.cpp in Sources */,
+				ECADF35220AD3D9000B77618 /* ObjectData.cpp in Sources */,
+				ECADF35E20AD54C400B77618 /* Utils.cpp in Sources */,
+				ECADF35B20AD4E4E00B77618 /* LanguageWriter.cpp in Sources */,
+				ECADF35820AD408F00B77618 /* ReadCSV.cpp in Sources */,
 				ECADF33420AD368400B77618 /* main.cpp in Sources */,
+				ECADF34A20AD384300B77618 /* SailingHeroPackager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
