@@ -7,9 +7,11 @@
 
 #include "LocalizationHelper.hpp"
 
+#include <string>
+
 #include "cocos2d.h"
 
-#include "base/ccUTF8.h"
+#include "ByteBuffer.hpp"
 
 USING_NS_CC;
 
@@ -22,7 +24,7 @@ LocalizationHelper* LocalizationHelper::getInstance()
     if (!s_sharedLocalizationHelper)
     {
         s_sharedLocalizationHelper = new (std::nothrow) LocalizationHelper();
-        s_sharedLocalizationHelper->load("File.txt");
+        s_sharedLocalizationHelper->load("res/base/translation/chinese.lang");
     }
     
     return s_sharedLocalizationHelper;
@@ -37,9 +39,13 @@ void LocalizationHelper::load(const std::string &filename)
     {
         auto bytes = data.getBytes();
         
-        auto str = StringUtils::toString(bytes);
-        
-        CCLOG("bypte: %s, length: %ld", str.c_str(), data.getSize());
+        auto buffer = make_unique<bb::ByteBuffer>(bytes, data.getSize());
+        while (buffer->getReadPos() < buffer->size()) {
+            string localId = buffer->getString();
+            string translation = buffer->getString();
+            s_map[localId] = translation;
+            CCLOG("%s -> %s", localId.c_str(), translation.c_str());
+        }
     }
     else CCLOG("FILE not found");
     

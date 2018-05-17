@@ -67,7 +67,7 @@ bool SailingHeroMenu::init()
     menu->setPosition(Vec2(origin.x + visibleSize.width, origin.y));
     this->addChild(menu, 1);
     
-    auto str = LocalizationHelper::getLocalization("sss");
+    auto str = LocalizationHelper::getLocalization("test");
     auto button = SystemButton::defaultButtonWithText(str);
     button->setPositionType(Widget::PositionType::PERCENT);
     button->setPositionPercent(Vec2(0.5, 0.5));

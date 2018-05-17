@@ -19,7 +19,7 @@ void SailingHeroPackager::startPackage()
 void SailingHeroPackager::readBaseFiles()
 {
     string baseLanguagePath = get_dataSourcePath() + "/Base/translation.csv";
-    string baseLanguageOutput = get_outputResourcePath() + "/Base/translation/";
+    string baseLanguageOutput = get_outputResourcePath() + "/base/translation/";
     
     cout << "read base language: " << baseLanguagePath << endl;
     auto baseLanguage = LanguageData(baseLanguagePath);
