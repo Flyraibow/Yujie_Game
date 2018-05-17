@@ -53,6 +53,12 @@
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
+		ECADF31520ACE1A900B77618 /* SailingHerorMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF31320ACE1A900B77618 /* SailingHerorMenu.cpp */; };
+		ECADF31920ACF1AD00B77618 /* Graph in Resources */ = {isa = PBXBuildFile; fileRef = ECADF31820ACF1AD00B77618 /* Graph */; };
+		ECADF31E20ACF21200B77618 /* SystemButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF31C20ACF21200B77618 /* SystemButton.cpp */; };
+		ECADF32020ACFAE100B77618 /* chinese.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECADF31F20ACFAE100B77618 /* chinese.strings */; };
+		ECADF32420ACFD0800B77618 /* LocalizationHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF32220ACFD0800B77618 /* LocalizationHelper.cpp */; };
+		ECADF32620AD286C00B77618 /* File.txt in Resources */ = {isa = PBXBuildFile; fileRef = ECADF32520AD286C00B77618 /* File.txt */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 /* End PBXBuildFile section */
@@ -140,6 +146,15 @@
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
+		ECADF31320ACE1A900B77618 /* SailingHerorMenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SailingHerorMenu.cpp; sourceTree = "<group>"; };
+		ECADF31420ACE1A900B77618 /* SailingHerorMenu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SailingHerorMenu.hpp; sourceTree = "<group>"; };
+		ECADF31820ACF1AD00B77618 /* Graph */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Graph; sourceTree = "<group>"; };
+		ECADF31C20ACF21200B77618 /* SystemButton.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SystemButton.cpp; sourceTree = "<group>"; };
+		ECADF31D20ACF21200B77618 /* SystemButton.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SystemButton.hpp; sourceTree = "<group>"; };
+		ECADF31F20ACFAE100B77618 /* chinese.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = chinese.strings; sourceTree = "<group>"; };
+		ECADF32220ACFD0800B77618 /* LocalizationHelper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LocalizationHelper.cpp; sourceTree = "<group>"; };
+		ECADF32320ACFD0800B77618 /* LocalizationHelper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LocalizationHelper.hpp; sourceTree = "<group>"; };
+		ECADF32520AD286C00B77618 /* File.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = File.txt; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -268,11 +283,14 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ECADF31820ACF1AD00B77618 /* Graph */,
 				521A8EA819F11F5000D177D7 /* fonts */,
 				3EACC98E19EE6D4300EB3C5E /* res */,
 				46880B7619C43A67006E1F66 /* CloseNormal.png */,
 				46880B7719C43A67006E1F66 /* CloseSelected.png */,
 				46880B7A19C43A67006E1F66 /* HelloWorld.png */,
+				ECADF31F20ACFAE100B77618 /* chinese.strings */,
+				ECADF32520AD286C00B77618 /* File.txt */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -281,8 +299,12 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				ECADF32120ACFC9D00B77618 /* Sys */,
+				ECADF31A20ACF1BF00B77618 /* UIElement */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
+				ECADF31320ACE1A900B77618 /* SailingHerorMenu.cpp */,
+				ECADF31420ACE1A900B77618 /* SailingHerorMenu.hpp */,
 				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
 				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
 			);
@@ -308,6 +330,32 @@
 				503AE10417EB98FF00D1A890 /* Prefix.pch */,
 			);
 			name = mac;
+			sourceTree = "<group>";
+		};
+		ECADF31A20ACF1BF00B77618 /* UIElement */ = {
+			isa = PBXGroup;
+			children = (
+				ECADF31B20ACF1D500B77618 /* Button */,
+			);
+			path = UIElement;
+			sourceTree = "<group>";
+		};
+		ECADF31B20ACF1D500B77618 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				ECADF31C20ACF21200B77618 /* SystemButton.cpp */,
+				ECADF31D20ACF21200B77618 /* SystemButton.hpp */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		ECADF32120ACFC9D00B77618 /* Sys */ = {
+			isa = PBXGroup;
+			children = (
+				ECADF32220ACFD0800B77618 /* LocalizationHelper.cpp */,
+				ECADF32320ACFD0800B77618 /* LocalizationHelper.hpp */,
+			);
+			path = Sys;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,6 +404,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
+				TargetAttributes = {
+					1D6058900D05DD3D006BFB54 = {
+						DevelopmentTeam = J6B37H3SRB;
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "SailingHero" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -413,12 +466,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				46880B8119C43A67006E1F66 /* HelloWorld.png in Resources */,
+				ECADF32020ACFAE100B77618 /* chinese.strings in Resources */,
 				1A88B2641FC3D9C9005C14AE /* Images.xcassets in Resources */,
 				46880B7D19C43A67006E1F66 /* CloseSelected.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				3EACC98F19EE6D4300EB3C5E /* res in Resources */,
 				1AF87B891F6F781D007BE51C /* LaunchScreenBackground.png in Resources */,
+				ECADF31920ACF1AD00B77618 /* Graph in Resources */,
 				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
+				ECADF32620AD286C00B77618 /* File.txt in Resources */,
 				1AF87B881F6F781D007BE51C /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,9 +499,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECADF32420ACFD0800B77618 /* LocalizationHelper.cpp in Sources */,
 				1AF87B781F6F77F7007BE51C /* AppController.mm in Sources */,
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
+				ECADF31E20ACF21200B77618 /* SystemButton.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				ECADF31520ACE1A900B77618 /* SailingHerorMenu.cpp in Sources */,
 				1AF87B8A1F6F7822007BE51C /* main.m in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 			);
@@ -484,6 +543,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				DEVELOPMENT_TEAM = J6B37H3SRB;
 				ENABLE_BITCODE = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -518,6 +578,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				DEVELOPMENT_TEAM = J6B37H3SRB;
 				ENABLE_BITCODE = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
