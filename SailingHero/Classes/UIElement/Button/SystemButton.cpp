@@ -14,6 +14,15 @@ Button* SystemButton::defaultButtonWithText(std::string text)
 {
     auto image = "Graph/System/button_up.png";
     auto button = Button::create(image);
+    button->setScale9Enabled(true);
+    button->setTitleAlignment(TextHAlignment::CENTER);
     button->setTitleText(text);
+    auto lbl_size = button->getTitleRenderer()->getContentSize();
+    button->setContentSize(
+                           Size(
+                                lbl_size.width + 23,
+                                lbl_size.height + 10
+                                )
+                           );
     return button;
 }

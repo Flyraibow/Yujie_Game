@@ -59,6 +59,7 @@
 		ECADF32620AD286C00B77618 /* File.txt in Resources */ = {isa = PBXBuildFile; fileRef = ECADF32520AD286C00B77618 /* File.txt */; };
 		ECADF36020AD604D00B77618 /* res in Resources */ = {isa = PBXBuildFile; fileRef = ECADF35F20AD604D00B77618 /* res */; };
 		ECADF36320AD615900B77618 /* ByteBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF36220AD615900B77618 /* ByteBuffer.cpp */; };
+		ECF294AC20B135B300536532 /* SHColorNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECF294AA20B135B300536532 /* SHColorNode.cpp */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 /* End PBXBuildFile section */
@@ -157,6 +158,8 @@
 		ECADF35F20AD604D00B77618 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		ECADF36120AD615900B77618 /* ByteBuffer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ByteBuffer.hpp; sourceTree = "<group>"; };
 		ECADF36220AD615900B77618 /* ByteBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ByteBuffer.cpp; sourceTree = "<group>"; };
+		ECF294AA20B135B300536532 /* SHColorNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHColorNode.cpp; sourceTree = "<group>"; };
+		ECF294AB20B135B300536532 /* SHColorNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHColorNode.hpp; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -337,6 +340,7 @@
 		ECADF31A20ACF1BF00B77618 /* UIElement */ = {
 			isa = PBXGroup;
 			children = (
+				ECF294A820B1357700536532 /* Sprite */,
 				ECADF31B20ACF1D500B77618 /* Button */,
 			);
 			path = UIElement;
@@ -360,6 +364,15 @@
 				ECADF32320ACFD0800B77618 /* LocalizationHelper.hpp */,
 			);
 			path = Sys;
+			sourceTree = "<group>";
+		};
+		ECF294A820B1357700536532 /* Sprite */ = {
+			isa = PBXGroup;
+			children = (
+				ECF294AA20B135B300536532 /* SHColorNode.cpp */,
+				ECF294AB20B135B300536532 /* SHColorNode.hpp */,
+			);
+			path = Sprite;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -506,6 +519,7 @@
 				1AF87B781F6F77F7007BE51C /* AppController.mm in Sources */,
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
 				ECADF31E20ACF21200B77618 /* SystemButton.cpp in Sources */,
+				ECF294AC20B135B300536532 /* SHColorNode.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				ECADF36320AD615900B77618 /* ByteBuffer.cpp in Sources */,
 				ECADF31520ACE1A900B77618 /* SailingHerorMenu.cpp in Sources */,

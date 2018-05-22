@@ -12,6 +12,7 @@
 #include <iostream>
 #include <fstream>
 #include <regex>
+#include <unordered_set>
 
 using namespace std;
 
@@ -21,16 +22,35 @@ vector<string>* readCSVOneLine(ifstream &indata)
     if (getline(indata , cell, '\r')) {
         vector<string>* vec = new vector<string>();
         cell.erase(std::remove(cell.begin(), cell.end(), '\n'), cell.end());
-        regex e("[\t,]");
-        sregex_token_iterator iter(cell.begin(),
-                                   cell.end(),
-                                   e,
-                                   -1);
         
-        for ( ; iter != sregex_token_iterator(); ++iter) {
-            string token = *iter;
-            cout << token << endl;
-            vec->push_back(token);
+        while (cell.length() > 0) {
+            // get the first word.
+            bool is_special = cell.at(0) == '"';
+            unordered_set<char> end_chars = is_special ? unordered_set<char>({'"'}) : unordered_set<char>({',','\t'});
+            for (int i = is_special ? 1 : 0; i < cell.length(); ++i) {
+                char c = cell.at(i);
+                if (end_chars.count(c) > 0 ||  i + 1 == cell.length()) {
+                    if (is_special) {
+                        if (i + 1 < cell.length() && cell.at(i + 1) == '"') {
+                            ++i;
+                        } else {
+                            // find the word
+                            string word = cell.substr(1,i-1);
+                            word = regex_replace(word, regex("\"\""), "\"");
+                            vec->push_back(word);
+                            cell = cell.substr(i+1);
+                            cout << word << endl;
+                            break;
+                        }
+                    } else {
+                        // find the word.
+                        string word = ( i + 1 == cell.length())? cell.substr(0,i+1) : cell.substr(0,i);
+                        vec->push_back(word);
+                        cell = cell.substr(i+1);
+                        break;
+                    }
+                }
+            }
         }
         return vec;
     }
@@ -66,8 +86,6 @@ MAP_2D readCVSByMaping(const string &path, bool rowfirst)
             }
         }
         row++;
-        cout << row << endl;
-//        delete [] vec;
     }
     
     return dictionary;

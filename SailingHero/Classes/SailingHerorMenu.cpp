@@ -11,6 +11,8 @@
 #include "SystemButton.hpp"
 #include "LocalizationHelper.hpp"
 
+#include "SHColorNode.hpp"
+
 USING_NS_CC;
 using namespace ui;
 
@@ -35,20 +37,20 @@ bool SailingHeroMenu::init()
     {
         return false;
     }
-    
+
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    
+
     /////////////////////////////
     // 2. add a menu item with "X" image, which is clicked to quit the program
     //    you may modify it.
-    
+
     // add a "close" icon to exit the progress. it's an autorelease object
     auto closeItem = MenuItemImage::create(
                                            "CloseNormal.png",
                                            "CloseSelected.png",
                                            CC_CALLBACK_1(SailingHeroMenu::menuCloseCallback, this));
-    
+
     if (closeItem == nullptr ||
         closeItem->getContentSize().width <= 0 ||
         closeItem->getContentSize().height <= 0)
@@ -61,36 +63,44 @@ bool SailingHeroMenu::init()
 //        float y = closeItem->getContentSize().height/2;
         closeItem->setAnchorPoint(Vec2(1, 0));
     }
-    
+
     // create menu, it's an autorelease object
     auto menu = Menu::create(closeItem, NULL);
     menu->setPosition(Vec2(origin.x + visibleSize.width, origin.y));
     this->addChild(menu, 1);
-    
-    auto str = LocalizationHelper::getLocalization("test");
+
+    auto str = LocalizationHelper::getLocalization("start_game");
     auto button = SystemButton::defaultButtonWithText(str);
     button->setPositionType(Widget::PositionType::PERCENT);
     button->setPositionPercent(Vec2(0.5, 0.5));
+    button->addClickEventListener(CC_CALLBACK_1(SailingHeroMenu::buttonClickCallback, this));
     this->addChild(button);
+
+    auto node = SHColorNode::create(Color4B(255, 255, 0, 100));
+    node->setTouchesEnabled(true);
+    node->setContentSize(visibleSize);
+    node->setPosition(origin);
+    this->addChild(node);
     
+    
+//    auto s_touchListener = EventListenerTouchOneByOne::create();
+//    s_touchListener->onTouchBegan = CC_CALLBACK_2(SHColorNode::onTouchBegan, node);
+//    _eventDispatcher->addEventListenerWithSceneGraphPriority(s_touchListener, node);
     
     return true;
 }
 
+void SailingHeroMenu::buttonClickCallback(Ref* pSender)
+{
+    printf("click button ");
+}
 
 void SailingHeroMenu::menuCloseCallback(Ref* pSender)
 {
     //Close the cocos2d-x game scene and quit the application
     Director::getInstance()->end();
-    
+
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     exit(0);
 #endif
-    
-    /*To navigate back to native iOS screen(if present) without quitting the application  ,do not use Director::getInstance()->end() and exit(0) as given above,instead trigger a custom event created in RootViewController.mm as below*/
-    
-    //EventCustom customEndEvent("game_scene_close_event");
-    //_eventDispatcher->dispatchEvent(&customEndEvent);
-    
-    
 }
