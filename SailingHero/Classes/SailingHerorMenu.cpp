@@ -12,6 +12,8 @@
 #include "LocalizationHelper.hpp"
 
 #include "SHColorNode.hpp"
+#include <string>
+#include <vector>
 
 USING_NS_CC;
 using namespace ui;
@@ -59,40 +61,33 @@ bool SailingHeroMenu::init()
     }
     else
     {
-//        float x = - closeItem->getContentSize().width/2;
-//        float y = closeItem->getContentSize().height/2;
         closeItem->setAnchorPoint(Vec2(1, 0));
     }
 
     // create menu, it's an autorelease object
     auto menu = Menu::create(closeItem, NULL);
     menu->setPosition(Vec2(origin.x + visibleSize.width, origin.y));
-    this->addChild(menu, 1);
+    this->addChild(menu);
 
-    auto str = LocalizationHelper::getLocalization("start_game");
-    auto button = SystemButton::defaultButtonWithText(str);
-    button->setPositionType(Widget::PositionType::PERCENT);
-    button->setPositionPercent(Vec2(0.5, 0.5));
-    button->addClickEventListener(CC_CALLBACK_1(SailingHeroMenu::buttonClickCallback, this));
-    this->addChild(button);
-
-    auto node = SHColorNode::create(Color4B(255, 255, 0, 100));
-    node->setTouchesEnabled(true);
-    node->setContentSize(visibleSize);
-    node->setPosition(origin);
+    auto strs = std::vector<std::string>({"start_game", "load_game", "game_setting"});
+    auto buttons = Vector<Button *>();
+    for (int i = 0; i < strs.size(); ++i) {
+        auto btn = SystemButton::defaultButtonWithText(
+                                                       LocalizationHelper::getLocalization(strs.at(i)), CC_CALLBACK_1(SailingHeroMenu::buttonClickCallback, this));
+        btn->setTag(i);
+        buttons.pushBack(btn);
+    }
+    auto node = SystemButton::getButtonGroupNode(buttons);
     this->addChild(node);
-    
-    
-//    auto s_touchListener = EventListenerTouchOneByOne::create();
-//    s_touchListener->onTouchBegan = CC_CALLBACK_2(SHColorNode::onTouchBegan, node);
-//    _eventDispatcher->addEventListenerWithSceneGraphPriority(s_touchListener, node);
     
     return true;
 }
 
 void SailingHeroMenu::buttonClickCallback(Ref* pSender)
 {
-    printf("click button ");
+    auto button = dynamic_cast<Button*>(pSender);
+
+    printf("click button %s", button->getTitleText().c_str());
 }
 
 void SailingHeroMenu::menuCloseCallback(Ref* pSender)

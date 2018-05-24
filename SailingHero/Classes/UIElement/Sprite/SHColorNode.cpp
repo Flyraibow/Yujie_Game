@@ -46,17 +46,49 @@ SHColorNode * SHColorNode::create(const Color4B& color)
     return nullptr;
 }
 
-
-void SHColorNode::setTouchesEnabled(bool enabled)
+bool SHColorNode::init()
 {
-    printf("=================1\n");
-    s_touchListener = EventListenerTouchOneByOne::create();
-    s_touchListener->onTouchBegan = CC_CALLBACK_2(SHColorNode::onTouchBegan, this);
-    s_touchListener->setSwallowTouches(true);
-    _eventDispatcher->addEventListenerWithSceneGraphPriority(s_touchListener, this);
+    if (LayerColor::init()) {
+        this->commonInit();
+        return true;
+    }
+    return false;
+}
+
+bool SHColorNode::initWithColor(const Color4B& color, GLfloat w, GLfloat h)
+{
+    if(LayerColor::initWithColor(color, w, h)) {
+        this->commonInit();
+        return true;
+    }
+    return false;
+}
+
+bool SHColorNode::initWithColor(const Color4B& color)
+{
+    if ( LayerColor::initWithColor(color)) {
+        this->commonInit();
+        return true;
+    }
+    return false;
+}
+
+void SHColorNode::commonInit()
+{
+    this->setTouchMode(Touch::DispatchMode::ONE_BY_ONE);
+    this->setTouchEnabled(true);
 }
 
 bool SHColorNode::onTouchBegan(Touch *touch, Event *unused_event) {
-    printf("=================3\n");
+    printf("touch swallowed by SHColorNode \n");
     return true;
+}
+
+
+SHColorNode* SHColorNode::createInvisibleNode() {
+    auto node = SHColorNode::create(Color4B(100, 0, 0, 100));
+//    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+//    node->setPosition(origin);
+    
+    return node;
 }

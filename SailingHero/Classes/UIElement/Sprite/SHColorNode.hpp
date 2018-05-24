@@ -12,11 +12,16 @@
 
 USING_NS_CC;
 
+/** @class SHColorNode
+ * @brief SHColorNode is a subclass of LayerColor that can swallow all touches
+ 
+ */
 class SHColorNode : public LayerColor
 {
-protected:
-    EventListenerTouchOneByOne* s_touchListener;
+private:
+    void commonInit();
 public:
+    static SHColorNode* createInvisibleNode();
     static SHColorNode* create();
     /** Creates a Layer with color, width and height in Points.
      *
@@ -32,7 +37,11 @@ public:
      * @return An autoreleased LayerColor object.
      */
     static SHColorNode * create(const Color4B& color);
-    void setTouchesEnabled(bool enabled);
+    
+    bool init() override;
+    bool initWithColor(const Color4B& color, GLfloat w, GLfloat h);
+    bool initWithColor(const Color4B& color);
+
     virtual bool onTouchBegan(Touch *touch, Event *unused_event) override;
 };
 
