@@ -21,8 +21,10 @@ class SystemButton
 public:
     static Button* defaultButtonWithText(std::string text);
     static Button* defaultButtonWithText(std::string text, const Widget::ccWidgetClickCallback &callback);
-    static SHColorNode* getButtonGroupNode(Vector<Button *> buttons);
-    static SHColorNode* getButtonGroupNode(Vector<Button *> buttons, bool italic);
+    static SHColorNode* getButtonGroupNode(const Vector<Button *> &buttons);
+    static SHColorNode* getButtonGroupNode(const Vector<Button *> &buttons, bool withCloseButton);
+    static SHColorNode* getButtonGroupNode(const Vector<Button *> &buttons, bool withCloseButton, bool italic);
+    static SHColorNode* getButtonGroupNode(const Vector<Button *> &buttons, bool withCloseButton, bool italic, const Color4B& color);
 };
 
 #endif /* SystemButton_hpp */

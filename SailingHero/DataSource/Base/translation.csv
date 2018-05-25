@@ -2,3 +2,4 @@
 start_game,开始游戏
 load_game,读取进度
 game_setting,游戏设置
+sys_close,关闭

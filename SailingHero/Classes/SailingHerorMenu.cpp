@@ -77,7 +77,7 @@ bool SailingHeroMenu::init()
         btn->setTag(i);
         buttons.pushBack(btn);
     }
-    auto node = SystemButton::getButtonGroupNode(buttons);
+    auto node = SystemButton::getButtonGroupNode(buttons, true);
     this->addChild(node);
     
     return true;

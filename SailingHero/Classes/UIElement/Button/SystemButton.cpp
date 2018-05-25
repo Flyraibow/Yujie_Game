@@ -7,6 +7,7 @@
 
 #include "SystemButton.hpp"
 #include <algorithm>
+#include "LocalizationHelper.hpp"
 
 USING_NS_CC;
 using namespace ui;
@@ -36,18 +37,29 @@ Button* SystemButton::defaultButtonWithText(std::string text, const Widget::ccWi
     return button;
 }
 
-SHColorNode* SystemButton::getButtonGroupNode(Vector<Button *> buttons, bool italic)
+
+SHColorNode* SystemButton::getButtonGroupNode(const Vector<Button *> &buttons, bool withCloseButton, bool italic, const Color4B& color)
 {
-    auto node = SHColorNode::createInvisibleNode();
-    if (!buttons.empty()) {
+    auto buttonGroup = buttons;
+    if (withCloseButton) {
+        auto button = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("sys_close"),
+                                                          [&] (cocos2d::Ref *pSender) {
+                                                              auto btn = dynamic_cast<Button*>(pSender);
+                                                              btn->getParent()->removeFromParentAndCleanup(true);
+        });
+        buttonGroup.pushBack(button);
+    }
+    auto node = SHColorNode::create(color);
+    if (!buttonGroup.empty()) {
         static auto miniDistance = 0.09;
         static auto h_dist = - 0.02;
-        auto distance = buttons.size() > 1 ? MIN(miniDistance, 1.0 / (buttons.size() - 1)) : 0;
-        for (int i = 0; i < buttons.size(); ++i) {
-            auto button = buttons.at(i);
+        const auto size = buttonGroup.size();
+        auto distance = size > 1 ? MIN(miniDistance, 1.0 / (size - 1)) : 0;
+        for (int i = 0; i < size; ++i) {
+            auto button = buttonGroup.at(i);
             button->setAnchorPoint(Vec2(0.5, 0.5));
             button->setPositionType(Widget::PositionType::PERCENT);
-            auto diff = ((buttons.size() - 1) / 2.0 - i);
+            auto diff = ((size - 1) / 2.0 - i);
             double offset_y = diff * distance;
             double offset_x = italic ? diff * h_dist : 0;
             button->setPositionPercent(Vec2(0.5 + offset_x, offset_y + 0.5));
@@ -57,7 +69,17 @@ SHColorNode* SystemButton::getButtonGroupNode(Vector<Button *> buttons, bool ita
     return node;
 }
 
-SHColorNode* SystemButton::getButtonGroupNode(Vector<Button *> buttons)
+SHColorNode* SystemButton::getButtonGroupNode(const Vector<Button *> &buttons, bool withCloseButton, bool italic)
 {
-    return SystemButton::getButtonGroupNode(buttons, true);
+    return SystemButton::getButtonGroupNode(buttons, withCloseButton, italic, Color4B());
+}
+
+SHColorNode* SystemButton::getButtonGroupNode(const Vector<Button *> &buttons, bool withCloseButton)
+{
+    return SystemButton::getButtonGroupNode(buttons, withCloseButton, true);
+}
+
+SHColorNode* SystemButton::getButtonGroupNode(const Vector<Button *> &buttons)
+{
+    return SystemButton::getButtonGroupNode(buttons, false);
 }
