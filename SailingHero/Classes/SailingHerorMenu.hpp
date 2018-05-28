@@ -8,9 +8,9 @@
 #ifndef SailingHerorMenu_hpp
 #define SailingHerorMenu_hpp
 
-#include "cocos2d.h"
+#include "SHScene.hpp"
 
-class SailingHeroMenu : public cocos2d::Scene
+class SailingHeroMenu : public SHScene
 {
 public:
     static cocos2d::Scene* createScene();

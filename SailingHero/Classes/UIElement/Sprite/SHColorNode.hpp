@@ -21,8 +21,7 @@ class SHColorNode : public LayerColor
 private:
     void commonInit();
 public:
-    static SHColorNode* createInvisibleNode();
-    static SHColorNode* create();
+    CREATE_FUNC(SHColorNode);
     /** Creates a Layer with color, width and height in Points.
      *
      * @param color The color of layer.
@@ -39,8 +38,8 @@ public:
     static SHColorNode * create(const Color4B& color);
     
     bool init() override;
-    bool initWithColor(const Color4B& color, GLfloat w, GLfloat h);
     bool initWithColor(const Color4B& color);
+    bool initWithColor(const Color4B& color, GLfloat w, GLfloat h);
 
     virtual bool onTouchBegan(Touch *touch, Event *unused_event) override;
 };

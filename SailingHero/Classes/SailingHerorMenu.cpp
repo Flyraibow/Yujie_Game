@@ -39,6 +39,8 @@ bool SailingHeroMenu::init()
     {
         return false;
     }
+    
+    this->setScreenCover(Size(4 , 3));
 
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();

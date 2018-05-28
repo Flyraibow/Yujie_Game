@@ -8,20 +8,6 @@
 #include "SHColorNode.hpp"
 
 
-SHColorNode* SHColorNode::create()
-{
-    SHColorNode* ret = new (std::nothrow) SHColorNode();
-    if (ret && ret->init())
-    {
-        ret->autorelease();
-    }
-    else
-    {
-        CC_SAFE_DELETE(ret);
-    }
-    return ret;
-}
-
 SHColorNode * SHColorNode::create(const Color4B& color, GLfloat width, GLfloat height)
 {
     SHColorNode * layer = new (std::nothrow) SHColorNode();
@@ -80,15 +66,11 @@ void SHColorNode::commonInit()
 }
 
 bool SHColorNode::onTouchBegan(Touch *touch, Event *unused_event) {
-    printf("touch swallowed by SHColorNode \n");
-    return true;
-}
-
-
-SHColorNode* SHColorNode::createInvisibleNode() {
-    auto node = SHColorNode::create(Color4B(100, 0, 0, 100));
-//    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-//    node->setPosition(origin);
-    
-    return node;
+    Director *pDirector = Director::getInstance();
+    Point touchPoint = pDirector->convertToGL(touch->getLocationInView());
+    auto flag = this->getBoundingBox().containsPoint(touchPoint);
+    if (flag) {
+        CCLOG("Touch is swallowed by current view SHColorNode : %s", this->getName().c_str());
+    }
+    return flag;
 }
