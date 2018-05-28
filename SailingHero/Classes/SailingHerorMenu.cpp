@@ -39,8 +39,9 @@ bool SailingHeroMenu::init()
     {
         return false;
     }
-    
-    this->setScreenCover(Size(4 , 3));
+
+    this->setBackgroundImage("background.png");
+    this->setBackgroundMusic("title.mp3");
 
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -79,7 +80,7 @@ bool SailingHeroMenu::init()
         btn->setTag(i);
         buttons.pushBack(btn);
     }
-    auto node = SystemButton::getButtonGroupNode(buttons, true);
+    auto node = SystemButton::getButtonGroupNode(buttons);
     this->addChild(node);
     
     return true;

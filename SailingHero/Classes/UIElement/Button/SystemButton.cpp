@@ -14,7 +14,7 @@ using namespace ui;
 
 Button* SystemButton::defaultButtonWithText(std::string text)
 {
-    auto image = "Graph/System/button_up.png";
+    auto image = "button_up.png";
     auto button = Button::create(image);
     button->setScale9Enabled(true);
     button->setTitleAlignment(TextHAlignment::CENTER);
