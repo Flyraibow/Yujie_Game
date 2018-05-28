@@ -52,7 +52,6 @@
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
 		ECADF31520ACE1A900B77618 /* SailingHerorMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF31320ACE1A900B77618 /* SailingHerorMenu.cpp */; };
-		ECADF31920ACF1AD00B77618 /* Graph in Resources */ = {isa = PBXBuildFile; fileRef = ECADF31820ACF1AD00B77618 /* Graph */; };
 		ECADF31E20ACF21200B77618 /* SystemButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF31C20ACF21200B77618 /* SystemButton.cpp */; };
 		ECADF32020ACFAE100B77618 /* chinese.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECADF31F20ACFAE100B77618 /* chinese.strings */; };
 		ECADF32420ACFD0800B77618 /* LocalizationHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF32220ACFD0800B77618 /* LocalizationHelper.cpp */; };
@@ -149,7 +148,6 @@
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
 		ECADF31320ACE1A900B77618 /* SailingHerorMenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SailingHerorMenu.cpp; sourceTree = "<group>"; };
 		ECADF31420ACE1A900B77618 /* SailingHerorMenu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SailingHerorMenu.hpp; sourceTree = "<group>"; };
-		ECADF31820ACF1AD00B77618 /* Graph */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Graph; sourceTree = "<group>"; };
 		ECADF31C20ACF21200B77618 /* SystemButton.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SystemButton.cpp; sourceTree = "<group>"; };
 		ECADF31D20ACF21200B77618 /* SystemButton.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SystemButton.hpp; sourceTree = "<group>"; };
 		ECADF31F20ACFAE100B77618 /* chinese.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = chinese.strings; sourceTree = "<group>"; };
@@ -292,7 +290,6 @@
 			isa = PBXGroup;
 			children = (
 				ECADF35F20AD604D00B77618 /* res */,
-				ECADF31820ACF1AD00B77618 /* Graph */,
 				521A8EA819F11F5000D177D7 /* fonts */,
 				46880B7619C43A67006E1F66 /* CloseNormal.png */,
 				46880B7719C43A67006E1F66 /* CloseSelected.png */,
@@ -494,7 +491,6 @@
 				46880B7D19C43A67006E1F66 /* CloseSelected.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				1AF87B891F6F781D007BE51C /* LaunchScreenBackground.png in Resources */,
-				ECADF31920ACF1AD00B77618 /* Graph in Resources */,
 				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
 				ECADF32620AD286C00B77618 /* File.txt in Resources */,
 				1AF87B881F6F781D007BE51C /* LaunchScreen.storyboard in Resources */,
