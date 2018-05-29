@@ -17,3 +17,10 @@ MAP_2D LanguageData::get_dictionary() const
 {
     return s_dictionary;
 }
+
+
+void LanguageData::addTranslation(const string& language, const string &localId, const string &translation)
+{
+    assert(s_dictionary.at(language).count(localId) == 0);
+    s_dictionary[language][localId] = translation;
+}

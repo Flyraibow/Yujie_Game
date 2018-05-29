@@ -23,6 +23,7 @@ private:
 public:
     LanguageData(const string &filePath);
     MAP_2D get_dictionary() const;
+    void addTranslation(const string& language, const string &localId, const string &translation);
 };
 
 #endif /* LanguageData_hpp */

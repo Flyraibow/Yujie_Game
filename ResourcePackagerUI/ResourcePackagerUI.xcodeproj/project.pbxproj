@@ -1,0 +1,580 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EC217D5720BCA021000ADDE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC217D5620BCA021000ADDE3 /* AppDelegate.swift */; };
+		EC217D5920BCA021000ADDE3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC217D5820BCA021000ADDE3 /* ViewController.swift */; };
+		EC217D5B20BCA022000ADDE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC217D5A20BCA022000ADDE3 /* Assets.xcassets */; };
+		EC217D5E20BCA022000ADDE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC217D5C20BCA022000ADDE3 /* Main.storyboard */; };
+		EC217D6A20BCA022000ADDE3 /* ResourcePackagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC217D6920BCA022000ADDE3 /* ResourcePackagerUITests.swift */; };
+		EC217D7520BCA022000ADDE3 /* ResourcePackagerUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC217D7420BCA022000ADDE3 /* ResourcePackagerUIUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EC217D6620BCA022000ADDE3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC217D4B20BCA020000ADDE3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC217D5220BCA021000ADDE3;
+			remoteInfo = ResourcePackagerUI;
+		};
+		EC217D7120BCA022000ADDE3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC217D4B20BCA020000ADDE3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC217D5220BCA021000ADDE3;
+			remoteInfo = ResourcePackagerUI;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EC217D5320BCA021000ADDE3 /* ResourcePackagerUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ResourcePackagerUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC217D5620BCA021000ADDE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EC217D5820BCA021000ADDE3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EC217D5A20BCA022000ADDE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EC217D5D20BCA022000ADDE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EC217D5F20BCA022000ADDE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC217D6020BCA022000ADDE3 /* ResourcePackagerUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ResourcePackagerUI.entitlements; sourceTree = "<group>"; };
+		EC217D6520BCA022000ADDE3 /* ResourcePackagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ResourcePackagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC217D6920BCA022000ADDE3 /* ResourcePackagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcePackagerUITests.swift; sourceTree = "<group>"; };
+		EC217D6B20BCA022000ADDE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC217D7020BCA022000ADDE3 /* ResourcePackagerUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ResourcePackagerUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC217D7420BCA022000ADDE3 /* ResourcePackagerUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcePackagerUIUITests.swift; sourceTree = "<group>"; };
+		EC217D7620BCA022000ADDE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EC217D5020BCA021000ADDE3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC217D6220BCA022000ADDE3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC217D6D20BCA022000ADDE3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EC217D4A20BCA020000ADDE3 = {
+			isa = PBXGroup;
+			children = (
+				EC217D5520BCA021000ADDE3 /* ResourcePackagerUI */,
+				EC217D6820BCA022000ADDE3 /* ResourcePackagerUITests */,
+				EC217D7320BCA022000ADDE3 /* ResourcePackagerUIUITests */,
+				EC217D5420BCA021000ADDE3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EC217D5420BCA021000ADDE3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC217D5320BCA021000ADDE3 /* ResourcePackagerUI.app */,
+				EC217D6520BCA022000ADDE3 /* ResourcePackagerUITests.xctest */,
+				EC217D7020BCA022000ADDE3 /* ResourcePackagerUIUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC217D5520BCA021000ADDE3 /* ResourcePackagerUI */ = {
+			isa = PBXGroup;
+			children = (
+				EC217D5620BCA021000ADDE3 /* AppDelegate.swift */,
+				EC217D5820BCA021000ADDE3 /* ViewController.swift */,
+				EC217D5A20BCA022000ADDE3 /* Assets.xcassets */,
+				EC217D5C20BCA022000ADDE3 /* Main.storyboard */,
+				EC217D5F20BCA022000ADDE3 /* Info.plist */,
+				EC217D6020BCA022000ADDE3 /* ResourcePackagerUI.entitlements */,
+			);
+			path = ResourcePackagerUI;
+			sourceTree = "<group>";
+		};
+		EC217D6820BCA022000ADDE3 /* ResourcePackagerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EC217D6920BCA022000ADDE3 /* ResourcePackagerUITests.swift */,
+				EC217D6B20BCA022000ADDE3 /* Info.plist */,
+			);
+			path = ResourcePackagerUITests;
+			sourceTree = "<group>";
+		};
+		EC217D7320BCA022000ADDE3 /* ResourcePackagerUIUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EC217D7420BCA022000ADDE3 /* ResourcePackagerUIUITests.swift */,
+				EC217D7620BCA022000ADDE3 /* Info.plist */,
+			);
+			path = ResourcePackagerUIUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EC217D5220BCA021000ADDE3 /* ResourcePackagerUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC217D7920BCA022000ADDE3 /* Build configuration list for PBXNativeTarget "ResourcePackagerUI" */;
+			buildPhases = (
+				EC217D4F20BCA021000ADDE3 /* Sources */,
+				EC217D5020BCA021000ADDE3 /* Frameworks */,
+				EC217D5120BCA021000ADDE3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ResourcePackagerUI;
+			productName = ResourcePackagerUI;
+			productReference = EC217D5320BCA021000ADDE3 /* ResourcePackagerUI.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EC217D6420BCA022000ADDE3 /* ResourcePackagerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC217D7C20BCA022000ADDE3 /* Build configuration list for PBXNativeTarget "ResourcePackagerUITests" */;
+			buildPhases = (
+				EC217D6120BCA022000ADDE3 /* Sources */,
+				EC217D6220BCA022000ADDE3 /* Frameworks */,
+				EC217D6320BCA022000ADDE3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EC217D6720BCA022000ADDE3 /* PBXTargetDependency */,
+			);
+			name = ResourcePackagerUITests;
+			productName = ResourcePackagerUITests;
+			productReference = EC217D6520BCA022000ADDE3 /* ResourcePackagerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EC217D6F20BCA022000ADDE3 /* ResourcePackagerUIUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC217D7F20BCA022000ADDE3 /* Build configuration list for PBXNativeTarget "ResourcePackagerUIUITests" */;
+			buildPhases = (
+				EC217D6C20BCA022000ADDE3 /* Sources */,
+				EC217D6D20BCA022000ADDE3 /* Frameworks */,
+				EC217D6E20BCA022000ADDE3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EC217D7220BCA022000ADDE3 /* PBXTargetDependency */,
+			);
+			name = ResourcePackagerUIUITests;
+			productName = ResourcePackagerUIUITests;
+			productReference = EC217D7020BCA022000ADDE3 /* ResourcePackagerUIUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EC217D4B20BCA020000ADDE3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Yujie Liu";
+				TargetAttributes = {
+					EC217D5220BCA021000ADDE3 = {
+						CreatedOnToolsVersion = 9.3.1;
+					};
+					EC217D6420BCA022000ADDE3 = {
+						CreatedOnToolsVersion = 9.3.1;
+						TestTargetID = EC217D5220BCA021000ADDE3;
+					};
+					EC217D6F20BCA022000ADDE3 = {
+						CreatedOnToolsVersion = 9.3.1;
+						TestTargetID = EC217D5220BCA021000ADDE3;
+					};
+				};
+			};
+			buildConfigurationList = EC217D4E20BCA020000ADDE3 /* Build configuration list for PBXProject "ResourcePackagerUI" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EC217D4A20BCA020000ADDE3;
+			productRefGroup = EC217D5420BCA021000ADDE3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EC217D5220BCA021000ADDE3 /* ResourcePackagerUI */,
+				EC217D6420BCA022000ADDE3 /* ResourcePackagerUITests */,
+				EC217D6F20BCA022000ADDE3 /* ResourcePackagerUIUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EC217D5120BCA021000ADDE3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC217D5B20BCA022000ADDE3 /* Assets.xcassets in Resources */,
+				EC217D5E20BCA022000ADDE3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC217D6320BCA022000ADDE3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC217D6E20BCA022000ADDE3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EC217D4F20BCA021000ADDE3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC217D5920BCA021000ADDE3 /* ViewController.swift in Sources */,
+				EC217D5720BCA021000ADDE3 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC217D6120BCA022000ADDE3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC217D6A20BCA022000ADDE3 /* ResourcePackagerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC217D6C20BCA022000ADDE3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC217D7520BCA022000ADDE3 /* ResourcePackagerUIUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EC217D6720BCA022000ADDE3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC217D5220BCA021000ADDE3 /* ResourcePackagerUI */;
+			targetProxy = EC217D6620BCA022000ADDE3 /* PBXContainerItemProxy */;
+		};
+		EC217D7220BCA022000ADDE3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC217D5220BCA021000ADDE3 /* ResourcePackagerUI */;
+			targetProxy = EC217D7120BCA022000ADDE3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EC217D5C20BCA022000ADDE3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC217D5D20BCA022000ADDE3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EC217D7720BCA022000ADDE3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EC217D7820BCA022000ADDE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		EC217D7A20BCA022000ADDE3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ResourcePackagerUI/ResourcePackagerUI.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = J6B37H3SRB;
+				INFOPLIST_FILE = ResourcePackagerUI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = liuyujie.ResourcePackagerUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		EC217D7B20BCA022000ADDE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ResourcePackagerUI/ResourcePackagerUI.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = J6B37H3SRB;
+				INFOPLIST_FILE = ResourcePackagerUI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = liuyujie.ResourcePackagerUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		EC217D7D20BCA022000ADDE3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = J6B37H3SRB;
+				INFOPLIST_FILE = ResourcePackagerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = liuyujie.ResourcePackagerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ResourcePackagerUI.app/Contents/MacOS/ResourcePackagerUI";
+			};
+			name = Debug;
+		};
+		EC217D7E20BCA022000ADDE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = J6B37H3SRB;
+				INFOPLIST_FILE = ResourcePackagerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = liuyujie.ResourcePackagerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ResourcePackagerUI.app/Contents/MacOS/ResourcePackagerUI";
+			};
+			name = Release;
+		};
+		EC217D8020BCA022000ADDE3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = J6B37H3SRB;
+				INFOPLIST_FILE = ResourcePackagerUIUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = liuyujie.ResourcePackagerUIUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = ResourcePackagerUI;
+			};
+			name = Debug;
+		};
+		EC217D8120BCA022000ADDE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = J6B37H3SRB;
+				INFOPLIST_FILE = ResourcePackagerUIUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = liuyujie.ResourcePackagerUIUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = ResourcePackagerUI;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EC217D4E20BCA020000ADDE3 /* Build configuration list for PBXProject "ResourcePackagerUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC217D7720BCA022000ADDE3 /* Debug */,
+				EC217D7820BCA022000ADDE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC217D7920BCA022000ADDE3 /* Build configuration list for PBXNativeTarget "ResourcePackagerUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC217D7A20BCA022000ADDE3 /* Debug */,
+				EC217D7B20BCA022000ADDE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC217D7C20BCA022000ADDE3 /* Build configuration list for PBXNativeTarget "ResourcePackagerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC217D7D20BCA022000ADDE3 /* Debug */,
+				EC217D7E20BCA022000ADDE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC217D7F20BCA022000ADDE3 /* Build configuration list for PBXNativeTarget "ResourcePackagerUIUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC217D8020BCA022000ADDE3 /* Debug */,
+				EC217D8120BCA022000ADDE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EC217D4B20BCA020000ADDE3 /* Project object */;
+}

@@ -90,3 +90,18 @@ MAP_2D readCVSByMaping(const string &path, bool rowfirst)
     
     return dictionary;
 }
+
+
+vector<vector<string>> readCVSBylines(const string &path)
+{
+    vector<vector<string>> lines;
+    ifstream indata;
+    indata.open(path);
+    while(auto vec = readCSVOneLine(indata)) {
+        if (vec->size() == 0) {
+            continue;
+        }
+        lines.push_back(*vec);
+    }
+    return lines;
+}

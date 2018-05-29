@@ -26,6 +26,6 @@ void LanguageWriter::writeLanguageData(const LanguageData &data, const std::stri
             buffer->putString(localId);
             buffer->putString(localTrans);
         }
-        write::writeBufferToFile(buffer, path, filename);
+        utils::writeBufferToFile(buffer, path, filename);
     }
 }

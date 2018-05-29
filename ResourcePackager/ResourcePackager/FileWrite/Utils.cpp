@@ -10,18 +10,20 @@
 #include <fstream>
 #include <cstdlib>
 #include <assert.h>
+#include <dirent.h>
 
 using namespace std;
 
-void write::createFolderIfNotExist(const std::string &folderPath)
+void utils::createFolderIfNotExist(const std::string &folderPath)
 {
     int err = system(("mkdir -p " + folderPath).c_str());
     assert(err == 0);
 }
 
-void write::writeBufferToFile(std::unique_ptr<bb::ByteBuffer> &buffer, const std::string &folderpath, const std::string filename)
+void utils::writeBufferToFile(std::unique_ptr<bb::ByteBuffer> &buffer, const std::string &folderpath, const std::string filename)
 {
     // write buffer
+    cout<< "write buffer to file " << folderpath << " -> " << filename << endl;
     createFolderIfNotExist(folderpath);
     const string path = folderpath + "/" + filename;
     auto size = buffer->size();
@@ -33,4 +35,30 @@ void write::writeBufferToFile(std::unique_ptr<bb::ByteBuffer> &buffer, const std
     outfile.write (chrs,size);
     delete [] buf;
     delete [] chrs;
+}
+
+vector<string> utils::getCSVFileList(const string &path) {
+    vector<string> result;
+    string postFix = CSV_EXTENSION;
+    DIR *dir;
+    struct dirent *ent;
+    if ((dir = opendir (path.c_str())) != NULL) {
+        /* print all the files and directories within directory */
+        while ((ent = readdir (dir)) != NULL) {
+            char *chr = ent->d_name;
+            size_t len =strlen(chr);
+            size_t postLen = postFix.length();
+            if (len > postLen && strcmp(postFix.c_str(),chr + len - postLen) == 0) {
+                string fullName = chr;
+                result.push_back(fullName);
+            }
+        }
+        closedir (dir);
+    } else {
+        /* could not open directory */
+        perror ("");
+        cout<< " ERROR " << endl;
+        return result;
+    }
+    return result;
 }

@@ -40,37 +40,10 @@ bool SailingHeroMenu::init()
         return false;
     }
 
-    this->setBackgroundImage("background.png");
+    this->setBackgroundImage("res/default_background.png");
     this->setBackgroundMusic("title.mp3");
 
-    auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-
-    /////////////////////////////
-    // 2. add a menu item with "X" image, which is clicked to quit the program
-    //    you may modify it.
-
-    // add a "close" icon to exit the progress. it's an autorelease object
-    auto closeItem = MenuItemImage::create(
-                                           "CloseNormal.png",
-                                           "CloseSelected.png",
-                                           CC_CALLBACK_1(SailingHeroMenu::menuCloseCallback, this));
-
-    if (closeItem == nullptr ||
-        closeItem->getContentSize().width <= 0 ||
-        closeItem->getContentSize().height <= 0)
-    {
-        problemLoading("'CloseNormal.png' and 'CloseSelected.png'");
-    }
-    else
-    {
-        closeItem->setAnchorPoint(Vec2(1, 0));
-    }
-
-    // create menu, it's an autorelease object
-    auto menu = Menu::create(closeItem, NULL);
-    menu->setPosition(Vec2(origin.x + visibleSize.width, origin.y));
-    this->addChild(menu);
 
     auto strs = std::vector<std::string>({"start_game", "load_game", "game_setting"});
     auto buttons = Vector<Button *>();

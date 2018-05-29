@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC217D8820BCB815000ADDE3 /* ExcelData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC217D8620BCB815000ADDE3 /* ExcelData.cpp */; };
 		ECADF33420AD368400B77618 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF33320AD368400B77618 /* main.cpp */; };
 		ECADF34620AD37F900B77618 /* ByteBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF34420AD37F900B77618 /* ByteBuffer.cpp */; };
 		ECADF34A20AD384300B77618 /* SailingHeroPackager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF34820AD384300B77618 /* SailingHeroPackager.cpp */; };
 		ECADF34E20AD3A8F00B77618 /* ProjectPackagerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF34C20AD3A8F00B77618 /* ProjectPackagerBase.cpp */; };
-		ECADF35220AD3D9000B77618 /* ObjectData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF35020AD3D9000B77618 /* ObjectData.cpp */; };
+		ECADF35220AD3D9000B77618 /* DataSchema.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF35020AD3D9000B77618 /* DataSchema.cpp */; };
 		ECADF35520AD3E6900B77618 /* LanguageData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF35320AD3E6900B77618 /* LanguageData.cpp */; };
 		ECADF35820AD408F00B77618 /* ReadCSV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF35620AD408F00B77618 /* ReadCSV.cpp */; };
 		ECADF35B20AD4E4E00B77618 /* LanguageWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF35920AD4E4E00B77618 /* LanguageWriter.cpp */; };
@@ -31,6 +32,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EC217D8620BCB815000ADDE3 /* ExcelData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExcelData.cpp; sourceTree = "<group>"; };
+		EC217D8720BCB815000ADDE3 /* ExcelData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ExcelData.hpp; sourceTree = "<group>"; };
 		ECADF33020AD368400B77618 /* ResourcePackager */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ResourcePackager; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECADF33320AD368400B77618 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		ECADF34420AD37F900B77618 /* ByteBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ByteBuffer.cpp; sourceTree = "<group>"; };
@@ -39,8 +42,8 @@
 		ECADF34920AD384300B77618 /* SailingHeroPackager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SailingHeroPackager.hpp; sourceTree = "<group>"; };
 		ECADF34C20AD3A8F00B77618 /* ProjectPackagerBase.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectPackagerBase.cpp; sourceTree = "<group>"; };
 		ECADF34D20AD3A8F00B77618 /* ProjectPackagerBase.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ProjectPackagerBase.hpp; sourceTree = "<group>"; };
-		ECADF35020AD3D9000B77618 /* ObjectData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectData.cpp; sourceTree = "<group>"; };
-		ECADF35120AD3D9000B77618 /* ObjectData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ObjectData.hpp; sourceTree = "<group>"; };
+		ECADF35020AD3D9000B77618 /* DataSchema.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DataSchema.cpp; sourceTree = "<group>"; };
+		ECADF35120AD3D9000B77618 /* DataSchema.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DataSchema.hpp; sourceTree = "<group>"; };
 		ECADF35320AD3E6900B77618 /* LanguageData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LanguageData.cpp; sourceTree = "<group>"; };
 		ECADF35420AD3E6900B77618 /* LanguageData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LanguageData.hpp; sourceTree = "<group>"; };
 		ECADF35620AD408F00B77618 /* ReadCSV.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ReadCSV.cpp; sourceTree = "<group>"; };
@@ -126,10 +129,12 @@
 		ECADF34F20AD3D6700B77618 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				ECADF35020AD3D9000B77618 /* ObjectData.cpp */,
-				ECADF35120AD3D9000B77618 /* ObjectData.hpp */,
+				ECADF35020AD3D9000B77618 /* DataSchema.cpp */,
+				ECADF35120AD3D9000B77618 /* DataSchema.hpp */,
 				ECADF35320AD3E6900B77618 /* LanguageData.cpp */,
 				ECADF35420AD3E6900B77618 /* LanguageData.hpp */,
+				EC217D8620BCB815000ADDE3 /* ExcelData.cpp */,
+				EC217D8720BCB815000ADDE3 /* ExcelData.hpp */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -191,9 +196,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECADF34E20AD3A8F00B77618 /* ProjectPackagerBase.cpp in Sources */,
+				EC217D8820BCB815000ADDE3 /* ExcelData.cpp in Sources */,
 				ECADF35520AD3E6900B77618 /* LanguageData.cpp in Sources */,
 				ECADF34620AD37F900B77618 /* ByteBuffer.cpp in Sources */,
-				ECADF35220AD3D9000B77618 /* ObjectData.cpp in Sources */,
+				ECADF35220AD3D9000B77618 /* DataSchema.cpp in Sources */,
 				ECADF35E20AD54C400B77618 /* Utils.cpp in Sources */,
 				ECADF35B20AD4E4E00B77618 /* LanguageWriter.cpp in Sources */,
 				ECADF35820AD408F00B77618 /* ReadCSV.cpp in Sources */,
