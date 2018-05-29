@@ -40,11 +40,13 @@ void LocalizationHelper::load(const std::string &filename)
         auto bytes = data.getBytes();
         
         auto buffer = make_unique<bb::ByteBuffer>(bytes, data.getSize());
-        while (buffer->getReadPos() < buffer->size()) {
+        auto count = buffer->getLong();
+        CCLOG("======= count : %llu", count);
+        for (int i = 0; i < count; ++i) {
             string localId = buffer->getString();
             string translation = buffer->getString();
+            cout << localId << "  " << translation << endl;
             s_map[localId] = translation;
-            CCLOG("%s -> %s", localId.c_str(), translation.c_str());
         }
     }
     else CCLOG("FILE not found");

@@ -20,12 +20,15 @@ void LanguageWriter::writeLanguageData(const LanguageData &data, const std::stri
         auto dic = lang->second;
         const string filename = language + ".lang";
         auto buffer = std::make_unique<bb::ByteBuffer>();
+        buffer->putLong(dic.size());
         for (auto localData = dic.begin(); localData != dic.end(); ++localData) {
             auto localId = localData->first;
             auto localTrans = localData->second;
             buffer->putString(localId);
             buffer->putString(localTrans);
+            cout<< localId << " -> " << localTrans << endl;
         }
+        cout << dic.size() << endl;
         utils::writeBufferToFile(buffer, path, filename);
     }
 }

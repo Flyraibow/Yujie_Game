@@ -19,12 +19,14 @@ class GoodsData
 private:
     string s_goodsId;
     string s_goodsIconId;
+    string s_goodsTypeId;
     int s_maxGoodsPrice;
     int s_levelUpExp;
     static bool init();
 public:
     string getGoodsId() const;
     string getGoodsName() const;
+    string getGoodsTypeId() const;
     Sprite* getGoodsIcon() const;
     int getMaxPrice() const;
     int getLevelUpExp() const;

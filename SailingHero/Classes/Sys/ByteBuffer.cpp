@@ -240,10 +240,11 @@ namespace bb {
     
     std::string ByteBuffer::getString() const {
         uint64_t len = read<uint64_t>();
-        char *buf = new char[len];
+        char *buf = new char[len + 1];
         for (uint64_t i = 0; i < len; i++) {
             buf[i] = read<uint8_t>();
         }
+        buf[len] = '\0';
         std::string str(buf);
         delete []buf;
         return str;

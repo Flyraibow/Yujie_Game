@@ -46,32 +46,39 @@ bool SailingHeroMenu::init()
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
     auto strs = std::vector<std::string>({"start_game", "load_game", "game_setting"});
-    auto buttons = Vector<Button *>();
-    for (int i = 0; i < strs.size(); ++i) {
-        auto btn = SystemButton::defaultButtonWithText(
-                                                       LocalizationHelper::getLocalization(strs.at(i)), CC_CALLBACK_1(SailingHeroMenu::buttonClickCallback, this));
-        btn->setTag(i);
-        buttons.pushBack(btn);
-    }
+    auto buttons = Vector<Button *>({
+        SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("start_game"),
+                                            CC_CALLBACK_1(SailingHeroMenu::clickStartGame, this)),
+        SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("load_game"),
+                                            CC_CALLBACK_1(SailingHeroMenu::clickLoadGame, this)),
+        SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("game_setting"),
+                                            CC_CALLBACK_1(SailingHeroMenu::clickGameSetting, this)),
+        
+    });
     auto node = SystemButton::getButtonGroupNode(buttons);
     this->addChild(node);
     
     return true;
 }
 
-void SailingHeroMenu::buttonClickCallback(Ref* pSender)
-{
-    auto button = dynamic_cast<Button*>(pSender);
 
-    printf("click button %s", button->getTitleText().c_str());
+void SailingHeroMenu::clickStartGame(cocos2d::Ref* pSender)
+{
+    
 }
 
-void SailingHeroMenu::menuCloseCallback(Ref* pSender)
+void SailingHeroMenu::clickLoadGame(cocos2d::Ref* pSender)
 {
-    //Close the cocos2d-x game scene and quit the application
-    Director::getInstance()->end();
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    exit(0);
-#endif
+    
 }
+
+#include "GoodsData.hpp"
+
+void SailingHeroMenu::clickGameSetting(Ref* pSender)
+{
+    auto id = arc4random() % 105;
+    auto goodData = GoodsData::getGoodsDataById(to_string(id));
+    
+    printf("goods id : %s, name : %s, description : %s", goodData->getGoodsId().c_str(), goodData->getGoodsName().c_str(), goodData->getGoodsDescription().c_str());
+}
+

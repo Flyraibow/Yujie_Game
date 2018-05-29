@@ -28,6 +28,11 @@ string GoodsData::getGoodsName() const
     return LocalizationHelper::getLocalization(goods_name);
 }
 
+string GoodsData::getGoodsTypeId() const
+{
+    return s_goodsTypeId;
+}
+
 Sprite* GoodsData::getGoodsIcon() const
 {
     string path = s_goodsIconIdBase + s_goodsIconId;
@@ -67,13 +72,14 @@ bool GoodsData::init()
         auto bytes = data.getBytes();
         auto buffer = make_unique<bb::ByteBuffer>(bytes, data.getSize());
         s_goodsDataInstance = new unordered_map<string, GoodsData*>();
-        auto count = buffer->getInt();
+        auto count = buffer->getLong();
         for (int i = 0; i < count; ++i) {
             GoodsData* goodData = new GoodsData();
-            goodData->s_goodsIconId = buffer->getString();
-            goodData->s_levelUpExp = buffer->getInt();
-            goodData->s_maxGoodsPrice = buffer->getInt();
             goodData->s_goodsId = buffer->getString();
+            goodData->s_goodsTypeId = buffer->getString();
+            goodData->s_goodsIconId = buffer->getString();
+            goodData->s_maxGoodsPrice = buffer->getInt();
+            goodData->s_levelUpExp = buffer->getInt();
             s_goodsDataInstance->insert(pair<string, GoodsData*>(goodData->getGoodsId(), goodData));
         }
     }

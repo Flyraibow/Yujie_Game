@@ -16,10 +16,10 @@ public:
     static cocos2d::Scene* createScene();
     
     virtual bool init();
-    
-    // a selector callback
-    void menuCloseCallback(cocos2d::Ref* pSender);
-    void buttonClickCallback(cocos2d::Ref* pSender);
+
+    void clickStartGame(cocos2d::Ref* pSender);
+    void clickLoadGame(cocos2d::Ref* pSender);
+    void clickGameSetting(cocos2d::Ref* pSender);
     
     // implement the "static create()" method manually
     CREATE_FUNC(SailingHeroMenu);
