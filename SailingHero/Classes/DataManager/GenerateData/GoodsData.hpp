@@ -31,6 +31,7 @@ public:
     int getMaxPrice() const;
     int getLevelUpExp() const;
     string getGoodsDescription() const;
+    string description() const;
     static GoodsData* getGoodsDataById(const string &goodsId);
 };
 

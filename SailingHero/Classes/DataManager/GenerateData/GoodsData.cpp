@@ -55,6 +55,20 @@ string GoodsData::getGoodsDescription() const
     return LocalizationHelper::getLocalization(goods_name);
 }
 
+string GoodsData::description() const
+{
+    string desc = "GoodsData = {\n";
+    desc += "\tgoodsId : " + s_goodsId + "\n";
+    desc += "\tgoodsName : " + getGoodsName() + "\n";
+    desc += "\tgoodsTypeId : " + s_goodsTypeId + "\n";
+    desc += "\tgoodsIconId : " + s_goodsIconId + "\n";
+    desc += "\tmaxGoodsPrice : " + to_string(s_maxGoodsPrice) + "\n";
+    desc += "\tmaxGoodsPrice : " + to_string(s_maxGoodsPrice) + "\n";
+    desc += "\tgoodsDescription : " + getGoodsDescription() + "\n";
+    desc += "}\n";
+    return desc;
+}
+
 GoodsData* GoodsData::getGoodsDataById(const string &goodsId)
 {
     if (!s_goodsDataInstance) {

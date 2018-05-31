@@ -53,13 +53,13 @@
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
 		EC217D4220BC7F9A000ADDE3 /* title.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EC217D4120BC7F9A000ADDE3 /* title.mp3 */; };
 		EC217D4920BC84AB000ADDE3 /* SHDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC217D4720BC84AB000ADDE3 /* SHDataManager.cpp */; };
-		EC217D8520BCA8F5000ADDE3 /* GoodsData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC217D8320BCA8F5000ADDE3 /* GoodsData.cpp */; };
 		ECADF31520ACE1A900B77618 /* SailingHerorMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF31320ACE1A900B77618 /* SailingHerorMenu.cpp */; };
 		ECADF31E20ACF21200B77618 /* SystemButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF31C20ACF21200B77618 /* SystemButton.cpp */; };
 		ECADF32420ACFD0800B77618 /* LocalizationHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF32220ACFD0800B77618 /* LocalizationHelper.cpp */; };
 		ECADF32620AD286C00B77618 /* File.txt in Resources */ = {isa = PBXBuildFile; fileRef = ECADF32520AD286C00B77618 /* File.txt */; };
 		ECADF36020AD604D00B77618 /* res in Resources */ = {isa = PBXBuildFile; fileRef = ECADF35F20AD604D00B77618 /* res */; };
 		ECADF36320AD615900B77618 /* ByteBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF36220AD615900B77618 /* ByteBuffer.cpp */; };
+		ECD52B2220BFB073000F7170 /* GoodsData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B2020BFB073000F7170 /* GoodsData.cpp */; };
 		ECF294AC20B135B300536532 /* SHColorNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECF294AA20B135B300536532 /* SHColorNode.cpp */; };
 		ECF294B520BBCC9800536532 /* SHScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECF294B320BBCC9800536532 /* SHScene.cpp */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
@@ -151,8 +151,6 @@
 		EC217D4120BC7F9A000ADDE3 /* title.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = title.mp3; sourceTree = "<group>"; };
 		EC217D4720BC84AB000ADDE3 /* SHDataManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHDataManager.cpp; sourceTree = "<group>"; };
 		EC217D4820BC84AB000ADDE3 /* SHDataManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHDataManager.hpp; sourceTree = "<group>"; };
-		EC217D8320BCA8F5000ADDE3 /* GoodsData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GoodsData.cpp; sourceTree = "<group>"; };
-		EC217D8420BCA8F5000ADDE3 /* GoodsData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GoodsData.hpp; sourceTree = "<group>"; };
 		ECADF31320ACE1A900B77618 /* SailingHerorMenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SailingHerorMenu.cpp; sourceTree = "<group>"; };
 		ECADF31420ACE1A900B77618 /* SailingHerorMenu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SailingHerorMenu.hpp; sourceTree = "<group>"; };
 		ECADF31C20ACF21200B77618 /* SystemButton.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SystemButton.cpp; sourceTree = "<group>"; };
@@ -163,6 +161,8 @@
 		ECADF35F20AD604D00B77618 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		ECADF36120AD615900B77618 /* ByteBuffer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ByteBuffer.hpp; sourceTree = "<group>"; };
 		ECADF36220AD615900B77618 /* ByteBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ByteBuffer.cpp; sourceTree = "<group>"; };
+		ECD52B2020BFB073000F7170 /* GoodsData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GoodsData.cpp; path = GenerateData/GoodsData.cpp; sourceTree = "<group>"; };
+		ECD52B2120BFB073000F7170 /* GoodsData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GoodsData.hpp; path = GenerateData/GoodsData.hpp; sourceTree = "<group>"; };
 		ECF294AA20B135B300536532 /* SHColorNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHColorNode.cpp; sourceTree = "<group>"; };
 		ECF294AB20B135B300536532 /* SHColorNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHColorNode.hpp; sourceTree = "<group>"; };
 		ECF294B320BBCC9800536532 /* SHScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHScene.cpp; sourceTree = "<group>"; };
@@ -347,20 +347,11 @@
 		EC217D4320BC8200000ADDE3 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
-				EC217D8220BCA8AA000ADDE3 /* GenerateData */,
+				ECD52B1F20BFB05A000F7170 /* GenerateData */,
 				EC217D4720BC84AB000ADDE3 /* SHDataManager.cpp */,
 				EC217D4820BC84AB000ADDE3 /* SHDataManager.hpp */,
 			);
 			path = DataManager;
-			sourceTree = "<group>";
-		};
-		EC217D8220BCA8AA000ADDE3 /* GenerateData */ = {
-			isa = PBXGroup;
-			children = (
-				EC217D8320BCA8F5000ADDE3 /* GoodsData.cpp */,
-				EC217D8420BCA8F5000ADDE3 /* GoodsData.hpp */,
-			);
-			path = GenerateData;
 			sourceTree = "<group>";
 		};
 		ECADF31A20ACF1BF00B77618 /* UIElement */ = {
@@ -390,6 +381,15 @@
 				ECADF32320ACFD0800B77618 /* LocalizationHelper.hpp */,
 			);
 			path = Sys;
+			sourceTree = "<group>";
+		};
+		ECD52B1F20BFB05A000F7170 /* GenerateData */ = {
+			isa = PBXGroup;
+			children = (
+				ECD52B2020BFB073000F7170 /* GoodsData.cpp */,
+				ECD52B2120BFB073000F7170 /* GoodsData.hpp */,
+			);
+			name = GenerateData;
 			sourceTree = "<group>";
 		};
 		ECF294A820B1357700536532 /* Sprite */ = {
@@ -548,7 +548,7 @@
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
 				ECADF31E20ACF21200B77618 /* SystemButton.cpp in Sources */,
 				ECF294AC20B135B300536532 /* SHColorNode.cpp in Sources */,
-				EC217D8520BCA8F5000ADDE3 /* GoodsData.cpp in Sources */,
+				ECD52B2220BFB073000F7170 /* GoodsData.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				ECADF36320AD615900B77618 /* ByteBuffer.cpp in Sources */,
 				ECF294B520BBCC9800536532 /* SHScene.cpp in Sources */,

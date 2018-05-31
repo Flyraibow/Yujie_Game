@@ -10,20 +10,30 @@
 
 void ProjectPackagerBase::set_dataSourcePath(const string &path)
 {
-    s_dataSourcePath = path;
+    p_dataSourcePath = path;
 }
 
 void ProjectPackagerBase::set_outputResourcePath(const string &path)
 {
-    s_outputPath = path;
+    p_outputPath = path;
+}
+
+void ProjectPackagerBase::set_outputCodeFolderPath(const string &path)
+{
+    p_outputCodePath = path;
 }
 
 string ProjectPackagerBase::get_dataSourcePath() const
 {
-    return s_dataSourcePath;
+    return p_dataSourcePath;
 }
 
 string ProjectPackagerBase::get_outputResourcePath() const
 {
-    return s_outputPath;
+    return p_outputPath;
+}
+
+string ProjectPackagerBase::get_outputCodeFolderPath() const
+{
+    return p_outputCodePath;
 }

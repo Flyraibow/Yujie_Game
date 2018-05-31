@@ -28,6 +28,7 @@ public:
     vector<DataSchema *> getDataSchemas() const;
 
     void saveData(const string& folderPath, const string& fileName, LanguageData &langData) const;
+    void generateCode(const string& folderPath, const string& fileName) const;
     
     static ExcelData* createWithPath(const string &filePath);
 };

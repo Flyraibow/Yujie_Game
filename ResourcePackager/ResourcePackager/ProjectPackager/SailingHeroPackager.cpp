@@ -28,6 +28,7 @@ void SailingHeroPackager::readBaseFiles()
 
     string excelFolderPath = get_dataSourcePath() + "/BaseExcel/";
     string excelExportDataFolderPath = get_outputResourcePath() + "/base/data/";
+    string excelExportCodeFolderPath = get_outputCodeFolderPath();
     vector<string> files = utils::getCSVFileList(excelFolderPath);
     for (int i = 0; i < files.size(); ++i) {
         string fileName = files[i];
@@ -36,6 +37,7 @@ void SailingHeroPackager::readBaseFiles()
         string saveFileName = fileNameWithoutExt + ".dat";
         auto excelData = ExcelData::createWithPath(path);
         excelData->saveData(excelExportDataFolderPath, saveFileName, baseLanguage);
+        excelData->generateCode(excelExportCodeFolderPath, fileNameWithoutExt);
     }
 
     langWriter.writeLanguageData(baseLanguage, baseLanguageOutput);

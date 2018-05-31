@@ -10,6 +10,7 @@
 #include "ReadCSV.hpp"
 #include "ByteBuffer.hpp"
 #include "Utils.hpp"
+#include "CPPFile.hpp"
 
 string ExcelData::getFilePath() const
 {
@@ -74,6 +75,18 @@ void ExcelData::saveData(const string& folderPath, const string& fileName, Langu
         }
     }
     utils::writeBufferToFile(buffer, folderPath, fileName);
+}
+
+
+void ExcelData::generateCode(const string& folderPath, const string& fileName) const
+{
+    std::locale loc;
+    string first_capital_file_name = fileName;
+    first_capital_file_name[0] = toupper(fileName[0], loc);
+    string dataFileName = first_capital_file_name + "Data";
+    CPPFileComplete* file = new CPPFileComplete(dataFileName);
+    file->saveFiles(folderPath, dataFileName);
+    delete file;
 }
 
 ExcelData* ExcelData::createWithPath(const string &filePath)

@@ -79,6 +79,6 @@ void SailingHeroMenu::clickGameSetting(Ref* pSender)
     auto id = arc4random() % 105;
     auto goodData = GoodsData::getGoodsDataById(to_string(id));
     
-    printf("goods id : %s, name : %s, description : %s", goodData->getGoodsId().c_str(), goodData->getGoodsName().c_str(), goodData->getGoodsDescription().c_str());
+    printf("%s", goodData->description().c_str());
 }
 

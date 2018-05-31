@@ -17,13 +17,16 @@ using namespace std;
 class ProjectPackagerBase
 {
 protected:
-    string s_dataSourcePath;
-    string s_outputPath;
+    string p_dataSourcePath;
+    string p_outputPath;
+    string p_outputCodePath;
 public:
     void set_dataSourcePath(const string &path);
     void set_outputResourcePath(const string &path);
+    void set_outputCodeFolderPath(const string &path);
     string get_dataSourcePath() const;
     string get_outputResourcePath() const;
+    string get_outputCodeFolderPath() const;
     
     virtual void startPackage() = 0;
 };

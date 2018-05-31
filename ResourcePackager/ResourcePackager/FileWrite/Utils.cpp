@@ -33,8 +33,20 @@ void utils::writeBufferToFile(std::unique_ptr<bb::ByteBuffer> &buffer, const std
     char *chrs = new char[size];
     memcpy(chrs, buf, size);
     outfile.write (chrs,size);
+    outfile.close();
     delete [] buf;
     delete [] chrs;
+}
+
+void utils::writeStringToFile(const string &content, const std::string &folderpath, const std::string filename)
+{
+    // write buffer
+    cout<< "write buffer to file " << folderpath << " -> " << filename << endl;
+    createFolderIfNotExist(folderpath);
+    const string path = folderpath + "/" + filename;
+    ofstream outfile (path);
+    outfile.write(content.c_str(),content.length());
+    outfile.close();
 }
 
 vector<string> utils::getCSVFileList(const string &path) {

@@ -19,6 +19,7 @@ namespace utils {
 
     void createFolderIfNotExist(const std::string &folderPath);
     void writeBufferToFile(std::unique_ptr<bb::ByteBuffer> &buffer, const std::string &folderpath, const std::string filename);
+    void writeStringToFile(const std::string &content, const std::string &folderpath, const std::string filename);
     std::vector<std::string> getCSVFileList(const std::string &path);
 }
 
