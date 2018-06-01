@@ -16,8 +16,12 @@ using namespace std;
 CPPFile::CPPFile(const string &fileName)
 {
     p_fileName = fileName;
+}
+
+void CPPFile::commonInit()
+{
     auto s = dateTimeToString(now(), "%Y-%m-%d %H:%M:%S");
-    string comment = "This file is generated at " + s;
+    string comment = "This file (" + this->getFileName() + ") is generated at " + s;
     this->addComment(comment);
 }
 
@@ -42,8 +46,14 @@ void CPPFile::addNameSpace(const string &nameSpace)
     p_usingNamespaces.push_back(nameSpace);
 }
 
+string CPPFile::getFileName() const
+{
+    return p_fileName;
+}
+
 CPPFileHeader::CPPFileHeader(const string &fileName) : CPPFile(fileName)
 {
+    this->commonInit();
 }
 
 string CPPFileHeader::getCppFileString() const
@@ -53,11 +63,24 @@ string CPPFileHeader::getCppFileString() const
         statement += comment + "\n";
     }
     statement += "*/\n";
+    // #ifndef fileName_hpp
+    statement += "#ifndef" + p_fileName + "_hpp\n";
+    // #define fileName_hpp
+    statement += "#define" + p_fileName + "_hpp\n";
+    
+    // #endif
+    statement += "#endif\n";
     return statement;
+}
+
+string CPPFileHeader::getFileName() const
+{
+    return p_fileName + ".hpp";
 }
 
 CPPFileContent::CPPFileContent(const string &fileName) : CPPFile(fileName)
 {
+    this->commonInit();
 }
 
 string CPPFileContent::getCppFileString() const
@@ -70,11 +93,17 @@ string CPPFileContent::getCppFileString() const
     return statement;
 }
 
+string CPPFileContent::getFileName() const
+{
+    return p_fileName + ".cpp";
+}
+
 
 CPPFileComplete::CPPFileComplete(const string &fileName) : CPPFile(fileName)
 {
     p_headerFile = new CPPFileHeader(fileName);
     p_contentFile = new CPPFileContent(fileName);
+    p_contentFile->addHeaders(p_headerFile->getFileName());
 }
 
 CPPFileComplete::~CPPFileComplete()
@@ -94,14 +123,14 @@ string CPPFileComplete::getCppFileStringContent() const
 }
 
 
-void CPPFileComplete::saveFiles(const string& folderPath, const string& fileName)
+void CPPFileComplete::saveFiles(const string& folderPath)
 {
     // write header file
-    string headerFileName = fileName + ".hpp";
+    string headerFileName = p_headerFile->getFileName();
     utils::writeStringToFile(this->getCppFileStringHeader(), folderPath, headerFileName);
     
     // write content file
-    string contentFileName = fileName + ".cpp";
+    string contentFileName = p_contentFile->getFileName();
     utils::writeStringToFile(this->getCppFileStringHeader(), folderPath, contentFileName);
 }
 

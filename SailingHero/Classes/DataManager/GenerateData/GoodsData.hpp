@@ -8,7 +8,6 @@
 #ifndef GoodsData_hpp
 #define GoodsData_hpp
 
-#include <stdio.h>
 #include "cocos2d.h"
 
 using namespace std;

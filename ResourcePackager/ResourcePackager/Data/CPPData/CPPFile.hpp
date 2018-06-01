@@ -26,6 +26,7 @@ protected:
     vector<string> p_cppFileComments;
     vector<string> p_includeHeaders;
     vector<string> p_usingNamespaces;
+    void commonInit();
 public:
     CPPFile(const string &fileName);
     void addClass(CPPClass *cppClass);
@@ -33,20 +34,23 @@ public:
     void addHeaders(const string &header);
     void addNameSpace(const string &nameSpace);
     string getCppFileString() const;
+    virtual string getFileName() const;
 };
 
 class CPPFileHeader : public CPPFile
 {
 public:
     CPPFileHeader(const string &fileName);
-    virtual string getCppFileString() const;
+    string getCppFileString() const;
+    virtual string getFileName() const;
 };
 
 class CPPFileContent : public CPPFile
 {
 public:
     CPPFileContent(const string &fileName);
-    virtual string getCppFileString() const;
+    string getCppFileString() const;
+    virtual string getFileName() const;
 };
 
 class CPPFileComplete : CPPFile
@@ -59,7 +63,7 @@ public:
     ~CPPFileComplete();
     string getCppFileStringHeader() const;
     string getCppFileStringContent() const;
-    void saveFiles(const string& folderPath, const string& fileName);
+    void saveFiles(const string& folderPath);
 };
 
 #endif /* CPPFile_hpp */

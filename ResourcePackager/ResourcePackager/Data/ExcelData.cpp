@@ -85,7 +85,7 @@ void ExcelData::generateCode(const string& folderPath, const string& fileName) c
     first_capital_file_name[0] = toupper(fileName[0], loc);
     string dataFileName = first_capital_file_name + "Data";
     CPPFileComplete* file = new CPPFileComplete(dataFileName);
-    file->saveFiles(folderPath, dataFileName);
+    file->saveFiles(folderPath);
     delete file;
 }
 

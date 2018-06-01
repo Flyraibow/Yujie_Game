@@ -26,7 +26,7 @@ void LanguageWriter::writeLanguageData(const LanguageData &data, const std::stri
             auto localTrans = localData->second;
             buffer->putString(localId);
             buffer->putString(localTrans);
-            cout<< localId << " -> " << localTrans << endl;
+//            cout<< localId << " -> " << localTrans << endl;
         }
         cout << dic.size() << endl;
         utils::writeBufferToFile(buffer, path, filename);
