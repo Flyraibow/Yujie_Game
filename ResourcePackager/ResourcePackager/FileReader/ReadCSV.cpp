@@ -18,6 +18,7 @@ using namespace std;
 
 vector<string>* readCSVOneLine(ifstream &indata)
 {
+
     string cell;
     if (getline(indata , cell, '\r')) {
         vector<string>* vec = new vector<string>();

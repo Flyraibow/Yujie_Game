@@ -1,37 +1,29 @@
-//
-//  GoodsData.hpp
-//  SailingHero-mobile
-//
-//  Created by Yujie Liu on 5/28/18.
-//
-
+/*
+This file (GoodsData.hpp) is generated at 2018-06-01 16:39:56
+*/
 #ifndef GoodsData_hpp
 #define GoodsData_hpp
-
-#include "cocos2d.h"
+#include <unordered_map>
 
 using namespace std;
-USING_NS_CC;
-
 class GoodsData
 {
 private:
-    string s_goodsId;
-    string s_goodsIconId;
-    string s_goodsTypeId;
-    int s_maxGoodsPrice;
-    int s_levelUpExp;
-    static bool init();
+	string p_goodsId;
+	string p_type;
+	string p_iconId;
+	int p_maxPrice;
+	int p_levelUpExp;
 public:
-    string getGoodsId() const;
-    string getGoodsName() const;
-    string getGoodsTypeId() const;
-    Sprite* getGoodsIcon() const;
-    int getMaxPrice() const;
-    int getLevelUpExp() const;
-    string getGoodsDescription() const;
-    string description() const;
-    static GoodsData* getGoodsDataById(const string &goodsId);
+	string getGoodsId() const;
+	string getGoodsName() const;
+	string getType() const;
+	string getIconId() const;
+	int getMaxPrice() const;
+	int getLevelUpExp() const;
+	string getGoodsDescription() const;
+	string description() const;
+	static unordered_map<string, GoodsData*>* getSharedDictionary();
+	static GoodsData* getGoodsDataById(const string& goodsId);
 };
-
-#endif /* GoodsData_hpp */
+#endif

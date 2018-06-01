@@ -1,101 +1,90 @@
-//
-//  GoodsData.cpp
-//  SailingHero-mobile
-//
-//  Created by Yujie Liu on 5/28/18.
-//
-
+/*
+This file (GoodsData.cpp) is generated at 2018-06-01 16:39:56
+*/
 #include "GoodsData.hpp"
-#include "LocalizationHelper.hpp"
+#include "cocos2d.h"
 #include "ByteBuffer.hpp"
-#include <string>
-#include <unordered_map>
+#include <LocalizationHelper.hpp>
 
-USING_NS_CC;
 using namespace std;
-
-static const string s_goodsIconIdBase = "res/base/icon/goods/";
-static unordered_map<string, GoodsData*>* s_goodsDataInstance = nullptr;
-
 string GoodsData::getGoodsId() const
 {
-    return s_goodsId;
+	return p_goodsId;
 }
 
 string GoodsData::getGoodsName() const
 {
-    string goods_name = "goods_goodsName_" + s_goodsId;
-    return LocalizationHelper::getLocalization(goods_name);
+	string localId = "goods_goodsName_" + p_goodsId;
+	return LocalizationHelper::getLocalization(localId);
 }
 
-string GoodsData::getGoodsTypeId() const
+string GoodsData::getType() const
 {
-    return s_goodsTypeId;
+	return p_type;
 }
 
-Sprite* GoodsData::getGoodsIcon() const
+string GoodsData::getIconId() const
 {
-    string path = s_goodsIconIdBase + s_goodsIconId;
-    return Sprite::create(path);
+	return p_iconId;
 }
 
 int GoodsData::getMaxPrice() const
 {
-    return s_maxGoodsPrice;
+	return p_maxPrice;
 }
 
 int GoodsData::getLevelUpExp() const
 {
-    return s_levelUpExp;
+	return p_levelUpExp;
 }
 
 string GoodsData::getGoodsDescription() const
 {
-    string goods_name = "goods_goodsDescription_" + s_goodsId;
-    return LocalizationHelper::getLocalization(goods_name);
+	string localId = "goods_goodsDescription_" + p_goodsId;
+	return LocalizationHelper::getLocalization(localId);
 }
 
 string GoodsData::description() const
 {
-    string desc = "GoodsData = {\n";
-    desc += "\tgoodsId : " + s_goodsId + "\n";
-    desc += "\tgoodsName : " + getGoodsName() + "\n";
-    desc += "\tgoodsTypeId : " + s_goodsTypeId + "\n";
-    desc += "\tgoodsIconId : " + s_goodsIconId + "\n";
-    desc += "\tmaxGoodsPrice : " + to_string(s_maxGoodsPrice) + "\n";
-    desc += "\tmaxGoodsPrice : " + to_string(s_maxGoodsPrice) + "\n";
-    desc += "\tgoodsDescription : " + getGoodsDescription() + "\n";
-    desc += "}\n";
-    return desc;
+	string desc = "goodsData = {\n";
+	desc += "\tgoodsId : " + p_goodsId+ "\n";
+	desc += "\tgoodsName : " + getGoodsName() + "\n";
+	desc += "\ttype : " + p_type+ "\n";
+	desc += "\ticonId : " + p_iconId+ "\n";
+	desc += "\tmaxPrice : " + to_string(p_maxPrice) + "\n";
+	desc += "\tlevelUpExp : " + to_string(p_levelUpExp) + "\n";
+	desc += "\tgoodsDescription : " + getGoodsDescription() + "\n";
+	desc += "}\n";
+	return desc;
 }
 
-GoodsData* GoodsData::getGoodsDataById(const string &goodsId)
+unordered_map<string, GoodsData*>* GoodsData::getSharedDictionary()
 {
-    if (!s_goodsDataInstance) {
-        GoodsData::init();
-    }
-    return s_goodsDataInstance->at(goodsId);
+	static unordered_map<string, GoodsData*>* sharedDictionary = nullptr;
+	if (!sharedDictionary) {
+		sharedDictionary = new unordered_map<string, GoodsData*>();
+		static string resPath = "res/base/data/goods.dat";
+		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
+		if (!data.isNull()) {
+			auto bytes = data.getBytes();
+			auto buffer = make_unique<bb::ByteBuffer>(bytes, data.getSize());
+			auto count = buffer->getLong();
+			for (int i = 0; i < count; ++i) {
+				GoodsData* goodsData = new GoodsData();
+				goodsData->p_goodsId = buffer->getString();
+				goodsData->p_type = buffer->getString();
+				goodsData->p_iconId = buffer->getString();
+				goodsData->p_maxPrice = buffer->getInt();
+				goodsData->p_levelUpExp = buffer->getInt();
+				sharedDictionary->insert(pair<string, GoodsData*>(goodsData->p_goodsId, goodsData));
+			}
+		}
+	}
+	return sharedDictionary;
 }
 
-bool GoodsData::init()
+GoodsData* GoodsData::getGoodsDataById(const string& goodsId)
 {
-    static string resPath = "res/base/data/goods.dat";
-    auto data = FileUtils::getInstance()->getDataFromFile(resPath);
-    if (!data.isNull())
-    {
-        auto bytes = data.getBytes();
-        auto buffer = make_unique<bb::ByteBuffer>(bytes, data.getSize());
-        s_goodsDataInstance = new unordered_map<string, GoodsData*>();
-        auto count = buffer->getLong();
-        for (int i = 0; i < count; ++i) {
-            GoodsData* goodData = new GoodsData();
-            goodData->s_goodsId = buffer->getString();
-            goodData->s_goodsTypeId = buffer->getString();
-            goodData->s_goodsIconId = buffer->getString();
-            goodData->s_maxGoodsPrice = buffer->getInt();
-            goodData->s_levelUpExp = buffer->getInt();
-            s_goodsDataInstance->insert(pair<string, GoodsData*>(goodData->getGoodsId(), goodData));
-        }
-    }
-    return true;
+	return GoodsData::getSharedDictionary()->at(goodsId);
 }
+

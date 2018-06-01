@@ -10,11 +10,32 @@
 #define CPPVariable_hpp
 
 #include <stdio.h>
+#include <string>
+
+using namespace std;
+
+const static string TYPE_BOOL = "bool";
+const static string TYPE_INT = "int";
+const static string TYPE_FLOAT = "float";
+const static string TYPE_LONG = "long";
+const static string TYPE_DOUBLE = "double";
+const static string TYPE_STRING = "string";
 
 class CPPVariable
 {
+private:
+    bool p_isStatic;
+    bool p_isConst;
+    string p_varType;
+    string p_varName;
 public:
-    
+    CPPVariable(const string &varType);
+    CPPVariable(const string &varName, const string &varType);
+    CPPVariable(const string &varName, const string &varType, bool isStatic);
+    CPPVariable(const string &varName, const string &varType, bool isStatic, bool isConst);
+    string getDefineStatement() const;
+    string getVarString() const;
+    string getTypeString() const;
 };
 
 #endif /* CPPVariable_hpp */
