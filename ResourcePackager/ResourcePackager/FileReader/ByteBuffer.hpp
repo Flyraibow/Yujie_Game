@@ -32,6 +32,7 @@
 
 #include <vector>
 #include <memory>
+#include <unordered_map>
 
 #ifdef BB_UTILITY
 #include <iostream>
@@ -46,7 +47,7 @@ std::unique_ptr<T> make_unique(Args&&... args) {
 #ifdef BB_USE_NS
 namespace bb {
 #endif
-    
+
     class ByteBuffer {
     public:
         ByteBuffer(uint32_t size = BB_DEFAULT_SIZE);
@@ -123,8 +124,8 @@ namespace bb {
         void putLong(uint64_t value, uint32_t index);
         void putShort(uint16_t value);
         void putShort(uint16_t value, uint32_t index);
-        void putString(std::string value);
-        void putString(std::string value, uint32_t index);
+        void putString(const std::string &value);
+        void putString(const std::string &value, uint32_t index);
         
         // Buffer Position Accessors & Mutators
         

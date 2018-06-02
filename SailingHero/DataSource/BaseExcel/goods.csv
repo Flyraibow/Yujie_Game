@@ -1,6 +1,6 @@
-﻿goodsId,goodsName,type,iconId,maxPrice,levelUpExp,goodsDescription
+﻿goodsId,goodsName,categoryId,iconId,maxPrice,levelUpExp,goodsDescription
 id,language,friend_id,icon,int,int,language
--,chinese,,res/base/goods/,-,-,chinese
+-,chinese,GoodsCategory,res/base/icon/goods/,-,-,chinese
 0,小麦,1,[TItem48]#0.png,1100,500,与米（稻）、玉米并称为世界三大谷物。原产于地中海，果实制成粉可以作为面包、面类等的原料。
 1,水稻,1,[TItem48]#1.png,1200,300,与小麦、玉米并称世界三大谷物。去掉稻谷的稻的果实是日本的主食，也是味增和酒的原料。
 2,玉米,1,[TItem48]#2.png,1100,400,与小麦、米（稻）并称为世界三大谷物。在新大陆从公元前开始就被栽种，也是玉米酒的原料。

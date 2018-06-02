@@ -11,8 +11,20 @@
 #include <cstdlib>
 #include <assert.h>
 #include <dirent.h>
+#include <sstream>
 
 using namespace std;
+
+
+vector<string> utils::split(const string &s, char delim) {
+    stringstream ss(s);
+    string item;
+    vector<string> tokens;
+    while (getline(ss, item, delim)) {
+        tokens.push_back(item);
+    }
+    return tokens;
+}
 
 void utils::createFolderIfNotExist(const std::string &folderPath)
 {

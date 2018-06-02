@@ -1,9 +1,10 @@
 /*
-This file (GoodsData.cpp) is generated at 2018-06-01 16:39:56
+This file (GoodsData.cpp) is generated at 2018-06-02 00:14:16
 */
 #include "GoodsData.hpp"
 #include "cocos2d.h"
 #include "ByteBuffer.hpp"
+#include "Utils.hpp"
 #include <LocalizationHelper.hpp>
 
 using namespace std;
@@ -18,9 +19,21 @@ string GoodsData::getGoodsName() const
 	return LocalizationHelper::getLocalization(localId);
 }
 
-string GoodsData::getType() const
+GoodsCategoryData* GoodsData::getGoodsCategoryData() const
 {
-	return p_type;
+	return GoodsCategoryData::getGoodsCategoryDataById(p_categoryId);
+}
+
+string GoodsData::getCategoryId() const
+{
+	return p_categoryId;
+}
+
+cocos2d::Sprite* GoodsData::getIcon() const
+{
+	static const string s_basePath = "res/base/icon/goods/";
+	string path = s_basePath + p_iconId;
+	return cocos2d::Sprite::create(path);
 }
 
 string GoodsData::getIconId() const
@@ -47,10 +60,10 @@ string GoodsData::getGoodsDescription() const
 string GoodsData::description() const
 {
 	string desc = "goodsData = {\n";
-	desc += "\tgoodsId : " + p_goodsId+ "\n";
+	desc += "\tgoodsId : " + to_string(p_goodsId) + "\n";
 	desc += "\tgoodsName : " + getGoodsName() + "\n";
-	desc += "\ttype : " + p_type+ "\n";
-	desc += "\ticonId : " + p_iconId+ "\n";
+	desc += "\tcategoryId : " + to_string(p_categoryId) + "\n";
+	desc += "\ticonId : " + to_string(p_iconId) + "\n";
 	desc += "\tmaxPrice : " + to_string(p_maxPrice) + "\n";
 	desc += "\tlevelUpExp : " + to_string(p_levelUpExp) + "\n";
 	desc += "\tgoodsDescription : " + getGoodsDescription() + "\n";
@@ -72,7 +85,7 @@ unordered_map<string, GoodsData*>* GoodsData::getSharedDictionary()
 			for (int i = 0; i < count; ++i) {
 				GoodsData* goodsData = new GoodsData();
 				goodsData->p_goodsId = buffer->getString();
-				goodsData->p_type = buffer->getString();
+				goodsData->p_categoryId = buffer->getString();
 				goodsData->p_iconId = buffer->getString();
 				goodsData->p_maxPrice = buffer->getInt();
 				goodsData->p_levelUpExp = buffer->getInt();
@@ -85,6 +98,10 @@ unordered_map<string, GoodsData*>* GoodsData::getSharedDictionary()
 
 GoodsData* GoodsData::getGoodsDataById(const string& goodsId)
 {
-	return GoodsData::getSharedDictionary()->at(goodsId);
+	if (GoodsData::getSharedDictionary()->count(goodsId)) {
+		return GoodsData::getSharedDictionary()->at(goodsId);
+	}
+	CCLOGERROR("invalid goodsId %s", goodsId.c_str());
+	return nullptr;
 }
 

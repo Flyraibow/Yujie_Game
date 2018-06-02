@@ -29,6 +29,7 @@ enum DataType {
     EFFECT,     // 音效
     COMMENT,    // 评论
     FRIEND_ID,  // 友元
+    SET,
 };
 
 class DataSchema

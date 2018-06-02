@@ -240,7 +240,8 @@ namespace bb {
     
     std::string ByteBuffer::getString() const {
         uint64_t len = read<uint64_t>();
-        char *buf = new char[len];
+        char *buf = new char[len + 1];
+        buf[len] = '\0';
         for (uint64_t i = 0; i < len; i++) {
             buf[i] = read<uint8_t>();
         }
@@ -251,7 +252,8 @@ namespace bb {
     
     std::string ByteBuffer::getString(uint32_t index) const {
         uint64_t len = read<uint64_t>(index++);
-        char *buf = new char[len];
+        char *buf = new char[len + 1];
+        buf[len] = '\0';
         for (uint64_t i = 0; i < len; i++) {
             buf[i] = read<uint8_t>(index++);
         }
@@ -259,7 +261,7 @@ namespace bb {
         delete []buf;
         return str;
     }
-    
+
     // Write Functions
     
     void ByteBuffer::put(ByteBuffer* src) {
@@ -337,18 +339,18 @@ namespace bb {
         insert<uint16_t>(value, index);
     }
     
-    void ByteBuffer::putString(std::string value) {
+    void ByteBuffer::putString(const std::string &value) {
         append<uint64_t>(value.length());
         for (uint64_t i = 0; i < value.length(); i++)
             append<uint8_t>(value[i]);
     }
     
-    void ByteBuffer::putString(std::string value, uint32_t index) {
+    void ByteBuffer::putString(const std::string &value, uint32_t index) {
         insert<uint64_t>(value.length(),index++);
         for (uint64_t i = 0; i < value.length(); i++)
             insert<uint8_t>(value[i],index++);
     }
-    
+
     // Utility Functions
 #ifdef BB_UTILITY
     void ByteBuffer::setName(std::string n) {

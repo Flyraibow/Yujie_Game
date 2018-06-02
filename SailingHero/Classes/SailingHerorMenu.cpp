@@ -76,9 +76,11 @@ void SailingHeroMenu::clickLoadGame(cocos2d::Ref* pSender)
 
 void SailingHeroMenu::clickGameSetting(Ref* pSender)
 {
-    auto id = arc4random() % 105;
+    auto id = arc4random() % 114;
+    printf("%d\n", id);
     auto goodData = GoodsData::getGoodsDataById(to_string(id));
-    
-    printf("%s", goodData->description().c_str());
+    printf("%s\n", goodData->description().c_str());
+    printf("%s\n", goodData->getGoodsCategoryData()->description().c_str());
+    printf("%s\n", goodData->getGoodsCategoryData()->getCategoryUpdateData()->description().c_str());
 }
 
