@@ -1,5 +1,5 @@
 /*
-This file (GoodsCategoryData.hpp) is generated at 2018-06-02 00:14:16
+This file (GoodsCategoryData.hpp) is generated at 2018-06-02 09:51:20
 */
 #ifndef GoodsCategoryData_hpp
 #define GoodsCategoryData_hpp

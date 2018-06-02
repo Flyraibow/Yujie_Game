@@ -1,5 +1,5 @@
 /*
-This file (CategoryUpdateData.hpp) is generated at 2018-06-02 00:14:16
+This file (CategoryUpdateData.hpp) is generated at 2018-06-02 09:51:20
 */
 #ifndef CategoryUpdateData_hpp
 #define CategoryUpdateData_hpp

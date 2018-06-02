@@ -285,6 +285,16 @@ void ExcelData::setInitFunction(const string &className, CPPClass *cppClass, CPP
                 
             }, 0);
             cppClass->addFunction(getIconFunction, false);
+        } if (type == MUSIC || type == EFFECT) {
+            string getIconFuncName = getSchemaFuncName; // getMusicId
+            getIconFuncName = getIconFuncName.substr(0, getIconFuncName.length() - 2) + "Path";  // getMusicPath
+            auto getIconFunction = new CPPFunction(getIconFuncName, TYPE_STRING);
+            getIconFunction->addBodyStatementsList({
+                "static const string s_basePath = \"" + schema->getSubtype() + "\";",
+                "return s_basePath + " + schemaName + ";",
+                
+            }, 0);
+            cppClass->addFunction(getIconFunction, false);
         } else if (type == FRIEND_ID) {
             string friendClassName = schema->getSubtype() + "Data";
             cppFile->addHeaders(friendClassName + ".hpp", true, true);
@@ -299,6 +309,8 @@ void ExcelData::setInitFunction(const string &className, CPPClass *cppClass, CPP
                 id_schema_name = schema->getName();
             case FRIEND_ID:
             case ICON:
+            case MUSIC:
+            case EFFECT:
             case STRING:
                 getSchemaFunc = new CPPFunction(getSchemaFuncName, TYPE_STRING);
                 cppClass->addVariable(schemaName, TYPE_STRING, true);

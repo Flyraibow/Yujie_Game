@@ -1,0 +1,15 @@
+﻿zodiacId,zodiacName,iconId,startMonth,startDate,endMonth,endDate
+id,language,icon,int,int,int,int
+-,chinese,res/base/icon/zodiac/,-,-,-,-
+0,白羊座,[Zodiac]#0.png,3,21,4,19
+1,金牛座,[Zodiac]#1.png,4,20,5,20
+2,双子座,[Zodiac]#2.png,5,21,6,21
+3,巨蟹座,[Zodiac]#3.png,6,22,7,22
+4,狮子座,[Zodiac]#4.png,7,23,8,22
+5,处女座,[Zodiac]#5.png,8,23,9,22
+6,天秤座,[Zodiac]#6.png,9,23,10,23
+7,天蝎座,[Zodiac]#7.png,10,24,11,22
+8,射手座,[Zodiac]#8.png,11,23,12,21
+9,摩羯座,[Zodiac]#9.png,12,22,1,19
+10,水瓶座,[Zodiac]#10.png,1,20,2,18
+11,双鱼座,[Zodiac]#11.png,2,19,3,20

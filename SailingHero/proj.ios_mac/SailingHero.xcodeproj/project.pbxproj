@@ -63,6 +63,10 @@
 		ECD52B3A20C224D8000F7170 /* CategoryUpdateData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B3820C224D8000F7170 /* CategoryUpdateData.cpp */; };
 		ECD52B3B20C224D8000F7170 /* GoodsCategoryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B3920C224D8000F7170 /* GoodsCategoryData.cpp */; };
 		ECD52B4020C263A9000F7170 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B3E20C263A9000F7170 /* Utils.cpp */; };
+		ECD52B4520C2F7D8000F7170 /* CannonData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B4120C2F7D7000F7170 /* CannonData.cpp */; };
+		ECD52B4620C2F7D8000F7170 /* CultureData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B4420C2F7D7000F7170 /* CultureData.cpp */; };
+		ECD52B4B20C30296000F7170 /* ItemCategoryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B4920C30295000F7170 /* ItemCategoryData.cpp */; };
+		ECD52B4C20C30296000F7170 /* ItemData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B4A20C30295000F7170 /* ItemData.cpp */; };
 		ECF294AC20B135B300536532 /* SHColorNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECF294AA20B135B300536532 /* SHColorNode.cpp */; };
 		ECF294B520BBCC9800536532 /* SHScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECF294B320BBCC9800536532 /* SHScene.cpp */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
@@ -172,6 +176,14 @@
 		ECD52B3920C224D8000F7170 /* GoodsCategoryData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GoodsCategoryData.cpp; path = GenerateData/GoodsCategoryData.cpp; sourceTree = "<group>"; };
 		ECD52B3E20C263A9000F7170 /* Utils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Utils.cpp; sourceTree = "<group>"; };
 		ECD52B3F20C263A9000F7170 /* Utils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Utils.hpp; sourceTree = "<group>"; };
+		ECD52B4120C2F7D7000F7170 /* CannonData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CannonData.cpp; path = GenerateData/CannonData.cpp; sourceTree = "<group>"; };
+		ECD52B4220C2F7D7000F7170 /* CannonData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CannonData.hpp; path = GenerateData/CannonData.hpp; sourceTree = "<group>"; };
+		ECD52B4320C2F7D7000F7170 /* CultureData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CultureData.hpp; path = GenerateData/CultureData.hpp; sourceTree = "<group>"; };
+		ECD52B4420C2F7D7000F7170 /* CultureData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CultureData.cpp; path = GenerateData/CultureData.cpp; sourceTree = "<group>"; };
+		ECD52B4720C30295000F7170 /* ItemData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ItemData.hpp; path = GenerateData/ItemData.hpp; sourceTree = "<group>"; };
+		ECD52B4820C30295000F7170 /* ItemCategoryData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ItemCategoryData.hpp; path = GenerateData/ItemCategoryData.hpp; sourceTree = "<group>"; };
+		ECD52B4920C30295000F7170 /* ItemCategoryData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ItemCategoryData.cpp; path = GenerateData/ItemCategoryData.cpp; sourceTree = "<group>"; };
+		ECD52B4A20C30295000F7170 /* ItemData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ItemData.cpp; path = GenerateData/ItemData.cpp; sourceTree = "<group>"; };
 		ECF294AA20B135B300536532 /* SHColorNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHColorNode.cpp; sourceTree = "<group>"; };
 		ECF294AB20B135B300536532 /* SHColorNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHColorNode.hpp; sourceTree = "<group>"; };
 		ECF294B320BBCC9800536532 /* SHScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHScene.cpp; sourceTree = "<group>"; };
@@ -396,6 +408,14 @@
 		ECD52B1F20BFB05A000F7170 /* GenerateData */ = {
 			isa = PBXGroup;
 			children = (
+				ECD52B4920C30295000F7170 /* ItemCategoryData.cpp */,
+				ECD52B4820C30295000F7170 /* ItemCategoryData.hpp */,
+				ECD52B4A20C30295000F7170 /* ItemData.cpp */,
+				ECD52B4720C30295000F7170 /* ItemData.hpp */,
+				ECD52B4120C2F7D7000F7170 /* CannonData.cpp */,
+				ECD52B4220C2F7D7000F7170 /* CannonData.hpp */,
+				ECD52B4420C2F7D7000F7170 /* CultureData.cpp */,
+				ECD52B4320C2F7D7000F7170 /* CultureData.hpp */,
 				ECD52B3820C224D8000F7170 /* CategoryUpdateData.cpp */,
 				ECD52B3720C224D8000F7170 /* CategoryUpdateData.hpp */,
 				ECD52B3920C224D8000F7170 /* GoodsCategoryData.cpp */,
@@ -575,9 +595,13 @@
 				ECD52B2220BFB073000F7170 /* GoodsData.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				ECADF36320AD615900B77618 /* ByteBuffer.cpp in Sources */,
+				ECD52B4C20C30296000F7170 /* ItemData.cpp in Sources */,
 				ECF294B520BBCC9800536532 /* SHScene.cpp in Sources */,
+				ECD52B4520C2F7D8000F7170 /* CannonData.cpp in Sources */,
 				ECD52B4020C263A9000F7170 /* Utils.cpp in Sources */,
+				ECD52B4B20C30296000F7170 /* ItemCategoryData.cpp in Sources */,
 				ECADF31520ACE1A900B77618 /* SailingHerorMenu.cpp in Sources */,
+				ECD52B4620C2F7D8000F7170 /* CultureData.cpp in Sources */,
 				1AF87B8A1F6F7822007BE51C /* main.m in Sources */,
 				ECD52B3A20C224D8000F7170 /* CategoryUpdateData.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
