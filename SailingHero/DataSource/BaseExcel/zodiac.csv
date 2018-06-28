@@ -1,6 +1,7 @@
 ﻿zodiacId,zodiacName,iconId,startMonth,startDate,endMonth,endDate
 id,language,icon,int,int,int,int
 -,chinese,res/base/icon/zodiac/,-,-,-,-
+writable,N,N,N,N,N,N
 0,白羊座,[Zodiac]#0.png,3,21,4,19
 1,金牛座,[Zodiac]#1.png,4,20,5,20
 2,双子座,[Zodiac]#2.png,5,21,6,21

@@ -10,6 +10,7 @@
 #include "SimpleAudioEngine.h"
 #include "SystemButton.hpp"
 #include "LocalizationHelper.hpp"
+#include "SaveDataManager.hpp"
 
 #include "SHColorNode.hpp"
 #include <string>
@@ -64,12 +65,12 @@ bool SailingHeroMenu::init()
 
 void SailingHeroMenu::clickStartGame(cocos2d::Ref* pSender)
 {
-    
+  SaveDataManager::saveData(1);
 }
 
 void SailingHeroMenu::clickLoadGame(cocos2d::Ref* pSender)
 {
-    
+  SaveDataManager::loadData(1);
 }
 
 #include "GoodsData.hpp"

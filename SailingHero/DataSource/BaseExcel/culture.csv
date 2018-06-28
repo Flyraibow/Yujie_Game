@@ -1,6 +1,7 @@
 ﻿cutureId,cultureName,oceanMusicId,cityMusicId,plazaStoreIconId,plazaBuildingIconId,comment
 id,language,music,music,icon,icon,comment
 -,chinese,res/base/music/,res/base/music/,res/base/icon/plaza/,res/base/icon/plaza/,-
+writable,N,N,N,N,N,N
 0,英国,north_sea.mp3,north_europe.mp3,PlazaStore4.png,PlazaBuilding4.png,portrait表示说话人的形象用不一样的内容
 1,法兰德斯,north_sea.mp3,north_europe.mp3,PlazaStore4.png,PlazaBuilding4.png,0为默认值
 2,德国,north_sea.mp3,north_europe.mp3,PlazaStore4.png,PlazaBuilding4.png,;

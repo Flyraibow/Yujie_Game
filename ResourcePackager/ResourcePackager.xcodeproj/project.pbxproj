@@ -17,6 +17,7 @@
 		ECADF35820AD408F00B77618 /* ReadCSV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF35620AD408F00B77618 /* ReadCSV.cpp */; };
 		ECADF35B20AD4E4E00B77618 /* LanguageWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF35920AD4E4E00B77618 /* LanguageWriter.cpp */; };
 		ECADF35E20AD54C400B77618 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF35C20AD54C400B77618 /* Utils.cpp */; };
+		ECBEF12120E497520010A767 /* SaveDataManagerWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBEF11F20E497520010A767 /* SaveDataManagerWriter.cpp */; };
 		ECD52B2620BFB2FF000F7170 /* CPPFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B2420BFB2FF000F7170 /* CPPFile.cpp */; };
 		ECD52B2A20BFB394000F7170 /* CPPClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B2820BFB394000F7170 /* CPPClass.cpp */; };
 		ECD52B2D20BFB3A4000F7170 /* CPPFunction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B2B20BFB3A4000F7170 /* CPPFunction.cpp */; };
@@ -57,6 +58,8 @@
 		ECADF35A20AD4E4E00B77618 /* LanguageWriter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LanguageWriter.hpp; sourceTree = "<group>"; };
 		ECADF35C20AD54C400B77618 /* Utils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Utils.cpp; sourceTree = "<group>"; };
 		ECADF35D20AD54C400B77618 /* Utils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Utils.hpp; sourceTree = "<group>"; };
+		ECBEF11F20E497520010A767 /* SaveDataManagerWriter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SaveDataManagerWriter.cpp; sourceTree = "<group>"; };
+		ECBEF12020E497520010A767 /* SaveDataManagerWriter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SaveDataManagerWriter.hpp; sourceTree = "<group>"; };
 		ECD52B2420BFB2FF000F7170 /* CPPFile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CPPFile.cpp; sourceTree = "<group>"; };
 		ECD52B2520BFB2FF000F7170 /* CPPFile.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CPPFile.hpp; sourceTree = "<group>"; };
 		ECD52B2820BFB394000F7170 /* CPPClass.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CPPClass.cpp; sourceTree = "<group>"; };
@@ -137,6 +140,8 @@
 				ECADF35A20AD4E4E00B77618 /* LanguageWriter.hpp */,
 				ECADF35C20AD54C400B77618 /* Utils.cpp */,
 				ECADF35D20AD54C400B77618 /* Utils.hpp */,
+				ECBEF11F20E497520010A767 /* SaveDataManagerWriter.cpp */,
+				ECBEF12020E497520010A767 /* SaveDataManagerWriter.hpp */,
 			);
 			path = FileWrite;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 				ECADF35E20AD54C400B77618 /* Utils.cpp in Sources */,
 				ECADF35B20AD4E4E00B77618 /* LanguageWriter.cpp in Sources */,
 				ECADF35820AD408F00B77618 /* ReadCSV.cpp in Sources */,
+				ECBEF12120E497520010A767 /* SaveDataManagerWriter.cpp in Sources */,
 				ECADF33420AD368400B77618 /* main.cpp in Sources */,
 				ECD52B3320BFBE6D000F7170 /* TimeUtil.cpp in Sources */,
 				ECD52B2D20BFB3A4000F7170 /* CPPFunction.cpp in Sources */,

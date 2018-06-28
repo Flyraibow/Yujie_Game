@@ -1,6 +1,7 @@
 ﻿cannonId,cannonName,cannonDescription,iconId,milltaryValue,price,range,power
 id,language,language,icon,int,int,int,int
 ,chinese,chinese,res/base/icon/cannon,-,-,-,-
+writable,N,N,N,N,N,N,N
 1,散弹,威力1,cannon1.png,0,200,70,1
 2,曲射,威力2 长射程,cannon2.png,0,1000,98,2
 3,加农曲射,威力3,cannon3.png,2000,1400,70,3

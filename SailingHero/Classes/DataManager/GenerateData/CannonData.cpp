@@ -1,5 +1,5 @@
 /*
-This file (CannonData.cpp) is generated at 2018-06-02 09:51:20
+This file (CannonData.cpp) is generated at 2018-06-27 22:21:10
 */
 #include "CannonData.hpp"
 #include "cocos2d.h"
