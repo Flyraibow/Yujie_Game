@@ -22,5 +22,3 @@ bool SHDataManager::init()
 {
     return true;
 }
-
-//UserDefault::getInstance()->getStringForKey(key, "");

@@ -59,6 +59,10 @@
 		ECADF32620AD286C00B77618 /* File.txt in Resources */ = {isa = PBXBuildFile; fileRef = ECADF32520AD286C00B77618 /* File.txt */; };
 		ECADF36020AD604D00B77618 /* res in Resources */ = {isa = PBXBuildFile; fileRef = ECADF35F20AD604D00B77618 /* res */; };
 		ECADF36320AD615900B77618 /* ByteBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF36220AD615900B77618 /* ByteBuffer.cpp */; };
+		ECBEF11920E48B9B0010A767 /* ZodiacData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBEF11520E48B9B0010A767 /* ZodiacData.cpp */; };
+		ECBEF11A20E48B9B0010A767 /* GenderData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBEF11620E48B9B0010A767 /* GenderData.cpp */; };
+		ECBEF11B20E48B9B0010A767 /* HeroData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBEF11720E48B9B0010A767 /* HeroData.cpp */; };
+		ECBEF11E20E492F70010A767 /* SaveDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBEF11C20E492F70010A767 /* SaveDataManager.cpp */; };
 		ECD52B2220BFB073000F7170 /* GoodsData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B2020BFB073000F7170 /* GoodsData.cpp */; };
 		ECD52B3A20C224D8000F7170 /* CategoryUpdateData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B3820C224D8000F7170 /* CategoryUpdateData.cpp */; };
 		ECD52B3B20C224D8000F7170 /* GoodsCategoryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B3920C224D8000F7170 /* GoodsCategoryData.cpp */; };
@@ -168,6 +172,14 @@
 		ECADF35F20AD604D00B77618 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		ECADF36120AD615900B77618 /* ByteBuffer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ByteBuffer.hpp; sourceTree = "<group>"; };
 		ECADF36220AD615900B77618 /* ByteBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ByteBuffer.cpp; sourceTree = "<group>"; };
+		ECBEF11220E48B9A0010A767 /* GenderData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GenderData.hpp; path = GenerateData/GenderData.hpp; sourceTree = "<group>"; };
+		ECBEF11420E48B9A0010A767 /* HeroData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = HeroData.hpp; path = GenerateData/HeroData.hpp; sourceTree = "<group>"; };
+		ECBEF11520E48B9B0010A767 /* ZodiacData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZodiacData.cpp; path = GenerateData/ZodiacData.cpp; sourceTree = "<group>"; };
+		ECBEF11620E48B9B0010A767 /* GenderData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GenderData.cpp; path = GenerateData/GenderData.cpp; sourceTree = "<group>"; };
+		ECBEF11720E48B9B0010A767 /* HeroData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HeroData.cpp; path = GenerateData/HeroData.cpp; sourceTree = "<group>"; };
+		ECBEF11820E48B9B0010A767 /* ZodiacData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ZodiacData.hpp; path = GenerateData/ZodiacData.hpp; sourceTree = "<group>"; };
+		ECBEF11C20E492F70010A767 /* SaveDataManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = SaveDataManager.cpp; path = GenerateData/SaveDataManager.cpp; sourceTree = "<group>"; };
+		ECBEF11D20E492F70010A767 /* SaveDataManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = SaveDataManager.hpp; path = GenerateData/SaveDataManager.hpp; sourceTree = "<group>"; };
 		ECD52B2020BFB073000F7170 /* GoodsData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GoodsData.cpp; path = GenerateData/GoodsData.cpp; sourceTree = "<group>"; };
 		ECD52B2120BFB073000F7170 /* GoodsData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GoodsData.hpp; path = GenerateData/GoodsData.hpp; sourceTree = "<group>"; };
 		ECD52B3520C224D8000F7170 /* GoodsCategoryData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GoodsCategoryData.hpp; path = GenerateData/GoodsCategoryData.hpp; sourceTree = "<group>"; };
@@ -408,6 +420,12 @@
 		ECD52B1F20BFB05A000F7170 /* GenerateData */ = {
 			isa = PBXGroup;
 			children = (
+				ECBEF11620E48B9B0010A767 /* GenderData.cpp */,
+				ECBEF11220E48B9A0010A767 /* GenderData.hpp */,
+				ECBEF11720E48B9B0010A767 /* HeroData.cpp */,
+				ECBEF11420E48B9A0010A767 /* HeroData.hpp */,
+				ECBEF11520E48B9B0010A767 /* ZodiacData.cpp */,
+				ECBEF11820E48B9B0010A767 /* ZodiacData.hpp */,
 				ECD52B4920C30295000F7170 /* ItemCategoryData.cpp */,
 				ECD52B4820C30295000F7170 /* ItemCategoryData.hpp */,
 				ECD52B4A20C30295000F7170 /* ItemData.cpp */,
@@ -422,6 +440,8 @@
 				ECD52B3520C224D8000F7170 /* GoodsCategoryData.hpp */,
 				ECD52B2020BFB073000F7170 /* GoodsData.cpp */,
 				ECD52B2120BFB073000F7170 /* GoodsData.hpp */,
+				ECBEF11C20E492F70010A767 /* SaveDataManager.cpp */,
+				ECBEF11D20E492F70010A767 /* SaveDataManager.hpp */,
 			);
 			name = GenerateData;
 			sourceTree = "<group>";
@@ -587,16 +607,20 @@
 			files = (
 				ECADF32420ACFD0800B77618 /* LocalizationHelper.cpp in Sources */,
 				1AF87B781F6F77F7007BE51C /* AppController.mm in Sources */,
+				ECBEF11B20E48B9B0010A767 /* HeroData.cpp in Sources */,
+				ECBEF11A20E48B9B0010A767 /* GenderData.cpp in Sources */,
 				EC217D4920BC84AB000ADDE3 /* SHDataManager.cpp in Sources */,
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
 				ECADF31E20ACF21200B77618 /* SystemButton.cpp in Sources */,
 				ECF294AC20B135B300536532 /* SHColorNode.cpp in Sources */,
+				ECBEF11E20E492F70010A767 /* SaveDataManager.cpp in Sources */,
 				ECD52B3B20C224D8000F7170 /* GoodsCategoryData.cpp in Sources */,
 				ECD52B2220BFB073000F7170 /* GoodsData.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				ECADF36320AD615900B77618 /* ByteBuffer.cpp in Sources */,
 				ECD52B4C20C30296000F7170 /* ItemData.cpp in Sources */,
 				ECF294B520BBCC9800536532 /* SHScene.cpp in Sources */,
+				ECBEF11920E48B9B0010A767 /* ZodiacData.cpp in Sources */,
 				ECD52B4520C2F7D8000F7170 /* CannonData.cpp in Sources */,
 				ECD52B4020C263A9000F7170 /* Utils.cpp in Sources */,
 				ECD52B4B20C30296000F7170 /* ItemCategoryData.cpp in Sources */,

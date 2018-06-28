@@ -10,6 +10,7 @@
 #include "SimpleAudioEngine.h"
 #include "SystemButton.hpp"
 #include "LocalizationHelper.hpp"
+#include "SaveDataManager.hpp"
 
 #include "SHColorNode.hpp"
 #include <string>
@@ -61,15 +62,20 @@ bool SailingHeroMenu::init()
     return true;
 }
 
-
+#include "HeroData.hpp"
 void SailingHeroMenu::clickStartGame(cocos2d::Ref* pSender)
 {
-    
+  HeroData *hero = HeroData::getHeroDataById("1");
+  hero->setLevel(arc4random() % 100);
+  SaveDataManager::saveData(1);
 }
 
 void SailingHeroMenu::clickLoadGame(cocos2d::Ref* pSender)
 {
-    
+  SaveDataManager::loadData(1);
+  
+  HeroData *hero = HeroData::getHeroDataById("1");
+  printf("%s\n", hero->description().c_str());
 }
 
 #include "GoodsData.hpp"

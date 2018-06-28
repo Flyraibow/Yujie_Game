@@ -12,33 +12,39 @@
 #include "LanguageWriter.hpp"
 #include "Utils.hpp"
 #include "ExcelData.hpp"
+#include "SaveDataManagerWriter.hpp"
 
 void SailingHeroPackager::startPackage()
 {
-    readBaseFiles();
+  readBaseFiles();
 }
 
 void SailingHeroPackager::readBaseFiles()
 {
-    string baseLanguagePath = get_dataSourcePath() + "/Base/translation.csv";
-    string baseLanguageOutput = get_outputResourcePath() + "/base/translation/";
-    cout << "read base language: " << baseLanguagePath << endl;
-    auto baseLanguage = LanguageData(baseLanguagePath);
-    LanguageWriter langWriter;
-
-    string excelFolderPath = get_dataSourcePath() + "/BaseExcel/";
-    string excelExportDataFolderPath = get_outputResourcePath() + "/base/data/";
-    string excelExportCodeFolderPath = get_outputCodeFolderPath();
-    vector<string> files = utils::getCSVFileList(excelFolderPath);
-    for (int i = 0; i < files.size(); ++i) {
-        string fileName = files[i];
-        string path = excelFolderPath + fileName;
-        string fileNameWithoutExt = fileName.substr(0, fileName.find_last_of("."));
-        string saveFileName = fileNameWithoutExt + ".dat";
-        auto excelData = ExcelData::createWithPath(path);
-        excelData->saveData(excelExportDataFolderPath, saveFileName, baseLanguage);
-        excelData->generateCode(excelExportCodeFolderPath, fileNameWithoutExt);
-    }
-
-    langWriter.writeLanguageData(baseLanguage, baseLanguageOutput);
+  string baseLanguagePath = get_dataSourcePath() + "/Base/translation.csv";
+  string baseLanguageOutput = get_outputResourcePath() + "/base/translation/";
+  cout << "read base language: " << baseLanguagePath << endl;
+  auto baseLanguage = LanguageData(baseLanguagePath);
+  LanguageWriter langWriter;
+  
+  string excelFolderPath = get_dataSourcePath() + "/BaseExcel/";
+  string excelExportDataFolderPath = get_outputResourcePath() + "/base/data/";
+  string excelExportCodeFolderPath = get_outputCodeFolderPath();
+  vector<string> files = utils::getCSVFileList(excelFolderPath);
+  
+  auto saveDataFile = SaveDataManagerWriter("SaveDataManager");
+  for (int i = 0; i < files.size(); ++i) {
+    string fileName = files[i];
+    string path = excelFolderPath + fileName;
+    string fileNameWithoutExt = fileName.substr(0, fileName.find_last_of("."));
+    string saveFileName = fileNameWithoutExt + ".dat";
+    auto excelData = ExcelData::createWithPath(path);
+    excelData->saveData(excelExportDataFolderPath, saveFileName, baseLanguage);
+    excelData->generateCode(excelExportCodeFolderPath, fileNameWithoutExt);
+    saveDataFile.addExcel(excelData);
+  }
+  
+  langWriter.writeLanguageData(baseLanguage, baseLanguageOutput);
+  saveDataFile.writeToPath(excelExportCodeFolderPath);
 }
+

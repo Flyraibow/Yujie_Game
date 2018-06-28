@@ -1,5 +1,5 @@
 /*
-This file (GoodsData.cpp) is generated at 2018-06-02 09:51:20
+This file (GoodsData.cpp) is generated at 2018-07-11 01:50:01
 */
 #include "GoodsData.hpp"
 #include "cocos2d.h"

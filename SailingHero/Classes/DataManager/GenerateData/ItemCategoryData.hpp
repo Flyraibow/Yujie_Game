@@ -1,5 +1,5 @@
 /*
-This file (ItemCategoryData.hpp) is generated at 2018-06-02 09:51:20
+This file (ItemCategoryData.hpp) is generated at 2018-07-11 01:50:01
 */
 #ifndef ItemCategoryData_hpp
 #define ItemCategoryData_hpp

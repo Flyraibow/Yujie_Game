@@ -13,44 +13,51 @@
 using namespace std;
 
 const static unordered_map<string, DataType> s_type_map({
-    {"id",ID},
-    {"bool", BOOL},
-    {"int", INT},
-    {"long", LONG},
-    {"float", FLOAT},
-    {"double", DOUBLE},
-    {"icon", ICON},
-    {"music", MUSIC},
-    {"effect", EFFECT},
-    {"string", STRING},
-    {"vector", VECTOR},
-    {"comment", COMMENT},
-    {"language", LANGUAGE},
-    {"friend_id", FRIEND_ID},
-    {"set", SET},
+  {"id",ID},
+  {"bool", BOOL},
+  {"int", INT},
+  {"long", LONG},
+  {"float", FLOAT},
+  {"double", DOUBLE},
+  {"icon", ICON},
+  {"music", MUSIC},
+  {"effect", EFFECT},
+  {"string", STRING},
+  {"vector", VECTOR},
+  {"comment", COMMENT},
+  {"language", LANGUAGE},
+  {"friend_id", FRIEND_ID},
+  {"set", SET},
 });
 
 string DataSchema::getName() const
 {
-    return m_name;
+  return p_name;
 }
 
 DataType DataSchema::getType() const
 {
-    return m_type;
+  return p_type;
 }
 
 string DataSchema::getSubtype() const
 {
-    return m_subType;
+  return p_subType;
 }
 
-DataSchema::DataSchema(const string &name, const string &type, const string &subType)
+bool DataSchema::isWritable() const
 {
-    m_name = name;
-    m_subType = subType;
-    string lower_type = type;
-    transform(lower_type.begin(), lower_type.end(), lower_type.begin(), ::tolower);
-    m_typeString = lower_type;
-    m_type = s_type_map.at(lower_type);
+  return p_isWritable;
 }
+
+DataSchema::DataSchema(const string &name, const string &type, const string &subType, bool isWritable)
+{
+  p_name = name;
+  p_subType = subType;
+  string lower_type = type;
+  transform(lower_type.begin(), lower_type.end(), lower_type.begin(), ::tolower);
+  p_typeString = lower_type;
+  p_type = s_type_map.at(lower_type);
+  p_isWritable = isWritable;
+}
+
