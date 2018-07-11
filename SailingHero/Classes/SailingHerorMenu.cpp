@@ -65,23 +65,16 @@ bool SailingHeroMenu::init()
 #include "HeroData.hpp"
 void SailingHeroMenu::clickStartGame(cocos2d::Ref* pSender)
 {
-<<<<<<< HEAD
   HeroData *hero = HeroData::getHeroDataById("1");
   hero->setLevel(arc4random() % 100);
-=======
->>>>>>> ef751d105c663ed2407e4cdc6d6d43a5e11a9f8d
   SaveDataManager::saveData(1);
 }
 
 void SailingHeroMenu::clickLoadGame(cocos2d::Ref* pSender)
 {
   SaveDataManager::loadData(1);
-<<<<<<< HEAD
-  
   HeroData *hero = HeroData::getHeroDataById("1");
   printf("%s\n", hero->description().c_str());
-=======
->>>>>>> ef751d105c663ed2407e4cdc6d6d43a5e11a9f8d
 }
 
 #include "GoodsData.hpp"
