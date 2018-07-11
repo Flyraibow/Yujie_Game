@@ -1,5 +1,5 @@
 /*
-This file (HeroData.hpp) is generated at 2018-07-11 01:50:02
+This file (HeroData.hpp) is generated at 2018-07-11 14:19:57
 */
 #ifndef HeroData_hpp
 #define HeroData_hpp

@@ -511,13 +511,12 @@ void ExcelData::setInitFunction(const string &className, CPPClass *cppClass, CPP
     }
     
     loadFunc->addBodyStatementsList({
-      "\t\t\t\t}","\t\t\t}", "\t\t}", "\t}", "}"
+      "\t\t\t\t}","\t\t\t}", "\t\t}", "\t}", "}", "return true;"
     }, 0);
     
     saveFunc->addBodyStatementsList({
       "}","buffer->writeToFile(filePath);", "return true;",
     }, 0);
-    loadFunc->addBodyStatements("return true;");
     cppClass->addFunction(saveFunc, false);
     cppClass->addFunction(loadFunc, false);
   }
