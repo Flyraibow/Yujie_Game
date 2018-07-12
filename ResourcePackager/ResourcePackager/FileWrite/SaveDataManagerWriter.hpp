@@ -22,6 +22,7 @@ private:
   CPPClass *p_mainClass;
   CPPFunction *p_saveFunc;
   CPPFunction *p_loadFunc;
+  CPPFunction *p_clearFunc;
 public:
   SaveDataManagerWriter(const string &fileName);
   void addExcel(const ExcelData *excel);

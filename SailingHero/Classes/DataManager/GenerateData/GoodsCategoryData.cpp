@@ -1,5 +1,5 @@
 /*
-This file (GoodsCategoryData.cpp) is generated at 2018-07-11 14:19:57
+This file (GoodsCategoryData.cpp) is generated
 */
 #include "GoodsCategoryData.hpp"
 #include "cocos2d.h"
@@ -8,6 +8,9 @@ This file (GoodsCategoryData.cpp) is generated at 2018-07-11 14:19:57
 #include <LocalizationHelper.hpp>
 
 using namespace std;
+
+unordered_map<string, GoodsCategoryData*>* GoodsCategoryData::p_sharedDictionary = nullptr;
+
 string GoodsCategoryData::getCategoryId() const
 {
 	return p_categoryId;
@@ -41,9 +44,8 @@ string GoodsCategoryData::description() const
 
 unordered_map<string, GoodsCategoryData*>* GoodsCategoryData::getSharedDictionary()
 {
-	static unordered_map<string, GoodsCategoryData*>* sharedDictionary = nullptr;
-	if (!sharedDictionary) {
-		sharedDictionary = new unordered_map<string, GoodsCategoryData*>();
+	if (!p_sharedDictionary) {
+		p_sharedDictionary = new unordered_map<string, GoodsCategoryData*>();
 		static string resPath = "res/base/data/goodsCategory.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
@@ -54,11 +56,11 @@ unordered_map<string, GoodsCategoryData*>* GoodsCategoryData::getSharedDictionar
 				GoodsCategoryData* goodsCategoryData = new GoodsCategoryData();
 				goodsCategoryData->p_categoryId = buffer->getString();
 				goodsCategoryData->p_categoryUpdateId = buffer->getString();
-				sharedDictionary->insert(pair<string, GoodsCategoryData*>(goodsCategoryData->p_categoryId, goodsCategoryData));
+				p_sharedDictionary->insert(pair<string, GoodsCategoryData*>(goodsCategoryData->p_categoryId, goodsCategoryData));
 			}
 		}
 	}
-	return sharedDictionary;
+	return p_sharedDictionary;
 }
 
 GoodsCategoryData* GoodsCategoryData::getGoodsCategoryDataById(const string& categoryId)

@@ -1,5 +1,5 @@
 /*
-This file (SaveDataManager.cpp) is generated at 2018-07-11 14:19:57
+This file (SaveDataManager.cpp) is generated
 */
 #include "SaveDataManager.hpp"
 #include <sys/types.h>
@@ -9,6 +9,8 @@ This file (SaveDataManager.cpp) is generated at 2018-07-11 14:19:57
 #include "HeroData.hpp"
 
 using namespace std;
+
+
 bool SaveDataManager::saveData(int index)
 {
 	string path = cocos2d::FileUtils::getInstance()->getWritablePath() + "/" + to_string(index);
@@ -34,6 +36,12 @@ bool SaveDataManager::loadData(int index)
 		CCLOG("Failed to load HeroData, %s", path.c_str());
 		return false;
 	}
+	return true;
+}
+
+bool SaveDataManager::clearData()
+{
+	HeroData::clearData();
 	return true;
 }
 

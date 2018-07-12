@@ -1,5 +1,5 @@
 /*
-This file (SaveDataManager.hpp) is generated at 2018-07-11 14:19:57
+This file (SaveDataManager.hpp) is generated
 */
 #ifndef SaveDataManager_hpp
 #define SaveDataManager_hpp
@@ -11,5 +11,6 @@ private:
 public:
 	static bool saveData(int index);
 	static bool loadData(int index);
+	static bool clearData();
 };
 #endif

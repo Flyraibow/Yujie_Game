@@ -1,5 +1,5 @@
 /*
-This file (CategoryUpdateData.hpp) is generated at 2018-07-11 14:19:57
+This file (CategoryUpdateData.hpp) is generated
 */
 #ifndef CategoryUpdateData_hpp
 #define CategoryUpdateData_hpp
@@ -10,6 +10,7 @@ using namespace std;
 class CategoryUpdateData
 {
 private:
+	static unordered_map<string, CategoryUpdateData*>* p_sharedDictionary;
 	string p_categoryUpdateId;
 	unordered_set<int> p_updateMonth;
 public:

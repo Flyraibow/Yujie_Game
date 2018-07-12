@@ -1,5 +1,5 @@
 /*
-This file (GenderData.hpp) is generated at 2018-07-11 14:19:57
+This file (GenderData.hpp) is generated
 */
 #ifndef GenderData_hpp
 #define GenderData_hpp
@@ -9,6 +9,7 @@ using namespace std;
 class GenderData
 {
 private:
+	static unordered_map<string, GenderData*>* p_sharedDictionary;
 	string p_genderId;
 public:
 	string getGenderId() const;

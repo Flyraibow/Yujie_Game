@@ -1,5 +1,5 @@
 /*
-This file (HeroData.hpp) is generated at 2018-07-11 14:19:57
+This file (HeroData.hpp) is generated
 */
 #ifndef HeroData_hpp
 #define HeroData_hpp
@@ -10,6 +10,7 @@ using namespace std;
 class HeroData
 {
 private:
+	static unordered_map<string, HeroData*>* p_sharedDictionary;
 	string p_heroId;
 	string p_heroFirstName;
 	string p_heroLastName;
@@ -33,7 +34,9 @@ private:
 	int p_observingAbility;
 public:
 	string getHeroId() const;
+	void setHeroFirstName(string heroFirstName);
 	string getHeroFirstName() const;
+	void setHeroLastName(string heroLastName);
 	string getHeroLastName() const;
 	GenderData* getGenderData() const;
 	string getGenderId() const;
@@ -77,5 +80,6 @@ public:
 	static HeroData* getHeroDataById(const string& heroId);
 	static bool saveData(const string & path);
 	static bool loadData(const string & path);
+	static bool clearData();
 };
 #endif

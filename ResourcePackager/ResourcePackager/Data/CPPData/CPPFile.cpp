@@ -21,8 +21,7 @@ CPPFile::CPPFile(const string &fileName)
 
 void CPPFile::commonInit()
 {
-    auto s = dateTimeToString(now(), "%Y-%m-%d %H:%M:%S");
-    string comment = "This file (" + this->getFileName() + ") is generated at " + s;
+    string comment = "This file (" + this->getFileName() + ") is generated";
     this->addComment(comment);
 }
 

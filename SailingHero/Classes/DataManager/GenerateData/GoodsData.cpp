@@ -1,5 +1,5 @@
 /*
-This file (GoodsData.cpp) is generated at 2018-07-11 14:19:57
+This file (GoodsData.cpp) is generated
 */
 #include "GoodsData.hpp"
 #include "cocos2d.h"
@@ -8,6 +8,9 @@ This file (GoodsData.cpp) is generated at 2018-07-11 14:19:57
 #include <LocalizationHelper.hpp>
 
 using namespace std;
+
+unordered_map<string, GoodsData*>* GoodsData::p_sharedDictionary = nullptr;
+
 string GoodsData::getGoodsId() const
 {
 	return p_goodsId;
@@ -73,9 +76,8 @@ string GoodsData::description() const
 
 unordered_map<string, GoodsData*>* GoodsData::getSharedDictionary()
 {
-	static unordered_map<string, GoodsData*>* sharedDictionary = nullptr;
-	if (!sharedDictionary) {
-		sharedDictionary = new unordered_map<string, GoodsData*>();
+	if (!p_sharedDictionary) {
+		p_sharedDictionary = new unordered_map<string, GoodsData*>();
 		static string resPath = "res/base/data/goods.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
@@ -89,11 +91,11 @@ unordered_map<string, GoodsData*>* GoodsData::getSharedDictionary()
 				goodsData->p_iconId = buffer->getString();
 				goodsData->p_maxPrice = buffer->getInt();
 				goodsData->p_levelUpExp = buffer->getInt();
-				sharedDictionary->insert(pair<string, GoodsData*>(goodsData->p_goodsId, goodsData));
+				p_sharedDictionary->insert(pair<string, GoodsData*>(goodsData->p_goodsId, goodsData));
 			}
 		}
 	}
-	return sharedDictionary;
+	return p_sharedDictionary;
 }
 
 GoodsData* GoodsData::getGoodsDataById(const string& goodsId)

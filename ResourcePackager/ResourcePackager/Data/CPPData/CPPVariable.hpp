@@ -27,18 +27,23 @@ const static string TYPE_VOID = "void";
 class CPPVariable
 {
 private:
-    bool p_isStatic;
-    bool p_isConst;
-    string p_varType;
-    string p_varName;
+  bool p_isStatic;
+  bool p_isConst;
+  string p_varType;
+  string p_varName;
+  string p_initialValue;
 public:
-    CPPVariable(const string &varType);
-    CPPVariable(const string &varName, const string &varType);
-    CPPVariable(const string &varName, const string &varType, bool isStatic);
-    CPPVariable(const string &varName, const string &varType, bool isStatic, bool isConst);
-    string getDefineStatement() const;
-    string getVarString() const;
-    string getTypeString() const;
+  CPPVariable(const string &varType);
+  CPPVariable(const string &varName, const string &varType);
+  CPPVariable(const string &varName, const string &varType, bool isStatic);
+  CPPVariable(const string &varName, const string &varType, bool isStatic, bool isConst);
+  string getDefineStatement() const;
+  string getVarString() const;
+  string getTypeString() const;
+  string getInitialValue() const;
+  bool isStatic() const;
+  void setInitialValue(const string &val);
 };
 
 #endif /* CPPVariable_hpp */
+

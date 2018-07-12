@@ -1,5 +1,5 @@
 /*
-This file (CannonData.hpp) is generated at 2018-07-11 14:19:57
+This file (CannonData.hpp) is generated
 */
 #ifndef CannonData_hpp
 #define CannonData_hpp
@@ -9,6 +9,7 @@ using namespace std;
 class CannonData
 {
 private:
+	static unordered_map<string, CannonData*>* p_sharedDictionary;
 	string p_cannonId;
 	string p_iconId;
 	int p_milltaryValue;

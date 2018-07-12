@@ -1,5 +1,5 @@
 /*
-This file (ItemData.hpp) is generated at 2018-07-11 14:19:57
+This file (ItemData.hpp) is generated
 */
 #ifndef ItemData_hpp
 #define ItemData_hpp
@@ -10,6 +10,7 @@ using namespace std;
 class ItemData
 {
 private:
+	static unordered_map<string, ItemData*>* p_sharedDictionary;
 	string p_itemId;
 	string p_iconId;
 	string p_itemCategoryId;

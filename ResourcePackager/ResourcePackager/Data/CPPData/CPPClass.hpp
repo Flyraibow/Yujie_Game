@@ -19,20 +19,22 @@ using namespace std;
 class CPPClass
 {
 private:
-    string p_className;
-    vector<const CPPVariable *> p_privateVariables;
-    vector<const CPPVariable *> p_publicVariables;
-    vector<const CPPFunction *> p_privateFunctions;
-    vector<const CPPFunction *> p_publicFunctions;
+  string p_className;
+  vector<const CPPVariable *> p_privateVariables;
+  vector<const CPPVariable *> p_publicVariables;
+  vector<const CPPFunction *> p_privateFunctions;
+  vector<const CPPFunction *> p_publicFunctions;
 public:
-    ~CPPClass();
-    CPPClass(const string &className);
-    void addVariable(const string &varName, const string &varType, bool isPrivate);
-    void addFunction(const CPPFunction* func, bool isPrivate);
-    string getClassName() const;
-    string getClassHeaderString() const;
-    string getClassContentString() const;
+  ~CPPClass();
+  CPPClass(const string &className);
+  void addVariable(const string &varName, const string &varType, bool isPrivate);
+  void addVariable(CPPVariable *variable, bool isPrivate);
+  void addFunction(const CPPFunction* func, bool isPrivate);
+  string getClassName() const;
+  string getClassHeaderString() const;
+  string getClassContentString() const;
 };
 
 
 #endif /* CPPClass_hpp */
+

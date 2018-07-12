@@ -1,5 +1,5 @@
 /*
-This file (CategoryUpdateData.cpp) is generated at 2018-07-11 14:19:57
+This file (CategoryUpdateData.cpp) is generated
 */
 #include "CategoryUpdateData.hpp"
 #include "cocos2d.h"
@@ -8,6 +8,9 @@ This file (CategoryUpdateData.cpp) is generated at 2018-07-11 14:19:57
 #include <LocalizationHelper.hpp>
 
 using namespace std;
+
+unordered_map<string, CategoryUpdateData*>* CategoryUpdateData::p_sharedDictionary = nullptr;
+
 string CategoryUpdateData::getCategoryUpdateId() const
 {
 	return p_categoryUpdateId;
@@ -36,9 +39,8 @@ string CategoryUpdateData::description() const
 
 unordered_map<string, CategoryUpdateData*>* CategoryUpdateData::getSharedDictionary()
 {
-	static unordered_map<string, CategoryUpdateData*>* sharedDictionary = nullptr;
-	if (!sharedDictionary) {
-		sharedDictionary = new unordered_map<string, CategoryUpdateData*>();
+	if (!p_sharedDictionary) {
+		p_sharedDictionary = new unordered_map<string, CategoryUpdateData*>();
 		static string resPath = "res/base/data/categoryUpdate.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
@@ -52,11 +54,11 @@ unordered_map<string, CategoryUpdateData*>* CategoryUpdateData::getSharedDiction
 				for (int j = 0; j < updateMonthCount; ++j) {
 					categoryUpdateData->p_updateMonth.insert(buffer->getInt());
 				}
-				sharedDictionary->insert(pair<string, CategoryUpdateData*>(categoryUpdateData->p_categoryUpdateId, categoryUpdateData));
+				p_sharedDictionary->insert(pair<string, CategoryUpdateData*>(categoryUpdateData->p_categoryUpdateId, categoryUpdateData));
 			}
 		}
 	}
-	return sharedDictionary;
+	return p_sharedDictionary;
 }
 
 CategoryUpdateData* CategoryUpdateData::getCategoryUpdateDataById(const string& categoryUpdateId)

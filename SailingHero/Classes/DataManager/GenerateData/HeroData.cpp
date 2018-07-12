@@ -1,5 +1,5 @@
 /*
-This file (HeroData.cpp) is generated at 2018-07-11 14:19:57
+This file (HeroData.cpp) is generated
 */
 #include "HeroData.hpp"
 #include "cocos2d.h"
@@ -8,19 +8,38 @@ This file (HeroData.cpp) is generated at 2018-07-11 14:19:57
 #include <LocalizationHelper.hpp>
 
 using namespace std;
+
+unordered_map<string, HeroData*>* HeroData::p_sharedDictionary = nullptr;
+
 string HeroData::getHeroId() const
 {
 	return p_heroId;
 }
 
+void HeroData::setHeroFirstName(string heroFirstName)
+{
+	p_heroFirstName = heroFirstName;
+}
+
 string HeroData::getHeroFirstName() const
 {
+	if (p_heroFirstName.length() > 0) {
+		return p_heroFirstName;
+	}
 	string localId = "hero_heroFirstName_" + p_heroId;
 	return LocalizationHelper::getLocalization(localId);
 }
 
+void HeroData::setHeroLastName(string heroLastName)
+{
+	p_heroLastName = heroLastName;
+}
+
 string HeroData::getHeroLastName() const
 {
+	if (p_heroLastName.length() > 0) {
+		return p_heroLastName;
+	}
 	string localId = "hero_heroLastName_" + p_heroId;
 	return LocalizationHelper::getLocalization(localId);
 }
@@ -240,9 +259,8 @@ string HeroData::description() const
 
 unordered_map<string, HeroData*>* HeroData::getSharedDictionary()
 {
-	static unordered_map<string, HeroData*>* sharedDictionary = nullptr;
-	if (!sharedDictionary) {
-		sharedDictionary = new unordered_map<string, HeroData*>();
+	if (!p_sharedDictionary) {
+		p_sharedDictionary = new unordered_map<string, HeroData*>();
 		static string resPath = "res/base/data/hero.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
@@ -270,11 +288,11 @@ unordered_map<string, HeroData*>* HeroData::getSharedDictionary()
 				heroData->p_eloquence = buffer->getInt();
 				heroData->p_strategyAbility = buffer->getInt();
 				heroData->p_observingAbility = buffer->getInt();
-				sharedDictionary->insert(pair<string, HeroData*>(heroData->p_heroId, heroData));
+				p_sharedDictionary->insert(pair<string, HeroData*>(heroData->p_heroId, heroData));
 			}
 		}
 	}
-	return sharedDictionary;
+	return p_sharedDictionary;
 }
 
 HeroData* HeroData::getHeroDataById(const string& heroId)
@@ -406,6 +424,19 @@ bool HeroData::loadData(const string & path)
 				}
 			}
 		}
+	}
+	return true;
+}
+
+bool HeroData::clearData()
+{
+	if (p_sharedDictionary != nullptr) {
+		for (auto iter = p_sharedDictionary->begin(); iter != p_sharedDictionary->end(); ++iter) {
+			auto data = iter->second;
+			delete data;
+		}
+		delete p_sharedDictionary;
+		p_sharedDictionary = nullptr;
 	}
 	return true;
 }

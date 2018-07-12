@@ -1,5 +1,5 @@
 /*
-This file (ZodiacData.hpp) is generated at 2018-07-11 14:19:57
+This file (ZodiacData.hpp) is generated
 */
 #ifndef ZodiacData_hpp
 #define ZodiacData_hpp
@@ -9,6 +9,7 @@ using namespace std;
 class ZodiacData
 {
 private:
+	static unordered_map<string, ZodiacData*>* p_sharedDictionary;
 	string p_zodiacId;
 	string p_iconId;
 	int p_startMonth;

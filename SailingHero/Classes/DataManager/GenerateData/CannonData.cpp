@@ -1,5 +1,5 @@
 /*
-This file (CannonData.cpp) is generated at 2018-07-11 14:19:57
+This file (CannonData.cpp) is generated
 */
 #include "CannonData.hpp"
 #include "cocos2d.h"
@@ -8,6 +8,9 @@ This file (CannonData.cpp) is generated at 2018-07-11 14:19:57
 #include <LocalizationHelper.hpp>
 
 using namespace std;
+
+unordered_map<string, CannonData*>* CannonData::p_sharedDictionary = nullptr;
+
 string CannonData::getCannonId() const
 {
 	return p_cannonId;
@@ -74,9 +77,8 @@ string CannonData::description() const
 
 unordered_map<string, CannonData*>* CannonData::getSharedDictionary()
 {
-	static unordered_map<string, CannonData*>* sharedDictionary = nullptr;
-	if (!sharedDictionary) {
-		sharedDictionary = new unordered_map<string, CannonData*>();
+	if (!p_sharedDictionary) {
+		p_sharedDictionary = new unordered_map<string, CannonData*>();
 		static string resPath = "res/base/data/cannon.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
@@ -91,11 +93,11 @@ unordered_map<string, CannonData*>* CannonData::getSharedDictionary()
 				cannonData->p_price = buffer->getInt();
 				cannonData->p_range = buffer->getInt();
 				cannonData->p_power = buffer->getInt();
-				sharedDictionary->insert(pair<string, CannonData*>(cannonData->p_cannonId, cannonData));
+				p_sharedDictionary->insert(pair<string, CannonData*>(cannonData->p_cannonId, cannonData));
 			}
 		}
 	}
-	return sharedDictionary;
+	return p_sharedDictionary;
 }
 
 CannonData* CannonData::getCannonDataById(const string& cannonId)

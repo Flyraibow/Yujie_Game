@@ -66,13 +66,13 @@ bool SailingHeroMenu::init()
 void SailingHeroMenu::clickStartGame(cocos2d::Ref* pSender)
 {
   HeroData *hero = HeroData::getHeroDataById("1");
+  hero->setHeroFirstName("予杰");
   hero->setLevel(arc4random() % 100);
   SaveDataManager::saveData(1);
 }
 
 void SailingHeroMenu::clickLoadGame(cocos2d::Ref* pSender)
 {
-  SaveDataManager::loadData(1);
   HeroData *hero = HeroData::getHeroDataById("1");
   printf("%s\n", hero->description().c_str());
 }
@@ -81,11 +81,13 @@ void SailingHeroMenu::clickLoadGame(cocos2d::Ref* pSender)
 
 void SailingHeroMenu::clickGameSetting(Ref* pSender)
 {
-    auto id = arc4random() % 114;
-    printf("%d\n", id);
-    auto goodData = GoodsData::getGoodsDataById(to_string(id));
-    printf("%s\n", goodData->description().c_str());
-    printf("%s\n", goodData->getGoodsCategoryData()->description().c_str());
-    printf("%s\n", goodData->getGoodsCategoryData()->getCategoryUpdateData()->description().c_str());
+  SaveDataManager::clearData();
+  
+//    auto id = arc4random() % 114;
+//    printf("%d\n", id);
+//    auto goodData = GoodsData::getGoodsDataById(to_string(id));
+//    printf("%s\n", goodData->description().c_str());
+//    printf("%s\n", goodData->getGoodsCategoryData()->description().c_str());
+//    printf("%s\n", goodData->getGoodsCategoryData()->getCategoryUpdateData()->description().c_str());
 }
 

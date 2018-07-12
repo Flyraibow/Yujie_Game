@@ -1,5 +1,5 @@
 /*
-This file (GenderData.cpp) is generated at 2018-07-11 14:19:57
+This file (GenderData.cpp) is generated
 */
 #include "GenderData.hpp"
 #include "cocos2d.h"
@@ -8,6 +8,9 @@ This file (GenderData.cpp) is generated at 2018-07-11 14:19:57
 #include <LocalizationHelper.hpp>
 
 using namespace std;
+
+unordered_map<string, GenderData*>* GenderData::p_sharedDictionary = nullptr;
+
 string GenderData::getGenderId() const
 {
 	return p_genderId;
@@ -30,9 +33,8 @@ string GenderData::description() const
 
 unordered_map<string, GenderData*>* GenderData::getSharedDictionary()
 {
-	static unordered_map<string, GenderData*>* sharedDictionary = nullptr;
-	if (!sharedDictionary) {
-		sharedDictionary = new unordered_map<string, GenderData*>();
+	if (!p_sharedDictionary) {
+		p_sharedDictionary = new unordered_map<string, GenderData*>();
 		static string resPath = "res/base/data/gender.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
@@ -42,11 +44,11 @@ unordered_map<string, GenderData*>* GenderData::getSharedDictionary()
 			for (int i = 0; i < count; ++i) {
 				GenderData* genderData = new GenderData();
 				genderData->p_genderId = buffer->getString();
-				sharedDictionary->insert(pair<string, GenderData*>(genderData->p_genderId, genderData));
+				p_sharedDictionary->insert(pair<string, GenderData*>(genderData->p_genderId, genderData));
 			}
 		}
 	}
-	return sharedDictionary;
+	return p_sharedDictionary;
 }
 
 GenderData* GenderData::getGenderDataById(const string& genderId)

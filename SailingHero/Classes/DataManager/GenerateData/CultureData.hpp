@@ -1,5 +1,5 @@
 /*
-This file (CultureData.hpp) is generated at 2018-07-11 14:19:57
+This file (CultureData.hpp) is generated
 */
 #ifndef CultureData_hpp
 #define CultureData_hpp
@@ -9,6 +9,7 @@ using namespace std;
 class CultureData
 {
 private:
+	static unordered_map<string, CultureData*>* p_sharedDictionary;
 	string p_cutureId;
 	string p_oceanMusicId;
 	string p_cityMusicId;

@@ -1,5 +1,5 @@
 /*
-This file (CultureData.cpp) is generated at 2018-07-11 14:19:57
+This file (CultureData.cpp) is generated
 */
 #include "CultureData.hpp"
 #include "cocos2d.h"
@@ -8,6 +8,9 @@ This file (CultureData.cpp) is generated at 2018-07-11 14:19:57
 #include <LocalizationHelper.hpp>
 
 using namespace std;
+
+unordered_map<string, CultureData*>* CultureData::p_sharedDictionary = nullptr;
+
 string CultureData::getCutureId() const
 {
 	return p_cutureId;
@@ -80,9 +83,8 @@ string CultureData::description() const
 
 unordered_map<string, CultureData*>* CultureData::getSharedDictionary()
 {
-	static unordered_map<string, CultureData*>* sharedDictionary = nullptr;
-	if (!sharedDictionary) {
-		sharedDictionary = new unordered_map<string, CultureData*>();
+	if (!p_sharedDictionary) {
+		p_sharedDictionary = new unordered_map<string, CultureData*>();
 		static string resPath = "res/base/data/culture.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
@@ -94,11 +96,11 @@ unordered_map<string, CultureData*>* CultureData::getSharedDictionary()
 				cultureData->p_cutureId = buffer->getString();
 				cultureData->p_plazaStoreIconId = buffer->getString();
 				cultureData->p_plazaBuildingIconId = buffer->getString();
-				sharedDictionary->insert(pair<string, CultureData*>(cultureData->p_cutureId, cultureData));
+				p_sharedDictionary->insert(pair<string, CultureData*>(cultureData->p_cutureId, cultureData));
 			}
 		}
 	}
-	return sharedDictionary;
+	return p_sharedDictionary;
 }
 
 CultureData* CultureData::getCultureDataById(const string& cutureId)

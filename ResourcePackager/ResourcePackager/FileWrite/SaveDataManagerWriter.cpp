@@ -19,6 +19,7 @@ SaveDataManagerWriter::SaveDataManagerWriter(const string &fileName)
   auto indexVar = new CPPVariable("index", TYPE_INT);
   p_saveFunc = new CPPFunction("saveData", TYPE_BOOL, {indexVar}, true, false);
   p_loadFunc = new CPPFunction("loadData", TYPE_BOOL, {indexVar}, true, false);
+  p_clearFunc = new CPPFunction("clearData", TYPE_BOOL, {}, true, false);
   p_file->addHeaders("sys/types.h", false, false);
   p_file->addHeaders("sys/stat.h", false, false);
   p_file->addHeaders("unistd.h", false, false);
@@ -56,6 +57,8 @@ void SaveDataManagerWriter::addExcel(const ExcelData *excel)
     p_loadFunc->addBodyStatements("CCLOG(\"Failed to load " + fileName+ ", %s\", path.c_str());", 1);
     p_loadFunc->addBodyStatements("return false;",1);
     p_loadFunc->addBodyStatements("}");
+    
+    p_clearFunc->addBodyStatements(fileName + "::clearData();");
   }
 }
 
@@ -63,8 +66,10 @@ void SaveDataManagerWriter::writeToPath(const std::string &path)
 {
   p_saveFunc->addBodyStatements("return true;");
   p_loadFunc->addBodyStatements("return true;");
+  p_clearFunc->addBodyStatements("return true;");
   p_mainClass->addFunction(p_saveFunc, false);
   p_mainClass->addFunction(p_loadFunc, false);
+  p_mainClass->addFunction(p_clearFunc, false);
   p_file->addClass(p_mainClass);
   p_file->saveFiles(path);
 }

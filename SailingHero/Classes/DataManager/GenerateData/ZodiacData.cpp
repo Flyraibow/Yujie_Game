@@ -1,5 +1,5 @@
 /*
-This file (ZodiacData.cpp) is generated at 2018-07-11 14:19:57
+This file (ZodiacData.cpp) is generated
 */
 #include "ZodiacData.hpp"
 #include "cocos2d.h"
@@ -8,6 +8,9 @@ This file (ZodiacData.cpp) is generated at 2018-07-11 14:19:57
 #include <LocalizationHelper.hpp>
 
 using namespace std;
+
+unordered_map<string, ZodiacData*>* ZodiacData::p_sharedDictionary = nullptr;
+
 string ZodiacData::getZodiacId() const
 {
 	return p_zodiacId;
@@ -67,9 +70,8 @@ string ZodiacData::description() const
 
 unordered_map<string, ZodiacData*>* ZodiacData::getSharedDictionary()
 {
-	static unordered_map<string, ZodiacData*>* sharedDictionary = nullptr;
-	if (!sharedDictionary) {
-		sharedDictionary = new unordered_map<string, ZodiacData*>();
+	if (!p_sharedDictionary) {
+		p_sharedDictionary = new unordered_map<string, ZodiacData*>();
 		static string resPath = "res/base/data/zodiac.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
@@ -84,11 +86,11 @@ unordered_map<string, ZodiacData*>* ZodiacData::getSharedDictionary()
 				zodiacData->p_startDate = buffer->getInt();
 				zodiacData->p_endMonth = buffer->getInt();
 				zodiacData->p_endDate = buffer->getInt();
-				sharedDictionary->insert(pair<string, ZodiacData*>(zodiacData->p_zodiacId, zodiacData));
+				p_sharedDictionary->insert(pair<string, ZodiacData*>(zodiacData->p_zodiacId, zodiacData));
 			}
 		}
 	}
-	return sharedDictionary;
+	return p_sharedDictionary;
 }
 
 ZodiacData* ZodiacData::getZodiacDataById(const string& zodiacId)

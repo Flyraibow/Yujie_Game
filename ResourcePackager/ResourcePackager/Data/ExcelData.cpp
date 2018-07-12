@@ -259,15 +259,24 @@ void setPublicGetFunction(CPPClass *cppClass, const DataSchema *schema, const st
     assert(id_schema_name.length() > 0);
     string id_string_name = "p_" + id_schema_name;  // p_goodsId;
     getSchemaFunc = new CPPFunction(getSchemaFuncName, TYPE_STRING);
+    if (schema->isWritable()) {
+      cppClass->addVariable(schemaName, TYPE_STRING, true);
+      getSchemaFunc->addBodyStatementsList({
+        "if (" + schemaName + ".length() > 0) {",
+        "\treturn " + schemaName + ";",
+        "}"
+      }, 0);
+      
+      setSchemaFunc = new CPPFunction(setSchemaFuncName, TYPE_VOID, {new CPPVariable(schema->getName(), TYPE_STRING)}, false, false);
+      setSchemaFunc->addBodyStatements(schemaName + " = " + schema->getName() + ";");
+      cppClass->addFunction(setSchemaFunc, false);
+    }
     getSchemaFunc->addBodyStatementsList({
       "string localId = \"" + fileNameWithoutExt + "_" + schema->getName() + "_\" + " + id_string_name + ";",
       "return LocalizationHelper::getLocalization(localId);"
     }, 0);
     descFunction->addBodyStatements( descriptState_1 + getSchemaFuncName + "() " + descriptState_3);
     cppClass->addFunction(getSchemaFunc, false);
-    if (schema->isWritable()) {
-      cppClass->addVariable(schemaName, TYPE_STRING, true);
-    }
     return;
   }
   if (type == ICON) {
@@ -291,6 +300,7 @@ void setPublicGetFunction(CPPClass *cppClass, const DataSchema *schema, const st
       
     }, 0);
     cppClass->addFunction(getIconFunction, false);
+    
   } else if (type == FRIEND_ID) {
     string friendClassName = schema->getSubtype() + "Data";
     cppFile->addHeaders(friendClassName + ".hpp", true, true);
@@ -370,18 +380,21 @@ void ExcelData::setInitFunction(const string &className, CPPClass *cppClass, CPP
   bool containSet = false;
   bool containVector = false;
   int needSaveDataNumber = 0;
+  string staticMapName = "p_sharedDictionary";
+  auto staticMapVariable = new CPPVariable(staticMapName, mapDicPointerType, true);
+  staticMapVariable->setInitialValue("nullptr");
+  cppClass->addVariable(staticMapVariable, true);
   
   auto initFunction = new CPPFunction("getSharedDictionary", mapDicPointerType, true);
   auto descFunction = new CPPFunction("description", TYPE_STRING);
   descFunction->addBodyStatements("string desc = \"" + variableName + " = {\\n\";");
   const string filePath = "res/base/data/" + p_resDataFileName;
   initFunction->addBodyStatementsList({
-    "static " +  mapDicPointerType + " sharedDictionary = nullptr;",
-    "if (!sharedDictionary) {"
+    "if (!" + staticMapName + ") {"
     
   }, 0);
   initFunction->addBodyStatementsList({
-    "sharedDictionary = new " + mapDicType + "();",
+    staticMapName + " = new " + mapDicType + "();",
     "static string resPath = \"" + filePath + "\";",
     "auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);",
     "if (!data.isNull()) {",
@@ -428,11 +441,11 @@ void ExcelData::setInitFunction(const string &className, CPPClass *cppClass, CPP
   cppClass->addFunction(descFunction, false);
   
   string id_string_name = "p_" + id_schema_name;  // p_goodsId;
-  initFunction->addBodyStatements("sharedDictionary->insert(pair<string, " + classTypeName+ ">("+ variableName + "->"+ id_string_name +", " + variableName +"));", 3);
+  initFunction->addBodyStatements(staticMapName + "->insert(pair<string, " + classTypeName+ ">("+ variableName + "->"+ id_string_name +", " + variableName +"));", 3);
   initFunction->addBodyStatements("}", 2);
   initFunction->addBodyStatements("}", 1);
   initFunction->addBodyStatements("}");
-  initFunction->addBodyStatements("return sharedDictionary;");
+  initFunction->addBodyStatements("return " + staticMapName + ";");
   cppClass->addFunction(initFunction, false);
   
   string retrieveFuncName = "get" + className + "ById";
@@ -447,7 +460,7 @@ void ExcelData::setInitFunction(const string &className, CPPClass *cppClass, CPP
   });
   cppClass->addFunction(retrieveFunc, false);
   
-  /// save and load
+  /// save, load && clear
   if (needSaveDataNumber > 0) {
     auto pathVar = new CPPVariable("path", "const string &");
     auto saveFunc = new CPPFunction("saveData", TYPE_BOOL, {pathVar}, true, false);
@@ -468,8 +481,7 @@ void ExcelData::setInitFunction(const string &className, CPPClass *cppClass, CPP
       "auto data = iter->second;",
       "buffer->putString(dataId);",
     }, 1);
-    
-    
+
     loadFunc->addBodyStatementsList({
       fistLine,
       secondLine,
@@ -519,6 +531,21 @@ void ExcelData::setInitFunction(const string &className, CPPClass *cppClass, CPP
     }, 0);
     cppClass->addFunction(saveFunc, false);
     cppClass->addFunction(loadFunc, false);
+    // clear data
+    auto clearFunc = new CPPFunction("clearData", TYPE_BOOL, {}, true, false);
+    clearFunc->addBodyStatementsList({
+      "if (" + staticMapName + " != nullptr) {",
+      "\tfor (auto iter = " + staticMapName + "->begin(); iter != " + staticMapName + "->end(); ++iter) {",
+      "\t\tauto data = iter->second;",
+      "\t\tdelete data;",
+      "\t}",
+      "\tdelete " + staticMapName + ";",
+      "\t" + staticMapName + " = nullptr;",
+      "}",
+      "return true;",
+    }, 0);
+    cppClass->addFunction(clearFunc, false);
+    
   }
 }
 
