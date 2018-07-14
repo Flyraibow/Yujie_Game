@@ -9,7 +9,7 @@ This file (ZodiacData.cpp) is generated
 
 using namespace std;
 
-unordered_map<string, ZodiacData*>* ZodiacData::p_sharedDictionary = nullptr;
+map<string, ZodiacData*>* ZodiacData::p_sharedDictionary = nullptr;
 
 string ZodiacData::getZodiacId() const
 {
@@ -68,10 +68,10 @@ string ZodiacData::description() const
 	return desc;
 }
 
-unordered_map<string, ZodiacData*>* ZodiacData::getSharedDictionary()
+map<string, ZodiacData*>* ZodiacData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
-		p_sharedDictionary = new unordered_map<string, ZodiacData*>();
+		p_sharedDictionary = new map<string, ZodiacData*>();
 		static string resPath = "res/base/data/zodiac.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {

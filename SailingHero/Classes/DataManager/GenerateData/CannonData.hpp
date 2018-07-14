@@ -3,13 +3,13 @@ This file (CannonData.hpp) is generated
 */
 #ifndef CannonData_hpp
 #define CannonData_hpp
-#include <unordered_map>
+#include <map>
 
 using namespace std;
 class CannonData
 {
 private:
-	static unordered_map<string, CannonData*>* p_sharedDictionary;
+	static map<string, CannonData*>* p_sharedDictionary;
 	string p_cannonId;
 	string p_iconId;
 	int p_milltaryValue;
@@ -27,7 +27,7 @@ public:
 	int getRange() const;
 	int getPower() const;
 	string description() const;
-	static unordered_map<string, CannonData*>* getSharedDictionary();
+	static map<string, CannonData*>* getSharedDictionary();
 	static CannonData* getCannonDataById(const string& cannonId);
 };
 #endif

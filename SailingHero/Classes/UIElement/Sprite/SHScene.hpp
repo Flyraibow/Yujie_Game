@@ -18,19 +18,22 @@ USING_NS_CC;
 class SHScene : public cocos2d::Scene
 {
 private:
-    Size s_screenSize;
+  Node* s_background;
+  Size s_screenSize;
 protected:
-    /** Set a screen cover to make screen the same ratio of ratioSize
-     *
-     * @param ratioSize  The desired screen ratio, e.g. (4, 3), (16, 9);
-     */
-    void setScreenCover(Size ratioSize);
-    void setBackgroundImage(std::string imgPath);
-    void setBackgroundMusic(std::string path);
-    
+  /** Set a screen cover to make screen the same ratio of ratioSize
+   *
+   * @param ratioSize  The desired screen ratio, e.g. (4, 3), (16, 9);
+   */
+  void setScreenCover(Size ratioSize);
+  void setBackgroundImage(std::string imgPath);
+  void setBackgroundMusic(std::string path);
+  
 public:
-    CREATE_FUNC(SHScene);
-    Size getScreenSize() const;
+  CREATE_FUNC(SHScene);
+  Size getScreenSize() const;
+  Node* getBackground();
 };
 
 #endif /* SHScene_hpp */
+

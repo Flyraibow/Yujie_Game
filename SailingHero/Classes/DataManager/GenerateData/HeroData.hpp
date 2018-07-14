@@ -3,14 +3,14 @@ This file (HeroData.hpp) is generated
 */
 #ifndef HeroData_hpp
 #define HeroData_hpp
-#include <unordered_map>
+#include <map>
 #include "GenderData.hpp"
 
 using namespace std;
 class HeroData
 {
 private:
-	static unordered_map<string, HeroData*>* p_sharedDictionary;
+	static map<string, HeroData*>* p_sharedDictionary;
 	string p_heroId;
 	string p_heroFirstName;
 	string p_heroLastName;
@@ -76,7 +76,7 @@ public:
 	int getObservingAbility() const;
 	void setObservingAbility(int observingAbility);
 	string description() const;
-	static unordered_map<string, HeroData*>* getSharedDictionary();
+	static map<string, HeroData*>* getSharedDictionary();
 	static HeroData* getHeroDataById(const string& heroId);
 	static bool saveData(const string & path);
 	static bool loadData(const string & path);

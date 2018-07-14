@@ -161,7 +161,7 @@ void ExcelData::generateCode(const string& folderPath, const string& fileName)
   first_capital_file_name[0] = toupper(fileName[0], loc);
   p_className = first_capital_file_name + "Data";
   CPPFileComplete* file = new CPPFileComplete(p_className);
-  file->addHeaders("unordered_map", false, true);
+  file->addHeaders("map", false, true);
   file->addHeaders("cocos2d.h", true, false);
   file->addHeaders("ByteBuffer.hpp", true, false);
   file->addHeaders("Utils.hpp", true, false);
@@ -374,7 +374,7 @@ void ExcelData::setInitFunction(const string &className, CPPClass *cppClass, CPP
   string variableName = className;
   variableName[0] = tolower(variableName[0], loc); // goodsData
   string classTypeName = className + "*";     // GoodsData*
-  string mapDicType = "unordered_map<string, " + classTypeName + ">";
+  string mapDicType = "map<string, " + classTypeName + ">";
   string mapDicPointerType = mapDicType + "*";
   bool containLanguage = false;
   bool containSet = false;

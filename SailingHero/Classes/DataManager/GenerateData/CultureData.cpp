@@ -9,7 +9,7 @@ This file (CultureData.cpp) is generated
 
 using namespace std;
 
-unordered_map<string, CultureData*>* CultureData::p_sharedDictionary = nullptr;
+map<string, CultureData*>* CultureData::p_sharedDictionary = nullptr;
 
 string CultureData::getCutureId() const
 {
@@ -81,10 +81,10 @@ string CultureData::description() const
 	return desc;
 }
 
-unordered_map<string, CultureData*>* CultureData::getSharedDictionary()
+map<string, CultureData*>* CultureData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
-		p_sharedDictionary = new unordered_map<string, CultureData*>();
+		p_sharedDictionary = new map<string, CultureData*>();
 		static string resPath = "res/base/data/culture.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {

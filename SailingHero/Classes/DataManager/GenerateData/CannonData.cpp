@@ -9,7 +9,7 @@ This file (CannonData.cpp) is generated
 
 using namespace std;
 
-unordered_map<string, CannonData*>* CannonData::p_sharedDictionary = nullptr;
+map<string, CannonData*>* CannonData::p_sharedDictionary = nullptr;
 
 string CannonData::getCannonId() const
 {
@@ -75,10 +75,10 @@ string CannonData::description() const
 	return desc;
 }
 
-unordered_map<string, CannonData*>* CannonData::getSharedDictionary()
+map<string, CannonData*>* CannonData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
-		p_sharedDictionary = new unordered_map<string, CannonData*>();
+		p_sharedDictionary = new map<string, CannonData*>();
 		static string resPath = "res/base/data/cannon.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {

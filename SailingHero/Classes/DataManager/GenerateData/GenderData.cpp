@@ -9,7 +9,7 @@ This file (GenderData.cpp) is generated
 
 using namespace std;
 
-unordered_map<string, GenderData*>* GenderData::p_sharedDictionary = nullptr;
+map<string, GenderData*>* GenderData::p_sharedDictionary = nullptr;
 
 string GenderData::getGenderId() const
 {
@@ -31,10 +31,10 @@ string GenderData::description() const
 	return desc;
 }
 
-unordered_map<string, GenderData*>* GenderData::getSharedDictionary()
+map<string, GenderData*>* GenderData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
-		p_sharedDictionary = new unordered_map<string, GenderData*>();
+		p_sharedDictionary = new map<string, GenderData*>();
 		static string resPath = "res/base/data/gender.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {

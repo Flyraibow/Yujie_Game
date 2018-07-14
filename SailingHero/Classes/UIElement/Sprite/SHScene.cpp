@@ -68,17 +68,23 @@ Size SHScene::getScreenSize() const
 }
 
 void SHScene::setBackgroundImage(std::string imgPath) {
-    auto background = Sprite::create(imgPath);
-    CCASSERT(background, ("unable to find image with path : " + imgPath).c_str());
+    s_background = Sprite::create(imgPath);
+    CCASSERT(s_background, ("unable to find image with path : " + imgPath).c_str());
     auto visibleSize = Director::getInstance()->getVisibleSize();
-    auto contentSize = background->getContentSize();
+    auto contentSize = s_background->getContentSize();
     // TODO: ADD how to set align, vertical or horizontal or minimum or maximum or actual size
     auto r1 = visibleSize.width / contentSize.width;
     auto r2 = visibleSize.height / contentSize.height;
     auto r = max(r1, r2);
-    background->setScale(r);
-    background->setNormalizedPosition(Vec2(0.5, 0.5));
-    this->addChild(background);
+    s_background->setScale(r);
+    s_background->setNormalizedPosition(Vec2(0.5, 0.5));
+    this->addChild(s_background);
+}
+
+
+Node* SHScene::getBackground()
+{
+  return s_background;
 }
 
 void SHScene::setBackgroundMusic(std::string path) {

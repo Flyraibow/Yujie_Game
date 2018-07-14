@@ -28,7 +28,6 @@ LocalizationHelper* LocalizationHelper::getInstance()
     }
     
     return s_sharedLocalizationHelper;
-    
 }
 
 void LocalizationHelper::load(const std::string &filename)
@@ -41,17 +40,13 @@ void LocalizationHelper::load(const std::string &filename)
         
         auto buffer = make_unique<bb::ByteBuffer>(bytes, data.getSize());
         auto count = buffer->getLong();
-        CCLOG("======= count : %llu", count);
         for (int i = 0; i < count; ++i) {
             string localId = buffer->getString();
             string translation = buffer->getString();
-            cout << localId << "  " << translation << endl;
             s_map[localId] = translation;
         }
     }
-    else CCLOG("FILE not found");
-    
-    
+    else CCLOGWARN("FILE %s not found", filename.c_str());
 }
 
 string LocalizationHelper::getLocalization(const string &localId)
@@ -59,6 +54,6 @@ string LocalizationHelper::getLocalization(const string &localId)
     if (LocalizationHelper::getInstance()->s_map.count(localId)) {
         return LocalizationHelper::getInstance()->s_map.at(localId);
     }
-    CCLOG("Local id doesn't have translation: %s", localId.c_str());
+    CCLOGWARN("Local id doesn't have translation: %s", localId.c_str());
     return localId;
 }

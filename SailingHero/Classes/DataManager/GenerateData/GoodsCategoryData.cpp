@@ -9,7 +9,7 @@ This file (GoodsCategoryData.cpp) is generated
 
 using namespace std;
 
-unordered_map<string, GoodsCategoryData*>* GoodsCategoryData::p_sharedDictionary = nullptr;
+map<string, GoodsCategoryData*>* GoodsCategoryData::p_sharedDictionary = nullptr;
 
 string GoodsCategoryData::getCategoryId() const
 {
@@ -42,10 +42,10 @@ string GoodsCategoryData::description() const
 	return desc;
 }
 
-unordered_map<string, GoodsCategoryData*>* GoodsCategoryData::getSharedDictionary()
+map<string, GoodsCategoryData*>* GoodsCategoryData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
-		p_sharedDictionary = new unordered_map<string, GoodsCategoryData*>();
+		p_sharedDictionary = new map<string, GoodsCategoryData*>();
 		static string resPath = "res/base/data/goodsCategory.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {

@@ -53,6 +53,10 @@
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
 		EC217D4220BC7F9A000ADDE3 /* title.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EC217D4120BC7F9A000ADDE3 /* title.mp3 */; };
 		EC217D4920BC84AB000ADDE3 /* SHDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC217D4720BC84AB000ADDE3 /* SHDataManager.cpp */; };
+		EC72727320F86EB0005BD63D /* SelectHeroMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72727220F86EB0005BD63D /* SelectHeroMenu.cpp */; };
+		EC72727720F87AA2005BD63D /* HeroSelectingFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72727520F87AA2005BD63D /* HeroSelectingFrame.cpp */; };
+		EC72727A20F88A0B005BD63D /* HeroSelectData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72727820F88A0B005BD63D /* HeroSelectData.cpp */; };
+		EC72728020FA57DB005BD63D /* SHSpriteListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72727E20FA57DB005BD63D /* SHSpriteListener.cpp */; };
 		ECADF31520ACE1A900B77618 /* SailingHerorMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF31320ACE1A900B77618 /* SailingHerorMenu.cpp */; };
 		ECADF31E20ACF21200B77618 /* SystemButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF31C20ACF21200B77618 /* SystemButton.cpp */; };
 		ECADF32420ACFD0800B77618 /* LocalizationHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF32220ACFD0800B77618 /* LocalizationHelper.cpp */; };
@@ -162,6 +166,14 @@
 		EC217D4120BC7F9A000ADDE3 /* title.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = title.mp3; sourceTree = "<group>"; };
 		EC217D4720BC84AB000ADDE3 /* SHDataManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHDataManager.cpp; sourceTree = "<group>"; };
 		EC217D4820BC84AB000ADDE3 /* SHDataManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHDataManager.hpp; sourceTree = "<group>"; };
+		EC72727120F86EAF005BD63D /* SelectHeroMenu.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SelectHeroMenu.hpp; sourceTree = "<group>"; };
+		EC72727220F86EB0005BD63D /* SelectHeroMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectHeroMenu.cpp; sourceTree = "<group>"; };
+		EC72727520F87AA2005BD63D /* HeroSelectingFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HeroSelectingFrame.cpp; sourceTree = "<group>"; };
+		EC72727620F87AA2005BD63D /* HeroSelectingFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HeroSelectingFrame.hpp; sourceTree = "<group>"; };
+		EC72727820F88A0B005BD63D /* HeroSelectData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HeroSelectData.cpp; path = GenerateData/HeroSelectData.cpp; sourceTree = "<group>"; };
+		EC72727920F88A0B005BD63D /* HeroSelectData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = HeroSelectData.hpp; path = GenerateData/HeroSelectData.hpp; sourceTree = "<group>"; };
+		EC72727E20FA57DB005BD63D /* SHSpriteListener.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHSpriteListener.cpp; sourceTree = "<group>"; };
+		EC72727F20FA57DB005BD63D /* SHSpriteListener.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHSpriteListener.hpp; sourceTree = "<group>"; };
 		ECADF31320ACE1A900B77618 /* SailingHerorMenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SailingHerorMenu.cpp; sourceTree = "<group>"; };
 		ECADF31420ACE1A900B77618 /* SailingHerorMenu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SailingHerorMenu.hpp; sourceTree = "<group>"; };
 		ECADF31C20ACF21200B77618 /* SystemButton.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SystemButton.cpp; sourceTree = "<group>"; };
@@ -343,6 +355,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				EC72726F20F7D00F005BD63D /* SceneUI */,
 				EC217D4320BC8200000ADDE3 /* DataManager */,
 				ECADF32120ACFC9D00B77618 /* Sys */,
 				ECADF31A20ACF1BF00B77618 /* UIElement */,
@@ -388,9 +401,28 @@
 			path = DataManager;
 			sourceTree = "<group>";
 		};
+		EC72726F20F7D00F005BD63D /* SceneUI */ = {
+			isa = PBXGroup;
+			children = (
+				EC72727220F86EB0005BD63D /* SelectHeroMenu.cpp */,
+				EC72727120F86EAF005BD63D /* SelectHeroMenu.hpp */,
+			);
+			path = SceneUI;
+			sourceTree = "<group>";
+		};
+		EC72727420F87A6B005BD63D /* Frame */ = {
+			isa = PBXGroup;
+			children = (
+				EC72727520F87AA2005BD63D /* HeroSelectingFrame.cpp */,
+				EC72727620F87AA2005BD63D /* HeroSelectingFrame.hpp */,
+			);
+			path = Frame;
+			sourceTree = "<group>";
+		};
 		ECADF31A20ACF1BF00B77618 /* UIElement */ = {
 			isa = PBXGroup;
 			children = (
+				EC72727420F87A6B005BD63D /* Frame */,
 				ECF294A820B1357700536532 /* Sprite */,
 				ECADF31B20ACF1D500B77618 /* Button */,
 			);
@@ -420,6 +452,8 @@
 		ECD52B1F20BFB05A000F7170 /* GenerateData */ = {
 			isa = PBXGroup;
 			children = (
+				EC72727820F88A0B005BD63D /* HeroSelectData.cpp */,
+				EC72727920F88A0B005BD63D /* HeroSelectData.hpp */,
 				ECBEF11620E48B9B0010A767 /* GenderData.cpp */,
 				ECBEF11220E48B9A0010A767 /* GenderData.hpp */,
 				ECBEF11720E48B9B0010A767 /* HeroData.cpp */,
@@ -462,6 +496,8 @@
 				ECF294AB20B135B300536532 /* SHColorNode.hpp */,
 				ECF294B320BBCC9800536532 /* SHScene.cpp */,
 				ECF294B420BBCC9800536532 /* SHScene.hpp */,
+				EC72727E20FA57DB005BD63D /* SHSpriteListener.cpp */,
+				EC72727F20FA57DB005BD63D /* SHSpriteListener.hpp */,
 			);
 			path = Sprite;
 			sourceTree = "<group>";
@@ -605,6 +641,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC72727720F87AA2005BD63D /* HeroSelectingFrame.cpp in Sources */,
 				ECADF32420ACFD0800B77618 /* LocalizationHelper.cpp in Sources */,
 				1AF87B781F6F77F7007BE51C /* AppController.mm in Sources */,
 				ECBEF11B20E48B9B0010A767 /* HeroData.cpp in Sources */,
@@ -612,7 +649,9 @@
 				EC217D4920BC84AB000ADDE3 /* SHDataManager.cpp in Sources */,
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
 				ECADF31E20ACF21200B77618 /* SystemButton.cpp in Sources */,
+				EC72727320F86EB0005BD63D /* SelectHeroMenu.cpp in Sources */,
 				ECF294AC20B135B300536532 /* SHColorNode.cpp in Sources */,
+				EC72727A20F88A0B005BD63D /* HeroSelectData.cpp in Sources */,
 				ECBEF11E20E492F70010A767 /* SaveDataManager.cpp in Sources */,
 				ECD52B3B20C224D8000F7170 /* GoodsCategoryData.cpp in Sources */,
 				ECD52B2220BFB073000F7170 /* GoodsData.cpp in Sources */,
@@ -627,6 +666,7 @@
 				ECADF31520ACE1A900B77618 /* SailingHerorMenu.cpp in Sources */,
 				ECD52B4620C2F7D8000F7170 /* CultureData.cpp in Sources */,
 				1AF87B8A1F6F7822007BE51C /* main.m in Sources */,
+				EC72728020FA57DB005BD63D /* SHSpriteListener.cpp in Sources */,
 				ECD52B3A20C224D8000F7170 /* CategoryUpdateData.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 			);

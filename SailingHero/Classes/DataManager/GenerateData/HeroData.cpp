@@ -9,7 +9,7 @@ This file (HeroData.cpp) is generated
 
 using namespace std;
 
-unordered_map<string, HeroData*>* HeroData::p_sharedDictionary = nullptr;
+map<string, HeroData*>* HeroData::p_sharedDictionary = nullptr;
 
 string HeroData::getHeroId() const
 {
@@ -257,10 +257,10 @@ string HeroData::description() const
 	return desc;
 }
 
-unordered_map<string, HeroData*>* HeroData::getSharedDictionary()
+map<string, HeroData*>* HeroData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
-		p_sharedDictionary = new unordered_map<string, HeroData*>();
+		p_sharedDictionary = new map<string, HeroData*>();
 		static string resPath = "res/base/data/hero.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {

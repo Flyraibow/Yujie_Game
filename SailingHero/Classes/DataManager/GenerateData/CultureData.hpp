@@ -3,13 +3,13 @@ This file (CultureData.hpp) is generated
 */
 #ifndef CultureData_hpp
 #define CultureData_hpp
-#include <unordered_map>
+#include <map>
 
 using namespace std;
 class CultureData
 {
 private:
-	static unordered_map<string, CultureData*>* p_sharedDictionary;
+	static map<string, CultureData*>* p_sharedDictionary;
 	string p_cutureId;
 	string p_oceanMusicId;
 	string p_cityMusicId;
@@ -27,7 +27,7 @@ public:
 	cocos2d::Sprite* getPlazaBuildingIcon() const;
 	string getPlazaBuildingIconId() const;
 	string description() const;
-	static unordered_map<string, CultureData*>* getSharedDictionary();
+	static map<string, CultureData*>* getSharedDictionary();
 	static CultureData* getCultureDataById(const string& cutureId);
 };
 #endif

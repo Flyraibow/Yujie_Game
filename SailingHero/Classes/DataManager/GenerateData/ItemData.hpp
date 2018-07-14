@@ -3,14 +3,14 @@ This file (ItemData.hpp) is generated
 */
 #ifndef ItemData_hpp
 #define ItemData_hpp
-#include <unordered_map>
+#include <map>
 #include "ItemCategoryData.hpp"
 
 using namespace std;
 class ItemData
 {
 private:
-	static unordered_map<string, ItemData*>* p_sharedDictionary;
+	static map<string, ItemData*>* p_sharedDictionary;
 	string p_itemId;
 	string p_iconId;
 	string p_itemCategoryId;
@@ -29,7 +29,7 @@ public:
 	int getPrice() const;
 	string getItemDescription() const;
 	string description() const;
-	static unordered_map<string, ItemData*>* getSharedDictionary();
+	static map<string, ItemData*>* getSharedDictionary();
 	static ItemData* getItemDataById(const string& itemId);
 };
 #endif
