@@ -11,7 +11,7 @@
 #include "SystemButton.hpp"
 #include "LocalizationHelper.hpp"
 #include "SaveDataManager.hpp"
-#include "SelectHeroMenu.hpp"
+#include "SelectHeroMenuScene.hpp"
 
 #include "SHColorNode.hpp"
 #include <string>
@@ -71,8 +71,7 @@ bool SailingHeroMenu::init()
 
 void SailingHeroMenu::clickStartGame(cocos2d::Ref* pSender)
 {
-  SaveDataManager::clearData();
-  auto scene = SelectHeroMenu::createScene();
+  auto scene = SelectHeroMenuScene::createScene();
   Director::getInstance()->pushScene(scene);
 }
 

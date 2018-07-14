@@ -5,21 +5,23 @@
 //  Created by Yujie Liu on 5/16/18.
 //
 
-#include "SelectHeroMenu.hpp"
+#include "SelectHeroMenuScene.hpp"
 
 #include "SystemButton.hpp"
 #include "LocalizationHelper.hpp"
 #include "HeroSelectingFrame.hpp"
 #include "SHSpriteListener.hpp"
 #include "HeroSelectData.hpp"
+#include "SelectHeroDisplayScene.hpp"
+#include "SaveDataManager.hpp"
 
 
 USING_NS_CC;
 using namespace ui;
 
-Scene* SelectHeroMenu::createScene()
+Scene* SelectHeroMenuScene::createScene()
 {
-  return SelectHeroMenu::create();
+  return SelectHeroMenuScene::create();
 }
 
 // Print useful error message instead of segfaulting when files are not there.
@@ -35,14 +37,17 @@ static void setEventListenerForSprite(Sprite *sprite, HeroSelectData *selectData
 
   // trigger when moving touch
   auto touchEnd = [selectData](Touch* touch, Event* event){
+    SaveDataManager::clearData();
     CCLOG("select %s", selectData->getHeroData()->getHeroFirstName().c_str());
+    auto scene = SelectHeroDisplayScene::createScene(selectData);
+    Director::getInstance()->pushScene(scene);
   };
   listener->setTouchOver(nullptr, nullptr);
   listener->setTouchEnd(touchEnd, nullptr);
 }
 
 // on "init" you need to initialize your instance
-bool SelectHeroMenu::init()
+bool SelectHeroMenuScene::init()
 {
   //////////////////////////////
   // 1. super init first
@@ -66,10 +71,9 @@ bool SelectHeroMenu::init()
     peoplePanel->setPosition(Vec2(origin.x + visibleSize.width / 2  - 100 + index * 200, origin.y + visibleSize.height / 2));
     this->addChild(peoplePanel);
   }
-  
-  
+
   auto btnCancel = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("sys_cancel"),
-                                                       CC_CALLBACK_1(SelectHeroMenu::clickCancelButton, this));
+                                                       CC_CALLBACK_1(SelectHeroMenuScene::clickCancelButton, this));
   
   btnCancel->setAnchorPoint(Vec2(1,0));
   btnCancel->setPosition(Vec2(origin.x + visibleSize.width - 15, origin.y + 12));
@@ -79,7 +83,7 @@ bool SelectHeroMenu::init()
   return true;
 }
 
-void SelectHeroMenu::clickCancelButton(cocos2d::Ref* pSender)
+void SelectHeroMenuScene::clickCancelButton(cocos2d::Ref* pSender)
 {
   Director::getInstance()->popScene();
 }

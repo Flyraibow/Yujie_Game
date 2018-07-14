@@ -10,7 +10,7 @@
 
 #include "SHScene.hpp"
 
-class SelectHeroMenu : public SHScene
+class SelectHeroMenuScene : public SHScene
 {
 public:
   static cocos2d::Scene* createScene();
@@ -19,7 +19,7 @@ public:
   
   void clickCancelButton(cocos2d::Ref* pSender);
   // implement the "static create()" method manually
-  CREATE_FUNC(SelectHeroMenu);
+  CREATE_FUNC(SelectHeroMenuScene);
 };
 
 #endif /* SailingHerorMenu_hpp */

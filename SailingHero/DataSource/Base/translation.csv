@@ -5,3 +5,6 @@ game_setting,游戏设置
 sys_close,关闭
 sys_cancel,取消
 sys_confirm,决定
+change_hero_name,更改姓名
+change_guild_name,更改势力名
+change_hero_birth,更改生日
