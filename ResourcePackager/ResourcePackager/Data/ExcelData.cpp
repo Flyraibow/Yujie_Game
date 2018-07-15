@@ -282,11 +282,16 @@ void setPublicGetFunction(CPPClass *cppClass, const DataSchema *schema, const st
   if (type == ICON) {
     string getIconFuncName = getSchemaFuncName; // getGoodsIconId
     getIconFuncName = getIconFuncName.substr(0, getIconFuncName.length() - 2);  // getGoodsIcon
-    auto getIconFunction = new CPPFunction(getIconFuncName, "cocos2d::Sprite*");
+    auto varIsDefault = new CPPVariable("isDefaultSize", TYPE_BOOL);
+    varIsDefault->setInitialValue("true");
+    auto getIconFunction = new CPPFunction(getIconFuncName, "cocos2d::Sprite*", {varIsDefault}, false, false);
     getIconFunction->addBodyStatementsList({
       "static const string s_basePath = \"" + schema->getSubtype() + "\";",
       "string path = s_basePath + " + schemaName + ";",
-      "return cocos2d::Sprite::create(path);"
+      "auto icon = cocos2d::Sprite::create(path);",
+      "if (!isDefaultSize) {",
+      "\ticon->setScale(cocos2d::Director::getInstance()->getContentScaleFactor());", "}",
+      "return icon;"
       
     }, 0);
     cppClass->addFunction(getIconFunction, false);

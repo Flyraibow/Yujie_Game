@@ -21,7 +21,7 @@ public:
 	string getGoodsName() const;
 	GoodsCategoryData* getGoodsCategoryData() const;
 	string getCategoryId() const;
-	cocos2d::Sprite* getIcon() const;
+	cocos2d::Sprite* getIcon(bool isDefaultSize = true);
 	string getIconId() const;
 	int getMaxPrice() const;
 	int getLevelUpExp() const;

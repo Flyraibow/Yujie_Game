@@ -44,11 +44,15 @@ string CultureData::getCityMusicId() const
 	return p_cityMusicId;
 }
 
-cocos2d::Sprite* CultureData::getPlazaStoreIcon() const
+cocos2d::Sprite* CultureData::getPlazaStoreIcon(bool isDefaultSize)
 {
 	static const string s_basePath = "res/base/icon/plaza/";
 	string path = s_basePath + p_plazaStoreIconId;
-	return cocos2d::Sprite::create(path);
+	auto icon = cocos2d::Sprite::create(path);
+	if (!isDefaultSize) {
+		icon->setScale(cocos2d::Director::getInstance()->getContentScaleFactor());
+	}
+	return icon;
 }
 
 string CultureData::getPlazaStoreIconId() const
@@ -56,11 +60,15 @@ string CultureData::getPlazaStoreIconId() const
 	return p_plazaStoreIconId;
 }
 
-cocos2d::Sprite* CultureData::getPlazaBuildingIcon() const
+cocos2d::Sprite* CultureData::getPlazaBuildingIcon(bool isDefaultSize)
 {
 	static const string s_basePath = "res/base/icon/plaza/";
 	string path = s_basePath + p_plazaBuildingIconId;
-	return cocos2d::Sprite::create(path);
+	auto icon = cocos2d::Sprite::create(path);
+	if (!isDefaultSize) {
+		icon->setScale(cocos2d::Director::getInstance()->getContentScaleFactor());
+	}
+	return icon;
 }
 
 string CultureData::getPlazaBuildingIconId() const

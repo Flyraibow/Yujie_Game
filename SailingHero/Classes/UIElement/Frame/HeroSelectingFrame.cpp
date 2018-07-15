@@ -14,13 +14,13 @@ using namespace std;
 Sprite * HeroSelectingFrame::createWithSelectHeroId(const string &selectHeroId)
 {
   auto sprite = Sprite::create("res/base/frame/peopleFrame.png");
-  auto heroSprite = HeroSelectData::getHeroSelectDataById(selectHeroId)->getIcon();
+  auto heroSprite = HeroSelectData::getHeroSelectDataById(selectHeroId)->getSmallIcon();
   heroSprite->setAnchorPoint(Vec2(0, 0));
   auto f = Director::getInstance()->getContentScaleFactor();
   heroSprite->setPosition(Vec2(13 / f, 19 / f));
   heroSprite->setContentSize(Size(112 / f, 144 / f));
   sprite->addChild(heroSprite);
-  sprite->setScale(3);
+  sprite->setScale(f/1.5);
   return sprite;
 }
 
@@ -33,6 +33,6 @@ Sprite* HeroSelectingFrame::createBigPhotoWithSelectHeroId(const string &selectH
   heroSprite->setPosition(Vec2(32 / f, 64 / f));
   heroSprite->setContentSize(Size(210 / f, 258 / f));
   sprite->addChild(heroSprite);
-  sprite->setScale(2.5);
+  sprite->setScale(f/2);
   return sprite;
 }

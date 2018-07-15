@@ -8,3 +8,10 @@ sys_confirm,决定
 change_hero_name,更改姓名
 change_guild_name,更改势力名
 change_hero_birth,更改生日
+date_display,%d月%d日
+birth_dsiplay,%d月%d日 出生
+input_last_name,请输入姓氏
+input_first_name,请输入名字
+input_guild_name,请输入势力名
+input_birth_month,请输入生日的月份
+input_birth_day,请输入生日的日期

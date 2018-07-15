@@ -16,11 +16,15 @@ string HeroSelectData::getSelectHeroId() const
 	return p_selectHeroId;
 }
 
-cocos2d::Sprite* HeroSelectData::getIcon() const
+cocos2d::Sprite* HeroSelectData::getIcon(bool isDefaultSize)
 {
-	static const string s_basePath = "res/base/icon/bustup/";
+	static const string s_basePath = "res/base/icon/firstGrp/";
 	string path = s_basePath + p_iconId;
-	return cocos2d::Sprite::create(path);
+	auto icon = cocos2d::Sprite::create(path);
+	if (!isDefaultSize) {
+		icon->setScale(cocos2d::Director::getInstance()->getContentScaleFactor());
+	}
+	return icon;
 }
 
 string HeroSelectData::getIconId() const
@@ -28,9 +32,25 @@ string HeroSelectData::getIconId() const
 	return p_iconId;
 }
 
-HeroData* HeroSelectData::getHeroData() const
+cocos2d::Sprite* HeroSelectData::getSmallIcon(bool isDefaultSize)
 {
-	return HeroData::getHeroDataById(p_heroId);
+	static const string s_basePath = "res/base/icon/firstGrp/";
+	string path = s_basePath + p_smallIconId;
+	auto icon = cocos2d::Sprite::create(path);
+	if (!isDefaultSize) {
+		icon->setScale(cocos2d::Director::getInstance()->getContentScaleFactor());
+	}
+	return icon;
+}
+
+string HeroSelectData::getSmallIconId() const
+{
+	return p_smallIconId;
+}
+
+GuildData* HeroSelectData::getGuildData() const
+{
+	return GuildData::getGuildDataById(p_heroId);
 }
 
 string HeroSelectData::getHeroId() const
@@ -49,6 +69,7 @@ string HeroSelectData::description() const
 	string desc = "heroSelectData = {\n";
 	desc += "\tselectHeroId : " + to_string(p_selectHeroId) + "\n";
 	desc += "\ticonId : " + to_string(p_iconId) + "\n";
+	desc += "\tsmallIconId : " + to_string(p_smallIconId) + "\n";
 	desc += "\theroId : " + to_string(p_heroId) + "\n";
 	desc += "\theroDescription : " + getHeroDescription() + "\n";
 	desc += "}\n";
@@ -69,6 +90,7 @@ map<string, HeroSelectData*>* HeroSelectData::getSharedDictionary()
 				HeroSelectData* heroSelectData = new HeroSelectData();
 				heroSelectData->p_selectHeroId = buffer->getString();
 				heroSelectData->p_iconId = buffer->getString();
+				heroSelectData->p_smallIconId = buffer->getString();
 				heroSelectData->p_heroId = buffer->getString();
 				p_sharedDictionary->insert(pair<string, HeroSelectData*>(heroSelectData->p_selectHeroId, heroSelectData));
 			}

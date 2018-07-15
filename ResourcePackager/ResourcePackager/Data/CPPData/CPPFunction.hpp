@@ -36,7 +36,7 @@ public:
     void addBodyStatements(const string &statement, int tabNumber);
     void addBodyStatementsList(const vector<pair<string, int>> &statementList);
     void addBodyStatementsList(const vector<string> &statementList, int tabNumber);
-    string getDefinitionString(const CPPClass *cppClass) const;
+    string getDefinitionString(const CPPClass *cppClass, bool isHeader = true) const;
     string getContentString(const CPPClass *cppClass) const;
     string getReturnTypeString() const;
     string getBodyContent() const;

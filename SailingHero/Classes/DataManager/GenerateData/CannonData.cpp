@@ -28,11 +28,15 @@ string CannonData::getCannonDescription() const
 	return LocalizationHelper::getLocalization(localId);
 }
 
-cocos2d::Sprite* CannonData::getIcon() const
+cocos2d::Sprite* CannonData::getIcon(bool isDefaultSize)
 {
 	static const string s_basePath = "res/base/icon/cannon";
 	string path = s_basePath + p_iconId;
-	return cocos2d::Sprite::create(path);
+	auto icon = cocos2d::Sprite::create(path);
+	if (!isDefaultSize) {
+		icon->setScale(cocos2d::Director::getInstance()->getContentScaleFactor());
+	}
+	return icon;
 }
 
 string CannonData::getIconId() const

@@ -59,6 +59,26 @@ void HeroData::setGenderId(string genderId)
 	p_genderId = genderId;
 }
 
+int HeroData::getBirthMonth() const
+{
+	return p_birthMonth;
+}
+
+void HeroData::setBirthMonth(int birthMonth)
+{
+	p_birthMonth = birthMonth;
+}
+
+int HeroData::getBirthDay() const
+{
+	return p_birthDay;
+}
+
+void HeroData::setBirthDay(int birthDay)
+{
+	p_birthDay = birthDay;
+}
+
 int HeroData::getLevel() const
 {
 	return p_level;
@@ -236,6 +256,8 @@ string HeroData::description() const
 	desc += "\theroFirstName : " + getHeroFirstName() + "\n";
 	desc += "\theroLastName : " + getHeroLastName() + "\n";
 	desc += "\tgenderId : " + to_string(p_genderId) + "\n";
+	desc += "\tbirthMonth : " + to_string(p_birthMonth) + "\n";
+	desc += "\tbirthDay : " + to_string(p_birthDay) + "\n";
 	desc += "\tlevel : " + to_string(p_level) + "\n";
 	desc += "\tphysicalStrength : " + to_string(p_physicalStrength) + "\n";
 	desc += "\tagility : " + to_string(p_agility) + "\n";
@@ -271,6 +293,8 @@ map<string, HeroData*>* HeroData::getSharedDictionary()
 				HeroData* heroData = new HeroData();
 				heroData->p_heroId = buffer->getString();
 				heroData->p_genderId = buffer->getString();
+				heroData->p_birthMonth = buffer->getInt();
+				heroData->p_birthDay = buffer->getInt();
 				heroData->p_level = buffer->getInt();
 				heroData->p_physicalStrength = buffer->getInt();
 				heroData->p_agility = buffer->getInt();
@@ -310,7 +334,7 @@ bool HeroData::saveData(const string & path)
 	auto dict = HeroData::getSharedDictionary();
 	auto buffer = make_unique<bb::ByteBuffer>();
 	buffer->putLong(dict->size());
-	buffer->putInt(20);
+	buffer->putInt(22);
 	for (auto iter = dict->begin(); iter != dict->end(); iter++) {
 		auto dataId = iter->first;
 		auto data = iter->second;
@@ -321,6 +345,10 @@ bool HeroData::saveData(const string & path)
 		buffer->putString(to_string(data->p_heroLastName));
 		buffer->putString("genderId");
 		buffer->putString(to_string(data->p_genderId));
+		buffer->putString("birthMonth");
+		buffer->putString(to_string(data->p_birthMonth));
+		buffer->putString("birthDay");
+		buffer->putString(to_string(data->p_birthDay));
 		buffer->putString("level");
 		buffer->putString(to_string(data->p_level));
 		buffer->putString("physicalStrength");
@@ -386,6 +414,10 @@ bool HeroData::loadData(const string & path)
 						data->p_heroLastName = value;
 					} else if (key == "genderId") {
 						data->p_genderId = value;
+					} else if (key == "birthMonth") {
+						data->p_birthMonth = atoi(value.c_str());
+					} else if (key == "birthDay") {
+						data->p_birthDay = atoi(value.c_str());
 					} else if (key == "level") {
 						data->p_level = atoi(value.c_str());
 					} else if (key == "physicalStrength") {

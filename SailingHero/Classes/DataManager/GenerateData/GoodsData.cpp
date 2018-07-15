@@ -32,11 +32,15 @@ string GoodsData::getCategoryId() const
 	return p_categoryId;
 }
 
-cocos2d::Sprite* GoodsData::getIcon() const
+cocos2d::Sprite* GoodsData::getIcon(bool isDefaultSize)
 {
 	static const string s_basePath = "res/base/icon/goods/";
 	string path = s_basePath + p_iconId;
-	return cocos2d::Sprite::create(path);
+	auto icon = cocos2d::Sprite::create(path);
+	if (!isDefaultSize) {
+		icon->setScale(cocos2d::Director::getInstance()->getContentScaleFactor());
+	}
+	return icon;
 }
 
 string GoodsData::getIconId() const

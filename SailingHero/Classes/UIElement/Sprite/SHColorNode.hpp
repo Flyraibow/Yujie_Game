@@ -40,8 +40,6 @@ public:
     bool init() override;
     bool initWithColor(const Color4B& color);
     bool initWithColor(const Color4B& color, GLfloat w, GLfloat h);
-
-    virtual bool onTouchBegan(Touch *touch, Event *unused_event) override;
 };
 
 #endif /* SHColorNode_hpp */

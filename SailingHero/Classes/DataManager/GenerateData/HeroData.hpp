@@ -15,6 +15,8 @@ private:
 	string p_heroFirstName;
 	string p_heroLastName;
 	string p_genderId;
+	int p_birthMonth;
+	int p_birthDay;
 	int p_level;
 	int p_physicalStrength;
 	int p_agility;
@@ -41,6 +43,10 @@ public:
 	GenderData* getGenderData() const;
 	string getGenderId() const;
 	void setGenderId(string genderId);
+	int getBirthMonth() const;
+	void setBirthMonth(int birthMonth);
+	int getBirthDay() const;
+	void setBirthDay(int birthDay);
 	int getLevel() const;
 	void setLevel(int level);
 	int getPhysicalStrength() const;

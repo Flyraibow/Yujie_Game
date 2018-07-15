@@ -61,16 +61,15 @@ bool SHColorNode::initWithColor(const Color4B& color)
 
 void SHColorNode::commonInit()
 {
-    this->setTouchMode(Touch::DispatchMode::ONE_BY_ONE);
-    this->setTouchEnabled(true);
-}
-
-bool SHColorNode::onTouchBegan(Touch *touch, Event *unused_event) {
+  auto listener = EventListenerTouchOneByOne::create();
+  listener->onTouchBegan = [this](Touch *touch, Event *unused_event) {
     Director *pDirector = Director::getInstance();
     Point touchPoint = pDirector->convertToGL(touch->getLocationInView());
     auto flag = this->getBoundingBox().containsPoint(touchPoint);
     if (flag) {
-        CCLOG("Touch is swallowed by current view SHColorNode : %s", this->getName().c_str());
+      CCLOG("Touch is swallowed by current view SHColorNode : %s", this->getName().c_str());
     }
     return flag;
+  };
+  this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
 }

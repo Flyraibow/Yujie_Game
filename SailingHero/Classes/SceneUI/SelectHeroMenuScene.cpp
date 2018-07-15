@@ -38,7 +38,6 @@ static void setEventListenerForSprite(Sprite *sprite, HeroSelectData *selectData
   // trigger when moving touch
   auto touchEnd = [selectData](Touch* touch, Event* event){
     SaveDataManager::clearData();
-    CCLOG("select %s", selectData->getHeroData()->getHeroFirstName().c_str());
     auto scene = SelectHeroDisplayScene::createScene(selectData);
     Director::getInstance()->pushScene(scene);
   };

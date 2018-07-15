@@ -58,6 +58,9 @@
 		EC72727A20F88A0B005BD63D /* HeroSelectData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72727820F88A0B005BD63D /* HeroSelectData.cpp */; };
 		EC72728020FA57DB005BD63D /* SHSpriteListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72727E20FA57DB005BD63D /* SHSpriteListener.cpp */; };
 		EC72728320FA6FD0005BD63D /* SelectHeroDisplayScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72728120FA6FD0005BD63D /* SelectHeroDisplayScene.cpp */; };
+		EC72728620FAC85E005BD63D /* GuildData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72728520FAC85E005BD63D /* GuildData.cpp */; };
+		EC72728920FACBC6005BD63D /* SHGameDataHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72728720FACBC6005BD63D /* SHGameDataHelper.cpp */; };
+		EC72728C20FAE9F1005BD63D /* InputBoxFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72728A20FAE9F1005BD63D /* InputBoxFrame.cpp */; };
 		ECADF31520ACE1A900B77618 /* SailingHerorMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF31320ACE1A900B77618 /* SailingHerorMenu.cpp */; };
 		ECADF31E20ACF21200B77618 /* SystemButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF31C20ACF21200B77618 /* SystemButton.cpp */; };
 		ECADF32420ACFD0800B77618 /* LocalizationHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF32220ACFD0800B77618 /* LocalizationHelper.cpp */; };
@@ -177,6 +180,12 @@
 		EC72727F20FA57DB005BD63D /* SHSpriteListener.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHSpriteListener.hpp; sourceTree = "<group>"; };
 		EC72728120FA6FD0005BD63D /* SelectHeroDisplayScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SelectHeroDisplayScene.cpp; sourceTree = "<group>"; };
 		EC72728220FA6FD0005BD63D /* SelectHeroDisplayScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SelectHeroDisplayScene.hpp; sourceTree = "<group>"; };
+		EC72728420FAC85E005BD63D /* GuildData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GuildData.hpp; path = GenerateData/GuildData.hpp; sourceTree = "<group>"; };
+		EC72728520FAC85E005BD63D /* GuildData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GuildData.cpp; path = GenerateData/GuildData.cpp; sourceTree = "<group>"; };
+		EC72728720FACBC6005BD63D /* SHGameDataHelper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHGameDataHelper.cpp; sourceTree = "<group>"; };
+		EC72728820FACBC6005BD63D /* SHGameDataHelper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHGameDataHelper.hpp; sourceTree = "<group>"; };
+		EC72728A20FAE9F1005BD63D /* InputBoxFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InputBoxFrame.cpp; sourceTree = "<group>"; };
+		EC72728B20FAE9F1005BD63D /* InputBoxFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InputBoxFrame.hpp; sourceTree = "<group>"; };
 		ECADF31320ACE1A900B77618 /* SailingHerorMenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SailingHerorMenu.cpp; sourceTree = "<group>"; };
 		ECADF31420ACE1A900B77618 /* SailingHerorMenu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SailingHerorMenu.hpp; sourceTree = "<group>"; };
 		ECADF31C20ACF21200B77618 /* SystemButton.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SystemButton.cpp; sourceTree = "<group>"; };
@@ -420,6 +429,8 @@
 			children = (
 				EC72727520F87AA2005BD63D /* HeroSelectingFrame.cpp */,
 				EC72727620F87AA2005BD63D /* HeroSelectingFrame.hpp */,
+				EC72728A20FAE9F1005BD63D /* InputBoxFrame.cpp */,
+				EC72728B20FAE9F1005BD63D /* InputBoxFrame.hpp */,
 			);
 			path = Frame;
 			sourceTree = "<group>";
@@ -458,6 +469,8 @@
 			isa = PBXGroup;
 			children = (
 				EC72727820F88A0B005BD63D /* HeroSelectData.cpp */,
+				EC72728520FAC85E005BD63D /* GuildData.cpp */,
+				EC72728420FAC85E005BD63D /* GuildData.hpp */,
 				EC72727920F88A0B005BD63D /* HeroSelectData.hpp */,
 				ECBEF11620E48B9B0010A767 /* GenderData.cpp */,
 				ECBEF11220E48B9A0010A767 /* GenderData.hpp */,
@@ -490,6 +503,8 @@
 			children = (
 				ECD52B3E20C263A9000F7170 /* Utils.cpp */,
 				ECD52B3F20C263A9000F7170 /* Utils.hpp */,
+				EC72728720FACBC6005BD63D /* SHGameDataHelper.cpp */,
+				EC72728820FACBC6005BD63D /* SHGameDataHelper.hpp */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -646,11 +661,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC72728920FACBC6005BD63D /* SHGameDataHelper.cpp in Sources */,
 				EC72727720F87AA2005BD63D /* HeroSelectingFrame.cpp in Sources */,
 				ECADF32420ACFD0800B77618 /* LocalizationHelper.cpp in Sources */,
 				1AF87B781F6F77F7007BE51C /* AppController.mm in Sources */,
 				ECBEF11B20E48B9B0010A767 /* HeroData.cpp in Sources */,
 				ECBEF11A20E48B9B0010A767 /* GenderData.cpp in Sources */,
+				EC72728C20FAE9F1005BD63D /* InputBoxFrame.cpp in Sources */,
 				EC217D4920BC84AB000ADDE3 /* SHDataManager.cpp in Sources */,
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
 				ECADF31E20ACF21200B77618 /* SystemButton.cpp in Sources */,
@@ -669,6 +686,7 @@
 				ECD52B4020C263A9000F7170 /* Utils.cpp in Sources */,
 				ECD52B4B20C30296000F7170 /* ItemCategoryData.cpp in Sources */,
 				ECADF31520ACE1A900B77618 /* SailingHerorMenu.cpp in Sources */,
+				EC72728620FAC85E005BD63D /* GuildData.cpp in Sources */,
 				ECD52B4620C2F7D8000F7170 /* CultureData.cpp in Sources */,
 				1AF87B8A1F6F7822007BE51C /* main.m in Sources */,
 				EC72728020FA57DB005BD63D /* SHSpriteListener.cpp in Sources */,

@@ -20,7 +20,7 @@ private:
 public:
 	string getItemId() const;
 	string getItemName() const;
-	cocos2d::Sprite* getIcon() const;
+	cocos2d::Sprite* getIcon(bool isDefaultSize = true);
 	string getIconId() const;
 	ItemCategoryData* getItemCategoryData() const;
 	string getItemCategoryId() const;
