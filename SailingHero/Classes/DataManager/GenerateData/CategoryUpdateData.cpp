@@ -11,6 +11,11 @@ using namespace std;
 
 map<string, CategoryUpdateData*>* CategoryUpdateData::p_sharedDictionary = nullptr;
 
+string CategoryUpdateData::getId() const
+{
+	return p_categoryUpdateId;
+}
+
 string CategoryUpdateData::getCategoryUpdateId() const
 {
 	return p_categoryUpdateId;
@@ -22,7 +27,7 @@ string CategoryUpdateData::getCategoryUpdateName() const
 	return LocalizationHelper::getLocalization(localId);
 }
 
-unordered_set<int> CategoryUpdateData::getUpdateMonth() const
+set<int> CategoryUpdateData::getUpdateMonth() const
 {
 	return p_updateMonth;
 }

@@ -55,6 +55,11 @@ void CPPClass::addFunction(const CPPFunction* func, bool isPrivate)
   }
 }
 
+void CPPClass::setFatherClass(const string &fatherClass)
+{
+  p_fatherClassName = fatherClass;
+}
+
 CPPClass::CPPClass(const string &className)
 {
   p_className = className;
@@ -67,7 +72,7 @@ string CPPClass::getClassName() const
 
 string CPPClass::getClassHeaderString() const
 {
-  string statement = "class " + p_className + "\n{\n";
+  string statement = "class " + p_className + (p_fatherClassName.length() ? ": public " + p_fatherClassName : "") + "\n{\n";
   statement += "private:\n";
   for (auto vars : p_privateVariables) {
     statement += '\t' + vars->getDefineStatement() + ";\n";

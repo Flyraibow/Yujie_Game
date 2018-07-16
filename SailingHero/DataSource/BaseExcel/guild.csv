@@ -1,4 +1,4 @@
-﻿guildId,guildName,guildLeaderId,style,money
+﻿guildId,guildName,leader,style,money
 id,language,friend_id,int,int
 ,chinese,Hero,-,-
 writable,Y,N,N,Y

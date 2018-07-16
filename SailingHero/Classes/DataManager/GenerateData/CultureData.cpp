@@ -11,6 +11,11 @@ using namespace std;
 
 map<string, CultureData*>* CultureData::p_sharedDictionary = nullptr;
 
+string CultureData::getId() const
+{
+	return p_cutureId;
+}
+
 string CultureData::getCutureId() const
 {
 	return p_cutureId;

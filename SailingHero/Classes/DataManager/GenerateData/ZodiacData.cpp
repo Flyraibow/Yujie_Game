@@ -11,6 +11,11 @@ using namespace std;
 
 map<string, ZodiacData*>* ZodiacData::p_sharedDictionary = nullptr;
 
+string ZodiacData::getId() const
+{
+	return p_zodiacId;
+}
+
 string ZodiacData::getZodiacId() const
 {
 	return p_zodiacId;

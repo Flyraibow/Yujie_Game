@@ -11,6 +11,11 @@ using namespace std;
 
 map<string, GoodsData*>* GoodsData::p_sharedDictionary = nullptr;
 
+string GoodsData::getId() const
+{
+	return p_goodsId;
+}
+
 string GoodsData::getGoodsId() const
 {
 	return p_goodsId;
@@ -22,7 +27,7 @@ string GoodsData::getGoodsName() const
 	return LocalizationHelper::getLocalization(localId);
 }
 
-GoodsCategoryData* GoodsData::getGoodsCategoryData() const
+GoodsCategoryData* GoodsData::getCategoryData() const
 {
 	return GoodsCategoryData::getGoodsCategoryDataById(p_categoryId);
 }
@@ -69,7 +74,7 @@ string GoodsData::description() const
 	string desc = "goodsData = {\n";
 	desc += "\tgoodsId : " + to_string(p_goodsId) + "\n";
 	desc += "\tgoodsName : " + getGoodsName() + "\n";
-	desc += "\tcategoryId : " + to_string(p_categoryId) + "\n";
+	desc += "\tcategory : " + to_string(p_categoryId) + "\n";
 	desc += "\ticonId : " + to_string(p_iconId) + "\n";
 	desc += "\tmaxPrice : " + to_string(p_maxPrice) + "\n";
 	desc += "\tlevelUpExp : " + to_string(p_levelUpExp) + "\n";

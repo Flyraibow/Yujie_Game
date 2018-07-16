@@ -11,6 +11,11 @@ using namespace std;
 
 map<string, CannonData*>* CannonData::p_sharedDictionary = nullptr;
 
+string CannonData::getId() const
+{
+	return p_cannonId;
+}
+
 string CannonData::getCannonId() const
 {
 	return p_cannonId;

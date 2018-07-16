@@ -11,6 +11,11 @@ using namespace std;
 
 map<string, GuildData*>* GuildData::p_sharedDictionary = nullptr;
 
+string GuildData::getId() const
+{
+	return p_guildId;
+}
+
 string GuildData::getGuildId() const
 {
 	return p_guildId;
@@ -30,14 +35,14 @@ string GuildData::getGuildName() const
 	return LocalizationHelper::getLocalization(localId);
 }
 
-HeroData* GuildData::getHeroData() const
+HeroData* GuildData::getLeaderData() const
 {
-	return HeroData::getHeroDataById(p_guildLeaderId);
+	return HeroData::getHeroDataById(p_leaderId);
 }
 
-string GuildData::getGuildLeaderId() const
+string GuildData::getLeaderId() const
 {
-	return p_guildLeaderId;
+	return p_leaderId;
 }
 
 int GuildData::getStyle() const
@@ -60,7 +65,7 @@ string GuildData::description() const
 	string desc = "guildData = {\n";
 	desc += "\tguildId : " + to_string(p_guildId) + "\n";
 	desc += "\tguildName : " + getGuildName() + "\n";
-	desc += "\tguildLeaderId : " + to_string(p_guildLeaderId) + "\n";
+	desc += "\tleader : " + to_string(p_leaderId) + "\n";
 	desc += "\tstyle : " + to_string(p_style) + "\n";
 	desc += "\tmoney : " + to_string(p_money) + "\n";
 	desc += "}\n";
@@ -80,7 +85,7 @@ map<string, GuildData*>* GuildData::getSharedDictionary()
 			for (int i = 0; i < count; ++i) {
 				GuildData* guildData = new GuildData();
 				guildData->p_guildId = buffer->getString();
-				guildData->p_guildLeaderId = buffer->getString();
+				guildData->p_leaderId = buffer->getString();
 				guildData->p_style = buffer->getInt();
 				guildData->p_money = buffer->getInt();
 				p_sharedDictionary->insert(pair<string, GuildData*>(guildData->p_guildId, guildData));
@@ -110,9 +115,9 @@ bool GuildData::saveData(const string & path)
 		auto dataId = iter->first;
 		auto data = iter->second;
 		buffer->putString(dataId);
-		buffer->putString("guildName");
+		buffer->putString("p_guildName");
 		buffer->putString(to_string(data->p_guildName));
-		buffer->putString("money");
+		buffer->putString("p_money");
 		buffer->putString(to_string(data->p_money));
 	}
 	buffer->writeToFile(filePath);
@@ -139,9 +144,9 @@ bool GuildData::loadData(const string & path)
 				string key = buffer->getString();
 				string value = buffer->getString();
 				if (data != nullptr) {
-					if (key == "guildName") {
+					if (key == "p_guildName") {
 						data->p_guildName = value;
-					} else if (key == "money") {
+					} else if (key == "p_money") {
 						data->p_money = atoi(value.c_str());
 					}
 				}

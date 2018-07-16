@@ -11,6 +11,11 @@ using namespace std;
 
 map<string, ItemCategoryData*>* ItemCategoryData::p_sharedDictionary = nullptr;
 
+string ItemCategoryData::getId() const
+{
+	return p_itemCategoryId;
+}
+
 string ItemCategoryData::getItemCategoryId() const
 {
 	return p_itemCategoryId;

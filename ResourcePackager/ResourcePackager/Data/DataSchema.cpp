@@ -28,6 +28,7 @@ const static unordered_map<string, DataType> s_type_map({
   {"language", LANGUAGE},
   {"friend_id", FRIEND_ID},
   {"set", SET},
+  {"friend_id_set", FRIEND_ID_SET},
 });
 
 string DataSchema::getName() const

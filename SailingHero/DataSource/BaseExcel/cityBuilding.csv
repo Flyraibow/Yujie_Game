@@ -1,0 +1,16 @@
+﻿buildingId,buildingName,buildingImage
+id,language,string
+-,chinese,res/base/icon/cityBuilding/
+writable,N,N
+0,王宫,city_building_0.png
+1,总督府,city_building_1.png
+2,酒馆,city_building_2.png
+3,广场,city_building_3.png
+4,交易所,city_building_4.png
+5,造船厂,city_building_5.png
+6,同业公会,city_building_6.png
+7,码头,city_building_7.png
+8,旅馆,city_building_8.png
+9,遗迹,city_building_9.png
+10,教堂,city_building_10.png
+11,城门,city_building_11.png

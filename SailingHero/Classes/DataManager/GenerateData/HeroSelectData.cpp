@@ -11,6 +11,11 @@ using namespace std;
 
 map<string, HeroSelectData*>* HeroSelectData::p_sharedDictionary = nullptr;
 
+string HeroSelectData::getId() const
+{
+	return p_selectHeroId;
+}
+
 string HeroSelectData::getSelectHeroId() const
 {
 	return p_selectHeroId;
@@ -50,12 +55,12 @@ string HeroSelectData::getSmallIconId() const
 
 GuildData* HeroSelectData::getGuildData() const
 {
-	return GuildData::getGuildDataById(p_heroId);
+	return GuildData::getGuildDataById(p_guildId);
 }
 
-string HeroSelectData::getHeroId() const
+string HeroSelectData::getGuildId() const
 {
-	return p_heroId;
+	return p_guildId;
 }
 
 string HeroSelectData::getHeroDescription() const
@@ -70,7 +75,7 @@ string HeroSelectData::description() const
 	desc += "\tselectHeroId : " + to_string(p_selectHeroId) + "\n";
 	desc += "\ticonId : " + to_string(p_iconId) + "\n";
 	desc += "\tsmallIconId : " + to_string(p_smallIconId) + "\n";
-	desc += "\theroId : " + to_string(p_heroId) + "\n";
+	desc += "\tguild : " + to_string(p_guildId) + "\n";
 	desc += "\theroDescription : " + getHeroDescription() + "\n";
 	desc += "}\n";
 	return desc;
@@ -91,7 +96,7 @@ map<string, HeroSelectData*>* HeroSelectData::getSharedDictionary()
 				heroSelectData->p_selectHeroId = buffer->getString();
 				heroSelectData->p_iconId = buffer->getString();
 				heroSelectData->p_smallIconId = buffer->getString();
-				heroSelectData->p_heroId = buffer->getString();
+				heroSelectData->p_guildId = buffer->getString();
 				p_sharedDictionary->insert(pair<string, HeroSelectData*>(heroSelectData->p_selectHeroId, heroSelectData));
 			}
 		}

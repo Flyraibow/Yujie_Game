@@ -30,6 +30,7 @@ enum DataType {
   COMMENT,    // 评论
   FRIEND_ID,  // 友元
   SET,
+  FRIEND_ID_SET, // 引用集合
 };
 
 class DataSchema

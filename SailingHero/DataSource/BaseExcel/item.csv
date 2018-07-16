@@ -1,4 +1,4 @@
-﻿itemId,itemName,iconId,itemCategoryId,value,job,price,itemDescription
+﻿itemId,itemName,iconId,itemCategory,value,job,price,itemDescription
 id,language,icon,friend_id,int,int,int,language
 -,chinese,res/base/icon/item/,ItemCategory,-,-,-,chinese
 writable,N,N,N,N,N,N,N

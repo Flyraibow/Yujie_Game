@@ -11,6 +11,11 @@ using namespace std;
 
 map<string, GoodsCategoryData*>* GoodsCategoryData::p_sharedDictionary = nullptr;
 
+string GoodsCategoryData::getId() const
+{
+	return p_categoryId;
+}
+
 string GoodsCategoryData::getCategoryId() const
 {
 	return p_categoryId;
@@ -37,7 +42,7 @@ string GoodsCategoryData::description() const
 	string desc = "goodsCategoryData = {\n";
 	desc += "\tcategoryId : " + to_string(p_categoryId) + "\n";
 	desc += "\tcategory_name : " + getCategory_name() + "\n";
-	desc += "\tcategoryUpdateId : " + to_string(p_categoryUpdateId) + "\n";
+	desc += "\tcategoryUpdate : " + to_string(p_categoryUpdateId) + "\n";
 	desc += "}\n";
 	return desc;
 }

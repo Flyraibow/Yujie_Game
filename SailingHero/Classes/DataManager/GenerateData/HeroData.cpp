@@ -11,6 +11,11 @@ using namespace std;
 
 map<string, HeroData*>* HeroData::p_sharedDictionary = nullptr;
 
+string HeroData::getId() const
+{
+	return p_heroId;
+}
+
 string HeroData::getHeroId() const
 {
 	return p_heroId;
@@ -54,9 +59,9 @@ string HeroData::getGenderId() const
 	return p_genderId;
 }
 
-void HeroData::setGenderId(string genderId)
+void HeroData::setGender(string gender)
 {
-	p_genderId = genderId;
+	p_genderId = gender;
 }
 
 int HeroData::getBirthMonth() const
@@ -255,7 +260,7 @@ string HeroData::description() const
 	desc += "\theroId : " + to_string(p_heroId) + "\n";
 	desc += "\theroFirstName : " + getHeroFirstName() + "\n";
 	desc += "\theroLastName : " + getHeroLastName() + "\n";
-	desc += "\tgenderId : " + to_string(p_genderId) + "\n";
+	desc += "\tgender : " + to_string(p_genderId) + "\n";
 	desc += "\tbirthMonth : " + to_string(p_birthMonth) + "\n";
 	desc += "\tbirthDay : " + to_string(p_birthDay) + "\n";
 	desc += "\tlevel : " + to_string(p_level) + "\n";
@@ -339,49 +344,49 @@ bool HeroData::saveData(const string & path)
 		auto dataId = iter->first;
 		auto data = iter->second;
 		buffer->putString(dataId);
-		buffer->putString("heroFirstName");
+		buffer->putString("p_heroFirstName");
 		buffer->putString(to_string(data->p_heroFirstName));
-		buffer->putString("heroLastName");
+		buffer->putString("p_heroLastName");
 		buffer->putString(to_string(data->p_heroLastName));
-		buffer->putString("genderId");
+		buffer->putString("p_genderId");
 		buffer->putString(to_string(data->p_genderId));
-		buffer->putString("birthMonth");
+		buffer->putString("p_birthMonth");
 		buffer->putString(to_string(data->p_birthMonth));
-		buffer->putString("birthDay");
+		buffer->putString("p_birthDay");
 		buffer->putString(to_string(data->p_birthDay));
-		buffer->putString("level");
+		buffer->putString("p_level");
 		buffer->putString(to_string(data->p_level));
-		buffer->putString("physicalStrength");
+		buffer->putString("p_physicalStrength");
 		buffer->putString(to_string(data->p_physicalStrength));
-		buffer->putString("agility");
+		buffer->putString("p_agility");
 		buffer->putString(to_string(data->p_agility));
-		buffer->putString("charm");
+		buffer->putString("p_charm");
 		buffer->putString(to_string(data->p_charm));
-		buffer->putString("intelligence");
+		buffer->putString("p_intelligence");
 		buffer->putString(to_string(data->p_intelligence));
-		buffer->putString("mentalStrength");
+		buffer->putString("p_mentalStrength");
 		buffer->putString(to_string(data->p_mentalStrength));
-		buffer->putString("luck");
+		buffer->putString("p_luck");
 		buffer->putString(to_string(data->p_luck));
-		buffer->putString("healthPoint");
+		buffer->putString("p_healthPoint");
 		buffer->putString(to_string(data->p_healthPoint));
-		buffer->putString("commandingAbility");
+		buffer->putString("p_commandingAbility");
 		buffer->putString(to_string(data->p_commandingAbility));
-		buffer->putString("drivingAbility");
+		buffer->putString("p_drivingAbility");
 		buffer->putString(to_string(data->p_drivingAbility));
-		buffer->putString("measuringAbility");
+		buffer->putString("p_measuringAbility");
 		buffer->putString(to_string(data->p_measuringAbility));
-		buffer->putString("accountingAbility");
+		buffer->putString("p_accountingAbility");
 		buffer->putString(to_string(data->p_accountingAbility));
-		buffer->putString("fencingAbility");
+		buffer->putString("p_fencingAbility");
 		buffer->putString(to_string(data->p_fencingAbility));
-		buffer->putString("aimingAbility");
+		buffer->putString("p_aimingAbility");
 		buffer->putString(to_string(data->p_aimingAbility));
-		buffer->putString("eloquence");
+		buffer->putString("p_eloquence");
 		buffer->putString(to_string(data->p_eloquence));
-		buffer->putString("strategyAbility");
+		buffer->putString("p_strategyAbility");
 		buffer->putString(to_string(data->p_strategyAbility));
-		buffer->putString("observingAbility");
+		buffer->putString("p_observingAbility");
 		buffer->putString(to_string(data->p_observingAbility));
 	}
 	buffer->writeToFile(filePath);
@@ -408,49 +413,49 @@ bool HeroData::loadData(const string & path)
 				string key = buffer->getString();
 				string value = buffer->getString();
 				if (data != nullptr) {
-					if (key == "heroFirstName") {
+					if (key == "p_heroFirstName") {
 						data->p_heroFirstName = value;
-					} else if (key == "heroLastName") {
+					} else if (key == "p_heroLastName") {
 						data->p_heroLastName = value;
-					} else if (key == "genderId") {
+					} else if (key == "p_genderId") {
 						data->p_genderId = value;
-					} else if (key == "birthMonth") {
+					} else if (key == "p_birthMonth") {
 						data->p_birthMonth = atoi(value.c_str());
-					} else if (key == "birthDay") {
+					} else if (key == "p_birthDay") {
 						data->p_birthDay = atoi(value.c_str());
-					} else if (key == "level") {
+					} else if (key == "p_level") {
 						data->p_level = atoi(value.c_str());
-					} else if (key == "physicalStrength") {
+					} else if (key == "p_physicalStrength") {
 						data->p_physicalStrength = atoi(value.c_str());
-					} else if (key == "agility") {
+					} else if (key == "p_agility") {
 						data->p_agility = atoi(value.c_str());
-					} else if (key == "charm") {
+					} else if (key == "p_charm") {
 						data->p_charm = atoi(value.c_str());
-					} else if (key == "intelligence") {
+					} else if (key == "p_intelligence") {
 						data->p_intelligence = atoi(value.c_str());
-					} else if (key == "mentalStrength") {
+					} else if (key == "p_mentalStrength") {
 						data->p_mentalStrength = atoi(value.c_str());
-					} else if (key == "luck") {
+					} else if (key == "p_luck") {
 						data->p_luck = atoi(value.c_str());
-					} else if (key == "healthPoint") {
+					} else if (key == "p_healthPoint") {
 						data->p_healthPoint = atoi(value.c_str());
-					} else if (key == "commandingAbility") {
+					} else if (key == "p_commandingAbility") {
 						data->p_commandingAbility = atoi(value.c_str());
-					} else if (key == "drivingAbility") {
+					} else if (key == "p_drivingAbility") {
 						data->p_drivingAbility = atoi(value.c_str());
-					} else if (key == "measuringAbility") {
+					} else if (key == "p_measuringAbility") {
 						data->p_measuringAbility = atoi(value.c_str());
-					} else if (key == "accountingAbility") {
+					} else if (key == "p_accountingAbility") {
 						data->p_accountingAbility = atoi(value.c_str());
-					} else if (key == "fencingAbility") {
+					} else if (key == "p_fencingAbility") {
 						data->p_fencingAbility = atoi(value.c_str());
-					} else if (key == "aimingAbility") {
+					} else if (key == "p_aimingAbility") {
 						data->p_aimingAbility = atoi(value.c_str());
-					} else if (key == "eloquence") {
+					} else if (key == "p_eloquence") {
 						data->p_eloquence = atoi(value.c_str());
-					} else if (key == "strategyAbility") {
+					} else if (key == "p_strategyAbility") {
 						data->p_strategyAbility = atoi(value.c_str());
-					} else if (key == "observingAbility") {
+					} else if (key == "p_observingAbility") {
 						data->p_observingAbility = atoi(value.c_str());
 					}
 				}

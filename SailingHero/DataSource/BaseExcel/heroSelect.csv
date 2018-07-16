@@ -1,4 +1,4 @@
-﻿selectHeroId,iconId,smallIconId,heroId,heroDescription
+﻿selectHeroId,iconId,smallIconId,guild,heroDescription
 id,icon,icon,friend_id,language
 ,res/base/icon/firstGrp/,res/base/icon/firstGrp/,Guild,chinese
 writable,N,N,N,N

@@ -4,10 +4,11 @@ This file (GoodsData.hpp) is generated
 #ifndef GoodsData_hpp
 #define GoodsData_hpp
 #include <map>
+#include "BaseData.h"
 #include "GoodsCategoryData.hpp"
 
 using namespace std;
-class GoodsData
+class GoodsData: public BaseData
 {
 private:
 	static map<string, GoodsData*>* p_sharedDictionary;
@@ -17,9 +18,10 @@ private:
 	int p_maxPrice;
 	int p_levelUpExp;
 public:
+	string getId() const;
 	string getGoodsId() const;
 	string getGoodsName() const;
-	GoodsCategoryData* getGoodsCategoryData() const;
+	GoodsCategoryData* getCategoryData() const;
 	string getCategoryId() const;
 	cocos2d::Sprite* getIcon(bool isDefaultSize = true);
 	string getIconId() const;

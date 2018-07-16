@@ -4,24 +4,26 @@ This file (GuildData.hpp) is generated
 #ifndef GuildData_hpp
 #define GuildData_hpp
 #include <map>
+#include "BaseData.h"
 #include "HeroData.hpp"
 
 using namespace std;
-class GuildData
+class GuildData: public BaseData
 {
 private:
 	static map<string, GuildData*>* p_sharedDictionary;
 	string p_guildId;
 	string p_guildName;
-	string p_guildLeaderId;
+	string p_leaderId;
 	int p_style;
 	int p_money;
 public:
+	string getId() const;
 	string getGuildId() const;
 	void setGuildName(string guildName);
 	string getGuildName() const;
-	HeroData* getHeroData() const;
-	string getGuildLeaderId() const;
+	HeroData* getLeaderData() const;
+	string getLeaderId() const;
 	int getStyle() const;
 	int getMoney() const;
 	void setMoney(int money);

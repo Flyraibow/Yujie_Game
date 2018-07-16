@@ -11,6 +11,11 @@ using namespace std;
 
 map<string, ItemData*>* ItemData::p_sharedDictionary = nullptr;
 
+string ItemData::getId() const
+{
+	return p_itemId;
+}
+
 string ItemData::getItemId() const
 {
 	return p_itemId;
@@ -75,7 +80,7 @@ string ItemData::description() const
 	desc += "\titemId : " + to_string(p_itemId) + "\n";
 	desc += "\titemName : " + getItemName() + "\n";
 	desc += "\ticonId : " + to_string(p_iconId) + "\n";
-	desc += "\titemCategoryId : " + to_string(p_itemCategoryId) + "\n";
+	desc += "\titemCategory : " + to_string(p_itemCategoryId) + "\n";
 	desc += "\tvalue : " + to_string(p_value) + "\n";
 	desc += "\tjob : " + to_string(p_job) + "\n";
 	desc += "\tprice : " + to_string(p_price) + "\n";

@@ -4,10 +4,11 @@ This file (HeroData.hpp) is generated
 #ifndef HeroData_hpp
 #define HeroData_hpp
 #include <map>
+#include "BaseData.h"
 #include "GenderData.hpp"
 
 using namespace std;
-class HeroData
+class HeroData: public BaseData
 {
 private:
 	static map<string, HeroData*>* p_sharedDictionary;
@@ -35,6 +36,7 @@ private:
 	int p_strategyAbility;
 	int p_observingAbility;
 public:
+	string getId() const;
 	string getHeroId() const;
 	void setHeroFirstName(string heroFirstName);
 	string getHeroFirstName() const;
@@ -42,7 +44,7 @@ public:
 	string getHeroLastName() const;
 	GenderData* getGenderData() const;
 	string getGenderId() const;
-	void setGenderId(string genderId);
+	void setGender(string gender);
 	int getBirthMonth() const;
 	void setBirthMonth(int birthMonth);
 	int getBirthDay() const;

@@ -6,6 +6,7 @@
 //
 
 #include "Utils.hpp"
+#include <regex>
 
 using namespace std;
 
@@ -13,8 +14,13 @@ namespace std {
   string to_string(const string &str) {
     return str;
   }
+  
+  string to_string(const BaseData *data) {
+    return data->getId();
+  }
+  
   template<typename T>
-  string to_string(const unordered_set<T> &pSet) {
+  string to_string(const set<T> &pSet) {
     string st = "{ ";
     for (auto str : pSet) {
       st += to_string(str) + ", ";
@@ -33,27 +39,31 @@ namespace std {
     return st;
   }
   
-  string to_string(const unordered_set<string> &pSet) {
+  string to_string(const set<string> &pSet) {
     return to_string<string>(pSet);
   }
   
-  string to_string(const unordered_set<int> &pSet) {
+  string to_string(const set<int> &pSet) {
     return to_string<int>(pSet);
   }
   
-  string to_string(const unordered_set<bool> &pSet) {
+  string to_string(const set<bool> &pSet) {
     return to_string<bool>(pSet);
   }
-  string to_string(const unordered_set<double> &pSet){
+  string to_string(const set<double> &pSet){
     return to_string<double>(pSet);
   }
   
-  string to_string(const unordered_set<float> &pSet) {
+  string to_string(const set<float> &pSet) {
     return to_string<float>(pSet);
   }
   
-  string to_string(const unordered_set<long long> &pSet) {
+  string to_string(const set<long long> &pSet) {
     return to_string<long long>(pSet);
+  }
+  
+  string to_string(const set<BaseData *> &pSet) {
+    return to_string<BaseData *>(pSet);
   }
   
   string to_string(const vector<int> &pSet) {
@@ -78,6 +88,21 @@ namespace std {
   
   string to_string(const vector<long long> &pSet) {
     return to_string<long long>(pSet);
+  }
+  
+  set<string> atoset(const string &str) {
+    set<string> result;
+    string s;
+    for (int i = 0; i < str.length(); ++i) {
+      char c = str.at(i);
+      if (c != ' ' && c != ',' && c != '{' && c != '}') {
+        s += c;
+      } else if (c == ',') {
+        result.insert(s);
+        s = "";
+      }
+    }
+    return result;
   }
   
 #include <cstdio>

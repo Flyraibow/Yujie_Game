@@ -4,9 +4,10 @@ This file (CannonData.hpp) is generated
 #ifndef CannonData_hpp
 #define CannonData_hpp
 #include <map>
+#include "BaseData.h"
 
 using namespace std;
-class CannonData
+class CannonData: public BaseData
 {
 private:
 	static map<string, CannonData*>* p_sharedDictionary;
@@ -17,6 +18,7 @@ private:
 	int p_range;
 	int p_power;
 public:
+	string getId() const;
 	string getCannonId() const;
 	string getCannonName() const;
 	string getCannonDescription() const;

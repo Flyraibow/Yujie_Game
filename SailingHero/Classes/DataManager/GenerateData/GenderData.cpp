@@ -11,6 +11,11 @@ using namespace std;
 
 map<string, GenderData*>* GenderData::p_sharedDictionary = nullptr;
 
+string GenderData::getId() const
+{
+	return p_genderId;
+}
+
 string GenderData::getGenderId() const
 {
 	return p_genderId;

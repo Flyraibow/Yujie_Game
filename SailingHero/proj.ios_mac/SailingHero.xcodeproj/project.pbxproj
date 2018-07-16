@@ -53,6 +53,10 @@
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
 		EC217D4220BC7F9A000ADDE3 /* title.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EC217D4120BC7F9A000ADDE3 /* title.mp3 */; };
 		EC217D4920BC84AB000ADDE3 /* SHDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC217D4720BC84AB000ADDE3 /* SHDataManager.cpp */; };
+		EC2EF80820FC25D500BCE4D5 /* CityGoodsData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2EF7FF20FC25D300BCE4D5 /* CityGoodsData.cpp */; };
+		EC2EF80920FC25D500BCE4D5 /* CityData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2EF80320FC25D400BCE4D5 /* CityData.cpp */; };
+		EC2EF80A20FC25D500BCE4D5 /* CityBuildingData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2EF80420FC25D400BCE4D5 /* CityBuildingData.cpp */; };
+		EC2EF80B20FC25D500BCE4D5 /* CityTypeData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2EF80620FC25D400BCE4D5 /* CityTypeData.cpp */; };
 		EC72727320F86EB0005BD63D /* SelectHeroMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72727220F86EB0005BD63D /* SelectHeroMenuScene.cpp */; };
 		EC72727720F87AA2005BD63D /* HeroSelectingFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72727520F87AA2005BD63D /* HeroSelectingFrame.cpp */; };
 		EC72727A20F88A0B005BD63D /* HeroSelectData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72727820F88A0B005BD63D /* HeroSelectData.cpp */; };
@@ -170,6 +174,15 @@
 		EC217D4120BC7F9A000ADDE3 /* title.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = title.mp3; sourceTree = "<group>"; };
 		EC217D4720BC84AB000ADDE3 /* SHDataManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHDataManager.cpp; sourceTree = "<group>"; };
 		EC217D4820BC84AB000ADDE3 /* SHDataManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHDataManager.hpp; sourceTree = "<group>"; };
+		EC2EF7FF20FC25D300BCE4D5 /* CityGoodsData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CityGoodsData.cpp; path = GenerateData/CityGoodsData.cpp; sourceTree = "<group>"; };
+		EC2EF80120FC25D300BCE4D5 /* CityData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CityData.hpp; path = GenerateData/CityData.hpp; sourceTree = "<group>"; };
+		EC2EF80220FC25D400BCE4D5 /* CityTypeData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CityTypeData.hpp; path = GenerateData/CityTypeData.hpp; sourceTree = "<group>"; };
+		EC2EF80320FC25D400BCE4D5 /* CityData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CityData.cpp; path = GenerateData/CityData.cpp; sourceTree = "<group>"; };
+		EC2EF80420FC25D400BCE4D5 /* CityBuildingData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CityBuildingData.cpp; path = GenerateData/CityBuildingData.cpp; sourceTree = "<group>"; };
+		EC2EF80520FC25D400BCE4D5 /* CityBuildingData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CityBuildingData.hpp; path = GenerateData/CityBuildingData.hpp; sourceTree = "<group>"; };
+		EC2EF80620FC25D400BCE4D5 /* CityTypeData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CityTypeData.cpp; path = GenerateData/CityTypeData.cpp; sourceTree = "<group>"; };
+		EC2EF80720FC25D400BCE4D5 /* CityGoodsData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CityGoodsData.hpp; path = GenerateData/CityGoodsData.hpp; sourceTree = "<group>"; };
+		EC2EF80F20FC552700BCE4D5 /* BaseData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseData.h; sourceTree = "<group>"; };
 		EC72727120F86EAF005BD63D /* SelectHeroMenuScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SelectHeroMenuScene.hpp; sourceTree = "<group>"; };
 		EC72727220F86EB0005BD63D /* SelectHeroMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectHeroMenuScene.cpp; sourceTree = "<group>"; };
 		EC72727520F87AA2005BD63D /* HeroSelectingFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HeroSelectingFrame.cpp; sourceTree = "<group>"; };
@@ -468,6 +481,14 @@
 		ECD52B1F20BFB05A000F7170 /* GenerateData */ = {
 			isa = PBXGroup;
 			children = (
+				EC2EF80420FC25D400BCE4D5 /* CityBuildingData.cpp */,
+				EC2EF80520FC25D400BCE4D5 /* CityBuildingData.hpp */,
+				EC2EF80320FC25D400BCE4D5 /* CityData.cpp */,
+				EC2EF80120FC25D300BCE4D5 /* CityData.hpp */,
+				EC2EF7FF20FC25D300BCE4D5 /* CityGoodsData.cpp */,
+				EC2EF80720FC25D400BCE4D5 /* CityGoodsData.hpp */,
+				EC2EF80620FC25D400BCE4D5 /* CityTypeData.cpp */,
+				EC2EF80220FC25D400BCE4D5 /* CityTypeData.hpp */,
 				EC72727820F88A0B005BD63D /* HeroSelectData.cpp */,
 				EC72728520FAC85E005BD63D /* GuildData.cpp */,
 				EC72728420FAC85E005BD63D /* GuildData.hpp */,
@@ -505,6 +526,7 @@
 				ECD52B3F20C263A9000F7170 /* Utils.hpp */,
 				EC72728720FACBC6005BD63D /* SHGameDataHelper.cpp */,
 				EC72728820FACBC6005BD63D /* SHGameDataHelper.hpp */,
+				EC2EF80F20FC552700BCE4D5 /* BaseData.h */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -673,7 +695,9 @@
 				ECADF31E20ACF21200B77618 /* SystemButton.cpp in Sources */,
 				EC72727320F86EB0005BD63D /* SelectHeroMenuScene.cpp in Sources */,
 				ECF294AC20B135B300536532 /* SHColorNode.cpp in Sources */,
+				EC2EF80920FC25D500BCE4D5 /* CityData.cpp in Sources */,
 				EC72727A20F88A0B005BD63D /* HeroSelectData.cpp in Sources */,
+				EC2EF80B20FC25D500BCE4D5 /* CityTypeData.cpp in Sources */,
 				ECBEF11E20E492F70010A767 /* SaveDataManager.cpp in Sources */,
 				ECD52B3B20C224D8000F7170 /* GoodsCategoryData.cpp in Sources */,
 				ECD52B2220BFB073000F7170 /* GoodsData.cpp in Sources */,
@@ -689,8 +713,10 @@
 				EC72728620FAC85E005BD63D /* GuildData.cpp in Sources */,
 				ECD52B4620C2F7D8000F7170 /* CultureData.cpp in Sources */,
 				1AF87B8A1F6F7822007BE51C /* main.m in Sources */,
+				EC2EF80820FC25D500BCE4D5 /* CityGoodsData.cpp in Sources */,
 				EC72728020FA57DB005BD63D /* SHSpriteListener.cpp in Sources */,
 				ECD52B3A20C224D8000F7170 /* CategoryUpdateData.cpp in Sources */,
+				EC2EF80A20FC25D500BCE4D5 /* CityBuildingData.cpp in Sources */,
 				EC72728320FA6FD0005BD63D /* SelectHeroDisplayScene.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 			);

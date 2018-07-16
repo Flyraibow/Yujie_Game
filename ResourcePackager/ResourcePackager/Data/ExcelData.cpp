@@ -12,6 +12,8 @@
 #include "Utils.hpp"
 #include "CPPFile.hpp"
 
+#include "ExcelParserBase.hpp"
+
 const static unordered_map<string, DataType> s_subtype_map({
   {"bool", BOOL},
   {"int", INT},
@@ -28,6 +30,10 @@ static string castFromStringToValue(DataType type, const string &val) {
     return "atoll("+val+".c_str())";
   } else if (type == DOUBLE) {
     return "atof("+val+".c_str())";
+  } else if (type == BOOL) {
+    return "(atoi("+val+".c_str()) != 0)";
+  } else if (type == SET || type == FRIEND_ID_SET) {
+    return "atoset("+val+")";
   }
   return val;
 }
@@ -132,9 +138,13 @@ void ExcelData::saveData(const string& folderPath, const string& fileName, Langu
           langData.addTranslation(schema->getSubtype(), localId, value);
           break;
         };
+        case FRIEND_ID_SET:
         case VECTOR:
-        case SET: {
+        case SET:{
           auto subType = schema->getSubtype();
+          if (schema->getType() == FRIEND_ID_SET) {
+            subType = TYPE_STRING;
+          }
           auto vals = utils::split(value, ';');
           addVectorToBuffer(buffer, vals, subType);
           break;
@@ -162,215 +172,17 @@ void ExcelData::generateCode(const string& folderPath, const string& fileName)
   p_className = first_capital_file_name + "Data";
   CPPFileComplete* file = new CPPFileComplete(p_className);
   file->addHeaders("map", false, true);
+  file->addHeaders("BaseData.h", true, true);
   file->addHeaders("cocos2d.h", true, false);
   file->addHeaders("ByteBuffer.hpp", true, false);
   file->addHeaders("Utils.hpp", true, false);
   CPPClass *cppClass = new CPPClass(p_className);
+  cppClass->setFatherClass("BaseData");
   this->setInitFunction(p_className, cppClass, file);
   file->addClass(cppClass);
   file->saveFiles(folderPath);
   delete cppClass;
   delete file;
-}
-
-void addReadDataFunctionBody(CPPFunction *func, const string &variableName, const DataSchema *schema, int level) {
-  
-  string schemaName = "p_" + schema->getName(); // p_goodsId
-  switch (schema->getType()) {
-    case ID:
-    case FRIEND_ID:
-    case ICON:
-    case STRING: {
-      string st = variableName + "->" + schemaName + " = buffer->" + "getString();";
-      func->addBodyStatements(st, level);
-      break;
-    }
-    case INT: {
-      string st = variableName + "->" + schemaName + " = buffer->" + "getInt();";
-      func->addBodyStatements(st, level);
-      break;
-    }
-    case FLOAT: {
-      string st = variableName + "->" + schemaName + " = buffer->" + "getFloat();";
-      func->addBodyStatements(st, level);
-      break;
-    }
-    case LONG: {
-      string st = variableName + "->" + schemaName + " = buffer->" + "getLong();";
-      func->addBodyStatements(st, level);
-      break;
-    }
-    case DOUBLE: {
-      string st = variableName + "->" + schemaName + " = buffer->" + "getDouble();";
-      func->addBodyStatements(st, level);
-      break;
-    }
-    case BOOL: {
-      string st = variableName + "->" + schemaName + " = buffer->" + "getChar();";
-      func->addBodyStatements(st, level);
-      break;
-    }
-    case VECTOR:
-    case SET: {
-      func->addBodyStatementsList({
-        "auto " + schema->getName() + "Count = buffer->getLong();",
-        "for (int j = 0; j < " + schema->getName() + "Count; ++j) {"
-      }, 3);
-      string getterFuncName = schema->getSubtype(); // int
-      getterFuncName[0] = toupper(getterFuncName[0]);  // Int
-      getterFuncName = "get" + getterFuncName + "()";  // getInt()
-      if (schema->getType() == VECTOR) {
-        func->addBodyStatements(variableName + "->" + schemaName + ".push_back(buffer->" + getterFuncName + ");", level + 1);
-      } else {
-        func->addBodyStatements(variableName + "->" + schemaName + ".insert(buffer->" + getterFuncName + ");", level + 1);
-      }
-      func->addBodyStatements("}", level);
-      
-      break;
-    }
-    default:
-      break;
-  }
-}
-
-void setPublicGetFunction(CPPClass *cppClass, const DataSchema *schema, const string &id_schema_name, const string &fileNameWithoutExt, CPPFunction *descFunction, CPPFileComplete *cppFile, CPPFunction *initFunction, const string &variableName)
-{
-  std::locale loc;
-  auto type = schema->getType();
-  if (type == COMMENT || type == VECTOR) {
-    // skip comment and vector
-    return;
-  }
-  string schemaName = "p_" + schema->getName(); // p_goodsId
-  string getSchemaFuncName = schema->getName();
-  getSchemaFuncName[0] = toupper(getSchemaFuncName[0], loc);
-  getSchemaFuncName = "get" + getSchemaFuncName;  // getGoodsId
-  
-  string setSchemaFuncName = schema->getName();
-  setSchemaFuncName[0] = toupper(setSchemaFuncName[0], loc);
-  setSchemaFuncName = "set" + setSchemaFuncName;  // setGoodsId
-  
-  CPPFunction *getSchemaFunc = nullptr;
-  CPPFunction *setSchemaFunc = nullptr;
-  string descriptState_1 = "desc += \"\\t" + schema->getName() + " : \" + ";
-  string descriptState_3 = "+ \"\\n\";";
-  if (type == LANGUAGE) {
-    // only add function, need id before it.
-    assert(id_schema_name.length() > 0);
-    string id_string_name = "p_" + id_schema_name;  // p_goodsId;
-    getSchemaFunc = new CPPFunction(getSchemaFuncName, TYPE_STRING);
-    if (schema->isWritable()) {
-      cppClass->addVariable(schemaName, TYPE_STRING, true);
-      getSchemaFunc->addBodyStatementsList({
-        "if (" + schemaName + ".length() > 0) {",
-        "\treturn " + schemaName + ";",
-        "}"
-      }, 0);
-      
-      setSchemaFunc = new CPPFunction(setSchemaFuncName, TYPE_VOID, {new CPPVariable(schema->getName(), TYPE_STRING)}, false, false);
-      setSchemaFunc->addBodyStatements(schemaName + " = " + schema->getName() + ";");
-      cppClass->addFunction(setSchemaFunc, false);
-    }
-    getSchemaFunc->addBodyStatementsList({
-      "string localId = \"" + fileNameWithoutExt + "_" + schema->getName() + "_\" + " + id_string_name + ";",
-      "return LocalizationHelper::getLocalization(localId);"
-    }, 0);
-    descFunction->addBodyStatements( descriptState_1 + getSchemaFuncName + "() " + descriptState_3);
-    cppClass->addFunction(getSchemaFunc, false);
-    return;
-  }
-  if (type == ICON) {
-    string getIconFuncName = getSchemaFuncName; // getGoodsIconId
-    getIconFuncName = getIconFuncName.substr(0, getIconFuncName.length() - 2);  // getGoodsIcon
-    auto varIsDefault = new CPPVariable("isDefaultSize", TYPE_BOOL);
-    varIsDefault->setInitialValue("true");
-    auto getIconFunction = new CPPFunction(getIconFuncName, "cocos2d::Sprite*", {varIsDefault}, false, false);
-    getIconFunction->addBodyStatementsList({
-      "static const string s_basePath = \"" + schema->getSubtype() + "\";",
-      "string path = s_basePath + " + schemaName + ";",
-      "auto icon = cocos2d::Sprite::create(path);",
-      "if (!isDefaultSize) {",
-      "\ticon->setScale(cocos2d::Director::getInstance()->getContentScaleFactor());", "}",
-      "return icon;"
-      
-    }, 0);
-    cppClass->addFunction(getIconFunction, false);
-  } if (type == MUSIC || type == EFFECT) {
-    string getIconFuncName = getSchemaFuncName; // getMusicId
-    getIconFuncName = getIconFuncName.substr(0, getIconFuncName.length() - 2) + "Path";  // getMusicPath
-    auto getIconFunction = new CPPFunction(getIconFuncName, TYPE_STRING);
-    getIconFunction->addBodyStatementsList({
-      "static const string s_basePath = \"" + schema->getSubtype() + "\";",
-      "return s_basePath + " + schemaName + ";",
-      
-    }, 0);
-    cppClass->addFunction(getIconFunction, false);
-    
-  } else if (type == FRIEND_ID) {
-    string friendClassName = schema->getSubtype() + "Data";
-    cppFile->addHeaders(friendClassName + ".hpp", true, true);
-    auto getFriendDataFunc = new CPPFunction("get" + friendClassName, friendClassName + "*");
-    getFriendDataFunc->addBodyStatements("return " + friendClassName + "::get" + friendClassName + "ById(" + schemaName +");");
-    cppClass->addFunction(getFriendDataFunc, false);
-  }
-  string descriptState_2 = "to_string(" + schemaName + ") ";
-  string finalType;
-  switch (type) {
-    case ID:
-      // Never set ID
-      assert(!schema->isWritable());
-    case FRIEND_ID:
-    case ICON:
-    case MUSIC:
-    case EFFECT:
-    case STRING:
-      finalType = TYPE_STRING;
-      break;
-    case INT:
-      finalType = TYPE_INT;
-      break;
-    case FLOAT:
-      finalType = TYPE_FLOAT;
-      break;
-    case LONG:
-      finalType = TYPE_LONG;
-      break;
-    case DOUBLE:
-      finalType = TYPE_DOUBLE;
-      break;
-    case BOOL:
-      finalType = TYPE_BOOL;
-      break;
-    case VECTOR: {
-      finalType = TYPE_VECTOR(schema->getSubtype());
-      break;
-    }
-    case SET: {
-      finalType = TYPE_SET(schema->getSubtype());
-      break;
-    }
-    default:
-      // unknow type
-      assert(false);
-      break;
-  }
-  
-  if (finalType.length() > 0) {
-    getSchemaFunc = new CPPFunction(getSchemaFuncName, finalType);
-    cppClass->addVariable(schemaName, finalType, true);
-    getSchemaFunc->addBodyStatements("return " + schemaName + ";");
-    cppClass->addFunction(getSchemaFunc, false);
-    // todo: need release data
-    //            delete getSchemaFunc;
-    if (schema->isWritable()) {
-      setSchemaFunc = new CPPFunction(setSchemaFuncName, TYPE_VOID, {new CPPVariable(schema->getName(), finalType)}, false, false);
-      setSchemaFunc->addBodyStatements(schemaName + " = " + schema->getName() + ";");
-      cppClass->addFunction(setSchemaFunc, false);
-    }
-  }
-  
-  descFunction->addBodyStatements( descriptState_1 + descriptState_2 + descriptState_3);
-  addReadDataFunctionBody(initFunction, variableName, schema, 3);
 }
 
 void ExcelData::setInitFunction(const string &className, CPPClass *cppClass, CPPFileComplete *cppFile) const
@@ -416,11 +228,14 @@ void ExcelData::setInitFunction(const string &className, CPPClass *cppClass, CPP
   for (auto schema : p_dataSchemas) {
     if (schema->getType() == ID) {
       id_schema_name = schema->getName();
+      auto getIdFunc = new CPPFunction("getId", TYPE_STRING, {}, false, true, true);
+      getIdFunc->addBodyStatements("return p_" + id_schema_name + ";");
+      cppClass->addFunction(getIdFunc, false);
     } else if (schema->getType() == LANGUAGE) {
       containLanguage = true;
     } else if (schema->getType() == VECTOR) {
       containVector = true;
-    } else if (schema->getType() == SET) {
+    } else if (schema->getType() == SET || schema->getType() == FRIEND_ID_SET) {
       containSet = true;
     }
     if (schema->isWritable()) {
@@ -431,14 +246,22 @@ void ExcelData::setInitFunction(const string &className, CPPClass *cppClass, CPP
     cppFile->addHeaders("LocalizationHelper.hpp", false, false);
   }
   if (containSet) {
-    cppFile->addHeaders("unordered_set", false, true);
+    cppFile->addHeaders("set", false, true);
   }
   if (containVector) {
     cppFile->addHeaders("vector", false, true);
   }
   
   for (auto schema : p_dataSchemas) {
-    setPublicGetFunction(cppClass, schema, id_schema_name, fileNameWithoutExt, descFunction, cppFile, initFunction, variableName);
+    if (schema->getType() != COMMENT) {
+      auto parser = ExcelParserBase::createWithSchema(schema, id_schema_name);
+      parser->setFileNameWithoutExt(fileNameWithoutExt);
+      parser->addFunctionsInclass(cppClass);
+      parser->addHeaders(cppFile);
+      descFunction->addBodyStatements(parser->getDescription());
+      parser->addInitFuncBody(initFunction);
+      delete parser;
+    }
   }
   
   descFunction->addBodyStatements("desc += \"}\\n\";");
@@ -514,16 +337,19 @@ void ExcelData::setInitFunction(const string &className, CPPClass *cppClass, CPP
     int count = 0;
     for (auto schema : p_dataSchemas) {
       if (schema->isWritable()) {
+        auto parser = ExcelParserBase::createWithSchema(schema, id_schema_name);
+        auto schemaName = parser->getVariableName();
         saveFunc->addBodyStatementsList({
-          "buffer->putString(\"" + schema->getName() + "\");",
-          "buffer->putString(to_string(data->p_" + schema->getName() + "));",
+          "buffer->putString(\"" + schemaName + "\");",
+          "buffer->putString(to_string(data->" + schemaName + "));",
         }, 1);
         string start = count > 0 ? "} else " : "";
         loadFunc->addBodyStatementsList({
-          start + "if (key == \"" + schema->getName() + "\") {",
-          "\tdata->p_" + schema->getName() + " = " + castFromStringToValue(schema->getType(), "value") + ";",
+          start + "if (key == \"" + schemaName + "\") {",
+          "\tdata->" + schemaName + " = " + castFromStringToValue(schema->getType(), "value") + ";",
         }, 4);
         count++;
+        delete parser;
       }
     }
     

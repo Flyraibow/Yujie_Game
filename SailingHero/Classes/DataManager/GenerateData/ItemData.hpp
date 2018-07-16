@@ -4,10 +4,11 @@ This file (ItemData.hpp) is generated
 #ifndef ItemData_hpp
 #define ItemData_hpp
 #include <map>
+#include "BaseData.h"
 #include "ItemCategoryData.hpp"
 
 using namespace std;
-class ItemData
+class ItemData: public BaseData
 {
 private:
 	static map<string, ItemData*>* p_sharedDictionary;
@@ -18,6 +19,7 @@ private:
 	int p_job;
 	int p_price;
 public:
+	string getId() const;
 	string getItemId() const;
 	string getItemName() const;
 	cocos2d::Sprite* getIcon(bool isDefaultSize = true);

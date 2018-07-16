@@ -4,9 +4,10 @@ This file (CultureData.hpp) is generated
 #ifndef CultureData_hpp
 #define CultureData_hpp
 #include <map>
+#include "BaseData.h"
 
 using namespace std;
-class CultureData
+class CultureData: public BaseData
 {
 private:
 	static map<string, CultureData*>* p_sharedDictionary;
@@ -16,6 +17,7 @@ private:
 	string p_plazaStoreIconId;
 	string p_plazaBuildingIconId;
 public:
+	string getId() const;
 	string getCutureId() const;
 	string getCultureName() const;
 	string getOceanMusicPath() const;

@@ -4,9 +4,10 @@ This file (ZodiacData.hpp) is generated
 #ifndef ZodiacData_hpp
 #define ZodiacData_hpp
 #include <map>
+#include "BaseData.h"
 
 using namespace std;
-class ZodiacData
+class ZodiacData: public BaseData
 {
 private:
 	static map<string, ZodiacData*>* p_sharedDictionary;
@@ -17,6 +18,7 @@ private:
 	int p_endMonth;
 	int p_endDate;
 public:
+	string getId() const;
 	string getZodiacId() const;
 	string getZodiacName() const;
 	cocos2d::Sprite* getIcon(bool isDefaultSize = true);

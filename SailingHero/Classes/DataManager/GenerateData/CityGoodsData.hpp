@@ -1,0 +1,39 @@
+/*
+This file (CityGoodsData.hpp) is generated
+*/
+#ifndef CityGoodsData_hpp
+#define CityGoodsData_hpp
+#include <map>
+#include "BaseData.h"
+#include "GoodsData.hpp"
+
+using namespace std;
+class CityGoodsData: public BaseData
+{
+private:
+	static map<string, CityGoodsData*>* p_sharedDictionary;
+	string p_cityGoodsId;
+	string p_goodsId;
+	int p_commercialRequirement;
+	int p_basePrice;
+	int p_abundance;
+	bool p_isHidden;
+public:
+	string getId() const;
+	string getCityGoodsId() const;
+	GoodsData* getGoodsData() const;
+	string getGoodsId() const;
+	int getCommercialRequirement() const;
+	int getBasePrice() const;
+	int getAbundance() const;
+	void setAbundance(int abundance);
+	bool getIsHidden() const;
+	void setIsHidden(bool isHidden);
+	string description() const;
+	static map<string, CityGoodsData*>* getSharedDictionary();
+	static CityGoodsData* getCityGoodsDataById(const string& cityGoodsId);
+	static bool saveData(const string & path);
+	static bool loadData(const string & path);
+	static bool clearData();
+};
+#endif

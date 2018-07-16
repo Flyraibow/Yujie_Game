@@ -1,4 +1,4 @@
-﻿heroId,heroFirstName,heroLastName,genderId,birthMonth,birthDay,level,physicalStrength,agility,charm,intelligence,mentalStrength,luck,healthPoint,commandingAbility,drivingAbility,measuringAbility,accountingAbility,fencingAbility,aimingAbility,eloquence,strategyAbility,observingAbility
+﻿heroId,heroFirstName,heroLastName,gender,birthMonth,birthDay,level,physicalStrength,agility,charm,intelligence,mentalStrength,luck,healthPoint,commandingAbility,drivingAbility,measuringAbility,accountingAbility,fencingAbility,aimingAbility,eloquence,strategyAbility,observingAbility
 id,language,language,friend_id,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int
 -,chinese,chinese,Gender,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-
 writable,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y

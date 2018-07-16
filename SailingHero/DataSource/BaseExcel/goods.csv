@@ -1,4 +1,4 @@
-﻿goodsId,goodsName,categoryId,iconId,maxPrice,levelUpExp,goodsDescription
+﻿goodsId,goodsName,category,iconId,maxPrice,levelUpExp,goodsDescription
 id,language,friend_id,icon,int,int,language
 -,chinese,GoodsCategory,res/base/icon/goods/,-,-,chinese
 writable,N,N,N,N,N,N

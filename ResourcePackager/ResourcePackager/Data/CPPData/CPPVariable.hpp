@@ -21,7 +21,7 @@ const static string TYPE_LONG = "long";
 const static string TYPE_DOUBLE = "double";
 const static string TYPE_STRING = "string";
 const static string TYPE_VECTOR(const string &subType) {return "vector<" + subType + ">";};
-const static string TYPE_SET(const string &subType) {return "unordered_set<" + subType + ">";};
+const static string TYPE_SET(const string &subType) {return "set<" + subType + ">";};
 const static string TYPE_VOID = "void";
 
 class CPPVariable

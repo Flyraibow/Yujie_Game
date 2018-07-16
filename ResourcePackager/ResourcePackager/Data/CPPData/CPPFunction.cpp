@@ -35,11 +35,12 @@ CPPFunction::CPPFunction(const string &funcName, const string &returnType, bool 
   
 }
 
-CPPFunction::CPPFunction(const string &funcName, const string &returnType,const vector<const CPPVariable *> &arguments, bool isStatic, bool isConst)
+CPPFunction::CPPFunction(const string &funcName, const string &returnType,const vector<const CPPVariable *> &arguments, bool isStatic, bool isConst, bool isVirtual)
 {
   p_funcName = funcName;
   p_isStatic = isStatic;
   p_isConst = isConst;
+  p_isVirtual = isVirtual;
   p_returnVar = new CPPVariable(returnType);
   p_arguments = arguments;
 }
@@ -70,8 +71,13 @@ void CPPFunction::addBodyStatementsList(const vector<string> &statementList, int
 string CPPFunction::getDefinitionString(const CPPClass *cppClass, bool isHeader) const
 {
   string definition;
-  if (cppClass == nullptr && p_isStatic) {
-    definition += "static ";
+  if (cppClass == nullptr) {
+    if (p_isStatic) {
+      definition += "static ";
+    }
+    if (p_isVirtual) {
+      definition += "virtual ";
+    }
   }
   if (p_returnVar != nullptr) {
     definition += p_returnVar->getTypeString() + " ";

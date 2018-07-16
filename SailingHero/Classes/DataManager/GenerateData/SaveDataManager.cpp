@@ -7,6 +7,8 @@ This file (SaveDataManager.cpp) is generated
 #include <unistd.h>
 #include "cocos2d.h"
 #include "GuildData.hpp"
+#include "CityGoodsData.hpp"
+#include "CityData.hpp"
 #include "HeroData.hpp"
 
 using namespace std;
@@ -21,6 +23,14 @@ bool SaveDataManager::saveData(int index)
 	}
 	if (!GuildData::saveData(path)) {
 		CCLOG("Failed to save GuildData, %s", path.c_str());
+		return false;
+	}
+	if (!CityGoodsData::saveData(path)) {
+		CCLOG("Failed to save CityGoodsData, %s", path.c_str());
+		return false;
+	}
+	if (!CityData::saveData(path)) {
+		CCLOG("Failed to save CityData, %s", path.c_str());
 		return false;
 	}
 	if (!HeroData::saveData(path)) {
@@ -41,6 +51,14 @@ bool SaveDataManager::loadData(int index)
 		CCLOG("Failed to load GuildData, %s", path.c_str());
 		return false;
 	}
+	if (!CityGoodsData::loadData(path)) {
+		CCLOG("Failed to load CityGoodsData, %s", path.c_str());
+		return false;
+	}
+	if (!CityData::loadData(path)) {
+		CCLOG("Failed to load CityData, %s", path.c_str());
+		return false;
+	}
 	if (!HeroData::loadData(path)) {
 		CCLOG("Failed to load HeroData, %s", path.c_str());
 		return false;
@@ -51,6 +69,8 @@ bool SaveDataManager::loadData(int index)
 bool SaveDataManager::clearData()
 {
 	GuildData::clearData();
+	CityGoodsData::clearData();
+	CityData::clearData();
 	HeroData::clearData();
 	return true;
 }

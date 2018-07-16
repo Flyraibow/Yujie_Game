@@ -119,7 +119,7 @@ void SelectHeroDisplayScene::setSelectHeroData(HeroSelectData *selectHeroData)
 
 void SelectHeroDisplayScene::refreshScene()
 {
-  auto heroData = p_selectHeroData->getGuildData()->getHeroData();
+  auto heroData = p_selectHeroData->getGuildData()->getLeaderData();
   auto zodiac = getZodiacFromHero(heroData);
   p_labHeroName->setString(getHeroFullName(heroData));
   p_labGuildName->setString(p_selectHeroData->getGuildData()->getGuildName());
@@ -137,11 +137,11 @@ void SelectHeroDisplayScene::refreshScene()
 
 void SelectHeroDisplayScene::clickChangeHeroName(cocos2d::Ref *pSender)
 {
-  auto heroData = p_selectHeroData->getGuildData()->getHeroData();
+  auto heroData = p_selectHeroData->getGuildData()->getLeaderData();
   auto inputLastNameSprite = InputBoxFrame::createWithHint(LocalizationHelper::getLocalization("input_last_name"), heroData->getHeroLastName(), [this](const string &lastName, bool canceled, Node* node){
     node->removeFromParent();
     if (!canceled) {
-      auto heroData = p_selectHeroData->getGuildData()->getHeroData();
+      auto heroData = p_selectHeroData->getGuildData()->getLeaderData();
       auto inputFirstNameSprite = InputBoxFrame::createWithHint(LocalizationHelper::getLocalization("input_first_name"), heroData->getHeroFirstName(), [lastName, heroData, this](const string &firstName, bool canceled, Node* node){
         node->removeFromParent();
         if (!canceled) {
@@ -171,15 +171,15 @@ void SelectHeroDisplayScene::clickChangeGuildName(cocos2d::Ref *pSender)
 
 void SelectHeroDisplayScene::clickChangeHeroBirth(cocos2d::Ref *pSender)
 {
-  auto month = p_selectHeroData->getGuildData()->getHeroData()->getBirthMonth();
+  auto month = p_selectHeroData->getGuildData()->getLeaderData()->getBirthMonth();
   auto inputLastNameSprite = InputBoxFrame::createWithHint(LocalizationHelper::getLocalization("input_birth_month"), to_string(month), [this](const string &monthStr, bool canceled, Node* node){
     node->removeFromParent();
     if (!canceled) {
-      auto day = p_selectHeroData->getGuildData()->getHeroData()->getBirthDay();
+      auto day = p_selectHeroData->getGuildData()->getLeaderData()->getBirthDay();
       auto inputFirstNameSprite = InputBoxFrame::createWithHint(LocalizationHelper::getLocalization("input_birth_day"), to_string(day), [monthStr, this](const string &dayStr, bool canceled, Node* node){
         node->removeFromParent();
         if (!canceled) {
-          auto heroData = p_selectHeroData->getGuildData()->getHeroData();
+          auto heroData = p_selectHeroData->getGuildData()->getLeaderData();
           int month = atoi(monthStr.c_str());
           int day = atoi(dayStr.c_str());
           if (isBirthValid(month, day)) {
