@@ -103,7 +103,9 @@ CityGoodsData* CityGoodsData::getCityGoodsDataById(const string& cityGoodsId)
 	if (CityGoodsData::getSharedDictionary()->count(cityGoodsId)) {
 		return CityGoodsData::getSharedDictionary()->at(cityGoodsId);
 	}
-	CCLOGERROR("invalid cityGoodsId %s", cityGoodsId.c_str());
+	if (cityGoodsId.length() > 0) {
+		CCLOGWARN("invalid cityGoodsId %s", cityGoodsId.c_str());
+	}
 	return nullptr;
 }
 

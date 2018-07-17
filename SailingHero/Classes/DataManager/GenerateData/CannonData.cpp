@@ -114,7 +114,9 @@ CannonData* CannonData::getCannonDataById(const string& cannonId)
 	if (CannonData::getSharedDictionary()->count(cannonId)) {
 		return CannonData::getSharedDictionary()->at(cannonId);
 	}
-	CCLOGERROR("invalid cannonId %s", cannonId.c_str());
+	if (cannonId.length() > 0) {
+		CCLOGWARN("invalid cannonId %s", cannonId.c_str());
+	}
 	return nullptr;
 }
 

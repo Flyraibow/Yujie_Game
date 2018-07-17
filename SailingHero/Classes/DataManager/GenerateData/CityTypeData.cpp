@@ -61,7 +61,9 @@ CityTypeData* CityTypeData::getCityTypeDataById(const string& cityTypeId)
 	if (CityTypeData::getSharedDictionary()->count(cityTypeId)) {
 		return CityTypeData::getSharedDictionary()->at(cityTypeId);
 	}
-	CCLOGERROR("invalid cityTypeId %s", cityTypeId.c_str());
+	if (cityTypeId.length() > 0) {
+		CCLOGWARN("invalid cityTypeId %s", cityTypeId.c_str());
+	}
 	return nullptr;
 }
 

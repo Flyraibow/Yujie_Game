@@ -90,6 +90,10 @@ namespace std {
     return to_string<long long>(pSet);
   }
   
+  string to_string(const vector<BaseData *> &pSet) {
+    return to_string<BaseData *>(pSet);
+  }
+  
   set<string> atoset(const string &str) {
     set<string> result;
     string s;
@@ -99,6 +103,21 @@ namespace std {
         s += c;
       } else if (c == ',') {
         result.insert(s);
+        s = "";
+      }
+    }
+    return result;
+  }
+
+  vector<string> atovector(const string &str) {
+    vector<string> result;
+    string s;
+    for (int i = 0; i < str.length(); ++i) {
+      char c = str.at(i);
+      if (c != ' ' && c != ',' && c != '{' && c != '}') {
+        s += c;
+      } else if (c == ',') {
+        result.push_back(s);
         s = "";
       }
     }

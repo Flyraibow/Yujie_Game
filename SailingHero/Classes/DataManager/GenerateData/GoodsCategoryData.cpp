@@ -73,7 +73,9 @@ GoodsCategoryData* GoodsCategoryData::getGoodsCategoryDataById(const string& cat
 	if (GoodsCategoryData::getSharedDictionary()->count(categoryId)) {
 		return GoodsCategoryData::getSharedDictionary()->at(categoryId);
 	}
-	CCLOGERROR("invalid categoryId %s", categoryId.c_str());
+	if (categoryId.length() > 0) {
+		CCLOGWARN("invalid categoryId %s", categoryId.c_str());
+	}
 	return nullptr;
 }
 

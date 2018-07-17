@@ -85,26 +85,35 @@ void SailingHeroMenu::clickGameSetting(Ref* pSender)
 
 #include "HeroData.hpp"
 #include "GoodsData.hpp"
+#include "CityData.hpp"
+#include "SHCityDataHelper.hpp"
 
 void SailingHeroMenu::clickTest1(cocos2d::Ref* pSender)
 {
-  HeroData *hero = HeroData::getHeroDataById("1");
-  hero->setHeroFirstName("予杰");
-  hero->setLevel(arc4random() % 100);
-  SaveDataManager::saveData(1);
+  auto city = CityData::getCityDataById("1");
+  CCLOG("%s", city->description().c_str());
+  for (auto goods : city->getCityGoodsDataVector()) {
+    CCLOG("%s : %s", goods->getGoodsData()->getGoodsName().c_str(), goods->description().c_str());
+  }
+//  HeroData *hero = HeroData::getHeroDataById("1");
+//  hero->setHeroFirstName("予杰");
+//  hero->setLevel(arc4random() % 100);
+//  SaveDataManager::saveData(1);
 }
 
 void SailingHeroMenu::clickTest2(cocos2d::Ref* pSender)
 {
-  HeroData *hero = HeroData::getHeroDataById("1");
-  printf("%s\n", hero->description().c_str());
+  auto city = CityData::getCityDataById("1");
+  auto goods = GoodsData::getGoodsDataById("51");
+  enableGoodsInCity(city, goods);
+  SaveDataManager::saveData(1);
 }
 
 #include "GoodsData.hpp"
 
 void SailingHeroMenu::clickTest3(Ref* pSender)
 {
-  SaveDataManager::clearData();
+  SaveDataManager::loadData(1);
 }
 
 

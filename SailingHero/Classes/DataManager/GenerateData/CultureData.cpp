@@ -121,7 +121,9 @@ CultureData* CultureData::getCultureDataById(const string& cutureId)
 	if (CultureData::getSharedDictionary()->count(cutureId)) {
 		return CultureData::getSharedDictionary()->at(cutureId);
 	}
-	CCLOGERROR("invalid cutureId %s", cutureId.c_str());
+	if (cutureId.length() > 0) {
+		CCLOGWARN("invalid cutureId %s", cutureId.c_str());
+	}
 	return nullptr;
 }
 

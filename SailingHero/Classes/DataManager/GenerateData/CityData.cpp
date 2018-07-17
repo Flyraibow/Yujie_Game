@@ -85,18 +85,18 @@ void CityData::setMilltary(int milltary)
 	p_milltary = milltary;
 }
 
-set<CityGoodsData*> CityData::getCityGoodsDataSet() const
+vector<CityGoodsData*> CityData::getCityGoodsDataVector() const
 {
-	set<CityGoodsData*> resultSet;
-	for (auto objId : p_cityGoodsIdSet) {
-		resultSet.insert(CityGoodsData::getCityGoodsDataById(objId));
+	vector<CityGoodsData*> resultVector;
+	for (auto objId : p_cityGoodsIdVector) {
+		resultVector.push_back(CityGoodsData::getCityGoodsDataById(objId));
 	}
-	return resultSet;
+	return resultVector;
 }
 
-set<string> CityData::getCityGoodsIdSet() const
+vector<string> CityData::getCityGoodsIdVector() const
 {
-	return p_cityGoodsIdSet;
+	return p_cityGoodsIdVector;
 }
 
 set<CityBuildingData*> CityData::getBuildingDataSet() const
@@ -129,7 +129,7 @@ string CityData::description() const
 	desc += "\tlatitude : " + to_string(p_latitude) + "\n";
 	desc += "\tcommerce : " + to_string(p_commerce) + "\n";
 	desc += "\tmilltary : " + to_string(p_milltary) + "\n";
-	desc += "\tcityGoods : " + to_string(p_cityGoodsIdSet) + "\n";
+	desc += "\tcityGoods : " + to_string(p_cityGoodsIdVector) + "\n";
 	desc += "\tbuilding : " + to_string(p_buildingIdSet) + "\n";
 	desc += "}\n";
 	return desc;
@@ -156,7 +156,7 @@ map<string, CityData*>* CityData::getSharedDictionary()
 				cityData->p_milltary = buffer->getInt();
 				auto cityGoodsCount = buffer->getLong();
 				for (int j = 0; j < cityGoodsCount; ++j) {
-					cityData->p_cityGoodsIdSet.insert(buffer->getString());
+					cityData->p_cityGoodsIdVector.push_back(buffer->getString());
 				}
 				auto buildingCount = buffer->getLong();
 				for (int j = 0; j < buildingCount; ++j) {
@@ -174,7 +174,9 @@ CityData* CityData::getCityDataById(const string& cityId)
 	if (CityData::getSharedDictionary()->count(cityId)) {
 		return CityData::getSharedDictionary()->at(cityId);
 	}
-	CCLOGERROR("invalid cityId %s", cityId.c_str());
+	if (cityId.length() > 0) {
+		CCLOGWARN("invalid cityId %s", cityId.c_str());
+	}
 	return nullptr;
 }
 

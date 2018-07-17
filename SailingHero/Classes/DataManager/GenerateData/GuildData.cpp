@@ -100,7 +100,9 @@ GuildData* GuildData::getGuildDataById(const string& guildId)
 	if (GuildData::getSharedDictionary()->count(guildId)) {
 		return GuildData::getSharedDictionary()->at(guildId);
 	}
-	CCLOGERROR("invalid guildId %s", guildId.c_str());
+	if (guildId.length() > 0) {
+		CCLOGWARN("invalid guildId %s", guildId.c_str());
+	}
 	return nullptr;
 }
 

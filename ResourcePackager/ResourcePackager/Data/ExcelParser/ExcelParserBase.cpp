@@ -12,6 +12,7 @@
 #include "ExcelParserIcon.hpp"
 #include "ExcelParserMusic.hpp"
 #include "ExcelParserFriendIdSet.hpp"
+#include "ExcelParserFriendIdVector.hpp"
 #include "Utils.hpp"
 
 ExcelParserBase* ExcelParserBase::createWithSchema(const DataSchema *schema, const string &idSchemaName)
@@ -28,6 +29,8 @@ ExcelParserBase* ExcelParserBase::createWithSchema(const DataSchema *schema, con
       return new ExcelParserMusic(schema,idSchemaName);
     case FRIEND_ID_SET:
       return new ExcelParserFriendIdSet(schema,idSchemaName);
+    case FRIEND_ID_VECTOR:
+      return new ExcelParserFriendIdVector(schema,idSchemaName);
     default:
       return new ExcelParserBase(schema,idSchemaName);
   }
@@ -118,6 +121,10 @@ string ExcelParserBase::getType() const
       finalType = TYPE_SET(TYPE_STRING);
       break;
     }
+    case FRIEND_ID_VECTOR: {
+      finalType = TYPE_VECTOR(TYPE_STRING);
+      break;
+    }
     default:
       // unknow type
       assert(false);
@@ -191,18 +198,19 @@ void ExcelParserBase::addInitFuncBody(CPPFunction *func) const
     }
     case VECTOR:
     case SET:
-    case FRIEND_ID_SET: {
+    case FRIEND_ID_SET:
+    case FRIEND_ID_VECTOR:{
       func->addBodyStatementsList({
         "auto " + p_schema->getName() + "Count = buffer->getLong();",
         "for (int j = 0; j < " + p_schema->getName() + "Count; ++j) {"
       }, 3);
       string getterFuncName = p_schema->getSubtype(); // int
-      if (p_schema->getType() == FRIEND_ID_SET) {
+      if (p_schema->getType() == FRIEND_ID_SET || p_schema->getType() == FRIEND_ID_VECTOR) {
         getterFuncName = TYPE_STRING;
       }
       getterFuncName[0] = toupper(getterFuncName[0]);  // Int
       getterFuncName = "get" + getterFuncName + "()";  // getInt()
-      if (p_schema->getType() == VECTOR) {
+      if (p_schema->getType() == VECTOR || p_schema->getType() == FRIEND_ID_VECTOR) {
         func->addBodyStatements(variableName + "->" + schemaName + ".push_back(buffer->" + getterFuncName + ");", level + 1);
       } else {
         func->addBodyStatements(variableName + "->" + schemaName + ".insert(buffer->" + getterFuncName + ");", level + 1);

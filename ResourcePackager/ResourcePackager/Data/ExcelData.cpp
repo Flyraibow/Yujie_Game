@@ -34,6 +34,8 @@ static string castFromStringToValue(DataType type, const string &val) {
     return "(atoi("+val+".c_str()) != 0)";
   } else if (type == SET || type == FRIEND_ID_SET) {
     return "atoset("+val+")";
+  } else if (type == VECTOR || type == FRIEND_ID_VECTOR) {
+    return "atoset("+val+")";
   }
   return val;
 }
@@ -139,10 +141,11 @@ void ExcelData::saveData(const string& folderPath, const string& fileName, Langu
           break;
         };
         case FRIEND_ID_SET:
+        case FRIEND_ID_VECTOR:
         case VECTOR:
         case SET:{
           auto subType = schema->getSubtype();
-          if (schema->getType() == FRIEND_ID_SET) {
+          if (schema->getType() == FRIEND_ID_SET || schema->getType() == FRIEND_ID_VECTOR) {
             subType = TYPE_STRING;
           }
           auto vals = utils::split(value, ';');
@@ -233,7 +236,7 @@ void ExcelData::setInitFunction(const string &className, CPPClass *cppClass, CPP
       cppClass->addFunction(getIdFunc, false);
     } else if (schema->getType() == LANGUAGE) {
       containLanguage = true;
-    } else if (schema->getType() == VECTOR) {
+    } else if (schema->getType() == VECTOR || schema->getType() == FRIEND_ID_VECTOR) {
       containVector = true;
     } else if (schema->getType() == SET || schema->getType() == FRIEND_ID_SET) {
       containSet = true;
@@ -283,7 +286,9 @@ void ExcelData::setInitFunction(const string &className, CPPClass *cppClass, CPP
     make_pair("if (" + className + "::getSharedDictionary()->count(" + id_schema_name + ")) {", 0),
     make_pair("return " + className + "::getSharedDictionary()->at(" + id_schema_name + ");", 1),
     make_pair("}", 0),
-    make_pair("CCLOGERROR(\"invalid " + id_schema_name + " %s\", " + id_schema_name + ".c_str());", 0),
+    make_pair("if (" + id_schema_name + ".length() > 0) {", 0),
+    make_pair("CCLOGWARN(\"invalid " + id_schema_name + " %s\", " + id_schema_name + ".c_str());", 1),
+    make_pair("}", 0),
     make_pair("return nullptr;", 0),
   });
   cppClass->addFunction(retrieveFunc, false);

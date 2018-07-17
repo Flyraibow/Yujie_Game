@@ -6,6 +6,7 @@ This file (CityData.hpp) is generated
 #include <map>
 #include "BaseData.h"
 #include <set>
+#include <vector>
 #include "CultureData.hpp"
 #include "CityTypeData.hpp"
 #include "CityGoodsData.hpp"
@@ -24,7 +25,7 @@ private:
 	double p_latitude;
 	int p_commerce;
 	int p_milltary;
-	set<string> p_cityGoodsIdSet;
+	vector<string> p_cityGoodsIdVector;
 	set<string> p_buildingIdSet;
 public:
 	string getId() const;
@@ -41,8 +42,8 @@ public:
 	void setCommerce(int commerce);
 	int getMilltary() const;
 	void setMilltary(int milltary);
-	set<CityGoodsData*> getCityGoodsDataSet() const;
-	set<string> getCityGoodsIdSet() const;
+	vector<CityGoodsData*> getCityGoodsDataVector() const;
+	vector<string> getCityGoodsIdVector() const;
 	set<CityBuildingData*> getBuildingDataSet() const;
 	set<string> getBuildingIdSet() const;
 	void setBuilding(set<string> building);

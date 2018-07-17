@@ -71,7 +71,9 @@ CategoryUpdateData* CategoryUpdateData::getCategoryUpdateDataById(const string& 
 	if (CategoryUpdateData::getSharedDictionary()->count(categoryUpdateId)) {
 		return CategoryUpdateData::getSharedDictionary()->at(categoryUpdateId);
 	}
-	CCLOGERROR("invalid categoryUpdateId %s", categoryUpdateId.c_str());
+	if (categoryUpdateId.length() > 0) {
+		CCLOGWARN("invalid categoryUpdateId %s", categoryUpdateId.c_str());
+	}
 	return nullptr;
 }
 

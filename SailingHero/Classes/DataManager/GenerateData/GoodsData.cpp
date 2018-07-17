@@ -58,6 +58,16 @@ int GoodsData::getMaxPrice() const
 	return p_maxPrice;
 }
 
+ItemData* GoodsData::getUnlockItemData() const
+{
+	return ItemData::getItemDataById(p_unlockItemId);
+}
+
+string GoodsData::getUnlockItemId() const
+{
+	return p_unlockItemId;
+}
+
 int GoodsData::getLevelUpExp() const
 {
 	return p_levelUpExp;
@@ -77,6 +87,7 @@ string GoodsData::description() const
 	desc += "\tcategory : " + to_string(p_categoryId) + "\n";
 	desc += "\ticonId : " + to_string(p_iconId) + "\n";
 	desc += "\tmaxPrice : " + to_string(p_maxPrice) + "\n";
+	desc += "\tunlockItem : " + to_string(p_unlockItemId) + "\n";
 	desc += "\tlevelUpExp : " + to_string(p_levelUpExp) + "\n";
 	desc += "\tgoodsDescription : " + getGoodsDescription() + "\n";
 	desc += "}\n";
@@ -99,6 +110,7 @@ map<string, GoodsData*>* GoodsData::getSharedDictionary()
 				goodsData->p_categoryId = buffer->getString();
 				goodsData->p_iconId = buffer->getString();
 				goodsData->p_maxPrice = buffer->getInt();
+				goodsData->p_unlockItemId = buffer->getString();
 				goodsData->p_levelUpExp = buffer->getInt();
 				p_sharedDictionary->insert(pair<string, GoodsData*>(goodsData->p_goodsId, goodsData));
 			}
@@ -112,7 +124,9 @@ GoodsData* GoodsData::getGoodsDataById(const string& goodsId)
 	if (GoodsData::getSharedDictionary()->count(goodsId)) {
 		return GoodsData::getSharedDictionary()->at(goodsId);
 	}
-	CCLOGERROR("invalid goodsId %s", goodsId.c_str());
+	if (goodsId.length() > 0) {
+		CCLOGWARN("invalid goodsId %s", goodsId.c_str());
+	}
 	return nullptr;
 }
 

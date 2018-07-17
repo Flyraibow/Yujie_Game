@@ -61,7 +61,9 @@ GenderData* GenderData::getGenderDataById(const string& genderId)
 	if (GenderData::getSharedDictionary()->count(genderId)) {
 		return GenderData::getSharedDictionary()->at(genderId);
 	}
-	CCLOGERROR("invalid genderId %s", genderId.c_str());
+	if (genderId.length() > 0) {
+		CCLOGWARN("invalid genderId %s", genderId.c_str());
+	}
 	return nullptr;
 }
 

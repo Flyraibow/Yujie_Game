@@ -61,7 +61,9 @@ ItemCategoryData* ItemCategoryData::getItemCategoryDataById(const string& itemCa
 	if (ItemCategoryData::getSharedDictionary()->count(itemCategoryId)) {
 		return ItemCategoryData::getSharedDictionary()->at(itemCategoryId);
 	}
-	CCLOGERROR("invalid itemCategoryId %s", itemCategoryId.c_str());
+	if (itemCategoryId.length() > 0) {
+		CCLOGWARN("invalid itemCategoryId %s", itemCategoryId.c_str());
+	}
 	return nullptr;
 }
 

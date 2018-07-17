@@ -31,8 +31,10 @@ namespace std {
   string to_string(const vector<float> &pSet);
   string to_string(const vector<string> &pSet);
   string to_string(const vector<long long> &pSet);
+  string to_string(const vector<BaseData *> &pSet);
   
   set<string> atoset(const string &str);
+  vector<string> atovector(const string &str);
   
   string format(const char *fmt, ...)
 #ifdef __GNUC__

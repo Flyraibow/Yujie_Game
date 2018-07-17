@@ -119,7 +119,9 @@ ItemData* ItemData::getItemDataById(const string& itemId)
 	if (ItemData::getSharedDictionary()->count(itemId)) {
 		return ItemData::getSharedDictionary()->at(itemId);
 	}
-	CCLOGERROR("invalid itemId %s", itemId.c_str());
+	if (itemId.length() > 0) {
+		CCLOGWARN("invalid itemId %s", itemId.c_str());
+	}
 	return nullptr;
 }
 

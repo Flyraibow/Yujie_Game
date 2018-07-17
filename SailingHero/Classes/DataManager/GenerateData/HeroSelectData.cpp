@@ -109,7 +109,9 @@ HeroSelectData* HeroSelectData::getHeroSelectDataById(const string& selectHeroId
 	if (HeroSelectData::getSharedDictionary()->count(selectHeroId)) {
 		return HeroSelectData::getSharedDictionary()->at(selectHeroId);
 	}
-	CCLOGERROR("invalid selectHeroId %s", selectHeroId.c_str());
+	if (selectHeroId.length() > 0) {
+		CCLOGWARN("invalid selectHeroId %s", selectHeroId.c_str());
+	}
 	return nullptr;
 }
 

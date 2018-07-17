@@ -329,7 +329,9 @@ HeroData* HeroData::getHeroDataById(const string& heroId)
 	if (HeroData::getSharedDictionary()->count(heroId)) {
 		return HeroData::getSharedDictionary()->at(heroId);
 	}
-	CCLOGERROR("invalid heroId %s", heroId.c_str());
+	if (heroId.length() > 0) {
+		CCLOGWARN("invalid heroId %s", heroId.c_str());
+	}
 	return nullptr;
 }
 

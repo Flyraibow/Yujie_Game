@@ -68,7 +68,9 @@ CityBuildingData* CityBuildingData::getCityBuildingDataById(const string& buildi
 	if (CityBuildingData::getSharedDictionary()->count(buildingId)) {
 		return CityBuildingData::getSharedDictionary()->at(buildingId);
 	}
-	CCLOGERROR("invalid buildingId %s", buildingId.c_str());
+	if (buildingId.length() > 0) {
+		CCLOGWARN("invalid buildingId %s", buildingId.c_str());
+	}
 	return nullptr;
 }
 

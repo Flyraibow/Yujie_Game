@@ -107,7 +107,9 @@ ZodiacData* ZodiacData::getZodiacDataById(const string& zodiacId)
 	if (ZodiacData::getSharedDictionary()->count(zodiacId)) {
 		return ZodiacData::getSharedDictionary()->at(zodiacId);
 	}
-	CCLOGERROR("invalid zodiacId %s", zodiacId.c_str());
+	if (zodiacId.length() > 0) {
+		CCLOGWARN("invalid zodiacId %s", zodiacId.c_str());
+	}
 	return nullptr;
 }
 
