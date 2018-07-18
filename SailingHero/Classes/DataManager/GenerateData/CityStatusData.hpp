@@ -7,6 +7,16 @@ This file (CityStatusData.hpp) is generated
 #include "BaseData.h"
 
 using namespace std;
+enum class CITY_STATUS
+{
+	NORMAL = 0,
+	GOOD = 1,
+	BAD = 2,
+	WAR = 3,
+	HUNGRY = 4,
+	ILLNESS = 5,
+};
+
 class CityStatusData: public BaseData
 {
 private:

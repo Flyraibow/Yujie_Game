@@ -27,7 +27,7 @@ private:
   vector<vector<string>> p_values;
   string p_resDataFileName;
   void setInitFunction(const string &className, CPPClass *cppClass, CPPFileComplete *cppFile) const;
-  
+  void addEnum(CPPFileComplete *cppFile, const DataSchema *schema, const string& id_schema_type) const;
 public:
   string getFilePath() const;
   string getClassName() const;

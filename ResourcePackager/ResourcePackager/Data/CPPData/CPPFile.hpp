@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "CPPClass.hpp"
 #include "CPPFunction.hpp"
+#include "CPPEnumClass.hpp"
 
 #include <vector>
 #include <string>
@@ -21,58 +22,63 @@ using namespace std;
 class CPPFile
 {
 protected:
-    string p_fileName;
-    vector<const CPPClass *> p_cppClasses;
-    vector<string> p_cppFileComments;
-    vector<pair<string, bool>> p_includeHeaders;
-    vector<string> p_usingNamespaces;
-    vector<string> p_preDefinedClass;
-    void commonInit();
-    string getIncludeHeaderString() const;
-    string getUsingNamespaceString() const;
-    string getPredefinedClassString() const;
-    string getEmptyLine() const;
+  string p_fileName;
+  vector<const CPPEnumClass *> p_cppEnumClasses;
+  vector<const CPPClass *> p_cppClasses;
+  vector<string> p_cppFileComments;
+  vector<pair<string, bool>> p_includeHeaders;
+  vector<string> p_usingNamespaces;
+  vector<string> p_preDefinedClass;
+  void commonInit();
+  string getIncludeHeaderString() const;
+  string getUsingNamespaceString() const;
+  string getPredefinedClassString() const;
+  string getEmptyLine() const;
 public:
-    CPPFile(const string &fileName);
-    void addClass(const CPPClass *cppClass);
-    void addComment(const string &comment);
-    void addHeaders(const string &header, bool isQuote);
-    void addNameSpace(const string &nameSpace);
-    void addPreDefinedClass(const string &preDefinedClass);
-    string getCppFileString() const;
-    virtual string getFileName() const;
+  CPPFile(const string &fileName);
+  void addEnumClasses(const CPPEnumClass *cppEnumClass);
+  void addClass(const CPPClass *cppClass);
+  void addComment(const string &comment);
+  void addHeaders(const string &header, bool isQuote);
+  void addNameSpace(const string &nameSpace);
+  void addPreDefinedClass(const string &preDefinedClass);
+  string getCppFileString() const;
+  virtual string getFileName() const;
 };
 
 class CPPFileHeader : public CPPFile
 {
 public:
-    CPPFileHeader(const string &fileName);
-    string getCppFileString() const;
-    virtual string getFileName() const;
+  CPPFileHeader(const string &fileName);
+  string getCppFileString() const;
+  virtual string getFileName() const;
 };
 
 class CPPFileContent : public CPPFile
 {
 public:
-    CPPFileContent(const string &fileName);
-    string getCppFileString() const;
-    virtual string getFileName() const;
+  CPPFileContent(const string &fileName);
+  string getCppFileString() const;
+  virtual string getFileName() const;
 };
 
 class CPPFileComplete : public CPPFile
 {
 private:
-    CPPFileHeader *p_headerFile;
-    CPPFileContent *p_contentFile;
+  CPPFileHeader *p_headerFile;
+  CPPFileContent *p_contentFile;
 public:
-    CPPFileComplete(const string &fileName);
-    ~CPPFileComplete();
-    void addPreDefinedClass(const string &preDefinedClass);
-    void addClass(const CPPClass *cppClass);
-    void addHeaders(const string &headers, bool isQuote, bool isHeader);
-    string getCppFileStringHeader() const;
-    string getCppFileStringContent() const;
-    void saveFiles(const string& folderPath);
+  CPPFileComplete(const string &fileName);
+  ~CPPFileComplete();
+  void addPreDefinedClass(const string &preDefinedClass);
+  void addEnumClass(const CPPEnumClass *cppEnumClass, bool isHeader);
+  void addClass(const CPPClass *cppClass);
+  void addHeaders(const string &headers, bool isQuote, bool isHeader);
+  
+  string getCppFileStringHeader() const;
+  string getCppFileStringContent() const;
+  void saveFiles(const string& folderPath);
 };
 
 #endif /* CPPFile_hpp */
+

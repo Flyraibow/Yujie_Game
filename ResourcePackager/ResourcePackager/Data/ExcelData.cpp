@@ -159,6 +159,7 @@ void ExcelData::saveData(const string& folderPath, const string& fileName, Langu
           break;
         }
         case COMMENT:
+        case ENUM:
           // skip
           break;
         default:
@@ -194,6 +195,37 @@ void ExcelData::generateCode(const string& folderPath, const string& fileName)
   delete file;
 }
 
+
+void ExcelData::addEnum(CPPFileComplete *cppFile,const DataSchema *schema, const string& id_schema_type) const
+{
+  auto enumClass = new CPPEnumClass(schema->getName(), id_schema_type);
+  cppFile->addEnumClass(enumClass, true);
+  
+  for (int i = 0; i < p_values.size(); ++i) {
+    auto row = p_values.at(i);
+    string id;
+    string initialValue = "";
+    for (int j = 0; j < p_dataSchemas.size(); ++j) {
+      DataSchema *sche = p_dataSchemas.at(j);
+      auto value = row.at(j);
+      switch (sche->getType()) {
+        case ID:
+          initialValue = value;
+          break;
+        case ENUM:
+          if (schema->getName() == sche->getName()) {
+            auto var = new CPPVariable(value, id_schema_type);
+            var->setInitialValue(initialValue);
+            enumClass->addVariable(var);
+          }
+          break;
+        default:
+          break;
+      }
+    }
+  }
+}
+
 void ExcelData::setInitFunction(const string &className, CPPClass *cppClass, CPPFileComplete *cppFile) const
 {
   std::locale loc;
@@ -222,6 +254,9 @@ void ExcelData::setInitFunction(const string &className, CPPClass *cppClass, CPP
       containVector = true;
     } else if (schema->getType() == SET || schema->getType() == FRIEND_ID_SET) {
       containSet = true;
+    } else if (schema->getType() == ENUM) {
+      assert(!schema->isWritable());
+      this->addEnum(cppFile, schema, id_schema_type);
     }
     if (schema->isWritable()) {
       needSaveDataNumber++;
@@ -267,7 +302,7 @@ void ExcelData::setInitFunction(const string &className, CPPClass *cppClass, CPP
   initFunction->addBodyStatements(classTypeName + " " + variableName + " = new " + className + "();", 3);
   
   for (auto schema : p_dataSchemas) {
-    if (schema->getType() != COMMENT) {
+    if (schema->getType() != COMMENT && schema->getType() != ENUM) {
       auto parser = ExcelParserBase::createWithSchema(schema, id_schema_name);
       parser->setFileNameWithoutExt(fileNameWithoutExt);
       parser->addFunctionsInclass(cppClass);

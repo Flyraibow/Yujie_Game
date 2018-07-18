@@ -30,6 +30,7 @@ const static unordered_map<string, DataType> s_type_map({
   {"set", SET},
   {"friend_id_set", FRIEND_ID_SET},
   {"friend_id_vector", FRIEND_ID_VECTOR},
+  {"enum", ENUM},
 });
 
 string DataSchema::getName() const
