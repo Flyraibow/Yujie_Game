@@ -15,3 +15,6 @@ input_first_name,请输入名字
 input_guild_name,请输入势力名
 input_birth_month,请输入生日的月份
 input_birth_day,请输入生日的日期
+tag_commerce,发展度
+tag_military,武装度
+tag_goods,特产品

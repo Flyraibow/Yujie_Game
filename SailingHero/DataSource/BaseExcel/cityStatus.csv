@@ -1,0 +1,10 @@
+﻿cityStatusId,cityStatusName
+id,language
+-,chinese
+writable,N
+0,普通
+1,好景气
+2,萧条
+3,战争
+4,饥荒
+5,瘟疫

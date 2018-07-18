@@ -28,6 +28,7 @@ protected:
   void setScreenCover(Size ratioSize);
   void setBackgroundImage(std::string imgPath);
   void setBackgroundMusic(std::string path);
+  Node* s_window;
   
 public:
   CREATE_FUNC(SHScene);

@@ -45,6 +45,21 @@ string CityData::getCultureId() const
 	return p_cultureId;
 }
 
+CityStatusData* CityData::getCityStatusData() const
+{
+	return CityStatusData::getCityStatusDataById(p_cityStatusId);
+}
+
+string CityData::getCityStatusId() const
+{
+	return p_cityStatusId;
+}
+
+void CityData::setCityStatus(string cityStatus)
+{
+	p_cityStatusId = cityStatus;
+}
+
 CityTypeData* CityData::getCityTypeData() const
 {
 	return CityTypeData::getCityTypeDataById(p_cityTypeId);
@@ -124,6 +139,7 @@ string CityData::description() const
 	desc += "\tcityId : " + to_string(p_cityId) + "\n";
 	desc += "\tcityName : " + getCityName() + "\n";
 	desc += "\tculture : " + to_string(p_cultureId) + "\n";
+	desc += "\tcityStatus : " + to_string(p_cityStatusId) + "\n";
 	desc += "\tcityType : " + to_string(p_cityTypeId) + "\n";
 	desc += "\tlongitude : " + to_string(p_longitude) + "\n";
 	desc += "\tlatitude : " + to_string(p_latitude) + "\n";
@@ -149,6 +165,7 @@ map<string, CityData*>* CityData::getSharedDictionary()
 				CityData* cityData = new CityData();
 				cityData->p_cityId = buffer->getString();
 				cityData->p_cultureId = buffer->getString();
+				cityData->p_cityStatusId = buffer->getString();
 				cityData->p_cityTypeId = buffer->getString();
 				cityData->p_longitude = buffer->getDouble();
 				cityData->p_latitude = buffer->getDouble();
@@ -186,13 +203,15 @@ bool CityData::saveData(const string & path)
 	auto dict = CityData::getSharedDictionary();
 	auto buffer = make_unique<bb::ByteBuffer>();
 	buffer->putLong(dict->size());
-	buffer->putInt(4);
+	buffer->putInt(5);
 	for (auto iter = dict->begin(); iter != dict->end(); iter++) {
 		auto dataId = iter->first;
 		auto data = iter->second;
 		buffer->putString(dataId);
 		buffer->putString("p_cityName");
 		buffer->putString(to_string(data->p_cityName));
+		buffer->putString("p_cityStatusId");
+		buffer->putString(to_string(data->p_cityStatusId));
 		buffer->putString("p_commerce");
 		buffer->putString(to_string(data->p_commerce));
 		buffer->putString("p_milltary");
@@ -226,6 +245,8 @@ bool CityData::loadData(const string & path)
 				if (data != nullptr) {
 					if (key == "p_cityName") {
 						data->p_cityName = value;
+					} else if (key == "p_cityStatusId") {
+						data->p_cityStatusId = value;
 					} else if (key == "p_commerce") {
 						data->p_commerce = atoi(value.c_str());
 					} else if (key == "p_milltary") {
