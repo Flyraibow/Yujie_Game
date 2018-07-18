@@ -87,6 +87,8 @@ string ExcelParserBase::getType() const
     case ID:
       // Never set ID
       assert(!p_schema->isWritable());
+      finalType = p_schema->getSubtype();
+      break;
     case FRIEND_ID:
     case ICON:
     case MUSIC:
@@ -163,9 +165,14 @@ void ExcelParserBase::addInitFuncBody(CPPFunction *func) const
   string schemaName = this->getVariableName();
   auto variableName = p_fileNameWithoutExt + "Data";
   switch (p_schema->getType()) {
-    case ID:
+    case ID: {
+      string st = variableName + "->" + schemaName + " = buffer->" + (p_schema->getSubtype() == TYPE_INT ? "getInt();" : "getString();");
+      func->addBodyStatements(st, level);
+      break;
+    }
     case FRIEND_ID:
     case ICON:
+    case MUSIC:
     case STRING: {
       string st = variableName + "->" + schemaName + " = buffer->" + "getString();";
       func->addBodyStatements(st, level);

@@ -9,21 +9,21 @@ This file (ZodiacData.cpp) is generated
 
 using namespace std;
 
-map<string, ZodiacData*>* ZodiacData::p_sharedDictionary = nullptr;
+map<int, ZodiacData*>* ZodiacData::p_sharedDictionary = nullptr;
 
 string ZodiacData::getId() const
 {
-	return p_zodiacId;
+	return to_string(p_zodiacId);
 }
 
-string ZodiacData::getZodiacId() const
+int ZodiacData::getZodiacId() const
 {
 	return p_zodiacId;
 }
 
 string ZodiacData::getZodiacName() const
 {
-	string localId = "zodiac_zodiacName_" + p_zodiacId;
+	string localId = "zodiac_zodiacName_" + to_string(p_zodiacId);
 	return LocalizationHelper::getLocalization(localId);
 }
 
@@ -77,10 +77,10 @@ string ZodiacData::description() const
 	return desc;
 }
 
-map<string, ZodiacData*>* ZodiacData::getSharedDictionary()
+map<int, ZodiacData*>* ZodiacData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
-		p_sharedDictionary = new map<string, ZodiacData*>();
+		p_sharedDictionary = new map<int, ZodiacData*>();
 		static string resPath = "res/base/data/zodiac.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
@@ -89,27 +89,30 @@ map<string, ZodiacData*>* ZodiacData::getSharedDictionary()
 			auto count = buffer->getLong();
 			for (int i = 0; i < count; ++i) {
 				ZodiacData* zodiacData = new ZodiacData();
-				zodiacData->p_zodiacId = buffer->getString();
+				zodiacData->p_zodiacId = buffer->getInt();
 				zodiacData->p_iconId = buffer->getString();
 				zodiacData->p_startMonth = buffer->getInt();
 				zodiacData->p_startDate = buffer->getInt();
 				zodiacData->p_endMonth = buffer->getInt();
 				zodiacData->p_endDate = buffer->getInt();
-				p_sharedDictionary->insert(pair<string, ZodiacData*>(zodiacData->p_zodiacId, zodiacData));
+				p_sharedDictionary->insert(pair<int, ZodiacData*>(zodiacData->p_zodiacId, zodiacData));
 			}
 		}
 	}
 	return p_sharedDictionary;
 }
 
-ZodiacData* ZodiacData::getZodiacDataById(const string& zodiacId)
+ZodiacData* ZodiacData::getZodiacDataById(int zodiacId)
 {
 	if (ZodiacData::getSharedDictionary()->count(zodiacId)) {
 		return ZodiacData::getSharedDictionary()->at(zodiacId);
 	}
-	if (zodiacId.length() > 0) {
-		CCLOGWARN("invalid zodiacId %s", zodiacId.c_str());
-	}
 	return nullptr;
+}
+
+ZodiacData* ZodiacData::getZodiacDataById(const string& zodiacId)
+{
+	if (zodiacId.length() == 0) return nullptr;
+	return ZodiacData::getZodiacDataById(atoi(zodiacId.c_str()));
 }
 

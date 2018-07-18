@@ -1,6 +1,6 @@
 ﻿itemCategoryId,itemCategoryName
 id,language
--,chinese
+int,chinese
 writable,N
 0,原产物
 1,航海用品

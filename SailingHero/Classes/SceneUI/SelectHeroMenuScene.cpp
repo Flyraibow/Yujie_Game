@@ -64,7 +64,7 @@ bool SelectHeroMenuScene::init()
   int index = 0;
   for (auto iter = heroList->begin(); iter != heroList->end(); ++iter, index++) {
     
-    auto peoplePanel = HeroSelectingFrame::createWithSelectHeroId(iter->first);
+    auto peoplePanel = HeroSelectingFrame::createWithSelectHeroId(to_string(iter->first));
     setEventListenerForSprite(peoplePanel, iter->second);
     
     peoplePanel->setPosition(Vec2(origin.x + visibleSize.width / 2  - 100 + index * 200, origin.y + visibleSize.height / 2));

@@ -9,14 +9,14 @@ This file (HeroSelectData.cpp) is generated
 
 using namespace std;
 
-map<string, HeroSelectData*>* HeroSelectData::p_sharedDictionary = nullptr;
+map<int, HeroSelectData*>* HeroSelectData::p_sharedDictionary = nullptr;
 
 string HeroSelectData::getId() const
 {
-	return p_selectHeroId;
+	return to_string(p_selectHeroId);
 }
 
-string HeroSelectData::getSelectHeroId() const
+int HeroSelectData::getSelectHeroId() const
 {
 	return p_selectHeroId;
 }
@@ -65,7 +65,7 @@ string HeroSelectData::getGuildId() const
 
 string HeroSelectData::getHeroDescription() const
 {
-	string localId = "heroSelect_heroDescription_" + p_selectHeroId;
+	string localId = "heroSelect_heroDescription_" + to_string(p_selectHeroId);
 	return LocalizationHelper::getLocalization(localId);
 }
 
@@ -81,10 +81,10 @@ string HeroSelectData::description() const
 	return desc;
 }
 
-map<string, HeroSelectData*>* HeroSelectData::getSharedDictionary()
+map<int, HeroSelectData*>* HeroSelectData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
-		p_sharedDictionary = new map<string, HeroSelectData*>();
+		p_sharedDictionary = new map<int, HeroSelectData*>();
 		static string resPath = "res/base/data/heroSelect.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
@@ -93,25 +93,28 @@ map<string, HeroSelectData*>* HeroSelectData::getSharedDictionary()
 			auto count = buffer->getLong();
 			for (int i = 0; i < count; ++i) {
 				HeroSelectData* heroSelectData = new HeroSelectData();
-				heroSelectData->p_selectHeroId = buffer->getString();
+				heroSelectData->p_selectHeroId = buffer->getInt();
 				heroSelectData->p_iconId = buffer->getString();
 				heroSelectData->p_smallIconId = buffer->getString();
 				heroSelectData->p_guildId = buffer->getString();
-				p_sharedDictionary->insert(pair<string, HeroSelectData*>(heroSelectData->p_selectHeroId, heroSelectData));
+				p_sharedDictionary->insert(pair<int, HeroSelectData*>(heroSelectData->p_selectHeroId, heroSelectData));
 			}
 		}
 	}
 	return p_sharedDictionary;
 }
 
-HeroSelectData* HeroSelectData::getHeroSelectDataById(const string& selectHeroId)
+HeroSelectData* HeroSelectData::getHeroSelectDataById(int selectHeroId)
 {
 	if (HeroSelectData::getSharedDictionary()->count(selectHeroId)) {
 		return HeroSelectData::getSharedDictionary()->at(selectHeroId);
 	}
-	if (selectHeroId.length() > 0) {
-		CCLOGWARN("invalid selectHeroId %s", selectHeroId.c_str());
-	}
 	return nullptr;
+}
+
+HeroSelectData* HeroSelectData::getHeroSelectDataById(const string& selectHeroId)
+{
+	if (selectHeroId.length() == 0) return nullptr;
+	return HeroSelectData::getHeroSelectDataById(atoi(selectHeroId.c_str()));
 }
 

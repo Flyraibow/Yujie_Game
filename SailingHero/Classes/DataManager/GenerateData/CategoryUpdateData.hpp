@@ -11,16 +11,17 @@ using namespace std;
 class CategoryUpdateData: public BaseData
 {
 private:
-	static map<string, CategoryUpdateData*>* p_sharedDictionary;
-	string p_categoryUpdateId;
+	static map<int, CategoryUpdateData*>* p_sharedDictionary;
+	int p_categoryUpdateId;
 	set<int> p_updateMonth;
 public:
 	string getId() const;
-	string getCategoryUpdateId() const;
+	int getCategoryUpdateId() const;
 	string getCategoryUpdateName() const;
 	set<int> getUpdateMonth() const;
 	string description() const;
-	static map<string, CategoryUpdateData*>* getSharedDictionary();
+	static map<int, CategoryUpdateData*>* getSharedDictionary();
+	static CategoryUpdateData* getCategoryUpdateDataById(int categoryUpdateId);
 	static CategoryUpdateData* getCategoryUpdateDataById(const string& categoryUpdateId);
 };
 #endif

@@ -11,8 +11,8 @@ using namespace std;
 class HeroData: public BaseData
 {
 private:
-	static map<string, HeroData*>* p_sharedDictionary;
-	string p_heroId;
+	static map<int, HeroData*>* p_sharedDictionary;
+	int p_heroId;
 	string p_heroFirstName;
 	string p_heroLastName;
 	string p_genderId;
@@ -37,7 +37,7 @@ private:
 	int p_observingAbility;
 public:
 	string getId() const;
-	string getHeroId() const;
+	int getHeroId() const;
 	void setHeroFirstName(string heroFirstName);
 	string getHeroFirstName() const;
 	void setHeroLastName(string heroLastName);
@@ -84,7 +84,8 @@ public:
 	int getObservingAbility() const;
 	void setObservingAbility(int observingAbility);
 	string description() const;
-	static map<string, HeroData*>* getSharedDictionary();
+	static map<int, HeroData*>* getSharedDictionary();
+	static HeroData* getHeroDataById(int heroId);
 	static HeroData* getHeroDataById(const string& heroId);
 	static bool saveData(const string & path);
 	static bool loadData(const string & path);

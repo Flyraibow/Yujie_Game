@@ -11,7 +11,7 @@
 bool enableGoodsInCity(CityData* cityData, GoodsData* goodsData)
 {
   for (auto cityGoodsData : cityData->getCityGoodsDataVector()) {
-    if (cityGoodsData->getGoodsId() == goodsData->getGoodsId() && cityGoodsData->getIsHidden()) {
+    if (cityGoodsData->getGoodsId() == goodsData->getId() && cityGoodsData->getIsHidden()) {
       cityGoodsData->setIsHidden(false);
       return true;
     }

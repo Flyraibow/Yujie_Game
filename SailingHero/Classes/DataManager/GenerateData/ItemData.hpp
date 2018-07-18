@@ -11,8 +11,8 @@ using namespace std;
 class ItemData: public BaseData
 {
 private:
-	static map<string, ItemData*>* p_sharedDictionary;
-	string p_itemId;
+	static map<int, ItemData*>* p_sharedDictionary;
+	int p_itemId;
 	string p_iconId;
 	string p_itemCategoryId;
 	int p_value;
@@ -20,7 +20,7 @@ private:
 	int p_price;
 public:
 	string getId() const;
-	string getItemId() const;
+	int getItemId() const;
 	string getItemName() const;
 	cocos2d::Sprite* getIcon(bool isDefaultSize = true);
 	string getIconId() const;
@@ -31,7 +31,8 @@ public:
 	int getPrice() const;
 	string getItemDescription() const;
 	string description() const;
-	static map<string, ItemData*>* getSharedDictionary();
+	static map<int, ItemData*>* getSharedDictionary();
+	static ItemData* getItemDataById(int itemId);
 	static ItemData* getItemDataById(const string& itemId);
 };
 #endif

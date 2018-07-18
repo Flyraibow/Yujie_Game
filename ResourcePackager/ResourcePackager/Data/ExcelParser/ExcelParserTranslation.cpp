@@ -35,7 +35,7 @@ void ExcelParserTranslation::addFunctionsInclass(CPPClass *cppClass) const
     cppClass->addFunction(setSchemaFunc, false);
   }
   getSchemaFunc->addBodyStatementsList({
-    "string localId = \"" + p_fileNameWithoutExt + "_" + p_schema->getName() + "_\" + " + id_string_name + ";",
+    "string localId = \"" + p_fileNameWithoutExt + "_" + p_schema->getName() + "_\" + to_string(" + id_string_name + ");",
     "return LocalizationHelper::getLocalization(localId);"
   }, 0);
   cppClass->addFunction(getSchemaFunc, false);

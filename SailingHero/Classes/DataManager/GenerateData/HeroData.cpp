@@ -9,14 +9,14 @@ This file (HeroData.cpp) is generated
 
 using namespace std;
 
-map<string, HeroData*>* HeroData::p_sharedDictionary = nullptr;
+map<int, HeroData*>* HeroData::p_sharedDictionary = nullptr;
 
 string HeroData::getId() const
 {
-	return p_heroId;
+	return to_string(p_heroId);
 }
 
-string HeroData::getHeroId() const
+int HeroData::getHeroId() const
 {
 	return p_heroId;
 }
@@ -31,7 +31,7 @@ string HeroData::getHeroFirstName() const
 	if (p_heroFirstName.length() > 0) {
 		return p_heroFirstName;
 	}
-	string localId = "hero_heroFirstName_" + p_heroId;
+	string localId = "hero_heroFirstName_" + to_string(p_heroId);
 	return LocalizationHelper::getLocalization(localId);
 }
 
@@ -45,7 +45,7 @@ string HeroData::getHeroLastName() const
 	if (p_heroLastName.length() > 0) {
 		return p_heroLastName;
 	}
-	string localId = "hero_heroLastName_" + p_heroId;
+	string localId = "hero_heroLastName_" + to_string(p_heroId);
 	return LocalizationHelper::getLocalization(localId);
 }
 
@@ -284,10 +284,10 @@ string HeroData::description() const
 	return desc;
 }
 
-map<string, HeroData*>* HeroData::getSharedDictionary()
+map<int, HeroData*>* HeroData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
-		p_sharedDictionary = new map<string, HeroData*>();
+		p_sharedDictionary = new map<int, HeroData*>();
 		static string resPath = "res/base/data/hero.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
@@ -296,7 +296,7 @@ map<string, HeroData*>* HeroData::getSharedDictionary()
 			auto count = buffer->getLong();
 			for (int i = 0; i < count; ++i) {
 				HeroData* heroData = new HeroData();
-				heroData->p_heroId = buffer->getString();
+				heroData->p_heroId = buffer->getInt();
 				heroData->p_genderId = buffer->getString();
 				heroData->p_birthMonth = buffer->getInt();
 				heroData->p_birthDay = buffer->getInt();
@@ -317,22 +317,25 @@ map<string, HeroData*>* HeroData::getSharedDictionary()
 				heroData->p_eloquence = buffer->getInt();
 				heroData->p_strategyAbility = buffer->getInt();
 				heroData->p_observingAbility = buffer->getInt();
-				p_sharedDictionary->insert(pair<string, HeroData*>(heroData->p_heroId, heroData));
+				p_sharedDictionary->insert(pair<int, HeroData*>(heroData->p_heroId, heroData));
 			}
 		}
 	}
 	return p_sharedDictionary;
 }
 
-HeroData* HeroData::getHeroDataById(const string& heroId)
+HeroData* HeroData::getHeroDataById(int heroId)
 {
 	if (HeroData::getSharedDictionary()->count(heroId)) {
 		return HeroData::getSharedDictionary()->at(heroId);
 	}
-	if (heroId.length() > 0) {
-		CCLOGWARN("invalid heroId %s", heroId.c_str());
-	}
 	return nullptr;
+}
+
+HeroData* HeroData::getHeroDataById(const string& heroId)
+{
+	if (heroId.length() == 0) return nullptr;
+	return HeroData::getHeroDataById(atoi(heroId.c_str()));
 }
 
 bool HeroData::saveData(const string & path)
@@ -345,7 +348,7 @@ bool HeroData::saveData(const string & path)
 	for (auto iter = dict->begin(); iter != dict->end(); iter++) {
 		auto dataId = iter->first;
 		auto data = iter->second;
-		buffer->putString(dataId);
+		buffer->putInt(dataId);
 		buffer->putString("p_heroFirstName");
 		buffer->putString(to_string(data->p_heroFirstName));
 		buffer->putString("p_heroLastName");
@@ -406,7 +409,7 @@ bool HeroData::loadData(const string & path)
 		auto size = buffer->getLong();
 		auto dataSize = buffer->getInt();
 		for (int i = 0; i < size; ++i) {
-			string dataId = buffer->getString();
+			auto dataId = buffer->getInt();
 			HeroData *data = nullptr;
 			if (dict->count(dataId)) {
 				data = dict->at(dataId);

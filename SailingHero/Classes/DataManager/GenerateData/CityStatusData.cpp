@@ -9,21 +9,21 @@ This file (CityStatusData.cpp) is generated
 
 using namespace std;
 
-map<string, CityStatusData*>* CityStatusData::p_sharedDictionary = nullptr;
+map<int, CityStatusData*>* CityStatusData::p_sharedDictionary = nullptr;
 
 string CityStatusData::getId() const
 {
-	return p_cityStatusId;
+	return to_string(p_cityStatusId);
 }
 
-string CityStatusData::getCityStatusId() const
+int CityStatusData::getCityStatusId() const
 {
 	return p_cityStatusId;
 }
 
 string CityStatusData::getCityStatusName() const
 {
-	string localId = "cityStatus_cityStatusName_" + p_cityStatusId;
+	string localId = "cityStatus_cityStatusName_" + to_string(p_cityStatusId);
 	return LocalizationHelper::getLocalization(localId);
 }
 
@@ -36,10 +36,10 @@ string CityStatusData::description() const
 	return desc;
 }
 
-map<string, CityStatusData*>* CityStatusData::getSharedDictionary()
+map<int, CityStatusData*>* CityStatusData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
-		p_sharedDictionary = new map<string, CityStatusData*>();
+		p_sharedDictionary = new map<int, CityStatusData*>();
 		static string resPath = "res/base/data/cityStatus.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
@@ -48,22 +48,25 @@ map<string, CityStatusData*>* CityStatusData::getSharedDictionary()
 			auto count = buffer->getLong();
 			for (int i = 0; i < count; ++i) {
 				CityStatusData* cityStatusData = new CityStatusData();
-				cityStatusData->p_cityStatusId = buffer->getString();
-				p_sharedDictionary->insert(pair<string, CityStatusData*>(cityStatusData->p_cityStatusId, cityStatusData));
+				cityStatusData->p_cityStatusId = buffer->getInt();
+				p_sharedDictionary->insert(pair<int, CityStatusData*>(cityStatusData->p_cityStatusId, cityStatusData));
 			}
 		}
 	}
 	return p_sharedDictionary;
 }
 
-CityStatusData* CityStatusData::getCityStatusDataById(const string& cityStatusId)
+CityStatusData* CityStatusData::getCityStatusDataById(int cityStatusId)
 {
 	if (CityStatusData::getSharedDictionary()->count(cityStatusId)) {
 		return CityStatusData::getSharedDictionary()->at(cityStatusId);
 	}
-	if (cityStatusId.length() > 0) {
-		CCLOGWARN("invalid cityStatusId %s", cityStatusId.c_str());
-	}
 	return nullptr;
+}
+
+CityStatusData* CityStatusData::getCityStatusDataById(const string& cityStatusId)
+{
+	if (cityStatusId.length() == 0) return nullptr;
+	return CityStatusData::getCityStatusDataById(atoi(cityStatusId.c_str()));
 }
 

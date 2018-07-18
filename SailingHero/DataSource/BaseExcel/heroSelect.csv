@@ -1,6 +1,6 @@
 ﻿selectHeroId,iconId,smallIconId,guild,heroDescription
 id,icon,icon,friend_id,language
-,res/base/icon/firstGrp/,res/base/icon/firstGrp/,Guild,chinese
+int,res/base/icon/firstGrp/,res/base/icon/firstGrp/,Guild,chinese
 writable,N,N,N,N
 1,Portrait1.png,SmallPortrait1.png,0,莫名的憧憬着要当一名水手的葡萄牙少年。受朋友的鼓动而出海。推荐初次玩此游戏的玩家选择他。
 2,Portrait2.png,SmallPortrait2.png,10,北非海盗王。凭借恐怖的战斗力得到老首领的上市，成为继承人。横行南地中海，令人闻风丧胆。

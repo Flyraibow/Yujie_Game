@@ -9,21 +9,21 @@ This file (GenderData.cpp) is generated
 
 using namespace std;
 
-map<string, GenderData*>* GenderData::p_sharedDictionary = nullptr;
+map<int, GenderData*>* GenderData::p_sharedDictionary = nullptr;
 
 string GenderData::getId() const
 {
-	return p_genderId;
+	return to_string(p_genderId);
 }
 
-string GenderData::getGenderId() const
+int GenderData::getGenderId() const
 {
 	return p_genderId;
 }
 
 string GenderData::getGenderName() const
 {
-	string localId = "gender_genderName_" + p_genderId;
+	string localId = "gender_genderName_" + to_string(p_genderId);
 	return LocalizationHelper::getLocalization(localId);
 }
 
@@ -36,10 +36,10 @@ string GenderData::description() const
 	return desc;
 }
 
-map<string, GenderData*>* GenderData::getSharedDictionary()
+map<int, GenderData*>* GenderData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
-		p_sharedDictionary = new map<string, GenderData*>();
+		p_sharedDictionary = new map<int, GenderData*>();
 		static string resPath = "res/base/data/gender.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
@@ -48,22 +48,25 @@ map<string, GenderData*>* GenderData::getSharedDictionary()
 			auto count = buffer->getLong();
 			for (int i = 0; i < count; ++i) {
 				GenderData* genderData = new GenderData();
-				genderData->p_genderId = buffer->getString();
-				p_sharedDictionary->insert(pair<string, GenderData*>(genderData->p_genderId, genderData));
+				genderData->p_genderId = buffer->getInt();
+				p_sharedDictionary->insert(pair<int, GenderData*>(genderData->p_genderId, genderData));
 			}
 		}
 	}
 	return p_sharedDictionary;
 }
 
-GenderData* GenderData::getGenderDataById(const string& genderId)
+GenderData* GenderData::getGenderDataById(int genderId)
 {
 	if (GenderData::getSharedDictionary()->count(genderId)) {
 		return GenderData::getSharedDictionary()->at(genderId);
 	}
-	if (genderId.length() > 0) {
-		CCLOGWARN("invalid genderId %s", genderId.c_str());
-	}
 	return nullptr;
+}
+
+GenderData* GenderData::getGenderDataById(const string& genderId)
+{
+	if (genderId.length() == 0) return nullptr;
+	return GenderData::getGenderDataById(atoi(genderId.c_str()));
 }
 

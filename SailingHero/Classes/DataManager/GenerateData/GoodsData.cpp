@@ -9,21 +9,21 @@ This file (GoodsData.cpp) is generated
 
 using namespace std;
 
-map<string, GoodsData*>* GoodsData::p_sharedDictionary = nullptr;
+map<int, GoodsData*>* GoodsData::p_sharedDictionary = nullptr;
 
 string GoodsData::getId() const
 {
-	return p_goodsId;
+	return to_string(p_goodsId);
 }
 
-string GoodsData::getGoodsId() const
+int GoodsData::getGoodsId() const
 {
 	return p_goodsId;
 }
 
 string GoodsData::getGoodsName() const
 {
-	string localId = "goods_goodsName_" + p_goodsId;
+	string localId = "goods_goodsName_" + to_string(p_goodsId);
 	return LocalizationHelper::getLocalization(localId);
 }
 
@@ -75,7 +75,7 @@ int GoodsData::getLevelUpExp() const
 
 string GoodsData::getGoodsDescription() const
 {
-	string localId = "goods_goodsDescription_" + p_goodsId;
+	string localId = "goods_goodsDescription_" + to_string(p_goodsId);
 	return LocalizationHelper::getLocalization(localId);
 }
 
@@ -94,10 +94,10 @@ string GoodsData::description() const
 	return desc;
 }
 
-map<string, GoodsData*>* GoodsData::getSharedDictionary()
+map<int, GoodsData*>* GoodsData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
-		p_sharedDictionary = new map<string, GoodsData*>();
+		p_sharedDictionary = new map<int, GoodsData*>();
 		static string resPath = "res/base/data/goods.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
@@ -106,27 +106,30 @@ map<string, GoodsData*>* GoodsData::getSharedDictionary()
 			auto count = buffer->getLong();
 			for (int i = 0; i < count; ++i) {
 				GoodsData* goodsData = new GoodsData();
-				goodsData->p_goodsId = buffer->getString();
+				goodsData->p_goodsId = buffer->getInt();
 				goodsData->p_categoryId = buffer->getString();
 				goodsData->p_iconId = buffer->getString();
 				goodsData->p_maxPrice = buffer->getInt();
 				goodsData->p_unlockItemId = buffer->getString();
 				goodsData->p_levelUpExp = buffer->getInt();
-				p_sharedDictionary->insert(pair<string, GoodsData*>(goodsData->p_goodsId, goodsData));
+				p_sharedDictionary->insert(pair<int, GoodsData*>(goodsData->p_goodsId, goodsData));
 			}
 		}
 	}
 	return p_sharedDictionary;
 }
 
-GoodsData* GoodsData::getGoodsDataById(const string& goodsId)
+GoodsData* GoodsData::getGoodsDataById(int goodsId)
 {
 	if (GoodsData::getSharedDictionary()->count(goodsId)) {
 		return GoodsData::getSharedDictionary()->at(goodsId);
 	}
-	if (goodsId.length() > 0) {
-		CCLOGWARN("invalid goodsId %s", goodsId.c_str());
-	}
 	return nullptr;
+}
+
+GoodsData* GoodsData::getGoodsDataById(const string& goodsId)
+{
+	if (goodsId.length() == 0) return nullptr;
+	return GoodsData::getGoodsDataById(atoi(goodsId.c_str()));
 }
 

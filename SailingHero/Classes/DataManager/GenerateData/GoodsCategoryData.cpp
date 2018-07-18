@@ -9,21 +9,21 @@ This file (GoodsCategoryData.cpp) is generated
 
 using namespace std;
 
-map<string, GoodsCategoryData*>* GoodsCategoryData::p_sharedDictionary = nullptr;
+map<int, GoodsCategoryData*>* GoodsCategoryData::p_sharedDictionary = nullptr;
 
 string GoodsCategoryData::getId() const
 {
-	return p_categoryId;
+	return to_string(p_categoryId);
 }
 
-string GoodsCategoryData::getCategoryId() const
+int GoodsCategoryData::getCategoryId() const
 {
 	return p_categoryId;
 }
 
 string GoodsCategoryData::getCategory_name() const
 {
-	string localId = "goodsCategory_category_name_" + p_categoryId;
+	string localId = "goodsCategory_category_name_" + to_string(p_categoryId);
 	return LocalizationHelper::getLocalization(localId);
 }
 
@@ -47,10 +47,10 @@ string GoodsCategoryData::description() const
 	return desc;
 }
 
-map<string, GoodsCategoryData*>* GoodsCategoryData::getSharedDictionary()
+map<int, GoodsCategoryData*>* GoodsCategoryData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
-		p_sharedDictionary = new map<string, GoodsCategoryData*>();
+		p_sharedDictionary = new map<int, GoodsCategoryData*>();
 		static string resPath = "res/base/data/goodsCategory.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
@@ -59,23 +59,26 @@ map<string, GoodsCategoryData*>* GoodsCategoryData::getSharedDictionary()
 			auto count = buffer->getLong();
 			for (int i = 0; i < count; ++i) {
 				GoodsCategoryData* goodsCategoryData = new GoodsCategoryData();
-				goodsCategoryData->p_categoryId = buffer->getString();
+				goodsCategoryData->p_categoryId = buffer->getInt();
 				goodsCategoryData->p_categoryUpdateId = buffer->getString();
-				p_sharedDictionary->insert(pair<string, GoodsCategoryData*>(goodsCategoryData->p_categoryId, goodsCategoryData));
+				p_sharedDictionary->insert(pair<int, GoodsCategoryData*>(goodsCategoryData->p_categoryId, goodsCategoryData));
 			}
 		}
 	}
 	return p_sharedDictionary;
 }
 
-GoodsCategoryData* GoodsCategoryData::getGoodsCategoryDataById(const string& categoryId)
+GoodsCategoryData* GoodsCategoryData::getGoodsCategoryDataById(int categoryId)
 {
 	if (GoodsCategoryData::getSharedDictionary()->count(categoryId)) {
 		return GoodsCategoryData::getSharedDictionary()->at(categoryId);
 	}
-	if (categoryId.length() > 0) {
-		CCLOGWARN("invalid categoryId %s", categoryId.c_str());
-	}
 	return nullptr;
+}
+
+GoodsCategoryData* GoodsCategoryData::getGoodsCategoryDataById(const string& categoryId)
+{
+	if (categoryId.length() == 0) return nullptr;
+	return GoodsCategoryData::getGoodsCategoryDataById(atoi(categoryId.c_str()));
 }
 

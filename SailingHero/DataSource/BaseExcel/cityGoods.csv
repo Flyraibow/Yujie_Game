@@ -1,6 +1,6 @@
 ﻿cityGoodsId,goods,commercialRequirement,basePrice,abundance,isHidden
 id,friend_id,int,int,int,bool
--,Goods,-,-,-,-
+int,Goods,-,-,-,-
 writable,N,N,N,Y,Y
 1,99,4500,550,12,0
 2,47,2000,345,25,0

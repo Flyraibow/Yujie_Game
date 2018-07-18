@@ -9,21 +9,21 @@ This file (CityBuildingData.cpp) is generated
 
 using namespace std;
 
-map<string, CityBuildingData*>* CityBuildingData::p_sharedDictionary = nullptr;
+map<int, CityBuildingData*>* CityBuildingData::p_sharedDictionary = nullptr;
 
 string CityBuildingData::getId() const
 {
-	return p_buildingId;
+	return to_string(p_buildingId);
 }
 
-string CityBuildingData::getBuildingId() const
+int CityBuildingData::getBuildingId() const
 {
 	return p_buildingId;
 }
 
 string CityBuildingData::getBuildingName() const
 {
-	string localId = "cityBuilding_buildingName_" + p_buildingId;
+	string localId = "cityBuilding_buildingName_" + to_string(p_buildingId);
 	return LocalizationHelper::getLocalization(localId);
 }
 
@@ -42,10 +42,10 @@ string CityBuildingData::description() const
 	return desc;
 }
 
-map<string, CityBuildingData*>* CityBuildingData::getSharedDictionary()
+map<int, CityBuildingData*>* CityBuildingData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
-		p_sharedDictionary = new map<string, CityBuildingData*>();
+		p_sharedDictionary = new map<int, CityBuildingData*>();
 		static string resPath = "res/base/data/cityBuilding.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
@@ -54,23 +54,26 @@ map<string, CityBuildingData*>* CityBuildingData::getSharedDictionary()
 			auto count = buffer->getLong();
 			for (int i = 0; i < count; ++i) {
 				CityBuildingData* cityBuildingData = new CityBuildingData();
-				cityBuildingData->p_buildingId = buffer->getString();
+				cityBuildingData->p_buildingId = buffer->getInt();
 				cityBuildingData->p_buildingImage = buffer->getString();
-				p_sharedDictionary->insert(pair<string, CityBuildingData*>(cityBuildingData->p_buildingId, cityBuildingData));
+				p_sharedDictionary->insert(pair<int, CityBuildingData*>(cityBuildingData->p_buildingId, cityBuildingData));
 			}
 		}
 	}
 	return p_sharedDictionary;
 }
 
-CityBuildingData* CityBuildingData::getCityBuildingDataById(const string& buildingId)
+CityBuildingData* CityBuildingData::getCityBuildingDataById(int buildingId)
 {
 	if (CityBuildingData::getSharedDictionary()->count(buildingId)) {
 		return CityBuildingData::getSharedDictionary()->at(buildingId);
 	}
-	if (buildingId.length() > 0) {
-		CCLOGWARN("invalid buildingId %s", buildingId.c_str());
-	}
 	return nullptr;
+}
+
+CityBuildingData* CityBuildingData::getCityBuildingDataById(const string& buildingId)
+{
+	if (buildingId.length() == 0) return nullptr;
+	return CityBuildingData::getCityBuildingDataById(atoi(buildingId.c_str()));
 }
 

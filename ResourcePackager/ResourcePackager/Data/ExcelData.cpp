@@ -112,6 +112,12 @@ void ExcelData::saveData(const string& folderPath, const string& fileName, Langu
       switch (schema->getType()) {
         case ID:
           id = value;
+          if (schema->getSubtype() == TYPE_INT) {
+            buffer->putInt(atoi(value.c_str()));
+          } else {
+            buffer->putString(value);
+          }
+          break;
         case FRIEND_ID:
         case STRING:
         case ICON:
@@ -194,13 +200,46 @@ void ExcelData::setInitFunction(const string &className, CPPClass *cppClass, CPP
   string variableName = className;
   variableName[0] = tolower(variableName[0], loc); // goodsData
   string classTypeName = className + "*";     // GoodsData*
-  string mapDicType = "map<string, " + classTypeName + ">";
-  string mapDicPointerType = mapDicType + "*";
   bool containLanguage = false;
   bool containSet = false;
   bool containVector = false;
   int needSaveDataNumber = 0;
+  
+  string id_schema_name;  // goodsId;
+  string id_schema_type;  // int or string;
+  string fileNameWithoutExt = p_resDataFileName.substr(0, p_resDataFileName.find_last_of("."));
+  for (auto schema : p_dataSchemas) {
+    if (schema->getType() == ID) {
+      id_schema_name = schema->getName();
+      id_schema_type = schema->getSubtype();
+      assert(id_schema_type == TYPE_STRING || id_schema_type == TYPE_INT);
+      auto getIdFunc = new CPPFunction("getId", TYPE_STRING, {}, false, true, true);
+      getIdFunc->addBodyStatements("return to_string(p_" + id_schema_name + ");");
+      cppClass->addFunction(getIdFunc, false);
+    } else if (schema->getType() == LANGUAGE) {
+      containLanguage = true;
+    } else if (schema->getType() == VECTOR || schema->getType() == FRIEND_ID_VECTOR) {
+      containVector = true;
+    } else if (schema->getType() == SET || schema->getType() == FRIEND_ID_SET) {
+      containSet = true;
+    }
+    if (schema->isWritable()) {
+      needSaveDataNumber++;
+    }
+  }
+  if (containLanguage) {
+    cppFile->addHeaders("LocalizationHelper.hpp", false, false);
+  }
+  if (containSet) {
+    cppFile->addHeaders("set", false, true);
+  }
+  if (containVector) {
+    cppFile->addHeaders("vector", false, true);
+  }
+  
   string staticMapName = "p_sharedDictionary";
+  string mapDicType = "map<"+ id_schema_type + ", " + classTypeName + ">";
+  string mapDicPointerType = mapDicType + "*";
   auto staticMapVariable = new CPPVariable(staticMapName, mapDicPointerType, true);
   staticMapVariable->setInitialValue("nullptr");
   cppClass->addVariable(staticMapVariable, true);
@@ -226,34 +265,6 @@ void ExcelData::setInitFunction(const string &className, CPPClass *cppClass, CPP
     "for (int i = 0; i < count; ++i) {"
   }, 2);
   initFunction->addBodyStatements(classTypeName + " " + variableName + " = new " + className + "();", 3);
-  string id_schema_name;  // goodsId;
-  string fileNameWithoutExt = p_resDataFileName.substr(0, p_resDataFileName.find_last_of("."));
-  for (auto schema : p_dataSchemas) {
-    if (schema->getType() == ID) {
-      id_schema_name = schema->getName();
-      auto getIdFunc = new CPPFunction("getId", TYPE_STRING, {}, false, true, true);
-      getIdFunc->addBodyStatements("return p_" + id_schema_name + ";");
-      cppClass->addFunction(getIdFunc, false);
-    } else if (schema->getType() == LANGUAGE) {
-      containLanguage = true;
-    } else if (schema->getType() == VECTOR || schema->getType() == FRIEND_ID_VECTOR) {
-      containVector = true;
-    } else if (schema->getType() == SET || schema->getType() == FRIEND_ID_SET) {
-      containSet = true;
-    }
-    if (schema->isWritable()) {
-      needSaveDataNumber++;
-    }
-  }
-  if (containLanguage) {
-    cppFile->addHeaders("LocalizationHelper.hpp", false, false);
-  }
-  if (containSet) {
-    cppFile->addHeaders("set", false, true);
-  }
-  if (containVector) {
-    cppFile->addHeaders("vector", false, true);
-  }
   
   for (auto schema : p_dataSchemas) {
     if (schema->getType() != COMMENT) {
@@ -272,7 +283,7 @@ void ExcelData::setInitFunction(const string &className, CPPClass *cppClass, CPP
   cppClass->addFunction(descFunction, false);
   
   string id_string_name = "p_" + id_schema_name;  // p_goodsId;
-  initFunction->addBodyStatements(staticMapName + "->insert(pair<string, " + classTypeName+ ">("+ variableName + "->"+ id_string_name +", " + variableName +"));", 3);
+  initFunction->addBodyStatements(staticMapName + "->insert(pair<"+id_schema_type+", " + classTypeName+ ">("+ variableName + "->"+ id_string_name +", " + variableName +"));", 3);
   initFunction->addBodyStatements("}", 2);
   initFunction->addBodyStatements("}", 1);
   initFunction->addBodyStatements("}");
@@ -280,18 +291,32 @@ void ExcelData::setInitFunction(const string &className, CPPClass *cppClass, CPP
   cppClass->addFunction(initFunction, false);
   
   string retrieveFuncName = "get" + className + "ById";
-  auto retrieveArg = new CPPVariable(id_schema_name, "const string&");
+  CPPVariable* retrieveArg = nullptr;
+  
+  if (id_schema_type == TYPE_INT) {
+    retrieveArg = new CPPVariable(id_schema_name, id_schema_type);
+  } else {
+    retrieveArg = new CPPVariable(id_schema_name, "const string&");
+  }
+  
   auto retrieveFunc = new CPPFunction(retrieveFuncName, classTypeName, {retrieveArg}, true, false);
   retrieveFunc->addBodyStatementsList({
     make_pair("if (" + className + "::getSharedDictionary()->count(" + id_schema_name + ")) {", 0),
     make_pair("return " + className + "::getSharedDictionary()->at(" + id_schema_name + ");", 1),
     make_pair("}", 0),
-    make_pair("if (" + id_schema_name + ".length() > 0) {", 0),
-    make_pair("CCLOGWARN(\"invalid " + id_schema_name + " %s\", " + id_schema_name + ".c_str());", 1),
-    make_pair("}", 0),
     make_pair("return nullptr;", 0),
   });
   cppClass->addFunction(retrieveFunc, false);
+  
+  if (id_schema_type == TYPE_INT) {
+    retrieveArg = new CPPVariable(id_schema_name, "const string&");
+    retrieveFunc= new CPPFunction(retrieveFuncName, classTypeName, {retrieveArg}, true, false);
+    retrieveFunc->addBodyStatementsList({
+      "if (" + id_schema_name + ".length() == 0) return nullptr;",
+      "return " + className + "::" + retrieveFuncName + "(atoi(" + id_schema_name + ".c_str()));",
+    }, 0);
+    cppClass->addFunction(retrieveFunc, false);
+  }
   
   /// save, load && clear
   if (needSaveDataNumber > 0) {
@@ -309,10 +334,12 @@ void ExcelData::setInitFunction(const string &className, CPPClass *cppClass, CPP
       "buffer->putInt(" + to_string(needSaveDataNumber) + ");",
       "for (auto iter = dict->begin(); iter != dict->end(); iter++) {"
     }, 0);
+    string putID = id_schema_type == TYPE_INT ? "putInt" : "putString";
+    string getID = id_schema_type == TYPE_INT ? "getInt" : "getString";
     saveFunc->addBodyStatementsList({
       "auto dataId = iter->first;",
       "auto data = iter->second;",
-      "buffer->putString(dataId);",
+      "buffer->" + putID + "(dataId);",
     }, 1);
 
     loadFunc->addBodyStatementsList({
@@ -329,7 +356,7 @@ void ExcelData::setInitFunction(const string &className, CPPClass *cppClass, CPP
       "for (int i = 0; i < size; ++i) {",
     }, 1);
     loadFunc->addBodyStatementsList({
-      "string dataId = buffer->getString();",
+      "auto dataId = buffer->" + getID +"();",
       getClassName() + " *data = nullptr;",
       "if (dict->count(dataId)) {",
       "\tdata = dict->at(dataId);",

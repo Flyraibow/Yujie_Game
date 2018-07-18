@@ -9,21 +9,21 @@ This file (CultureData.cpp) is generated
 
 using namespace std;
 
-map<string, CultureData*>* CultureData::p_sharedDictionary = nullptr;
+map<int, CultureData*>* CultureData::p_sharedDictionary = nullptr;
 
 string CultureData::getId() const
 {
-	return p_cutureId;
+	return to_string(p_cutureId);
 }
 
-string CultureData::getCutureId() const
+int CultureData::getCutureId() const
 {
 	return p_cutureId;
 }
 
 string CultureData::getCultureName() const
 {
-	string localId = "culture_cultureName_" + p_cutureId;
+	string localId = "culture_cultureName_" + to_string(p_cutureId);
 	return LocalizationHelper::getLocalization(localId);
 }
 
@@ -94,10 +94,10 @@ string CultureData::description() const
 	return desc;
 }
 
-map<string, CultureData*>* CultureData::getSharedDictionary()
+map<int, CultureData*>* CultureData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
-		p_sharedDictionary = new map<string, CultureData*>();
+		p_sharedDictionary = new map<int, CultureData*>();
 		static string resPath = "res/base/data/culture.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
@@ -106,24 +106,29 @@ map<string, CultureData*>* CultureData::getSharedDictionary()
 			auto count = buffer->getLong();
 			for (int i = 0; i < count; ++i) {
 				CultureData* cultureData = new CultureData();
-				cultureData->p_cutureId = buffer->getString();
+				cultureData->p_cutureId = buffer->getInt();
+				cultureData->p_oceanMusicId = buffer->getString();
+				cultureData->p_cityMusicId = buffer->getString();
 				cultureData->p_plazaStoreIconId = buffer->getString();
 				cultureData->p_plazaBuildingIconId = buffer->getString();
-				p_sharedDictionary->insert(pair<string, CultureData*>(cultureData->p_cutureId, cultureData));
+				p_sharedDictionary->insert(pair<int, CultureData*>(cultureData->p_cutureId, cultureData));
 			}
 		}
 	}
 	return p_sharedDictionary;
 }
 
-CultureData* CultureData::getCultureDataById(const string& cutureId)
+CultureData* CultureData::getCultureDataById(int cutureId)
 {
 	if (CultureData::getSharedDictionary()->count(cutureId)) {
 		return CultureData::getSharedDictionary()->at(cutureId);
 	}
-	if (cutureId.length() > 0) {
-		CCLOGWARN("invalid cutureId %s", cutureId.c_str());
-	}
 	return nullptr;
+}
+
+CultureData* CultureData::getCultureDataById(const string& cutureId)
+{
+	if (cutureId.length() == 0) return nullptr;
+	return CultureData::getCultureDataById(atoi(cutureId.c_str()));
 }
 

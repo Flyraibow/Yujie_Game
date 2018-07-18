@@ -10,8 +10,8 @@ using namespace std;
 class ZodiacData: public BaseData
 {
 private:
-	static map<string, ZodiacData*>* p_sharedDictionary;
-	string p_zodiacId;
+	static map<int, ZodiacData*>* p_sharedDictionary;
+	int p_zodiacId;
 	string p_iconId;
 	int p_startMonth;
 	int p_startDate;
@@ -19,7 +19,7 @@ private:
 	int p_endDate;
 public:
 	string getId() const;
-	string getZodiacId() const;
+	int getZodiacId() const;
 	string getZodiacName() const;
 	cocos2d::Sprite* getIcon(bool isDefaultSize = true);
 	string getIconId() const;
@@ -28,7 +28,8 @@ public:
 	int getEndMonth() const;
 	int getEndDate() const;
 	string description() const;
-	static map<string, ZodiacData*>* getSharedDictionary();
+	static map<int, ZodiacData*>* getSharedDictionary();
+	static ZodiacData* getZodiacDataById(int zodiacId);
 	static ZodiacData* getZodiacDataById(const string& zodiacId);
 };
 #endif

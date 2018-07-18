@@ -10,8 +10,8 @@ using namespace std;
 class CannonData: public BaseData
 {
 private:
-	static map<string, CannonData*>* p_sharedDictionary;
-	string p_cannonId;
+	static map<int, CannonData*>* p_sharedDictionary;
+	int p_cannonId;
 	string p_iconId;
 	int p_milltaryValue;
 	int p_price;
@@ -19,7 +19,7 @@ private:
 	int p_power;
 public:
 	string getId() const;
-	string getCannonId() const;
+	int getCannonId() const;
 	string getCannonName() const;
 	string getCannonDescription() const;
 	cocos2d::Sprite* getIcon(bool isDefaultSize = true);
@@ -29,7 +29,8 @@ public:
 	int getRange() const;
 	int getPower() const;
 	string description() const;
-	static map<string, CannonData*>* getSharedDictionary();
+	static map<int, CannonData*>* getSharedDictionary();
+	static CannonData* getCannonDataById(int cannonId);
 	static CannonData* getCannonDataById(const string& cannonId);
 };
 #endif

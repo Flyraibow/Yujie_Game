@@ -1,6 +1,6 @@
 ﻿itemId,itemName,iconId,itemCategory,value,job,price,itemDescription
 id,language,icon,friend_id,int,int,int,language
--,chinese,res/base/icon/item/,ItemCategory,-,-,-,chinese
+int,chinese,res/base/icon/item/,ItemCategory,-,-,-,chinese
 writable,N,N,N,N,N,N,N
 0,南瓜种子,item0.png,0,0,0,2000,新大陆栽种的植物，果实、种子可以食用，是当地人的主食。
 1,番茄苗,item1.png,0,0,0,2200,新大陆栽种的蔬菜，成熟的果实呈鲜红色。

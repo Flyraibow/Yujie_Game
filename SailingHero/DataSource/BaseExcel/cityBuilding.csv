@@ -1,6 +1,6 @@
 ﻿buildingId,buildingName,buildingImage
 id,language,string
--,chinese,res/base/icon/cityBuilding/
+int,chinese,res/base/icon/cityBuilding/
 writable,N,N
 0,王宫,city_building_0.png
 1,总督府,city_building_1.png

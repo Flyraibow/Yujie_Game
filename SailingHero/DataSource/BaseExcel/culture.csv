@@ -1,6 +1,6 @@
 ﻿cutureId,cultureName,oceanMusicId,cityMusicId,plazaStoreIconId,plazaBuildingIconId
 id,language,music,music,icon,icon
--,chinese,res/base/music/,res/base/music/,res/base/icon/plaza/,res/base/icon/plaza/
+int,chinese,res/base/music/,res/base/music/,res/base/icon/plaza/,res/base/icon/plaza/
 writable,N,N,N,N,N
 0,英国,north_sea.mp3,north_europe.mp3,PlazaStore4.png,PlazaBuilding4.png
 1,法兰德斯,north_sea.mp3,north_europe.mp3,PlazaStore4.png,PlazaBuilding4.png

@@ -8,14 +8,14 @@ This file (CityGoodsData.cpp) is generated
 
 using namespace std;
 
-map<string, CityGoodsData*>* CityGoodsData::p_sharedDictionary = nullptr;
+map<int, CityGoodsData*>* CityGoodsData::p_sharedDictionary = nullptr;
 
 string CityGoodsData::getId() const
 {
-	return p_cityGoodsId;
+	return to_string(p_cityGoodsId);
 }
 
-string CityGoodsData::getCityGoodsId() const
+int CityGoodsData::getCityGoodsId() const
 {
 	return p_cityGoodsId;
 }
@@ -73,10 +73,10 @@ string CityGoodsData::description() const
 	return desc;
 }
 
-map<string, CityGoodsData*>* CityGoodsData::getSharedDictionary()
+map<int, CityGoodsData*>* CityGoodsData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
-		p_sharedDictionary = new map<string, CityGoodsData*>();
+		p_sharedDictionary = new map<int, CityGoodsData*>();
 		static string resPath = "res/base/data/cityGoods.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
@@ -85,28 +85,31 @@ map<string, CityGoodsData*>* CityGoodsData::getSharedDictionary()
 			auto count = buffer->getLong();
 			for (int i = 0; i < count; ++i) {
 				CityGoodsData* cityGoodsData = new CityGoodsData();
-				cityGoodsData->p_cityGoodsId = buffer->getString();
+				cityGoodsData->p_cityGoodsId = buffer->getInt();
 				cityGoodsData->p_goodsId = buffer->getString();
 				cityGoodsData->p_commercialRequirement = buffer->getInt();
 				cityGoodsData->p_basePrice = buffer->getInt();
 				cityGoodsData->p_abundance = buffer->getInt();
 				cityGoodsData->p_isHidden = buffer->getChar();
-				p_sharedDictionary->insert(pair<string, CityGoodsData*>(cityGoodsData->p_cityGoodsId, cityGoodsData));
+				p_sharedDictionary->insert(pair<int, CityGoodsData*>(cityGoodsData->p_cityGoodsId, cityGoodsData));
 			}
 		}
 	}
 	return p_sharedDictionary;
 }
 
-CityGoodsData* CityGoodsData::getCityGoodsDataById(const string& cityGoodsId)
+CityGoodsData* CityGoodsData::getCityGoodsDataById(int cityGoodsId)
 {
 	if (CityGoodsData::getSharedDictionary()->count(cityGoodsId)) {
 		return CityGoodsData::getSharedDictionary()->at(cityGoodsId);
 	}
-	if (cityGoodsId.length() > 0) {
-		CCLOGWARN("invalid cityGoodsId %s", cityGoodsId.c_str());
-	}
 	return nullptr;
+}
+
+CityGoodsData* CityGoodsData::getCityGoodsDataById(const string& cityGoodsId)
+{
+	if (cityGoodsId.length() == 0) return nullptr;
+	return CityGoodsData::getCityGoodsDataById(atoi(cityGoodsId.c_str()));
 }
 
 bool CityGoodsData::saveData(const string & path)
@@ -119,7 +122,7 @@ bool CityGoodsData::saveData(const string & path)
 	for (auto iter = dict->begin(); iter != dict->end(); iter++) {
 		auto dataId = iter->first;
 		auto data = iter->second;
-		buffer->putString(dataId);
+		buffer->putInt(dataId);
 		buffer->putString("p_abundance");
 		buffer->putString(to_string(data->p_abundance));
 		buffer->putString("p_isHidden");
@@ -140,7 +143,7 @@ bool CityGoodsData::loadData(const string & path)
 		auto size = buffer->getLong();
 		auto dataSize = buffer->getInt();
 		for (int i = 0; i < size; ++i) {
-			string dataId = buffer->getString();
+			auto dataId = buffer->getInt();
 			CityGoodsData *data = nullptr;
 			if (dict->count(dataId)) {
 				data = dict->at(dataId);

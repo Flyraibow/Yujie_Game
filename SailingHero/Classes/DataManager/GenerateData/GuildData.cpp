@@ -9,14 +9,14 @@ This file (GuildData.cpp) is generated
 
 using namespace std;
 
-map<string, GuildData*>* GuildData::p_sharedDictionary = nullptr;
+map<int, GuildData*>* GuildData::p_sharedDictionary = nullptr;
 
 string GuildData::getId() const
 {
-	return p_guildId;
+	return to_string(p_guildId);
 }
 
-string GuildData::getGuildId() const
+int GuildData::getGuildId() const
 {
 	return p_guildId;
 }
@@ -31,7 +31,7 @@ string GuildData::getGuildName() const
 	if (p_guildName.length() > 0) {
 		return p_guildName;
 	}
-	string localId = "guild_guildName_" + p_guildId;
+	string localId = "guild_guildName_" + to_string(p_guildId);
 	return LocalizationHelper::getLocalization(localId);
 }
 
@@ -72,10 +72,10 @@ string GuildData::description() const
 	return desc;
 }
 
-map<string, GuildData*>* GuildData::getSharedDictionary()
+map<int, GuildData*>* GuildData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
-		p_sharedDictionary = new map<string, GuildData*>();
+		p_sharedDictionary = new map<int, GuildData*>();
 		static string resPath = "res/base/data/guild.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
@@ -84,26 +84,29 @@ map<string, GuildData*>* GuildData::getSharedDictionary()
 			auto count = buffer->getLong();
 			for (int i = 0; i < count; ++i) {
 				GuildData* guildData = new GuildData();
-				guildData->p_guildId = buffer->getString();
+				guildData->p_guildId = buffer->getInt();
 				guildData->p_leaderId = buffer->getString();
 				guildData->p_style = buffer->getInt();
 				guildData->p_money = buffer->getInt();
-				p_sharedDictionary->insert(pair<string, GuildData*>(guildData->p_guildId, guildData));
+				p_sharedDictionary->insert(pair<int, GuildData*>(guildData->p_guildId, guildData));
 			}
 		}
 	}
 	return p_sharedDictionary;
 }
 
-GuildData* GuildData::getGuildDataById(const string& guildId)
+GuildData* GuildData::getGuildDataById(int guildId)
 {
 	if (GuildData::getSharedDictionary()->count(guildId)) {
 		return GuildData::getSharedDictionary()->at(guildId);
 	}
-	if (guildId.length() > 0) {
-		CCLOGWARN("invalid guildId %s", guildId.c_str());
-	}
 	return nullptr;
+}
+
+GuildData* GuildData::getGuildDataById(const string& guildId)
+{
+	if (guildId.length() == 0) return nullptr;
+	return GuildData::getGuildDataById(atoi(guildId.c_str()));
 }
 
 bool GuildData::saveData(const string & path)
@@ -116,7 +119,7 @@ bool GuildData::saveData(const string & path)
 	for (auto iter = dict->begin(); iter != dict->end(); iter++) {
 		auto dataId = iter->first;
 		auto data = iter->second;
-		buffer->putString(dataId);
+		buffer->putInt(dataId);
 		buffer->putString("p_guildName");
 		buffer->putString(to_string(data->p_guildName));
 		buffer->putString("p_money");
@@ -137,7 +140,7 @@ bool GuildData::loadData(const string & path)
 		auto size = buffer->getLong();
 		auto dataSize = buffer->getInt();
 		for (int i = 0; i < size; ++i) {
-			string dataId = buffer->getString();
+			auto dataId = buffer->getInt();
 			GuildData *data = nullptr;
 			if (dict->count(dataId)) {
 				data = dict->at(dataId);

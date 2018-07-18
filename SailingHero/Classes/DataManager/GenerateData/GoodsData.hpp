@@ -12,8 +12,8 @@ using namespace std;
 class GoodsData: public BaseData
 {
 private:
-	static map<string, GoodsData*>* p_sharedDictionary;
-	string p_goodsId;
+	static map<int, GoodsData*>* p_sharedDictionary;
+	int p_goodsId;
 	string p_categoryId;
 	string p_iconId;
 	int p_maxPrice;
@@ -21,7 +21,7 @@ private:
 	int p_levelUpExp;
 public:
 	string getId() const;
-	string getGoodsId() const;
+	int getGoodsId() const;
 	string getGoodsName() const;
 	GoodsCategoryData* getCategoryData() const;
 	string getCategoryId() const;
@@ -33,7 +33,8 @@ public:
 	int getLevelUpExp() const;
 	string getGoodsDescription() const;
 	string description() const;
-	static map<string, GoodsData*>* getSharedDictionary();
+	static map<int, GoodsData*>* getSharedDictionary();
+	static GoodsData* getGoodsDataById(int goodsId);
 	static GoodsData* getGoodsDataById(const string& goodsId);
 };
 #endif

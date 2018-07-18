@@ -1,6 +1,6 @@
 ﻿categoryId,category_name,categoryUpdate
 id,language,friend_id
--,chinese,CategoryUpdate
+int,chinese,CategoryUpdate
 writable,N,N
 1,食品,1
 2,调味料,1

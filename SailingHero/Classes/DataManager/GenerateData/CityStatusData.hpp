@@ -10,14 +10,15 @@ using namespace std;
 class CityStatusData: public BaseData
 {
 private:
-	static map<string, CityStatusData*>* p_sharedDictionary;
-	string p_cityStatusId;
+	static map<int, CityStatusData*>* p_sharedDictionary;
+	int p_cityStatusId;
 public:
 	string getId() const;
-	string getCityStatusId() const;
+	int getCityStatusId() const;
 	string getCityStatusName() const;
 	string description() const;
-	static map<string, CityStatusData*>* getSharedDictionary();
+	static map<int, CityStatusData*>* getSharedDictionary();
+	static CityStatusData* getCityStatusDataById(int cityStatusId);
 	static CityStatusData* getCityStatusDataById(const string& cityStatusId);
 };
 #endif

@@ -9,14 +9,14 @@ This file (CityData.cpp) is generated
 
 using namespace std;
 
-map<string, CityData*>* CityData::p_sharedDictionary = nullptr;
+map<int, CityData*>* CityData::p_sharedDictionary = nullptr;
 
 string CityData::getId() const
 {
-	return p_cityId;
+	return to_string(p_cityId);
 }
 
-string CityData::getCityId() const
+int CityData::getCityId() const
 {
 	return p_cityId;
 }
@@ -31,7 +31,7 @@ string CityData::getCityName() const
 	if (p_cityName.length() > 0) {
 		return p_cityName;
 	}
-	string localId = "city_cityName_" + p_cityId;
+	string localId = "city_cityName_" + to_string(p_cityId);
 	return LocalizationHelper::getLocalization(localId);
 }
 
@@ -151,10 +151,10 @@ string CityData::description() const
 	return desc;
 }
 
-map<string, CityData*>* CityData::getSharedDictionary()
+map<int, CityData*>* CityData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
-		p_sharedDictionary = new map<string, CityData*>();
+		p_sharedDictionary = new map<int, CityData*>();
 		static string resPath = "res/base/data/city.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
@@ -163,7 +163,7 @@ map<string, CityData*>* CityData::getSharedDictionary()
 			auto count = buffer->getLong();
 			for (int i = 0; i < count; ++i) {
 				CityData* cityData = new CityData();
-				cityData->p_cityId = buffer->getString();
+				cityData->p_cityId = buffer->getInt();
 				cityData->p_cultureId = buffer->getString();
 				cityData->p_cityStatusId = buffer->getString();
 				cityData->p_cityTypeId = buffer->getString();
@@ -179,22 +179,25 @@ map<string, CityData*>* CityData::getSharedDictionary()
 				for (int j = 0; j < buildingCount; ++j) {
 					cityData->p_buildingIdSet.insert(buffer->getString());
 				}
-				p_sharedDictionary->insert(pair<string, CityData*>(cityData->p_cityId, cityData));
+				p_sharedDictionary->insert(pair<int, CityData*>(cityData->p_cityId, cityData));
 			}
 		}
 	}
 	return p_sharedDictionary;
 }
 
-CityData* CityData::getCityDataById(const string& cityId)
+CityData* CityData::getCityDataById(int cityId)
 {
 	if (CityData::getSharedDictionary()->count(cityId)) {
 		return CityData::getSharedDictionary()->at(cityId);
 	}
-	if (cityId.length() > 0) {
-		CCLOGWARN("invalid cityId %s", cityId.c_str());
-	}
 	return nullptr;
+}
+
+CityData* CityData::getCityDataById(const string& cityId)
+{
+	if (cityId.length() == 0) return nullptr;
+	return CityData::getCityDataById(atoi(cityId.c_str()));
 }
 
 bool CityData::saveData(const string & path)
@@ -207,7 +210,7 @@ bool CityData::saveData(const string & path)
 	for (auto iter = dict->begin(); iter != dict->end(); iter++) {
 		auto dataId = iter->first;
 		auto data = iter->second;
-		buffer->putString(dataId);
+		buffer->putInt(dataId);
 		buffer->putString("p_cityName");
 		buffer->putString(to_string(data->p_cityName));
 		buffer->putString("p_cityStatusId");
@@ -234,7 +237,7 @@ bool CityData::loadData(const string & path)
 		auto size = buffer->getLong();
 		auto dataSize = buffer->getInt();
 		for (int i = 0; i < size; ++i) {
-			string dataId = buffer->getString();
+			auto dataId = buffer->getInt();
 			CityData *data = nullptr;
 			if (dict->count(dataId)) {
 				data = dict->at(dataId);

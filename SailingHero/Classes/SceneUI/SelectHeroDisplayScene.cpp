@@ -101,7 +101,7 @@ bool SelectHeroDisplayScene::init()
 void SelectHeroDisplayScene::setSelectHeroData(HeroSelectData *selectHeroData)
 {
   p_selectHeroData = selectHeroData;
-  auto peoplePanel = HeroSelectingFrame::createBigPhotoWithSelectHeroId(selectHeroData->getSelectHeroId());
+  auto peoplePanel = HeroSelectingFrame::createBigPhotoWithSelectHeroId(selectHeroData->getId());
   Vec2 origin = Director::getInstance()->getVisibleOrigin();
   auto visibleSize = Director::getInstance()->getVisibleSize();
   peoplePanel->setPosition(Vec2(origin.x + visibleSize.width / 2  - 120, origin.y + visibleSize.height / 2));

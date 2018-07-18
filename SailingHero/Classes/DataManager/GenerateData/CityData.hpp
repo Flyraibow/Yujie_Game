@@ -17,8 +17,8 @@ using namespace std;
 class CityData: public BaseData
 {
 private:
-	static map<string, CityData*>* p_sharedDictionary;
-	string p_cityId;
+	static map<int, CityData*>* p_sharedDictionary;
+	int p_cityId;
 	string p_cityName;
 	string p_cultureId;
 	string p_cityStatusId;
@@ -31,7 +31,7 @@ private:
 	set<string> p_buildingIdSet;
 public:
 	string getId() const;
-	string getCityId() const;
+	int getCityId() const;
 	void setCityName(string cityName);
 	string getCityName() const;
 	CultureData* getCultureData() const;
@@ -53,7 +53,8 @@ public:
 	set<string> getBuildingIdSet() const;
 	void setBuilding(set<string> building);
 	string description() const;
-	static map<string, CityData*>* getSharedDictionary();
+	static map<int, CityData*>* getSharedDictionary();
+	static CityData* getCityDataById(int cityId);
 	static CityData* getCityDataById(const string& cityId);
 	static bool saveData(const string & path);
 	static bool loadData(const string & path);

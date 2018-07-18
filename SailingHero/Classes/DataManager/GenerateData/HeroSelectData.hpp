@@ -11,14 +11,14 @@ using namespace std;
 class HeroSelectData: public BaseData
 {
 private:
-	static map<string, HeroSelectData*>* p_sharedDictionary;
-	string p_selectHeroId;
+	static map<int, HeroSelectData*>* p_sharedDictionary;
+	int p_selectHeroId;
 	string p_iconId;
 	string p_smallIconId;
 	string p_guildId;
 public:
 	string getId() const;
-	string getSelectHeroId() const;
+	int getSelectHeroId() const;
 	cocos2d::Sprite* getIcon(bool isDefaultSize = true);
 	string getIconId() const;
 	cocos2d::Sprite* getSmallIcon(bool isDefaultSize = true);
@@ -27,7 +27,8 @@ public:
 	string getGuildId() const;
 	string getHeroDescription() const;
 	string description() const;
-	static map<string, HeroSelectData*>* getSharedDictionary();
+	static map<int, HeroSelectData*>* getSharedDictionary();
+	static HeroSelectData* getHeroSelectDataById(int selectHeroId);
 	static HeroSelectData* getHeroSelectDataById(const string& selectHeroId);
 };
 #endif

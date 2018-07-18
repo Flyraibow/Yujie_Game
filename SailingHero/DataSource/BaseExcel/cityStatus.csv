@@ -1,6 +1,6 @@
 ﻿cityStatusId,cityStatusName
 id,language
--,chinese
+int,chinese
 writable,N
 0,普通
 1,好景气

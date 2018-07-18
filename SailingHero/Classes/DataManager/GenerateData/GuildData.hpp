@@ -11,15 +11,15 @@ using namespace std;
 class GuildData: public BaseData
 {
 private:
-	static map<string, GuildData*>* p_sharedDictionary;
-	string p_guildId;
+	static map<int, GuildData*>* p_sharedDictionary;
+	int p_guildId;
 	string p_guildName;
 	string p_leaderId;
 	int p_style;
 	int p_money;
 public:
 	string getId() const;
-	string getGuildId() const;
+	int getGuildId() const;
 	void setGuildName(string guildName);
 	string getGuildName() const;
 	HeroData* getLeaderData() const;
@@ -28,7 +28,8 @@ public:
 	int getMoney() const;
 	void setMoney(int money);
 	string description() const;
-	static map<string, GuildData*>* getSharedDictionary();
+	static map<int, GuildData*>* getSharedDictionary();
+	static GuildData* getGuildDataById(int guildId);
 	static GuildData* getGuildDataById(const string& guildId);
 	static bool saveData(const string & path);
 	static bool loadData(const string & path);

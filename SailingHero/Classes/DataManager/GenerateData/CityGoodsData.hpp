@@ -11,8 +11,8 @@ using namespace std;
 class CityGoodsData: public BaseData
 {
 private:
-	static map<string, CityGoodsData*>* p_sharedDictionary;
-	string p_cityGoodsId;
+	static map<int, CityGoodsData*>* p_sharedDictionary;
+	int p_cityGoodsId;
 	string p_goodsId;
 	int p_commercialRequirement;
 	int p_basePrice;
@@ -20,7 +20,7 @@ private:
 	bool p_isHidden;
 public:
 	string getId() const;
-	string getCityGoodsId() const;
+	int getCityGoodsId() const;
 	GoodsData* getGoodsData() const;
 	string getGoodsId() const;
 	int getCommercialRequirement() const;
@@ -30,7 +30,8 @@ public:
 	bool getIsHidden() const;
 	void setIsHidden(bool isHidden);
 	string description() const;
-	static map<string, CityGoodsData*>* getSharedDictionary();
+	static map<int, CityGoodsData*>* getSharedDictionary();
+	static CityGoodsData* getCityGoodsDataById(int cityGoodsId);
 	static CityGoodsData* getCityGoodsDataById(const string& cityGoodsId);
 	static bool saveData(const string & path);
 	static bool loadData(const string & path);

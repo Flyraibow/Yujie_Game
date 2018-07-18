@@ -9,21 +9,21 @@ This file (ItemData.cpp) is generated
 
 using namespace std;
 
-map<string, ItemData*>* ItemData::p_sharedDictionary = nullptr;
+map<int, ItemData*>* ItemData::p_sharedDictionary = nullptr;
 
 string ItemData::getId() const
 {
-	return p_itemId;
+	return to_string(p_itemId);
 }
 
-string ItemData::getItemId() const
+int ItemData::getItemId() const
 {
 	return p_itemId;
 }
 
 string ItemData::getItemName() const
 {
-	string localId = "item_itemName_" + p_itemId;
+	string localId = "item_itemName_" + to_string(p_itemId);
 	return LocalizationHelper::getLocalization(localId);
 }
 
@@ -70,7 +70,7 @@ int ItemData::getPrice() const
 
 string ItemData::getItemDescription() const
 {
-	string localId = "item_itemDescription_" + p_itemId;
+	string localId = "item_itemDescription_" + to_string(p_itemId);
 	return LocalizationHelper::getLocalization(localId);
 }
 
@@ -89,10 +89,10 @@ string ItemData::description() const
 	return desc;
 }
 
-map<string, ItemData*>* ItemData::getSharedDictionary()
+map<int, ItemData*>* ItemData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
-		p_sharedDictionary = new map<string, ItemData*>();
+		p_sharedDictionary = new map<int, ItemData*>();
 		static string resPath = "res/base/data/item.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
@@ -101,27 +101,30 @@ map<string, ItemData*>* ItemData::getSharedDictionary()
 			auto count = buffer->getLong();
 			for (int i = 0; i < count; ++i) {
 				ItemData* itemData = new ItemData();
-				itemData->p_itemId = buffer->getString();
+				itemData->p_itemId = buffer->getInt();
 				itemData->p_iconId = buffer->getString();
 				itemData->p_itemCategoryId = buffer->getString();
 				itemData->p_value = buffer->getInt();
 				itemData->p_job = buffer->getInt();
 				itemData->p_price = buffer->getInt();
-				p_sharedDictionary->insert(pair<string, ItemData*>(itemData->p_itemId, itemData));
+				p_sharedDictionary->insert(pair<int, ItemData*>(itemData->p_itemId, itemData));
 			}
 		}
 	}
 	return p_sharedDictionary;
 }
 
-ItemData* ItemData::getItemDataById(const string& itemId)
+ItemData* ItemData::getItemDataById(int itemId)
 {
 	if (ItemData::getSharedDictionary()->count(itemId)) {
 		return ItemData::getSharedDictionary()->at(itemId);
 	}
-	if (itemId.length() > 0) {
-		CCLOGWARN("invalid itemId %s", itemId.c_str());
-	}
 	return nullptr;
+}
+
+ItemData* ItemData::getItemDataById(const string& itemId)
+{
+	if (itemId.length() == 0) return nullptr;
+	return ItemData::getItemDataById(atoi(itemId.c_str()));
 }
 

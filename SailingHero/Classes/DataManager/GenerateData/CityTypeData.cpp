@@ -9,21 +9,21 @@ This file (CityTypeData.cpp) is generated
 
 using namespace std;
 
-map<string, CityTypeData*>* CityTypeData::p_sharedDictionary = nullptr;
+map<int, CityTypeData*>* CityTypeData::p_sharedDictionary = nullptr;
 
 string CityTypeData::getId() const
 {
-	return p_cityTypeId;
+	return to_string(p_cityTypeId);
 }
 
-string CityTypeData::getCityTypeId() const
+int CityTypeData::getCityTypeId() const
 {
 	return p_cityTypeId;
 }
 
 string CityTypeData::getCityTypeName() const
 {
-	string localId = "cityType_cityTypeName_" + p_cityTypeId;
+	string localId = "cityType_cityTypeName_" + to_string(p_cityTypeId);
 	return LocalizationHelper::getLocalization(localId);
 }
 
@@ -36,10 +36,10 @@ string CityTypeData::description() const
 	return desc;
 }
 
-map<string, CityTypeData*>* CityTypeData::getSharedDictionary()
+map<int, CityTypeData*>* CityTypeData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
-		p_sharedDictionary = new map<string, CityTypeData*>();
+		p_sharedDictionary = new map<int, CityTypeData*>();
 		static string resPath = "res/base/data/cityType.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
@@ -48,22 +48,25 @@ map<string, CityTypeData*>* CityTypeData::getSharedDictionary()
 			auto count = buffer->getLong();
 			for (int i = 0; i < count; ++i) {
 				CityTypeData* cityTypeData = new CityTypeData();
-				cityTypeData->p_cityTypeId = buffer->getString();
-				p_sharedDictionary->insert(pair<string, CityTypeData*>(cityTypeData->p_cityTypeId, cityTypeData));
+				cityTypeData->p_cityTypeId = buffer->getInt();
+				p_sharedDictionary->insert(pair<int, CityTypeData*>(cityTypeData->p_cityTypeId, cityTypeData));
 			}
 		}
 	}
 	return p_sharedDictionary;
 }
 
-CityTypeData* CityTypeData::getCityTypeDataById(const string& cityTypeId)
+CityTypeData* CityTypeData::getCityTypeDataById(int cityTypeId)
 {
 	if (CityTypeData::getSharedDictionary()->count(cityTypeId)) {
 		return CityTypeData::getSharedDictionary()->at(cityTypeId);
 	}
-	if (cityTypeId.length() > 0) {
-		CCLOGWARN("invalid cityTypeId %s", cityTypeId.c_str());
-	}
 	return nullptr;
+}
+
+CityTypeData* CityTypeData::getCityTypeDataById(const string& cityTypeId)
+{
+	if (cityTypeId.length() == 0) return nullptr;
+	return CityTypeData::getCityTypeDataById(atoi(cityTypeId.c_str()));
 }
 

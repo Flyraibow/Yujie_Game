@@ -1,6 +1,6 @@
 ﻿cityTypeId,cityTypeName
 id,language
--,chinese
+int,chinese
 writable,N
 1,城市
 2,港口

@@ -1,6 +1,6 @@
 ﻿guildId,guildName,leader,style,money
 id,language,friend_id,int,int
-,chinese,Hero,-,-
+int,chinese,Hero,-,-
 writable,Y,N,N,Y
 0,卡斯特路商会,0,0,30000
 1,阿歌特商会,2,0,35000

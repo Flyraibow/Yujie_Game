@@ -9,21 +9,21 @@ This file (ItemCategoryData.cpp) is generated
 
 using namespace std;
 
-map<string, ItemCategoryData*>* ItemCategoryData::p_sharedDictionary = nullptr;
+map<int, ItemCategoryData*>* ItemCategoryData::p_sharedDictionary = nullptr;
 
 string ItemCategoryData::getId() const
 {
-	return p_itemCategoryId;
+	return to_string(p_itemCategoryId);
 }
 
-string ItemCategoryData::getItemCategoryId() const
+int ItemCategoryData::getItemCategoryId() const
 {
 	return p_itemCategoryId;
 }
 
 string ItemCategoryData::getItemCategoryName() const
 {
-	string localId = "itemCategory_itemCategoryName_" + p_itemCategoryId;
+	string localId = "itemCategory_itemCategoryName_" + to_string(p_itemCategoryId);
 	return LocalizationHelper::getLocalization(localId);
 }
 
@@ -36,10 +36,10 @@ string ItemCategoryData::description() const
 	return desc;
 }
 
-map<string, ItemCategoryData*>* ItemCategoryData::getSharedDictionary()
+map<int, ItemCategoryData*>* ItemCategoryData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
-		p_sharedDictionary = new map<string, ItemCategoryData*>();
+		p_sharedDictionary = new map<int, ItemCategoryData*>();
 		static string resPath = "res/base/data/itemCategory.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
@@ -48,22 +48,25 @@ map<string, ItemCategoryData*>* ItemCategoryData::getSharedDictionary()
 			auto count = buffer->getLong();
 			for (int i = 0; i < count; ++i) {
 				ItemCategoryData* itemCategoryData = new ItemCategoryData();
-				itemCategoryData->p_itemCategoryId = buffer->getString();
-				p_sharedDictionary->insert(pair<string, ItemCategoryData*>(itemCategoryData->p_itemCategoryId, itemCategoryData));
+				itemCategoryData->p_itemCategoryId = buffer->getInt();
+				p_sharedDictionary->insert(pair<int, ItemCategoryData*>(itemCategoryData->p_itemCategoryId, itemCategoryData));
 			}
 		}
 	}
 	return p_sharedDictionary;
 }
 
-ItemCategoryData* ItemCategoryData::getItemCategoryDataById(const string& itemCategoryId)
+ItemCategoryData* ItemCategoryData::getItemCategoryDataById(int itemCategoryId)
 {
 	if (ItemCategoryData::getSharedDictionary()->count(itemCategoryId)) {
 		return ItemCategoryData::getSharedDictionary()->at(itemCategoryId);
 	}
-	if (itemCategoryId.length() > 0) {
-		CCLOGWARN("invalid itemCategoryId %s", itemCategoryId.c_str());
-	}
 	return nullptr;
+}
+
+ItemCategoryData* ItemCategoryData::getItemCategoryDataById(const string& itemCategoryId)
+{
+	if (itemCategoryId.length() == 0) return nullptr;
+	return ItemCategoryData::getItemCategoryDataById(atoi(itemCategoryId.c_str()));
 }
 

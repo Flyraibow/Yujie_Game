@@ -1,6 +1,6 @@
 ﻿genderId,genderName
 id,language
--,chinese
+int,chinese
 writable,N
 0,女
 1,男
