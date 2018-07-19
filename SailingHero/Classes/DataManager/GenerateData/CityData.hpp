@@ -10,8 +10,10 @@ This file (CityData.hpp) is generated
 #include "CultureData.hpp"
 #include "CityStatusData.hpp"
 #include "CityTypeData.hpp"
+#include "GuildData.hpp"
 #include "CityGoodsData.hpp"
 #include "CityBuildingData.hpp"
+
 
 using namespace std;
 class CityData: public BaseData
@@ -27,6 +29,7 @@ private:
 	double p_latitude;
 	int p_commerce;
 	int p_milltary;
+	map<string, int> p_guildShareMap;
 	vector<string> p_cityGoodsIdVector;
 	set<string> p_buildingIdSet;
 public:
@@ -38,7 +41,7 @@ public:
 	string getCultureId() const;
 	CityStatusData* getCityStatusData() const;
 	string getCityStatusId() const;
-	void setCityStatus(string cityStatus);
+	void setCityStatusId(string cityStatus);
 	CityTypeData* getCityTypeData() const;
 	string getCityTypeId() const;
 	double getLongitude() const;
@@ -47,11 +50,13 @@ public:
 	void setCommerce(int commerce);
 	int getMilltary() const;
 	void setMilltary(int milltary);
+	map<string, int> getGuildShareMap() const;
+	void setGuildShareMap(map<string, int> guildShare);
 	vector<CityGoodsData*> getCityGoodsDataVector() const;
 	vector<string> getCityGoodsIdVector() const;
 	set<CityBuildingData*> getBuildingDataSet() const;
 	set<string> getBuildingIdSet() const;
-	void setBuilding(set<string> building);
+	void setBuildingIdSet(set<string> building);
 	string description() const;
 	static map<int, CityData*>* getSharedDictionary();
 	static CityData* getCityDataById(int cityId);

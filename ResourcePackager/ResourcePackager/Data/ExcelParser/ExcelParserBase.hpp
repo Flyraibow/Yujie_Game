@@ -14,6 +14,35 @@
 #include "DataSchema.hpp"
 #include "CPPClass.hpp"
 #include "CPPFile.hpp"
+#include <unordered_map>
+
+using namespace std;
+
+const static unordered_map<string, DataType> s_subtype_map({
+  {"bool", BOOL},
+  {"int", INT},
+  {"long", LONG},
+  {"float", FLOAT},
+  {"double", DOUBLE},
+  {"string", STRING},
+});
+
+static string castFromStringToValue(DataType type, const string &val) {
+  if (type == INT) {
+    return "atoi("+val+".c_str())";
+  } else if (type == LONG) {
+    return "atoll("+val+".c_str())";
+  } else if (type == DOUBLE) {
+    return "atof("+val+".c_str())";
+  } else if (type == BOOL) {
+    return "(atoi("+val+".c_str()) != 0)";
+  } else if (type == SET || type == FRIEND_ID_SET) {
+    return "atoset("+val+")";
+  } else if (type == VECTOR || type == FRIEND_ID_VECTOR) {
+    return "atoset("+val+")";
+  }
+  return val;
+}
 
 class ExcelParserBase {
 protected:
@@ -25,6 +54,7 @@ public:
   ExcelParserBase(const DataSchema *schema, const string & idSchemaName);
   
   void setFileNameWithoutExt(const string &fileNameWithoutExt);
+  string getBufferGetString(const DataType type) const;
   
   virtual string getVariableName() const;
   virtual string getVariableGetterName() const;
@@ -35,6 +65,8 @@ public:
   virtual void addFunctionsInclass(CPPClass *cppClass) const;
   virtual void addHeaders(CPPFileComplete *cppFile) const;
   virtual void addInitFuncBody(CPPFunction *func) const;
+  virtual void addSaveFuncBody(CPPFunction *saveFunc) const;
+  virtual void addLoadFuncBody(CPPFunction *loadFunc, bool isFirstOne) const;
 };
 
 #endif /* ExcelParserBase_hpp */

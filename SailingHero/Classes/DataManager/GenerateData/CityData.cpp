@@ -7,6 +7,7 @@ This file (CityData.cpp) is generated
 #include "Utils.hpp"
 #include <LocalizationHelper.hpp>
 
+
 using namespace std;
 
 map<int, CityData*>* CityData::p_sharedDictionary = nullptr;
@@ -55,7 +56,7 @@ string CityData::getCityStatusId() const
 	return p_cityStatusId;
 }
 
-void CityData::setCityStatus(string cityStatus)
+void CityData::setCityStatusId(string cityStatus)
 {
 	p_cityStatusId = cityStatus;
 }
@@ -100,6 +101,16 @@ void CityData::setMilltary(int milltary)
 	p_milltary = milltary;
 }
 
+map<string, int> CityData::getGuildShareMap() const
+{
+	return p_guildShareMap;
+}
+
+void CityData::setGuildShareMap(map<string, int> guildShare)
+{
+	p_guildShareMap = guildShare;
+}
+
 vector<CityGoodsData*> CityData::getCityGoodsDataVector() const
 {
 	vector<CityGoodsData*> resultVector;
@@ -128,7 +139,7 @@ set<string> CityData::getBuildingIdSet() const
 	return p_buildingIdSet;
 }
 
-void CityData::setBuilding(set<string> building)
+void CityData::setBuildingIdSet(set<string> building)
 {
 	p_buildingIdSet = building;
 }
@@ -145,6 +156,8 @@ string CityData::description() const
 	desc += "\tlatitude : " + to_string(p_latitude) + "\n";
 	desc += "\tcommerce : " + to_string(p_commerce) + "\n";
 	desc += "\tmilltary : " + to_string(p_milltary) + "\n";
+	
+	desc += "\tguildShare : " + to_string(p_guildShareMap)+ "\n";
 	desc += "\tcityGoods : " + to_string(p_cityGoodsIdVector) + "\n";
 	desc += "\tbuilding : " + to_string(p_buildingIdSet) + "\n";
 	desc += "}\n";
@@ -171,6 +184,12 @@ map<int, CityData*>* CityData::getSharedDictionary()
 				cityData->p_latitude = buffer->getDouble();
 				cityData->p_commerce = buffer->getInt();
 				cityData->p_milltary = buffer->getInt();
+				auto guildShareCount = buffer->getLong();
+				for (int j = 0; j < guildShareCount; ++j) {
+					auto key = buffer->getString();
+					auto val = buffer->getInt();
+					cityData->p_guildShareMap.insert(make_pair(key, val));
+				}
 				auto cityGoodsCount = buffer->getLong();
 				for (int j = 0; j < cityGoodsCount; ++j) {
 					cityData->p_cityGoodsIdVector.push_back(buffer->getString());
@@ -206,7 +225,7 @@ bool CityData::saveData(const string & path)
 	auto dict = CityData::getSharedDictionary();
 	auto buffer = make_unique<bb::ByteBuffer>();
 	buffer->putLong(dict->size());
-	buffer->putInt(5);
+	buffer->putInt(6);
 	for (auto iter = dict->begin(); iter != dict->end(); iter++) {
 		auto dataId = iter->first;
 		auto data = iter->second;
@@ -219,6 +238,8 @@ bool CityData::saveData(const string & path)
 		buffer->putString(to_string(data->p_commerce));
 		buffer->putString("p_milltary");
 		buffer->putString(to_string(data->p_milltary));
+		buffer->putString("p_guildShareMap");
+		buffer->putString(to_string(data->p_guildShareMap));
 		buffer->putString("p_buildingIdSet");
 		buffer->putString(to_string(data->p_buildingIdSet));
 	}
@@ -254,6 +275,13 @@ bool CityData::loadData(const string & path)
 						data->p_commerce = atoi(value.c_str());
 					} else if (key == "p_milltary") {
 						data->p_milltary = atoi(value.c_str());
+					} else if (key == "p_guildShareMap") {
+						map<string, int> guildShareMap;
+						auto guildShareList = atomap(value);
+						for (auto mapData : guildShareList) {
+							guildShareMap.insert(make_pair(mapData.first, atoi(mapData.second.c_str())));
+						}
+						data->p_guildShareMap = guildShareMap;
 					} else if (key == "p_buildingIdSet") {
 						data->p_buildingIdSet = atoset(value);
 					}

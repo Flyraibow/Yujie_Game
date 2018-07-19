@@ -94,6 +94,28 @@ namespace std {
     return to_string<BaseData *>(pSet);
   }
   
+  template<typename T, typename P>
+  string to_string(const map<T, P> &pMap) {
+    string st = "{ ";
+    for (auto iter = pMap.begin(); iter != pMap.end(); ++iter) {
+      st += to_string(iter->first) + ":" + to_string(iter->second) + ",";
+    }
+    st += "}";
+    return st;
+  }
+  
+  string to_string(const map<BaseData *, int> &pMap) {
+    return to_string<BaseData *, int>(pMap);
+  }
+  
+  string to_string(const map<string, int> &pMap) {
+    return to_string<string, int>(pMap);
+  }
+
+  string to_string(const map<string, string> &pMap) {
+    return to_string<string, string>(pMap);
+  }
+  
   set<string> atoset(const string &str) {
     set<string> result;
     string s;
@@ -119,6 +141,27 @@ namespace std {
       } else if (c == ',') {
         result.push_back(s);
         s = "";
+      }
+    }
+    return result;
+  }
+  
+  
+  vector<pair<string, string>> atomap(const string &str) {
+    vector<pair<string, string>> result;
+    string s;
+    string key;
+    for (int i = 0; i < str.length(); ++i) {
+      char c = str.at(i);
+      if (c != ' ' && c != ',' && c != '{' && c != '}' && c != ':') {
+        s += c;
+      } else if (c == ':') {
+        key = s;
+        s = "";
+      } else if (c == ',') {
+        result.push_back(make_pair(key, s));
+        s = "";
+        key = "";
       }
     }
     return result;

@@ -7,6 +7,7 @@ This file (HeroData.hpp) is generated
 #include "BaseData.h"
 #include "GenderData.hpp"
 
+
 using namespace std;
 class HeroData: public BaseData
 {
@@ -44,7 +45,7 @@ public:
 	string getHeroLastName() const;
 	GenderData* getGenderData() const;
 	string getGenderId() const;
-	void setGender(string gender);
+	void setGenderId(string gender);
 	int getBirthMonth() const;
 	void setBirthMonth(int birthMonth);
 	int getBirthDay() const;

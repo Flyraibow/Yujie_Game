@@ -7,6 +7,7 @@ This file (ItemData.cpp) is generated
 #include "Utils.hpp"
 #include <LocalizationHelper.hpp>
 
+
 using namespace std;
 
 map<int, ItemData*>* ItemData::p_sharedDictionary = nullptr;

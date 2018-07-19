@@ -1,6 +1,6 @@
 ﻿cityStatusId,CITY_STATUS,cityStatusName
 id,enum,language
-int,-,chinese
+int,id,chinese
 writable,N,N
 0,NORMAL,普通
 1,GOOD,好景气

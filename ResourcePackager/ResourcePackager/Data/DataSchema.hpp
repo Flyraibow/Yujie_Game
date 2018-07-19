@@ -33,6 +33,7 @@ enum DataType {
   FRIEND_ID_SET, // 引用集合
   FRIEND_ID_VECTOR, // 引用数组
   ENUM,       // 枚举
+  FRIEND_ID_MAP, // 哈希表
 };
 
 class DataSchema

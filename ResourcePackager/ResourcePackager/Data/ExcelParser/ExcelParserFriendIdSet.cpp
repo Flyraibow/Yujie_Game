@@ -23,6 +23,11 @@ string ExcelParserFriendIdSet::getVariableGetterName() const
   return this->ExcelParserBase::getVariableGetterName() + "IdSet";
 }
 
+string ExcelParserFriendIdSet::getVariableSetterName() const
+{
+  return this->ExcelParserBase::getVariableSetterName() + "IdSet";
+}
+
 void ExcelParserFriendIdSet::addFunctionsInclass(CPPClass *cppClass) const
 {
   string friendClassName = p_schema->getSubtype() + "Data";
@@ -43,5 +48,27 @@ void ExcelParserFriendIdSet::addFunctionsInclass(CPPClass *cppClass) const
 void ExcelParserFriendIdSet::addHeaders(CPPFileComplete *cppFile) const
 {
   string friendClassName = p_schema->getSubtype() + "Data";
-  cppFile->addHeaders(friendClassName + ".hpp", true, true);
+  bool defineInHeader = true;
+  if (!defineInHeader) {
+    cppFile->addDefineClass(friendClassName, true);
+  }
+  cppFile->addHeaders(friendClassName + ".hpp", true, defineInHeader);
+}
+
+string ExcelParserFriendIdSet::getType() const
+{
+  assert(p_schema->getType() == FRIEND_ID_SET);
+  return TYPE_SET(TYPE_STRING);
+}
+
+void ExcelParserFriendIdSet::addInitFuncBody(CPPFunction *func) const
+{
+  auto variableName = p_fileNameWithoutExt + "Data";
+  string schemaName = this->getVariableName();
+  func->addBodyStatementsList({
+    "auto " + p_schema->getName() + "Count = buffer->getLong();",
+    "for (int j = 0; j < " + p_schema->getName() + "Count; ++j) {",
+    "\t" + variableName + "->" + schemaName + ".insert(buffer->getString());",
+    "}"
+  }, 3);
 }

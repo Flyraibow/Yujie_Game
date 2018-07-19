@@ -6,6 +6,7 @@ This file (CityStatusData.hpp) is generated
 #include <map>
 #include "BaseData.h"
 
+
 using namespace std;
 enum class CITY_STATUS
 {

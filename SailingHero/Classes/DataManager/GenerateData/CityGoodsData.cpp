@@ -6,6 +6,7 @@ This file (CityGoodsData.cpp) is generated
 #include "ByteBuffer.hpp"
 #include "Utils.hpp"
 
+
 using namespace std;
 
 map<int, CityGoodsData*>* CityGoodsData::p_sharedDictionary = nullptr;

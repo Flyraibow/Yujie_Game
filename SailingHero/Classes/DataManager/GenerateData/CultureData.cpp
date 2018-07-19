@@ -7,6 +7,7 @@ This file (CultureData.cpp) is generated
 #include "Utils.hpp"
 #include <LocalizationHelper.hpp>
 
+
 using namespace std;
 
 map<int, CultureData*>* CultureData::p_sharedDictionary = nullptr;

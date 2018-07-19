@@ -7,6 +7,7 @@ This file (CategoryUpdateData.hpp) is generated
 #include "BaseData.h"
 #include <set>
 
+
 using namespace std;
 class CategoryUpdateData: public BaseData
 {

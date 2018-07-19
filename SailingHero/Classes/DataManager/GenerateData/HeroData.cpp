@@ -7,6 +7,7 @@ This file (HeroData.cpp) is generated
 #include "Utils.hpp"
 #include <LocalizationHelper.hpp>
 
+
 using namespace std;
 
 map<int, HeroData*>* HeroData::p_sharedDictionary = nullptr;
@@ -59,7 +60,7 @@ string HeroData::getGenderId() const
 	return p_genderId;
 }
 
-void HeroData::setGender(string gender)
+void HeroData::setGenderId(string gender)
 {
 	p_genderId = gender;
 }

@@ -7,6 +7,7 @@ This file (ZodiacData.cpp) is generated
 #include "Utils.hpp"
 #include <LocalizationHelper.hpp>
 
+
 using namespace std;
 
 map<int, ZodiacData*>* ZodiacData::p_sharedDictionary = nullptr;

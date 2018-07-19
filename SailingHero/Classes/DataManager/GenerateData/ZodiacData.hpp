@@ -6,6 +6,7 @@ This file (ZodiacData.hpp) is generated
 #include <map>
 #include "BaseData.h"
 
+
 using namespace std;
 class ZodiacData: public BaseData
 {

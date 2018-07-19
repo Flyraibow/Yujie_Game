@@ -35,6 +35,11 @@ void CPPFile::addClass(const CPPClass *cppClass)
   p_cppClasses.push_back(cppClass);
 }
 
+void CPPFile::addDefineClass(const string& defineClass)
+{
+  p_defineClasses.push_back(defineClass);
+}
+
 void CPPFile::addComment(const string &comment)
 {
   p_cppFileComments.push_back(comment);
@@ -69,6 +74,15 @@ string CPPFile::getIncludeHeaderString() const
     char backBracket = includeHeader.second ? '"' : '>';
     statement += "#include ";
     statement += foreBracket + includeHeader.first + backBracket + '\n';
+  }
+  return statement;
+}
+
+string CPPFile::getDefineClassesString() const
+{
+  string statement;
+  for (auto defineClass : p_defineClasses) {
+    statement += "class " + defineClass + ";\n";
   }
   return statement;
 }
@@ -114,6 +128,8 @@ string CPPFileHeader::getCppFileString() const
   statement += "#define " + p_fileName + "_hpp\n";
   statement += this->getIncludeHeaderString();
   statement += this->getEmptyLine();
+  statement += this->getDefineClassesString();
+  statement += this->getEmptyLine();
   statement += this->getUsingNamespaceString();
   statement += this->getPredefinedClassString();
   
@@ -147,6 +163,8 @@ string CPPFileContent::getCppFileString() const
   }
   statement += "*/\n";
   statement += this->getIncludeHeaderString();
+  statement += this->getEmptyLine();
+  statement += this->getDefineClassesString();
   statement += this->getEmptyLine();
   statement += this->getUsingNamespaceString();
   
@@ -209,6 +227,15 @@ void CPPFileComplete::addClass(const CPPClass *cppClass)
 {
   p_headerFile->addClass(cppClass);
   p_contentFile->addClass(cppClass);
+}
+
+void CPPFileComplete::addDefineClass(const string& defineClass, bool isHeader)
+{
+  if (isHeader) {
+    p_headerFile->addDefineClass(defineClass);
+  } else {
+    p_contentFile->addDefineClass(defineClass);
+  }
 }
 
 void CPPFileComplete::addHeaders(const string &headers, bool isQuote, bool isHeader)

@@ -9,18 +9,20 @@
 #define CityScene_hpp
 
 #include "SHScene.hpp"
-#include "CityDataFrame.hpp"
+#include "CitySceneFrame.hpp"
 
 USING_NS_CC;
 
 class CityScene : public SHScene
 {
 private:
-  CityDataFrame p_cityDataFrame;
+  CitySceneFrame p_citySceneFrame;
 public:
-  static cocos2d::Scene* createScene();
+  static CityScene* createScene();
 
   virtual bool init();
+  
+  void setCityDataId(int cityDataId);
   
   // implement the "static create()" method manually
   CREATE_FUNC(CityScene);

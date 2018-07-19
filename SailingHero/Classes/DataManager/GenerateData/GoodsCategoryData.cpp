@@ -7,6 +7,7 @@ This file (GoodsCategoryData.cpp) is generated
 #include "Utils.hpp"
 #include <LocalizationHelper.hpp>
 
+
 using namespace std;
 
 map<int, GoodsCategoryData*>* GoodsCategoryData::p_sharedDictionary = nullptr;

@@ -8,6 +8,7 @@ This file (GoodsData.hpp) is generated
 #include "GoodsCategoryData.hpp"
 #include "ItemData.hpp"
 
+
 using namespace std;
 class GoodsData: public BaseData
 {

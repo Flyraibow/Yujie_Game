@@ -25,12 +25,14 @@ protected:
   string p_fileName;
   vector<const CPPEnumClass *> p_cppEnumClasses;
   vector<const CPPClass *> p_cppClasses;
+  vector<string> p_defineClasses;
   vector<string> p_cppFileComments;
   vector<pair<string, bool>> p_includeHeaders;
   vector<string> p_usingNamespaces;
   vector<string> p_preDefinedClass;
   void commonInit();
   string getIncludeHeaderString() const;
+  string getDefineClassesString() const;
   string getUsingNamespaceString() const;
   string getPredefinedClassString() const;
   string getEmptyLine() const;
@@ -38,6 +40,7 @@ public:
   CPPFile(const string &fileName);
   void addEnumClasses(const CPPEnumClass *cppEnumClass);
   void addClass(const CPPClass *cppClass);
+  void addDefineClass(const string& defineClass);
   void addComment(const string &comment);
   void addHeaders(const string &header, bool isQuote);
   void addNameSpace(const string &nameSpace);
@@ -73,6 +76,7 @@ public:
   void addPreDefinedClass(const string &preDefinedClass);
   void addEnumClass(const CPPEnumClass *cppEnumClass, bool isHeader);
   void addClass(const CPPClass *cppClass);
+  void addDefineClass(const string& defineClass, bool isHeader);
   void addHeaders(const string &headers, bool isQuote, bool isHeader);
   
   string getCppFileStringHeader() const;

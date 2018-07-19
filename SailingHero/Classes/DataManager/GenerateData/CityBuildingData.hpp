@@ -6,6 +6,7 @@ This file (CityBuildingData.hpp) is generated
 #include <map>
 #include "BaseData.h"
 
+
 using namespace std;
 class CityBuildingData: public BaseData
 {

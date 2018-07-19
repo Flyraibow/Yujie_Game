@@ -10,7 +10,7 @@
 USING_NS_CC;
 using namespace ui;
 
-Scene* CityScene::createScene()
+CityScene* CityScene::createScene()
 {
   return CityScene::create();
 }
@@ -33,10 +33,18 @@ bool CityScene::init()
   }
   this->setScreenCover(Size(4, 3));
 
-  auto cityDataSprite = p_cityDataFrame.getSprite();
-  p_cityDataFrame.setCityData(CityData::getCityDataById("0"));
+  auto citySceneSprite = p_citySceneFrame.getSprite();
   
-  s_window->addChild(cityDataSprite);
+  s_window->addChild(citySceneSprite);
   
   return true;
 }
+
+void CityScene::setCityDataId(int cityDataId)
+{
+  CityData *cityData = CityData::getCityDataById(cityDataId);
+  CCASSERT(cityData != nullptr, "City Data shouldn't be null");
+  this->setBackgroundMusic(cityData->getCultureData()->getCityMusicPath());
+  p_citySceneFrame.setCityData(cityData);
+}
+

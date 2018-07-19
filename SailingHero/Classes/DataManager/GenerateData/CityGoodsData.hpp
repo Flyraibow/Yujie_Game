@@ -7,6 +7,7 @@ This file (CityGoodsData.hpp) is generated
 #include "BaseData.h"
 #include "GoodsData.hpp"
 
+
 using namespace std;
 class CityGoodsData: public BaseData
 {

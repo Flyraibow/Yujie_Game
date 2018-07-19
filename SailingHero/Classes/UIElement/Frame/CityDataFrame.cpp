@@ -74,7 +74,6 @@ void CityDataFrame::refresh()
   }
 }
 
-
 Sprite* CityDataFrame::getSprite() const
 {
   return p_sprite;

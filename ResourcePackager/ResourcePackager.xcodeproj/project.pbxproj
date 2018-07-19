@@ -31,6 +31,7 @@
 		ECD52B2D20BFB3A4000F7170 /* CPPFunction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B2B20BFB3A4000F7170 /* CPPFunction.cpp */; };
 		ECD52B3020BFB417000F7170 /* CPPVariable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B2E20BFB417000F7170 /* CPPVariable.cpp */; };
 		ECD52B3320BFBE6D000F7170 /* TimeUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B3120BFBE6D000F7170 /* TimeUtil.cpp */; };
+		ECE1B6EF21001245005807E2 /* ExcelParserFriendIdMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECE1B6ED21001245005807E2 /* ExcelParserFriendIdMap.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -94,6 +95,8 @@
 		ECD52B2F20BFB417000F7170 /* CPPVariable.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CPPVariable.hpp; sourceTree = "<group>"; };
 		ECD52B3120BFBE6D000F7170 /* TimeUtil.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TimeUtil.cpp; sourceTree = "<group>"; };
 		ECD52B3220BFBE6D000F7170 /* TimeUtil.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TimeUtil.hpp; sourceTree = "<group>"; };
+		ECE1B6ED21001245005807E2 /* ExcelParserFriendIdMap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExcelParserFriendIdMap.cpp; sourceTree = "<group>"; };
+		ECE1B6EE21001245005807E2 /* ExcelParserFriendIdMap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ExcelParserFriendIdMap.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +127,8 @@
 				EC99852C20FC74F900338850 /* ExcelParserFriendIdSet.hpp */,
 				EC99853220FDBBDA00338850 /* ExcelParserFriendIdVector.cpp */,
 				EC99853320FDBBDA00338850 /* ExcelParserFriendIdVector.hpp */,
+				ECE1B6ED21001245005807E2 /* ExcelParserFriendIdMap.cpp */,
+				ECE1B6EE21001245005807E2 /* ExcelParserFriendIdMap.hpp */,
 			);
 			path = ExcelParser;
 			sourceTree = "<group>";
@@ -298,6 +303,7 @@
 				ECADF35B20AD4E4E00B77618 /* LanguageWriter.cpp in Sources */,
 				ECADF35820AD408F00B77618 /* ReadCSV.cpp in Sources */,
 				EC99852A20FC729800338850 /* ExcelParserMusic.cpp in Sources */,
+				ECE1B6EF21001245005807E2 /* ExcelParserFriendIdMap.cpp in Sources */,
 				ECBEF12120E497520010A767 /* SaveDataManagerWriter.cpp in Sources */,
 				ECADF33420AD368400B77618 /* main.cpp in Sources */,
 				EC99852120FC672300338850 /* ExcelParserFriendId.cpp in Sources */,

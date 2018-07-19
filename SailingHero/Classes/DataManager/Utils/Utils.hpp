@@ -12,6 +12,7 @@
 #include <set>
 #include <vector>
 #include <string>
+#include <map>
 #include "BaseData.h"
 
 namespace std {
@@ -33,8 +34,13 @@ namespace std {
   string to_string(const vector<long long> &pSet);
   string to_string(const vector<BaseData *> &pSet);
   
+  string to_string(const map<BaseData *, int> &pMap);
+  string to_string(const map<string, int> &pMap);
+  string to_string(const map<string, string> &pMap);
+  
   set<string> atoset(const string &str);
   vector<string> atovector(const string &str);
+  vector<pair<string, string>> atomap(const string &str);
   
   string format(const char *fmt, ...)
 #ifdef __GNUC__

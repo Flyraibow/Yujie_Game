@@ -7,6 +7,7 @@ This file (GuildData.hpp) is generated
 #include "BaseData.h"
 #include "HeroData.hpp"
 
+
 using namespace std;
 class GuildData: public BaseData
 {

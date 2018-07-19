@@ -6,6 +6,7 @@ This file (CultureData.hpp) is generated
 #include <map>
 #include "BaseData.h"
 
+
 using namespace std;
 class CultureData: public BaseData
 {

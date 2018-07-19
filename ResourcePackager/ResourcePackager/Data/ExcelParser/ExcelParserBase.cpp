@@ -13,6 +13,7 @@
 #include "ExcelParserMusic.hpp"
 #include "ExcelParserFriendIdSet.hpp"
 #include "ExcelParserFriendIdVector.hpp"
+#include "ExcelParserFriendIdMap.hpp"
 #include "Utils.hpp"
 
 ExcelParserBase* ExcelParserBase::createWithSchema(const DataSchema *schema, const string &idSchemaName)
@@ -31,6 +32,8 @@ ExcelParserBase* ExcelParserBase::createWithSchema(const DataSchema *schema, con
       return new ExcelParserFriendIdSet(schema,idSchemaName);
     case FRIEND_ID_VECTOR:
       return new ExcelParserFriendIdVector(schema,idSchemaName);
+    case FRIEND_ID_MAP:
+      return new ExcelParserFriendIdMap(schema, idSchemaName);
     default:
       return new ExcelParserBase(schema,idSchemaName);
   }
@@ -119,16 +122,8 @@ string ExcelParserBase::getType() const
       finalType = TYPE_SET(p_schema->getSubtype());
       break;
     }
-    case FRIEND_ID_SET: {
-      finalType = TYPE_SET(TYPE_STRING);
-      break;
-    }
-    case FRIEND_ID_VECTOR: {
-      finalType = TYPE_VECTOR(TYPE_STRING);
-      break;
-    }
     default:
-      // unknow type
+      // unknow type or load from subclass
       assert(false);
       break;
   }
@@ -159,6 +154,31 @@ void ExcelParserBase::addHeaders(CPPFileComplete *cppFile) const
   
 }
 
+
+string ExcelParserBase::getBufferGetString(const DataType type) const
+{
+  switch (type) {
+    case STRING:
+    case ICON:
+    case MUSIC:
+    case FRIEND_ID:
+      return "getString()";
+    case INT:
+      return "getInt()";
+    case FLOAT:
+      return "getFloat()";
+    case LONG:
+      return "getLong()";
+    case DOUBLE:
+      return "getDouble()";
+    case BOOL:
+      return "getChar()";
+    default:
+      // not defined
+      assert(false);
+  }
+}
+
 void ExcelParserBase::addInitFuncBody(CPPFunction *func) const
 {
   int level = 3;
@@ -170,63 +190,45 @@ void ExcelParserBase::addInitFuncBody(CPPFunction *func) const
       func->addBodyStatements(st, level);
       break;
     }
-    case FRIEND_ID:
-    case ICON:
-    case MUSIC:
-    case STRING: {
-      string st = variableName + "->" + schemaName + " = buffer->" + "getString();";
-      func->addBodyStatements(st, level);
-      break;
-    }
-    case INT: {
-      string st = variableName + "->" + schemaName + " = buffer->" + "getInt();";
-      func->addBodyStatements(st, level);
-      break;
-    }
-    case FLOAT: {
-      string st = variableName + "->" + schemaName + " = buffer->" + "getFloat();";
-      func->addBodyStatements(st, level);
-      break;
-    }
-    case LONG: {
-      string st = variableName + "->" + schemaName + " = buffer->" + "getLong();";
-      func->addBodyStatements(st, level);
-      break;
-    }
-    case DOUBLE: {
-      string st = variableName + "->" + schemaName + " = buffer->" + "getDouble();";
-      func->addBodyStatements(st, level);
-      break;
-    }
-    case BOOL: {
-      string st = variableName + "->" + schemaName + " = buffer->" + "getChar();";
-      func->addBodyStatements(st, level);
-      break;
-    }
     case VECTOR:
-    case SET:
-    case FRIEND_ID_SET:
-    case FRIEND_ID_VECTOR:{
+    case SET:{
       func->addBodyStatementsList({
         "auto " + p_schema->getName() + "Count = buffer->getLong();",
         "for (int j = 0; j < " + p_schema->getName() + "Count; ++j) {"
       }, 3);
       string getterFuncName = p_schema->getSubtype(); // int
-      if (p_schema->getType() == FRIEND_ID_SET || p_schema->getType() == FRIEND_ID_VECTOR) {
-        getterFuncName = TYPE_STRING;
-      }
       getterFuncName[0] = toupper(getterFuncName[0]);  // Int
       getterFuncName = "get" + getterFuncName + "()";  // getInt()
-      if (p_schema->getType() == VECTOR || p_schema->getType() == FRIEND_ID_VECTOR) {
+      if (p_schema->getType() == VECTOR) {
         func->addBodyStatements(variableName + "->" + schemaName + ".push_back(buffer->" + getterFuncName + ");", level + 1);
       } else {
         func->addBodyStatements(variableName + "->" + schemaName + ".insert(buffer->" + getterFuncName + ");", level + 1);
       }
       func->addBodyStatements("}", level);
-      
       break;
     }
     default:
+      string st = variableName + "->" + schemaName + " = buffer->" + getBufferGetString(p_schema->getType()) + ";";
+      func->addBodyStatements(st, 3);
       break;
   }
+}
+
+void ExcelParserBase::addSaveFuncBody(CPPFunction *saveFunc) const
+{
+  auto schemaName = getVariableName();
+  saveFunc->addBodyStatementsList({
+    "buffer->putString(\"" + schemaName + "\");",
+    "buffer->putString(to_string(data->" + schemaName + "));",
+  }, 1);
+}
+
+void ExcelParserBase::addLoadFuncBody(CPPFunction *loadFunc, bool isFirstOne) const
+{
+  auto schemaName = getVariableName();
+  string prefix = isFirstOne ? "": "} else ";
+  loadFunc->addBodyStatementsList({
+    prefix + "if (key == \"" + schemaName + "\") {",
+    "\tdata->" + schemaName + " = " + castFromStringToValue(p_schema->getType(), "value") + ";",
+  }, 4);
 }

@@ -14,30 +14,32 @@
 
 #include "ExcelParserBase.hpp"
 
-const static unordered_map<string, DataType> s_subtype_map({
-  {"bool", BOOL},
-  {"int", INT},
-  {"long", LONG},
-  {"float", FLOAT},
-  {"double", DOUBLE},
-  {"string", STRING},
-});
-
-static string castFromStringToValue(DataType type, const string &val) {
-  if (type == INT) {
-    return "atoi("+val+".c_str())";
-  } else if (type == LONG) {
-    return "atoll("+val+".c_str())";
-  } else if (type == DOUBLE) {
-    return "atof("+val+".c_str())";
-  } else if (type == BOOL) {
-    return "(atoi("+val+".c_str()) != 0)";
-  } else if (type == SET || type == FRIEND_ID_SET) {
-    return "atoset("+val+")";
-  } else if (type == VECTOR || type == FRIEND_ID_VECTOR) {
-    return "atoset("+val+")";
+void addAutoTypeToBuffer(std::unique_ptr<bb::ByteBuffer> &buffer, DataType type, const string &val)
+{
+  switch (type) {
+    case BOOL:
+      buffer->putChar(atoi(val.c_str()));
+      break;
+    case INT:
+      buffer->putInt(atoi(val.c_str()));
+      break;
+    case DOUBLE:
+      buffer->putDouble(atof(val.c_str()));
+      break;
+    case LONG:
+      buffer->putLong(atoll(val.c_str()));
+      break;
+    case STRING:
+      buffer->putString(val);
+      break;
+    case FLOAT:
+      buffer->putFloat(atof(val.c_str()));
+      break;
+    default:
+      // unknown type
+      assert(false);
+      break;
   }
-  return val;
 }
 
 void addVectorToBuffer(std::unique_ptr<bb::ByteBuffer> &buffer, const vector<string> &vals, const string &type)
@@ -45,31 +47,7 @@ void addVectorToBuffer(std::unique_ptr<bb::ByteBuffer> &buffer, const vector<str
   buffer->putLong(vals.size());
   DataType subType = s_subtype_map.at(type);
   for (int i = 0; i < vals.size(); ++i) {
-    auto val = vals.at(i).c_str();
-    switch (subType) {
-      case BOOL:
-        buffer->putChar(atoi(val));
-        break;
-      case INT:
-        buffer->putInt(atoi(val));
-        break;
-      case DOUBLE:
-        buffer->putDouble(atof(val));
-        break;
-      case LONG:
-        buffer->putLong(atoll(val));
-        break;
-      case STRING:
-        buffer->putString(vals.at(i));
-        break;
-      case FLOAT:
-        buffer->putFloat(atof(val));
-        break;
-      default:
-        // unknown type
-        assert(false);
-        break;
-    }
+    addAutoTypeToBuffer(buffer, subType, vals.at(i));
   }
 }
 
@@ -156,6 +134,18 @@ void ExcelData::saveData(const string& folderPath, const string& fileName, Langu
           }
           auto vals = utils::split(value, ';');
           addVectorToBuffer(buffer, vals, subType);
+          break;
+        }
+        case FRIEND_ID_MAP: {
+          auto vals = utils::split(value, ';');
+          auto valueType = utils::split(schema->getSubtype(), ';')[1];
+          buffer->putLong(vals.size());
+          for (int k = 0; k < vals.size(); ++k) {
+            auto pairStr = vals.at(k);
+            auto pairList = utils::split(pairStr, ',');
+            buffer->putString(pairList[0]);
+            addAutoTypeToBuffer(buffer, s_subtype_map.at(valueType), pairList[1]);
+          }
           break;
         }
         case COMMENT:
@@ -405,16 +395,8 @@ void ExcelData::setInitFunction(const string &className, CPPClass *cppClass, CPP
     for (auto schema : p_dataSchemas) {
       if (schema->isWritable()) {
         auto parser = ExcelParserBase::createWithSchema(schema, id_schema_name);
-        auto schemaName = parser->getVariableName();
-        saveFunc->addBodyStatementsList({
-          "buffer->putString(\"" + schemaName + "\");",
-          "buffer->putString(to_string(data->" + schemaName + "));",
-        }, 1);
-        string start = count > 0 ? "} else " : "";
-        loadFunc->addBodyStatementsList({
-          start + "if (key == \"" + schemaName + "\") {",
-          "\tdata->" + schemaName + " = " + castFromStringToValue(schema->getType(), "value") + ";",
-        }, 4);
+        parser->addSaveFuncBody(saveFunc);
+        parser->addLoadFuncBody(loadFunc, count == 0);
         count++;
         delete parser;
       }

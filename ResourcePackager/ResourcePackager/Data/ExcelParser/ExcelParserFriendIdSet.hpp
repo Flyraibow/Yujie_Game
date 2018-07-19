@@ -17,8 +17,11 @@ public:
   ExcelParserFriendIdSet(const DataSchema *schema,const string & idSchemaName);
   virtual string getVariableName() const;
   virtual string getVariableGetterName() const;
+  virtual string getVariableSetterName() const;
   virtual void addFunctionsInclass(CPPClass *cppClass) const;
   virtual void addHeaders(CPPFileComplete *cppFile) const;
+  virtual string getType() const;
+  virtual void addInitFuncBody(CPPFunction *func) const;
 };
 
 #endif /* ExcelParserFriendIdSet_hpp */

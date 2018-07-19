@@ -24,6 +24,11 @@ string ExcelParserFriendId::getVariableGetterName() const
   return this->ExcelParserBase::getVariableGetterName() + "Id";
 }
 
+string ExcelParserFriendId::getVariableSetterName() const
+{
+  return this->ExcelParserBase::getVariableSetterName() + "Id";
+}
+
 void ExcelParserFriendId::addFunctionsInclass(CPPClass *cppClass) const
 {
   string friendClassName = p_schema->getSubtype() + "Data";
@@ -37,5 +42,9 @@ void ExcelParserFriendId::addFunctionsInclass(CPPClass *cppClass) const
 void ExcelParserFriendId::addHeaders(CPPFileComplete *cppFile) const
 {
   string friendClassName = p_schema->getSubtype() + "Data";
-  cppFile->addHeaders(friendClassName + ".hpp", true, true);
+  bool defineInHeader = true;
+  if (!defineInHeader) {
+    cppFile->addDefineClass(friendClassName, true);
+  }
+  cppFile->addHeaders(friendClassName + ".hpp", true, defineInHeader);
 }

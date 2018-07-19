@@ -103,7 +103,7 @@ void SailingHeroMenu::clickTest1(cocos2d::Ref* pSender)
 
 void SailingHeroMenu::clickTest2(cocos2d::Ref* pSender)
 {
-  auto city = CityData::getCityDataById("1");
+  auto city = CityData::getCityDataById(25);
   auto goods = GoodsData::getGoodsDataById("51");
   enableGoodsInCity(city, goods);
   SaveDataManager::saveData(1);
@@ -115,6 +115,7 @@ void SailingHeroMenu::clickTest3(Ref* pSender)
 {
 //  SaveDataManager::loadData(1);
   auto scene = CityScene::createScene();
+  scene->setCityDataId(25);
   Director::getInstance()->pushScene(scene);
 }
 
