@@ -19,6 +19,7 @@ using namespace std;
 
 bool enableGoodsInCity(CityData* cityData, GoodsData* goodsData);
 vector<pair<GuildData *,int>> getOrderedCityGuildShares(CityData* cityData);
+void cityGuildShareChange(CityData* cityData, GuildData *guildData, int shareDelta);
 
 
 #endif /* SHCityDataHelper_hpp */

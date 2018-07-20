@@ -7,6 +7,7 @@
 
 #include "CityScene.hpp"
 
+
 USING_NS_CC;
 using namespace ui;
 
@@ -36,15 +37,15 @@ bool CityScene::init()
   auto citySceneSprite = p_citySceneFrame.getSprite();
   
   s_window->addChild(citySceneSprite);
-  
+
   return true;
 }
 
 void CityScene::setCityDataId(int cityDataId)
 {
-  CityData *cityData = CityData::getCityDataById(cityDataId);
-  CCASSERT(cityData != nullptr, "City Data shouldn't be null");
-  this->setBackgroundMusic(cityData->getCultureData()->getCityMusicPath());
-  p_citySceneFrame.setCityData(cityData);
+  p_cityData = CityData::getCityDataById(cityDataId);
+  CCASSERT(p_cityData != nullptr, "City Data shouldn't be null");
+  this->setBackgroundMusic(p_cityData->getCultureData()->getCityMusicPath());
+  p_citySceneFrame.setCityData(p_cityData);
 }
 

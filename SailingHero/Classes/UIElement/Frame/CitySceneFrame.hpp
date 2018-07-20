@@ -12,6 +12,7 @@
 #include "cocos2d.h"
 #include "CityData.hpp"
 #include <vector>
+#include "SystemBarFrame.hpp"
 
 USING_NS_CC;
 using namespace std;
@@ -34,6 +35,7 @@ private:
   vector<Label *> p_labGoodsList;
   vector<Label *> p_labGuildList;
   vector<Label *> p_labGuildShareList;
+  SystemBarFrame p_systemBarFrame;
   
   Label* createLabelWithScale(Vec2 position, Vec2 anchor = Vec2(), std::string text = "");
 public:

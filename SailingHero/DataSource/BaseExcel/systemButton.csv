@@ -1,0 +1,9 @@
+﻿buttonId,buttonName
+id,language
+int,chinese
+writable,N
+0,航线图
+1,甲板
+2,咨询
+3,分配水手
+4,功能

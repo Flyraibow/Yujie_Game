@@ -13,10 +13,13 @@
 
 USING_NS_CC;
 
+class CityData;
+
 class CityScene : public SHScene
 {
 private:
   CitySceneFrame p_citySceneFrame;
+  CityData* p_cityData;
 public:
   static CityScene* createScene();
 

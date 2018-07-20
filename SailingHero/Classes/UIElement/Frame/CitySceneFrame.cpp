@@ -47,7 +47,11 @@ CitySceneFrame::CitySceneFrame()
     p_labGuildShareList.push_back(label);
   }
   
-  
+  p_systemBarFrame.setTextScale(1/p_scale);
+  auto systemBarSprite = p_systemBarFrame.getSprite();
+  systemBarSprite->setAnchorPoint(Vec2(0, 0));
+  systemBarSprite->setNormalizedPosition(Vec2());
+  p_sprite->addChild(systemBarSprite);
 }
 
 Label* CitySceneFrame::createLabelWithScale(Vec2 position, Vec2 anchor, string text)

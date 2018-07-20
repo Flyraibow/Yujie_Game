@@ -36,3 +36,23 @@ vector<pair<GuildData *,int>> getOrderedCityGuildShares(CityData* cityData)
   }
   return result;
 }
+
+void cityGuildShareChange(CityData* cityData, GuildData *guildData, int shareDelta)
+{
+  auto shareMap = cityData->getGuildShareMap();
+  auto guildId = guildData->getId();
+  if (shareMap.count(guildId)) {
+    int share = shareMap.at(guildId) + shareDelta;
+    if (share <= 0) {
+      // remove this key
+      shareMap.erase(guildId);
+    } else {
+      // TODO: share shouldn't pass 100
+      shareMap[guildId] = share;
+    }
+  } else if (shareDelta > 0) {
+    // TODO: share shouldn't pass 100
+    shareMap[guildId] = shareDelta;
+  }
+  cityData->setGuildShareMap(shareMap);
+}

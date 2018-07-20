@@ -88,6 +88,8 @@
 		ECD52B4620C2F7D8000F7170 /* CultureData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B4420C2F7D7000F7170 /* CultureData.cpp */; };
 		ECD52B4B20C30296000F7170 /* ItemCategoryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B4920C30295000F7170 /* ItemCategoryData.cpp */; };
 		ECD52B4C20C30296000F7170 /* ItemData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B4A20C30295000F7170 /* ItemData.cpp */; };
+		ECE1B6F22101B5E9005807E2 /* SystemBarFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECE1B6F02101B5E9005807E2 /* SystemBarFrame.cpp */; };
+		ECE1B6F62101BFB8005807E2 /* SystemButtonData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECE1B6F42101BFB7005807E2 /* SystemButtonData.cpp */; };
 		ECF294AC20B135B300536532 /* SHColorNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECF294AA20B135B300536532 /* SHColorNode.cpp */; };
 		ECF294B520BBCC9800536532 /* SHScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECF294B320BBCC9800536532 /* SHScene.cpp */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
@@ -248,6 +250,10 @@
 		ECD52B4820C30295000F7170 /* ItemCategoryData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ItemCategoryData.hpp; path = GenerateData/ItemCategoryData.hpp; sourceTree = "<group>"; };
 		ECD52B4920C30295000F7170 /* ItemCategoryData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ItemCategoryData.cpp; path = GenerateData/ItemCategoryData.cpp; sourceTree = "<group>"; };
 		ECD52B4A20C30295000F7170 /* ItemData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ItemData.cpp; path = GenerateData/ItemData.cpp; sourceTree = "<group>"; };
+		ECE1B6F02101B5E9005807E2 /* SystemBarFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SystemBarFrame.cpp; sourceTree = "<group>"; };
+		ECE1B6F12101B5E9005807E2 /* SystemBarFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SystemBarFrame.hpp; sourceTree = "<group>"; };
+		ECE1B6F42101BFB7005807E2 /* SystemButtonData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SystemButtonData.cpp; path = GenerateData/SystemButtonData.cpp; sourceTree = "<group>"; };
+		ECE1B6F52101BFB7005807E2 /* SystemButtonData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SystemButtonData.hpp; path = GenerateData/SystemButtonData.hpp; sourceTree = "<group>"; };
 		ECF294AA20B135B300536532 /* SHColorNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHColorNode.cpp; sourceTree = "<group>"; };
 		ECF294AB20B135B300536532 /* SHColorNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHColorNode.hpp; sourceTree = "<group>"; };
 		ECF294B320BBCC9800536532 /* SHScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHScene.cpp; sourceTree = "<group>"; };
@@ -465,6 +471,8 @@
 				EC99853620FDC47800338850 /* CityDataFrame.hpp */,
 				EC99854120FFED5100338850 /* CitySceneFrame.cpp */,
 				EC99854220FFED5100338850 /* CitySceneFrame.hpp */,
+				ECE1B6F02101B5E9005807E2 /* SystemBarFrame.cpp */,
+				ECE1B6F12101B5E9005807E2 /* SystemBarFrame.hpp */,
 			);
 			path = Frame;
 			sourceTree = "<group>";
@@ -502,6 +510,8 @@
 		ECD52B1F20BFB05A000F7170 /* GenerateData */ = {
 			isa = PBXGroup;
 			children = (
+				ECE1B6F42101BFB7005807E2 /* SystemButtonData.cpp */,
+				ECE1B6F52101BFB7005807E2 /* SystemButtonData.hpp */,
 				EC99853C20FF1D4D00338850 /* CityStatusData.cpp */,
 				EC99853B20FF1D4C00338850 /* CityStatusData.hpp */,
 				EC2EF80420FC25D400BCE4D5 /* CityBuildingData.cpp */,
@@ -714,8 +724,10 @@
 				1AF87B781F6F77F7007BE51C /* AppController.mm in Sources */,
 				ECBEF11B20E48B9B0010A767 /* HeroData.cpp in Sources */,
 				ECBEF11A20E48B9B0010A767 /* GenderData.cpp in Sources */,
+				ECE1B6F62101BFB8005807E2 /* SystemButtonData.cpp in Sources */,
 				EC99853A20FDC8A000338850 /* CityScene.cpp in Sources */,
 				EC72728C20FAE9F1005BD63D /* InputBoxFrame.cpp in Sources */,
+				ECE1B6F22101B5E9005807E2 /* SystemBarFrame.cpp in Sources */,
 				EC217D4920BC84AB000ADDE3 /* SHDataManager.cpp in Sources */,
 				EC99853720FDC47800338850 /* CityDataFrame.cpp in Sources */,
 				EC99853D20FF1D4D00338850 /* CityStatusData.cpp in Sources */,

@@ -114,6 +114,7 @@ void SailingHeroMenu::clickTest2(cocos2d::Ref* pSender)
 void SailingHeroMenu::clickTest3(Ref* pSender)
 {
 //  SaveDataManager::loadData(1);
+  SaveDataManager::loadData(2);
   auto scene = CityScene::createScene();
   scene->setCityDataId(25);
   Director::getInstance()->pushScene(scene);
