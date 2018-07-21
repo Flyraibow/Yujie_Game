@@ -7,6 +7,7 @@
 
 #include "SHGameDataHelper.hpp"
 #include "LocalizationHelper.hpp"
+#include "GameData.hpp"
 #include "Utils.hpp"
 
 using namespace std;
@@ -18,7 +19,13 @@ string getHeroFullName(HeroData *heroData)
 
 string getHeroBirthName(HeroData *heroData)
 {
-  return format(LocalizationHelper::getLocalization("birth_dsiplay").c_str(), heroData->getBirthMonth(), heroData->getBirthDay());
+  return format(LocalizationHelper::getLocalization("birth_display").c_str(), heroData->getBirthMonth(), heroData->getBirthDay());
+}
+
+string getGameDate()
+{
+  auto gameData = GameData::getSharedInstance();
+  return format(LocalizationHelper::getLocalization("date_display").c_str(), gameData->getMonth(), gameData->getDay());
 }
 
 ZodiacData* getZodiacFromHero(HeroData *heroData)

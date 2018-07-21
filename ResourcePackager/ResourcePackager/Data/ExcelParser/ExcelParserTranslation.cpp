@@ -49,7 +49,7 @@ string ExcelParserTranslation::getDescription() const
   return descriptState_1 + this->getVariableGetterName() + "() " + descriptState_3;
 }
 
-void ExcelParserTranslation::addInitFuncBody(CPPFunction *func) const
+void ExcelParserTranslation::addInitFuncBody(CPPFunction *func, const string &variableName, int level) const
 {
   // skip
 }

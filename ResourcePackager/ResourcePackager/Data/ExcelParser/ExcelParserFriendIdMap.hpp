@@ -27,9 +27,9 @@ public:
   virtual string getDescription() const;
   virtual void addHeaders(CPPFileComplete *cppFile) const;
   virtual string getType() const;
-  virtual void addSaveFuncBody(CPPFunction *saveFunc) const;
-  virtual void addLoadFuncBody(CPPFunction *loadFunc, bool isFirstOne) const;
-  virtual void addInitFuncBody(CPPFunction *func) const;
+  virtual void addSaveFuncBody(CPPFunction *saveFunc, const string dataName = "data", int level = 1) const;
+  virtual void addLoadFuncBody(CPPFunction *loadFunc, bool isFirstOne, const string dataName = "data", int level = 4) const;
+  virtual void addInitFuncBody(CPPFunction *func, const string &variableName, int level = 3) const;
 };
 
 #endif /* ExcelParserFriendIdMap_hpp */

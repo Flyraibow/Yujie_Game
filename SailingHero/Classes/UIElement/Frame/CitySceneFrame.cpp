@@ -9,6 +9,8 @@
 
 #include "LocalizationHelper.hpp"
 #include "SHCityDataHelper.hpp"
+#include "SHGameDataHelper.hpp"
+#include "GameData.hpp"
 
 static const int MAX_GOODS_NUM = 5;
 static const int MAX_GUILD_NUM = 3;
@@ -33,6 +35,7 @@ CitySceneFrame::CitySceneFrame()
   p_labMilitaryValue = createLabelWithScale(Vec2(0.97, 0.75), Vec2(1, 0));
   p_labCityStatus = createLabelWithScale(Vec2(0.88, 0.701), Vec2(0.5, 0));
   p_labGoodsTag = createLabelWithScale(Vec2(0.81, 0.35),Vec2(), LocalizationHelper::getLocalization("tag_goods"));
+  p_labData = createLabelWithScale(Vec2(0.88, 0.05),Vec2(0.5, 0.5), "2月3日", 12);
   
   for (int i = 0; i < MAX_GOODS_NUM; ++i) {
     auto label = createLabelWithScale(Vec2(0.792, 0.302 - i * 0.0498),Vec2(), LocalizationHelper::getLocalization("tag_goods"));
@@ -54,9 +57,9 @@ CitySceneFrame::CitySceneFrame()
   p_sprite->addChild(systemBarSprite);
 }
 
-Label* CitySceneFrame::createLabelWithScale(Vec2 position, Vec2 anchor, string text)
+Label* CitySceneFrame::createLabelWithScale(Vec2 position, Vec2 anchor, string text, int textSize)
 {
-  auto label = Label::createWithSystemFont(text, "Helvetica", 8);
+  auto label = Label::createWithSystemFont(text, "Helvetica", textSize);
   label->setScale(1 / p_scale);
   label->setAnchorPoint(anchor);
   label->setNormalizedPosition(position);
@@ -101,7 +104,7 @@ void CitySceneFrame::refresh()
     p_labGuildList[index]->setString("");
     p_labGuildShareList[index++]->setString("");
   }
-  
+  p_labData->setString(getGameDate());
 }
 
 Sprite* CitySceneFrame::getSprite() const

@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <string>
+#include "ByteBuffer.hpp"
 
 using namespace std;
 
@@ -36,6 +37,15 @@ enum DataType {
   FRIEND_ID_MAP, // 哈希表
 };
 
+const static unordered_map<string, DataType> s_subtype_map({
+  {"bool", BOOL},
+  {"int", INT},
+  {"long", LONG},
+  {"float", FLOAT},
+  {"double", DOUBLE},
+  {"string", STRING},
+});
+
 class DataSchema
 {
 private:
@@ -49,6 +59,8 @@ public:
   DataType getType() const;
   string getSubtype() const;
   bool isWritable() const;
+  
+  void addValueIntoBuffer(std::unique_ptr<bb::ByteBuffer> &buffer, const string& value);
   
   DataSchema(const string &name, const string &type, const string &subType, bool isWritable);
 };

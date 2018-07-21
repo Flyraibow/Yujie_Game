@@ -9,6 +9,8 @@
 #include "DataSchema.hpp"
 #include <algorithm>
 #include <unordered_map>
+#include "Utils.hpp"
+#include "CPPVariable.hpp"
 
 using namespace std;
 
@@ -33,6 +35,43 @@ const static unordered_map<string, DataType> s_type_map({
   {"enum", ENUM},
   {"friend_id_map", FRIEND_ID_MAP},
 });
+
+void addAutoTypeToBuffer(std::unique_ptr<bb::ByteBuffer> &buffer, DataType type, const string &val)
+{
+  switch (type) {
+    case BOOL:
+      buffer->putChar(atoi(val.c_str()));
+      break;
+    case INT:
+      buffer->putInt(atoi(val.c_str()));
+      break;
+    case DOUBLE:
+      buffer->putDouble(atof(val.c_str()));
+      break;
+    case LONG:
+      buffer->putLong(atoll(val.c_str()));
+      break;
+    case STRING:
+      buffer->putString(val);
+      break;
+    case FLOAT:
+      buffer->putFloat(atof(val.c_str()));
+      break;
+    default:
+      // unknown type
+      assert(false);
+      break;
+  }
+}
+
+void addVectorToBuffer(std::unique_ptr<bb::ByteBuffer> &buffer, const vector<string> &vals, const string &type)
+{
+  buffer->putLong(vals.size());
+  DataType subType = s_subtype_map.at(type);
+  for (int i = 0; i < vals.size(); ++i) {
+    addAutoTypeToBuffer(buffer, subType, vals.at(i));
+  }
+}
 
 string DataSchema::getName() const
 {
@@ -65,3 +104,70 @@ DataSchema::DataSchema(const string &name, const string &type, const string &sub
   p_isWritable = isWritable;
 }
 
+void DataSchema::addValueIntoBuffer(std::unique_ptr<bb::ByteBuffer> &buffer, const string& value)
+{
+  switch (p_type) {
+    case ID:
+      if (p_subType == TYPE_INT) {
+        buffer->putInt(atoi(value.c_str()));
+      } else {
+        buffer->putString(value);
+      }
+      break;
+    case FRIEND_ID:
+    case STRING:
+    case ICON:
+    case MUSIC:
+    case EFFECT:
+      buffer->putString(value);
+      break;
+    case BOOL:
+      buffer->put(atoi(value.c_str()));
+      break;
+    case INT:
+      buffer->putInt(atoi(value.c_str()));
+      break;
+    case LONG:
+      buffer->putLong(atoll(value.c_str()));
+      break;
+    case DOUBLE:
+      buffer->putDouble(atof(value.c_str()));
+      break;
+    case FLOAT:
+      buffer->putLong(atof(value.c_str()));
+      break;
+    case FRIEND_ID_SET:
+    case FRIEND_ID_VECTOR: {
+      auto vals = utils::split(value, ';');
+      addVectorToBuffer(buffer, vals, TYPE_STRING);
+      break;
+    }
+    case VECTOR:
+    case SET:{
+      auto vals = utils::split(value, ';');
+      addVectorToBuffer(buffer, vals, p_subType);
+      break;
+    }
+    case FRIEND_ID_MAP: {
+      auto vals = utils::split(value, ';');
+      auto valueType = utils::split(p_subType, ';')[1];
+      buffer->putLong(vals.size());
+      for (int k = 0; k < vals.size(); ++k) {
+        auto pairStr = vals.at(k);
+        auto pairList = utils::split(pairStr, ',');
+        buffer->putString(pairList[0]);
+        addAutoTypeToBuffer(buffer, s_subtype_map.at(valueType), pairList[1]);
+      }
+      break;
+    }
+    case COMMENT:
+    case ENUM:
+    case LANGUAGE:
+      // skip
+      break;
+    default:
+      // doesn't support other type
+      assert(false);
+      break;
+  }
+}

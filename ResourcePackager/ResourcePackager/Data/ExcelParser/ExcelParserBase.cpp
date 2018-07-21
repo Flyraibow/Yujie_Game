@@ -179,11 +179,9 @@ string ExcelParserBase::getBufferGetString(const DataType type) const
   }
 }
 
-void ExcelParserBase::addInitFuncBody(CPPFunction *func) const
+void ExcelParserBase::addInitFuncBody(CPPFunction *func, const string &variableName, int level) const
 {
-  int level = 3;
   string schemaName = this->getVariableName();
-  auto variableName = p_fileNameWithoutExt + "Data";
   switch (p_schema->getType()) {
     case ID: {
       string st = variableName + "->" + schemaName + " = buffer->" + (p_schema->getSubtype() == TYPE_INT ? "getInt();" : "getString();");
@@ -209,26 +207,26 @@ void ExcelParserBase::addInitFuncBody(CPPFunction *func) const
     }
     default:
       string st = variableName + "->" + schemaName + " = buffer->" + getBufferGetString(p_schema->getType()) + ";";
-      func->addBodyStatements(st, 3);
+      func->addBodyStatements(st, level);
       break;
   }
 }
 
-void ExcelParserBase::addSaveFuncBody(CPPFunction *saveFunc) const
+void ExcelParserBase::addSaveFuncBody(CPPFunction *saveFunc, const string dataName, int level) const
 {
   auto schemaName = getVariableName();
   saveFunc->addBodyStatementsList({
     "buffer->putString(\"" + schemaName + "\");",
-    "buffer->putString(to_string(data->" + schemaName + "));",
-  }, 1);
+    "buffer->putString(to_string(" + dataName + "->" + schemaName + "));",
+  }, level);
 }
 
-void ExcelParserBase::addLoadFuncBody(CPPFunction *loadFunc, bool isFirstOne) const
+void ExcelParserBase::addLoadFuncBody(CPPFunction *loadFunc, bool isFirstOne, const string dataName, int level) const
 {
   auto schemaName = getVariableName();
   string prefix = isFirstOne ? "": "} else ";
   loadFunc->addBodyStatementsList({
     prefix + "if (key == \"" + schemaName + "\") {",
-    "\tdata->" + schemaName + " = " + castFromStringToValue(p_schema->getType(), "value") + ";",
-  }, 4);
+    "\t" + dataName + "->" + schemaName + " = " + castFromStringToValue(p_schema->getType(), "value") + ";",
+  }, level);
 }

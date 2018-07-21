@@ -57,6 +57,7 @@
 		EC2EF80920FC25D500BCE4D5 /* CityData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2EF80320FC25D400BCE4D5 /* CityData.cpp */; };
 		EC2EF80A20FC25D500BCE4D5 /* CityBuildingData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2EF80420FC25D400BCE4D5 /* CityBuildingData.cpp */; };
 		EC2EF80B20FC25D500BCE4D5 /* CityTypeData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2EF80620FC25D400BCE4D5 /* CityTypeData.cpp */; };
+		EC6CA79B2103BB3C00B2B6A2 /* GameData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC6CA79A2103BB3B00B2B6A2 /* GameData.cpp */; };
 		EC72727320F86EB0005BD63D /* SelectHeroMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72727220F86EB0005BD63D /* SelectHeroMenuScene.cpp */; };
 		EC72727720F87AA2005BD63D /* HeroSelectingFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72727520F87AA2005BD63D /* HeroSelectingFrame.cpp */; };
 		EC72727A20F88A0B005BD63D /* HeroSelectData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72727820F88A0B005BD63D /* HeroSelectData.cpp */; };
@@ -190,6 +191,8 @@
 		EC2EF80620FC25D400BCE4D5 /* CityTypeData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CityTypeData.cpp; path = GenerateData/CityTypeData.cpp; sourceTree = "<group>"; };
 		EC2EF80720FC25D400BCE4D5 /* CityGoodsData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CityGoodsData.hpp; path = GenerateData/CityGoodsData.hpp; sourceTree = "<group>"; };
 		EC2EF80F20FC552700BCE4D5 /* BaseData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseData.h; sourceTree = "<group>"; };
+		EC6CA7982103BB3B00B2B6A2 /* GameData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GameData.hpp; path = GenerateData/GameData.hpp; sourceTree = "<group>"; };
+		EC6CA79A2103BB3B00B2B6A2 /* GameData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameData.cpp; path = GenerateData/GameData.cpp; sourceTree = "<group>"; };
 		EC72727120F86EAF005BD63D /* SelectHeroMenuScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SelectHeroMenuScene.hpp; sourceTree = "<group>"; };
 		EC72727220F86EB0005BD63D /* SelectHeroMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectHeroMenuScene.cpp; sourceTree = "<group>"; };
 		EC72727520F87AA2005BD63D /* HeroSelectingFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HeroSelectingFrame.cpp; sourceTree = "<group>"; };
@@ -510,6 +513,8 @@
 		ECD52B1F20BFB05A000F7170 /* GenerateData */ = {
 			isa = PBXGroup;
 			children = (
+				EC6CA79A2103BB3B00B2B6A2 /* GameData.cpp */,
+				EC6CA7982103BB3B00B2B6A2 /* GameData.hpp */,
 				ECE1B6F42101BFB7005807E2 /* SystemButtonData.cpp */,
 				ECE1B6F52101BFB7005807E2 /* SystemButtonData.hpp */,
 				EC99853C20FF1D4D00338850 /* CityStatusData.cpp */,
@@ -759,6 +764,7 @@
 				EC72728020FA57DB005BD63D /* SHSpriteListener.cpp in Sources */,
 				ECD52B3A20C224D8000F7170 /* CategoryUpdateData.cpp in Sources */,
 				EC2EF80A20FC25D500BCE4D5 /* CityBuildingData.cpp in Sources */,
+				EC6CA79B2103BB3C00B2B6A2 /* GameData.cpp in Sources */,
 				EC72728320FA6FD0005BD63D /* SelectHeroDisplayScene.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 			);

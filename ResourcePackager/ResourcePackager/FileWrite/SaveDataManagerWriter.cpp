@@ -43,7 +43,7 @@ SaveDataManagerWriter::SaveDataManagerWriter(const string &fileName)
   p_loadFunc->addBodyStatements("}", 0);
 }
 
-void SaveDataManagerWriter::addExcel(const ExcelData *excel)
+void SaveDataManagerWriter::addExcel(const ExcelDataParserBase *excel)
 {
   if (excel->containWritableData()) {
     string fileName = excel->getClassName();

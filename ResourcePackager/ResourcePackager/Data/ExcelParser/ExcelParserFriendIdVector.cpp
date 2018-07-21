@@ -61,14 +61,13 @@ string ExcelParserFriendIdVector::getType() const
   return TYPE_VECTOR(TYPE_STRING);
 }
 
-void ExcelParserFriendIdVector::addInitFuncBody(CPPFunction *func) const
+void ExcelParserFriendIdVector::addInitFuncBody(CPPFunction *func,const string &variableName, int level) const
 {
-  auto variableName = p_fileNameWithoutExt + "Data";
   string schemaName = this->getVariableName();
   func->addBodyStatementsList({
     "auto " + p_schema->getName() + "Count = buffer->getLong();",
     "for (int j = 0; j < " + p_schema->getName() + "Count; ++j) {",
     "\t" + variableName + "->" + schemaName + ".push_back(buffer->getString());",
     "}"
-  }, 3);
+  }, level);
 }

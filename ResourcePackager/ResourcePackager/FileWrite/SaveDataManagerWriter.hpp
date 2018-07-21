@@ -10,7 +10,7 @@
 #define SaveDataManagerWriter_hpp
 
 #include <stdio.h>
-#include "ExcelData.hpp"
+#include "ExcelDataParserBase.hpp"
 #include "CPPFile.hpp"
 
 using namespace std;
@@ -25,7 +25,7 @@ private:
   CPPFunction *p_clearFunc;
 public:
   SaveDataManagerWriter(const string &fileName);
-  void addExcel(const ExcelData *excel);
+  void addExcel(const ExcelDataParserBase *excel);
   void writeToPath(const string &path);
 };
 

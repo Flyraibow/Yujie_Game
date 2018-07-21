@@ -37,7 +37,9 @@ private:
   vector<Label *> p_labGuildShareList;
   SystemBarFrame p_systemBarFrame;
   
-  Label* createLabelWithScale(Vec2 position, Vec2 anchor = Vec2(), std::string text = "");
+  Label* p_labData;
+  
+  Label* createLabelWithScale(Vec2 position, Vec2 anchor = Vec2(), std::string text = "", int textSize = 8);
 public:
   CitySceneFrame();
   void setCityData(CityData *cityData);

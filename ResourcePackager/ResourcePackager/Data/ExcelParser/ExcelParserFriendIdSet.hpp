@@ -21,7 +21,7 @@ public:
   virtual void addFunctionsInclass(CPPClass *cppClass) const;
   virtual void addHeaders(CPPFileComplete *cppFile) const;
   virtual string getType() const;
-  virtual void addInitFuncBody(CPPFunction *func) const;
+  virtual void addInitFuncBody(CPPFunction *func, const string &variableName, int level = 3) const;
 };
 
 #endif /* ExcelParserFriendIdSet_hpp */

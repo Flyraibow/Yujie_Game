@@ -18,7 +18,7 @@ public:
   
   virtual void addFunctionsInclass(CPPClass *cppClass) const;
   virtual string getDescription() const;
-  virtual void addInitFuncBody(CPPFunction *func) const;
+  virtual void addInitFuncBody(CPPFunction *func,const string &variableName, int level) const;
 };
 
 #endif /* ExcelParserTranslation_hpp */

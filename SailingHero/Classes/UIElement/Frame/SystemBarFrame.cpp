@@ -22,7 +22,7 @@ SystemBarFrame::SystemBarFrame()
     button->setTag(i);
     button->setAnchorPoint(Vec2(0.5, 0.5));
     button->setNormalizedPosition(Vec2(0.112 + i * 0.1923, 0.4));
-    button->setContentSize(Size(48, 15));
+    button->setContentSize(Size(50, 15));
     p_buttonList.push_back(button);
     p_sprite->addChild(button);
   }

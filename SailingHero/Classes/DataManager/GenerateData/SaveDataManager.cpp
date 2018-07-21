@@ -9,6 +9,7 @@ This file (SaveDataManager.cpp) is generated
 #include "GuildData.hpp"
 #include "CityGoodsData.hpp"
 #include "CityData.hpp"
+#include "GameData.hpp"
 #include "HeroData.hpp"
 
 
@@ -32,6 +33,10 @@ bool SaveDataManager::saveData(int index)
 	}
 	if (!CityData::saveData(path)) {
 		CCLOG("Failed to save CityData, %s", path.c_str());
+		return false;
+	}
+	if (!GameData::saveData(path)) {
+		CCLOG("Failed to save GameData, %s", path.c_str());
 		return false;
 	}
 	if (!HeroData::saveData(path)) {
@@ -60,6 +65,10 @@ bool SaveDataManager::loadData(int index)
 		CCLOG("Failed to load CityData, %s", path.c_str());
 		return false;
 	}
+	if (!GameData::loadData(path)) {
+		CCLOG("Failed to load GameData, %s", path.c_str());
+		return false;
+	}
 	if (!HeroData::loadData(path)) {
 		CCLOG("Failed to load HeroData, %s", path.c_str());
 		return false;
@@ -72,6 +81,7 @@ bool SaveDataManager::clearData()
 	GuildData::clearData();
 	CityGoodsData::clearData();
 	CityData::clearData();
+	GameData::clearData();
 	HeroData::clearData();
 	return true;
 }
