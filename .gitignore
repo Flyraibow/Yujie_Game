@@ -26,3 +26,9 @@ DerivedData/
 ## MAC Folder
 .DS_Store
 *.DS_Store
+
+## VS Foler
+proj.win32/
+.vs/
+Debug.win32/
+PlotEditor/doc/

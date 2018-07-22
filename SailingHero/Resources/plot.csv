@@ -1,0 +1,11 @@
+﻿,,,
+1,场景1,,
+bgp,res/default_background.png,,
+bgm,title.mp3,,
+ui,button,goto 2,2
+2,场景2,,
+bgp,title_background.jpg,,
+bgm,res/base/music/africa_sea.mp3,,
+ui,button,goto 3,3
+3,场景3,,
+ui,button,goto 1,1

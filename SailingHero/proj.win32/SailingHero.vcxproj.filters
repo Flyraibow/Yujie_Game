@@ -10,15 +10,45 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="deps">
+      <UniqueIdentifier>{ca51fed4-d06e-4b25-8354-023bc8c8c4f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="csv">
+      <UniqueIdentifier>{ee33d485-6a88-4236-8a69-3fb1d1423854}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>win32</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\AppDelegate.cpp">
+    <ClCompile Include="..\Classes\UIElement\Sprite\SHScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
+    <ClCompile Include="..\..\PlotEditor\SHPlotBuilder.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UIElement\Sprite\SHColorNode.cpp">
+      <Filter>deps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UIElement\Button\SystemButton.cpp">
+      <Filter>deps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UIElement\Sprite\SHSpriteListener.cpp">
+      <Filter>deps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\SHDirector.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\SHScenario.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Sys\ByteBuffer.cpp">
+      <Filter>deps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Sys\LocalizationHelper.cpp">
+      <Filter>deps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\SHAppDelegate.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -26,10 +56,28 @@
     <ClInclude Include="main.h">
       <Filter>win32</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\AppDelegate.h">
+    <ClInclude Include="..\Classes\UIElement\Sprite\SHScene.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HelloWorldScene.h">
+    <ClInclude Include="..\..\PlotEditor\SHPlotBuilder.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UIElement\Sprite\SHColorNode.hpp">
+      <Filter>deps</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\SHDirector.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\SHScenario.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\SHEvent.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Sys\LocalizationHelper.hpp">
+      <Filter>deps</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\SHAppDelegate.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
@@ -37,5 +85,10 @@
     <ResourceCompile Include="game.rc">
       <Filter>resource</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\plot.csv">
+      <Filter>csv</Filter>
+    </None>
   </ItemGroup>
 </Project>

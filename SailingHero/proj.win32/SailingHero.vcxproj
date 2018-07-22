@@ -14,6 +14,7 @@
     <ProjectGuid>{76A39BB2-9B84-4C65-98A5-654D86B86F2A}</ProjectGuid>
     <RootNamespace>test_win32</RootNamespace>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -75,7 +76,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(EngineRoot);$(EngineRoot)external;$(EngineRoot)cocos\audio\include;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes;..;%(AdditionalIncludeDirectories);$(_COCOS_HEADER_WIN32_BEGIN);$(_COCOS_HEADER_WIN32_END)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(EngineRoot);$(EngineRoot)external;$(EngineRoot)cocos\audio\include;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes;..\Classes\Sys;..\Classes\DataManager;..\Classes\DataManager\Utils;..\Classes\SceneUI;..\Classes\DataManager\GenerateData;..\Classes\UIElement\Button;..\Classes\UIElement\Sys;..\Classes\UIElement\Frame;..\Classes\UIElement\Sprite;..;%(AdditionalIncludeDirectories);$(_COCOS_HEADER_WIN32_BEGIN);$(_COCOS_HEADER_WIN32_END)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_CHIPMUNK_INTEGRATION=1;COCOS2D_DEBUG=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -90,7 +91,7 @@
     <Link>
       <AdditionalDependencies>libcurl.lib;%(AdditionalDependencies);$(_COCOS_LIB_WIN32_BEGIN);$(_COCOS_LIB_WIN32_END)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
-      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories);$(_COCOS_LIB_PATH_WIN32_BEGIN);$(_COCOS_LIB_PATH_WIN32_END)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(EngineRoot)external\curl\prebuilt\win32;$(EngineRoot)external\jpeg\prebuilt\win32;$(EngineRoot)external\tiff\prebuilt\win32;$(EngineRoot)external\win32-specific\zlib\prebuilt;$(EngineRoot)external\freetype2\prebuilt\win32;$(EngineRoot)external\webp\prebuilt\win32;$(EngineRoot)external\png\prebuilt\win32;$(EngineRoot)external\win32-specific\icon\prebuilt;$(EngineRoot)external\Box2D\prebuilt\win32\debug;$(EngineRoot)external\openssl\prebuilt\win32;$(EngineRoot)external\glfw3\prebuilt\win32;$(EngineRoot)external\chipmunk\prebuilt\win32\debug-lib;$(EngineRoot)external\bullet\prebuilt\win32\debug;$(EngineRoot)external\websockets\prebuilt\win32;$(EngineRoot)external\win32-specific\gles\prebuilt;$(OutDir);%(AdditionalLibraryDirectories);$(_COCOS_LIB_PATH_WIN32_BEGIN);$(_COCOS_LIB_PATH_WIN32_END)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
@@ -100,7 +101,8 @@
       </Command>
     </PostBuildEvent>
     <PreLinkEvent>
-      <Command></Command>
+      <Command>
+      </Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup>
@@ -112,7 +114,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
       <Inputs>$(TargetFileName)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
-
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
@@ -143,17 +144,32 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
       </Command>
     </PostBuildEvent>
     <PreLinkEvent>
-      <Command></Command>
+      <Command>
+      </Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Classes\AppDelegate.cpp" />
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="..\..\PlotEditor\SHAppDelegate.cpp" />
+    <ClCompile Include="..\..\PlotEditor\SHDirector.cpp" />
+    <ClCompile Include="..\..\PlotEditor\SHPlotBuilder.cpp" />
+    <ClCompile Include="..\..\PlotEditor\SHScenario.cpp" />
+    <ClCompile Include="..\Classes\Sys\ByteBuffer.cpp" />
+    <ClCompile Include="..\Classes\Sys\LocalizationHelper.cpp" />
+    <ClCompile Include="..\Classes\UIElement\Button\SystemButton.cpp" />
+    <ClCompile Include="..\Classes\UIElement\Sprite\SHColorNode.cpp" />
+    <ClCompile Include="..\Classes\UIElement\Sprite\SHScene.cpp" />
+    <ClCompile Include="..\Classes\UIElement\Sprite\SHSpriteListener.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Classes\AppDelegate.h" />
-    <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\..\PlotEditor\SHAppDelegate.h" />
+    <ClInclude Include="..\..\PlotEditor\SHDirector.h" />
+    <ClInclude Include="..\..\PlotEditor\SHEvent.h" />
+    <ClInclude Include="..\..\PlotEditor\SHPlotBuilder.h" />
+    <ClInclude Include="..\..\PlotEditor\SHScenario.h" />
+    <ClInclude Include="..\Classes\Sys\LocalizationHelper.hpp" />
+    <ClInclude Include="..\Classes\UIElement\Sprite\SHColorNode.hpp" />
+    <ClInclude Include="..\Classes\UIElement\Sprite\SHScene.hpp" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>
@@ -164,12 +180,12 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ProjectReference Include="..\cocos2d\cocos\editor-support\spine\proj.win32\libSpine.vcxproj">
       <Project>{b7c2a162-dec9-4418-972e-240ab3cbfcae}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\cocos2d\external\Box2D\proj.win32\libbox2d.vcxproj">
-      <Project>{929480e7-23c0-4df6-8456-096d71547116}</Project>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\plot.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
