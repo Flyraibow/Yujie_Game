@@ -11,6 +11,7 @@
 #include "SHCityDataHelper.hpp"
 #include "SHGameDataHelper.hpp"
 #include "GameData.hpp"
+#include "SystemButton.hpp"
 
 static const int MAX_GOODS_NUM = 5;
 static const int MAX_GUILD_NUM = 3;
@@ -55,6 +56,18 @@ CitySceneFrame::CitySceneFrame()
   systemBarSprite->setAnchorPoint(Vec2(0, 0));
   systemBarSprite->setNormalizedPosition(Vec2());
   p_sprite->addChild(systemBarSprite);
+  
+  
+//  auto button1 = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("test 2"),
+//                                                     CC_CALLBACK_1(CitySceneFrame::clickTest2, this));
+//  button1->setAnchorPoint(Vec2(0, 0));
+//  button1->setNormalizedPosition(Vec2(0, 0.7));
+//  p_sprite->addChild(button1);
+//  auto button2 = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("test 3"),
+//                                                     CC_CALLBACK_1(CitySceneFrame::clickTest3, this));
+//  button2->setAnchorPoint(Vec2(0, 0));
+//  button2->setNormalizedPosition(Vec2(0, 0.3));
+//  p_sprite->addChild(button2);
 }
 
 Label* CitySceneFrame::createLabelWithScale(Vec2 position, Vec2 anchor, string text, int textSize)
@@ -111,3 +124,25 @@ Sprite* CitySceneFrame::getSprite() const
 {
   return p_sprite;
 }
+
+//#include "SaveDataManager.hpp"
+//#include "Calendar.hpp"
+//
+//void CitySceneFrame::clickTest2(cocos2d::Ref* pSender)
+//{
+//  auto gameData = GameData::getSharedInstance();
+//  auto date = nextDay(gameData->getYear(), gameData->getMonth(), gameData->getDay());
+//  gameData->setYear(date.year);
+//  gameData->setMonth(date.month);
+//  gameData->setDay(date.day);
+//  refresh();
+//}
+//
+//#include "CityScene.hpp"
+//
+//void CitySceneFrame::clickTest3(Ref* pSender)
+//{
+//  //  SaveDataManager::loadData(1);
+//  SaveDataManager::saveData(2);
+//}
+

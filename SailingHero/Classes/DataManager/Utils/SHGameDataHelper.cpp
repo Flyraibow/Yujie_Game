@@ -8,6 +8,7 @@
 #include "SHGameDataHelper.hpp"
 #include "LocalizationHelper.hpp"
 #include "GameData.hpp"
+#include "Calendar.hpp"
 #include "Utils.hpp"
 
 using namespace std;
@@ -44,25 +45,4 @@ ZodiacData* getZodiacFromHero(HeroData *heroData)
     }
   }
   return nullptr;
-}
-
-
-bool isBirthValid(int month, int day) {
-  if (month < 1 || month > 12 || day < 1) {
-    return false;
-  }
-  switch (month) {
-    case 1:
-    case 3:
-    case 5:
-    case 7:
-    case 8:
-    case 10:
-    case 12:
-      return day <= 31;
-    case 2:
-      return day <= 28;
-    default:
-      return day <= 30;
-  }
 }

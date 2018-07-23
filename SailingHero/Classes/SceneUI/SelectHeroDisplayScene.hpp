@@ -32,6 +32,7 @@ public:
   void clickChangeHeroName(cocos2d::Ref* pSender);
   void clickChangeGuildName(cocos2d::Ref* pSender);
   void clickChangeHeroBirth(cocos2d::Ref* pSender);
+  void clickChangeStartGame(cocos2d::Ref* pSender);
   
   // implement the "static create()" method manually
   CREATE_FUNC(SelectHeroDisplayScene);

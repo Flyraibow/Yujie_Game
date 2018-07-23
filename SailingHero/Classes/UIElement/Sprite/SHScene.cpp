@@ -19,6 +19,18 @@
 
 using namespace std;
 
+
+void SHScene::setFullScreenCover()
+{
+  auto visibleSize = Director::getInstance()->getVisibleSize();
+  Vec2 origin = Director::getInstance()->getVisibleOrigin();
+  s_window = Node::create();
+  s_window->setAnchorPoint(Vec2());
+  s_window->setContentSize(visibleSize);
+  s_window->setPosition(origin);
+  this->addChild(s_window);
+}
+
 void SHScene::setScreenCover(Size ratioSize)
 {
   assert(ratioSize.width > 0 && ratioSize.height > 0);

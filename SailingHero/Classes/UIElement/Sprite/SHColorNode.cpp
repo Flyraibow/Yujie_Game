@@ -62,6 +62,7 @@ bool SHColorNode::initWithColor(const Color4B& color)
 void SHColorNode::commonInit()
 {
   auto listener = EventListenerTouchOneByOne::create();
+  listener->setSwallowTouches(true);
   listener->onTouchBegan = [this](Touch *touch, Event *unused_event) {
     Director *pDirector = Director::getInstance();
     Point touchPoint = pDirector->convertToGL(touch->getLocationInView());

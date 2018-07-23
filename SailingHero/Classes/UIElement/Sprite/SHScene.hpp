@@ -26,6 +26,7 @@ protected:
    * @param ratioSize  The desired screen ratio, e.g. (4, 3), (16, 9);
    */
   void setScreenCover(Size ratioSize);
+  void setFullScreenCover();
   void setBackgroundImage(std::string imgPath);
   void setBackgroundMusic(std::string path);
   Node* s_window;

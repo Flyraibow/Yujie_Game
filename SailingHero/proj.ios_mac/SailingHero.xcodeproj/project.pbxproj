@@ -58,6 +58,8 @@
 		EC2EF80A20FC25D500BCE4D5 /* CityBuildingData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2EF80420FC25D400BCE4D5 /* CityBuildingData.cpp */; };
 		EC2EF80B20FC25D500BCE4D5 /* CityTypeData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2EF80620FC25D400BCE4D5 /* CityTypeData.cpp */; };
 		EC6CA79B2103BB3C00B2B6A2 /* GameData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC6CA79A2103BB3B00B2B6A2 /* GameData.cpp */; };
+		EC6CA79E2103CF5E00B2B6A2 /* Calendar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC6CA79C2103CF5E00B2B6A2 /* Calendar.cpp */; };
+		EC6CA7A12103ED2500B2B6A2 /* DialogFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC6CA79F2103ED2500B2B6A2 /* DialogFrame.cpp */; };
 		EC72727320F86EB0005BD63D /* SelectHeroMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72727220F86EB0005BD63D /* SelectHeroMenuScene.cpp */; };
 		EC72727720F87AA2005BD63D /* HeroSelectingFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72727520F87AA2005BD63D /* HeroSelectingFrame.cpp */; };
 		EC72727A20F88A0B005BD63D /* HeroSelectData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72727820F88A0B005BD63D /* HeroSelectData.cpp */; };
@@ -193,6 +195,10 @@
 		EC2EF80F20FC552700BCE4D5 /* BaseData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseData.h; sourceTree = "<group>"; };
 		EC6CA7982103BB3B00B2B6A2 /* GameData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GameData.hpp; path = GenerateData/GameData.hpp; sourceTree = "<group>"; };
 		EC6CA79A2103BB3B00B2B6A2 /* GameData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameData.cpp; path = GenerateData/GameData.cpp; sourceTree = "<group>"; };
+		EC6CA79C2103CF5E00B2B6A2 /* Calendar.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Calendar.cpp; sourceTree = "<group>"; };
+		EC6CA79D2103CF5E00B2B6A2 /* Calendar.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Calendar.hpp; sourceTree = "<group>"; };
+		EC6CA79F2103ED2500B2B6A2 /* DialogFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DialogFrame.cpp; sourceTree = "<group>"; };
+		EC6CA7A02103ED2500B2B6A2 /* DialogFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DialogFrame.hpp; sourceTree = "<group>"; };
 		EC72727120F86EAF005BD63D /* SelectHeroMenuScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SelectHeroMenuScene.hpp; sourceTree = "<group>"; };
 		EC72727220F86EB0005BD63D /* SelectHeroMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectHeroMenuScene.cpp; sourceTree = "<group>"; };
 		EC72727520F87AA2005BD63D /* HeroSelectingFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HeroSelectingFrame.cpp; sourceTree = "<group>"; };
@@ -476,6 +482,8 @@
 				EC99854220FFED5100338850 /* CitySceneFrame.hpp */,
 				ECE1B6F02101B5E9005807E2 /* SystemBarFrame.cpp */,
 				ECE1B6F12101B5E9005807E2 /* SystemBarFrame.hpp */,
+				EC6CA79F2103ED2500B2B6A2 /* DialogFrame.cpp */,
+				EC6CA7A02103ED2500B2B6A2 /* DialogFrame.hpp */,
 			);
 			path = Frame;
 			sourceTree = "<group>";
@@ -567,6 +575,8 @@
 				EC99852E20FDB11A00338850 /* SHCityDataHelper.cpp */,
 				EC99852F20FDB11A00338850 /* SHCityDataHelper.hpp */,
 				EC2EF80F20FC552700BCE4D5 /* BaseData.h */,
+				EC6CA79C2103CF5E00B2B6A2 /* Calendar.cpp */,
+				EC6CA79D2103CF5E00B2B6A2 /* Calendar.hpp */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -728,6 +738,7 @@
 				ECADF32420ACFD0800B77618 /* LocalizationHelper.cpp in Sources */,
 				1AF87B781F6F77F7007BE51C /* AppController.mm in Sources */,
 				ECBEF11B20E48B9B0010A767 /* HeroData.cpp in Sources */,
+				EC6CA7A12103ED2500B2B6A2 /* DialogFrame.cpp in Sources */,
 				ECBEF11A20E48B9B0010A767 /* GenderData.cpp in Sources */,
 				ECE1B6F62101BFB8005807E2 /* SystemButtonData.cpp in Sources */,
 				EC99853A20FDC8A000338850 /* CityScene.cpp in Sources */,
@@ -741,6 +752,7 @@
 				EC72727320F86EB0005BD63D /* SelectHeroMenuScene.cpp in Sources */,
 				ECF294AC20B135B300536532 /* SHColorNode.cpp in Sources */,
 				EC2EF80920FC25D500BCE4D5 /* CityData.cpp in Sources */,
+				EC6CA79E2103CF5E00B2B6A2 /* Calendar.cpp in Sources */,
 				EC72727A20F88A0B005BD63D /* HeroSelectData.cpp in Sources */,
 				EC2EF80B20FC25D500BCE4D5 /* CityTypeData.cpp in Sources */,
 				ECBEF11E20E492F70010A767 /* SaveDataManager.cpp in Sources */,

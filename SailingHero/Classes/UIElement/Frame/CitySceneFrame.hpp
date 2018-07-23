@@ -45,6 +45,8 @@ public:
   void setCityData(CityData *cityData);
   void refresh();
   Sprite* getSprite() const;
+  void clickTest2(cocos2d::Ref* pSender);
+  void clickTest3(cocos2d::Ref* pSender);
 };
 
 #endif /* CitySceneFrame_hpp */

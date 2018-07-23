@@ -37,6 +37,7 @@ bool CityScene::init()
   auto citySceneSprite = p_citySceneFrame.getSprite();
   
   s_window->addChild(citySceneSprite);
+  
 
   return true;
 }

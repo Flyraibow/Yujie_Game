@@ -18,7 +18,6 @@ using namespace std;
 string getHeroFullName(HeroData *heroData);
 string getHeroBirthName(HeroData *heroData);
 ZodiacData* getZodiacFromHero(HeroData *heroData);
-bool isBirthValid(int month, int day);
 string getGameDate();
 
 #endif /* SHGameDataHelper_hpp */

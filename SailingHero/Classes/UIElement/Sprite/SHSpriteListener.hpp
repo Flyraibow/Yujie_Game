@@ -18,7 +18,7 @@ private:
   Node* s_node;
 public:
   CREATE_FUNC(SHSpriteListener);
-  static SHSpriteListener* createWithNode(Node *node);
+  static SHSpriteListener* createWithNode(Node *node, bool swallowTouches = true);
   void setTouchBegin(ccTouchBeganCallback touchBegin);
   void setTouchOver(ccTouchCallback touchOver, ccTouchCallback touchOverOut);
   void setTouchEnd(ccTouchCallback touchEnd, ccTouchCallback touchCanceled);

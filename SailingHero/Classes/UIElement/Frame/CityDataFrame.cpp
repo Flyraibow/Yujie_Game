@@ -35,6 +35,7 @@ CityDataFrame::CityDataFrame()
     auto label = createLabelWithScale(Vec2(0.08, 0.302 - i * 0.0498),Vec2(), LocalizationHelper::getLocalization("tag_goods"));
     p_labGoodsList.push_back(label);
   }
+  
 }
 
 Label* CityDataFrame::createLabelWithScale(Vec2 position, Vec2 anchor, string text)

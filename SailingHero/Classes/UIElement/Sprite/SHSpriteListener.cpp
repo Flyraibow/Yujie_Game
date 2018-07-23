@@ -14,10 +14,11 @@ static bool isTouchInsideNode(Touch *touch, Node *node)
   return node->getBoundingBox().containsPoint(touchPoint);
 }
 
-SHSpriteListener* SHSpriteListener::createWithNode(Node *node)
+SHSpriteListener* SHSpriteListener::createWithNode(Node *node, bool swallowTouches)
 {
   auto listener = SHSpriteListener::create();
   listener->s_node = node;
+  listener->setSwallowTouches(swallowTouches);
   listener->setTouchBegin(nullptr);
   node->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, node);
   return listener;

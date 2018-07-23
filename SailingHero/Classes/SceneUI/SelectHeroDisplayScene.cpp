@@ -11,6 +11,7 @@
 #include "HeroSelectingFrame.hpp"
 #include "SHGameDataHelper.hpp"
 #include "InputBoxFrame.hpp"
+#include "Calendar.hpp"
 
 USING_NS_CC;
 using namespace ui;
@@ -40,36 +41,36 @@ bool SelectHeroDisplayScene::init()
   }
   
   this->setBackgroundImage("res/default_background.png");
+  this->setFullScreenCover();
   
-  Vec2 origin = Director::getInstance()->getVisibleOrigin();
   auto visibleSize = Director::getInstance()->getVisibleSize();
 
   auto btnCancel = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("sys_cancel"), [](cocos2d::Ref* pSender) {
     Director::getInstance()->popScene();
   });
   btnCancel->setAnchorPoint(Vec2(1,0));
-  btnCancel->setPosition(Vec2(origin.x + visibleSize.width - 15, origin.y + 12));
-  this->addChild(btnCancel);
+  btnCancel->setPosition(Vec2(visibleSize.width - 15, 12));
+  s_window->addChild(btnCancel);
   
   p_labHeroName = Label::createWithSystemFont("", "Helvetica", 12);
   p_labHeroName->setAnchorPoint(Vec2());
-  p_labHeroName->setPosition(Vec2(origin.x + visibleSize.width / 2 - 20, origin.y + 215));
-  this->addChild(p_labHeroName);
+  p_labHeroName->setPosition(Vec2(visibleSize.width / 2 - 20, 215));
+  s_window->addChild(p_labHeroName);
   
   p_labGuildName = Label::createWithSystemFont("", "Helvetica", 12);
   p_labGuildName->setAnchorPoint(Vec2());
-  p_labGuildName->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + 190));
-  this->addChild(p_labGuildName);
+  p_labGuildName->setPosition(Vec2(visibleSize.width / 2, 190));
+  s_window->addChild(p_labGuildName);
   
   P_labBirth = Label::createWithSystemFont("", "Helvetica", 12);
   P_labBirth->setAnchorPoint(Vec2());
-  P_labBirth->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + 175));
-  this->addChild(P_labBirth);
+  P_labBirth->setPosition(Vec2(visibleSize.width / 2, 175));
+  s_window->addChild(P_labBirth);
   
   p_labZodiac = Label::createWithSystemFont("", "Helvetica", 12);
   p_labZodiac->setAnchorPoint(Vec2());
-  p_labZodiac->setPosition(Vec2(origin.x + visibleSize.width / 2 + 90, origin.y + 175));
-  this->addChild(p_labZodiac);
+  p_labZodiac->setPosition(Vec2(visibleSize.width / 2 + 90, 175));
+  s_window->addChild(p_labZodiac);
   
   p_zodiacIcon = nullptr;
   
@@ -81,20 +82,19 @@ bool SelectHeroDisplayScene::init()
   btnChangeGuildName->setAnchorPoint(Vec2(0,0));
   btnChangeHeroBirth->setAnchorPoint(Vec2(0,0));
   
-  btnChangeHeroName->setPosition(Vec2(origin.x + visibleSize.width  / 2 + 20, origin.y + 90));
-  btnChangeGuildName->setPosition(Vec2(origin.x + visibleSize.width  / 2 + 20, origin.y + 65));
-  btnChangeHeroBirth->setPosition(Vec2(origin.x + visibleSize.width   / 2 + 20, origin.y + 40));
-  this->addChild(btnChangeHeroName);
-  this->addChild(btnChangeGuildName);
-  this->addChild(btnChangeHeroBirth);
+  btnChangeHeroName->setPosition(Vec2(visibleSize.width  / 2 + 20, 90));
+  btnChangeGuildName->setPosition(Vec2(visibleSize.width  / 2 + 20, 65));
+  btnChangeHeroBirth->setPosition(Vec2(visibleSize.width   / 2 + 20, 40));
+  s_window->addChild(btnChangeHeroName);
+  s_window->addChild(btnChangeGuildName);
+  s_window->addChild(btnChangeHeroBirth);
   
   
-  auto btnConfirm = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("sys_confirm"), [](cocos2d::Ref* pSender) {
-  });
+  auto btnConfirm = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("sys_confirm"), CC_CALLBACK_1(SelectHeroDisplayScene::clickChangeStartGame, this));
   btnConfirm->setAnchorPoint(Vec2(1,0));
-  btnConfirm->setPosition(Vec2(origin.x + visibleSize.width - 100, origin.y + 12));
+  btnConfirm->setPosition(Vec2(visibleSize.width - 100, 12));
   
-  this->addChild(btnConfirm);
+  s_window->addChild(btnConfirm);
   return true;
 }
 
@@ -102,16 +102,15 @@ void SelectHeroDisplayScene::setSelectHeroData(HeroSelectData *selectHeroData)
 {
   p_selectHeroData = selectHeroData;
   auto peoplePanel = HeroSelectingFrame::createBigPhotoWithSelectHeroId(selectHeroData->getId());
-  Vec2 origin = Director::getInstance()->getVisibleOrigin();
   auto visibleSize = Director::getInstance()->getVisibleSize();
-  peoplePanel->setPosition(Vec2(origin.x + visibleSize.width / 2  - 120, origin.y + visibleSize.height / 2));
-  this->addChild(peoplePanel);
+  peoplePanel->setPosition(Vec2(visibleSize.width / 2  - 120, visibleSize.height / 2));
+  s_window->addChild(peoplePanel);
   
   auto descriptionLabel = Label::createWithSystemFont(selectHeroData->getHeroDescription(), "Helvetica", 12);
   descriptionLabel->setAnchorPoint(Vec2(0, 1));
-  descriptionLabel->setPosition(Vec2(origin.x + visibleSize.width / 2 - 20, origin.y + 165));
+  descriptionLabel->setPosition(Vec2(visibleSize.width / 2 - 20, 165));
   descriptionLabel->setDimensions(200, 0);
-  this->addChild(descriptionLabel);
+  s_window->addChild(descriptionLabel);
   
   this->refreshScene();
 }
@@ -131,7 +130,7 @@ void SelectHeroDisplayScene::refreshScene()
   p_zodiacIcon = zodiac->getIcon(false);
   p_zodiacIcon->setAnchorPoint(Vec2());
   p_zodiacIcon->setPosition(Vec2(p_labZodiac->getPosition().x + 50, p_labZodiac->getPosition().y));
-  this->addChild(p_zodiacIcon);
+  s_window->addChild(p_zodiacIcon);
 }
 
 
@@ -150,10 +149,10 @@ void SelectHeroDisplayScene::clickChangeHeroName(cocos2d::Ref *pSender)
           this->refreshScene();
         }
       });
-      this->addChild(inputFirstNameSprite);
+      s_window->addChild(inputFirstNameSprite);
     }
   });
-  this->addChild(inputLastNameSprite);
+  s_window->addChild(inputLastNameSprite);
 }
 
 void SelectHeroDisplayScene::clickChangeGuildName(cocos2d::Ref *pSender)
@@ -166,7 +165,7 @@ void SelectHeroDisplayScene::clickChangeGuildName(cocos2d::Ref *pSender)
       this->refreshScene();
     }
   });
-  this->addChild(inputLastNameSprite);
+  s_window->addChild(inputLastNameSprite);
 }
 
 void SelectHeroDisplayScene::clickChangeHeroBirth(cocos2d::Ref *pSender)
@@ -182,7 +181,7 @@ void SelectHeroDisplayScene::clickChangeHeroBirth(cocos2d::Ref *pSender)
           auto heroData = p_selectHeroData->getGuildData()->getLeaderData();
           int month = atoi(monthStr.c_str());
           int day = atoi(dayStr.c_str());
-          if (isBirthValid(month, day)) {
+          if (isDateValid(month, day)) {
             heroData->setBirthMonth(month);
             heroData->setBirthDay(day);
             this->refreshScene();
@@ -193,8 +192,16 @@ void SelectHeroDisplayScene::clickChangeHeroBirth(cocos2d::Ref *pSender)
           }
         }
       }, 2, ui::EditBox::InputMode::NUMERIC);
-      this->addChild(inputFirstNameSprite);
+      s_window->addChild(inputFirstNameSprite);
     }
   }, 2, ui::EditBox::InputMode::NUMERIC);
-  this->addChild(inputLastNameSprite);
+  s_window->addChild(inputLastNameSprite);
+}
+
+#include "DialogFrame.hpp"
+
+void SelectHeroDisplayScene::clickChangeStartGame(cocos2d::Ref* pSender)
+{
+  auto dialog = DialogFrame::createWithContent("请选择三个自己熟悉的技能，这句话会很长请选择三个自己熟悉的技能，这句话会很长请选择三个自己熟悉的技能，这句话会很长请选择三个自己熟悉的技能，这句话会很长");
+  s_window->addChild(dialog->getSprite());
 }
