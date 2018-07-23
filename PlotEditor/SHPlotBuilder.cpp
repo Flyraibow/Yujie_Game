@@ -36,8 +36,6 @@ std::string WStringToString(const std::wstring & wstr)
 
 cocos2d::Scene * SHPlotBuilder::Build(std::wstring csvFile)
 {
-    //return SailingHeroMenu::createScene();
-
     SHDirector * director = SHDirector::getInstance();
 
     SHScenario * currentScenario = nullptr;
@@ -73,10 +71,23 @@ cocos2d::Scene * SHPlotBuilder::Build(std::wstring csvFile)
                 continue;
             }
             cocos2d::Scene * gotoScene = director->getScenario(gotoId)->getCCScene();
-            currentScenario->addButton(WStringToString(lineItems[2]),
-                [gotoScene]() {
-                    cocos2d::Director::getInstance()->replaceScene(gotoScene);
-                });
+            ui::Button button;
+            button.templateName = "";
+            button.centerPos = {0.5f, 0.6f};
+            button.text = WStringToString(lineItems[2]);
+            button.onClick = [gotoScene]() {
+                cocos2d::Director::getInstance()->replaceScene(gotoScene); };
+            currentScenario->addButton(button);
+        }
+
+        // dialog
+        if (lineItems.size() ==  4
+            && lineItems[0] == L"ui"
+            && lineItems[1] == L"dialog") {
+            ui::Dialog dialog;
+            dialog.templateName = "";
+            dialog.text = WStringToString(lineItems[2]);
+            currentScenario->addDialog(dialog);
         }
     }
 

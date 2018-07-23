@@ -149,24 +149,27 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\PlotEditor\CCUI\CCButton.cpp" />
     <ClCompile Include="..\..\PlotEditor\SHAppDelegate.cpp" />
     <ClCompile Include="..\..\PlotEditor\SHDirector.cpp" />
     <ClCompile Include="..\..\PlotEditor\SHPlotBuilder.cpp" />
     <ClCompile Include="..\..\PlotEditor\SHScenario.cpp" />
+    <ClCompile Include="..\..\PlotEditor\SHSceneManager.cpp" />
     <ClCompile Include="..\Classes\Sys\ByteBuffer.cpp" />
     <ClCompile Include="..\Classes\Sys\LocalizationHelper.cpp" />
-    <ClCompile Include="..\Classes\UIElement\Button\SystemButton.cpp" />
     <ClCompile Include="..\Classes\UIElement\Sprite\SHColorNode.cpp" />
     <ClCompile Include="..\Classes\UIElement\Sprite\SHScene.cpp" />
     <ClCompile Include="..\Classes\UIElement\Sprite\SHSpriteListener.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\PlotEditor\CCUI\CCButton.h" />
     <ClInclude Include="..\..\PlotEditor\SHAppDelegate.h" />
     <ClInclude Include="..\..\PlotEditor\SHDirector.h" />
-    <ClInclude Include="..\..\PlotEditor\SHEvent.h" />
+    <ClInclude Include="..\..\PlotEditor\SHCommand.h" />
     <ClInclude Include="..\..\PlotEditor\SHPlotBuilder.h" />
     <ClInclude Include="..\..\PlotEditor\SHScenario.h" />
+    <ClInclude Include="..\..\PlotEditor\SHSceneManager.h" />
     <ClInclude Include="..\Classes\Sys\LocalizationHelper.hpp" />
     <ClInclude Include="..\Classes\UIElement\Sprite\SHColorNode.hpp" />
     <ClInclude Include="..\Classes\UIElement\Sprite\SHScene.hpp" />

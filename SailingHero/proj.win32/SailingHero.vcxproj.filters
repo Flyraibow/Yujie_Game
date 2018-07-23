@@ -16,21 +16,18 @@
     <Filter Include="csv">
       <UniqueIdentifier>{ee33d485-6a88-4236-8a69-3fb1d1423854}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CCUI">
+      <UniqueIdentifier>{fc269bce-8eb6-49a6-b8ef-c9c6020ff948}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>win32</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\UIElement\Sprite\SHScene.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\PlotEditor\SHPlotBuilder.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\UIElement\Sprite\SHColorNode.cpp">
-      <Filter>deps</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\UIElement\Button\SystemButton.cpp">
       <Filter>deps</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\UIElement\Sprite\SHSpriteListener.cpp">
@@ -51,13 +48,19 @@
     <ClCompile Include="..\..\PlotEditor\SHAppDelegate.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\SHSceneManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UIElement\Sprite\SHScene.cpp">
+      <Filter>deps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\CCUI\CCButton.cpp">
+      <Filter>CCUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
       <Filter>win32</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\UIElement\Sprite\SHScene.hpp">
-      <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\PlotEditor\SHPlotBuilder.h">
       <Filter>src</Filter>
@@ -71,14 +74,23 @@
     <ClInclude Include="..\..\PlotEditor\SHScenario.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PlotEditor\SHEvent.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Sys\LocalizationHelper.hpp">
       <Filter>deps</Filter>
     </ClInclude>
     <ClInclude Include="..\..\PlotEditor\SHAppDelegate.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\SHSceneManager.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\SHCommand.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UIElement\Sprite\SHScene.hpp">
+      <Filter>deps</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\CCUI\CCButton.h">
+      <Filter>CCUI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

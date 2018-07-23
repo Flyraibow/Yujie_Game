@@ -7,6 +7,25 @@
 
 namespace SailingHeroAPI {
 
+namespace ui {
+
+struct Button {
+    std::string templateName;
+    struct {
+        float x;
+        float y;
+    } centerPos;
+    std::string text;
+    std::function<void()> onClick;
+};
+
+struct Dialog {
+    std::string templateName;
+    std::string text;
+};
+
+}
+
 class SHScenario {
 public:
     void setBackgroundImage(std::string imgPath) {
@@ -21,15 +40,17 @@ public:
     const std::string & getBackgroundMusic() const {
         return bgMusic;
     }
-    void addButton(std::string text, std::function<void()> onClick) {
-        btText = text;
-        btOnClick = onClick;
+    void addButton(const ui::Button & bt) {
+        buttons.push_back(bt);
     }
-    const std::string & getButtonText() const {
-        return btText;
+    const std::vector<ui::Button> & getAllButton() const {
+        return buttons;
     }
-    std::function<void()> getButtonCallback() const {
-        return btOnClick;
+    void addDialog(const ui::Dialog & dialog) {
+        dialogs.push_back(dialog);
+    }
+    const std::vector<ui::Dialog> & getAllDialog() const {
+        return dialogs;
     }
     cocos2d::Scene * getCCScene();
 private:
@@ -41,8 +62,8 @@ private:
     int id;
     std::string bgImage;
     std::string bgMusic;
-    std::string btText;
-    std::function<void()> btOnClick;
+    std::vector<ui::Button> buttons;
+    std::vector<ui::Dialog> dialogs;
     cocos2d::Scene * ccScene;
     bool ccSceneReady;
 };

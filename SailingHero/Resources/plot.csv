@@ -8,4 +8,6 @@ bgp,title_background.jpg,,
 bgm,res/base/music/africa_sea.mp3,,
 ui,button,goto 3,3
 3,场景3,,
+bgp,title_background.jpg,,
 ui,button,goto 1,1
+ui,dialog,This is a dialog test!!!,
