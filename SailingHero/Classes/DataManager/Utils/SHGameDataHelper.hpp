@@ -17,6 +17,7 @@ using namespace std;
 
 string getHeroFullName(HeroData *heroData);
 string getHeroBirthName(HeroData *heroData);
+string getHeroDialogName(HeroData *heroData, bool showFullName);
 ZodiacData* getZodiacFromHero(HeroData *heroData);
 string getGameDate();
 

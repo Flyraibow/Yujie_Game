@@ -202,6 +202,8 @@ void SelectHeroDisplayScene::clickChangeHeroBirth(cocos2d::Ref *pSender)
 
 void SelectHeroDisplayScene::clickChangeStartGame(cocos2d::Ref* pSender)
 {
-  auto dialog = DialogFrame::createWithContent("请选择三个自己熟悉的技能，这句话会很长请选择三个自己熟悉的技能，这句话会很长请选择三个自己熟悉的技能，这句话会很长请选择三个自己熟悉的技能，这句话会很长");
+  auto dialog = DialogFrame::createWithDialogIds({"1", "2", "3"}, [](){
+    CCLOG("对话结束 了");
+  });
   s_window->addChild(dialog->getSprite());
 }

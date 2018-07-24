@@ -58,16 +58,16 @@ CitySceneFrame::CitySceneFrame()
   p_sprite->addChild(systemBarSprite);
   
   
-//  auto button1 = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("test 2"),
-//                                                     CC_CALLBACK_1(CitySceneFrame::clickTest2, this));
-//  button1->setAnchorPoint(Vec2(0, 0));
-//  button1->setNormalizedPosition(Vec2(0, 0.7));
-//  p_sprite->addChild(button1);
-//  auto button2 = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("test 3"),
-//                                                     CC_CALLBACK_1(CitySceneFrame::clickTest3, this));
-//  button2->setAnchorPoint(Vec2(0, 0));
-//  button2->setNormalizedPosition(Vec2(0, 0.3));
-//  p_sprite->addChild(button2);
+  auto button1 = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("test 2"),
+                                                     CC_CALLBACK_1(CitySceneFrame::clickTest2, this));
+  button1->setAnchorPoint(Vec2(0, 0));
+  button1->setNormalizedPosition(Vec2(0, 0.7));
+  p_sprite->addChild(button1);
+  auto button2 = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("test 3"),
+                                                     CC_CALLBACK_1(CitySceneFrame::clickTest3, this));
+  button2->setAnchorPoint(Vec2(0, 0));
+  button2->setNormalizedPosition(Vec2(0, 0.3));
+  p_sprite->addChild(button2);
 }
 
 Label* CitySceneFrame::createLabelWithScale(Vec2 position, Vec2 anchor, string text, int textSize)
@@ -127,22 +127,29 @@ Sprite* CitySceneFrame::getSprite() const
 
 //#include "SaveDataManager.hpp"
 //#include "Calendar.hpp"
+#include "DialogFrame.hpp"
 //
-//void CitySceneFrame::clickTest2(cocos2d::Ref* pSender)
-//{
+void CitySceneFrame::clickTest2(cocos2d::Ref* pSender)
+{
+  
+  auto dialog = DialogFrame::createWithDialogIds({"1", "2", "3"}, [](){
+    CCLOG("对话结束 了");
+  }, p_sprite->getContentSize());
+  
+  p_sprite->addChild(dialog->getSprite());
 //  auto gameData = GameData::getSharedInstance();
 //  auto date = nextDay(gameData->getYear(), gameData->getMonth(), gameData->getDay());
 //  gameData->setYear(date.year);
 //  gameData->setMonth(date.month);
 //  gameData->setDay(date.day);
 //  refresh();
-//}
+}
 //
 //#include "CityScene.hpp"
 //
-//void CitySceneFrame::clickTest3(Ref* pSender)
-//{
-//  //  SaveDataManager::loadData(1);
-//  SaveDataManager::saveData(2);
-//}
+void CitySceneFrame::clickTest3(Ref* pSender)
+{
+  //  SaveDataManager::loadData(1);
+  Director::getInstance()->popScene();
+}
 

@@ -9,9 +9,9 @@
 
 static bool isTouchInsideNode(Touch *touch, Node *node)
 {
-  Director *pDirector = Director::getInstance();
-  Point touchPoint = pDirector->convertToGL(touch->getLocationInView());
-  return node->getBoundingBox().containsPoint(touchPoint);
+  auto nodePoint = node->convertToNodeSpace(touch->getLocationInView());
+  auto rect = Rect(0, 0, node->getContentSize().width, node->getContentSize().height);
+  return rect.containsPoint(nodePoint);
 }
 
 SHSpriteListener* SHSpriteListener::createWithNode(Node *node, bool swallowTouches)

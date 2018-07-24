@@ -18,6 +18,14 @@ string getHeroFullName(HeroData *heroData)
   return heroData->getHeroFirstName() + " · " + heroData->getHeroLastName();
 }
 
+string getHeroDialogName(HeroData *heroData, bool showFullName)
+{
+  if (showFullName) {
+    return getHeroFullName(heroData);
+  }
+  return "<" + heroData->getHeroFirstName() + ">";
+}
+
 string getHeroBirthName(HeroData *heroData)
 {
   return format(LocalizationHelper::getLocalization("birth_display").c_str(), heroData->getBirthMonth(), heroData->getBirthDay());

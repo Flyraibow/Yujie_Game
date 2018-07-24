@@ -44,6 +44,7 @@ bool SailingHeroMenu::init()
   
   this->setBackgroundImage("res/default_background.png");
   this->setBackgroundMusic("title.mp3");
+  this->setFullScreenCover();
   
   Vec2 origin = Director::getInstance()->getVisibleOrigin();
   
@@ -87,6 +88,7 @@ void SailingHeroMenu::clickGameSetting(Ref* pSender)
 #include "GoodsData.hpp"
 #include "CityData.hpp"
 #include "SHCityDataHelper.hpp"
+#include "DialogPhotoFrame.hpp"
 
 void SailingHeroMenu::clickTest1(cocos2d::Ref* pSender)
 {
@@ -103,20 +105,25 @@ void SailingHeroMenu::clickTest1(cocos2d::Ref* pSender)
 
 void SailingHeroMenu::clickTest2(cocos2d::Ref* pSender)
 {
-  auto city = CityData::getCityDataById(25);
-  auto goods = GoodsData::getGoodsDataById("51");
-  enableGoodsInCity(city, goods);
-  SaveDataManager::saveData(1);
+//  auto city = CityData::getCityDataById(25);
+//  auto goods = GoodsData::getGoodsDataById("51");
+//  enableGoodsInCity(city, goods);
+//  SaveDataManager::saveData(1);
+  auto hero = HeroData::getHeroDataById(0);
+  DialogPhotoFrame frame;
+  frame.setHeroData(hero);
+  s_window->addChild(frame.getSprite());
 }
 
 #include "CityScene.hpp"
+#include "DialogFrame.hpp"
 
 void SailingHeroMenu::clickTest3(Ref* pSender)
 {
 //  SaveDataManager::loadData(1);
   SaveDataManager::loadData(2);
   auto scene = CityScene::createScene();
-  scene->setCityDataId(25);
+  scene->setCityDataId(60);
   Director::getInstance()->pushScene(scene);
 }
 
