@@ -34,8 +34,9 @@ void DialogPhotoFrame::setHeroData(HeroData* heroData)
       p_photoSprite->removeFromParent();
       p_photoSprite = heroData->getPhoto();
     }
+    auto f = Director::getInstance()->getContentScaleFactor();
     p_photoSprite->setAnchorPoint(Vec2());
-    p_photoSprite->setScale(p_background->getContentSize().width / p_photoSprite->getContentSize().width, p_background->getContentSize().height / p_photoSprite->getContentSize().height);
+    p_photoSprite->setPosition(Vec2(8 / f, 8 / f));
     p_background->addChild(p_photoSprite);
   }
 }
