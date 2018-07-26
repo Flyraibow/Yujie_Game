@@ -199,11 +199,29 @@ void SelectHeroDisplayScene::clickChangeHeroBirth(cocos2d::Ref *pSender)
 }
 
 #include "DialogFrame.hpp"
+#include "MultiSelectionFrame.hpp"
+#include "AbilityData.hpp"
 
 void SelectHeroDisplayScene::clickChangeStartGame(cocos2d::Ref* pSender)
 {
-  auto dialog = DialogFrame::createWithDialogIds({"1", "2", "3"}, [](){
-    CCLOG("对话结束 了");
+  auto dialog = DialogFrame::createWithDialogIds({"1"}, [this](){
+    // 对话结束了
+    auto abilityMapList = AbilityData::getSharedDictionary();
+    vector<AbilityData *> datalist;
+    vector<string> selectList;
+    for(auto it = abilityMapList->begin(); it != abilityMapList->end(); ++it ) {
+      datalist.push_back(it->second);
+      selectList.push_back(it->second->getAbilityDescription());
+    }
+    
+    auto frame = MultiSelectionFrame::createMultiSelectFrame(selectList, 3, [datalist](vector<int> selectedIndexes){
+      for (int i = 0; i < selectedIndexes.size(); ++i) {
+        int index = selectedIndexes[i];
+        CCLOG("选择了 %d", index);
+        CCLOG("选择了 %s", datalist.at(index)->getAbilityName().c_str());
+      }
+    });
+    this->addChild(frame);
   });
   s_window->addChild(dialog->getSprite());
 }

@@ -49,7 +49,7 @@ bool SailingHeroMenu::init()
   Vec2 origin = Director::getInstance()->getVisibleOrigin();
   
   auto strs = std::vector<std::string>({"start_game", "load_game", "game_setting"});
-  auto buttons = Vector<Button *>({
+  auto buttons = vector<Button *>({
     SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("start_game"),
                                         CC_CALLBACK_1(SailingHeroMenu::clickStartGame, this)),
     SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("load_game"),
@@ -103,16 +103,16 @@ void SailingHeroMenu::clickTest1(cocos2d::Ref* pSender)
 //  SaveDataManager::saveData(1);
 }
 
+#include "MultiSelectionFrame.hpp"
+
 void SailingHeroMenu::clickTest2(cocos2d::Ref* pSender)
 {
-//  auto city = CityData::getCityDataById(25);
-//  auto goods = GoodsData::getGoodsDataById("51");
-//  enableGoodsInCity(city, goods);
-//  SaveDataManager::saveData(1);
-  auto hero = HeroData::getHeroDataById(0);
-  DialogPhotoFrame frame;
-  frame.setHeroData(hero);
-  s_window->addChild(frame.getSprite());
+  auto frame = MultiSelectionFrame::createMultiSelectFrame({"1", "2", "3", "4"}, 3, [](vector<int> selectIndexes){
+    for (auto index : selectIndexes) {
+      CCLOG("selected : %d", index);
+    }
+  });
+  this->addChild(frame);
 }
 
 #include "CityScene.hpp"
