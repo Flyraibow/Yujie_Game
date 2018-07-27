@@ -39,6 +39,12 @@ cocos2d::Sprite* ZodiacData::getIcon(bool isDefaultSize)
 	return icon;
 }
 
+string ZodiacData::getIconPath()
+{
+	static const string s_basePath = "res/base/icon/zodiac/";
+	return s_basePath + p_iconId;
+}
+
 string ZodiacData::getIconId() const
 {
 	return p_iconId;

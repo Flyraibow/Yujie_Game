@@ -45,6 +45,12 @@ cocos2d::Sprite* CannonData::getIcon(bool isDefaultSize)
 	return icon;
 }
 
+string CannonData::getIconPath()
+{
+	static const string s_basePath = "res/base/icon/cannon";
+	return s_basePath + p_iconId;
+}
+
 string CannonData::getIconId() const
 {
 	return p_iconId;

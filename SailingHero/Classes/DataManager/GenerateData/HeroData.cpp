@@ -61,6 +61,12 @@ cocos2d::Sprite* HeroData::getPhoto(bool isDefaultSize)
 	return icon;
 }
 
+string HeroData::getPhotoPath()
+{
+	static const string s_basePath = "res/base/icon/bustup/";
+	return s_basePath + p_photoId;
+}
+
 string HeroData::getPhotoId() const
 {
 	return p_photoId;

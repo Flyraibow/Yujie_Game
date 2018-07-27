@@ -45,6 +45,7 @@ public:
 	void setHeroLastName(string heroLastName);
 	string getHeroLastName() const;
 	cocos2d::Sprite* getPhoto(bool isDefaultSize = true);
+	string getPhotoPath();
 	string getPhotoId() const;
 	GenderData* getGenderData() const;
 	string getGenderId() const;

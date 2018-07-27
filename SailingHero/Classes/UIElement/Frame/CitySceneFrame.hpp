@@ -12,6 +12,7 @@
 #include "cocos2d.h"
 #include "CityData.hpp"
 #include <vector>
+#include <unordered_map>
 #include "SystemBarFrame.hpp"
 
 USING_NS_CC;
@@ -36,6 +37,7 @@ private:
   vector<Label *> p_labGuildList;
   vector<Label *> p_labGuildShareList;
   SystemBarFrame p_systemBarFrame;
+  unordered_map<int, Node*> p_buildingImageMap;
   
   Label* p_labData;
   

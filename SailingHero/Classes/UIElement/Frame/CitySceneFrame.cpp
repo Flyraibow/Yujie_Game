@@ -12,6 +12,7 @@
 #include "SHGameDataHelper.hpp"
 #include "GameData.hpp"
 #include "SystemButton.hpp"
+#include "CityBuildingFrame.hpp"
 
 static const int MAX_GOODS_NUM = 5;
 static const int MAX_GUILD_NUM = 3;
@@ -58,16 +59,16 @@ CitySceneFrame::CitySceneFrame()
   p_sprite->addChild(systemBarSprite);
   
   
-  auto button1 = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("test 2"),
-                                                     CC_CALLBACK_1(CitySceneFrame::clickTest2, this));
-  button1->setAnchorPoint(Vec2(0, 0));
-  button1->setNormalizedPosition(Vec2(0, 0.7));
-  p_sprite->addChild(button1);
-  auto button2 = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("test 3"),
-                                                     CC_CALLBACK_1(CitySceneFrame::clickTest3, this));
-  button2->setAnchorPoint(Vec2(0, 0));
-  button2->setNormalizedPosition(Vec2(0, 0.3));
-  p_sprite->addChild(button2);
+//  auto button1 = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("test 2"),
+//                                                     CC_CALLBACK_1(CitySceneFrame::clickTest2, this));
+//  button1->setAnchorPoint(Vec2(0, 0));
+//  button1->setNormalizedPosition(Vec2(0, 0.7));
+//  p_sprite->addChild(button1);
+//  auto button2 = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("test 3"),
+//                                                     CC_CALLBACK_1(CitySceneFrame::clickTest3, this));
+//  button2->setAnchorPoint(Vec2(0, 0));
+//  button2->setNormalizedPosition(Vec2(0, 0.3));
+//  p_sprite->addChild(button2);
 }
 
 Label* CitySceneFrame::createLabelWithScale(Vec2 position, Vec2 anchor, string text, int textSize)
@@ -88,12 +89,15 @@ void CitySceneFrame::setCityData(CityData *cityData)
 
 void CitySceneFrame::refresh()
 {
+  // show city informations
   p_labCityName->setString(p_cityData->getCityName());
   p_labCityType->setString(p_cityData->getCityTypeData()->getCityTypeName());
   p_labCulture->setString(p_cityData->getCultureData()->getCultureName());
   p_labMilitaryValue->setString(to_string(p_cityData->getMilltary()));
   p_labCommerceValue->setString(to_string(p_cityData->getCommerce()));
   p_labCityStatus->setString(p_cityData->getCityStatusData()->getCityStatusName());
+  
+  // show goods names
   auto goodsList = p_cityData->getCityGoodsDataVector();
   int index = 0;
   for (int i = 0; i < goodsList.size(); ++i) {
@@ -106,7 +110,7 @@ void CitySceneFrame::refresh()
     p_labGoodsList[index++]->setString("");
   }
   
-  
+  // show guild shares
   auto guildShareList = getOrderedCityGuildShares(p_cityData);
   index = 0;
   for (int i = 0; i < guildShareList.size(); ++i) {
@@ -118,6 +122,21 @@ void CitySceneFrame::refresh()
     p_labGuildShareList[index++]->setString("");
   }
   p_labData->setString(getGameDate());
+  
+  // show city icons
+  // TODO: NOW it doesn't change when switch cities. or city updates
+  auto buildingDataSet = p_cityData->getBuildingDataSet();
+  for (auto buildingData : buildingDataSet) {
+    if (p_buildingImageMap.count(buildingData->getBuildingId())) {
+      auto buildingSprite = p_buildingImageMap.at(buildingData->getBuildingId());
+      buildingSprite->setVisible(true);
+    } else {
+      auto buildingFrame = CityBuildingFrame(buildingData);
+      auto buildingSprite = buildingFrame.getSprite();
+      p_buildingImageMap[buildingData->getBuildingId()] = buildingSprite;
+      p_sprite->addChild(buildingSprite);
+    }
+  }
 }
 
 Sprite* CitySceneFrame::getSprite() const

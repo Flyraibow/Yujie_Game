@@ -21,8 +21,10 @@ public:
 	string getId() const;
 	int getSelectHeroId() const;
 	cocos2d::Sprite* getIcon(bool isDefaultSize = true);
+	string getIconPath();
 	string getIconId() const;
 	cocos2d::Sprite* getSmallIcon(bool isDefaultSize = true);
+	string getSmallIconPath();
 	string getSmallIconId() const;
 	GuildData* getGuildData() const;
 	string getGuildId() const;

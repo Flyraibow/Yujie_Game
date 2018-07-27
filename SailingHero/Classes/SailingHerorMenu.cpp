@@ -123,7 +123,7 @@ void SailingHeroMenu::clickTest3(Ref* pSender)
 //  SaveDataManager::loadData(1);
   SaveDataManager::loadData(2);
   auto scene = CityScene::createScene();
-  scene->setCityDataId(60);
+  scene->setCityDataId(0);
   Director::getInstance()->pushScene(scene);
 }
 

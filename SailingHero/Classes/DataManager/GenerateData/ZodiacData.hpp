@@ -23,6 +23,7 @@ public:
 	int getZodiacId() const;
 	string getZodiacName() const;
 	cocos2d::Sprite* getIcon(bool isDefaultSize = true);
+	string getIconPath();
 	string getIconId() const;
 	int getStartMonth() const;
 	int getStartDate() const;

@@ -33,6 +33,12 @@ cocos2d::Sprite* HeroSelectData::getIcon(bool isDefaultSize)
 	return icon;
 }
 
+string HeroSelectData::getIconPath()
+{
+	static const string s_basePath = "res/base/icon/firstGrp/";
+	return s_basePath + p_iconId;
+}
+
 string HeroSelectData::getIconId() const
 {
 	return p_iconId;
@@ -47,6 +53,12 @@ cocos2d::Sprite* HeroSelectData::getSmallIcon(bool isDefaultSize)
 		icon->setScale(cocos2d::Director::getInstance()->getContentScaleFactor());
 	}
 	return icon;
+}
+
+string HeroSelectData::getSmallIconPath()
+{
+	static const string s_basePath = "res/base/icon/firstGrp/";
+	return s_basePath + p_smallIconId;
 }
 
 string HeroSelectData::getSmallIconId() const

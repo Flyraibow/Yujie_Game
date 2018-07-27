@@ -28,9 +28,46 @@ string CityBuildingData::getBuildingName() const
 	return LocalizationHelper::getLocalization(localId);
 }
 
-string CityBuildingData::getBuildingImage() const
+cocos2d::Sprite* CityBuildingData::getBuildingImage(bool isDefaultSize)
 {
-	return p_buildingImage;
+	static const string s_basePath = "res/base/icon/cityBuilding/";
+	string path = s_basePath + p_buildingImageId;
+	auto icon = cocos2d::Sprite::create(path);
+	if (!isDefaultSize) {
+		icon->setScale(cocos2d::Director::getInstance()->getContentScaleFactor());
+	}
+	return icon;
+}
+
+string CityBuildingData::getBuildingImagePath()
+{
+	static const string s_basePath = "res/base/icon/cityBuilding/";
+	return s_basePath + p_buildingImageId;
+}
+
+string CityBuildingData::getBuildingImageId() const
+{
+	return p_buildingImageId;
+}
+
+double CityBuildingData::getAnchorX() const
+{
+	return p_anchorX;
+}
+
+double CityBuildingData::getAnchorY() const
+{
+	return p_anchorY;
+}
+
+double CityBuildingData::getPosX() const
+{
+	return p_posX;
+}
+
+double CityBuildingData::getPosY() const
+{
+	return p_posY;
 }
 
 string CityBuildingData::description() const
@@ -38,7 +75,11 @@ string CityBuildingData::description() const
 	string desc = "cityBuildingData = {\n";
 	desc += "\tbuildingId : " + to_string(p_buildingId) + "\n";
 	desc += "\tbuildingName : " + getBuildingName() + "\n";
-	desc += "\tbuildingImage : " + to_string(p_buildingImage) + "\n";
+	desc += "\tbuildingImageId : " + to_string(p_buildingImageId) + "\n";
+	desc += "\tanchorX : " + to_string(p_anchorX) + "\n";
+	desc += "\tanchorY : " + to_string(p_anchorY) + "\n";
+	desc += "\tposX : " + to_string(p_posX) + "\n";
+	desc += "\tposY : " + to_string(p_posY) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -56,7 +97,11 @@ map<int, CityBuildingData*>* CityBuildingData::getSharedDictionary()
 			for (int i = 0; i < count; ++i) {
 				CityBuildingData* cityBuildingData = new CityBuildingData();
 				cityBuildingData->p_buildingId = buffer->getInt();
-				cityBuildingData->p_buildingImage = buffer->getString();
+				cityBuildingData->p_buildingImageId = buffer->getString();
+				cityBuildingData->p_anchorX = buffer->getDouble();
+				cityBuildingData->p_anchorY = buffer->getDouble();
+				cityBuildingData->p_posX = buffer->getDouble();
+				cityBuildingData->p_posY = buffer->getDouble();
 				p_sharedDictionary->insert(pair<int, CityBuildingData*>(cityBuildingData->p_buildingId, cityBuildingData));
 			}
 		}

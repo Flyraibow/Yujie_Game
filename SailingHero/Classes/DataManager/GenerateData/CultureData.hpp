@@ -26,8 +26,10 @@ public:
 	string getCityMusicPath() const;
 	string getCityMusicId() const;
 	cocos2d::Sprite* getPlazaStoreIcon(bool isDefaultSize = true);
+	string getPlazaStoreIconPath();
 	string getPlazaStoreIconId() const;
 	cocos2d::Sprite* getPlazaBuildingIcon(bool isDefaultSize = true);
+	string getPlazaBuildingIconPath();
 	string getPlazaBuildingIconId() const;
 	string description() const;
 	static map<int, CultureData*>* getSharedDictionary();

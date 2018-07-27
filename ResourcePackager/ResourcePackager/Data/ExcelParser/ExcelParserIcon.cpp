@@ -30,5 +30,13 @@ void ExcelParserIcon::addFunctionsInclass(CPPClass *cppClass) const
     
   }, 0);
   cppClass->addFunction(getIconFunction, false);
+  
+  string getIconPathFuncName = getIconFuncName + "Path";  // getGoodsIconPath
+  auto getIconPathFunction = new CPPFunction(getIconPathFuncName, "string", {}, false, false);
+  getIconPathFunction->addBodyStatementsList({
+    "static const string s_basePath = \"" + p_schema->getSubtype() + "\";",
+    "return s_basePath + " + this->getVariableName() + ";",
+  }, 0);
+  cppClass->addFunction(getIconPathFunction, false);
   this->ExcelParserBase::addFunctionsInclass(cppClass);
 }

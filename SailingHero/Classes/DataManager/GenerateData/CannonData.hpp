@@ -24,6 +24,7 @@ public:
 	string getCannonName() const;
 	string getCannonDescription() const;
 	cocos2d::Sprite* getIcon(bool isDefaultSize = true);
+	string getIconPath();
 	string getIconId() const;
 	int getMilltaryValue() const;
 	int getPrice() const;
