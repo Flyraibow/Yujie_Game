@@ -10,32 +10,262 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="deps">
+      <UniqueIdentifier>{ca51fed4-d06e-4b25-8354-023bc8c8c4f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="csv">
+      <UniqueIdentifier>{ee33d485-6a88-4236-8a69-3fb1d1423854}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CCUI">
+      <UniqueIdentifier>{fc269bce-8eb6-49a6-b8ef-c9c6020ff948}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameData">
+      <UniqueIdentifier>{9b13a7cc-d0d9-4f15-a0f9-bf1bec74b458}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameData\csv">
+      <UniqueIdentifier>{fb2040a9-0674-4027-9cb5-e38cc20517be}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>win32</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\AppDelegate.cpp">
+    <ClCompile Include="..\..\PlotEditor\SHPlotBuilder.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
+    <ClCompile Include="..\Classes\UIElement\Sprite\SHColorNode.cpp">
+      <Filter>deps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UIElement\Sprite\SHSpriteListener.cpp">
+      <Filter>deps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\SHDirector.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\SHScenario.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Sys\ByteBuffer.cpp">
+      <Filter>deps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Sys\LocalizationHelper.cpp">
+      <Filter>deps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\SHAppDelegate.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UIElement\Sprite\SHScene.cpp">
+      <Filter>deps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\CCUI\CCButton.cpp">
+      <Filter>CCUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\SHDataManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\GameData\CannonData.cpp">
+      <Filter>GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\GameData\CategoryUpdateData.cpp">
+      <Filter>GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\GameData\Utils.cpp">
+      <Filter>GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\GameData\CityBuildingData.cpp">
+      <Filter>GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\GameData\CityData.cpp">
+      <Filter>GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\GameData\CityGoodsData.cpp">
+      <Filter>GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\GameData\CityStatusData.cpp">
+      <Filter>GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\GameData\CityTypeData.cpp">
+      <Filter>GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\GameData\CultureData.cpp">
+      <Filter>GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\GameData\GoodsData.cpp">
+      <Filter>GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\GameData\ItemCategoryData.cpp">
+      <Filter>GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\GameData\ItemData.cpp">
+      <Filter>GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\GameData\GoodsCategoryData.cpp">
+      <Filter>GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\GameData\GameData.cpp">
+      <Filter>GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\GameData\GuildData.cpp">
+      <Filter>GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\GameData\HeroData.cpp">
+      <Filter>GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\GameData\GenderData.cpp">
+      <Filter>GameData</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
       <Filter>win32</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\AppDelegate.h">
+    <ClInclude Include="..\..\PlotEditor\SHPlotBuilder.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HelloWorldScene.h">
+    <ClInclude Include="..\Classes\UIElement\Sprite\SHColorNode.hpp">
+      <Filter>deps</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\SHDirector.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\SHScenario.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Sys\LocalizationHelper.hpp">
+      <Filter>deps</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\SHAppDelegate.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\SHCommand.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UIElement\Sprite\SHScene.hpp">
+      <Filter>deps</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\CCUI\CCButton.h">
+      <Filter>CCUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\SHDataManager.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\GameData\CannonData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\GameData\CategoryUpdateData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\GameData\Utils.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\GameData\CityBuildingData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\GameData\CityData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\GameData\CityGoodsData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\GameData\CityStatusData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\GameData\CityTypeData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\GameData\CultureData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\GameData\GoodsData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\GameData\ItemCategoryData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\GameData\ItemData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\GameData\GoodsCategoryData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\GameData\GameData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\GameData\GuildData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\GameData\HeroData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\GameData\GenderData.hpp">
+      <Filter>GameData</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
       <Filter>resource</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\plot.csv">
+      <Filter>csv</Filter>
+    </None>
+    <None Include="..\DataSource\BaseExcel\cannon.csv">
+      <Filter>GameData\csv</Filter>
+    </None>
+    <None Include="..\DataSource\BaseExcel\categoryUpdate.csv">
+      <Filter>GameData\csv</Filter>
+    </None>
+    <None Include="..\DataSource\BaseExcel\city.csv">
+      <Filter>GameData\csv</Filter>
+    </None>
+    <None Include="..\DataSource\BaseExcel\cityBuilding.csv">
+      <Filter>GameData\csv</Filter>
+    </None>
+    <None Include="..\DataSource\BaseExcel\cityGoods.csv">
+      <Filter>GameData\csv</Filter>
+    </None>
+    <None Include="..\DataSource\BaseExcel\cityStatus.csv">
+      <Filter>GameData\csv</Filter>
+    </None>
+    <None Include="..\DataSource\BaseExcel\cityType.csv">
+      <Filter>GameData\csv</Filter>
+    </None>
+    <None Include="..\DataSource\BaseExcel\culture.csv">
+      <Filter>GameData\csv</Filter>
+    </None>
+    <None Include="..\DataSource\BaseExcel\game.csv">
+      <Filter>GameData\csv</Filter>
+    </None>
+    <None Include="..\DataSource\BaseExcel\gender.csv">
+      <Filter>GameData\csv</Filter>
+    </None>
+    <None Include="..\DataSource\BaseExcel\goods.csv">
+      <Filter>GameData\csv</Filter>
+    </None>
+    <None Include="..\DataSource\BaseExcel\goodsCategory.csv">
+      <Filter>GameData\csv</Filter>
+    </None>
+    <None Include="..\DataSource\BaseExcel\guild.csv">
+      <Filter>GameData\csv</Filter>
+    </None>
+    <None Include="..\DataSource\BaseExcel\hero.csv">
+      <Filter>GameData\csv</Filter>
+    </None>
+    <None Include="..\DataSource\BaseExcel\heroSelect.csv">
+      <Filter>GameData\csv</Filter>
+    </None>
+    <None Include="..\DataSource\BaseExcel\item.csv">
+      <Filter>GameData\csv</Filter>
+    </None>
+    <None Include="..\DataSource\BaseExcel\itemCategory.csv">
+      <Filter>GameData\csv</Filter>
+    </None>
+    <None Include="..\DataSource\BaseExcel\systemButton.csv">
+      <Filter>GameData\csv</Filter>
+    </None>
+    <None Include="..\DataSource\BaseExcel\zodiac.csv">
+      <Filter>GameData\csv</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -39,7 +39,7 @@ void LocalizationHelper::load(const std::string &filename)
   {
     auto bytes = data.getBytes();
     
-    auto buffer = make_unique<bb::ByteBuffer>(bytes, data.getSize());
+    auto buffer = std::make_unique<bb::ByteBuffer>(bytes, data.getSize());
     auto count = buffer->getLong();
     for (int i = 0; i < count; ++i) {
       string localId = buffer->getString();
