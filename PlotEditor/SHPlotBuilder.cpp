@@ -2,8 +2,7 @@
 
 #include "CSVReader.h"
 #include "SHDirector.h"
-
-#include "SailingHerorMenu.hpp"
+#include "SHDataManager.h"
 
 namespace SailingHeroAPI {
 
@@ -36,7 +35,10 @@ std::string WStringToString(const std::wstring & wstr)
 
 cocos2d::Scene * SHPlotBuilder::Build(std::wstring csvFile)
 {
+    SHDataManager * dataManager = SHDataManager::getInstance();
     SHDirector * director = SHDirector::getInstance();
+
+    dataManager->loadData(cocos2d::FileUtils::getInstance()->getWritablePath() + "/res/base/data");
 
     SHScenario * currentScenario = nullptr;
     CSVReader csvReader(csvFile);
@@ -78,6 +80,7 @@ cocos2d::Scene * SHPlotBuilder::Build(std::wstring csvFile)
             button.onClick = [gotoScene]() {
                 cocos2d::Director::getInstance()->replaceScene(gotoScene); };
             currentScenario->addButton(button);
+            continue;
         }
 
         // dialog
@@ -86,7 +89,11 @@ cocos2d::Scene * SHPlotBuilder::Build(std::wstring csvFile)
             && lineItems[1] == L"dialog") {
             ui::Dialog dialog;
             dialog.templateName = "";
-            dialog.text = WStringToString(lineItems[2]);
+            dialog.text =
+                WStringToString(lineItems[2]) + "\nGame Time: " +
+                std::to_string(dataManager->getGameData()->getYear()) + " " +
+                std::to_string(dataManager->getGameData()->getMonth()) + " " +
+                std::to_string(dataManager->getGameData()->getDay());
             currentScenario->addDialog(dialog);
         }
     }

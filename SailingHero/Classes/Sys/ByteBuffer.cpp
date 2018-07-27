@@ -85,7 +85,7 @@ namespace bb {
    * @return A pointer to the newly cloned ByteBuffer. NULL if no more memory available
    */
   std::unique_ptr<ByteBuffer> ByteBuffer::clone() {
-    std::unique_ptr<ByteBuffer> ret = make_unique<ByteBuffer>(buf.size());
+    std::unique_ptr<ByteBuffer> ret = std::make_unique<ByteBuffer>(buf.size());
     
     // Copy data
     for (uint32_t i = 0; i < buf.size(); i++) {
