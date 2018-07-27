@@ -2,6 +2,7 @@
 This file (CannonData.cpp) is generated
 */
 #include "CannonData.hpp"
+#include "cocos2d.h"
 #include "ByteBuffer.hpp"
 #include "Utils.hpp"
 #include <LocalizationHelper.hpp>
@@ -44,6 +45,12 @@ cocos2d::Sprite* CannonData::getIcon(bool isDefaultSize)
 	return icon;
 }
 
+string CannonData::getIconPath()
+{
+	static const string s_basePath = "res/base/icon/cannon";
+	return s_basePath + p_iconId;
+}
+
 string CannonData::getIconId() const
 {
 	return p_iconId;
@@ -75,7 +82,7 @@ string CannonData::description() const
 	desc += "\tcannonId : " + to_string(p_cannonId) + "\n";
 	desc += "\tcannonName : " + getCannonName() + "\n";
 	desc += "\tcannonDescription : " + getCannonDescription() + "\n";
-	desc += "\ticonId : " + p_iconId + "\n";
+	desc += "\ticonId : " + to_string(p_iconId) + "\n";
 	desc += "\tmilltaryValue : " + to_string(p_milltaryValue) + "\n";
 	desc += "\tprice : " + to_string(p_price) + "\n";
 	desc += "\trange : " + to_string(p_range) + "\n";

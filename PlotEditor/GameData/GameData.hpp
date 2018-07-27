@@ -4,7 +4,7 @@ This file (GameData.hpp) is generated
 #ifndef GameData_hpp
 #define GameData_hpp
 
-#include <string>
+#include "BaseData.h"
 
 class GameData
 {
@@ -20,10 +20,10 @@ public:
 	void setMonth(int month);
 	int getDay() const;
 	void setDay(int day);
-	std::string description() const;
+	string description() const;
 	static GameData* getSharedInstance();
-	static bool saveData(const std::string & path);
-	static bool loadData(const std::string & path);
+	static bool saveData(const string & path);
+	static bool loadData(const string & path);
 	static bool clearData();
 };
 #endif

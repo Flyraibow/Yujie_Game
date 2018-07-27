@@ -49,6 +49,12 @@ cocos2d::Sprite* GoodsData::getIcon(bool isDefaultSize)
 	return icon;
 }
 
+string GoodsData::getIconPath()
+{
+	static const string s_basePath = "res/base/icon/goods/";
+	return s_basePath + p_iconId;
+}
+
 string GoodsData::getIconId() const
 {
 	return p_iconId;

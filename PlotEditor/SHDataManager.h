@@ -4,6 +4,8 @@
 #include <string>
 
 #include "GameData/GameData.hpp"
+#include "GameData/DialogData.hpp"
+#include "GameData/HeroData.hpp"
 
 namespace SailingHeroAPI {
 
@@ -20,6 +22,10 @@ public:
     void loadData(std::string basePath);
 
     GameData * getGameData();
+
+    DialogData * getDialogData(std::string dialogId);
+
+    HeroData * getHeroData(int heroId);
 
 private:
     static SHDataManager instance;

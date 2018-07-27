@@ -61,6 +61,12 @@ cocos2d::Sprite* CultureData::getPlazaStoreIcon(bool isDefaultSize)
 	return icon;
 }
 
+string CultureData::getPlazaStoreIconPath()
+{
+	static const string s_basePath = "res/base/icon/plaza/";
+	return s_basePath + p_plazaStoreIconId;
+}
+
 string CultureData::getPlazaStoreIconId() const
 {
 	return p_plazaStoreIconId;
@@ -75,6 +81,12 @@ cocos2d::Sprite* CultureData::getPlazaBuildingIcon(bool isDefaultSize)
 		icon->setScale(cocos2d::Director::getInstance()->getContentScaleFactor());
 	}
 	return icon;
+}
+
+string CultureData::getPlazaBuildingIconPath()
+{
+	static const string s_basePath = "res/base/icon/plaza/";
+	return s_basePath + p_plazaBuildingIconId;
 }
 
 string CultureData::getPlazaBuildingIconId() const

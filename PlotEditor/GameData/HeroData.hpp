@@ -16,6 +16,7 @@ private:
 	int p_heroId;
 	string p_heroFirstName;
 	string p_heroLastName;
+	string p_photoId;
 	string p_genderId;
 	int p_birthMonth;
 	int p_birthDay;
@@ -43,6 +44,9 @@ public:
 	string getHeroFirstName() const;
 	void setHeroLastName(string heroLastName);
 	string getHeroLastName() const;
+	cocos2d::Sprite* getPhoto(bool isDefaultSize = true);
+	string getPhotoPath();
+	string getPhotoId() const;
 	GenderData* getGenderData() const;
 	string getGenderId() const;
 	void setGenderId(string gender);

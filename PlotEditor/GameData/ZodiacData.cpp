@@ -8,9 +8,9 @@ This file (ZodiacData.cpp) is generated
 #include <LocalizationHelper.hpp>
 
 
-using namespace std;
+using namespace SHUtil;
 
-std::map<int, ZodiacData*>* ZodiacData::p_sharedDictionary = nullptr;
+map<int, ZodiacData*>* ZodiacData::p_sharedDictionary = nullptr;
 
 string ZodiacData::getId() const
 {
@@ -37,6 +37,12 @@ cocos2d::Sprite* ZodiacData::getIcon(bool isDefaultSize)
 		icon->setScale(cocos2d::Director::getInstance()->getContentScaleFactor());
 	}
 	return icon;
+}
+
+string ZodiacData::getIconPath()
+{
+	static const string s_basePath = "res/base/icon/zodiac/";
+	return s_basePath + p_iconId;
 }
 
 string ZodiacData::getIconId() const
@@ -86,7 +92,7 @@ map<int, ZodiacData*>* ZodiacData::getSharedDictionary()
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
 			auto bytes = data.getBytes();
-			auto buffer = make_unique<bb::ByteBuffer>(bytes, data.getSize());
+			auto buffer = std::make_unique<bb::ByteBuffer>(bytes, data.getSize());
 			auto count = buffer->getLong();
 			for (int i = 0; i < count; ++i) {
 				ZodiacData* zodiacData = new ZodiacData();

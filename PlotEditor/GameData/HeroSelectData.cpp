@@ -8,7 +8,7 @@ This file (HeroSelectData.cpp) is generated
 #include <LocalizationHelper.hpp>
 
 
-using namespace std;
+using namespace SHUtil;
 
 map<int, HeroSelectData*>* HeroSelectData::p_sharedDictionary = nullptr;
 
@@ -33,6 +33,12 @@ cocos2d::Sprite* HeroSelectData::getIcon(bool isDefaultSize)
 	return icon;
 }
 
+string HeroSelectData::getIconPath()
+{
+	static const string s_basePath = "res/base/icon/firstGrp/";
+	return s_basePath + p_iconId;
+}
+
 string HeroSelectData::getIconId() const
 {
 	return p_iconId;
@@ -47,6 +53,12 @@ cocos2d::Sprite* HeroSelectData::getSmallIcon(bool isDefaultSize)
 		icon->setScale(cocos2d::Director::getInstance()->getContentScaleFactor());
 	}
 	return icon;
+}
+
+string HeroSelectData::getSmallIconPath()
+{
+	static const string s_basePath = "res/base/icon/firstGrp/";
+	return s_basePath + p_smallIconId;
 }
 
 string HeroSelectData::getSmallIconId() const
@@ -90,7 +102,7 @@ map<int, HeroSelectData*>* HeroSelectData::getSharedDictionary()
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
 			auto bytes = data.getBytes();
-			auto buffer = make_unique<bb::ByteBuffer>(bytes, data.getSize());
+			auto buffer = std::make_unique<bb::ByteBuffer>(bytes, data.getSize());
 			auto count = buffer->getLong();
 			for (int i = 0; i < count; ++i) {
 				HeroSelectData* heroSelectData = new HeroSelectData();

@@ -21,6 +21,9 @@ struct Button {
 
 struct Dialog {
     std::string templateName;
+    bool showFullName;
+    bool showImage;
+    int heroId;
     std::string text;
 };
 

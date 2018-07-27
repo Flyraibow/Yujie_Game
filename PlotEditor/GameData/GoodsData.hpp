@@ -27,6 +27,7 @@ public:
 	GoodsCategoryData* getCategoryData() const;
 	string getCategoryId() const;
 	cocos2d::Sprite* getIcon(bool isDefaultSize = true);
+	string getIconPath();
 	string getIconId() const;
 	int getMaxPrice() const;
 	ItemData* getUnlockItemData() const;
