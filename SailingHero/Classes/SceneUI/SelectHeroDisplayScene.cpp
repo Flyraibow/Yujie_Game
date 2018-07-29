@@ -221,7 +221,7 @@ void SelectHeroDisplayScene::clickChangeStartGame(cocos2d::Ref* pSender)
       this->selectHero();
       
     });
-    s_window->addChild(frame);
+    this->addChild(frame, 2);
   });
   s_window->addChild(dialog->getSprite());
 }

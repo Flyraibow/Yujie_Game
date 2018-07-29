@@ -41,7 +41,7 @@ CitySceneFrame::CitySceneFrame()
   p_labMilitaryValue = createLabelWithScale(Vec2(0.97, 0.75), Vec2(1, 0));
   p_labCityStatus = createLabelWithScale(Vec2(0.88, 0.701), Vec2(0.5, 0));
   p_labGoodsTag = createLabelWithScale(Vec2(0.81, 0.35),Vec2(), LocalizationHelper::getLocalization("tag_goods"));
-  p_labData = createLabelWithScale(Vec2(0.88, 0.05),Vec2(0.5, 0.5), "2月3日", 12);
+  p_labData = createLabelWithScale(Vec2(0.88, 0.05),Vec2(0.5, 0.5), "2月3日", 20);
   
   for (int i = 0; i < MAX_GOODS_NUM; ++i) {
     auto label = createLabelWithScale(Vec2(0.792, 0.302 - i * 0.0498),Vec2(), LocalizationHelper::getLocalization("tag_goods"));

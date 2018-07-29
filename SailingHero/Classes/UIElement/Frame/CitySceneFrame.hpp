@@ -43,7 +43,7 @@ private:
   
   Label* p_labData;
   
-  Label* createLabelWithScale(Vec2 position, Vec2 anchor = Vec2(), std::string text = "", int textSize = 8);
+  Label* createLabelWithScale(Vec2 position, Vec2 anchor = Vec2(), std::string text = "", int textSize = 14);
 public:
   CitySceneFrame();
   void setCityData(CityData *cityData);
