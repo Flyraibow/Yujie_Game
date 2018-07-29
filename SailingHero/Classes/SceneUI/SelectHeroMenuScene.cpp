@@ -28,7 +28,7 @@ Scene* SelectHeroMenuScene::createScene()
 static void problemLoading(const char* filename)
 {
   printf("Error while loading: %s\n", filename);
-  printf("Depending on how you compiled you might have to add 'Resources/' in front of filenames in HelloWorldScene.cpp\n");
+  printf("Depending on how you compiled you might have to add 'Resources/' in front of filenames in SelectHeroMenuScene.cpp\n");
 }
 
 static void setEventListenerForSprite(Sprite *sprite, HeroSelectData *selectData)
@@ -54,7 +54,7 @@ bool SelectHeroMenuScene::init()
   {
     return false;
   }
-  
+  this->setFullScreenCover();
   this->setBackgroundImage("res/default_background.png");
   
   Vec2 origin = Director::getInstance()->getVisibleOrigin();

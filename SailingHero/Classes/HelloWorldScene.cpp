@@ -118,6 +118,7 @@ bool HelloWorld::init()
     return true;
 }
 
+#include "SailingHeroMenu.hpp"
 
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {

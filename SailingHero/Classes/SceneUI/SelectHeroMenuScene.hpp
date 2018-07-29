@@ -22,5 +22,5 @@ public:
   CREATE_FUNC(SelectHeroMenuScene);
 };
 
-#endif /* SailingHerorMenu_hpp */
+#endif /* SailingHeroMenu_hpp */
 

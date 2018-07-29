@@ -27,7 +27,7 @@ Scene* SelectHeroDisplayScene::createScene(HeroSelectData *selectHeroData)
 static void problemLoading(const char* filename)
 {
   printf("Error while loading: %s\n", filename);
-  printf("Depending on how you compiled you might have to add 'Resources/' in front of filenames in HelloWorldScene.cpp\n");
+  printf("Depending on how you compiled you might have to add 'Resources/' in front of filenames in SelectHeroDisplayScene.cpp\n");
 }
 
 // on "init" you need to initialize your instance
