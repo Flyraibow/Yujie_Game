@@ -233,7 +233,7 @@ void ExcelDataParserBase::setInitFunction()
   }, 1);
   initFunction->addBodyStatementsList({
     "auto bytes = data.getBytes();",
-    "auto buffer = make_unique<bb::ByteBuffer>(bytes, data.getSize());",
+    "auto buffer = std::make_unique<bb::ByteBuffer>(bytes, data.getSize());",
   }, 2);
   
   for (auto schema : p_dataSchemas) {
@@ -281,7 +281,7 @@ void ExcelDataParserBase::setLoadFunction(const CPPVariable* pathVar)
   }, 0);
   loadFunc->addBodyStatementsList({
     "auto bytes = fileData.getBytes();",
-    "auto buffer = make_unique<bb::ByteBuffer>(bytes, fileData.getSize());",
+    "auto buffer = std::make_unique<bb::ByteBuffer>(bytes, fileData.getSize());",
     "auto dataSize = buffer->getInt();",
   }, 1);
   loadFunc->addBodyStatementsList({
@@ -316,7 +316,7 @@ void ExcelDataParserBase::setSaveFunction(const CPPVariable* pathVar)
   saveFunc->addBodyStatementsList({
     getSaveLoadPathCode(),
     getInstanceCode(),
-    "auto buffer = make_unique<bb::ByteBuffer>();",
+    "auto buffer = std::make_unique<bb::ByteBuffer>();",
     "buffer->putInt(" + to_string(p_needSaveDataNumber) + ");",
   }, 0);
   int count = 0;

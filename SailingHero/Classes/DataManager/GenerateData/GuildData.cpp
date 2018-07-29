@@ -81,7 +81,7 @@ map<int, GuildData*>* GuildData::getSharedDictionary()
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
 			auto bytes = data.getBytes();
-			auto buffer = make_unique<bb::ByteBuffer>(bytes, data.getSize());
+			auto buffer = std::make_unique<bb::ByteBuffer>(bytes, data.getSize());
 			auto count = buffer->getLong();
 			for (int i = 0; i < count; ++i) {
 				GuildData* guildData = new GuildData();
@@ -114,7 +114,7 @@ bool GuildData::saveData(const string & path)
 {
 	auto filePath = path + "/GuildData.dat";
 	auto dict = GuildData::getSharedDictionary();
-	auto buffer = make_unique<bb::ByteBuffer>();
+	auto buffer = std::make_unique<bb::ByteBuffer>();
 	buffer->putLong(dict->size());
 	buffer->putInt(2);
 	for (auto iter = dict->begin(); iter != dict->end(); iter++) {
@@ -137,7 +137,7 @@ bool GuildData::loadData(const string & path)
 	auto fileData = cocos2d::FileUtils::getInstance()->getDataFromFile(filePath);
 	if (!fileData.isNull()) {
 		auto bytes = fileData.getBytes();
-		auto buffer = make_unique<bb::ByteBuffer>(bytes, fileData.getSize());
+		auto buffer = std::make_unique<bb::ByteBuffer>(bytes, fileData.getSize());
 		auto size = buffer->getLong();
 		auto dataSize = buffer->getInt();
 		for (int i = 0; i < size; ++i) {

@@ -51,7 +51,7 @@ map<int, CategoryUpdateData*>* CategoryUpdateData::getSharedDictionary()
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
 			auto bytes = data.getBytes();
-			auto buffer = make_unique<bb::ByteBuffer>(bytes, data.getSize());
+			auto buffer = std::make_unique<bb::ByteBuffer>(bytes, data.getSize());
 			auto count = buffer->getLong();
 			for (int i = 0; i < count; ++i) {
 				CategoryUpdateData* categoryUpdateData = new CategoryUpdateData();

@@ -91,7 +91,7 @@ GameData* GameData::getSharedInstance()
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
 			auto bytes = data.getBytes();
-			auto buffer = make_unique<bb::ByteBuffer>(bytes, data.getSize());
+			auto buffer = std::make_unique<bb::ByteBuffer>(bytes, data.getSize());
 			p_sharedData->p_year = buffer->getInt();
 			p_sharedData->p_month = buffer->getInt();
 			p_sharedData->p_day = buffer->getInt();
@@ -106,7 +106,7 @@ bool GameData::saveData(const string & path)
 {
 	auto filePath = path + "/GameData.dat";
 	auto data = GameData::getSharedInstance();
-	auto buffer = make_unique<bb::ByteBuffer>();
+	auto buffer = std::make_unique<bb::ByteBuffer>();
 	buffer->putInt(5);
 	buffer->putString("p_year");
 	buffer->putString(to_string(data->p_year));
@@ -129,7 +129,7 @@ bool GameData::loadData(const string & path)
 	auto fileData = cocos2d::FileUtils::getInstance()->getDataFromFile(filePath);
 	if (!fileData.isNull()) {
 		auto bytes = fileData.getBytes();
-		auto buffer = make_unique<bb::ByteBuffer>(bytes, fileData.getSize());
+		auto buffer = std::make_unique<bb::ByteBuffer>(bytes, fileData.getSize());
 		auto dataSize = buffer->getInt();
 		for (int j = 0; j < dataSize; ++j) {
 			string key = buffer->getString();

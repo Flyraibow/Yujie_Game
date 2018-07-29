@@ -152,7 +152,7 @@ void ExcelDataIdBasedParser::setInitFunction()
   }, 1);
   initFunction->addBodyStatementsList({
     "auto bytes = data.getBytes();",
-    "auto buffer = make_unique<bb::ByteBuffer>(bytes, data.getSize());",
+    "auto buffer = std::make_unique<bb::ByteBuffer>(bytes, data.getSize());",
     "auto count = buffer->getLong();",
     "for (int i = 0; i < count; ++i) {"
   }, 2);
@@ -229,7 +229,7 @@ void ExcelDataIdBasedParser::setLoadFunction(const CPPVariable* pathVar)
   }, 0);
   loadFunc->addBodyStatementsList({
     "auto bytes = fileData.getBytes();",
-    "auto buffer = make_unique<bb::ByteBuffer>(bytes, fileData.getSize());",
+    "auto buffer = std::make_unique<bb::ByteBuffer>(bytes, fileData.getSize());",
     "auto size = buffer->getLong();",
     "auto dataSize = buffer->getInt();",
     "for (int i = 0; i < size; ++i) {",
@@ -270,7 +270,7 @@ void ExcelDataIdBasedParser::setSaveFunction(const CPPVariable* pathVar)
   saveFunc->addBodyStatementsList({
     getSaveLoadPathCode(),
     getInstanceCode(),
-    "auto buffer = make_unique<bb::ByteBuffer>();",
+    "auto buffer = std::make_unique<bb::ByteBuffer>();",
     "buffer->putLong(dict->size());",
     "buffer->putInt(" + to_string(p_needSaveDataNumber) + ");",
     "for (auto iter = dict->begin(); iter != dict->end(); iter++) {"
