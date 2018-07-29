@@ -50,6 +50,28 @@ string HeroData::getHeroLastName() const
 	return LocalizationHelper::getLocalization(localId);
 }
 
+cocos2d::Sprite* HeroData::getPhoto(bool isDefaultSize)
+{
+	static const string s_basePath = "res/base/icon/bustup/";
+	string path = s_basePath + p_photoId;
+	auto icon = cocos2d::Sprite::create(path);
+	if (!isDefaultSize) {
+		icon->setScale(cocos2d::Director::getInstance()->getContentScaleFactor());
+	}
+	return icon;
+}
+
+string HeroData::getPhotoPath()
+{
+	static const string s_basePath = "res/base/icon/bustup/";
+	return s_basePath + p_photoId;
+}
+
+string HeroData::getPhotoId() const
+{
+	return p_photoId;
+}
+
 GenderData* HeroData::getGenderData() const
 {
 	return GenderData::getGenderDataById(p_genderId);
@@ -261,6 +283,7 @@ string HeroData::description() const
 	desc += "\theroId : " + to_string(p_heroId) + "\n";
 	desc += "\theroFirstName : " + getHeroFirstName() + "\n";
 	desc += "\theroLastName : " + getHeroLastName() + "\n";
+	desc += "\tphotoId : " + to_string(p_photoId) + "\n";
 	desc += "\tgender : " + to_string(p_genderId) + "\n";
 	desc += "\tbirthMonth : " + to_string(p_birthMonth) + "\n";
 	desc += "\tbirthDay : " + to_string(p_birthDay) + "\n";
@@ -298,6 +321,7 @@ map<int, HeroData*>* HeroData::getSharedDictionary()
 			for (int i = 0; i < count; ++i) {
 				HeroData* heroData = new HeroData();
 				heroData->p_heroId = buffer->getInt();
+				heroData->p_photoId = buffer->getString();
 				heroData->p_genderId = buffer->getString();
 				heroData->p_birthMonth = buffer->getInt();
 				heroData->p_birthDay = buffer->getInt();

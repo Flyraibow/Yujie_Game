@@ -3,7 +3,6 @@
 #include "GameData/GuildData.hpp"
 #include "GameData/CityData.hpp"
 #include "GameData/CityGoodsData.hpp"
-#include "GameData/HeroData.hpp"
 
 namespace SailingHeroAPI {
 
@@ -37,6 +36,16 @@ void SHDataManager::loadData(std::string basePath)
 GameData * SHDataManager::getGameData()
 {
     return GameData::getSharedInstance();
+}
+
+DialogData * SHDataManager::getDialogData(std::string dialogId)
+{
+    return DialogData::getSharedDictionary()->at(dialogId);
+}
+
+HeroData * SHDataManager::getHeroData(int heroId)
+{
+    return HeroData::getSharedDictionary()->at(heroId);
 }
 
 }

@@ -114,6 +114,21 @@
     <ClCompile Include="..\..\PlotEditor\GameData\GenderData.cpp">
       <Filter>GameData</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\GameData\AbilityData.cpp">
+      <Filter>GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\GameData\DialogData.cpp">
+      <Filter>GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\GameData\HeroSelectData.cpp">
+      <Filter>GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\GameData\SystemButtonData.cpp">
+      <Filter>GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\GameData\ZodiacData.cpp">
+      <Filter>GameData</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -200,6 +215,24 @@
     <ClInclude Include="..\..\PlotEditor\GameData\GenderData.hpp">
       <Filter>GameData</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\GameData\AbilityData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\GameData\BaseData.h">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\GameData\DialogData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\GameData\HeroSelectData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\GameData\SystemButtonData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\GameData\ZodiacData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
@@ -265,6 +298,12 @@
       <Filter>GameData\csv</Filter>
     </None>
     <None Include="..\DataSource\BaseExcel\zodiac.csv">
+      <Filter>GameData\csv</Filter>
+    </None>
+    <None Include="..\DataSource\BaseExcel\ability.csv">
+      <Filter>GameData\csv</Filter>
+    </None>
+    <None Include="..\DataSource\BaseExcel\dialog.csv">
       <Filter>GameData\csv</Filter>
     </None>
   </ItemGroup>

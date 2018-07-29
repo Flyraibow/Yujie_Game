@@ -3,10 +3,9 @@ This file (CannonData.hpp) is generated
 */
 #ifndef CannonData_hpp
 #define CannonData_hpp
-
+#include <map>
 #include "BaseData.h"
 
-#include <map>
 
 
 class CannonData: public BaseData
@@ -25,6 +24,7 @@ public:
 	string getCannonName() const;
 	string getCannonDescription() const;
 	cocos2d::Sprite* getIcon(bool isDefaultSize = true);
+	string getIconPath();
 	string getIconId() const;
 	int getMilltaryValue() const;
 	int getPrice() const;

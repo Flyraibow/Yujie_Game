@@ -150,6 +150,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\PlotEditor\CCUI\CCButton.cpp" />
+    <ClCompile Include="..\..\PlotEditor\GameData\AbilityData.cpp" />
     <ClCompile Include="..\..\PlotEditor\GameData\CannonData.cpp" />
     <ClCompile Include="..\..\PlotEditor\GameData\CategoryUpdateData.cpp" />
     <ClCompile Include="..\..\PlotEditor\GameData\CityBuildingData.cpp" />
@@ -158,15 +159,19 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\..\PlotEditor\GameData\CityStatusData.cpp" />
     <ClCompile Include="..\..\PlotEditor\GameData\CityTypeData.cpp" />
     <ClCompile Include="..\..\PlotEditor\GameData\CultureData.cpp" />
+    <ClCompile Include="..\..\PlotEditor\GameData\DialogData.cpp" />
     <ClCompile Include="..\..\PlotEditor\GameData\GameData.cpp" />
     <ClCompile Include="..\..\PlotEditor\GameData\GenderData.cpp" />
     <ClCompile Include="..\..\PlotEditor\GameData\GoodsCategoryData.cpp" />
     <ClCompile Include="..\..\PlotEditor\GameData\GoodsData.cpp" />
     <ClCompile Include="..\..\PlotEditor\GameData\GuildData.cpp" />
     <ClCompile Include="..\..\PlotEditor\GameData\HeroData.cpp" />
+    <ClCompile Include="..\..\PlotEditor\GameData\HeroSelectData.cpp" />
     <ClCompile Include="..\..\PlotEditor\GameData\ItemCategoryData.cpp" />
     <ClCompile Include="..\..\PlotEditor\GameData\ItemData.cpp" />
+    <ClCompile Include="..\..\PlotEditor\GameData\SystemButtonData.cpp" />
     <ClCompile Include="..\..\PlotEditor\GameData\Utils.cpp" />
+    <ClCompile Include="..\..\PlotEditor\GameData\ZodiacData.cpp" />
     <ClCompile Include="..\..\PlotEditor\SHAppDelegate.cpp" />
     <ClCompile Include="..\..\PlotEditor\SHDataManager.cpp" />
     <ClCompile Include="..\..\PlotEditor\SHDirector.cpp" />
@@ -181,6 +186,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\PlotEditor\CCUI\CCButton.h" />
+    <ClInclude Include="..\..\PlotEditor\GameData\AbilityData.hpp" />
+    <ClInclude Include="..\..\PlotEditor\GameData\BaseData.h" />
     <ClInclude Include="..\..\PlotEditor\GameData\CannonData.hpp" />
     <ClInclude Include="..\..\PlotEditor\GameData\CategoryUpdateData.hpp" />
     <ClInclude Include="..\..\PlotEditor\GameData\CityBuildingData.hpp" />
@@ -189,15 +196,19 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\..\PlotEditor\GameData\CityStatusData.hpp" />
     <ClInclude Include="..\..\PlotEditor\GameData\CityTypeData.hpp" />
     <ClInclude Include="..\..\PlotEditor\GameData\CultureData.hpp" />
+    <ClInclude Include="..\..\PlotEditor\GameData\DialogData.hpp" />
     <ClInclude Include="..\..\PlotEditor\GameData\GameData.hpp" />
     <ClInclude Include="..\..\PlotEditor\GameData\GenderData.hpp" />
     <ClInclude Include="..\..\PlotEditor\GameData\GoodsCategoryData.hpp" />
     <ClInclude Include="..\..\PlotEditor\GameData\GoodsData.hpp" />
     <ClInclude Include="..\..\PlotEditor\GameData\GuildData.hpp" />
     <ClInclude Include="..\..\PlotEditor\GameData\HeroData.hpp" />
+    <ClInclude Include="..\..\PlotEditor\GameData\HeroSelectData.hpp" />
     <ClInclude Include="..\..\PlotEditor\GameData\ItemCategoryData.hpp" />
     <ClInclude Include="..\..\PlotEditor\GameData\ItemData.hpp" />
+    <ClInclude Include="..\..\PlotEditor\GameData\SystemButtonData.hpp" />
     <ClInclude Include="..\..\PlotEditor\GameData\Utils.hpp" />
+    <ClInclude Include="..\..\PlotEditor\GameData\ZodiacData.hpp" />
     <ClInclude Include="..\..\PlotEditor\SHAppDelegate.h" />
     <ClInclude Include="..\..\PlotEditor\SHDataManager.h" />
     <ClInclude Include="..\..\PlotEditor\SHDirector.h" />
@@ -222,6 +233,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ResourceCompile Include="game.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\DataSource\BaseExcel\ability.csv" />
     <None Include="..\DataSource\BaseExcel\cannon.csv" />
     <None Include="..\DataSource\BaseExcel\categoryUpdate.csv" />
     <None Include="..\DataSource\BaseExcel\city.csv" />
@@ -230,6 +242,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <None Include="..\DataSource\BaseExcel\cityStatus.csv" />
     <None Include="..\DataSource\BaseExcel\cityType.csv" />
     <None Include="..\DataSource\BaseExcel\culture.csv" />
+    <None Include="..\DataSource\BaseExcel\dialog.csv" />
     <None Include="..\DataSource\BaseExcel\game.csv" />
     <None Include="..\DataSource\BaseExcel\gender.csv" />
     <None Include="..\DataSource\BaseExcel\goods.csv" />

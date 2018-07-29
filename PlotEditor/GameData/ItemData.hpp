@@ -24,6 +24,7 @@ public:
 	int getItemId() const;
 	string getItemName() const;
 	cocos2d::Sprite* getIcon(bool isDefaultSize = true);
+	string getIconPath();
 	string getIconId() const;
 	ItemCategoryData* getItemCategoryData() const;
 	string getItemCategoryId() const;

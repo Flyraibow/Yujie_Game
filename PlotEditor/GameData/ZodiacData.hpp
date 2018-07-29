@@ -7,7 +7,7 @@ This file (ZodiacData.hpp) is generated
 #include "BaseData.h"
 
 
-using namespace std;
+
 class ZodiacData: public BaseData
 {
 private:
@@ -23,6 +23,7 @@ public:
 	int getZodiacId() const;
 	string getZodiacName() const;
 	cocos2d::Sprite* getIcon(bool isDefaultSize = true);
+	string getIconPath();
 	string getIconId() const;
 	int getStartMonth() const;
 	int getStartDate() const;

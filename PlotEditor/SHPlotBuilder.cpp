@@ -6,7 +6,23 @@
 
 namespace SailingHeroAPI {
 
-bool ParseInt(const std::wstring & str, int * out)
+int ToInt(const std::string & str)
+{
+    if (str.empty())
+        return 0;
+
+    int i = 0;
+    for (char c : str) {
+        i *= 10;
+        if (c >= '0' && c <= '9')
+            i += (int)(c - '0');
+        else
+            return 0;
+    }
+    return i;
+}
+
+bool ParseIntW(const std::wstring & str, int * out)
 {
     if (str.empty())
         return false;
@@ -49,7 +65,7 @@ cocos2d::Scene * SHPlotBuilder::Build(std::wstring csvFile)
 
         // New scene begin
         int id;
-        if (ParseInt(lineItems[0], &id)) {
+        if (ParseIntW(lineItems[0], &id)) {
             currentScenario = director->getScenario(id);
             continue;
         }
@@ -69,7 +85,7 @@ cocos2d::Scene * SHPlotBuilder::Build(std::wstring csvFile)
             && lineItems[0] == L"ui"
             && lineItems[1] == L"button") {
             int gotoId;
-            if (!ParseInt(lineItems[3], &gotoId)) {
+            if (!ParseIntW(lineItems[3], &gotoId)) {
                 continue;
             }
             cocos2d::Scene * gotoScene = director->getScenario(gotoId)->getCCScene();
@@ -87,13 +103,14 @@ cocos2d::Scene * SHPlotBuilder::Build(std::wstring csvFile)
         if (lineItems.size() ==  4
             && lineItems[0] == L"ui"
             && lineItems[1] == L"dialog") {
+            DialogData *dialogData =
+                dataManager->getDialogData(WStringToString(lineItems[2]));
             ui::Dialog dialog;
-            dialog.templateName = "";
-            dialog.text =
-                WStringToString(lineItems[2]) + "\nGame Time: " +
-                std::to_string(dataManager->getGameData()->getYear()) + " " +
-                std::to_string(dataManager->getGameData()->getMonth()) + " " +
-                std::to_string(dataManager->getGameData()->getDay());
+            dialog.templateName = dialogData->getDialogId();
+            dialog.showFullName = dialogData->getShowFullNames();
+            dialog.showImage = dialogData->getShowImage();
+            dialog.heroId = ToInt(dialogData->getHeroIdId());
+            dialog.text = dialogData->getDialogContent();
             currentScenario->addDialog(dialog);
         }
     }

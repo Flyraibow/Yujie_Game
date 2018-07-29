@@ -41,9 +41,9 @@ void GameData::setDay(int day)
 	p_day = day;
 }
 
-std::string GameData::description() const
+string GameData::description() const
 {
-	std::string desc = "gameData = {\n";
+	string desc = "gameData = {\n";
 	desc += "\tyear : " + to_string(p_year) + "\n";
 	desc += "\tmonth : " + to_string(p_month) + "\n";
 	desc += "\tday : " + to_string(p_day) + "\n";
@@ -55,7 +55,7 @@ GameData* GameData::getSharedInstance()
 {
 	if (!p_sharedData) {
 		p_sharedData = new GameData();
-		static std::string resPath = "res/base/data/game.dat";
+		static string resPath = "res/base/data/game.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
 			auto bytes = data.getBytes();
@@ -68,7 +68,7 @@ GameData* GameData::getSharedInstance()
 	return p_sharedData;
 }
 
-bool GameData::saveData(const std::string & path)
+bool GameData::saveData(const string & path)
 {
 	auto filePath = path + "/GameData.dat";
 	auto data = GameData::getSharedInstance();
@@ -84,7 +84,7 @@ bool GameData::saveData(const std::string & path)
 	return true;
 }
 
-bool GameData::loadData(const std::string & path)
+bool GameData::loadData(const string & path)
 {
 	auto filePath = path + "/GameData.dat";
 	auto data = GameData::getSharedInstance();
@@ -94,8 +94,8 @@ bool GameData::loadData(const std::string & path)
 		auto buffer = std::make_unique<bb::ByteBuffer>(bytes, fileData.getSize());
 		auto dataSize = buffer->getInt();
 		for (int j = 0; j < dataSize; ++j) {
-			std::string key = buffer->getString();
-			std::string value = buffer->getString();
+			string key = buffer->getString();
+			string value = buffer->getString();
 			if (data != nullptr) {
 				if (key == "p_year") {
 					data->p_year = atoi(value.c_str());

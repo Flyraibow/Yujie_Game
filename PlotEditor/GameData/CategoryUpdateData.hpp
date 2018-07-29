@@ -3,10 +3,10 @@ This file (CategoryUpdateData.hpp) is generated
 */
 #ifndef CategoryUpdateData_hpp
 #define CategoryUpdateData_hpp
-
+#include <map>
 #include "BaseData.h"
-
 #include <set>
+
 
 
 class CategoryUpdateData: public BaseData
