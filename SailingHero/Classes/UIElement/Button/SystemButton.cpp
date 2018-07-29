@@ -17,13 +17,14 @@ Button* SystemButton::defaultButtonWithText(std::string text)
   auto image = "res/button_up.png";
   auto button = Button::create(image);
   button->setScale9Enabled(true);
+  button->setTitleFontSize(18);
   button->setTitleAlignment(TextHAlignment::CENTER);
   button->setTitleText(text);
   auto lbl_size = button->getTitleRenderer()->getContentSize();
   button->setContentSize(
                          Size(
-                              lbl_size.width + 20,
-                              lbl_size.height + 10
+                              lbl_size.width + 35,
+                              lbl_size.height + 16
                               )
                          );
   return button;

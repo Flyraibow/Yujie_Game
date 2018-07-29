@@ -19,8 +19,9 @@ Node* InputBoxFrame::createWithHint(const std::string &message, const std::strin
   auto contentSize = sprite->getContentSize();
   
   auto hintLabel = Label::createWithSystemFont(message, "Helvetica", 18);
-  hintLabel->setDimensions((contentSize.width - 20) * f, 0);
-  hintLabel->setPositionNormalized(Vec2(0.5, 0.83));
+  hintLabel->setDimensions((contentSize.width * 0.9) * f, 0);
+  hintLabel->setAnchorPoint(Vec2(0, 1));
+  hintLabel->setPositionNormalized(Vec2(0.05, 0.83));
   hintLabel->setScale(1 / f);
   sprite->addChild(hintLabel);
   sprite->setScale(f);

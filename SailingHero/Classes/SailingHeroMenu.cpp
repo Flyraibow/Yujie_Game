@@ -1,11 +1,11 @@
 //
-//  SailingHerorMenu.cpp
+//  SailingHeroMenu.cpp
 //  SailingHero-mobile
 //
 //  Created by Yujie Liu on 5/16/18.
 //
 
-#include "SailingHerorMenu.hpp"
+#include "SailingHeroMenu.hpp"
 
 #include "SimpleAudioEngine.h"
 #include "SystemButton.hpp"
@@ -29,7 +29,12 @@ Scene* SailingHeroMenu::createScene()
 static void problemLoading(const char* filename)
 {
   printf("Error while loading: %s\n", filename);
-  printf("Depending on how you compiled you might have to add 'Resources/' in front of filenames in HelloWorldScene.cpp\n");
+  printf("Depending on how you compiled you might have to add 'Resources/' in front of filenames in SailingHeroMenu.cpp\n");
+}
+
+SailingHeroMenu::SailingHeroMenu()
+{
+  
 }
 
 // on "init" you need to initialize your instance
@@ -41,7 +46,6 @@ bool SailingHeroMenu::init()
   {
     return false;
   }
-  
   this->setBackgroundImage("res/default_background.png");
   this->setBackgroundMusic("title.mp3");
   this->setFullScreenCover();

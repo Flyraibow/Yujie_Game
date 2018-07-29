@@ -20,7 +20,7 @@ Sprite * HeroSelectingFrame::createWithSelectHeroId(const string &selectHeroId)
   heroSprite->setPosition(Vec2(13 / f, 19 / f));
   heroSprite->setContentSize(Size(112 / f, 144 / f));
   sprite->addChild(heroSprite);
-  sprite->setScale(f/1.5);
+  sprite->setScale(f);
   return sprite;
 }
 
@@ -33,6 +33,6 @@ Sprite* HeroSelectingFrame::createBigPhotoWithSelectHeroId(const string &selectH
   heroSprite->setPosition(Vec2(32 / f, 64 / f));
   heroSprite->setContentSize(Size(210 / f, 258 / f));
   sprite->addChild(heroSprite);
-  sprite->setScale(f/2);
+  sprite->setScale(f);
   return sprite;
 }

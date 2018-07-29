@@ -51,57 +51,104 @@
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
-		EC07204C2109866D00EE69F8 /* MultiSelectionFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC07204A2109866D00EE69F8 /* MultiSelectionFrame.cpp */; };
-		EC0720502109A6D900EE69F8 /* AbilityData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC07204F2109A6D900EE69F8 /* AbilityData.cpp */; };
-		EC072059210AD47F00EE69F8 /* CityBuildingFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC072057210AD47F00EE69F8 /* CityBuildingFrame.cpp */; };
-		EC217D4220BC7F9A000ADDE3 /* title.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EC217D4120BC7F9A000ADDE3 /* title.mp3 */; };
-		EC217D4920BC84AB000ADDE3 /* SHDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC217D4720BC84AB000ADDE3 /* SHDataManager.cpp */; };
-		EC2EF80820FC25D500BCE4D5 /* CityGoodsData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2EF7FF20FC25D300BCE4D5 /* CityGoodsData.cpp */; };
-		EC2EF80920FC25D500BCE4D5 /* CityData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2EF80320FC25D400BCE4D5 /* CityData.cpp */; };
-		EC2EF80A20FC25D500BCE4D5 /* CityBuildingData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2EF80420FC25D400BCE4D5 /* CityBuildingData.cpp */; };
-		EC2EF80B20FC25D500BCE4D5 /* CityTypeData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2EF80620FC25D400BCE4D5 /* CityTypeData.cpp */; };
-		EC6CA79B2103BB3C00B2B6A2 /* GameData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC6CA79A2103BB3B00B2B6A2 /* GameData.cpp */; };
-		EC6CA79E2103CF5E00B2B6A2 /* Calendar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC6CA79C2103CF5E00B2B6A2 /* Calendar.cpp */; };
-		EC6CA7A12103ED2500B2B6A2 /* DialogFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC6CA79F2103ED2500B2B6A2 /* DialogFrame.cpp */; };
-		EC6CA7A42106CF0F00B2B6A2 /* DialogData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC6CA7A22106CF0E00B2B6A2 /* DialogData.cpp */; };
-		EC6CA7A72106DE5A00B2B6A2 /* DialogPhotoFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC6CA7A52106DE5A00B2B6A2 /* DialogPhotoFrame.cpp */; };
-		EC72727320F86EB0005BD63D /* SelectHeroMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72727220F86EB0005BD63D /* SelectHeroMenuScene.cpp */; };
-		EC72727720F87AA2005BD63D /* HeroSelectingFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72727520F87AA2005BD63D /* HeroSelectingFrame.cpp */; };
-		EC72727A20F88A0B005BD63D /* HeroSelectData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72727820F88A0B005BD63D /* HeroSelectData.cpp */; };
-		EC72728020FA57DB005BD63D /* SHSpriteListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72727E20FA57DB005BD63D /* SHSpriteListener.cpp */; };
-		EC72728320FA6FD0005BD63D /* SelectHeroDisplayScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72728120FA6FD0005BD63D /* SelectHeroDisplayScene.cpp */; };
-		EC72728620FAC85E005BD63D /* GuildData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72728520FAC85E005BD63D /* GuildData.cpp */; };
-		EC72728920FACBC6005BD63D /* SHGameDataHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72728720FACBC6005BD63D /* SHGameDataHelper.cpp */; };
-		EC72728C20FAE9F1005BD63D /* InputBoxFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC72728A20FAE9F1005BD63D /* InputBoxFrame.cpp */; };
-		EC828783210D3BD70041497C /* TownPhotoData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828780210D3BD70041497C /* TownPhotoData.cpp */; };
-		EC828787210D46100041497C /* MoneyFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828785210D46100041497C /* MoneyFrame.cpp */; };
-		EC99853020FDB11A00338850 /* SHCityDataHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC99852E20FDB11A00338850 /* SHCityDataHelper.cpp */; };
-		EC99853720FDC47800338850 /* CityDataFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC99853520FDC47800338850 /* CityDataFrame.cpp */; };
-		EC99853A20FDC8A000338850 /* CityScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC99853820FDC8A000338850 /* CityScene.cpp */; };
-		EC99853D20FF1D4D00338850 /* CityStatusData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC99853C20FF1D4D00338850 /* CityStatusData.cpp */; };
-		EC99854320FFED5100338850 /* CitySceneFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC99854120FFED5100338850 /* CitySceneFrame.cpp */; };
-		ECADF31520ACE1A900B77618 /* SailingHerorMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF31320ACE1A900B77618 /* SailingHerorMenu.cpp */; };
-		ECADF31E20ACF21200B77618 /* SystemButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF31C20ACF21200B77618 /* SystemButton.cpp */; };
-		ECADF32420ACFD0800B77618 /* LocalizationHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF32220ACFD0800B77618 /* LocalizationHelper.cpp */; };
-		ECADF32620AD286C00B77618 /* File.txt in Resources */ = {isa = PBXBuildFile; fileRef = ECADF32520AD286C00B77618 /* File.txt */; };
-		ECADF36020AD604D00B77618 /* res in Resources */ = {isa = PBXBuildFile; fileRef = ECADF35F20AD604D00B77618 /* res */; };
-		ECADF36320AD615900B77618 /* ByteBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF36220AD615900B77618 /* ByteBuffer.cpp */; };
-		ECBEF11920E48B9B0010A767 /* ZodiacData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBEF11520E48B9B0010A767 /* ZodiacData.cpp */; };
-		ECBEF11A20E48B9B0010A767 /* GenderData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBEF11620E48B9B0010A767 /* GenderData.cpp */; };
-		ECBEF11B20E48B9B0010A767 /* HeroData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBEF11720E48B9B0010A767 /* HeroData.cpp */; };
-		ECBEF11E20E492F70010A767 /* SaveDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBEF11C20E492F70010A767 /* SaveDataManager.cpp */; };
-		ECD52B2220BFB073000F7170 /* GoodsData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B2020BFB073000F7170 /* GoodsData.cpp */; };
-		ECD52B3A20C224D8000F7170 /* CategoryUpdateData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B3820C224D8000F7170 /* CategoryUpdateData.cpp */; };
-		ECD52B3B20C224D8000F7170 /* GoodsCategoryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B3920C224D8000F7170 /* GoodsCategoryData.cpp */; };
-		ECD52B4020C263A9000F7170 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B3E20C263A9000F7170 /* Utils.cpp */; };
-		ECD52B4520C2F7D8000F7170 /* CannonData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B4120C2F7D7000F7170 /* CannonData.cpp */; };
-		ECD52B4620C2F7D8000F7170 /* CultureData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B4420C2F7D7000F7170 /* CultureData.cpp */; };
-		ECD52B4B20C30296000F7170 /* ItemCategoryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B4920C30295000F7170 /* ItemCategoryData.cpp */; };
-		ECD52B4C20C30296000F7170 /* ItemData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B4A20C30295000F7170 /* ItemData.cpp */; };
-		ECE1B6F22101B5E9005807E2 /* SystemBarFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECE1B6F02101B5E9005807E2 /* SystemBarFrame.cpp */; };
-		ECE1B6F62101BFB8005807E2 /* SystemButtonData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECE1B6F42101BFB7005807E2 /* SystemButtonData.cpp */; };
-		ECF294AC20B135B300536532 /* SHColorNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECF294AA20B135B300536532 /* SHColorNode.cpp */; };
-		ECF294B520BBCC9800536532 /* SHScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECF294B320BBCC9800536532 /* SHScene.cpp */; };
+		EC828792210D74D10041497C /* SailingHeroMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828791210D74D10041497C /* SailingHeroMenu.cpp */; };
+		EC828793210D74D10041497C /* SailingHeroMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828791210D74D10041497C /* SailingHeroMenu.cpp */; };
+		EC8287A8210D75060041497C /* InputBoxFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828795210D75040041497C /* InputBoxFrame.cpp */; };
+		EC8287A9210D75060041497C /* InputBoxFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828795210D75040041497C /* InputBoxFrame.cpp */; };
+		EC8287AA210D75060041497C /* CitySceneFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828797210D75050041497C /* CitySceneFrame.cpp */; };
+		EC8287AB210D75060041497C /* CitySceneFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828797210D75050041497C /* CitySceneFrame.cpp */; };
+		EC8287AC210D75060041497C /* HeroSelectingFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82879A210D75050041497C /* HeroSelectingFrame.cpp */; };
+		EC8287AD210D75060041497C /* HeroSelectingFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82879A210D75050041497C /* HeroSelectingFrame.cpp */; };
+		EC8287AE210D75060041497C /* MoneyFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82879C210D75050041497C /* MoneyFrame.cpp */; };
+		EC8287AF210D75060041497C /* MoneyFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82879C210D75050041497C /* MoneyFrame.cpp */; };
+		EC8287B0210D75060041497C /* DialogFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82879D210D75050041497C /* DialogFrame.cpp */; };
+		EC8287B1210D75060041497C /* DialogFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82879D210D75050041497C /* DialogFrame.cpp */; };
+		EC8287B2210D75060041497C /* SystemBarFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82879E210D75050041497C /* SystemBarFrame.cpp */; };
+		EC8287B3210D75060041497C /* SystemBarFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82879E210D75050041497C /* SystemBarFrame.cpp */; };
+		EC8287B4210D75060041497C /* CityBuildingFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82879F210D75050041497C /* CityBuildingFrame.cpp */; };
+		EC8287B5210D75060041497C /* CityBuildingFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82879F210D75050041497C /* CityBuildingFrame.cpp */; };
+		EC8287B6210D75060041497C /* DialogPhotoFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287A1210D75060041497C /* DialogPhotoFrame.cpp */; };
+		EC8287B7210D75060041497C /* DialogPhotoFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287A1210D75060041497C /* DialogPhotoFrame.cpp */; };
+		EC8287B8210D75060041497C /* MultiSelectionFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287A3210D75060041497C /* MultiSelectionFrame.cpp */; };
+		EC8287B9210D75060041497C /* MultiSelectionFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287A3210D75060041497C /* MultiSelectionFrame.cpp */; };
+		EC8287BA210D75060041497C /* CityDataFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287A6210D75060041497C /* CityDataFrame.cpp */; };
+		EC8287BB210D75060041497C /* CityDataFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287A6210D75060041497C /* CityDataFrame.cpp */; };
+		EC8287C2210D75300041497C /* SHColorNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287BD210D75300041497C /* SHColorNode.cpp */; };
+		EC8287C3210D75300041497C /* SHColorNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287BD210D75300041497C /* SHColorNode.cpp */; };
+		EC8287C4210D75300041497C /* SHSpriteListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287BF210D75300041497C /* SHSpriteListener.cpp */; };
+		EC8287C5210D75300041497C /* SHSpriteListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287BF210D75300041497C /* SHSpriteListener.cpp */; };
+		EC8287C6210D75300041497C /* SHScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287C0210D75300041497C /* SHScene.cpp */; };
+		EC8287C7210D75300041497C /* SHScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287C0210D75300041497C /* SHScene.cpp */; };
+		EC8287CA210D75490041497C /* SystemButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287C9210D75490041497C /* SystemButton.cpp */; };
+		EC8287CB210D75490041497C /* SystemButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287C9210D75490041497C /* SystemButton.cpp */; };
+		EC8287D0210D75560041497C /* LocalizationHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287CD210D75550041497C /* LocalizationHelper.cpp */; };
+		EC8287D1210D75560041497C /* LocalizationHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287CD210D75550041497C /* LocalizationHelper.cpp */; };
+		EC8287D2210D75560041497C /* ByteBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287CE210D75550041497C /* ByteBuffer.cpp */; };
+		EC8287D3210D75560041497C /* ByteBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287CE210D75550041497C /* ByteBuffer.cpp */; };
+		EC828806210D758C0041497C /* CityGoodsData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287D8210D75860041497C /* CityGoodsData.cpp */; };
+		EC828807210D758C0041497C /* CityGoodsData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287D8210D75860041497C /* CityGoodsData.cpp */; };
+		EC828808210D758C0041497C /* TownPhotoData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287D9210D75860041497C /* TownPhotoData.cpp */; };
+		EC828809210D758C0041497C /* TownPhotoData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287D9210D75860041497C /* TownPhotoData.cpp */; };
+		EC82880A210D758C0041497C /* AbilityData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287DA210D75860041497C /* AbilityData.cpp */; };
+		EC82880B210D758C0041497C /* AbilityData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287DA210D75860041497C /* AbilityData.cpp */; };
+		EC82880C210D758C0041497C /* ZodiacData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287DB210D75860041497C /* ZodiacData.cpp */; };
+		EC82880D210D758C0041497C /* ZodiacData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287DB210D75860041497C /* ZodiacData.cpp */; };
+		EC82880E210D758C0041497C /* CategoryUpdateData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287DD210D75860041497C /* CategoryUpdateData.cpp */; };
+		EC82880F210D758C0041497C /* CategoryUpdateData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287DD210D75860041497C /* CategoryUpdateData.cpp */; };
+		EC828810210D758C0041497C /* GoodsCategoryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287DF210D75870041497C /* GoodsCategoryData.cpp */; };
+		EC828811210D758C0041497C /* GoodsCategoryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287DF210D75870041497C /* GoodsCategoryData.cpp */; };
+		EC828812210D758C0041497C /* CityStatusData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287E0210D75870041497C /* CityStatusData.cpp */; };
+		EC828813210D758C0041497C /* CityStatusData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287E0210D75870041497C /* CityStatusData.cpp */; };
+		EC828814210D758C0041497C /* GameData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287E5210D75870041497C /* GameData.cpp */; };
+		EC828815210D758C0041497C /* GameData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287E5210D75870041497C /* GameData.cpp */; };
+		EC828816210D758C0041497C /* GenderData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287E6210D75870041497C /* GenderData.cpp */; };
+		EC828817210D758C0041497C /* GenderData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287E6210D75870041497C /* GenderData.cpp */; };
+		EC828818210D758C0041497C /* CannonData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287E9210D75870041497C /* CannonData.cpp */; };
+		EC828819210D758C0041497C /* CannonData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287E9210D75870041497C /* CannonData.cpp */; };
+		EC82881A210D758C0041497C /* CityBuildingData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287EA210D75880041497C /* CityBuildingData.cpp */; };
+		EC82881B210D758C0041497C /* CityBuildingData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287EA210D75880041497C /* CityBuildingData.cpp */; };
+		EC82881C210D758C0041497C /* GoodsData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287EB210D75880041497C /* GoodsData.cpp */; };
+		EC82881D210D758C0041497C /* GoodsData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287EB210D75880041497C /* GoodsData.cpp */; };
+		EC82881E210D758C0041497C /* ItemCategoryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287EF210D75880041497C /* ItemCategoryData.cpp */; };
+		EC82881F210D758C0041497C /* ItemCategoryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287EF210D75880041497C /* ItemCategoryData.cpp */; };
+		EC828820210D758C0041497C /* HeroSelectData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287F0210D75880041497C /* HeroSelectData.cpp */; };
+		EC828821210D758C0041497C /* HeroSelectData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287F0210D75880041497C /* HeroSelectData.cpp */; };
+		EC828822210D758C0041497C /* CityData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287F4210D75890041497C /* CityData.cpp */; };
+		EC828823210D758C0041497C /* CityData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287F4210D75890041497C /* CityData.cpp */; };
+		EC828824210D758C0041497C /* SaveDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287F6210D75890041497C /* SaveDataManager.cpp */; };
+		EC828825210D758C0041497C /* SaveDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287F6210D75890041497C /* SaveDataManager.cpp */; };
+		EC828826210D758C0041497C /* GuildData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287FA210D758A0041497C /* GuildData.cpp */; };
+		EC828827210D758C0041497C /* GuildData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287FA210D758A0041497C /* GuildData.cpp */; };
+		EC828828210D758C0041497C /* CultureData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287FB210D758A0041497C /* CultureData.cpp */; };
+		EC828829210D758C0041497C /* CultureData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287FB210D758A0041497C /* CultureData.cpp */; };
+		EC82882A210D758C0041497C /* HeroData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287FC210D758A0041497C /* HeroData.cpp */; };
+		EC82882B210D758C0041497C /* HeroData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287FC210D758A0041497C /* HeroData.cpp */; };
+		EC82882C210D758C0041497C /* DialogData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287FF210D758A0041497C /* DialogData.cpp */; };
+		EC82882D210D758C0041497C /* DialogData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287FF210D758A0041497C /* DialogData.cpp */; };
+		EC82882E210D758C0041497C /* CityTypeData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828803210D758B0041497C /* CityTypeData.cpp */; };
+		EC82882F210D758C0041497C /* CityTypeData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828803210D758B0041497C /* CityTypeData.cpp */; };
+		EC828830210D758C0041497C /* ItemData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828804210D758B0041497C /* ItemData.cpp */; };
+		EC828831210D758C0041497C /* ItemData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828804210D758B0041497C /* ItemData.cpp */; };
+		EC828832210D758C0041497C /* SystemButtonData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828805210D758B0041497C /* SystemButtonData.cpp */; };
+		EC828833210D758C0041497C /* SystemButtonData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828805210D758B0041497C /* SystemButtonData.cpp */; };
+		EC82883D210D759C0041497C /* Calendar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828836210D759C0041497C /* Calendar.cpp */; };
+		EC82883E210D759C0041497C /* Calendar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828836210D759C0041497C /* Calendar.cpp */; };
+		EC82883F210D759C0041497C /* SHGameDataHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828837210D759C0041497C /* SHGameDataHelper.cpp */; };
+		EC828840210D759C0041497C /* SHGameDataHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828837210D759C0041497C /* SHGameDataHelper.cpp */; };
+		EC828841210D759C0041497C /* SHCityDataHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828838210D759C0041497C /* SHCityDataHelper.cpp */; };
+		EC828842210D759C0041497C /* SHCityDataHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828838210D759C0041497C /* SHCityDataHelper.cpp */; };
+		EC828843210D759C0041497C /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82883B210D759C0041497C /* Utils.cpp */; };
+		EC828844210D759C0041497C /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82883B210D759C0041497C /* Utils.cpp */; };
+		EC82884B210D75AC0041497C /* SelectHeroDisplayScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828847210D75AB0041497C /* SelectHeroDisplayScene.cpp */; };
+		EC82884C210D75AC0041497C /* SelectHeroDisplayScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828847210D75AB0041497C /* SelectHeroDisplayScene.cpp */; };
+		EC82884D210D75AC0041497C /* SelectHeroMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828848210D75AB0041497C /* SelectHeroMenuScene.cpp */; };
+		EC82884E210D75AC0041497C /* SelectHeroMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828848210D75AB0041497C /* SelectHeroMenuScene.cpp */; };
+		EC82884F210D75AC0041497C /* CityScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828849210D75AB0041497C /* CityScene.cpp */; };
+		EC828850210D75AC0041497C /* CityScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828849210D75AB0041497C /* CityScene.cpp */; };
+		EC828856210D76450041497C /* res in Resources */ = {isa = PBXBuildFile; fileRef = EC828855210D76450041497C /* res */; };
+		EC828857210D76450041497C /* res in Resources */ = {isa = PBXBuildFile; fileRef = EC828855210D76450041497C /* res */; };
+		EC828859210D76E70041497C /* title.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EC828858210D76E70041497C /* title.mp3 */; };
+		EC82885A210D76E70041497C /* title.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EC828858210D76E70041497C /* title.mp3 */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 /* End PBXBuildFile section */
@@ -188,106 +235,103 @@
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
-		EC07204A2109866D00EE69F8 /* MultiSelectionFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MultiSelectionFrame.cpp; sourceTree = "<group>"; };
-		EC07204B2109866D00EE69F8 /* MultiSelectionFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MultiSelectionFrame.hpp; sourceTree = "<group>"; };
-		EC07204E2109A6D900EE69F8 /* AbilityData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = AbilityData.hpp; path = GenerateData/AbilityData.hpp; sourceTree = "<group>"; };
-		EC07204F2109A6D900EE69F8 /* AbilityData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AbilityData.cpp; path = GenerateData/AbilityData.cpp; sourceTree = "<group>"; };
-		EC072057210AD47F00EE69F8 /* CityBuildingFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CityBuildingFrame.cpp; sourceTree = "<group>"; };
-		EC072058210AD47F00EE69F8 /* CityBuildingFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CityBuildingFrame.hpp; sourceTree = "<group>"; };
-		EC217D4120BC7F9A000ADDE3 /* title.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = title.mp3; sourceTree = "<group>"; };
-		EC217D4720BC84AB000ADDE3 /* SHDataManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHDataManager.cpp; sourceTree = "<group>"; };
-		EC217D4820BC84AB000ADDE3 /* SHDataManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHDataManager.hpp; sourceTree = "<group>"; };
-		EC2EF7FF20FC25D300BCE4D5 /* CityGoodsData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CityGoodsData.cpp; path = GenerateData/CityGoodsData.cpp; sourceTree = "<group>"; };
-		EC2EF80120FC25D300BCE4D5 /* CityData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CityData.hpp; path = GenerateData/CityData.hpp; sourceTree = "<group>"; };
-		EC2EF80220FC25D400BCE4D5 /* CityTypeData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CityTypeData.hpp; path = GenerateData/CityTypeData.hpp; sourceTree = "<group>"; };
-		EC2EF80320FC25D400BCE4D5 /* CityData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CityData.cpp; path = GenerateData/CityData.cpp; sourceTree = "<group>"; };
-		EC2EF80420FC25D400BCE4D5 /* CityBuildingData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CityBuildingData.cpp; path = GenerateData/CityBuildingData.cpp; sourceTree = "<group>"; };
-		EC2EF80520FC25D400BCE4D5 /* CityBuildingData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CityBuildingData.hpp; path = GenerateData/CityBuildingData.hpp; sourceTree = "<group>"; };
-		EC2EF80620FC25D400BCE4D5 /* CityTypeData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CityTypeData.cpp; path = GenerateData/CityTypeData.cpp; sourceTree = "<group>"; };
-		EC2EF80720FC25D400BCE4D5 /* CityGoodsData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CityGoodsData.hpp; path = GenerateData/CityGoodsData.hpp; sourceTree = "<group>"; };
-		EC2EF80F20FC552700BCE4D5 /* BaseData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseData.h; sourceTree = "<group>"; };
-		EC6CA7982103BB3B00B2B6A2 /* GameData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GameData.hpp; path = GenerateData/GameData.hpp; sourceTree = "<group>"; };
-		EC6CA79A2103BB3B00B2B6A2 /* GameData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameData.cpp; path = GenerateData/GameData.cpp; sourceTree = "<group>"; };
-		EC6CA79C2103CF5E00B2B6A2 /* Calendar.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Calendar.cpp; sourceTree = "<group>"; };
-		EC6CA79D2103CF5E00B2B6A2 /* Calendar.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Calendar.hpp; sourceTree = "<group>"; };
-		EC6CA79F2103ED2500B2B6A2 /* DialogFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DialogFrame.cpp; sourceTree = "<group>"; };
-		EC6CA7A02103ED2500B2B6A2 /* DialogFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DialogFrame.hpp; sourceTree = "<group>"; };
-		EC6CA7A22106CF0E00B2B6A2 /* DialogData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DialogData.cpp; path = GenerateData/DialogData.cpp; sourceTree = "<group>"; };
-		EC6CA7A32106CF0E00B2B6A2 /* DialogData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = DialogData.hpp; path = GenerateData/DialogData.hpp; sourceTree = "<group>"; };
-		EC6CA7A52106DE5A00B2B6A2 /* DialogPhotoFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DialogPhotoFrame.cpp; sourceTree = "<group>"; };
-		EC6CA7A62106DE5A00B2B6A2 /* DialogPhotoFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DialogPhotoFrame.hpp; sourceTree = "<group>"; };
-		EC72727120F86EAF005BD63D /* SelectHeroMenuScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SelectHeroMenuScene.hpp; sourceTree = "<group>"; };
-		EC72727220F86EB0005BD63D /* SelectHeroMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectHeroMenuScene.cpp; sourceTree = "<group>"; };
-		EC72727520F87AA2005BD63D /* HeroSelectingFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HeroSelectingFrame.cpp; sourceTree = "<group>"; };
-		EC72727620F87AA2005BD63D /* HeroSelectingFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HeroSelectingFrame.hpp; sourceTree = "<group>"; };
-		EC72727820F88A0B005BD63D /* HeroSelectData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HeroSelectData.cpp; path = GenerateData/HeroSelectData.cpp; sourceTree = "<group>"; };
-		EC72727920F88A0B005BD63D /* HeroSelectData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = HeroSelectData.hpp; path = GenerateData/HeroSelectData.hpp; sourceTree = "<group>"; };
-		EC72727E20FA57DB005BD63D /* SHSpriteListener.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHSpriteListener.cpp; sourceTree = "<group>"; };
-		EC72727F20FA57DB005BD63D /* SHSpriteListener.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHSpriteListener.hpp; sourceTree = "<group>"; };
-		EC72728120FA6FD0005BD63D /* SelectHeroDisplayScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SelectHeroDisplayScene.cpp; sourceTree = "<group>"; };
-		EC72728220FA6FD0005BD63D /* SelectHeroDisplayScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SelectHeroDisplayScene.hpp; sourceTree = "<group>"; };
-		EC72728420FAC85E005BD63D /* GuildData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GuildData.hpp; path = GenerateData/GuildData.hpp; sourceTree = "<group>"; };
-		EC72728520FAC85E005BD63D /* GuildData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GuildData.cpp; path = GenerateData/GuildData.cpp; sourceTree = "<group>"; };
-		EC72728720FACBC6005BD63D /* SHGameDataHelper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHGameDataHelper.cpp; sourceTree = "<group>"; };
-		EC72728820FACBC6005BD63D /* SHGameDataHelper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHGameDataHelper.hpp; sourceTree = "<group>"; };
-		EC72728A20FAE9F1005BD63D /* InputBoxFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InputBoxFrame.cpp; sourceTree = "<group>"; };
-		EC72728B20FAE9F1005BD63D /* InputBoxFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InputBoxFrame.hpp; sourceTree = "<group>"; };
-		EC828780210D3BD70041497C /* TownPhotoData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TownPhotoData.cpp; path = GenerateData/TownPhotoData.cpp; sourceTree = "<group>"; };
-		EC828782210D3BD70041497C /* TownPhotoData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TownPhotoData.hpp; path = GenerateData/TownPhotoData.hpp; sourceTree = "<group>"; };
-		EC828785210D46100041497C /* MoneyFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MoneyFrame.cpp; sourceTree = "<group>"; };
-		EC828786210D46100041497C /* MoneyFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MoneyFrame.hpp; sourceTree = "<group>"; };
-		EC99852E20FDB11A00338850 /* SHCityDataHelper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHCityDataHelper.cpp; sourceTree = "<group>"; };
-		EC99852F20FDB11A00338850 /* SHCityDataHelper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHCityDataHelper.hpp; sourceTree = "<group>"; };
-		EC99853520FDC47800338850 /* CityDataFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CityDataFrame.cpp; sourceTree = "<group>"; };
-		EC99853620FDC47800338850 /* CityDataFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CityDataFrame.hpp; sourceTree = "<group>"; };
-		EC99853820FDC8A000338850 /* CityScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CityScene.cpp; sourceTree = "<group>"; };
-		EC99853920FDC8A000338850 /* CityScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CityScene.hpp; sourceTree = "<group>"; };
-		EC99853B20FF1D4C00338850 /* CityStatusData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CityStatusData.hpp; path = GenerateData/CityStatusData.hpp; sourceTree = "<group>"; };
-		EC99853C20FF1D4D00338850 /* CityStatusData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CityStatusData.cpp; path = GenerateData/CityStatusData.cpp; sourceTree = "<group>"; };
-		EC99854120FFED5100338850 /* CitySceneFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CitySceneFrame.cpp; sourceTree = "<group>"; };
-		EC99854220FFED5100338850 /* CitySceneFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CitySceneFrame.hpp; sourceTree = "<group>"; };
-		ECADF31320ACE1A900B77618 /* SailingHerorMenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SailingHerorMenu.cpp; sourceTree = "<group>"; };
-		ECADF31420ACE1A900B77618 /* SailingHerorMenu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SailingHerorMenu.hpp; sourceTree = "<group>"; };
-		ECADF31C20ACF21200B77618 /* SystemButton.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SystemButton.cpp; sourceTree = "<group>"; };
-		ECADF31D20ACF21200B77618 /* SystemButton.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SystemButton.hpp; sourceTree = "<group>"; };
-		ECADF32220ACFD0800B77618 /* LocalizationHelper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LocalizationHelper.cpp; sourceTree = "<group>"; };
-		ECADF32320ACFD0800B77618 /* LocalizationHelper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LocalizationHelper.hpp; sourceTree = "<group>"; };
-		ECADF32520AD286C00B77618 /* File.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = File.txt; sourceTree = "<group>"; };
-		ECADF35F20AD604D00B77618 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
-		ECADF36120AD615900B77618 /* ByteBuffer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ByteBuffer.hpp; sourceTree = "<group>"; };
-		ECADF36220AD615900B77618 /* ByteBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ByteBuffer.cpp; sourceTree = "<group>"; };
-		ECBEF11220E48B9A0010A767 /* GenderData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GenderData.hpp; path = GenerateData/GenderData.hpp; sourceTree = "<group>"; };
-		ECBEF11420E48B9A0010A767 /* HeroData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = HeroData.hpp; path = GenerateData/HeroData.hpp; sourceTree = "<group>"; };
-		ECBEF11520E48B9B0010A767 /* ZodiacData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZodiacData.cpp; path = GenerateData/ZodiacData.cpp; sourceTree = "<group>"; };
-		ECBEF11620E48B9B0010A767 /* GenderData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GenderData.cpp; path = GenerateData/GenderData.cpp; sourceTree = "<group>"; };
-		ECBEF11720E48B9B0010A767 /* HeroData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HeroData.cpp; path = GenerateData/HeroData.cpp; sourceTree = "<group>"; };
-		ECBEF11820E48B9B0010A767 /* ZodiacData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ZodiacData.hpp; path = GenerateData/ZodiacData.hpp; sourceTree = "<group>"; };
-		ECBEF11C20E492F70010A767 /* SaveDataManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = SaveDataManager.cpp; path = GenerateData/SaveDataManager.cpp; sourceTree = "<group>"; };
-		ECBEF11D20E492F70010A767 /* SaveDataManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = SaveDataManager.hpp; path = GenerateData/SaveDataManager.hpp; sourceTree = "<group>"; };
-		ECD52B2020BFB073000F7170 /* GoodsData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GoodsData.cpp; path = GenerateData/GoodsData.cpp; sourceTree = "<group>"; };
-		ECD52B2120BFB073000F7170 /* GoodsData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GoodsData.hpp; path = GenerateData/GoodsData.hpp; sourceTree = "<group>"; };
-		ECD52B3520C224D8000F7170 /* GoodsCategoryData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GoodsCategoryData.hpp; path = GenerateData/GoodsCategoryData.hpp; sourceTree = "<group>"; };
-		ECD52B3720C224D8000F7170 /* CategoryUpdateData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CategoryUpdateData.hpp; path = GenerateData/CategoryUpdateData.hpp; sourceTree = "<group>"; };
-		ECD52B3820C224D8000F7170 /* CategoryUpdateData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CategoryUpdateData.cpp; path = GenerateData/CategoryUpdateData.cpp; sourceTree = "<group>"; };
-		ECD52B3920C224D8000F7170 /* GoodsCategoryData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GoodsCategoryData.cpp; path = GenerateData/GoodsCategoryData.cpp; sourceTree = "<group>"; };
-		ECD52B3E20C263A9000F7170 /* Utils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Utils.cpp; sourceTree = "<group>"; };
-		ECD52B3F20C263A9000F7170 /* Utils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Utils.hpp; sourceTree = "<group>"; };
-		ECD52B4120C2F7D7000F7170 /* CannonData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CannonData.cpp; path = GenerateData/CannonData.cpp; sourceTree = "<group>"; };
-		ECD52B4220C2F7D7000F7170 /* CannonData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CannonData.hpp; path = GenerateData/CannonData.hpp; sourceTree = "<group>"; };
-		ECD52B4320C2F7D7000F7170 /* CultureData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CultureData.hpp; path = GenerateData/CultureData.hpp; sourceTree = "<group>"; };
-		ECD52B4420C2F7D7000F7170 /* CultureData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CultureData.cpp; path = GenerateData/CultureData.cpp; sourceTree = "<group>"; };
-		ECD52B4720C30295000F7170 /* ItemData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ItemData.hpp; path = GenerateData/ItemData.hpp; sourceTree = "<group>"; };
-		ECD52B4820C30295000F7170 /* ItemCategoryData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ItemCategoryData.hpp; path = GenerateData/ItemCategoryData.hpp; sourceTree = "<group>"; };
-		ECD52B4920C30295000F7170 /* ItemCategoryData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ItemCategoryData.cpp; path = GenerateData/ItemCategoryData.cpp; sourceTree = "<group>"; };
-		ECD52B4A20C30295000F7170 /* ItemData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ItemData.cpp; path = GenerateData/ItemData.cpp; sourceTree = "<group>"; };
-		ECE1B6F02101B5E9005807E2 /* SystemBarFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SystemBarFrame.cpp; sourceTree = "<group>"; };
-		ECE1B6F12101B5E9005807E2 /* SystemBarFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SystemBarFrame.hpp; sourceTree = "<group>"; };
-		ECE1B6F42101BFB7005807E2 /* SystemButtonData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SystemButtonData.cpp; path = GenerateData/SystemButtonData.cpp; sourceTree = "<group>"; };
-		ECE1B6F52101BFB7005807E2 /* SystemButtonData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SystemButtonData.hpp; path = GenerateData/SystemButtonData.hpp; sourceTree = "<group>"; };
-		ECF294AA20B135B300536532 /* SHColorNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHColorNode.cpp; sourceTree = "<group>"; };
-		ECF294AB20B135B300536532 /* SHColorNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHColorNode.hpp; sourceTree = "<group>"; };
-		ECF294B320BBCC9800536532 /* SHScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHScene.cpp; sourceTree = "<group>"; };
-		ECF294B420BBCC9800536532 /* SHScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHScene.hpp; sourceTree = "<group>"; };
+		EC828790210D74D10041497C /* SailingHeroMenu.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SailingHeroMenu.hpp; sourceTree = "<group>"; };
+		EC828791210D74D10041497C /* SailingHeroMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SailingHeroMenu.cpp; sourceTree = "<group>"; };
+		EC828794210D75040041497C /* CityDataFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CityDataFrame.hpp; sourceTree = "<group>"; };
+		EC828795210D75040041497C /* InputBoxFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputBoxFrame.cpp; sourceTree = "<group>"; };
+		EC828796210D75050041497C /* MultiSelectionFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MultiSelectionFrame.hpp; sourceTree = "<group>"; };
+		EC828797210D75050041497C /* CitySceneFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CitySceneFrame.cpp; sourceTree = "<group>"; };
+		EC828798210D75050041497C /* DialogFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DialogFrame.hpp; sourceTree = "<group>"; };
+		EC828799210D75050041497C /* CityBuildingFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CityBuildingFrame.hpp; sourceTree = "<group>"; };
+		EC82879A210D75050041497C /* HeroSelectingFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeroSelectingFrame.cpp; sourceTree = "<group>"; };
+		EC82879B210D75050041497C /* MoneyFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MoneyFrame.hpp; sourceTree = "<group>"; };
+		EC82879C210D75050041497C /* MoneyFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MoneyFrame.cpp; sourceTree = "<group>"; };
+		EC82879D210D75050041497C /* DialogFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DialogFrame.cpp; sourceTree = "<group>"; };
+		EC82879E210D75050041497C /* SystemBarFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SystemBarFrame.cpp; sourceTree = "<group>"; };
+		EC82879F210D75050041497C /* CityBuildingFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CityBuildingFrame.cpp; sourceTree = "<group>"; };
+		EC8287A0210D75050041497C /* HeroSelectingFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = HeroSelectingFrame.hpp; sourceTree = "<group>"; };
+		EC8287A1210D75060041497C /* DialogPhotoFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DialogPhotoFrame.cpp; sourceTree = "<group>"; };
+		EC8287A2210D75060041497C /* DialogPhotoFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DialogPhotoFrame.hpp; sourceTree = "<group>"; };
+		EC8287A3210D75060041497C /* MultiSelectionFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MultiSelectionFrame.cpp; sourceTree = "<group>"; };
+		EC8287A4210D75060041497C /* CitySceneFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CitySceneFrame.hpp; sourceTree = "<group>"; };
+		EC8287A5210D75060041497C /* SystemBarFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SystemBarFrame.hpp; sourceTree = "<group>"; };
+		EC8287A6210D75060041497C /* CityDataFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CityDataFrame.cpp; sourceTree = "<group>"; };
+		EC8287A7210D75060041497C /* InputBoxFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InputBoxFrame.hpp; sourceTree = "<group>"; };
+		EC8287BC210D75300041497C /* SHColorNode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SHColorNode.hpp; sourceTree = "<group>"; };
+		EC8287BD210D75300041497C /* SHColorNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SHColorNode.cpp; sourceTree = "<group>"; };
+		EC8287BE210D75300041497C /* SHScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SHScene.hpp; sourceTree = "<group>"; };
+		EC8287BF210D75300041497C /* SHSpriteListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SHSpriteListener.cpp; sourceTree = "<group>"; };
+		EC8287C0210D75300041497C /* SHScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SHScene.cpp; sourceTree = "<group>"; };
+		EC8287C1210D75300041497C /* SHSpriteListener.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SHSpriteListener.hpp; sourceTree = "<group>"; };
+		EC8287C8210D75490041497C /* SystemButton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SystemButton.hpp; sourceTree = "<group>"; };
+		EC8287C9210D75490041497C /* SystemButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SystemButton.cpp; sourceTree = "<group>"; };
+		EC8287CC210D75550041497C /* LocalizationHelper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LocalizationHelper.hpp; sourceTree = "<group>"; };
+		EC8287CD210D75550041497C /* LocalizationHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LocalizationHelper.cpp; sourceTree = "<group>"; };
+		EC8287CE210D75550041497C /* ByteBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ByteBuffer.cpp; sourceTree = "<group>"; };
+		EC8287CF210D75560041497C /* ByteBuffer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ByteBuffer.hpp; sourceTree = "<group>"; };
+		EC8287D8210D75860041497C /* CityGoodsData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CityGoodsData.cpp; path = GenerateData/CityGoodsData.cpp; sourceTree = "<group>"; };
+		EC8287D9210D75860041497C /* TownPhotoData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TownPhotoData.cpp; path = GenerateData/TownPhotoData.cpp; sourceTree = "<group>"; };
+		EC8287DA210D75860041497C /* AbilityData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AbilityData.cpp; path = GenerateData/AbilityData.cpp; sourceTree = "<group>"; };
+		EC8287DB210D75860041497C /* ZodiacData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZodiacData.cpp; path = GenerateData/ZodiacData.cpp; sourceTree = "<group>"; };
+		EC8287DC210D75860041497C /* GoodsCategoryData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GoodsCategoryData.hpp; path = GenerateData/GoodsCategoryData.hpp; sourceTree = "<group>"; };
+		EC8287DD210D75860041497C /* CategoryUpdateData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CategoryUpdateData.cpp; path = GenerateData/CategoryUpdateData.cpp; sourceTree = "<group>"; };
+		EC8287DE210D75870041497C /* TownPhotoData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TownPhotoData.hpp; path = GenerateData/TownPhotoData.hpp; sourceTree = "<group>"; };
+		EC8287DF210D75870041497C /* GoodsCategoryData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GoodsCategoryData.cpp; path = GenerateData/GoodsCategoryData.cpp; sourceTree = "<group>"; };
+		EC8287E0210D75870041497C /* CityStatusData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CityStatusData.cpp; path = GenerateData/CityStatusData.cpp; sourceTree = "<group>"; };
+		EC8287E1210D75870041497C /* DialogData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = DialogData.hpp; path = GenerateData/DialogData.hpp; sourceTree = "<group>"; };
+		EC8287E2210D75870041497C /* SystemButtonData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SystemButtonData.hpp; path = GenerateData/SystemButtonData.hpp; sourceTree = "<group>"; };
+		EC8287E3210D75870041497C /* HeroData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = HeroData.hpp; path = GenerateData/HeroData.hpp; sourceTree = "<group>"; };
+		EC8287E4210D75870041497C /* ItemCategoryData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ItemCategoryData.hpp; path = GenerateData/ItemCategoryData.hpp; sourceTree = "<group>"; };
+		EC8287E5210D75870041497C /* GameData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameData.cpp; path = GenerateData/GameData.cpp; sourceTree = "<group>"; };
+		EC8287E6210D75870041497C /* GenderData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GenderData.cpp; path = GenerateData/GenderData.cpp; sourceTree = "<group>"; };
+		EC8287E7210D75870041497C /* GenderData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GenderData.hpp; path = GenerateData/GenderData.hpp; sourceTree = "<group>"; };
+		EC8287E8210D75870041497C /* AbilityData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = AbilityData.hpp; path = GenerateData/AbilityData.hpp; sourceTree = "<group>"; };
+		EC8287E9210D75870041497C /* CannonData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CannonData.cpp; path = GenerateData/CannonData.cpp; sourceTree = "<group>"; };
+		EC8287EA210D75880041497C /* CityBuildingData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CityBuildingData.cpp; path = GenerateData/CityBuildingData.cpp; sourceTree = "<group>"; };
+		EC8287EB210D75880041497C /* GoodsData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GoodsData.cpp; path = GenerateData/GoodsData.cpp; sourceTree = "<group>"; };
+		EC8287EC210D75880041497C /* CategoryUpdateData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CategoryUpdateData.hpp; path = GenerateData/CategoryUpdateData.hpp; sourceTree = "<group>"; };
+		EC8287ED210D75880041497C /* CityGoodsData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CityGoodsData.hpp; path = GenerateData/CityGoodsData.hpp; sourceTree = "<group>"; };
+		EC8287EE210D75880041497C /* GameData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GameData.hpp; path = GenerateData/GameData.hpp; sourceTree = "<group>"; };
+		EC8287EF210D75880041497C /* ItemCategoryData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ItemCategoryData.cpp; path = GenerateData/ItemCategoryData.cpp; sourceTree = "<group>"; };
+		EC8287F0210D75880041497C /* HeroSelectData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HeroSelectData.cpp; path = GenerateData/HeroSelectData.cpp; sourceTree = "<group>"; };
+		EC8287F1210D75880041497C /* CityTypeData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CityTypeData.hpp; path = GenerateData/CityTypeData.hpp; sourceTree = "<group>"; };
+		EC8287F2210D75890041497C /* SaveDataManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SaveDataManager.hpp; path = GenerateData/SaveDataManager.hpp; sourceTree = "<group>"; };
+		EC8287F3210D75890041497C /* CultureData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CultureData.hpp; path = GenerateData/CultureData.hpp; sourceTree = "<group>"; };
+		EC8287F4210D75890041497C /* CityData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CityData.cpp; path = GenerateData/CityData.cpp; sourceTree = "<group>"; };
+		EC8287F5210D75890041497C /* HeroSelectData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = HeroSelectData.hpp; path = GenerateData/HeroSelectData.hpp; sourceTree = "<group>"; };
+		EC8287F6210D75890041497C /* SaveDataManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SaveDataManager.cpp; path = GenerateData/SaveDataManager.cpp; sourceTree = "<group>"; };
+		EC8287F7210D75890041497C /* ItemData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ItemData.hpp; path = GenerateData/ItemData.hpp; sourceTree = "<group>"; };
+		EC8287F8210D75890041497C /* GuildData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GuildData.hpp; path = GenerateData/GuildData.hpp; sourceTree = "<group>"; };
+		EC8287F9210D758A0041497C /* CityBuildingData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CityBuildingData.hpp; path = GenerateData/CityBuildingData.hpp; sourceTree = "<group>"; };
+		EC8287FA210D758A0041497C /* GuildData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GuildData.cpp; path = GenerateData/GuildData.cpp; sourceTree = "<group>"; };
+		EC8287FB210D758A0041497C /* CultureData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CultureData.cpp; path = GenerateData/CultureData.cpp; sourceTree = "<group>"; };
+		EC8287FC210D758A0041497C /* HeroData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HeroData.cpp; path = GenerateData/HeroData.cpp; sourceTree = "<group>"; };
+		EC8287FD210D758A0041497C /* ZodiacData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ZodiacData.hpp; path = GenerateData/ZodiacData.hpp; sourceTree = "<group>"; };
+		EC8287FE210D758A0041497C /* CityData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CityData.hpp; path = GenerateData/CityData.hpp; sourceTree = "<group>"; };
+		EC8287FF210D758A0041497C /* DialogData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DialogData.cpp; path = GenerateData/DialogData.cpp; sourceTree = "<group>"; };
+		EC828800210D758B0041497C /* GoodsData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GoodsData.hpp; path = GenerateData/GoodsData.hpp; sourceTree = "<group>"; };
+		EC828801210D758B0041497C /* CityStatusData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CityStatusData.hpp; path = GenerateData/CityStatusData.hpp; sourceTree = "<group>"; };
+		EC828802210D758B0041497C /* CannonData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CannonData.hpp; path = GenerateData/CannonData.hpp; sourceTree = "<group>"; };
+		EC828803210D758B0041497C /* CityTypeData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CityTypeData.cpp; path = GenerateData/CityTypeData.cpp; sourceTree = "<group>"; };
+		EC828804210D758B0041497C /* ItemData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ItemData.cpp; path = GenerateData/ItemData.cpp; sourceTree = "<group>"; };
+		EC828805210D758B0041497C /* SystemButtonData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SystemButtonData.cpp; path = GenerateData/SystemButtonData.cpp; sourceTree = "<group>"; };
+		EC828834210D759C0041497C /* Calendar.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Calendar.hpp; sourceTree = "<group>"; };
+		EC828835210D759C0041497C /* SHGameDataHelper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SHGameDataHelper.hpp; sourceTree = "<group>"; };
+		EC828836210D759C0041497C /* Calendar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Calendar.cpp; sourceTree = "<group>"; };
+		EC828837210D759C0041497C /* SHGameDataHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SHGameDataHelper.cpp; sourceTree = "<group>"; };
+		EC828838210D759C0041497C /* SHCityDataHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SHCityDataHelper.cpp; sourceTree = "<group>"; };
+		EC828839210D759C0041497C /* BaseData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseData.h; sourceTree = "<group>"; };
+		EC82883A210D759C0041497C /* SHCityDataHelper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SHCityDataHelper.hpp; sourceTree = "<group>"; };
+		EC82883B210D759C0041497C /* Utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Utils.cpp; sourceTree = "<group>"; };
+		EC82883C210D759C0041497C /* Utils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Utils.hpp; sourceTree = "<group>"; };
+		EC828845210D75AB0041497C /* CityScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CityScene.hpp; sourceTree = "<group>"; };
+		EC828846210D75AB0041497C /* SelectHeroDisplayScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SelectHeroDisplayScene.hpp; sourceTree = "<group>"; };
+		EC828847210D75AB0041497C /* SelectHeroDisplayScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectHeroDisplayScene.cpp; sourceTree = "<group>"; };
+		EC828848210D75AB0041497C /* SelectHeroMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectHeroMenuScene.cpp; sourceTree = "<group>"; };
+		EC828849210D75AB0041497C /* CityScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CityScene.cpp; sourceTree = "<group>"; };
+		EC82884A210D75AB0041497C /* SelectHeroMenuScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SelectHeroMenuScene.hpp; sourceTree = "<group>"; };
+		EC828855210D76450041497C /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
+		EC828858210D76E70041497C /* title.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = title.mp3; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -416,13 +460,12 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EC217D4120BC7F9A000ADDE3 /* title.mp3 */,
-				ECADF35F20AD604D00B77618 /* res */,
+				EC828858210D76E70041497C /* title.mp3 */,
+				EC828855210D76450041497C /* res */,
 				521A8EA819F11F5000D177D7 /* fonts */,
 				46880B7619C43A67006E1F66 /* CloseNormal.png */,
 				46880B7719C43A67006E1F66 /* CloseSelected.png */,
 				46880B7A19C43A67006E1F66 /* HelloWorld.png */,
-				ECADF32520AD286C00B77618 /* File.txt */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -437,10 +480,10 @@
 				ECADF31A20ACF1BF00B77618 /* UIElement */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
-				ECADF31320ACE1A900B77618 /* SailingHerorMenu.cpp */,
-				ECADF31420ACE1A900B77618 /* SailingHerorMenu.hpp */,
 				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
 				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
+				EC828791210D74D10041497C /* SailingHeroMenu.cpp */,
+				EC828790210D74D10041497C /* SailingHeroMenu.hpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -471,8 +514,6 @@
 			children = (
 				ECD52B3D20C26398000F7170 /* Utils */,
 				ECD52B1F20BFB05A000F7170 /* GenerateData */,
-				EC217D4720BC84AB000ADDE3 /* SHDataManager.cpp */,
-				EC217D4820BC84AB000ADDE3 /* SHDataManager.hpp */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -480,12 +521,12 @@
 		EC72726F20F7D00F005BD63D /* SceneUI */ = {
 			isa = PBXGroup;
 			children = (
-				EC72727220F86EB0005BD63D /* SelectHeroMenuScene.cpp */,
-				EC72727120F86EAF005BD63D /* SelectHeroMenuScene.hpp */,
-				EC72728120FA6FD0005BD63D /* SelectHeroDisplayScene.cpp */,
-				EC72728220FA6FD0005BD63D /* SelectHeroDisplayScene.hpp */,
-				EC99853820FDC8A000338850 /* CityScene.cpp */,
-				EC99853920FDC8A000338850 /* CityScene.hpp */,
+				EC828849210D75AB0041497C /* CityScene.cpp */,
+				EC828845210D75AB0041497C /* CityScene.hpp */,
+				EC828847210D75AB0041497C /* SelectHeroDisplayScene.cpp */,
+				EC828846210D75AB0041497C /* SelectHeroDisplayScene.hpp */,
+				EC828848210D75AB0041497C /* SelectHeroMenuScene.cpp */,
+				EC82884A210D75AB0041497C /* SelectHeroMenuScene.hpp */,
 			);
 			path = SceneUI;
 			sourceTree = "<group>";
@@ -493,26 +534,26 @@
 		EC72727420F87A6B005BD63D /* Frame */ = {
 			isa = PBXGroup;
 			children = (
-				EC72727520F87AA2005BD63D /* HeroSelectingFrame.cpp */,
-				EC72727620F87AA2005BD63D /* HeroSelectingFrame.hpp */,
-				EC72728A20FAE9F1005BD63D /* InputBoxFrame.cpp */,
-				EC72728B20FAE9F1005BD63D /* InputBoxFrame.hpp */,
-				EC99853520FDC47800338850 /* CityDataFrame.cpp */,
-				EC99853620FDC47800338850 /* CityDataFrame.hpp */,
-				EC99854120FFED5100338850 /* CitySceneFrame.cpp */,
-				EC99854220FFED5100338850 /* CitySceneFrame.hpp */,
-				ECE1B6F02101B5E9005807E2 /* SystemBarFrame.cpp */,
-				ECE1B6F12101B5E9005807E2 /* SystemBarFrame.hpp */,
-				EC6CA79F2103ED2500B2B6A2 /* DialogFrame.cpp */,
-				EC6CA7A02103ED2500B2B6A2 /* DialogFrame.hpp */,
-				EC6CA7A52106DE5A00B2B6A2 /* DialogPhotoFrame.cpp */,
-				EC6CA7A62106DE5A00B2B6A2 /* DialogPhotoFrame.hpp */,
-				EC07204A2109866D00EE69F8 /* MultiSelectionFrame.cpp */,
-				EC07204B2109866D00EE69F8 /* MultiSelectionFrame.hpp */,
-				EC072057210AD47F00EE69F8 /* CityBuildingFrame.cpp */,
-				EC072058210AD47F00EE69F8 /* CityBuildingFrame.hpp */,
-				EC828785210D46100041497C /* MoneyFrame.cpp */,
-				EC828786210D46100041497C /* MoneyFrame.hpp */,
+				EC82879F210D75050041497C /* CityBuildingFrame.cpp */,
+				EC828799210D75050041497C /* CityBuildingFrame.hpp */,
+				EC8287A6210D75060041497C /* CityDataFrame.cpp */,
+				EC828794210D75040041497C /* CityDataFrame.hpp */,
+				EC828797210D75050041497C /* CitySceneFrame.cpp */,
+				EC8287A4210D75060041497C /* CitySceneFrame.hpp */,
+				EC82879D210D75050041497C /* DialogFrame.cpp */,
+				EC828798210D75050041497C /* DialogFrame.hpp */,
+				EC8287A1210D75060041497C /* DialogPhotoFrame.cpp */,
+				EC8287A2210D75060041497C /* DialogPhotoFrame.hpp */,
+				EC82879A210D75050041497C /* HeroSelectingFrame.cpp */,
+				EC8287A0210D75050041497C /* HeroSelectingFrame.hpp */,
+				EC828795210D75040041497C /* InputBoxFrame.cpp */,
+				EC8287A7210D75060041497C /* InputBoxFrame.hpp */,
+				EC82879C210D75050041497C /* MoneyFrame.cpp */,
+				EC82879B210D75050041497C /* MoneyFrame.hpp */,
+				EC8287A3210D75060041497C /* MultiSelectionFrame.cpp */,
+				EC828796210D75050041497C /* MultiSelectionFrame.hpp */,
+				EC82879E210D75050041497C /* SystemBarFrame.cpp */,
+				EC8287A5210D75060041497C /* SystemBarFrame.hpp */,
 			);
 			path = Frame;
 			sourceTree = "<group>";
@@ -530,8 +571,8 @@
 		ECADF31B20ACF1D500B77618 /* Button */ = {
 			isa = PBXGroup;
 			children = (
-				ECADF31C20ACF21200B77618 /* SystemButton.cpp */,
-				ECADF31D20ACF21200B77618 /* SystemButton.hpp */,
+				EC8287C9210D75490041497C /* SystemButton.cpp */,
+				EC8287C8210D75490041497C /* SystemButton.hpp */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -539,10 +580,10 @@
 		ECADF32120ACFC9D00B77618 /* Sys */ = {
 			isa = PBXGroup;
 			children = (
-				ECADF36220AD615900B77618 /* ByteBuffer.cpp */,
-				ECADF36120AD615900B77618 /* ByteBuffer.hpp */,
-				ECADF32220ACFD0800B77618 /* LocalizationHelper.cpp */,
-				ECADF32320ACFD0800B77618 /* LocalizationHelper.hpp */,
+				EC8287CE210D75550041497C /* ByteBuffer.cpp */,
+				EC8287CF210D75560041497C /* ByteBuffer.hpp */,
+				EC8287CD210D75550041497C /* LocalizationHelper.cpp */,
+				EC8287CC210D75550041497C /* LocalizationHelper.hpp */,
 			);
 			path = Sys;
 			sourceTree = "<group>";
@@ -550,52 +591,52 @@
 		ECD52B1F20BFB05A000F7170 /* GenerateData */ = {
 			isa = PBXGroup;
 			children = (
-				EC828780210D3BD70041497C /* TownPhotoData.cpp */,
-				EC828782210D3BD70041497C /* TownPhotoData.hpp */,
-				EC07204F2109A6D900EE69F8 /* AbilityData.cpp */,
-				EC07204E2109A6D900EE69F8 /* AbilityData.hpp */,
-				EC6CA7A22106CF0E00B2B6A2 /* DialogData.cpp */,
-				EC6CA7A32106CF0E00B2B6A2 /* DialogData.hpp */,
-				EC6CA79A2103BB3B00B2B6A2 /* GameData.cpp */,
-				EC6CA7982103BB3B00B2B6A2 /* GameData.hpp */,
-				ECE1B6F42101BFB7005807E2 /* SystemButtonData.cpp */,
-				ECE1B6F52101BFB7005807E2 /* SystemButtonData.hpp */,
-				EC99853C20FF1D4D00338850 /* CityStatusData.cpp */,
-				EC99853B20FF1D4C00338850 /* CityStatusData.hpp */,
-				EC2EF80420FC25D400BCE4D5 /* CityBuildingData.cpp */,
-				EC2EF80520FC25D400BCE4D5 /* CityBuildingData.hpp */,
-				EC2EF80320FC25D400BCE4D5 /* CityData.cpp */,
-				EC2EF80120FC25D300BCE4D5 /* CityData.hpp */,
-				EC2EF7FF20FC25D300BCE4D5 /* CityGoodsData.cpp */,
-				EC2EF80720FC25D400BCE4D5 /* CityGoodsData.hpp */,
-				EC2EF80620FC25D400BCE4D5 /* CityTypeData.cpp */,
-				EC2EF80220FC25D400BCE4D5 /* CityTypeData.hpp */,
-				EC72727820F88A0B005BD63D /* HeroSelectData.cpp */,
-				EC72728520FAC85E005BD63D /* GuildData.cpp */,
-				EC72728420FAC85E005BD63D /* GuildData.hpp */,
-				EC72727920F88A0B005BD63D /* HeroSelectData.hpp */,
-				ECBEF11620E48B9B0010A767 /* GenderData.cpp */,
-				ECBEF11220E48B9A0010A767 /* GenderData.hpp */,
-				ECBEF11720E48B9B0010A767 /* HeroData.cpp */,
-				ECBEF11420E48B9A0010A767 /* HeroData.hpp */,
-				ECBEF11520E48B9B0010A767 /* ZodiacData.cpp */,
-				ECBEF11820E48B9B0010A767 /* ZodiacData.hpp */,
-				ECD52B4920C30295000F7170 /* ItemCategoryData.cpp */,
-				ECD52B4820C30295000F7170 /* ItemCategoryData.hpp */,
-				ECD52B4A20C30295000F7170 /* ItemData.cpp */,
-				ECD52B4720C30295000F7170 /* ItemData.hpp */,
-				ECD52B4120C2F7D7000F7170 /* CannonData.cpp */,
-				ECD52B4220C2F7D7000F7170 /* CannonData.hpp */,
-				ECD52B4420C2F7D7000F7170 /* CultureData.cpp */,
-				ECD52B4320C2F7D7000F7170 /* CultureData.hpp */,
-				ECD52B3820C224D8000F7170 /* CategoryUpdateData.cpp */,
-				ECD52B3720C224D8000F7170 /* CategoryUpdateData.hpp */,
-				ECD52B3920C224D8000F7170 /* GoodsCategoryData.cpp */,
-				ECD52B3520C224D8000F7170 /* GoodsCategoryData.hpp */,
-				ECD52B2020BFB073000F7170 /* GoodsData.cpp */,
-				ECD52B2120BFB073000F7170 /* GoodsData.hpp */,
-				ECBEF11C20E492F70010A767 /* SaveDataManager.cpp */,
-				ECBEF11D20E492F70010A767 /* SaveDataManager.hpp */,
+				EC8287DA210D75860041497C /* AbilityData.cpp */,
+				EC8287E8210D75870041497C /* AbilityData.hpp */,
+				EC8287E9210D75870041497C /* CannonData.cpp */,
+				EC828802210D758B0041497C /* CannonData.hpp */,
+				EC8287DD210D75860041497C /* CategoryUpdateData.cpp */,
+				EC8287EC210D75880041497C /* CategoryUpdateData.hpp */,
+				EC8287EA210D75880041497C /* CityBuildingData.cpp */,
+				EC8287F9210D758A0041497C /* CityBuildingData.hpp */,
+				EC8287F4210D75890041497C /* CityData.cpp */,
+				EC8287FE210D758A0041497C /* CityData.hpp */,
+				EC8287D8210D75860041497C /* CityGoodsData.cpp */,
+				EC8287ED210D75880041497C /* CityGoodsData.hpp */,
+				EC8287E0210D75870041497C /* CityStatusData.cpp */,
+				EC828801210D758B0041497C /* CityStatusData.hpp */,
+				EC828803210D758B0041497C /* CityTypeData.cpp */,
+				EC8287F1210D75880041497C /* CityTypeData.hpp */,
+				EC8287FB210D758A0041497C /* CultureData.cpp */,
+				EC8287F3210D75890041497C /* CultureData.hpp */,
+				EC8287FF210D758A0041497C /* DialogData.cpp */,
+				EC8287E1210D75870041497C /* DialogData.hpp */,
+				EC8287E5210D75870041497C /* GameData.cpp */,
+				EC8287EE210D75880041497C /* GameData.hpp */,
+				EC8287E6210D75870041497C /* GenderData.cpp */,
+				EC8287E7210D75870041497C /* GenderData.hpp */,
+				EC8287DF210D75870041497C /* GoodsCategoryData.cpp */,
+				EC8287DC210D75860041497C /* GoodsCategoryData.hpp */,
+				EC8287EB210D75880041497C /* GoodsData.cpp */,
+				EC828800210D758B0041497C /* GoodsData.hpp */,
+				EC8287FA210D758A0041497C /* GuildData.cpp */,
+				EC8287F8210D75890041497C /* GuildData.hpp */,
+				EC8287FC210D758A0041497C /* HeroData.cpp */,
+				EC8287E3210D75870041497C /* HeroData.hpp */,
+				EC8287F0210D75880041497C /* HeroSelectData.cpp */,
+				EC8287F5210D75890041497C /* HeroSelectData.hpp */,
+				EC8287EF210D75880041497C /* ItemCategoryData.cpp */,
+				EC8287E4210D75870041497C /* ItemCategoryData.hpp */,
+				EC828804210D758B0041497C /* ItemData.cpp */,
+				EC8287F7210D75890041497C /* ItemData.hpp */,
+				EC8287F6210D75890041497C /* SaveDataManager.cpp */,
+				EC8287F2210D75890041497C /* SaveDataManager.hpp */,
+				EC828805210D758B0041497C /* SystemButtonData.cpp */,
+				EC8287E2210D75870041497C /* SystemButtonData.hpp */,
+				EC8287D9210D75860041497C /* TownPhotoData.cpp */,
+				EC8287DE210D75870041497C /* TownPhotoData.hpp */,
+				EC8287DB210D75860041497C /* ZodiacData.cpp */,
+				EC8287FD210D758A0041497C /* ZodiacData.hpp */,
 			);
 			name = GenerateData;
 			sourceTree = "<group>";
@@ -603,15 +644,15 @@
 		ECD52B3D20C26398000F7170 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				ECD52B3E20C263A9000F7170 /* Utils.cpp */,
-				ECD52B3F20C263A9000F7170 /* Utils.hpp */,
-				EC72728720FACBC6005BD63D /* SHGameDataHelper.cpp */,
-				EC72728820FACBC6005BD63D /* SHGameDataHelper.hpp */,
-				EC99852E20FDB11A00338850 /* SHCityDataHelper.cpp */,
-				EC99852F20FDB11A00338850 /* SHCityDataHelper.hpp */,
-				EC2EF80F20FC552700BCE4D5 /* BaseData.h */,
-				EC6CA79C2103CF5E00B2B6A2 /* Calendar.cpp */,
-				EC6CA79D2103CF5E00B2B6A2 /* Calendar.hpp */,
+				EC828839210D759C0041497C /* BaseData.h */,
+				EC828836210D759C0041497C /* Calendar.cpp */,
+				EC828834210D759C0041497C /* Calendar.hpp */,
+				EC828838210D759C0041497C /* SHCityDataHelper.cpp */,
+				EC82883A210D759C0041497C /* SHCityDataHelper.hpp */,
+				EC828837210D759C0041497C /* SHGameDataHelper.cpp */,
+				EC828835210D759C0041497C /* SHGameDataHelper.hpp */,
+				EC82883B210D759C0041497C /* Utils.cpp */,
+				EC82883C210D759C0041497C /* Utils.hpp */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -619,12 +660,12 @@
 		ECF294A820B1357700536532 /* Sprite */ = {
 			isa = PBXGroup;
 			children = (
-				ECF294AA20B135B300536532 /* SHColorNode.cpp */,
-				ECF294AB20B135B300536532 /* SHColorNode.hpp */,
-				ECF294B320BBCC9800536532 /* SHScene.cpp */,
-				ECF294B420BBCC9800536532 /* SHScene.hpp */,
-				EC72727E20FA57DB005BD63D /* SHSpriteListener.cpp */,
-				EC72727F20FA57DB005BD63D /* SHSpriteListener.hpp */,
+				EC8287BD210D75300041497C /* SHColorNode.cpp */,
+				EC8287BC210D75300041497C /* SHColorNode.hpp */,
+				EC8287C0210D75300041497C /* SHScene.cpp */,
+				EC8287BE210D75300041497C /* SHScene.hpp */,
+				EC8287BF210D75300041497C /* SHSpriteListener.cpp */,
+				EC8287C1210D75300041497C /* SHSpriteListener.hpp */,
 			);
 			path = Sprite;
 			sourceTree = "<group>";
@@ -736,16 +777,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC828856210D76450041497C /* res in Resources */,
 				46880B8119C43A67006E1F66 /* HelloWorld.png in Resources */,
-				ECADF36020AD604D00B77618 /* res in Resources */,
 				1A88B2641FC3D9C9005C14AE /* Images.xcassets in Resources */,
 				46880B7D19C43A67006E1F66 /* CloseSelected.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				1AF87B891F6F781D007BE51C /* LaunchScreenBackground.png in Resources */,
 				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
-				ECADF32620AD286C00B77618 /* File.txt in Resources */,
 				1AF87B881F6F781D007BE51C /* LaunchScreen.storyboard in Resources */,
-				EC217D4220BC7F9A000ADDE3 /* title.mp3 in Resources */,
+				EC828859210D76E70041497C /* title.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,8 +796,10 @@
 				46880B8219C43A67006E1F66 /* HelloWorld.png in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
 				521A8EAA19F11F5000D177D7 /* fonts in Resources */,
+				EC828857210D76450041497C /* res in Resources */,
 				46880B7C19C43A67006E1F66 /* CloseNormal.png in Resources */,
 				46880B7E19C43A67006E1F66 /* CloseSelected.png in Resources */,
+				EC82885A210D76E70041497C /* title.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -768,59 +810,58 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC72728920FACBC6005BD63D /* SHGameDataHelper.cpp in Sources */,
-				EC72727720F87AA2005BD63D /* HeroSelectingFrame.cpp in Sources */,
-				ECADF32420ACFD0800B77618 /* LocalizationHelper.cpp in Sources */,
-				EC072059210AD47F00EE69F8 /* CityBuildingFrame.cpp in Sources */,
+				EC8287C6210D75300041497C /* SHScene.cpp in Sources */,
+				EC828792210D74D10041497C /* SailingHeroMenu.cpp in Sources */,
 				1AF87B781F6F77F7007BE51C /* AppController.mm in Sources */,
-				ECBEF11B20E48B9B0010A767 /* HeroData.cpp in Sources */,
-				EC6CA7A12103ED2500B2B6A2 /* DialogFrame.cpp in Sources */,
-				ECBEF11A20E48B9B0010A767 /* GenderData.cpp in Sources */,
-				EC6CA7A42106CF0F00B2B6A2 /* DialogData.cpp in Sources */,
-				ECE1B6F62101BFB8005807E2 /* SystemButtonData.cpp in Sources */,
-				EC99853A20FDC8A000338850 /* CityScene.cpp in Sources */,
-				EC6CA7A72106DE5A00B2B6A2 /* DialogPhotoFrame.cpp in Sources */,
-				EC72728C20FAE9F1005BD63D /* InputBoxFrame.cpp in Sources */,
-				EC0720502109A6D900EE69F8 /* AbilityData.cpp in Sources */,
-				ECE1B6F22101B5E9005807E2 /* SystemBarFrame.cpp in Sources */,
-				EC217D4920BC84AB000ADDE3 /* SHDataManager.cpp in Sources */,
-				EC99853720FDC47800338850 /* CityDataFrame.cpp in Sources */,
-				EC99853D20FF1D4D00338850 /* CityStatusData.cpp in Sources */,
+				EC82882A210D758C0041497C /* HeroData.cpp in Sources */,
+				EC828812210D758C0041497C /* CityStatusData.cpp in Sources */,
+				EC82884D210D75AC0041497C /* SelectHeroMenuScene.cpp in Sources */,
+				EC82883F210D759C0041497C /* SHGameDataHelper.cpp in Sources */,
+				EC8287B0210D75060041497C /* DialogFrame.cpp in Sources */,
+				EC8287D0210D75560041497C /* LocalizationHelper.cpp in Sources */,
+				EC8287AC210D75060041497C /* HeroSelectingFrame.cpp in Sources */,
+				EC828826210D758C0041497C /* GuildData.cpp in Sources */,
+				EC828814210D758C0041497C /* GameData.cpp in Sources */,
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
-				ECADF31E20ACF21200B77618 /* SystemButton.cpp in Sources */,
-				EC72727320F86EB0005BD63D /* SelectHeroMenuScene.cpp in Sources */,
-				EC828787210D46100041497C /* MoneyFrame.cpp in Sources */,
-				ECF294AC20B135B300536532 /* SHColorNode.cpp in Sources */,
-				EC2EF80920FC25D500BCE4D5 /* CityData.cpp in Sources */,
-				EC6CA79E2103CF5E00B2B6A2 /* Calendar.cpp in Sources */,
-				EC72727A20F88A0B005BD63D /* HeroSelectData.cpp in Sources */,
-				EC07204C2109866D00EE69F8 /* MultiSelectionFrame.cpp in Sources */,
-				EC2EF80B20FC25D500BCE4D5 /* CityTypeData.cpp in Sources */,
-				ECBEF11E20E492F70010A767 /* SaveDataManager.cpp in Sources */,
-				ECD52B3B20C224D8000F7170 /* GoodsCategoryData.cpp in Sources */,
-				ECD52B2220BFB073000F7170 /* GoodsData.cpp in Sources */,
+				EC8287B6210D75060041497C /* DialogPhotoFrame.cpp in Sources */,
+				EC8287C4210D75300041497C /* SHSpriteListener.cpp in Sources */,
+				EC828832210D758C0041497C /* SystemButtonData.cpp in Sources */,
+				EC828828210D758C0041497C /* CultureData.cpp in Sources */,
+				EC828843210D759C0041497C /* Utils.cpp in Sources */,
+				EC82884B210D75AC0041497C /* SelectHeroDisplayScene.cpp in Sources */,
+				EC8287BA210D75060041497C /* CityDataFrame.cpp in Sources */,
+				EC828822210D758C0041497C /* CityData.cpp in Sources */,
+				EC82880A210D758C0041497C /* AbilityData.cpp in Sources */,
+				EC82884F210D75AC0041497C /* CityScene.cpp in Sources */,
+				EC8287A8210D75060041497C /* InputBoxFrame.cpp in Sources */,
+				EC828808210D758C0041497C /* TownPhotoData.cpp in Sources */,
+				EC82881A210D758C0041497C /* CityBuildingData.cpp in Sources */,
+				EC828824210D758C0041497C /* SaveDataManager.cpp in Sources */,
+				EC8287B4210D75060041497C /* CityBuildingFrame.cpp in Sources */,
+				EC828816210D758C0041497C /* GenderData.cpp in Sources */,
+				EC8287C2210D75300041497C /* SHColorNode.cpp in Sources */,
+				EC828818210D758C0041497C /* CannonData.cpp in Sources */,
+				EC8287D2210D75560041497C /* ByteBuffer.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
-				ECADF36320AD615900B77618 /* ByteBuffer.cpp in Sources */,
-				ECD52B4C20C30296000F7170 /* ItemData.cpp in Sources */,
-				ECF294B520BBCC9800536532 /* SHScene.cpp in Sources */,
-				EC828783210D3BD70041497C /* TownPhotoData.cpp in Sources */,
-				EC99854320FFED5100338850 /* CitySceneFrame.cpp in Sources */,
-				EC99853020FDB11A00338850 /* SHCityDataHelper.cpp in Sources */,
-				ECBEF11920E48B9B0010A767 /* ZodiacData.cpp in Sources */,
-				ECD52B4520C2F7D8000F7170 /* CannonData.cpp in Sources */,
-				ECD52B4020C263A9000F7170 /* Utils.cpp in Sources */,
-				ECD52B4B20C30296000F7170 /* ItemCategoryData.cpp in Sources */,
-				ECADF31520ACE1A900B77618 /* SailingHerorMenu.cpp in Sources */,
-				EC72728620FAC85E005BD63D /* GuildData.cpp in Sources */,
-				ECD52B4620C2F7D8000F7170 /* CultureData.cpp in Sources */,
+				EC828810210D758C0041497C /* GoodsCategoryData.cpp in Sources */,
+				EC828830210D758C0041497C /* ItemData.cpp in Sources */,
+				EC82883D210D759C0041497C /* Calendar.cpp in Sources */,
+				EC8287B8210D75060041497C /* MultiSelectionFrame.cpp in Sources */,
+				EC8287CA210D75490041497C /* SystemButton.cpp in Sources */,
+				EC82880C210D758C0041497C /* ZodiacData.cpp in Sources */,
+				EC8287AE210D75060041497C /* MoneyFrame.cpp in Sources */,
+				EC828806210D758C0041497C /* CityGoodsData.cpp in Sources */,
+				EC82882C210D758C0041497C /* DialogData.cpp in Sources */,
+				EC82882E210D758C0041497C /* CityTypeData.cpp in Sources */,
+				EC828820210D758C0041497C /* HeroSelectData.cpp in Sources */,
+				EC8287AA210D75060041497C /* CitySceneFrame.cpp in Sources */,
 				1AF87B8A1F6F7822007BE51C /* main.m in Sources */,
-				EC2EF80820FC25D500BCE4D5 /* CityGoodsData.cpp in Sources */,
-				EC72728020FA57DB005BD63D /* SHSpriteListener.cpp in Sources */,
-				ECD52B3A20C224D8000F7170 /* CategoryUpdateData.cpp in Sources */,
-				EC2EF80A20FC25D500BCE4D5 /* CityBuildingData.cpp in Sources */,
-				EC6CA79B2103BB3C00B2B6A2 /* GameData.cpp in Sources */,
-				EC72728320FA6FD0005BD63D /* SelectHeroDisplayScene.cpp in Sources */,
+				EC8287B2210D75060041497C /* SystemBarFrame.cpp in Sources */,
+				EC82880E210D758C0041497C /* CategoryUpdateData.cpp in Sources */,
+				EC82881C210D758C0041497C /* GoodsData.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
+				EC82881E210D758C0041497C /* ItemCategoryData.cpp in Sources */,
+				EC828841210D759C0041497C /* SHCityDataHelper.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -828,9 +869,56 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC82880B210D758C0041497C /* AbilityData.cpp in Sources */,
+				EC828842210D759C0041497C /* SHCityDataHelper.cpp in Sources */,
+				EC8287BB210D75060041497C /* CityDataFrame.cpp in Sources */,
+				EC8287B3210D75060041497C /* SystemBarFrame.cpp in Sources */,
+				EC8287AD210D75060041497C /* HeroSelectingFrame.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				EC82882D210D758C0041497C /* DialogData.cpp in Sources */,
+				EC8287B5210D75060041497C /* CityBuildingFrame.cpp in Sources */,
+				EC82881B210D758C0041497C /* CityBuildingData.cpp in Sources */,
+				EC82881D210D758C0041497C /* GoodsData.cpp in Sources */,
+				EC82880D210D758C0041497C /* ZodiacData.cpp in Sources */,
+				EC828850210D75AC0041497C /* CityScene.cpp in Sources */,
+				EC82880F210D758C0041497C /* CategoryUpdateData.cpp in Sources */,
+				EC828840210D759C0041497C /* SHGameDataHelper.cpp in Sources */,
+				EC8287D3210D75560041497C /* ByteBuffer.cpp in Sources */,
+				EC82881F210D758C0041497C /* ItemCategoryData.cpp in Sources */,
+				EC828817210D758C0041497C /* GenderData.cpp in Sources */,
+				EC8287AF210D75060041497C /* MoneyFrame.cpp in Sources */,
+				EC828821210D758C0041497C /* HeroSelectData.cpp in Sources */,
+				EC8287AB210D75060041497C /* CitySceneFrame.cpp in Sources */,
+				EC82883E210D759C0041497C /* Calendar.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
+				EC828831210D758C0041497C /* ItemData.cpp in Sources */,
+				EC828825210D758C0041497C /* SaveDataManager.cpp in Sources */,
+				EC828811210D758C0041497C /* GoodsCategoryData.cpp in Sources */,
+				EC8287D1210D75560041497C /* LocalizationHelper.cpp in Sources */,
+				EC8287A9210D75060041497C /* InputBoxFrame.cpp in Sources */,
+				EC8287C3210D75300041497C /* SHColorNode.cpp in Sources */,
+				EC828793210D74D10041497C /* SailingHeroMenu.cpp in Sources */,
+				EC828815210D758C0041497C /* GameData.cpp in Sources */,
+				EC828813210D758C0041497C /* CityStatusData.cpp in Sources */,
+				EC828833210D758C0041497C /* SystemButtonData.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
+				EC82884E210D75AC0041497C /* SelectHeroMenuScene.cpp in Sources */,
+				EC828827210D758C0041497C /* GuildData.cpp in Sources */,
+				EC8287CB210D75490041497C /* SystemButton.cpp in Sources */,
+				EC828829210D758C0041497C /* CultureData.cpp in Sources */,
+				EC8287B9210D75060041497C /* MultiSelectionFrame.cpp in Sources */,
+				EC82882F210D758C0041497C /* CityTypeData.cpp in Sources */,
+				EC828807210D758C0041497C /* CityGoodsData.cpp in Sources */,
+				EC8287C5210D75300041497C /* SHSpriteListener.cpp in Sources */,
+				EC8287B7210D75060041497C /* DialogPhotoFrame.cpp in Sources */,
+				EC8287C7210D75300041497C /* SHScene.cpp in Sources */,
+				EC828823210D758C0041497C /* CityData.cpp in Sources */,
+				EC82884C210D75AC0041497C /* SelectHeroDisplayScene.cpp in Sources */,
+				EC828844210D759C0041497C /* Utils.cpp in Sources */,
+				EC828809210D758C0041497C /* TownPhotoData.cpp in Sources */,
+				EC82882B210D758C0041497C /* HeroData.cpp in Sources */,
+				EC828819210D758C0041497C /* CannonData.cpp in Sources */,
+				EC8287B1210D75060041497C /* DialogFrame.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -872,7 +960,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
@@ -907,7 +995,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
@@ -926,7 +1014,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -957,7 +1045,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

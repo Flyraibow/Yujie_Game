@@ -20,6 +20,7 @@ class SHScene : public cocos2d::Scene
 private:
   Node* s_background;
   Size s_screenSize;
+  bool s_isFullScreen;
 protected:
   /** Set a screen cover to make screen the same ratio of ratioSize
    *

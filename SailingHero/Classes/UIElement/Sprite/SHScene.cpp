@@ -28,7 +28,14 @@ void SHScene::setFullScreenCover()
   s_window->setAnchorPoint(Vec2());
   s_window->setContentSize(visibleSize);
   s_window->setPosition(origin);
-  this->addChild(s_window);
+  this->addChild(s_window, 1);
+  s_isFullScreen = true;
+  if (s_background != nullptr) {
+    auto contentSize = s_background->getContentSize();
+    auto r1 = visibleSize.width / contentSize.width;
+    auto r2 = visibleSize.height / contentSize.height;
+    s_background->setScale(r1, r2);
+  }
 }
 
 void SHScene::setScreenCover(Size ratioSize)
@@ -61,7 +68,7 @@ void SHScene::setScreenCover(Size ratioSize)
   s_window = Node::create();
   s_window->setContentSize(s_screenSize);
   s_window->setPosition(windowOrigin);
-  this->addChild(s_window);
+  this->addChild(s_window, 1);
   
   auto n1 = SHColorNode::create(COVER_COLOR, nodeSize.width, nodeSize.height);
   auto n2 = SHColorNode::create(COVER_COLOR, nodeSize.width, nodeSize.height);
@@ -95,8 +102,12 @@ void SHScene::setBackgroundImage(std::string imgPath) {
   // TODO: ADD how to set align, vertical or horizontal or minimum or maximum or actual size
   auto r1 = visibleSize.width / contentSize.width;
   auto r2 = visibleSize.height / contentSize.height;
-  auto r = max(r1, r2);
-  s_background->setScale(r);
+  if (s_isFullScreen) {
+    s_background->setScale(r1, r2);
+  } else {
+    auto r = max(r1, r2);
+    s_background->setScale(r);
+  }
   s_background->setNormalizedPosition(Vec2(0.5, 0.5));
   this->addChild(s_background);
 }
@@ -109,6 +120,7 @@ Node* SHScene::getBackground()
 
 void SHScene::setBackgroundMusic(std::string path) {
   auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+  audio->stopBackgroundMusic();
   audio->preloadBackgroundMusic(path.c_str());
   audio->playBackgroundMusic(path.c_str(), true);
 }

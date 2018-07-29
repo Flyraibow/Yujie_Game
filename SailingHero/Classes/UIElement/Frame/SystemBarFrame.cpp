@@ -21,8 +21,9 @@ SystemBarFrame::SystemBarFrame()
     auto button = SystemButton::defaultButtonWithText(buttonData->getButtonName(), CC_CALLBACK_1(SystemBarFrame::clickSystemButton, this));
     button->setTag(i);
     button->setAnchorPoint(Vec2(0.5, 0.5));
+    button->setTitleFontSize(14);
     button->setNormalizedPosition(Vec2(0.112 + i * 0.1923, 0.4));
-    button->setContentSize(Size(50, 15));
+    button->setContentSize(Size(80, 20));
     p_buttonList.push_back(button);
     p_sprite->addChild(button);
   }

@@ -28,7 +28,7 @@ Scene* SelectHeroMenuScene::createScene()
 static void problemLoading(const char* filename)
 {
   printf("Error while loading: %s\n", filename);
-  printf("Depending on how you compiled you might have to add 'Resources/' in front of filenames in HelloWorldScene.cpp\n");
+  printf("Depending on how you compiled you might have to add 'Resources/' in front of filenames in SelectHeroMenuScene.cpp\n");
 }
 
 static void setEventListenerForSprite(Sprite *sprite, HeroSelectData *selectData)
@@ -54,7 +54,7 @@ bool SelectHeroMenuScene::init()
   {
     return false;
   }
-  
+  this->setFullScreenCover();
   this->setBackgroundImage("res/default_background.png");
   
   Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -71,20 +71,15 @@ bool SelectHeroMenuScene::init()
     this->addChild(peoplePanel);
   }
 
-  auto btnCancel = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("sys_cancel"),
-                                                       CC_CALLBACK_1(SelectHeroMenuScene::clickCancelButton, this));
-  
-  btnCancel->setAnchorPoint(Vec2(1,0));
-  btnCancel->setPosition(Vec2(origin.x + visibleSize.width - 15, origin.y + 12));
+  auto btnCancel = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("sys_cancel"), [](cocos2d::Ref* pSender) {
+    Director::getInstance()->popScene();
+  });
+  btnCancel->setAnchorPoint(Vec2(0.5,0));
+  btnCancel->setNormalizedPosition(Vec2(0.5, 0.05));
 
-  this->addChild(btnCancel);
+  s_window->addChild(btnCancel);
   
   return true;
-}
-
-void SelectHeroMenuScene::clickCancelButton(cocos2d::Ref* pSender)
-{
-  Director::getInstance()->popScene();
 }
 
 
