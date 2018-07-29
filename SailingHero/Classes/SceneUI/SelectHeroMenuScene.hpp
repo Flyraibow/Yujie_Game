@@ -17,7 +17,6 @@ public:
   
   virtual bool init();
   
-  void clickCancelButton(cocos2d::Ref* pSender);
   // implement the "static create()" method manually
   CREATE_FUNC(SelectHeroMenuScene);
 };

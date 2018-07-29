@@ -40,36 +40,27 @@ bool SelectHeroDisplayScene::init()
     return false;
   }
   
-  this->setBackgroundImage("res/default_background.png");
   this->setFullScreenCover();
+  this->setBackgroundImage("res/default_background.png");
   
-  auto visibleSize = Director::getInstance()->getVisibleSize();
-
-  auto btnCancel = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("sys_cancel"), [](cocos2d::Ref* pSender) {
-    Director::getInstance()->popScene();
-  });
-  btnCancel->setAnchorPoint(Vec2(1,0));
-  btnCancel->setPosition(Vec2(visibleSize.width - 15, 12));
-  s_window->addChild(btnCancel);
-  
-  p_labHeroName = Label::createWithSystemFont("", "Helvetica", 12);
+  p_labHeroName = Label::createWithSystemFont("", "Helvetica", 22);
   p_labHeroName->setAnchorPoint(Vec2());
-  p_labHeroName->setPosition(Vec2(visibleSize.width / 2 - 20, 215));
+  p_labHeroName->setNormalizedPosition(Vec2(0.5, 0.82));
   s_window->addChild(p_labHeroName);
   
-  p_labGuildName = Label::createWithSystemFont("", "Helvetica", 12);
+  p_labGuildName = Label::createWithSystemFont("", "Helvetica", 18);
   p_labGuildName->setAnchorPoint(Vec2());
-  p_labGuildName->setPosition(Vec2(visibleSize.width / 2, 190));
+  p_labGuildName->setNormalizedPosition(Vec2(0.55, 0.75));
   s_window->addChild(p_labGuildName);
   
-  P_labBirth = Label::createWithSystemFont("", "Helvetica", 12);
+  P_labBirth = Label::createWithSystemFont("", "Helvetica", 18);
   P_labBirth->setAnchorPoint(Vec2());
-  P_labBirth->setPosition(Vec2(visibleSize.width / 2, 175));
+  P_labBirth->setNormalizedPosition(Vec2(0.55, 0.7));
   s_window->addChild(P_labBirth);
   
-  p_labZodiac = Label::createWithSystemFont("", "Helvetica", 12);
+  p_labZodiac = Label::createWithSystemFont("", "Helvetica", 18);
   p_labZodiac->setAnchorPoint(Vec2());
-  p_labZodiac->setPosition(Vec2(visibleSize.width / 2 + 90, 175));
+  p_labZodiac->setNormalizedPosition(Vec2(0.75, 0.7));
   s_window->addChild(p_labZodiac);
   
   p_zodiacIcon = nullptr;
@@ -82,17 +73,23 @@ bool SelectHeroDisplayScene::init()
   btnChangeGuildName->setAnchorPoint(Vec2(0,0));
   btnChangeHeroBirth->setAnchorPoint(Vec2(0,0));
   
-  btnChangeHeroName->setPosition(Vec2(visibleSize.width  / 2 + 20, 90));
-  btnChangeGuildName->setPosition(Vec2(visibleSize.width  / 2 + 20, 65));
-  btnChangeHeroBirth->setPosition(Vec2(visibleSize.width   / 2 + 20, 40));
+  btnChangeHeroName->setNormalizedPosition(Vec2(0.6, 0.36));
+  btnChangeGuildName->setNormalizedPosition(Vec2(0.6, 0.28));
+  btnChangeHeroBirth->setNormalizedPosition(Vec2(0.6, 0.2));
   s_window->addChild(btnChangeHeroName);
   s_window->addChild(btnChangeGuildName);
   s_window->addChild(btnChangeHeroBirth);
   
   
+  auto btnCancel = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("sys_cancel"), [](cocos2d::Ref* pSender) {
+    Director::getInstance()->popScene();
+  });
+  btnCancel->setAnchorPoint(Vec2(0.5,0));
+  btnCancel->setNormalizedPosition(Vec2(0.7, 0.05));
+  s_window->addChild(btnCancel);
   auto btnConfirm = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("sys_confirm"), CC_CALLBACK_1(SelectHeroDisplayScene::clickChangeStartGame, this));
-  btnConfirm->setAnchorPoint(Vec2(1,0));
-  btnConfirm->setPosition(Vec2(visibleSize.width - 100, 12));
+  btnConfirm->setAnchorPoint(Vec2(0.5,0));
+  btnConfirm->setNormalizedPosition(Vec2(0.5, 0.05));
   
   s_window->addChild(btnConfirm);
   return true;
@@ -103,13 +100,14 @@ void SelectHeroDisplayScene::setSelectHeroData(HeroSelectData *selectHeroData)
   p_selectHeroData = selectHeroData;
   auto peoplePanel = HeroSelectingFrame::createBigPhotoWithSelectHeroId(selectHeroData->getId());
   auto visibleSize = Director::getInstance()->getVisibleSize();
-  peoplePanel->setPosition(Vec2(visibleSize.width / 2  - 120, visibleSize.height / 2));
+  peoplePanel->setAnchorPoint(Vec2(0,0.5));
+  peoplePanel->setNormalizedPosition(Vec2(0.1, 0.5));
   s_window->addChild(peoplePanel);
   
-  auto descriptionLabel = Label::createWithSystemFont(selectHeroData->getHeroDescription(), "Helvetica", 12);
+  auto descriptionLabel = Label::createWithSystemFont(selectHeroData->getHeroDescription(), "Helvetica", 18);
   descriptionLabel->setAnchorPoint(Vec2(0, 1));
-  descriptionLabel->setPosition(Vec2(visibleSize.width / 2 - 20, 165));
-  descriptionLabel->setDimensions(200, 0);
+  descriptionLabel->setNormalizedPosition(Vec2(0.5, 0.65));
+  descriptionLabel->setDimensions(visibleSize.width / 2 * 0.85, 0);
   s_window->addChild(descriptionLabel);
   
   this->refreshScene();
@@ -223,7 +221,7 @@ void SelectHeroDisplayScene::clickChangeStartGame(cocos2d::Ref* pSender)
       this->selectHero();
       
     });
-    this->addChild(frame);
+    s_window->addChild(frame);
   });
   s_window->addChild(dialog->getSprite());
 }

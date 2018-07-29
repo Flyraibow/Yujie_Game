@@ -28,7 +28,7 @@ void SHScene::setFullScreenCover()
   s_window->setAnchorPoint(Vec2());
   s_window->setContentSize(visibleSize);
   s_window->setPosition(origin);
-  this->addChild(s_window);
+  this->addChild(s_window, 1);
   s_isFullScreen = true;
   if (s_background != nullptr) {
     auto contentSize = s_background->getContentSize();
@@ -68,7 +68,7 @@ void SHScene::setScreenCover(Size ratioSize)
   s_window = Node::create();
   s_window->setContentSize(s_screenSize);
   s_window->setPosition(windowOrigin);
-  this->addChild(s_window);
+  this->addChild(s_window, 1);
   
   auto n1 = SHColorNode::create(COVER_COLOR, nodeSize.width, nodeSize.height);
   auto n2 = SHColorNode::create(COVER_COLOR, nodeSize.width, nodeSize.height);
