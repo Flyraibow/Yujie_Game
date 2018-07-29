@@ -41,34 +41,34 @@ void GameData::setDay(int day)
 	p_day = day;
 }
 
-CityData* GameData::getCityIdData() const
+CityData* GameData::getCityData() const
 {
-	return CityData::getCityDataById(p_cityIdId);
+	return CityData::getCityDataById(p_cityId);
 }
 
-string GameData::getCityIdId() const
+string GameData::getCityId() const
 {
-	return p_cityIdId;
+	return p_cityId;
 }
 
-void GameData::setCityIdId(string cityId)
+void GameData::setCityId(string city)
 {
-	p_cityIdId = cityId;
+	p_cityId = city;
 }
 
-GuildData* GameData::getGuildIdData() const
+GuildData* GameData::getGuildData() const
 {
-	return GuildData::getGuildDataById(p_guildIdId);
+	return GuildData::getGuildDataById(p_guildId);
 }
 
-string GameData::getGuildIdId() const
+string GameData::getGuildId() const
 {
-	return p_guildIdId;
+	return p_guildId;
 }
 
-void GameData::setGuildIdId(string guildId)
+void GameData::setGuildId(string guild)
 {
-	p_guildIdId = guildId;
+	p_guildId = guild;
 }
 
 string GameData::description() const
@@ -77,8 +77,8 @@ string GameData::description() const
 	desc += "\tyear : " + to_string(p_year) + "\n";
 	desc += "\tmonth : " + to_string(p_month) + "\n";
 	desc += "\tday : " + to_string(p_day) + "\n";
-	desc += "\tcityId : " + to_string(p_cityIdId) + "\n";
-	desc += "\tguildId : " + to_string(p_guildIdId) + "\n";
+	desc += "\tcity : " + to_string(p_cityId) + "\n";
+	desc += "\tguild : " + to_string(p_guildId) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -95,8 +95,8 @@ GameData* GameData::getSharedInstance()
 			p_sharedData->p_year = buffer->getInt();
 			p_sharedData->p_month = buffer->getInt();
 			p_sharedData->p_day = buffer->getInt();
-			p_sharedData->p_cityIdId = buffer->getString();
-			p_sharedData->p_guildIdId = buffer->getString();
+			p_sharedData->p_cityId = buffer->getString();
+			p_sharedData->p_guildId = buffer->getString();
 		}
 	}
 	return p_sharedData;
@@ -114,10 +114,10 @@ bool GameData::saveData(const string & path)
 	buffer->putString(to_string(data->p_month));
 	buffer->putString("p_day");
 	buffer->putString(to_string(data->p_day));
-	buffer->putString("p_cityIdId");
-	buffer->putString(to_string(data->p_cityIdId));
-	buffer->putString("p_guildIdId");
-	buffer->putString(to_string(data->p_guildIdId));
+	buffer->putString("p_cityId");
+	buffer->putString(to_string(data->p_cityId));
+	buffer->putString("p_guildId");
+	buffer->putString(to_string(data->p_guildId));
 	buffer->writeToFile(filePath);
 	return true;
 }
@@ -141,10 +141,10 @@ bool GameData::loadData(const string & path)
 					data->p_month = atoi(value.c_str());
 				} else if (key == "p_day") {
 					data->p_day = atoi(value.c_str());
-				} else if (key == "p_cityIdId") {
-					data->p_cityIdId = value;
-				} else if (key == "p_guildIdId") {
-					data->p_guildIdId = value;
+				} else if (key == "p_cityId") {
+					data->p_cityId = value;
+				} else if (key == "p_guildId") {
+					data->p_guildId = value;
 				}
 			}
 		}

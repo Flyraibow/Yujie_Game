@@ -85,11 +85,11 @@ bool SelectHeroDisplayScene::init()
     Director::getInstance()->popScene();
   });
   btnCancel->setAnchorPoint(Vec2(0.5,0));
-  btnCancel->setNormalizedPosition(Vec2(0.7, 0.05));
+  btnCancel->setNormalizedPosition(Vec2(0.75, 0.05));
   s_window->addChild(btnCancel);
   auto btnConfirm = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("sys_confirm"), CC_CALLBACK_1(SelectHeroDisplayScene::clickChangeStartGame, this));
   btnConfirm->setAnchorPoint(Vec2(0.5,0));
-  btnConfirm->setNormalizedPosition(Vec2(0.5, 0.05));
+  btnConfirm->setNormalizedPosition(Vec2(0.55, 0.05));
   
   s_window->addChild(btnConfirm);
   return true;
@@ -125,9 +125,10 @@ void SelectHeroDisplayScene::refreshScene()
   if (p_zodiacIcon != nullptr) {
     p_zodiacIcon->removeFromParent();
   }
-  p_zodiacIcon = zodiac->getIcon(false);
+  p_zodiacIcon = zodiac->getIcon();
+  p_zodiacIcon->setScale(Director::getInstance()->getContentScaleFactor() * 1.5);
   p_zodiacIcon->setAnchorPoint(Vec2());
-  p_zodiacIcon->setPosition(Vec2(p_labZodiac->getPosition().x + 50, p_labZodiac->getPosition().y));
+  p_zodiacIcon->setNormalizedPosition(Vec2(0.85, 0.7));
   s_window->addChild(p_zodiacIcon);
 }
 
@@ -233,9 +234,9 @@ void SelectHeroDisplayScene::selectHero()
 {
   CCASSERT(p_selectHeroData, "Must select a hero");
   auto gameData = GameData::getSharedInstance();
-  gameData->setGuildIdId(p_selectHeroData->getGuildId());
-  gameData->setCityIdId(p_selectHeroData->getStartCityIdId());
+  gameData->setGuildId(p_selectHeroData->getGuildId());
+  gameData->setCityId(p_selectHeroData->getStartCityIdId());
   CityScene *cityScene = CityScene::create();
-  cityScene->setCityDataId(gameData->getCityIdData()->getCityId());
+  cityScene->setCityDataId(gameData->getCityData()->getCityId());
   Director::getInstance()->replaceScene(cityScene);
 }

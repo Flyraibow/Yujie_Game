@@ -1,4 +1,4 @@
-﻿year,month,day,cityId,guildId
+﻿year,month,day,city,guild
 int,int,int,friend_Id,friend_id
 -,-,-,City,Guild
 Y,Y,Y,Y,Y

@@ -14,8 +14,8 @@ private:
 	int p_year;
 	int p_month;
 	int p_day;
-	string p_cityIdId;
-	string p_guildIdId;
+	string p_cityId;
+	string p_guildId;
 public:
 	int getYear() const;
 	void setYear(int year);
@@ -23,12 +23,12 @@ public:
 	void setMonth(int month);
 	int getDay() const;
 	void setDay(int day);
-	CityData* getCityIdData() const;
-	string getCityIdId() const;
-	void setCityIdId(string cityId);
-	GuildData* getGuildIdData() const;
-	string getGuildIdId() const;
-	void setGuildIdId(string guildId);
+	CityData* getCityData() const;
+	string getCityId() const;
+	void setCityId(string city);
+	GuildData* getGuildData() const;
+	string getGuildId() const;
+	void setGuildId(string guild);
 	string description() const;
 	static GameData* getSharedInstance();
 	static bool saveData(const string & path);

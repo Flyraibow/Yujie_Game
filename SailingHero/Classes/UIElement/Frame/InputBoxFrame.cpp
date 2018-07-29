@@ -12,10 +12,14 @@
 
 Node* InputBoxFrame::createWithHint(const std::string &message, const std::string &defaultValue, ccInputCallback inputCallback, int maxLength, ui::EditBox::InputMode mode)
 {
-  auto background = SHColorNode::create(Color4B(Color3B::BLACK, 100));
+  auto visibleSize = Director::getInstance()->getVisibleSize();
+  auto background = SHColorNode::create(Color4B(Color3B::BLACK, 100), visibleSize.width, visibleSize.height);
   auto sprite = Sprite::create("res/base/frame/infoBox.png");
-  sprite->setPositionNormalized(Vec2(0.5, 0.7));
+  sprite->setAnchorPoint(Vec2(0.5, 1));
+  sprite->setPositionNormalized(Vec2(0.5, 1));
   auto f = Director::getInstance()->getContentScaleFactor();
+  sprite->setScale(f);
+  background->addChild(sprite);
   auto contentSize = sprite->getContentSize();
   
   auto hintLabel = Label::createWithSystemFont(message, "Helvetica", 18);
@@ -24,10 +28,8 @@ Node* InputBoxFrame::createWithHint(const std::string &message, const std::strin
   hintLabel->setPositionNormalized(Vec2(0.05, 0.83));
   hintLabel->setScale(1 / f);
   sprite->addChild(hintLabel);
-  sprite->setScale(f);
-  background->addChild(sprite);
   
-  auto editBox = ui::EditBox::create(Size(contentSize.width, 18), "res/base/frame/inputFrame.jpg");
+  auto editBox = ui::EditBox::create(Size(contentSize.width, 24), "res/base/frame/inputFrame.jpg");
   editBox->setPlaceHolder(defaultValue.c_str());
   editBox->setInputMode(mode);
   editBox->setPosition(Vec2(contentSize.width / 2, contentSize.height / 2));

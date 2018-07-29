@@ -9,7 +9,7 @@
 #define MoneyFrame_hpp
 
 #include "cocos2d.h"
-#include "CityBuildingData.hpp"
+#include "GuildData.hpp"
 
 USING_NS_CC;
 using namespace std;
@@ -18,9 +18,13 @@ class MoneyFrame
 {
 private:
   Node* p_sprite;
-  CityBuildingData* p_cityBuildingData;
+  GuildData* p_guildData;
+  Label* p_labMoney;
 public:
   MoneyFrame();
+  void setGuildDataId(int guildId);
+  void setGuildData(GuildData *guildData);
+  void refresh();
   Node* getSprite() const;
 };
 

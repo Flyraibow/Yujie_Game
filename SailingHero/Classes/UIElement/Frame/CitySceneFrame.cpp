@@ -62,6 +62,11 @@ CitySceneFrame::CitySceneFrame()
   systemBarSprite->setNormalizedPosition(Vec2());
   p_sprite->addChild(systemBarSprite);
   
+  auto moneySprite = p_moneyFrame.getSprite();
+  p_moneyFrame.setGuildData(GameData::getSharedInstance()->getGuildData());
+  moneySprite->setAnchorPoint(Vec2(1, 0));
+  moneySprite->setNormalizedPosition(Vec2(0.75, 0.083));
+  p_sprite->addChild(moneySprite);
   
 //  auto button1 = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("test 2"),
 //                                                     CC_CALLBACK_1(CitySceneFrame::clickTest2, this));

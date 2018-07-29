@@ -14,6 +14,7 @@
 #include <vector>
 #include <unordered_map>
 #include "SystemBarFrame.hpp"
+#include "MoneyFrame.hpp"
 
 USING_NS_CC;
 using namespace std;
@@ -40,6 +41,7 @@ private:
   vector<Label *> p_labGuildShareList;
   SystemBarFrame p_systemBarFrame;
   unordered_map<int, Node*> p_buildingImageMap;
+  MoneyFrame p_moneyFrame;
   
   Label* p_labData;
   
