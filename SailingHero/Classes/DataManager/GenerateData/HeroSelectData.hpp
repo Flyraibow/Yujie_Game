@@ -5,6 +5,7 @@ This file (HeroSelectData.hpp) is generated
 #define HeroSelectData_hpp
 #include <map>
 #include "BaseData.h"
+#include "CityData.hpp"
 #include "GuildData.hpp"
 
 
@@ -16,6 +17,7 @@ private:
 	int p_selectHeroId;
 	string p_iconId;
 	string p_smallIconId;
+	string p_startCityIdId;
 	string p_guildId;
 public:
 	string getId() const;
@@ -26,6 +28,8 @@ public:
 	cocos2d::Sprite* getSmallIcon(bool isDefaultSize = true);
 	string getSmallIconPath();
 	string getSmallIconId() const;
+	CityData* getStartCityIdData() const;
+	string getStartCityIdId() const;
 	GuildData* getGuildData() const;
 	string getGuildId() const;
 	string getHeroDescription() const;

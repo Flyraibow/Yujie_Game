@@ -41,12 +41,44 @@ void GameData::setDay(int day)
 	p_day = day;
 }
 
+CityData* GameData::getCityIdData() const
+{
+	return CityData::getCityDataById(p_cityIdId);
+}
+
+string GameData::getCityIdId() const
+{
+	return p_cityIdId;
+}
+
+void GameData::setCityIdId(string cityId)
+{
+	p_cityIdId = cityId;
+}
+
+GuildData* GameData::getGuildIdData() const
+{
+	return GuildData::getGuildDataById(p_guildIdId);
+}
+
+string GameData::getGuildIdId() const
+{
+	return p_guildIdId;
+}
+
+void GameData::setGuildIdId(string guildId)
+{
+	p_guildIdId = guildId;
+}
+
 string GameData::description() const
 {
 	string desc = "gameData = {\n";
 	desc += "\tyear : " + to_string(p_year) + "\n";
 	desc += "\tmonth : " + to_string(p_month) + "\n";
 	desc += "\tday : " + to_string(p_day) + "\n";
+	desc += "\tcityId : " + to_string(p_cityIdId) + "\n";
+	desc += "\tguildId : " + to_string(p_guildIdId) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -63,6 +95,8 @@ GameData* GameData::getSharedInstance()
 			p_sharedData->p_year = buffer->getInt();
 			p_sharedData->p_month = buffer->getInt();
 			p_sharedData->p_day = buffer->getInt();
+			p_sharedData->p_cityIdId = buffer->getString();
+			p_sharedData->p_guildIdId = buffer->getString();
 		}
 	}
 	return p_sharedData;
@@ -73,13 +107,17 @@ bool GameData::saveData(const string & path)
 	auto filePath = path + "/GameData.dat";
 	auto data = GameData::getSharedInstance();
 	auto buffer = make_unique<bb::ByteBuffer>();
-	buffer->putInt(3);
+	buffer->putInt(5);
 	buffer->putString("p_year");
 	buffer->putString(to_string(data->p_year));
 	buffer->putString("p_month");
 	buffer->putString(to_string(data->p_month));
 	buffer->putString("p_day");
 	buffer->putString(to_string(data->p_day));
+	buffer->putString("p_cityIdId");
+	buffer->putString(to_string(data->p_cityIdId));
+	buffer->putString("p_guildIdId");
+	buffer->putString(to_string(data->p_guildIdId));
 	buffer->writeToFile(filePath);
 	return true;
 }
@@ -103,6 +141,10 @@ bool GameData::loadData(const string & path)
 					data->p_month = atoi(value.c_str());
 				} else if (key == "p_day") {
 					data->p_day = atoi(value.c_str());
+				} else if (key == "p_cityIdId") {
+					data->p_cityIdId = value;
+				} else if (key == "p_guildIdId") {
+					data->p_guildIdId = value;
 				}
 			}
 		}

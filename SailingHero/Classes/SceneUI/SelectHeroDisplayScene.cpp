@@ -214,14 +214,30 @@ void SelectHeroDisplayScene::clickChangeStartGame(cocos2d::Ref* pSender)
       selectList.push_back(it->second->getAbilityDescription());
     }
     
-    auto frame = MultiSelectionFrame::createMultiSelectFrame(selectList, 3, [datalist](vector<int> selectedIndexes){
+    auto frame = MultiSelectionFrame::createMultiSelectFrame(selectList, 3, [datalist, this](vector<int> selectedIndexes){
       for (int i = 0; i < selectedIndexes.size(); ++i) {
         int index = selectedIndexes[i];
         CCLOG("选择了 %d", index);
         CCLOG("选择了 %s", datalist.at(index)->getAbilityName().c_str());
       }
+      this->selectHero();
+      
     });
     this->addChild(frame);
   });
   s_window->addChild(dialog->getSprite());
+}
+
+#include "GameData.hpp"
+#include "CityScene.hpp"
+
+void SelectHeroDisplayScene::selectHero()
+{
+  CCASSERT(p_selectHeroData, "Must select a hero");
+  auto gameData = GameData::getSharedInstance();
+  gameData->setGuildIdId(p_selectHeroData->getGuildId());
+  gameData->setCityIdId(p_selectHeroData->getStartCityIdId());
+  CityScene *cityScene = CityScene::create();
+  cityScene->setCityDataId(gameData->getCityIdData()->getCityId());
+  Director::getInstance()->replaceScene(cityScene);
 }

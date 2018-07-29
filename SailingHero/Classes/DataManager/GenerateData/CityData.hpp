@@ -9,6 +9,7 @@ This file (CityData.hpp) is generated
 #include <vector>
 #include "CultureData.hpp"
 #include "CityStatusData.hpp"
+#include "TownPhotoData.hpp"
 #include "CityTypeData.hpp"
 #include "GuildData.hpp"
 #include "CityGoodsData.hpp"
@@ -24,6 +25,7 @@ private:
 	string p_cityName;
 	string p_cultureId;
 	string p_cityStatusId;
+	string p_backGroundId;
 	string p_cityTypeId;
 	double p_longitude;
 	double p_latitude;
@@ -42,6 +44,9 @@ public:
 	CityStatusData* getCityStatusData() const;
 	string getCityStatusId() const;
 	void setCityStatusId(string cityStatus);
+	TownPhotoData* getBackGroundData() const;
+	string getBackGroundId() const;
+	void setBackGroundId(string backGround);
 	CityTypeData* getCityTypeData() const;
 	string getCityTypeId() const;
 	double getLongitude() const;

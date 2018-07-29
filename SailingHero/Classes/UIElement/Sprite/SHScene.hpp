@@ -13,7 +13,7 @@
 USING_NS_CC;
 
 #define SCREEN_COVER_LAYER_HEIGHT 100
-#define COVER_DEBUG
+//#define COVER_DEBUG
 
 class SHScene : public cocos2d::Scene
 {

@@ -21,6 +21,8 @@ using namespace std;
 class CitySceneFrame
 {
 private:
+  Node* p_background;
+  Sprite* p_townPhoto;
   Sprite* p_sprite;
   CityData* p_cityData;
   double p_scale;
@@ -46,7 +48,7 @@ public:
   CitySceneFrame();
   void setCityData(CityData *cityData);
   void refresh();
-  Sprite* getSprite() const;
+  Node* getSprite() const;
   void clickTest2(cocos2d::Ref* pSender);
   void clickTest3(cocos2d::Ref* pSender);
 };

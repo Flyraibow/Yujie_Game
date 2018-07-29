@@ -66,6 +66,16 @@ string HeroSelectData::getSmallIconId() const
 	return p_smallIconId;
 }
 
+CityData* HeroSelectData::getStartCityIdData() const
+{
+	return CityData::getCityDataById(p_startCityIdId);
+}
+
+string HeroSelectData::getStartCityIdId() const
+{
+	return p_startCityIdId;
+}
+
 GuildData* HeroSelectData::getGuildData() const
 {
 	return GuildData::getGuildDataById(p_guildId);
@@ -88,6 +98,7 @@ string HeroSelectData::description() const
 	desc += "\tselectHeroId : " + to_string(p_selectHeroId) + "\n";
 	desc += "\ticonId : " + to_string(p_iconId) + "\n";
 	desc += "\tsmallIconId : " + to_string(p_smallIconId) + "\n";
+	desc += "\tstartCityId : " + to_string(p_startCityIdId) + "\n";
 	desc += "\tguild : " + to_string(p_guildId) + "\n";
 	desc += "\theroDescription : " + getHeroDescription() + "\n";
 	desc += "}\n";
@@ -109,6 +120,7 @@ map<int, HeroSelectData*>* HeroSelectData::getSharedDictionary()
 				heroSelectData->p_selectHeroId = buffer->getInt();
 				heroSelectData->p_iconId = buffer->getString();
 				heroSelectData->p_smallIconId = buffer->getString();
+				heroSelectData->p_startCityIdId = buffer->getString();
 				heroSelectData->p_guildId = buffer->getString();
 				p_sharedDictionary->insert(pair<int, HeroSelectData*>(heroSelectData->p_selectHeroId, heroSelectData));
 			}

@@ -1,5 +1,5 @@
-﻿year,month,day
-int,int,int
--,-,-
-Y,Y,Y
-1955,2,12
+﻿year,month,day,cityId,guildId
+int,int,int,friend_Id,friend_id
+-,-,-,City,Guild
+Y,Y,Y,Y,Y
+1555,2,12,0,0

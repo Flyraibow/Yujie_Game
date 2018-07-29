@@ -19,14 +19,18 @@ static const int MAX_GUILD_NUM = 3;
 
 CitySceneFrame::CitySceneFrame()
 {
+  p_townPhoto = nullptr;
+  p_background = Node::create();
   p_sprite = Sprite::create("res/base/frame/citySceneFrame.png");
+  p_background->setContentSize(p_sprite->getContentSize());
+  p_background->addChild(p_sprite, 1);
   
   Vec2 origin = Director::getInstance()->getVisibleOrigin();
   auto visibleSize = Director::getInstance()->getVisibleSize();
   p_scale = visibleSize.height / p_sprite->getContentSize().height;
   p_sprite->setScale(p_scale);
-  p_sprite->setAnchorPoint(Vec2(1, 0));
-  p_sprite->setNormalizedPosition(Vec2(1, 0));
+  p_sprite->setAnchorPoint(Vec2(0, 0));
+  p_sprite->setNormalizedPosition(Vec2(0, 0));
   
   p_labCityName = createLabelWithScale(Vec2(0.792, 0.933));
   p_labCityType = createLabelWithScale(Vec2(0.792, 0.866));
@@ -137,38 +141,46 @@ void CitySceneFrame::refresh()
       p_sprite->addChild(buildingSprite);
     }
   }
+  if (p_townPhoto != nullptr) {
+    p_townPhoto->removeFromParent();
+  }
+  p_townPhoto = p_cityData->getBackGroundData()->getTownPhotoImage();
+  p_townPhoto->setAnchorPoint(Vec2());
+  p_townPhoto->setNormalizedPosition(Vec2());
+  p_townPhoto->setScale(p_scale);
+  p_background->addChild(p_townPhoto);
 }
 
-Sprite* CitySceneFrame::getSprite() const
+Node* CitySceneFrame::getSprite() const
 {
-  return p_sprite;
+  return p_background;
 }
 
-//#include "SaveDataManager.hpp"
-//#include "Calendar.hpp"
-#include "DialogFrame.hpp"
+////#include "SaveDataManager.hpp"
+////#include "Calendar.hpp"
+//#include "DialogFrame.hpp"
+////
+//void CitySceneFrame::clickTest2(cocos2d::Ref* pSender)
+//{
 //
-void CitySceneFrame::clickTest2(cocos2d::Ref* pSender)
-{
-  
-  auto dialog = DialogFrame::createWithDialogIds({"1", "2", "3"}, [](){
-    CCLOG("对话结束 了");
-  }, p_sprite->getContentSize());
-  
-  p_sprite->addChild(dialog->getSprite());
-//  auto gameData = GameData::getSharedInstance();
-//  auto date = nextDay(gameData->getYear(), gameData->getMonth(), gameData->getDay());
-//  gameData->setYear(date.year);
-//  gameData->setMonth(date.month);
-//  gameData->setDay(date.day);
-//  refresh();
-}
+//  auto dialog = DialogFrame::createWithDialogIds({"1", "2", "3"}, [](){
+//    CCLOG("对话结束 了");
+//  }, p_sprite->getContentSize());
 //
-//#include "CityScene.hpp"
-//
-void CitySceneFrame::clickTest3(Ref* pSender)
-{
-  //  SaveDataManager::loadData(1);
-  Director::getInstance()->popScene();
-}
+//  p_sprite->addChild(dialog->getSprite());
+////  auto gameData = GameData::getSharedInstance();
+////  auto date = nextDay(gameData->getYear(), gameData->getMonth(), gameData->getDay());
+////  gameData->setYear(date.year);
+////  gameData->setMonth(date.month);
+////  gameData->setDay(date.day);
+////  refresh();
+//}
+////
+////#include "CityScene.hpp"
+////
+//void CitySceneFrame::clickTest3(Ref* pSender)
+//{
+//  //  SaveDataManager::loadData(1);
+//  Director::getInstance()->popScene();
+//}
 
