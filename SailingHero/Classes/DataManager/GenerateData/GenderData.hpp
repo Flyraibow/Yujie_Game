@@ -7,7 +7,6 @@ This file (GenderData.hpp) is generated
 #include "BaseData.h"
 
 
-using namespace std;
 class GenderData: public BaseData
 {
 private:

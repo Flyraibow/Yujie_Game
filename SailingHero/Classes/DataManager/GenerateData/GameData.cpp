@@ -7,7 +7,7 @@ This file (GameData.cpp) is generated
 #include "Utils.hpp"
 
 
-using namespace std;
+using namespace SHUtil;
 
 GameData* GameData::p_sharedData = nullptr;
 

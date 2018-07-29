@@ -7,7 +7,7 @@ This file (CityGoodsData.cpp) is generated
 #include "Utils.hpp"
 
 
-using namespace std;
+using namespace SHUtil;
 
 map<int, CityGoodsData*>* CityGoodsData::p_sharedDictionary = nullptr;
 

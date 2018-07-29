@@ -8,7 +8,7 @@ This file (CityBuildingData.cpp) is generated
 #include <LocalizationHelper.hpp>
 
 
-using namespace std;
+using namespace SHUtil;
 
 map<int, CityBuildingData*>* CityBuildingData::p_sharedDictionary = nullptr;
 

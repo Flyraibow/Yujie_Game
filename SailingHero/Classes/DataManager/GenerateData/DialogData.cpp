@@ -8,7 +8,7 @@ This file (DialogData.cpp) is generated
 #include <LocalizationHelper.hpp>
 
 
-using namespace std;
+using namespace SHUtil;
 
 map<string, DialogData*>* DialogData::p_sharedDictionary = nullptr;
 

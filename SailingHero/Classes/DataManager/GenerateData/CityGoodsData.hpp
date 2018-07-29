@@ -8,7 +8,6 @@ This file (CityGoodsData.hpp) is generated
 #include "GoodsData.hpp"
 
 
-using namespace std;
 class CityGoodsData: public BaseData
 {
 private:

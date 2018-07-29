@@ -8,7 +8,7 @@ This file (GoodsData.cpp) is generated
 #include <LocalizationHelper.hpp>
 
 
-using namespace std;
+using namespace SHUtil;
 
 map<int, GoodsData*>* GoodsData::p_sharedDictionary = nullptr;
 

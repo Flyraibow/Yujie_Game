@@ -7,7 +7,7 @@ This file (TownPhotoData.cpp) is generated
 #include "Utils.hpp"
 
 
-using namespace std;
+using namespace SHUtil;
 
 map<string, TownPhotoData*>* TownPhotoData::p_sharedDictionary = nullptr;
 

@@ -13,7 +13,6 @@ This file (SaveDataManager.cpp) is generated
 #include "HeroData.hpp"
 
 
-using namespace std;
 
 
 bool SaveDataManager::saveData(int index)

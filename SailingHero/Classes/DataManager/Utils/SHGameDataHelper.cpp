@@ -11,7 +11,7 @@
 #include "Calendar.hpp"
 #include "Utils.hpp"
 
-using namespace std;
+using namespace SHUtil;
 
 string getHeroFullName(HeroData *heroData)
 {

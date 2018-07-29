@@ -7,7 +7,6 @@ This file (CityStatusData.hpp) is generated
 #include "BaseData.h"
 
 
-using namespace std;
 enum class CITY_STATUS
 {
 	NORMAL = 0,

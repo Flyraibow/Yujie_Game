@@ -7,7 +7,6 @@ This file (ItemCategoryData.hpp) is generated
 #include "BaseData.h"
 
 
-using namespace std;
 class ItemCategoryData: public BaseData
 {
 private:

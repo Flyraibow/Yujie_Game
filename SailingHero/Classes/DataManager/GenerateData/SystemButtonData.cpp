@@ -8,7 +8,7 @@ This file (SystemButtonData.cpp) is generated
 #include <LocalizationHelper.hpp>
 
 
-using namespace std;
+using namespace SHUtil;
 
 map<int, SystemButtonData*>* SystemButtonData::p_sharedDictionary = nullptr;
 

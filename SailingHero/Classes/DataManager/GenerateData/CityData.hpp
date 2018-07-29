@@ -16,7 +16,6 @@ This file (CityData.hpp) is generated
 #include "CityBuildingData.hpp"
 
 
-using namespace std;
 class CityData: public BaseData
 {
 private:

@@ -9,7 +9,6 @@ This file (HeroSelectData.hpp) is generated
 #include "GuildData.hpp"
 
 
-using namespace std;
 class HeroSelectData: public BaseData
 {
 private:

@@ -189,8 +189,8 @@ CPPFileComplete::CPPFileComplete(const string &fileName) : CPPFile(fileName)
   p_headerFile = new CPPFileHeader(fileName);
   p_contentFile = new CPPFileContent(fileName);
   p_contentFile->addHeaders(p_headerFile->getFileName(), true);
-  p_headerFile->addNameSpace(kUsingNameSpaceStd);
-  p_contentFile->addNameSpace(kUsingNameSpaceStd);
+//  p_headerFile->addNameSpace(kUsingNameSpaceStd);
+//  p_contentFile->addNameSpace(kUsingNameSpaceStd);
 }
 
 CPPFileComplete::~CPPFileComplete()
@@ -244,6 +244,16 @@ void CPPFileComplete::addHeaders(const string &headers, bool isQuote, bool isHea
     p_headerFile->addHeaders(headers, isQuote);
   } else {
     p_contentFile->addHeaders(headers, isQuote);
+  }
+}
+
+void CPPFileComplete::addNamespaces(const string &namespaces, bool isHeader, bool isContent)
+{
+  if (isHeader) {
+    p_headerFile->addNameSpace(namespaces);
+  }
+  if (isContent) {
+    p_contentFile->addNameSpace(namespaces);
   }
 }
 

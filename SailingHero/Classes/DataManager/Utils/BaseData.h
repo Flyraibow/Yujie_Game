@@ -8,9 +8,19 @@
 #ifndef BaseData_h
 #define BaseData_h
 
+#include <set>
 #include <stdio.h>
 
 using namespace std;
+//using std::string;
+//template <class T>
+//using vector = std::vector<T>;
+//template <class T>
+//using set = std::set<T>;
+//template <class K, class T>
+//using map = std::map<K, T>;
+//template <class T1, class T2>
+//using pair = std::pair<T1, T2>;
 
 class BaseData
 {
@@ -20,9 +30,9 @@ public:
 };
 
 template<typename T>
-set<BaseData *> fromData(set<T> realSet)
+std::set<BaseData *> fromData(std::set<T> realSet)
 {
-  set<BaseData *> baseSet;
+  std::set<BaseData *> baseSet;
   for (auto data : realSet) baseSet.insert(data);
   return baseSet;
 }

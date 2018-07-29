@@ -8,7 +8,7 @@ This file (AbilityData.cpp) is generated
 #include <LocalizationHelper.hpp>
 
 
-using namespace std;
+using namespace SHUtil;
 
 map<int, AbilityData*>* AbilityData::p_sharedDictionary = nullptr;
 

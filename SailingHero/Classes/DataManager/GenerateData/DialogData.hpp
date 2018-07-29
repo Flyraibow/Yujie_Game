@@ -8,7 +8,6 @@ This file (DialogData.hpp) is generated
 #include "HeroData.hpp"
 
 
-using namespace std;
 class DialogData: public BaseData
 {
 private:

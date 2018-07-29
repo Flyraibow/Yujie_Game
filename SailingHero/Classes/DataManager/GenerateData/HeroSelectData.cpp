@@ -8,7 +8,7 @@ This file (HeroSelectData.cpp) is generated
 #include <LocalizationHelper.hpp>
 
 
-using namespace std;
+using namespace SHUtil;
 
 map<int, HeroSelectData*>* HeroSelectData::p_sharedDictionary = nullptr;
 

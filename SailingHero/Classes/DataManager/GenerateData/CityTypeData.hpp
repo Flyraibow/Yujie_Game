@@ -7,7 +7,6 @@ This file (CityTypeData.hpp) is generated
 #include "BaseData.h"
 
 
-using namespace std;
 class CityTypeData: public BaseData
 {
 private:

@@ -8,7 +8,7 @@ This file (GuildData.cpp) is generated
 #include <LocalizationHelper.hpp>
 
 
-using namespace std;
+using namespace SHUtil;
 
 map<int, GuildData*>* GuildData::p_sharedDictionary = nullptr;
 

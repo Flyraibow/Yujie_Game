@@ -15,34 +15,51 @@
 #include <map>
 #include "BaseData.h"
 
-namespace std {
-  string to_string(const string &str);
-  string to_string(const BaseData *data);
-  string to_string(const set<int> &pSet);
-  string to_string(const set<bool> &pSet);
-  string to_string(const set<double> &pSet);
-  string to_string(const set<float> &pSet);
-  string to_string(const set<string> &pSet);
-  string to_string(const set<long long> &pSet);
-  string to_string(const set<BaseData *> &pSet);
+
+namespace SHUtil {
   
-  string to_string(const vector<int> &pSet);
-  string to_string(const vector<bool> &pSet);
-  string to_string(const vector<double> &pSet);
-  string to_string(const vector<float> &pSet);
-  string to_string(const vector<string> &pSet);
-  string to_string(const vector<long long> &pSet);
-  string to_string(const vector<BaseData *> &pSet);
+  template<typename T>
+  ::std::string to_string(T value) {
+    return ::std::to_string(value);
+  }
   
-  string to_string(const map<BaseData *, int> &pMap);
-  string to_string(const map<string, int> &pMap);
-  string to_string(const map<string, string> &pMap);
+  ::std::string to_string(const ::std::string &str);
   
-  set<string> atoset(const string &str);
-  vector<string> atovector(const string &str);
-  vector<pair<string, string>> atomap(const string &str);
+  template<typename T>
+  ::std::string to_string(const ::std::set<T> &pSet) {
+    ::std::string st = "{ ";
+    for (auto str : pSet) {
+      st += to_string(str) + ", ";
+    }
+    st += "}";
+    return st;
+  }
   
-  string format(const char *fmt, ...)
+  template<typename T>
+  ::std::string to_string(const ::std::vector<T> &pSet) {
+    ::std::string st = "{ ";
+    for (auto str : pSet) {
+      st += to_string(str) + ", ";
+    }
+    st += "}";
+    return st;
+  }
+  
+  template<typename T, typename P>
+  ::std::string to_string(const ::std::map<T, P> &pMap) {
+    ::std::string st = "{ ";
+    for (auto iter = pMap.begin(); iter != pMap.end(); ++iter) {
+      st += to_string(iter->first) + ":" + ::std::to_string(iter->second) + ",";
+    }
+    st += "}";
+    return st;
+  }
+  
+  ::std::set<::std::string> atoset(const ::std::string &str);
+  ::std::vector<::std::string> atovector(const ::std::string &str);
+  ::std::vector<::std::pair<::std::string, ::std::string>> atomap(const ::std::string &str);
+  
+  ::std::string format(const char *fmt, ...)
 #ifdef __GNUC__
   __attribute__ ((format (printf, 1, 2)))
 #endif

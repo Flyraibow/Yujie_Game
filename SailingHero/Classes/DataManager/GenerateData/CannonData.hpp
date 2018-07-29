@@ -7,7 +7,6 @@ This file (CannonData.hpp) is generated
 #include "BaseData.h"
 
 
-using namespace std;
 class CannonData: public BaseData
 {
 private:

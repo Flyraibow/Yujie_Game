@@ -8,7 +8,7 @@ This file (GenderData.cpp) is generated
 #include <LocalizationHelper.hpp>
 
 
-using namespace std;
+using namespace SHUtil;
 
 map<int, GenderData*>* GenderData::p_sharedDictionary = nullptr;
 

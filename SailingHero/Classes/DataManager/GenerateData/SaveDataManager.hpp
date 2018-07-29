@@ -5,7 +5,6 @@ This file (SaveDataManager.hpp) is generated
 #define SaveDataManager_hpp
 
 
-using namespace std;
 class SaveDataManager
 {
 private:

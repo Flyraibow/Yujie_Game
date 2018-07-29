@@ -10,115 +10,16 @@
 
 using namespace std;
 
-namespace std {
-  string to_string(const string &str) {
+namespace SHUtil {
+  
+  ::std::string to_string(const ::std::string &str)
+  {
     return str;
   }
   
-  string to_string(const BaseData *data) {
-    return data->getId();
-  }
-  
-  template<typename T>
-  string to_string(const set<T> &pSet) {
-    string st = "{ ";
-    for (auto str : pSet) {
-      st += to_string(str) + ", ";
-    }
-    st += "}";
-    return st;
-  }
-  
-  template<typename T>
-  string to_string(const vector<T> &pSet) {
-    string st = "{ ";
-    for (auto str : pSet) {
-      st += to_string(str) + ", ";
-    }
-    st += "}";
-    return st;
-  }
-  
-  string to_string(const set<string> &pSet) {
-    return to_string<string>(pSet);
-  }
-  
-  string to_string(const set<int> &pSet) {
-    return to_string<int>(pSet);
-  }
-  
-  string to_string(const set<bool> &pSet) {
-    return to_string<bool>(pSet);
-  }
-  string to_string(const set<double> &pSet){
-    return to_string<double>(pSet);
-  }
-  
-  string to_string(const set<float> &pSet) {
-    return to_string<float>(pSet);
-  }
-  
-  string to_string(const set<long long> &pSet) {
-    return to_string<long long>(pSet);
-  }
-  
-  string to_string(const set<BaseData *> &pSet) {
-    return to_string<BaseData *>(pSet);
-  }
-  
-  string to_string(const vector<int> &pSet) {
-    return to_string<int>(pSet);
-  }
-  
-  string to_string(const vector<bool> &pSet) {
-    return to_string<bool>(pSet);
-  }
-  
-  string to_string(const vector<double> &pSet) {
-    return to_string<double>(pSet);
-  }
-  
-  string to_string(const vector<float> &pSet) {
-    return to_string<float>(pSet);
-  }
-  
-  string to_string(const vector<string> &pSet) {
-    return to_string<string>(pSet);
-  }
-  
-  string to_string(const vector<long long> &pSet) {
-    return to_string<long long>(pSet);
-  }
-  
-  string to_string(const vector<BaseData *> &pSet) {
-    return to_string<BaseData *>(pSet);
-  }
-  
-  template<typename T, typename P>
-  string to_string(const map<T, P> &pMap) {
-    string st = "{ ";
-    for (auto iter = pMap.begin(); iter != pMap.end(); ++iter) {
-      st += to_string(iter->first) + ":" + to_string(iter->second) + ",";
-    }
-    st += "}";
-    return st;
-  }
-  
-  string to_string(const map<BaseData *, int> &pMap) {
-    return to_string<BaseData *, int>(pMap);
-  }
-  
-  string to_string(const map<string, int> &pMap) {
-    return to_string<string, int>(pMap);
-  }
-
-  string to_string(const map<string, string> &pMap) {
-    return to_string<string, string>(pMap);
-  }
-  
-  set<string> atoset(const string &str) {
-    set<string> result;
-    string s;
+  ::std::set<::std::string> atoset(const ::std::string &str) {
+    ::std::set<::std::string> result;
+    ::std::string s;
     for (int i = 0; i < str.length(); ++i) {
       char c = str.at(i);
       if (c != ' ' && c != ',' && c != '{' && c != '}') {
@@ -130,10 +31,10 @@ namespace std {
     }
     return result;
   }
-
-  vector<string> atovector(const string &str) {
-    vector<string> result;
-    string s;
+  
+  ::std::vector<::std::string> atovector(const ::std::string &str) {
+    ::std::vector<::std::string> result;
+    ::std::string s;
     for (int i = 0; i < str.length(); ++i) {
       char c = str.at(i);
       if (c != ' ' && c != ',' && c != '{' && c != '}') {
@@ -147,10 +48,10 @@ namespace std {
   }
   
   
-  vector<pair<string, string>> atomap(const string &str) {
-    vector<pair<string, string>> result;
-    string s;
-    string key;
+  ::std::vector<::std::pair<::std::string, ::std::string>> atomap(const ::std::string &str) {
+    ::std::vector<::std::pair<::std::string, ::std::string>> result;
+    ::std::string s;
+    ::std::string key;
     for (int i = 0; i < str.length(); ++i) {
       char c = str.at(i);
       if (c != ' ' && c != ',' && c != '{' && c != '}' && c != ':') {

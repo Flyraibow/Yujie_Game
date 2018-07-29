@@ -78,6 +78,7 @@ public:
   void addClass(const CPPClass *cppClass);
   void addDefineClass(const string& defineClass, bool isHeader);
   void addHeaders(const string &headers, bool isQuote, bool isHeader);
+  void addNamespaces(const string &namespaces, bool isHeader, bool isContent);
   
   string getCppFileStringHeader() const;
   string getCppFileStringContent() const;

@@ -8,7 +8,6 @@ This file (HeroData.hpp) is generated
 #include "GenderData.hpp"
 
 
-using namespace std;
 class HeroData: public BaseData
 {
 private:

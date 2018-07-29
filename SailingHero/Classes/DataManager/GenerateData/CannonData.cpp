@@ -8,7 +8,7 @@ This file (CannonData.cpp) is generated
 #include <LocalizationHelper.hpp>
 
 
-using namespace std;
+using namespace SHUtil;
 
 map<int, CannonData*>* CannonData::p_sharedDictionary = nullptr;
 

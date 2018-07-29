@@ -7,7 +7,6 @@ This file (GameData.hpp) is generated
 #include "GuildData.hpp"
 
 
-using namespace std;
 class GameData
 {
 private:

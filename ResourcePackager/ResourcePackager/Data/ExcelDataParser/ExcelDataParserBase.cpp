@@ -122,6 +122,7 @@ CPPFileComplete* ExcelDataParserBase::getMainCppFile() const
   file->addHeaders("cocos2d.h", true, false);
   file->addHeaders("ByteBuffer.hpp", true, false);
   file->addHeaders("Utils.hpp", true, false);
+  file->addNamespaces("using namespace SHUtil;", false, true);
   return file;
 }
 

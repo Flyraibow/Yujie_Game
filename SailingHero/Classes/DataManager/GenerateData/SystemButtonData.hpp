@@ -7,7 +7,6 @@ This file (SystemButtonData.hpp) is generated
 #include "BaseData.h"
 
 
-using namespace std;
 class SystemButtonData: public BaseData
 {
 private:
