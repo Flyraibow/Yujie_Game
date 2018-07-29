@@ -1,8 +1,8 @@
 #include "SHDataManager.h"
 
-#include "GameData/GuildData.hpp"
-#include "GameData/CityData.hpp"
-#include "GameData/CityGoodsData.hpp"
+#include "DataManager/GenerateData/GuildData.hpp"
+#include "DataManager/GenerateData/CityData.hpp"
+#include "DataManager/GenerateData/CityGoodsData.hpp"
 
 namespace SailingHeroAPI {
 
