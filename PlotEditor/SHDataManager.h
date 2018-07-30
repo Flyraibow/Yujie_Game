@@ -3,9 +3,9 @@
 
 #include <string>
 
-#include "GameData/GameData.hpp"
-#include "GameData/DialogData.hpp"
-#include "GameData/HeroData.hpp"
+#include "DataManager/GenerateData/GameData.hpp"
+#include "DataManager/GenerateData/DialogData.hpp"
+#include "DataManager/GenerateData/HeroData.hpp"
 
 namespace SailingHeroAPI {
 

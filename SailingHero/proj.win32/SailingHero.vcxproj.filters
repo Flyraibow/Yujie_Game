@@ -63,70 +63,73 @@
     <ClCompile Include="..\..\PlotEditor\SHDataManager.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PlotEditor\GameData\CannonData.cpp">
-      <Filter>GameData</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\PlotEditor\GameData\CategoryUpdateData.cpp">
-      <Filter>GameData</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\PlotEditor\GameData\Utils.cpp">
       <Filter>GameData</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PlotEditor\GameData\CityBuildingData.cpp">
+    <ClCompile Include="..\Classes\DataManager\GenerateData\AbilityData.cpp">
       <Filter>GameData</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PlotEditor\GameData\CityData.cpp">
+    <ClCompile Include="..\Classes\DataManager\GenerateData\CannonData.cpp">
       <Filter>GameData</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PlotEditor\GameData\CityGoodsData.cpp">
+    <ClCompile Include="..\Classes\DataManager\GenerateData\CategoryUpdateData.cpp">
       <Filter>GameData</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PlotEditor\GameData\CityStatusData.cpp">
+    <ClCompile Include="..\Classes\DataManager\GenerateData\CityBuildingData.cpp">
       <Filter>GameData</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PlotEditor\GameData\CityTypeData.cpp">
+    <ClCompile Include="..\Classes\DataManager\GenerateData\CityData.cpp">
       <Filter>GameData</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PlotEditor\GameData\CultureData.cpp">
+    <ClCompile Include="..\Classes\DataManager\GenerateData\CityGoodsData.cpp">
       <Filter>GameData</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PlotEditor\GameData\GoodsData.cpp">
+    <ClCompile Include="..\Classes\DataManager\GenerateData\CityStatusData.cpp">
       <Filter>GameData</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PlotEditor\GameData\ItemCategoryData.cpp">
+    <ClCompile Include="..\Classes\DataManager\GenerateData\CityTypeData.cpp">
       <Filter>GameData</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PlotEditor\GameData\ItemData.cpp">
+    <ClCompile Include="..\Classes\DataManager\GenerateData\CultureData.cpp">
       <Filter>GameData</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PlotEditor\GameData\GoodsCategoryData.cpp">
+    <ClCompile Include="..\Classes\DataManager\GenerateData\DialogData.cpp">
       <Filter>GameData</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PlotEditor\GameData\GameData.cpp">
+    <ClCompile Include="..\Classes\DataManager\GenerateData\GameData.cpp">
       <Filter>GameData</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PlotEditor\GameData\GuildData.cpp">
+    <ClCompile Include="..\Classes\DataManager\GenerateData\GenderData.cpp">
       <Filter>GameData</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PlotEditor\GameData\HeroData.cpp">
+    <ClCompile Include="..\Classes\DataManager\GenerateData\GoodsCategoryData.cpp">
       <Filter>GameData</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PlotEditor\GameData\GenderData.cpp">
+    <ClCompile Include="..\Classes\DataManager\GenerateData\GoodsData.cpp">
       <Filter>GameData</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PlotEditor\GameData\AbilityData.cpp">
+    <ClCompile Include="..\Classes\DataManager\GenerateData\GuildData.cpp">
       <Filter>GameData</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PlotEditor\GameData\DialogData.cpp">
+    <ClCompile Include="..\Classes\DataManager\GenerateData\HeroData.cpp">
       <Filter>GameData</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PlotEditor\GameData\HeroSelectData.cpp">
+    <ClCompile Include="..\Classes\DataManager\GenerateData\HeroSelectData.cpp">
       <Filter>GameData</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PlotEditor\GameData\SystemButtonData.cpp">
+    <ClCompile Include="..\Classes\DataManager\GenerateData\ItemCategoryData.cpp">
       <Filter>GameData</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PlotEditor\GameData\ZodiacData.cpp">
+    <ClCompile Include="..\Classes\DataManager\GenerateData\ItemData.cpp">
+      <Filter>GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DataManager\GenerateData\SystemButtonData.cpp">
+      <Filter>GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DataManager\GenerateData\TownPhotoData.cpp">
+      <Filter>GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DataManager\GenerateData\ZodiacData.cpp">
       <Filter>GameData</Filter>
     </ClCompile>
   </ItemGroup>
@@ -164,73 +167,76 @@
     <ClInclude Include="..\..\PlotEditor\SHDataManager.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PlotEditor\GameData\CannonData.hpp">
-      <Filter>GameData</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\PlotEditor\GameData\CategoryUpdateData.hpp">
-      <Filter>GameData</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\PlotEditor\GameData\Utils.hpp">
-      <Filter>GameData</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\PlotEditor\GameData\CityBuildingData.hpp">
-      <Filter>GameData</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\PlotEditor\GameData\CityData.hpp">
-      <Filter>GameData</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\PlotEditor\GameData\CityGoodsData.hpp">
-      <Filter>GameData</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\PlotEditor\GameData\CityStatusData.hpp">
-      <Filter>GameData</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\PlotEditor\GameData\CityTypeData.hpp">
-      <Filter>GameData</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\PlotEditor\GameData\CultureData.hpp">
-      <Filter>GameData</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\PlotEditor\GameData\GoodsData.hpp">
-      <Filter>GameData</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\PlotEditor\GameData\ItemCategoryData.hpp">
-      <Filter>GameData</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\PlotEditor\GameData\ItemData.hpp">
-      <Filter>GameData</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\PlotEditor\GameData\GoodsCategoryData.hpp">
-      <Filter>GameData</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\PlotEditor\GameData\GameData.hpp">
-      <Filter>GameData</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\PlotEditor\GameData\GuildData.hpp">
-      <Filter>GameData</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\PlotEditor\GameData\HeroData.hpp">
-      <Filter>GameData</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\PlotEditor\GameData\GenderData.hpp">
-      <Filter>GameData</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\PlotEditor\GameData\AbilityData.hpp">
       <Filter>GameData</Filter>
     </ClInclude>
     <ClInclude Include="..\..\PlotEditor\GameData\BaseData.h">
       <Filter>GameData</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PlotEditor\GameData\DialogData.hpp">
+    <ClInclude Include="..\Classes\DataManager\GenerateData\AbilityData.hpp">
       <Filter>GameData</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PlotEditor\GameData\HeroSelectData.hpp">
+    <ClInclude Include="..\Classes\DataManager\GenerateData\CannonData.hpp">
       <Filter>GameData</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PlotEditor\GameData\SystemButtonData.hpp">
+    <ClInclude Include="..\Classes\DataManager\GenerateData\CategoryUpdateData.hpp">
       <Filter>GameData</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PlotEditor\GameData\ZodiacData.hpp">
+    <ClInclude Include="..\Classes\DataManager\GenerateData\CityBuildingData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\CityData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\CityGoodsData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\CityStatusData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\CityTypeData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\CultureData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\DialogData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\GameData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\GenderData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\GoodsCategoryData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\GoodsData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\GuildData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\HeroData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\HeroSelectData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\ItemCategoryData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\ItemData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\SystemButtonData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\TownPhotoData.hpp">
+      <Filter>GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\ZodiacData.hpp">
       <Filter>GameData</Filter>
     </ClInclude>
   </ItemGroup>

@@ -16,6 +16,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "librecast", "..\cocos2d\ext
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PlotEditor", "PlotEditor\PlotEditor.vcxproj", "{1843E8C7-F8E3-40B1-9457-6A842D5A98EF}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SailingHeroApp", "SailingHeroApp\SailingHeroApp.vcxproj", "{1710B3FB-F80F-4B16-A028-4BF5EA3145FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -56,6 +58,11 @@ Global
 		{1843E8C7-F8E3-40B1-9457-6A842D5A98EF}.Release|Win32.Build.0 = Release|Win32
 		{1843E8C7-F8E3-40B1-9457-6A842D5A98EF}.Release|x64.ActiveCfg = Release|x64
 		{1843E8C7-F8E3-40B1-9457-6A842D5A98EF}.Release|x64.Build.0 = Release|x64
+		{1710B3FB-F80F-4B16-A028-4BF5EA3145FC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1710B3FB-F80F-4B16-A028-4BF5EA3145FC}.Debug|x64.ActiveCfg = Debug|Win32
+		{1710B3FB-F80F-4B16-A028-4BF5EA3145FC}.Release|Win32.ActiveCfg = Release|Win32
+		{1710B3FB-F80F-4B16-A028-4BF5EA3145FC}.Release|Win32.Build.0 = Release|Win32
+		{1710B3FB-F80F-4B16-A028-4BF5EA3145FC}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

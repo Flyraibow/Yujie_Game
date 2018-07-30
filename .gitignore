@@ -28,7 +28,7 @@ DerivedData/
 *.DS_Store
 
 ## VS Foler
-proj.win32/
+Debug/
 .vs/
 Debug.win32/
 PlotEditor/doc/
