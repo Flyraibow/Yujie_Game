@@ -40,6 +40,7 @@ SaveDataManagerWriter::SaveDataManagerWriter(const string &fileName)
     "if (stat(path.c_str(), &st) == -1) {",
   }, 0);
   p_loadFunc->addBodyStatements("CCLOG(\"Failed to load data, there is no folder %s\", path.c_str());", 1);
+  p_loadFunc->addBodyStatements("return false;", 1);
   p_loadFunc->addBodyStatements("}", 0);
 }
 

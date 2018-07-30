@@ -60,16 +60,16 @@ void SHScene::setScreenCover(Size ratioSize)
     s_screenSize = Size(visibleSize.width, expectHeight);
     windowOrigin = Vec2(origin.x, nodeSize.height);
   }
-  if (nodeSize.width < 1 || nodeSize.height < 1) {
-    // there is no need to create a cover
-    return;
-  }
   
   s_window = Node::create();
   s_window->setContentSize(s_screenSize);
   s_window->setPosition(windowOrigin);
   this->addChild(s_window, 1);
   
+  if (nodeSize.width < 1 || nodeSize.height < 1) {
+    // there is no need to create a cover
+    return;
+  }
   auto n1 = SHColorNode::create(COVER_COLOR, nodeSize.width, nodeSize.height);
   auto n2 = SHColorNode::create(COVER_COLOR, nodeSize.width, nodeSize.height);
   if (verticalFlag) {

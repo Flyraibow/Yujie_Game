@@ -51,6 +51,7 @@ bool SaveDataManager::loadData(int index)
 	struct stat st = {0};
 	if (stat(path.c_str(), &st) == -1) {
 		CCLOG("Failed to load data, there is no folder %s", path.c_str());
+		return false;
 	}
 	if (!GuildData::loadData(path)) {
 		CCLOG("Failed to load GuildData, %s", path.c_str());
