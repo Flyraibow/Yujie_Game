@@ -15,11 +15,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\..\PlotEditor\TODO.txt">
-      <Filter>src</Filter>
-    </Text>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="..\..\..\PlotEditor\main.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -28,5 +23,8 @@
     <None Include="..\..\Resources\plot.csv">
       <Filter>csv</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\PlotEditor\TODO.txt" />
   </ItemGroup>
 </Project>

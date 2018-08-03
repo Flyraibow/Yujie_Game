@@ -5,21 +5,7 @@
 #include <string>
 #include <fstream>
 
-std::vector<std::wstring> SplitString(const std::wstring & input) {
-    std::vector<std::wstring> output;
-    std::wstring::const_iterator left, right;
-    left = right = input.begin();
-    while (right != input.end()) {
-        if (*right == L',') {
-            output.emplace_back(left, right);
-            left = right;
-            ++left;
-        }
-        ++right;
-    }
-    output.emplace_back(left, right);
-    return output;
-}
+#include "StringParser.h"
 
 class CSVReader {
 public:

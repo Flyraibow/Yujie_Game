@@ -4,30 +4,11 @@
 #include <vector>
 
 #include "cocos2d.h"
+#include "UI/Button.h"
+#include "UI/Dialog.h"
+#include "UI/MultiSelectList.h"
 
 namespace SailingHeroAPI {
-
-namespace ui {
-
-struct Button {
-    std::string templateName;
-    struct {
-        float x;
-        float y;
-    } centerPos;
-    std::string text;
-    std::function<void()> onClick;
-};
-
-struct Dialog {
-    std::string templateName;
-    bool showFullName;
-    bool showImage;
-    int heroId;
-    std::string text;
-};
-
-}
 
 class SHScenario {
 public:
@@ -55,6 +36,12 @@ public:
     const std::vector<ui::Dialog> & getAllDialog() const {
         return dialogs;
     }
+    void addMultiSelectList(const ui::MultiSelectList & multiSelectList) {
+        multiSelectLists.push_back(multiSelectList);
+    }
+    const std::vector<ui::MultiSelectList> & getAllMultiSelectList() const {
+        return multiSelectLists;
+    }
     cocos2d::Scene * getCCScene();
 private:
     friend class SHDirector;
@@ -67,6 +54,7 @@ private:
     std::string bgMusic;
     std::vector<ui::Button> buttons;
     std::vector<ui::Dialog> dialogs;
+    std::vector<ui::MultiSelectList> multiSelectLists;
     cocos2d::Scene * ccScene;
     bool ccSceneReady;
 };

@@ -3,51 +3,12 @@
 #include "CSVReader.h"
 #include "SHDirector.h"
 #include "SHDataManager.h"
+#include "StringParser.h"
+#include "UI/Button.h"
+#include "UI/Dialog.h"
+#include "UI/MultiSelectList.h"
 
 namespace SailingHeroAPI {
-
-int ToInt(const std::string & str)
-{
-    if (str.empty())
-        return 0;
-
-    int i = 0;
-    for (char c : str) {
-        i *= 10;
-        if (c >= '0' && c <= '9')
-            i += (int)(c - '0');
-        else
-            return 0;
-    }
-    return i;
-}
-
-bool ParseIntW(const std::wstring & str, int * out)
-{
-    if (str.empty())
-        return false;
-
-    int i = 0;
-    for (wchar_t c : str) {
-        i *= 10;
-        if (c >= '0' && c <= '9')
-            i += (int)(c - '0');
-        else
-            return false;
-    }
-    *out = i;
-    return true;
-}
-
-std::string WStringToString(const std::wstring & wstr)
-{
-    std::string str;
-    str.reserve(wstr.size());
-    for (wchar_t c : wstr) {
-        str.push_back((char)c);
-    }
-    return str;
-}
 
 cocos2d::Scene * SHPlotBuilder::Build(std::wstring csvFile)
 {
@@ -92,8 +53,9 @@ cocos2d::Scene * SHPlotBuilder::Build(std::wstring csvFile)
             ui::Button button;
             button.templateName = "";
             button.centerPos = {0.5f, 0.6f};
+            button.scale = 5.0f;
             button.text = WStringToString(lineItems[2]);
-            button.onClick = [gotoScene]() {
+            button.onClick = [gotoScene](cocos2d::ui::Button *) {
                 cocos2d::Director::getInstance()->replaceScene(gotoScene); };
             currentScenario->addButton(button);
             continue;
@@ -110,8 +72,24 @@ cocos2d::Scene * SHPlotBuilder::Build(std::wstring csvFile)
             dialog.showFullName = dialogData->getShowFullNames();
             dialog.showImage = dialogData->getShowImage();
             dialog.heroId = ToInt(dialogData->getHeroIdId());
-            dialog.text = dialogData->getDialogContent();
+            dialog.text = dialogData->getDialogContent() + " I'm @HeroName !!!";
             currentScenario->addDialog(dialog);
+            continue;
+        }
+
+        // multi select list
+        if (lineItems.size() == 4
+            && lineItems[0] == L"ui"
+            && lineItems[1] == L"select") {
+            ui::MultiSelectList select;
+            for (std::wstring & text : SplitString(lineItems[2], L';')) {
+                select.textList.emplace_back(WStringToString(text));
+            }
+            select.onSelectChange = [](std::vector<int> selected) {
+                CCLOG("%d selected.", selected.size());
+            };
+            currentScenario->addMultiSelectList(select);
+            continue;
         }
     }
 

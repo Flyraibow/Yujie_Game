@@ -149,13 +149,17 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\PlotEditor\CCUI\CCButton.cpp" />
     <ClCompile Include="..\..\PlotEditor\GameData\Utils.cpp" />
     <ClCompile Include="..\..\PlotEditor\SHAppDelegate.cpp" />
     <ClCompile Include="..\..\PlotEditor\SHDataManager.cpp" />
     <ClCompile Include="..\..\PlotEditor\SHDirector.cpp" />
     <ClCompile Include="..\..\PlotEditor\SHPlotBuilder.cpp" />
+    <ClCompile Include="..\..\PlotEditor\SHPlotContext.cpp" />
     <ClCompile Include="..\..\PlotEditor\SHScenario.cpp" />
+    <ClCompile Include="..\..\PlotEditor\StringParser.cpp" />
+    <ClCompile Include="..\..\PlotEditor\UI\Button.cpp" />
+    <ClCompile Include="..\..\PlotEditor\UI\Dialog.cpp" />
+    <ClCompile Include="..\..\PlotEditor\UI\MultiSelectList.cpp" />
     <ClCompile Include="..\Classes\DataManager\GenerateData\AbilityData.cpp" />
     <ClCompile Include="..\Classes\DataManager\GenerateData\CannonData.cpp" />
     <ClCompile Include="..\Classes\DataManager\GenerateData\CategoryUpdateData.cpp" />
@@ -186,7 +190,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\PlotEditor\CCUI\CCButton.h" />
     <ClInclude Include="..\..\PlotEditor\GameData\BaseData.h" />
     <ClInclude Include="..\..\PlotEditor\GameData\Utils.hpp" />
     <ClInclude Include="..\..\PlotEditor\SHAppDelegate.h" />
@@ -194,7 +197,12 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\..\PlotEditor\SHDirector.h" />
     <ClInclude Include="..\..\PlotEditor\SHCommand.h" />
     <ClInclude Include="..\..\PlotEditor\SHPlotBuilder.h" />
+    <ClInclude Include="..\..\PlotEditor\SHPlotContext.h" />
     <ClInclude Include="..\..\PlotEditor\SHScenario.h" />
+    <ClInclude Include="..\..\PlotEditor\StringParser.h" />
+    <ClInclude Include="..\..\PlotEditor\UI\Button.h" />
+    <ClInclude Include="..\..\PlotEditor\UI\Dialog.h" />
+    <ClInclude Include="..\..\PlotEditor\UI\MultiSelectList.h" />
     <ClInclude Include="..\Classes\DataManager\GenerateData\AbilityData.hpp" />
     <ClInclude Include="..\Classes\DataManager\GenerateData\CannonData.hpp" />
     <ClInclude Include="..\Classes\DataManager\GenerateData\CategoryUpdateData.hpp" />
@@ -256,7 +264,11 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <None Include="..\DataSource\BaseExcel\itemCategory.csv" />
     <None Include="..\DataSource\BaseExcel\systemButton.csv" />
     <None Include="..\DataSource\BaseExcel\zodiac.csv" />
+    <None Include="..\DataSource\Base\translation.csv" />
     <None Include="..\Resources\plot.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\PlotEditor\TODO.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

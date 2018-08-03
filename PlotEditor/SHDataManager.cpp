@@ -3,6 +3,7 @@
 #include "DataManager/GenerateData/GuildData.hpp"
 #include "DataManager/GenerateData/CityData.hpp"
 #include "DataManager/GenerateData/CityGoodsData.hpp"
+#include "StringParser.h"
 
 namespace SailingHeroAPI {
 

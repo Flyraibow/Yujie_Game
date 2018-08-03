@@ -13,3 +13,4 @@ ui,dialog,2,
 bgp,title_background.jpg,,
 ui,button,goto 1,1
 ui,dialog,3,
+ui,select,aaaaaa;bbbbbbbbbbb;ccccccccccccc,
