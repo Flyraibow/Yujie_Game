@@ -74,6 +74,14 @@ private:
 
 namespace SailingHeroAPI {
 
+void SHScenario::setCCScene(cocos2d::Scene * scene)
+{
+    assert(ccScene == nullptr);
+    ccScene = scene;
+    ccScene->retain();
+    ccSceneReady = true;
+}
+
 cocos2d::Scene * SHScenario::getCCScene()
 {
     if (ccScene == nullptr) {

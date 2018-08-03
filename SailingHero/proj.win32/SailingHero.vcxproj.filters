@@ -7,9 +7,6 @@
     <Filter Include="resource">
       <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src">
-      <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
-    </Filter>
     <Filter Include="deps">
       <UniqueIdentifier>{ca51fed4-d06e-4b25-8354-023bc8c8c4f8}</UniqueIdentifier>
     </Filter>
@@ -25,13 +22,16 @@
     <Filter Include="csv_classes">
       <UniqueIdentifier>{9b13a7cc-d0d9-4f15-a0f9-bf1bec74b458}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SailingHeroAPI">
+      <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>win32</Filter>
     </ClCompile>
     <ClCompile Include="..\..\PlotEditor\SHPlotBuilder.cpp">
-      <Filter>src</Filter>
+      <Filter>SailingHeroAPI</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\UIElement\Sprite\SHColorNode.cpp">
       <Filter>deps</Filter>
@@ -40,10 +40,10 @@
       <Filter>deps</Filter>
     </ClCompile>
     <ClCompile Include="..\..\PlotEditor\SHDirector.cpp">
-      <Filter>src</Filter>
+      <Filter>SailingHeroAPI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\PlotEditor\SHScenario.cpp">
-      <Filter>src</Filter>
+      <Filter>SailingHeroAPI</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Sys\ByteBuffer.cpp">
       <Filter>deps</Filter>
@@ -52,13 +52,13 @@
       <Filter>deps</Filter>
     </ClCompile>
     <ClCompile Include="..\..\PlotEditor\SHAppDelegate.cpp">
-      <Filter>src</Filter>
+      <Filter>SailingHeroAPI</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\UIElement\Sprite\SHScene.cpp">
       <Filter>deps</Filter>
     </ClCompile>
     <ClCompile Include="..\..\PlotEditor\SHDataManager.cpp">
-      <Filter>src</Filter>
+      <Filter>SailingHeroAPI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\PlotEditor\GameData\Utils.cpp">
       <Filter>csv_classes</Filter>
@@ -130,10 +130,10 @@
       <Filter>csv_classes</Filter>
     </ClCompile>
     <ClCompile Include="..\..\PlotEditor\StringParser.cpp">
-      <Filter>src</Filter>
+      <Filter>SailingHeroAPI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\PlotEditor\SHPlotContext.cpp">
-      <Filter>src</Filter>
+      <Filter>SailingHeroAPI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\PlotEditor\UI\Button.cpp">
       <Filter>UI</Filter>
@@ -144,37 +144,43 @@
     <ClCompile Include="..\..\PlotEditor\UI\MultiSelectList.cpp">
       <Filter>UI</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\UIElement\Frame\HeroSelectingFrame.cpp">
+      <Filter>deps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\UI\HeroSelectionScene.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
       <Filter>win32</Filter>
     </ClInclude>
     <ClInclude Include="..\..\PlotEditor\SHPlotBuilder.h">
-      <Filter>src</Filter>
+      <Filter>SailingHeroAPI</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\UIElement\Sprite\SHColorNode.hpp">
       <Filter>deps</Filter>
     </ClInclude>
     <ClInclude Include="..\..\PlotEditor\SHDirector.h">
-      <Filter>src</Filter>
+      <Filter>SailingHeroAPI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\PlotEditor\SHScenario.h">
-      <Filter>src</Filter>
+      <Filter>SailingHeroAPI</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Sys\LocalizationHelper.hpp">
       <Filter>deps</Filter>
     </ClInclude>
     <ClInclude Include="..\..\PlotEditor\SHAppDelegate.h">
-      <Filter>src</Filter>
+      <Filter>SailingHeroAPI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\PlotEditor\SHCommand.h">
-      <Filter>src</Filter>
+      <Filter>SailingHeroAPI</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\UIElement\Sprite\SHScene.hpp">
       <Filter>deps</Filter>
     </ClInclude>
     <ClInclude Include="..\..\PlotEditor\SHDataManager.h">
-      <Filter>src</Filter>
+      <Filter>SailingHeroAPI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\PlotEditor\GameData\Utils.hpp">
       <Filter>csv_classes</Filter>
@@ -249,10 +255,10 @@
       <Filter>csv_classes</Filter>
     </ClInclude>
     <ClInclude Include="..\..\PlotEditor\StringParser.h">
-      <Filter>src</Filter>
+      <Filter>SailingHeroAPI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\PlotEditor\SHPlotContext.h">
-      <Filter>src</Filter>
+      <Filter>SailingHeroAPI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\PlotEditor\UI\Button.h">
       <Filter>UI</Filter>
@@ -261,6 +267,9 @@
       <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\PlotEditor\UI\MultiSelectList.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\UI\HeroSelectionScene.h">
       <Filter>UI</Filter>
     </ClInclude>
   </ItemGroup>

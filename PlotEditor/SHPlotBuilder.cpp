@@ -7,6 +7,7 @@
 #include "UI/Button.h"
 #include "UI/Dialog.h"
 #include "UI/MultiSelectList.h"
+#include "UI/HeroSelectionScene.h"
 
 namespace SailingHeroAPI {
 
@@ -31,6 +32,7 @@ cocos2d::Scene * SHPlotBuilder::Build(std::wstring csvFile)
             continue;
         }
 
+        assert(currentScenario);
         if (lineItems[0] == L"bgp") {
             currentScenario->setBackgroundImage(WStringToString(lineItems[1]));
             continue;
@@ -49,14 +51,14 @@ cocos2d::Scene * SHPlotBuilder::Build(std::wstring csvFile)
             if (!ParseIntW(lineItems[3], &gotoId)) {
                 continue;
             }
-            cocos2d::Scene * gotoScene = director->getScenario(gotoId)->getCCScene();
             ui::Button button;
             button.templateName = "";
             button.centerPos = {0.5f, 0.6f};
             button.scale = 5.0f;
             button.text = WStringToString(lineItems[2]);
-            button.onClick = [gotoScene](cocos2d::ui::Button *) {
-                cocos2d::Director::getInstance()->replaceScene(gotoScene); };
+            button.onClick = [gotoId](cocos2d::ui::Button *) {
+                cocos2d::Director::getInstance()->replaceScene(
+                    SHDirector::getInstance()->getScenario(gotoId)->getCCScene()); };
             currentScenario->addButton(button);
             continue;
         }
@@ -89,6 +91,16 @@ cocos2d::Scene * SHPlotBuilder::Build(std::wstring csvFile)
                 CCLOG("%d selected.", selected.size());
             };
             currentScenario->addMultiSelectList(select);
+            continue;
+        }
+
+        // hero select
+        // TODO: handle scene dependency
+        if (lineItems.size() == 4
+            && lineItems[0] == L"scene"
+            && lineItems[1] == L"HeroSelection") {
+            ui::HeroSelectionScene heroSelection;
+            currentScenario->setCCScene(ui::SHHeroSelectionSceneToCCScene(heroSelection));
             continue;
         }
     }

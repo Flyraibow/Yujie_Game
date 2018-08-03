@@ -42,6 +42,7 @@ public:
     const std::vector<ui::MultiSelectList> & getAllMultiSelectList() const {
         return multiSelectLists;
     }
+    void setCCScene(cocos2d::Scene * ccScene);
     cocos2d::Scene * getCCScene();
 private:
     friend class SHDirector;

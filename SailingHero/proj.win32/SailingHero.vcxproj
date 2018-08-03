@@ -159,6 +159,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\..\PlotEditor\StringParser.cpp" />
     <ClCompile Include="..\..\PlotEditor\UI\Button.cpp" />
     <ClCompile Include="..\..\PlotEditor\UI\Dialog.cpp" />
+    <ClCompile Include="..\..\PlotEditor\UI\HeroSelectionScene.cpp" />
     <ClCompile Include="..\..\PlotEditor\UI\MultiSelectList.cpp" />
     <ClCompile Include="..\Classes\DataManager\GenerateData\AbilityData.cpp" />
     <ClCompile Include="..\Classes\DataManager\GenerateData\CannonData.cpp" />
@@ -184,6 +185,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\DataManager\GenerateData\ZodiacData.cpp" />
     <ClCompile Include="..\Classes\Sys\ByteBuffer.cpp" />
     <ClCompile Include="..\Classes\Sys\LocalizationHelper.cpp" />
+    <ClCompile Include="..\Classes\UIElement\Frame\HeroSelectingFrame.cpp" />
     <ClCompile Include="..\Classes\UIElement\Sprite\SHColorNode.cpp" />
     <ClCompile Include="..\Classes\UIElement\Sprite\SHScene.cpp" />
     <ClCompile Include="..\Classes\UIElement\Sprite\SHSpriteListener.cpp" />
@@ -202,6 +204,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\..\PlotEditor\StringParser.h" />
     <ClInclude Include="..\..\PlotEditor\UI\Button.h" />
     <ClInclude Include="..\..\PlotEditor\UI\Dialog.h" />
+    <ClInclude Include="..\..\PlotEditor\UI\HeroSelectionScene.h" />
     <ClInclude Include="..\..\PlotEditor\UI\MultiSelectList.h" />
     <ClInclude Include="..\Classes\DataManager\GenerateData\AbilityData.hpp" />
     <ClInclude Include="..\Classes\DataManager\GenerateData\CannonData.hpp" />
