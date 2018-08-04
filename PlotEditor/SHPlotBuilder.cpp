@@ -3,6 +3,7 @@
 #include "CSVReader.h"
 #include "SHDirector.h"
 #include "SHDataManager.h"
+#include "SHPlotContext.h"
 #include "StringParser.h"
 #include "UI/Button.h"
 #include "UI/Dialog.h"
@@ -100,6 +101,10 @@ cocos2d::Scene * SHPlotBuilder::Build(std::wstring csvFile)
             && lineItems[0] == L"scene"
             && lineItems[1] == L"HeroSelection") {
             ui::HeroSelectionScene heroSelection;
+            heroSelection.onSelected = [](int heroId) {
+                CCLOG("Hero %d selected. cache.heroId is '%s'.",
+                      heroId, SHPlotContext::getInstance()->cacheGet("heroId").data());
+            };
             currentScenario->setCCScene(ui::SHHeroSelectionSceneToCCScene(heroSelection));
             continue;
         }
