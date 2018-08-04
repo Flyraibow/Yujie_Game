@@ -17,7 +17,7 @@ public:
 	int getGenderId() const;
 	string getGenderName() const;
 	string description() const;
-	static map<int, GenderData*>* getSharedDictionary();
+	static const map<int, GenderData*>* getSharedDictionary();
 	static GenderData* getGenderDataById(int genderId);
 	static GenderData* getGenderDataById(const string& genderId);
 };

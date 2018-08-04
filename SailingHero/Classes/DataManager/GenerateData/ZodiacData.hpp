@@ -29,7 +29,7 @@ public:
 	int getEndMonth() const;
 	int getEndDate() const;
 	string description() const;
-	static map<int, ZodiacData*>* getSharedDictionary();
+	static const map<int, ZodiacData*>* getSharedDictionary();
 	static ZodiacData* getZodiacDataById(int zodiacId);
 	static ZodiacData* getZodiacDataById(const string& zodiacId);
 };

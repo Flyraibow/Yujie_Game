@@ -20,7 +20,7 @@ public:
 	string getCategoryUpdateName() const;
 	set<int> getUpdateMonth() const;
 	string description() const;
-	static map<int, CategoryUpdateData*>* getSharedDictionary();
+	static const map<int, CategoryUpdateData*>* getSharedDictionary();
 	static CategoryUpdateData* getCategoryUpdateDataById(int categoryUpdateId);
 	static CategoryUpdateData* getCategoryUpdateDataById(const string& categoryUpdateId);
 };

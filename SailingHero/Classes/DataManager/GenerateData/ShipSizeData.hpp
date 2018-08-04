@@ -17,7 +17,7 @@ public:
 	int getShipSizeId() const;
 	string getShipSizeName() const;
 	string description() const;
-	static map<int, ShipSizeData*>* getSharedDictionary();
+	static const map<int, ShipSizeData*>* getSharedDictionary();
 	static ShipSizeData* getShipSizeDataById(int shipSizeId);
 	static ShipSizeData* getShipSizeDataById(const string& shipSizeId);
 };

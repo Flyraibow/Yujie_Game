@@ -44,7 +44,7 @@ string AbilityData::description() const
 	return desc;
 }
 
-map<int, AbilityData*>* AbilityData::getSharedDictionary()
+const map<int, AbilityData*>* AbilityData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
 		p_sharedDictionary = new map<int, AbilityData*>();

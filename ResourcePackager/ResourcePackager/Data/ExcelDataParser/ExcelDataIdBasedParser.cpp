@@ -136,7 +136,7 @@ void ExcelDataIdBasedParser::setInitFunction()
   staticMapVariable->setInitialValue("nullptr");
   p_class->addVariable(staticMapVariable, true);
   
-  auto initFunction = new CPPFunction("getSharedDictionary", mapDicPointerType, true);
+  auto initFunction = new CPPFunction("getSharedDictionary", "const " + mapDicPointerType, true);
   auto descFunction = new CPPFunction("description", TYPE_STRING);
   descFunction->addBodyStatements("string desc = \"" + p_variableName + " = {\\n\";");
   const string filePath = "res/base/data/" + p_resDataFileName;
@@ -183,6 +183,10 @@ void ExcelDataIdBasedParser::setInitFunction()
   p_class->addFunction(initFunction, false);
   
   this->addDataLoadFunction(p_class);
+  
+  if (p_idSchema->isWritable()) {
+    addRegisterDataFunction();
+  }
 }
 
 string ExcelDataIdBasedParser::getInstanceCode() const
@@ -223,7 +227,7 @@ void ExcelDataIdBasedParser::setLoadFunction(const CPPVariable* pathVar)
   
   int count = 0;
   for (auto schema : p_dataSchemas) {
-    if (schema->isWritable()) {
+    if (schema->isWritable() && schema->getType() != ID) {
       auto parser = ExcelParserBase::createWithSchema(schema, p_idName);
       parser->addLoadFuncBody(loadFunc, count == 0);
       count++;
@@ -258,7 +262,7 @@ void ExcelDataIdBasedParser::setSaveFunction(const CPPVariable* pathVar)
   
   int count = 0;
   for (auto schema : p_dataSchemas) {
-    if (schema->isWritable()) {
+    if (schema->isWritable() && schema->getType() != ID) {
       auto parser = ExcelParserBase::createWithSchema(schema, p_idName);
       parser->addSaveFuncBody(saveFunc);
       count++;
@@ -321,4 +325,70 @@ void ExcelDataIdBasedParser::addDataLoadFunction(CPPClass* dataManager) const
     }, 0);
     dataManager->addFunction(retrieveFunc, false);
   }
+}
+
+
+void ExcelDataIdBasedParser::addRegisterDataFunction()
+{
+  auto id_schema_type = p_idSchema->getSubtype();
+  vector<const CPPVariable *> variables;
+  vector<pair<std::string, int>> registerBodyList;
+  registerBodyList.push_back(make_pair("if (!getSharedDictionary()) {", 0));
+  registerBodyList.push_back(make_pair("return nullptr;", 1));
+  registerBodyList.push_back(make_pair("}", 0));
+  if (id_schema_type == TYPE_STRING) {
+    variables.push_back(new CPPVariable(p_idName, "const string&"));
+    registerBodyList.push_back(make_pair("if (p_sharedDictionary->count(" + p_idName + ") > 0) {", 0));
+    registerBodyList.push_back(make_pair("return nullptr;", 1));
+    registerBodyList.push_back(make_pair("}", 0));
+    registerBodyList.push_back(make_pair("auto data = new " + p_className + "();", 0));
+    registerBodyList.push_back(make_pair("data->p_" + p_idName + " = " + p_idName + ";", 0));
+  } else {
+    registerBodyList.push_back(make_pair("int maxId = 0;", 0));
+    registerBodyList.push_back(make_pair("if (p_sharedDictionary->size() > 0) {", 0));
+    registerBodyList.push_back(make_pair("for (auto iter : *p_sharedDictionary) {", 1));
+    registerBodyList.push_back(make_pair("if (iter.first >= maxId) {", 2));
+    registerBodyList.push_back(make_pair("maxId = iter.first + 1;", 3));
+    registerBodyList.push_back(make_pair("}", 2));
+    registerBodyList.push_back(make_pair("}", 1));
+    registerBodyList.push_back(make_pair("}", 0));
+    registerBodyList.push_back(make_pair("auto data = new " + p_className + "();", 0));
+    registerBodyList.push_back(make_pair("data->p_" + p_idName + " = maxId;", 0));
+  }
+  
+  for (auto schema : p_dataSchemas) {
+    if (schema->getType() != ID) {
+      auto parser = ExcelParserBase::createWithSchema(schema, p_idName);
+      variables.push_back(new CPPVariable(schema->getName(), parser->getType()));
+      registerBodyList.push_back(make_pair("data->" + parser->getVariableName() + " = " + schema->getName()+";", 0));
+      delete parser;
+    }
+  }
+  
+  if (id_schema_type == TYPE_STRING) {
+    registerBodyList.push_back(make_pair("p_sharedDictionary->insert(make_pair(data->getId(), data));", 0));
+  } else {
+    registerBodyList.push_back(make_pair("p_sharedDictionary->insert(make_pair(maxId, data));", 0));
+  }
+  registerBodyList.push_back(make_pair("return data;", 0));
+  
+  auto registerFunc = new CPPFunction("register" + p_className, p_classTypeName, variables, true, false);
+  registerFunc->addBodyStatementsList(registerBodyList);
+  p_class->addFunction(registerFunc, false);
+  
+  CPPVariable* retrieveArg = nullptr;
+  if (id_schema_type == TYPE_INT) {
+    retrieveArg = new CPPVariable(p_idName, id_schema_type);
+  } else {
+    retrieveArg = new CPPVariable(p_idName, "const string&");
+  }
+  auto unregisterFunc = new CPPFunction("remove" + p_className + "ById", TYPE_BOOL, {retrieveArg}, true, false);
+  unregisterFunc->addBodyStatementsList({
+    make_pair("if (getSharedDictionary() != nullptr && p_sharedDictionary->count(" + p_idName + ")) {", 0),
+    make_pair("p_sharedDictionary->erase(" + p_idName + ");", 1),
+    make_pair("return true;", 1),
+    make_pair("}", 0),
+    make_pair("return false;", 0),
+  });
+  p_class->addFunction(unregisterFunc, false);
 }

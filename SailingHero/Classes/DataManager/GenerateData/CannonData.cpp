@@ -91,7 +91,7 @@ string CannonData::description() const
 	return desc;
 }
 
-map<int, CannonData*>* CannonData::getSharedDictionary()
+const map<int, CannonData*>* CannonData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
 		p_sharedDictionary = new map<int, CannonData*>();

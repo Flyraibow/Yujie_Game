@@ -30,7 +30,7 @@ public:
 	int getRange() const;
 	int getPower() const;
 	string description() const;
-	static map<int, CannonData*>* getSharedDictionary();
+	static const map<int, CannonData*>* getSharedDictionary();
 	static CannonData* getCannonDataById(int cannonId);
 	static CannonData* getCannonDataById(const string& cannonId);
 };

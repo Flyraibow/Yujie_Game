@@ -27,7 +27,7 @@ public:
 	int getCityStatusId() const;
 	string getCityStatusName() const;
 	string description() const;
-	static map<int, CityStatusData*>* getSharedDictionary();
+	static const map<int, CityStatusData*>* getSharedDictionary();
 	static CityStatusData* getCityStatusDataById(int cityStatusId);
 	static CityStatusData* getCityStatusDataById(const string& cityStatusId);
 };

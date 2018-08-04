@@ -18,7 +18,7 @@ public:
 	string getAbilityName() const;
 	string getAbilityDescription() const;
 	string description() const;
-	static map<int, AbilityData*>* getSharedDictionary();
+	static const map<int, AbilityData*>* getSharedDictionary();
 	static AbilityData* getAbilityDataById(int abilityId);
 	static AbilityData* getAbilityDataById(const string& abilityId);
 };

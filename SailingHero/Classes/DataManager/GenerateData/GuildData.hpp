@@ -34,7 +34,7 @@ public:
 	int getMoney() const;
 	void setMoney(int money);
 	string description() const;
-	static map<int, GuildData*>* getSharedDictionary();
+	static const map<int, GuildData*>* getSharedDictionary();
 	static GuildData* getGuildDataById(int guildId);
 	static GuildData* getGuildDataById(const string& guildId);
 	static bool saveData(const string & path);

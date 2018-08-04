@@ -25,7 +25,7 @@ public:
 	string getHeroIdId() const;
 	string getDialogContent() const;
 	string description() const;
-	static map<string, DialogData*>* getSharedDictionary();
+	static const map<string, DialogData*>* getSharedDictionary();
 	static DialogData* getDialogDataById(const string& dialogId);
 };
 #endif

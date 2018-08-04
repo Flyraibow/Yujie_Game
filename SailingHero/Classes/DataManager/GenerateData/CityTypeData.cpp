@@ -37,7 +37,7 @@ string CityTypeData::description() const
 	return desc;
 }
 
-map<int, CityTypeData*>* CityTypeData::getSharedDictionary()
+const map<int, CityTypeData*>* CityTypeData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
 		p_sharedDictionary = new map<int, CityTypeData*>();

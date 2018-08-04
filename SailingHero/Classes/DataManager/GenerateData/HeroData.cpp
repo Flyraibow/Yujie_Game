@@ -308,7 +308,7 @@ string HeroData::description() const
 	return desc;
 }
 
-map<int, HeroData*>* HeroData::getSharedDictionary()
+const map<int, HeroData*>* HeroData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
 		p_sharedDictionary = new map<int, HeroData*>();

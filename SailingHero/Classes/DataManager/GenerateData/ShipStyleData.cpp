@@ -104,7 +104,7 @@ string ShipStyleData::description() const
 	return desc;
 }
 
-map<int, ShipStyleData*>* ShipStyleData::getSharedDictionary()
+const map<int, ShipStyleData*>* ShipStyleData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
 		p_sharedDictionary = new map<int, ShipStyleData*>();

@@ -84,7 +84,7 @@ string ZodiacData::description() const
 	return desc;
 }
 
-map<int, ZodiacData*>* ZodiacData::getSharedDictionary()
+const map<int, ZodiacData*>* ZodiacData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
 		p_sharedDictionary = new map<int, ZodiacData*>();

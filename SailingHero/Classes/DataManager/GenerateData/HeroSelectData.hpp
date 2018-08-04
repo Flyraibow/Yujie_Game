@@ -33,7 +33,7 @@ public:
 	string getGuildId() const;
 	string getHeroDescription() const;
 	string description() const;
-	static map<int, HeroSelectData*>* getSharedDictionary();
+	static const map<int, HeroSelectData*>* getSharedDictionary();
 	static HeroSelectData* getHeroSelectDataById(int selectHeroId);
 	static HeroSelectData* getHeroSelectDataById(const string& selectHeroId);
 };

@@ -52,7 +52,7 @@ string TownPhotoData::description() const
 	return desc;
 }
 
-map<string, TownPhotoData*>* TownPhotoData::getSharedDictionary()
+const map<string, TownPhotoData*>* TownPhotoData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
 		p_sharedDictionary = new map<string, TownPhotoData*>();

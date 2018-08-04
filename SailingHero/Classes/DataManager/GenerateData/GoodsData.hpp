@@ -34,7 +34,7 @@ public:
 	int getLevelUpExp() const;
 	string getGoodsDescription() const;
 	string description() const;
-	static map<int, GoodsData*>* getSharedDictionary();
+	static const map<int, GoodsData*>* getSharedDictionary();
 	static GoodsData* getGoodsDataById(int goodsId);
 	static GoodsData* getGoodsDataById(const string& goodsId);
 };

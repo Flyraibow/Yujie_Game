@@ -88,8 +88,6 @@ string ExcelParserBase::getType() const
   string finalType;
   switch (p_schema->getType()) {
     case ID:
-      // Never set ID
-      assert(!p_schema->isWritable());
       finalType = p_schema->getSubtype();
       break;
     case FRIEND_ID:
@@ -97,6 +95,7 @@ string ExcelParserBase::getType() const
     case MUSIC:
     case EFFECT:
     case STRING:
+    case LANGUAGE:
       finalType = TYPE_STRING;
       break;
     case INT:

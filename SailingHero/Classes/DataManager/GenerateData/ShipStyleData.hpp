@@ -36,7 +36,7 @@ public:
 	set<CultureData*> getSellCultureDataSet() const;
 	set<string> getSellCultureIdSet() const;
 	string description() const;
-	static map<int, ShipStyleData*>* getSharedDictionary();
+	static const map<int, ShipStyleData*>* getSharedDictionary();
 	static ShipStyleData* getShipStyleDataById(int shipStyleId);
 	static ShipStyleData* getShipStyleDataById(const string& shipStyleId);
 };

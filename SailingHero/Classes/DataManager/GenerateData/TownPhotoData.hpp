@@ -20,7 +20,7 @@ public:
 	string getTownPhotoImagePath();
 	string getTownPhotoImageId() const;
 	string description() const;
-	static map<string, TownPhotoData*>* getSharedDictionary();
+	static const map<string, TownPhotoData*>* getSharedDictionary();
 	static TownPhotoData* getTownPhotoDataById(const string& townPhotoId);
 };
 #endif

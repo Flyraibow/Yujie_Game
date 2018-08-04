@@ -184,7 +184,7 @@ void ExcelDataParserBase::setPrepareFunction()
     } else if (schema->getType() == SET || schema->getType() == FRIEND_ID_SET) {
       containSet = true;
     }
-    if (schema->isWritable()) {
+    if (schema->getType() != ID && schema->isWritable()) {
       needSaveDataNumber++;
     }
   }
@@ -296,6 +296,7 @@ void ExcelDataParserBase::setLoadFunction(const CPPVariable* pathVar)
   int count = 0;
   for (auto schema : p_dataSchemas) {
     if (schema->isWritable()) {
+      assert(schema->getType() != ID);
       auto parser = ExcelParserBase::createWithSchema(schema, "");
       parser->addLoadFuncBody(loadFunc, count == 0, "data", 3);
       count++;
@@ -322,6 +323,7 @@ void ExcelDataParserBase::setSaveFunction(const CPPVariable* pathVar)
   int count = 0;
   for (auto schema : p_dataSchemas) {
     if (schema->isWritable()) {
+      assert(schema->getType() != ID);
       auto parser = ExcelParserBase::createWithSchema(schema, "");
       parser->addSaveFuncBody(saveFunc, "data", 0);
       count++;

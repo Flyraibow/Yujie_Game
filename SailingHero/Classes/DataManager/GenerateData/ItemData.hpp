@@ -32,7 +32,7 @@ public:
 	int getPrice() const;
 	string getItemDescription() const;
 	string description() const;
-	static map<int, ItemData*>* getSharedDictionary();
+	static const map<int, ItemData*>* getSharedDictionary();
 	static ItemData* getItemDataById(int itemId);
 	static ItemData* getItemDataById(const string& itemId);
 };

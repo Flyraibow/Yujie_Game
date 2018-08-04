@@ -29,7 +29,7 @@ public:
 	double getPosX() const;
 	double getPosY() const;
 	string description() const;
-	static map<int, CityBuildingData*>* getSharedDictionary();
+	static const map<int, CityBuildingData*>* getSharedDictionary();
 	static CityBuildingData* getCityBuildingDataById(int buildingId);
 	static CityBuildingData* getCityBuildingDataById(const string& buildingId);
 };

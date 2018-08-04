@@ -37,7 +37,7 @@ string ShipSizeData::description() const
 	return desc;
 }
 
-map<int, ShipSizeData*>* ShipSizeData::getSharedDictionary()
+const map<int, ShipSizeData*>* ShipSizeData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
 		p_sharedDictionary = new map<int, ShipSizeData*>();

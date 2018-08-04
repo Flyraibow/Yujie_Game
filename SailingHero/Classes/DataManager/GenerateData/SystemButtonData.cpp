@@ -37,7 +37,7 @@ string SystemButtonData::description() const
 	return desc;
 }
 
-map<int, SystemButtonData*>* SystemButtonData::getSharedDictionary()
+const map<int, SystemButtonData*>* SystemButtonData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
 		p_sharedDictionary = new map<int, SystemButtonData*>();

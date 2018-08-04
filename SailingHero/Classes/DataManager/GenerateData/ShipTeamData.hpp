@@ -30,6 +30,7 @@ private:
 public:
 	string getId() const;
 	int getShipTeamId() const;
+	void setShipTeamId(int shipTeamId);
 	HeroData* getLeaderData() const;
 	string getLeaderId() const;
 	bool getIsActive() const;
@@ -55,9 +56,11 @@ public:
 	int getTireness() const;
 	void setTireness(int tireness);
 	string description() const;
-	static map<int, ShipTeamData*>* getSharedDictionary();
+	static const map<int, ShipTeamData*>* getSharedDictionary();
 	static ShipTeamData* getShipTeamDataById(int shipTeamId);
 	static ShipTeamData* getShipTeamDataById(const string& shipTeamId);
+	static ShipTeamData* registerShipTeamData(string leader, bool isActive, bool isDismissed, bool hasInformation, bool hasMet, vector<string> ship, bool isOut, double posX, double posY, string city, int tireness);
+	static bool removeShipTeamDataById(int shipTeamId);
 	static bool saveData(const string & path);
 	static bool loadData(const string & path);
 	static bool clearData();

@@ -60,7 +60,7 @@ string DialogData::description() const
 	return desc;
 }
 
-map<string, DialogData*>* DialogData::getSharedDictionary()
+const map<string, DialogData*>* DialogData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
 		p_sharedDictionary = new map<string, DialogData*>();

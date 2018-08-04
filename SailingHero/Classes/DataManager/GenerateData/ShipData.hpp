@@ -5,33 +5,45 @@ This file (ShipData.hpp) is generated
 #define ShipData_hpp
 #include <map>
 #include "BaseData.h"
+#include "ShipStyleData.hpp"
+#include "CannonData.hpp"
+#include "HeroData.hpp"
 
 
 class ShipData: public BaseData
 {
 private:
 	static map<int, ShipData*>* p_sharedDictionary;
-	int p_cannonId;
-	string p_iconId;
-	int p_milltaryValue;
-	int p_price;
-	int p_range;
-	int p_power;
+	int p_shipId;
+	string p_shipName;
+	string p_shipStyleId;
+	string p_cannonId;
+	int p_currentDuration;
+	string p_leaderId;
 public:
 	string getId() const;
-	int getCannonId() const;
-	string getCannonName() const;
-	string getCannonDescription() const;
-	cocos2d::Sprite* getIcon(bool isDefaultSize = true);
-	string getIconPath();
-	string getIconId() const;
-	int getMilltaryValue() const;
-	int getPrice() const;
-	int getRange() const;
-	int getPower() const;
+	int getShipId() const;
+	void setShipId(int shipId);
+	void setShipName(string shipName);
+	string getShipName() const;
+	ShipStyleData* getShipStyleData() const;
+	string getShipStyleId() const;
+	CannonData* getCannonData() const;
+	string getCannonId() const;
+	void setCannonId(string cannon);
+	int getCurrentDuration() const;
+	void setCurrentDuration(int currentDuration);
+	HeroData* getLeaderData() const;
+	string getLeaderId() const;
+	void setLeaderId(string leader);
 	string description() const;
-	static map<int, ShipData*>* getSharedDictionary();
-	static ShipData* getShipDataById(int cannonId);
-	static ShipData* getShipDataById(const string& cannonId);
+	static const map<int, ShipData*>* getSharedDictionary();
+	static ShipData* getShipDataById(int shipId);
+	static ShipData* getShipDataById(const string& shipId);
+	static ShipData* registerShipData(string shipName, string shipStyle, string cannon, int currentDuration, string leader);
+	static bool removeShipDataById(int shipId);
+	static bool saveData(const string & path);
+	static bool loadData(const string & path);
+	static bool clearData();
 };
 #endif

@@ -107,7 +107,7 @@ string CultureData::description() const
 	return desc;
 }
 
-map<int, CultureData*>* CultureData::getSharedDictionary()
+const map<int, CultureData*>* CultureData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
 		p_sharedDictionary = new map<int, CultureData*>();

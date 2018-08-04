@@ -43,7 +43,7 @@ string CategoryUpdateData::description() const
 	return desc;
 }
 
-map<int, CategoryUpdateData*>* CategoryUpdateData::getSharedDictionary()
+const map<int, CategoryUpdateData*>* CategoryUpdateData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
 		p_sharedDictionary = new map<int, CategoryUpdateData*>();

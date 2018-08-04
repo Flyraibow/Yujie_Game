@@ -27,6 +27,7 @@ protected:
   void addEnum(CPPFileComplete *cppFile,const DataSchema *schema) const;
   virtual void sanityCheck() const;
   virtual string getInstanceCode() const;
+  void addRegisterDataFunction();
 public:
   ExcelDataIdBasedParser(const DataSchema *idSchema);
   virtual void saveData(const string& folderPath, LanguageData &langData);

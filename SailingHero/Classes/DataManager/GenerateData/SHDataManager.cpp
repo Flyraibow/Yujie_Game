@@ -10,6 +10,7 @@ This file (SHDataManager.cpp) is generated
 #include "ShipTeamData.hpp"
 #include "CityGoodsData.hpp"
 #include "CityData.hpp"
+#include "ShipData.hpp"
 #include "GameData.hpp"
 #include "HeroData.hpp"
 
@@ -312,18 +313,18 @@ CategoryUpdateData* SHDataManager::getCategoryUpdateDataById(const string& categ
 	return CategoryUpdateData::getCategoryUpdateDataById(atoi(categoryUpdateId.c_str()));
 }
 
-ShipData* SHDataManager::getShipDataById(int cannonId)
+ShipData* SHDataManager::getShipDataById(int shipId)
 {
-	if (ShipData::getSharedDictionary()->count(cannonId)) {
-		return ShipData::getSharedDictionary()->at(cannonId);
+	if (ShipData::getSharedDictionary()->count(shipId)) {
+		return ShipData::getSharedDictionary()->at(shipId);
 	}
 	return nullptr;
 }
 
-ShipData* SHDataManager::getShipDataById(const string& cannonId)
+ShipData* SHDataManager::getShipDataById(const string& shipId)
 {
-	if (cannonId.length() == 0) return nullptr;
-	return ShipData::getShipDataById(atoi(cannonId.c_str()));
+	if (shipId.length() == 0) return nullptr;
+	return ShipData::getShipDataById(atoi(shipId.c_str()));
 }
 
 GameData* SHDataManager::getGameData()
@@ -382,6 +383,10 @@ bool SHDataManager::saveData(int index)
 		CCLOG("Failed to save CityData, %s", path.c_str());
 		return false;
 	}
+	if (!ShipData::saveData(path)) {
+		CCLOG("Failed to save ShipData, %s", path.c_str());
+		return false;
+	}
 	if (!GameData::saveData(path)) {
 		CCLOG("Failed to save GameData, %s", path.c_str());
 		return false;
@@ -417,6 +422,10 @@ bool SHDataManager::loadData(int index)
 		CCLOG("Failed to load CityData, %s", path.c_str());
 		return false;
 	}
+	if (!ShipData::loadData(path)) {
+		CCLOG("Failed to load ShipData, %s", path.c_str());
+		return false;
+	}
 	if (!GameData::loadData(path)) {
 		CCLOG("Failed to load GameData, %s", path.c_str());
 		return false;
@@ -434,6 +443,7 @@ bool SHDataManager::clearData()
 	ShipTeamData::clearData();
 	CityGoodsData::clearData();
 	CityData::clearData();
+	ShipData::clearData();
 	GameData::clearData();
 	HeroData::clearData();
 	return true;

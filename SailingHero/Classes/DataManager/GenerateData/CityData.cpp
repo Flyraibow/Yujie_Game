@@ -180,7 +180,7 @@ string CityData::description() const
 	return desc;
 }
 
-map<int, CityData*>* CityData::getSharedDictionary()
+const map<int, CityData*>* CityData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
 		p_sharedDictionary = new map<int, CityData*>();

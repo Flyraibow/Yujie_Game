@@ -37,7 +37,7 @@ string GenderData::description() const
 	return desc;
 }
 
-map<int, GenderData*>* GenderData::getSharedDictionary()
+const map<int, GenderData*>* GenderData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
 		p_sharedDictionary = new map<int, GenderData*>();

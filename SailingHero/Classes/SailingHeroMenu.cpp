@@ -108,15 +108,23 @@ void SailingHeroMenu::clickTest1(cocos2d::Ref* pSender)
 }
 
 #include "MultiSelectionFrame.hpp"
+#include "ShipData.hpp"
+#include "ShipTeamData.hpp"
+#include "ShipStyleData.hpp"
+#include "CannonData.hpp"
 
 void SailingHeroMenu::clickTest2(cocos2d::Ref* pSender)
 {
-  auto frame = MultiSelectionFrame::createMultiSelectFrame({"1", "2", "3", "4"}, 3, [](vector<int> selectIndexes){
-    for (auto index : selectIndexes) {
-      CCLOG("selected : %d", index);
-    }
-  });
-  this->addChild(frame);
+//  auto frame = MultiSelectionFrame::createMultiSelectFrame({"1", "2", "3", "4"}, 3, [](vector<int> selectIndexes){
+//    for (auto index : selectIndexes) {
+//      CCLOG("selected : %d", index);
+//    }
+//  });
+//  this->addChild(frame);
+  auto ship = ShipData::registerShipData("飞虹特别号", "8", "3", 20, "2");
+  CCLOG("%s", ship->description().c_str());
+  SHDataManager::saveData(1);
+  
 }
 
 #include "CityScene.hpp"
@@ -124,11 +132,16 @@ void SailingHeroMenu::clickTest2(cocos2d::Ref* pSender)
 
 void SailingHeroMenu::clickTest3(Ref* pSender)
 {
+  SHDataManager::loadData(1);
+  auto shipDic = ShipData::getSharedDictionary();
+  for (auto iter : *shipDic) {
+    CCLOG("ship : %s ", iter.second->description().c_str());
+  }
 //  SaveDataManager::loadData(1);
-  SHDataManager::loadData(2);
-  auto scene = CityScene::createScene();
-  scene->setCityDataId(0);
-  Director::getInstance()->pushScene(scene);
+//  SHDataManager::loadData(2);
+//  auto scene = CityScene::createScene();
+//  scene->setCityDataId(0);
+//  Director::getInstance()->pushScene(scene);
 }
 
 

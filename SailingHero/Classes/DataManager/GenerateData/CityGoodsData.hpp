@@ -30,7 +30,7 @@ public:
 	bool getIsHidden() const;
 	void setIsHidden(bool isHidden);
 	string description() const;
-	static map<int, CityGoodsData*>* getSharedDictionary();
+	static const map<int, CityGoodsData*>* getSharedDictionary();
 	static CityGoodsData* getCityGoodsDataById(int cityGoodsId);
 	static CityGoodsData* getCityGoodsDataById(const string& cityGoodsId);
 	static bool saveData(const string & path);

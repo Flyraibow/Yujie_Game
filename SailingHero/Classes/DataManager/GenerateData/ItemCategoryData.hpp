@@ -17,7 +17,7 @@ public:
 	int getItemCategoryId() const;
 	string getItemCategoryName() const;
 	string description() const;
-	static map<int, ItemCategoryData*>* getSharedDictionary();
+	static const map<int, ItemCategoryData*>* getSharedDictionary();
 	static ItemCategoryData* getItemCategoryDataById(int itemCategoryId);
 	static ItemCategoryData* getItemCategoryDataById(const string& itemCategoryId);
 };

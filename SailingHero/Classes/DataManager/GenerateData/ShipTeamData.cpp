@@ -22,6 +22,11 @@ int ShipTeamData::getShipTeamId() const
 	return p_shipTeamId;
 }
 
+void ShipTeamData::setShipTeamId(int shipTeamId)
+{
+	p_shipTeamId = shipTeamId;
+}
+
 HeroData* ShipTeamData::getLeaderData() const
 {
 	return HeroData::getHeroDataById(p_leaderId);
@@ -165,7 +170,7 @@ string ShipTeamData::description() const
 	return desc;
 }
 
-map<int, ShipTeamData*>* ShipTeamData::getSharedDictionary()
+const map<int, ShipTeamData*>* ShipTeamData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
 		p_sharedDictionary = new map<int, ShipTeamData*>();
@@ -211,6 +216,45 @@ ShipTeamData* ShipTeamData::getShipTeamDataById(const string& shipTeamId)
 {
 	if (shipTeamId.length() == 0) return nullptr;
 	return ShipTeamData::getShipTeamDataById(atoi(shipTeamId.c_str()));
+}
+
+ShipTeamData* ShipTeamData::registerShipTeamData(string leader, bool isActive, bool isDismissed, bool hasInformation, bool hasMet, vector<string> ship, bool isOut, double posX, double posY, string city, int tireness)
+{
+	if (!getSharedDictionary()) {
+		return nullptr;
+	}
+	int maxId = 0;
+	if (p_sharedDictionary->size() > 0) {
+		for (auto iter : *p_sharedDictionary) {
+			if (iter.first >= maxId) {
+				maxId = iter.first + 1;
+			}
+		}
+	}
+	auto data = new ShipTeamData();
+	data->p_shipTeamId = maxId;
+	data->p_leaderId = leader;
+	data->p_isActive = isActive;
+	data->p_isDismissed = isDismissed;
+	data->p_hasInformation = hasInformation;
+	data->p_hasMet = hasMet;
+	data->p_shipIdVector = ship;
+	data->p_isOut = isOut;
+	data->p_posX = posX;
+	data->p_posY = posY;
+	data->p_cityId = city;
+	data->p_tireness = tireness;
+	p_sharedDictionary->insert(make_pair(maxId, data));
+	return data;
+}
+
+bool ShipTeamData::removeShipTeamDataById(int shipTeamId)
+{
+	if (getSharedDictionary() != nullptr && p_sharedDictionary->count(shipTeamId)) {
+		p_sharedDictionary->erase(shipTeamId);
+		return true;
+	}
+	return false;
 }
 
 bool ShipTeamData::saveData(const string & path)

@@ -21,7 +21,7 @@ public:
 	CategoryUpdateData* getCategoryUpdateData() const;
 	string getCategoryUpdateId() const;
 	string description() const;
-	static map<int, GoodsCategoryData*>* getSharedDictionary();
+	static const map<int, GoodsCategoryData*>* getSharedDictionary();
 	static GoodsCategoryData* getGoodsCategoryDataById(int categoryId);
 	static GoodsCategoryData* getGoodsCategoryDataById(const string& categoryId);
 };

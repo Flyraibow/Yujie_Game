@@ -105,7 +105,7 @@ string HeroSelectData::description() const
 	return desc;
 }
 
-map<int, HeroSelectData*>* HeroSelectData::getSharedDictionary()
+const map<int, HeroSelectData*>* HeroSelectData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
 		p_sharedDictionary = new map<int, HeroSelectData*>();

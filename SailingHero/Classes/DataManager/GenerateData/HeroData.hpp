@@ -88,7 +88,7 @@ public:
 	int getObservingAbility() const;
 	void setObservingAbility(int observingAbility);
 	string description() const;
-	static map<int, HeroData*>* getSharedDictionary();
+	static const map<int, HeroData*>* getSharedDictionary();
 	static HeroData* getHeroDataById(int heroId);
 	static HeroData* getHeroDataById(const string& heroId);
 	static bool saveData(const string & path);

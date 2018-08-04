@@ -62,7 +62,7 @@ public:
 	set<string> getBuildingIdSet() const;
 	void setBuildingIdSet(set<string> building);
 	string description() const;
-	static map<int, CityData*>* getSharedDictionary();
+	static const map<int, CityData*>* getSharedDictionary();
 	static CityData* getCityDataById(int cityId);
 	static CityData* getCityDataById(const string& cityId);
 	static bool saveData(const string & path);

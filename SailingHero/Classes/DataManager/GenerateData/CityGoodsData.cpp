@@ -74,7 +74,7 @@ string CityGoodsData::description() const
 	return desc;
 }
 
-map<int, CityGoodsData*>* CityGoodsData::getSharedDictionary()
+const map<int, CityGoodsData*>* CityGoodsData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
 		p_sharedDictionary = new map<int, CityGoodsData*>();

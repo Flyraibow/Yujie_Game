@@ -17,7 +17,7 @@ public:
 	int getButtonId() const;
 	string getButtonName() const;
 	string description() const;
-	static map<int, SystemButtonData*>* getSharedDictionary();
+	static const map<int, SystemButtonData*>* getSharedDictionary();
 	static SystemButtonData* getSystemButtonDataById(int buttonId);
 	static SystemButtonData* getSystemButtonDataById(const string& buttonId);
 };

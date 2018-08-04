@@ -77,8 +77,8 @@ public:
 	static HeroSelectData* getHeroSelectDataById(const string& selectHeroId);
 	static CategoryUpdateData* getCategoryUpdateDataById(int categoryUpdateId);
 	static CategoryUpdateData* getCategoryUpdateDataById(const string& categoryUpdateId);
-	static ShipData* getShipDataById(int cannonId);
-	static ShipData* getShipDataById(const string& cannonId);
+	static ShipData* getShipDataById(int shipId);
+	static ShipData* getShipDataById(const string& shipId);
 	static GameData* getGameData();
 	static HeroData* getHeroDataById(int heroId);
 	static HeroData* getHeroDataById(const string& heroId);

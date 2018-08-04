@@ -93,7 +93,7 @@ string GuildData::description() const
 	return desc;
 }
 
-map<int, GuildData*>* GuildData::getSharedDictionary()
+const map<int, GuildData*>* GuildData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
 		p_sharedDictionary = new map<int, GuildData*>();
