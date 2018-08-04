@@ -149,6 +149,14 @@
 		EC828857210D76450041497C /* res in Resources */ = {isa = PBXBuildFile; fileRef = EC828855210D76450041497C /* res */; };
 		EC828859210D76E70041497C /* title.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EC828858210D76E70041497C /* title.mp3 */; };
 		EC82885A210D76E70041497C /* title.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EC828858210D76E70041497C /* title.mp3 */; };
+		EC828863211629490041497C /* ShipStyleData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82885E211629470041497C /* ShipStyleData.cpp */; };
+		EC828864211629490041497C /* ShipStyleData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82885E211629470041497C /* ShipStyleData.cpp */; };
+		EC828865211629490041497C /* ShipSizeData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82885F211629480041497C /* ShipSizeData.cpp */; };
+		EC828866211629490041497C /* ShipSizeData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82885F211629480041497C /* ShipSizeData.cpp */; };
+		EC828867211629490041497C /* ShipTeamData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828860211629480041497C /* ShipTeamData.cpp */; };
+		EC828868211629490041497C /* ShipTeamData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828860211629480041497C /* ShipTeamData.cpp */; };
+		EC828869211629490041497C /* ShipData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828862211629480041497C /* ShipData.cpp */; };
+		EC82886A211629490041497C /* ShipData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828862211629480041497C /* ShipData.cpp */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 /* End PBXBuildFile section */
@@ -332,6 +340,14 @@
 		EC82884A210D75AB0041497C /* SelectHeroMenuScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SelectHeroMenuScene.hpp; sourceTree = "<group>"; };
 		EC828855210D76450041497C /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		EC828858210D76E70041497C /* title.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = title.mp3; sourceTree = "<group>"; };
+		EC82885B211629460041497C /* ShipTeamData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ShipTeamData.hpp; path = GenerateData/ShipTeamData.hpp; sourceTree = "<group>"; };
+		EC82885C211629460041497C /* ShipStyleData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ShipStyleData.hpp; path = GenerateData/ShipStyleData.hpp; sourceTree = "<group>"; };
+		EC82885D211629470041497C /* ShipSizeData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ShipSizeData.hpp; path = GenerateData/ShipSizeData.hpp; sourceTree = "<group>"; };
+		EC82885E211629470041497C /* ShipStyleData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShipStyleData.cpp; path = GenerateData/ShipStyleData.cpp; sourceTree = "<group>"; };
+		EC82885F211629480041497C /* ShipSizeData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShipSizeData.cpp; path = GenerateData/ShipSizeData.cpp; sourceTree = "<group>"; };
+		EC828860211629480041497C /* ShipTeamData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShipTeamData.cpp; path = GenerateData/ShipTeamData.cpp; sourceTree = "<group>"; };
+		EC828861211629480041497C /* ShipData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ShipData.hpp; path = GenerateData/ShipData.hpp; sourceTree = "<group>"; };
+		EC828862211629480041497C /* ShipData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShipData.cpp; path = GenerateData/ShipData.cpp; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -591,6 +607,14 @@
 		ECD52B1F20BFB05A000F7170 /* GenerateData */ = {
 			isa = PBXGroup;
 			children = (
+				EC828862211629480041497C /* ShipData.cpp */,
+				EC828861211629480041497C /* ShipData.hpp */,
+				EC82885F211629480041497C /* ShipSizeData.cpp */,
+				EC82885D211629470041497C /* ShipSizeData.hpp */,
+				EC82885E211629470041497C /* ShipStyleData.cpp */,
+				EC82885C211629460041497C /* ShipStyleData.hpp */,
+				EC828860211629480041497C /* ShipTeamData.cpp */,
+				EC82885B211629460041497C /* ShipTeamData.hpp */,
 				EC8287DA210D75860041497C /* AbilityData.cpp */,
 				EC8287E8210D75870041497C /* AbilityData.hpp */,
 				EC8287E9210D75870041497C /* CannonData.cpp */,
@@ -813,6 +837,7 @@
 				EC8287C6210D75300041497C /* SHScene.cpp in Sources */,
 				EC828792210D74D10041497C /* SailingHeroMenu.cpp in Sources */,
 				1AF87B781F6F77F7007BE51C /* AppController.mm in Sources */,
+				EC828869211629490041497C /* ShipData.cpp in Sources */,
 				EC82882A210D758C0041497C /* HeroData.cpp in Sources */,
 				EC828812210D758C0041497C /* CityStatusData.cpp in Sources */,
 				EC82884D210D75AC0041497C /* SelectHeroMenuScene.cpp in Sources */,
@@ -850,17 +875,20 @@
 				EC8287CA210D75490041497C /* SystemButton.cpp in Sources */,
 				EC82880C210D758C0041497C /* ZodiacData.cpp in Sources */,
 				EC8287AE210D75060041497C /* MoneyFrame.cpp in Sources */,
+				EC828867211629490041497C /* ShipTeamData.cpp in Sources */,
 				EC828806210D758C0041497C /* CityGoodsData.cpp in Sources */,
 				EC82882C210D758C0041497C /* DialogData.cpp in Sources */,
 				EC82882E210D758C0041497C /* CityTypeData.cpp in Sources */,
 				EC828820210D758C0041497C /* HeroSelectData.cpp in Sources */,
 				EC8287AA210D75060041497C /* CitySceneFrame.cpp in Sources */,
+				EC828863211629490041497C /* ShipStyleData.cpp in Sources */,
 				1AF87B8A1F6F7822007BE51C /* main.m in Sources */,
 				EC8287B2210D75060041497C /* SystemBarFrame.cpp in Sources */,
 				EC82880E210D758C0041497C /* CategoryUpdateData.cpp in Sources */,
 				EC82881C210D758C0041497C /* GoodsData.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				EC82881E210D758C0041497C /* ItemCategoryData.cpp in Sources */,
+				EC828865211629490041497C /* ShipSizeData.cpp in Sources */,
 				EC828841210D759C0041497C /* SHCityDataHelper.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -876,6 +904,7 @@
 				EC8287AD210D75060041497C /* HeroSelectingFrame.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				EC82882D210D758C0041497C /* DialogData.cpp in Sources */,
+				EC82886A211629490041497C /* ShipData.cpp in Sources */,
 				EC8287B5210D75060041497C /* CityBuildingFrame.cpp in Sources */,
 				EC82881B210D758C0041497C /* CityBuildingData.cpp in Sources */,
 				EC82881D210D758C0041497C /* GoodsData.cpp in Sources */,
@@ -883,6 +912,7 @@
 				EC828850210D75AC0041497C /* CityScene.cpp in Sources */,
 				EC82880F210D758C0041497C /* CategoryUpdateData.cpp in Sources */,
 				EC828840210D759C0041497C /* SHGameDataHelper.cpp in Sources */,
+				EC828866211629490041497C /* ShipSizeData.cpp in Sources */,
 				EC8287D3210D75560041497C /* ByteBuffer.cpp in Sources */,
 				EC82881F210D758C0041497C /* ItemCategoryData.cpp in Sources */,
 				EC828817210D758C0041497C /* GenderData.cpp in Sources */,
@@ -890,6 +920,7 @@
 				EC828821210D758C0041497C /* HeroSelectData.cpp in Sources */,
 				EC8287AB210D75060041497C /* CitySceneFrame.cpp in Sources */,
 				EC82883E210D759C0041497C /* Calendar.cpp in Sources */,
+				EC828868211629490041497C /* ShipTeamData.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				EC828831210D758C0041497C /* ItemData.cpp in Sources */,
 				EC828825210D758C0041497C /* SaveDataManager.cpp in Sources */,
@@ -903,6 +934,7 @@
 				EC828833210D758C0041497C /* SystemButtonData.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				EC82884E210D75AC0041497C /* SelectHeroMenuScene.cpp in Sources */,
+				EC828864211629490041497C /* ShipStyleData.cpp in Sources */,
 				EC828827210D758C0041497C /* GuildData.cpp in Sources */,
 				EC8287CB210D75490041497C /* SystemButton.cpp in Sources */,
 				EC828829210D758C0041497C /* CultureData.cpp in Sources */,

@@ -5,7 +5,9 @@ This file (GuildData.hpp) is generated
 #define GuildData_hpp
 #include <map>
 #include "BaseData.h"
+#include <vector>
 #include "HeroData.hpp"
+#include "ShipTeamData.hpp"
 
 
 class GuildData: public BaseData
@@ -15,6 +17,7 @@ private:
 	int p_guildId;
 	string p_guildName;
 	string p_leaderId;
+	vector<string> p_shipTeamIdVector;
 	int p_style;
 	int p_money;
 public:
@@ -24,6 +27,9 @@ public:
 	string getGuildName() const;
 	HeroData* getLeaderData() const;
 	string getLeaderId() const;
+	vector<ShipTeamData*> getShipTeamDataVector() const;
+	vector<string> getShipTeamIdVector() const;
+	void setShipTeamIdVector(vector<string> shipTeam);
 	int getStyle() const;
 	int getMoney() const;
 	void setMoney(int money);

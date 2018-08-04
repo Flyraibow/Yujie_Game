@@ -9,6 +9,7 @@
 #include "DataSchema.hpp"
 #include <algorithm>
 #include <unordered_map>
+#include <unordered_set>
 #include "Utils.hpp"
 #include "CPPVariable.hpp"
 
@@ -34,6 +35,10 @@ const static unordered_map<string, DataType> s_type_map({
   {"friend_id_vector", FRIEND_ID_VECTOR},
   {"enum", ENUM},
   {"friend_id_map", FRIEND_ID_MAP},
+});
+
+const static unordered_set<DataType> s_friend_type_set({
+  FRIEND_ID, FRIEND_ID_VECTOR, FRIEND_ID_SET, FRIEND_ID_MAP
 });
 
 void addAutoTypeToBuffer(std::unique_ptr<bb::ByteBuffer> &buffer, DataType type, const string &val)
@@ -93,15 +98,26 @@ bool DataSchema::isWritable() const
   return p_isWritable;
 }
 
+bool DataSchema::isWeak() const
+{
+  return p_isWeak;
+}
+
 DataSchema::DataSchema(const string &name, const string &type, const string &subType, bool isWritable)
 {
   p_name = name;
-  p_subType = subType;
   string lower_type = type;
   transform(lower_type.begin(), lower_type.end(), lower_type.begin(), ::tolower);
   p_typeString = lower_type;
   p_type = s_type_map.at(lower_type);
   p_isWritable = isWritable;
+  if (s_friend_type_set.count(p_type) > 0 && subType.size() > 4 && subType.substr(0, 4) == "weak") {
+    p_subType = subType.substr(4, subType.size() - 4);
+    p_isWeak = true;
+  } else {
+    p_subType = subType;
+    p_isWeak = false;
+  }
 }
 
 void DataSchema::addValueIntoBuffer(std::unique_ptr<bb::ByteBuffer> &buffer, const string& value)

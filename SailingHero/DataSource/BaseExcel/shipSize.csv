@@ -1,0 +1,7 @@
+﻿shipSizeId,shipSizeName
+id,language
+int,chinese
+writable,N
+0,小型
+1,中型
+2,大型

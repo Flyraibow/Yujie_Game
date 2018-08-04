@@ -46,6 +46,25 @@ string GuildData::getLeaderId() const
 	return p_leaderId;
 }
 
+vector<ShipTeamData*> GuildData::getShipTeamDataVector() const
+{
+	vector<ShipTeamData*> resultVector;
+	for (auto objId : p_shipTeamIdVector) {
+		resultVector.push_back(ShipTeamData::getShipTeamDataById(objId));
+	}
+	return resultVector;
+}
+
+vector<string> GuildData::getShipTeamIdVector() const
+{
+	return p_shipTeamIdVector;
+}
+
+void GuildData::setShipTeamIdVector(vector<string> shipTeam)
+{
+	p_shipTeamIdVector = shipTeam;
+}
+
 int GuildData::getStyle() const
 {
 	return p_style;
@@ -67,6 +86,7 @@ string GuildData::description() const
 	desc += "\tguildId : " + to_string(p_guildId) + "\n";
 	desc += "\tguildName : " + getGuildName() + "\n";
 	desc += "\tleader : " + to_string(p_leaderId) + "\n";
+	desc += "\tshipTeam : " + to_string(p_shipTeamIdVector) + "\n";
 	desc += "\tstyle : " + to_string(p_style) + "\n";
 	desc += "\tmoney : " + to_string(p_money) + "\n";
 	desc += "}\n";
@@ -87,6 +107,10 @@ map<int, GuildData*>* GuildData::getSharedDictionary()
 				GuildData* guildData = new GuildData();
 				guildData->p_guildId = buffer->getInt();
 				guildData->p_leaderId = buffer->getString();
+				auto shipTeamCount = buffer->getLong();
+				for (int j = 0; j < shipTeamCount; ++j) {
+					guildData->p_shipTeamIdVector.push_back(buffer->getString());
+				}
 				guildData->p_style = buffer->getInt();
 				guildData->p_money = buffer->getInt();
 				p_sharedDictionary->insert(pair<int, GuildData*>(guildData->p_guildId, guildData));
@@ -116,13 +140,15 @@ bool GuildData::saveData(const string & path)
 	auto dict = GuildData::getSharedDictionary();
 	auto buffer = std::make_unique<bb::ByteBuffer>();
 	buffer->putLong(dict->size());
-	buffer->putInt(2);
+	buffer->putInt(3);
 	for (auto iter = dict->begin(); iter != dict->end(); iter++) {
 		auto dataId = iter->first;
 		auto data = iter->second;
 		buffer->putInt(dataId);
 		buffer->putString("p_guildName");
 		buffer->putString(to_string(data->p_guildName));
+		buffer->putString("p_shipTeamIdVector");
+		buffer->putString(to_string(data->p_shipTeamIdVector));
 		buffer->putString("p_money");
 		buffer->putString(to_string(data->p_money));
 	}
@@ -152,6 +178,8 @@ bool GuildData::loadData(const string & path)
 				if (data != nullptr) {
 					if (key == "p_guildName") {
 						data->p_guildName = value;
+					} else if (key == "p_shipTeamIdVector") {
+						data->p_shipTeamIdVector = atovector(value);
 					} else if (key == "p_money") {
 						data->p_money = atoi(value.c_str());
 					}

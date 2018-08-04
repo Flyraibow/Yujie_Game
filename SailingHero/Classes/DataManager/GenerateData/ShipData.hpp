@@ -1,0 +1,37 @@
+/*
+This file (ShipData.hpp) is generated
+*/
+#ifndef ShipData_hpp
+#define ShipData_hpp
+#include <map>
+#include "BaseData.h"
+
+
+class ShipData: public BaseData
+{
+private:
+	static map<int, ShipData*>* p_sharedDictionary;
+	int p_cannonId;
+	string p_iconId;
+	int p_milltaryValue;
+	int p_price;
+	int p_range;
+	int p_power;
+public:
+	string getId() const;
+	int getCannonId() const;
+	string getCannonName() const;
+	string getCannonDescription() const;
+	cocos2d::Sprite* getIcon(bool isDefaultSize = true);
+	string getIconPath();
+	string getIconId() const;
+	int getMilltaryValue() const;
+	int getPrice() const;
+	int getRange() const;
+	int getPower() const;
+	string description() const;
+	static map<int, ShipData*>* getSharedDictionary();
+	static ShipData* getShipDataById(int cannonId);
+	static ShipData* getShipDataById(const string& cannonId);
+};
+#endif

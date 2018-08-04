@@ -61,7 +61,7 @@ string ExcelParserFriendIdMap::getDescription() const
 void ExcelParserFriendIdMap::addHeaders(CPPFileComplete *cppFile) const
 {
   string friendClassName = p_keyType + "Data";
-  bool defineInHeader = true;
+  bool defineInHeader = !p_schema->isWeak();
   if (!defineInHeader) {
     cppFile->addDefineClass(friendClassName, true);
   }

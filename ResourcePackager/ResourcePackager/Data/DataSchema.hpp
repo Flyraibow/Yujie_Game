@@ -54,11 +54,13 @@ private:
   DataType p_type;
   string p_subType;
   bool p_isWritable;
+  bool p_isWeak;
 public:
   string getName() const;
   DataType getType() const;
   string getSubtype() const;
   bool isWritable() const;
+  bool isWeak() const;
   
   void addValueIntoBuffer(std::unique_ptr<bb::ByteBuffer> &buffer, const string& value);
   

@@ -7,6 +7,7 @@ This file (SaveDataManager.cpp) is generated
 #include <unistd.h>
 #include "cocos2d.h"
 #include "GuildData.hpp"
+#include "ShipTeamData.hpp"
 #include "CityGoodsData.hpp"
 #include "CityData.hpp"
 #include "GameData.hpp"
@@ -24,6 +25,10 @@ bool SaveDataManager::saveData(int index)
 	}
 	if (!GuildData::saveData(path)) {
 		CCLOG("Failed to save GuildData, %s", path.c_str());
+		return false;
+	}
+	if (!ShipTeamData::saveData(path)) {
+		CCLOG("Failed to save ShipTeamData, %s", path.c_str());
 		return false;
 	}
 	if (!CityGoodsData::saveData(path)) {
@@ -57,6 +62,10 @@ bool SaveDataManager::loadData(int index)
 		CCLOG("Failed to load GuildData, %s", path.c_str());
 		return false;
 	}
+	if (!ShipTeamData::loadData(path)) {
+		CCLOG("Failed to load ShipTeamData, %s", path.c_str());
+		return false;
+	}
 	if (!CityGoodsData::loadData(path)) {
 		CCLOG("Failed to load CityGoodsData, %s", path.c_str());
 		return false;
@@ -79,6 +88,7 @@ bool SaveDataManager::loadData(int index)
 bool SaveDataManager::clearData()
 {
 	GuildData::clearData();
+	ShipTeamData::clearData();
 	CityGoodsData::clearData();
 	CityData::clearData();
 	GameData::clearData();

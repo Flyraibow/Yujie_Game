@@ -48,7 +48,7 @@ void ExcelParserFriendIdSet::addFunctionsInclass(CPPClass *cppClass) const
 void ExcelParserFriendIdSet::addHeaders(CPPFileComplete *cppFile) const
 {
   string friendClassName = p_schema->getSubtype() + "Data";
-  bool defineInHeader = true;
+  bool defineInHeader = !p_schema->isWeak();
   if (!defineInHeader) {
     cppFile->addDefineClass(friendClassName, true);
   }

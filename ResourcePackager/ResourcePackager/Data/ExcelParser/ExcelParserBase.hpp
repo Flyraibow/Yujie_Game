@@ -30,7 +30,7 @@ static string castFromStringToValue(DataType type, const string &val) {
   } else if (type == SET || type == FRIEND_ID_SET) {
     return "atoset("+val+")";
   } else if (type == VECTOR || type == FRIEND_ID_VECTOR) {
-    return "atoset("+val+")";
+    return "atovector("+val+")";
   }
   return val;
 }

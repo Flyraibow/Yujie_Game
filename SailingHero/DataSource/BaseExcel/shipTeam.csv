@@ -1,0 +1,5 @@
+﻿shipTeamId,leader,isActive,isDismissed,hasInformation,hasMet,ship,isOut,posX,posY,city,tireness
+id,friend_id,bool,bool,bool,bool,friend_id_vector,bool,double,double,friend_id,int
+int,Hero,-,-,-,-,Ship,-,-,-,weakCity,-
+writable,N,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y
+0,0,1,0,0,0,0,0,-8.9,38.2,11,0
