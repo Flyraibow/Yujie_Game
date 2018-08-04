@@ -32,7 +32,7 @@ void SailingHeroPackager::readBaseFiles()
   string excelExportCodeFolderPath = get_outputCodeFolderPath();
   vector<string> files = utils::getCSVFileList(excelFolderPath);
   
-  auto saveDataFile = SaveDataManagerWriter("SaveDataManager");
+  auto saveDataFile = SaveDataManagerWriter("SHDataManager");
   for (int i = 0; i < files.size(); ++i) {
     string fileName = files[i];
     string path = excelFolderPath + fileName;

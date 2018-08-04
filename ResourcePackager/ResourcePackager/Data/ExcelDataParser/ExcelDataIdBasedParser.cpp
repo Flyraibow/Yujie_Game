@@ -182,33 +182,7 @@ void ExcelDataIdBasedParser::setInitFunction()
   initFunction->addBodyStatements("return " + staticMapName + ";");
   p_class->addFunction(initFunction, false);
   
-  string retrieveFuncName = "get" + p_className + "ById";
-  CPPVariable* retrieveArg = nullptr;
-  
-  if (id_schema_type == TYPE_INT) {
-    retrieveArg = new CPPVariable(p_idName, id_schema_type);
-  } else {
-    retrieveArg = new CPPVariable(p_idName, "const string&");
-  }
-  
-  auto retrieveFunc = new CPPFunction(retrieveFuncName, p_classTypeName, {retrieveArg}, true, false);
-  retrieveFunc->addBodyStatementsList({
-    make_pair("if (" + p_className + "::getSharedDictionary()->count(" + p_idName + ")) {", 0),
-    make_pair("return " + p_className + "::getSharedDictionary()->at(" + p_idName + ");", 1),
-    make_pair("}", 0),
-    make_pair("return nullptr;", 0),
-  });
-  p_class->addFunction(retrieveFunc, false);
-  
-  if (id_schema_type == TYPE_INT) {
-    retrieveArg = new CPPVariable(p_idName, "const string&");
-    retrieveFunc= new CPPFunction(retrieveFuncName, p_classTypeName, {retrieveArg}, true, false);
-    retrieveFunc->addBodyStatementsList({
-      "if (" + p_idName + ".length() == 0) return nullptr;",
-      "return " + p_className + "::" + retrieveFuncName + "(atoi(" + p_idName + ".c_str()));",
-    }, 0);
-    p_class->addFunction(retrieveFunc, false);
-  }
+  this->addDataLoadFunction(p_class);
 }
 
 string ExcelDataIdBasedParser::getInstanceCode() const
@@ -317,3 +291,34 @@ void ExcelDataIdBasedParser::setClearFunction()
   p_class->addFunction(clearFunc, false);
 }
 
+void ExcelDataIdBasedParser::addDataLoadFunction(CPPClass* dataManager) const
+{
+  string retrieveFuncName = "get" + p_className + "ById";
+  CPPVariable* retrieveArg = nullptr;
+  
+  auto id_schema_type = p_idSchema->getSubtype();
+  if (id_schema_type == TYPE_INT) {
+    retrieveArg = new CPPVariable(p_idName, id_schema_type);
+  } else {
+    retrieveArg = new CPPVariable(p_idName, "const string&");
+  }
+  
+  auto retrieveFunc = new CPPFunction(retrieveFuncName, p_classTypeName, {retrieveArg}, true, false);
+  retrieveFunc->addBodyStatementsList({
+    make_pair("if (" + p_className + "::getSharedDictionary()->count(" + p_idName + ")) {", 0),
+    make_pair("return " + p_className + "::getSharedDictionary()->at(" + p_idName + ");", 1),
+    make_pair("}", 0),
+    make_pair("return nullptr;", 0),
+  });
+  dataManager->addFunction(retrieveFunc, false);
+  
+  if (id_schema_type == TYPE_INT) {
+    retrieveArg = new CPPVariable(p_idName, "const string&");
+    retrieveFunc= new CPPFunction(retrieveFuncName, p_classTypeName, {retrieveArg}, true, false);
+    retrieveFunc->addBodyStatementsList({
+      "if (" + p_idName + ".length() == 0) return nullptr;",
+      "return " + p_className + "::" + retrieveFuncName + "(atoi(" + p_idName + ".c_str()));",
+    }, 0);
+    dataManager->addFunction(retrieveFunc, false);
+  }
+}

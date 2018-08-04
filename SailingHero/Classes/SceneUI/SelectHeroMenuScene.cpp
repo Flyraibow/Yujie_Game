@@ -13,7 +13,7 @@
 #include "SHSpriteListener.hpp"
 #include "HeroSelectData.hpp"
 #include "SelectHeroDisplayScene.hpp"
-#include "SaveDataManager.hpp"
+#include "SHDataManager.hpp"
 
 
 USING_NS_CC;
@@ -37,7 +37,7 @@ static void setEventListenerForSprite(Sprite *sprite, HeroSelectData *selectData
 
   // trigger when moving touch
   auto touchEnd = [selectData](Touch* touch, Event* event){
-    SaveDataManager::clearData();
+    SHDataManager::clearData();
     auto scene = SelectHeroDisplayScene::createScene(selectData);
     Director::getInstance()->pushScene(scene);
   };

@@ -46,6 +46,8 @@ SaveDataManagerWriter::SaveDataManagerWriter(const string &fileName)
 
 void SaveDataManagerWriter::addExcel(const ExcelDataParserBase *excel)
 {
+  p_file->addHeaders(excel->getClassName() + ".hpp", true, true);
+  excel->addDataLoadFunction(p_mainClass);
   if (excel->containWritableData()) {
     string fileName = excel->getClassName();
     p_file->addHeaders(fileName +".hpp", true, false);

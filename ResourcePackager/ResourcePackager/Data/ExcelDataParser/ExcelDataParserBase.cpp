@@ -348,3 +348,10 @@ void ExcelDataParserBase::setClearFunction()
   }, 0);
   p_class->addFunction(clearFunc, false);
 }
+
+void ExcelDataParserBase::addDataLoadFunction(CPPClass* dataManager) const
+{
+  auto loadDataFunc = new CPPFunction("get" + p_className, p_classTypeName, {}, true, false);
+  loadDataFunc->addBodyStatements("return " + p_className + "::getSharedInstance();");
+  dataManager->addFunction(loadDataFunc, false);
+}

@@ -50,6 +50,7 @@ public:
   virtual CPPClass* getMainCppClass() const;
   
   virtual void saveData(const string& folderPath, LanguageData &langData);
+  virtual void addDataLoadFunction(CPPClass* dataManager) const;
   void generateCode(const string& folderPath);
   
   bool containWritableData() const;

@@ -32,6 +32,7 @@ public:
   virtual void saveData(const string& folderPath, LanguageData &langData);
   virtual CPPFileComplete* getMainCppFile() const;
   virtual CPPClass* getMainCppClass() const;
+  virtual void addDataLoadFunction(CPPClass* dataManager) const;
 };
 
 #endif /* ExcelData_hpp */
