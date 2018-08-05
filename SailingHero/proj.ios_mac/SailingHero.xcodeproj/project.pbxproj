@@ -157,6 +157,8 @@
 		EC82886A211629490041497C /* ShipData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828862211629480041497C /* ShipData.cpp */; };
 		EC82886D21164EE00041497C /* SHDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82886B21164EE00041497C /* SHDataManager.cpp */; };
 		EC82886E21164EE00041497C /* SHDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82886B21164EE00041497C /* SHDataManager.cpp */; };
+		EC82887421169DE30041497C /* GoodsBasePriceData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82887221169DE20041497C /* GoodsBasePriceData.cpp */; };
+		EC82887521169DE30041497C /* GoodsBasePriceData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82887221169DE20041497C /* GoodsBasePriceData.cpp */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 /* End PBXBuildFile section */
@@ -348,6 +350,8 @@
 		EC828862211629480041497C /* ShipData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShipData.cpp; path = GenerateData/ShipData.cpp; sourceTree = "<group>"; };
 		EC82886B21164EE00041497C /* SHDataManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SHDataManager.cpp; path = GenerateData/SHDataManager.cpp; sourceTree = "<group>"; };
 		EC82886C21164EE00041497C /* SHDataManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SHDataManager.hpp; path = GenerateData/SHDataManager.hpp; sourceTree = "<group>"; };
+		EC82887221169DE20041497C /* GoodsBasePriceData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GoodsBasePriceData.cpp; path = GenerateData/GoodsBasePriceData.cpp; sourceTree = "<group>"; };
+		EC82887321169DE30041497C /* GoodsBasePriceData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GoodsBasePriceData.hpp; path = GenerateData/GoodsBasePriceData.hpp; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -607,6 +611,8 @@
 		ECD52B1F20BFB05A000F7170 /* GenerateData */ = {
 			isa = PBXGroup;
 			children = (
+				EC82887221169DE20041497C /* GoodsBasePriceData.cpp */,
+				EC82887321169DE30041497C /* GoodsBasePriceData.hpp */,
 				EC82886B21164EE00041497C /* SHDataManager.cpp */,
 				EC82886C21164EE00041497C /* SHDataManager.hpp */,
 				EC828862211629480041497C /* ShipData.cpp */,
@@ -873,6 +879,7 @@
 				EC82883D210D759C0041497C /* Calendar.cpp in Sources */,
 				EC8287B8210D75060041497C /* MultiSelectionFrame.cpp in Sources */,
 				EC8287CA210D75490041497C /* SystemButton.cpp in Sources */,
+				EC82887421169DE30041497C /* GoodsBasePriceData.cpp in Sources */,
 				EC82880C210D758C0041497C /* ZodiacData.cpp in Sources */,
 				EC8287AE210D75060041497C /* MoneyFrame.cpp in Sources */,
 				EC828867211629490041497C /* ShipTeamData.cpp in Sources */,
@@ -923,6 +930,7 @@
 				EC828868211629490041497C /* ShipTeamData.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				EC828831210D758C0041497C /* ItemData.cpp in Sources */,
+				EC82887521169DE30041497C /* GoodsBasePriceData.cpp in Sources */,
 				EC828811210D758C0041497C /* GoodsCategoryData.cpp in Sources */,
 				EC8287D1210D75560041497C /* LocalizationHelper.cpp in Sources */,
 				EC8287A9210D75060041497C /* InputBoxFrame.cpp in Sources */,

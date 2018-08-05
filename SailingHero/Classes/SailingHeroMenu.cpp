@@ -129,14 +129,20 @@ void SailingHeroMenu::clickTest2(cocos2d::Ref* pSender)
 
 #include "CityScene.hpp"
 #include "DialogFrame.hpp"
+#include "GoodsBasePriceData.hpp"
 
 void SailingHeroMenu::clickTest3(Ref* pSender)
 {
-  SHDataManager::loadData(1);
-  auto shipDic = ShipData::getSharedDictionary();
-  for (auto iter : *shipDic) {
-    CCLOG("ship : %s ", iter.second->description().c_str());
-  }
+  auto size = GoodsData::getSharedDictionary()->size();
+  auto goods = GoodsData::getGoodsDataById(arc4random() % size);
+  size = CultureData::getSharedDictionary()->size();
+  auto culture = CultureData::getCultureDataById(arc4random() % size);
+  CCLOG("price of goods : %s in  culture : %s, is %d", goods->getGoodsName().c_str(), culture->getCultureName().c_str(), GoodsBasePriceData::getGoodsBasePrice(goods->getGoodsId(), culture->getCutureId()));
+//  SHDataManager::loadData(1);
+//  auto shipDic = ShipData::getSharedDictionary();
+//  for (auto iter : *shipDic) {
+//    CCLOG("ship : %s ", iter.second->description().c_str());
+//  }
 //  SaveDataManager::loadData(1);
 //  SHDataManager::loadData(2);
 //  auto scene = CityScene::createScene();

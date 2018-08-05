@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EC217D8820BCB815000ADDE3 /* ExcelDataIdBasedParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC217D8620BCB815000ADDE3 /* ExcelDataIdBasedParser.cpp */; };
+		EC828871211678180041497C /* ExcelData2DBasedParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82886F211678180041497C /* ExcelData2DBasedParser.cpp */; };
 		EC99851E20FC66D700338850 /* ExcelParserBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC99851C20FC66D700338850 /* ExcelParserBase.cpp */; };
 		EC99852120FC672300338850 /* ExcelParserFriendId.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC99851F20FC672300338850 /* ExcelParserFriendId.cpp */; };
 		EC99852420FC6C9200338850 /* ExcelParserTranslation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC99852220FC6C9200338850 /* ExcelParserTranslation.cpp */; };
@@ -50,6 +51,8 @@
 /* Begin PBXFileReference section */
 		EC217D8620BCB815000ADDE3 /* ExcelDataIdBasedParser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExcelDataIdBasedParser.cpp; sourceTree = "<group>"; };
 		EC217D8720BCB815000ADDE3 /* ExcelDataIdBasedParser.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ExcelDataIdBasedParser.hpp; sourceTree = "<group>"; };
+		EC82886F211678180041497C /* ExcelData2DBasedParser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExcelData2DBasedParser.cpp; sourceTree = "<group>"; };
+		EC828870211678180041497C /* ExcelData2DBasedParser.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ExcelData2DBasedParser.hpp; sourceTree = "<group>"; };
 		EC99851C20FC66D700338850 /* ExcelParserBase.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExcelParserBase.cpp; sourceTree = "<group>"; };
 		EC99851D20FC66D700338850 /* ExcelParserBase.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ExcelParserBase.hpp; sourceTree = "<group>"; };
 		EC99851F20FC672300338850 /* ExcelParserFriendId.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExcelParserFriendId.cpp; sourceTree = "<group>"; };
@@ -239,6 +242,8 @@
 				EC217D8720BCB815000ADDE3 /* ExcelDataIdBasedParser.hpp */,
 				ECE1B6F821038AE0005807E2 /* ExcelDataParserBase.cpp */,
 				ECE1B6F921038AE0005807E2 /* ExcelDataParserBase.hpp */,
+				EC82886F211678180041497C /* ExcelData2DBasedParser.cpp */,
+				EC828870211678180041497C /* ExcelData2DBasedParser.hpp */,
 			);
 			path = ExcelDataParser;
 			sourceTree = "<group>";
@@ -325,6 +330,7 @@
 				ECD52B3320BFBE6D000F7170 /* TimeUtil.cpp in Sources */,
 				ECD52B2D20BFB3A4000F7170 /* CPPFunction.cpp in Sources */,
 				ECADF34A20AD384300B77618 /* SailingHeroPackager.cpp in Sources */,
+				EC828871211678180041497C /* ExcelData2DBasedParser.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -26,6 +26,7 @@ This file (SHDataManager.hpp) is generated
 #include "HeroSelectData.hpp"
 #include "CategoryUpdateData.hpp"
 #include "ShipData.hpp"
+#include "GoodsBasePriceData.hpp"
 #include "GameData.hpp"
 #include "HeroData.hpp"
 #include "CityStatusData.hpp"

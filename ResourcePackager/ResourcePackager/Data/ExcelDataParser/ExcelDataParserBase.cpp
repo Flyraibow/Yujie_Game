@@ -8,6 +8,7 @@
 
 #include "ExcelDataParserBase.hpp"
 #include "ExcelDataIdBasedParser.hpp"
+#include "ExcelData2DBasedParser.hpp"
 
 #include "ReadCSV.hpp"
 #include "ByteBuffer.hpp"
@@ -42,8 +43,26 @@ string getFileNameWithoutExt(const string &filePath)
 
 ExcelDataParserBase* ExcelDataParserBase::createWithPath(const string &filePath)
 {
-  
   auto excelData = readCVSBylines(filePath);
+  locale loc;
+  auto fileName = getFileNameWithoutExt(filePath);
+  string first_capital_file_name = fileName;
+  first_capital_file_name[0] = toupper(fileName[0], loc);
+  // check is it 2d excel
+  assert(excelData.size() > 0 && excelData[1].size() > 0);
+  static const string TWO_DIMENTION = "2D";
+  string firstGrid = excelData.at(0).at(0);
+  firstGrid.erase(remove_if(firstGrid.begin(),firstGrid.end(), invalidChar), firstGrid.end());
+  if (firstGrid == TWO_DIMENTION) {
+    auto data = new ExcelData2DBasedParser(excelData);
+    data->p_filePath = filePath;
+    data->p_fileNameWithoutExt = fileName;
+    data->p_className = first_capital_file_name + "Data";
+    data->p_classTypeName = first_capital_file_name + "Data*";
+    data->p_variableName = fileName + "Data";
+    return data;
+  }
+  
   // First four lines are defines.
   assert(excelData.size() >= 4);
   auto names = excelData.at(0);
@@ -63,12 +82,6 @@ ExcelDataParserBase* ExcelDataParserBase::createWithPath(const string &filePath)
     schemaList.push_back(schema);
   }
   
-  vector<vector<string>> values;
-  for (int rowIndex = 4; rowIndex < excelData.size(); ++rowIndex) {
-    auto row = excelData.at(rowIndex);
-    values.push_back(row);
-  }
-  
   ExcelDataParserBase* data = nullptr;
   auto idSchema = isExcelIdBased(schemaList);
   if (idSchema != nullptr) {
@@ -76,15 +89,16 @@ ExcelDataParserBase* ExcelDataParserBase::createWithPath(const string &filePath)
   } else {
     data = new ExcelDataParserBase();
   }
+  vector<vector<string>> values;
+  for (int rowIndex = 4; rowIndex < excelData.size(); ++rowIndex) {
+    auto row = excelData.at(rowIndex);
+    values.push_back(row);
+  }
   data->p_filePath = filePath;
   data->p_dataSchemas = schemaList;
   data->p_values = values;
-  auto fileName = getFileNameWithoutExt(filePath);
   data->p_fileNameWithoutExt = fileName;
   
-  locale loc;
-  string first_capital_file_name = fileName;
-  first_capital_file_name[0] = toupper(fileName[0], loc);
   data->p_className = first_capital_file_name + "Data";
   data->p_classTypeName = first_capital_file_name + "Data*";
   data->p_variableName = fileName + "Data";

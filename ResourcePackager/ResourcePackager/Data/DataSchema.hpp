@@ -58,11 +58,12 @@ private:
 public:
   string getName() const;
   DataType getType() const;
+  string getStringType() const;
   string getSubtype() const;
   bool isWritable() const;
   bool isWeak() const;
   
-  void addValueIntoBuffer(std::unique_ptr<bb::ByteBuffer> &buffer, const string& value);
+  void addValueIntoBuffer(std::unique_ptr<bb::ByteBuffer> &buffer, const string& value) const;
   
   DataSchema(const string &name, const string &type, const string &subType, bool isWritable);
 };

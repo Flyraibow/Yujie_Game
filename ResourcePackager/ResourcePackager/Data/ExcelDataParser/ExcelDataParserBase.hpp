@@ -18,6 +18,8 @@
 
 using namespace std;
 
+bool invalidChar (char c);
+
 class ExcelDataParserBase
 {
 protected:

@@ -88,6 +88,11 @@ DataType DataSchema::getType() const
   return p_type;
 }
 
+string DataSchema::getStringType() const
+{
+  return p_typeString;
+}
+
 string DataSchema::getSubtype() const
 {
   return p_subType;
@@ -120,7 +125,7 @@ DataSchema::DataSchema(const string &name, const string &type, const string &sub
   }
 }
 
-void DataSchema::addValueIntoBuffer(std::unique_ptr<bb::ByteBuffer> &buffer, const string& value)
+void DataSchema::addValueIntoBuffer(std::unique_ptr<bb::ByteBuffer> &buffer, const string& value) const
 {
   switch (p_type) {
     case ID:
