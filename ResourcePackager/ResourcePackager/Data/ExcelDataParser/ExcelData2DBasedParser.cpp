@@ -105,7 +105,7 @@ void ExcelData2DBasedParser::saveData(const string& folderPath,LanguageData &lan
   utils::writeBufferToFile(buffer, folderPath, p_resDataFileName);
 }
 
-static string staticMapName = "p_sharedDictionary";
+static string kStaticMapName = "p_sharedDictionary";
 
 void ExcelData2DBasedParser::setInitFunction()
 {
@@ -114,18 +114,18 @@ void ExcelData2DBasedParser::setInitFunction()
   auto returnParser = ExcelParserBase::createWithSchema(p_returnSchema, "");
   string mapDicType = "map<"+ rowParser->getType() + ", map<" + colParser->getType() + "," + p_returnType + ">>";
   string mapDicPointerType = mapDicType + "*";
-  auto staticMapVariable = new CPPVariable(staticMapName, mapDicPointerType, true);
+  auto staticMapVariable = new CPPVariable(kStaticMapName, mapDicPointerType, true);
   staticMapVariable->setInitialValue("nullptr");
   p_class->addVariable(staticMapVariable, true);
   
   auto initFunction = new CPPFunction("getSharedDictionary", "const " + mapDicPointerType, true);
   const string filePath = "res/base/data/" + p_resDataFileName;
   initFunction->addBodyStatementsList({
-    "if (!" + staticMapName + ") {"
+    "if (!" + kStaticMapName + ") {"
     
   }, 0);
   initFunction->addBodyStatementsList({
-    staticMapName + " = new " + mapDicType + "();",
+    kStaticMapName + " = new " + mapDicType + "();",
     "static string resPath = \"" + filePath + "\";",
     "auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);",
     "if (!data.isNull()) {",
@@ -150,12 +150,12 @@ void ExcelData2DBasedParser::setInitFunction()
     "\t\tint value = buffer->" + colParser->getBufferGetString(p_returnSchema->getType()) + ";",
     "\t\trowMap.insert(make_pair(colValues[j], value));",
     "\t}",
-    "\tp_sharedDictionary->insert(make_pair(rowValues[i], rowMap));",
+    "\t" + kStaticMapName + "->insert(make_pair(rowValues[i], rowMap));",
     "}",
   }, 2);
   initFunction->addBodyStatements("}", 1);
   initFunction->addBodyStatements("}");
-  initFunction->addBodyStatements("return " + staticMapName + ";");
+  initFunction->addBodyStatements("return " + kStaticMapName + ";");
   p_class->addFunction(initFunction, false);
   
   
@@ -180,7 +180,26 @@ void ExcelData2DBasedParser::setInitFunction()
   });
   p_class->addFunction(getterFunction, false);
   
-  this->addDataLoadFunction(p_class);
+  if (p_returnSchema->isWritable()) {
+    auto returnVariable = new CPPVariable(p_returnSchema->getName(), returnParser->getType());
+    auto setterFunction = new CPPFunction("set" + first_capital_file_name, TYPE_VOID, {rowVariable, colVariable, returnVariable}, true, false);
+    setterFunction->addBodyStatementsList({
+      make_pair("auto dict = getSharedDictionary();", 0),
+      make_pair("if (dict->count("+ p_rowIdName + ")) {", 0),
+      make_pair("if (dict->at(" + p_rowIdName + ").count(" + p_colIdName + ")) {", 1),
+      make_pair("p_sharedDictionary->at(" + p_rowIdName + ")[" + p_colIdName + "] = " + returnVariable->getVarString() + ";", 2),
+      make_pair("} else {", 1),
+      make_pair("CCLOGWARN(\"Couldn't find "+ p_colIdName + ": %s in " + first_capital_file_name + "\", to_string(" + p_colIdName + ").c_str());", 2),
+      make_pair("}", 1),
+      make_pair("} else {", 0),
+      make_pair("CCLOGWARN(\"Couldn't find " + p_rowIdName + ": %s in "+first_capital_file_name+"\", to_string(" + p_rowIdName + ").c_str());", 1),
+      make_pair("}", 0),
+    });
+    p_class->addFunction(setterFunction, false);
+    p_needSaveDataNumber = 1;
+  }
+//  
+//  this->addDataLoadFunction(p_class);
 }
 
 string ExcelData2DBasedParser::getInstanceCode() const
@@ -188,18 +207,88 @@ string ExcelData2DBasedParser::getInstanceCode() const
   return "auto dict = " + getClassName() + "::getSharedDictionary();";
 }
 
+bool ExcelData2DBasedParser::containWritableData() const
+{
+  return p_returnSchema->isWritable();
+}
+
 void ExcelData2DBasedParser::setLoadFunction(const CPPVariable* pathVar)
 {
+  auto loadFunc = new CPPFunction("loadData", TYPE_BOOL, {pathVar}, true, false);
+  
+  auto rowParser = ExcelParserBase::createWithSchema(p_rowIdSchema, "");
+  auto colParser = ExcelParserBase::createWithSchema(p_colIdSchema, "");
+  string mapDicType = "map<"+ rowParser->getType() + ", map<" + colParser->getType() + "," + p_returnType + ">>";
+  
+  string getRow = p_rowIdSchema->getType() == INT ? "getInt()" : "putString()";
+  string getCol = p_colIdSchema->getType() == INT ? "getInt()" : "putString()";
+  
+  loadFunc->addBodyStatementsList({
+    getSaveLoadPathCode(),
+    "clearData();",
+    kStaticMapName + " = new " + mapDicType + "();",
+    "auto fileData = cocos2d::FileUtils::getInstance()->getDataFromFile(filePath);",
+    "if (!fileData.isNull()) {",
+    "\tauto bytes = fileData.getBytes();",
+    "\tauto buffer = std::make_unique<bb::ByteBuffer>(bytes, fileData.getSize());",
+    "\tauto rowCount = buffer->getLong();",
+    "\tfor (int i = 0; i < rowCount; ++i) {",
+    "\t\tauto rowKey = buffer->" + getRow +";",
+    "\t\tauto colCount = buffer->getLong();",
+    "\t\tmap<int, int> rowMap;",
+    "\t\tfor (int j = 0; j < colCount; ++j) {",
+    "\t\t\tauto colKey = buffer->" + getCol +";",
+    "\t\t\tauto value = " + castFromStringToValue(p_returnSchema->getType(), "buffer->getString()") + ";",
+    "\t\t\trowMap.insert(make_pair(colKey, value));",
+    "\t\t}",
+    "\t\t" + kStaticMapName + "->insert(make_pair(rowKey, rowMap));",
+    "\t}",
+    "}",
+    "return true;",
+  }, 0);
+  
+  p_class->addFunction(loadFunc, false);
 }
 
 void ExcelData2DBasedParser::setSaveFunction(const CPPVariable* pathVar)
 {
+  auto saveFunc = new CPPFunction("saveData", TYPE_BOOL, {pathVar}, true, false);
+  string putRow = p_rowIdSchema->getType() == INT ? "putInt" : "putString";
+  string putCol = p_colIdSchema->getType() == INT ? "putInt" : "putString";
+  
+  saveFunc->addBodyStatementsList({
+    getSaveLoadPathCode(),
+    getInstanceCode(),
+    "auto buffer = std::make_unique<bb::ByteBuffer>();",
+    "buffer->putLong(dict->size());",
+    "for (auto iter = dict->begin(); iter != dict->end(); ++iter) {",
+    "\tbuffer->" + putRow + "(iter->first);",
+    "\tauto mapList = iter->second;",
+    "\tbuffer->putLong(mapList.size());",
+    "\tfor (auto it = mapList.begin(); it != mapList.end(); ++it) {",
+    "\t\tbuffer->" + putCol + "(it->first);",
+    "\t\tbuffer->putString(to_string(it->second));",
+    "\t}",
+    "}",
+    "buffer->writeToFile(filePath);",
+    "return true;"
+  }, 0);
+  
+  p_class->addFunction(saveFunc, false);
 }
 
 
 void ExcelData2DBasedParser::setClearFunction()
 {
-  
+  auto clearFunc = new CPPFunction("clearData", TYPE_BOOL, {}, true, false);
+  clearFunc->addBodyStatementsList({
+    "if (" + kStaticMapName + " != nullptr) {",
+    "\tdelete " + kStaticMapName + ";",
+    "\t" + kStaticMapName + " = nullptr;",
+    "}",
+    "return true;",
+  }, 0);
+  p_class->addFunction(clearFunc, false);
 }
 
 void ExcelData2DBasedParser::addDataLoadFunction(CPPClass* dataManager) const

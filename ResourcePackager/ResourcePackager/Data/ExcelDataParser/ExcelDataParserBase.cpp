@@ -284,7 +284,6 @@ string ExcelDataParserBase::getInstanceCode() const
 
 void ExcelDataParserBase::setLoadFunction(const CPPVariable* pathVar)
 {
-  
   auto loadFunc = new CPPFunction("loadData", TYPE_BOOL, {pathVar}, true, false);
   
   loadFunc->addBodyStatementsList({

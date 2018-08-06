@@ -112,6 +112,7 @@ void SailingHeroMenu::clickTest1(cocos2d::Ref* pSender)
 #include "ShipTeamData.hpp"
 #include "ShipStyleData.hpp"
 #include "CannonData.hpp"
+#include "GoodsPricePercentData.hpp"
 
 void SailingHeroMenu::clickTest2(cocos2d::Ref* pSender)
 {
@@ -121,10 +122,8 @@ void SailingHeroMenu::clickTest2(cocos2d::Ref* pSender)
 //    }
 //  });
 //  this->addChild(frame);
-  auto ship = ShipData::registerShipData("飞虹特别号", "8", "3", 20, "2");
-  CCLOG("%s", ship->description().c_str());
+  GoodsPricePercentData::setGoodsPricePercent(1, 1, 34);
   SHDataManager::saveData(1);
-  
 }
 
 #include "CityScene.hpp"
@@ -133,12 +132,15 @@ void SailingHeroMenu::clickTest2(cocos2d::Ref* pSender)
 
 void SailingHeroMenu::clickTest3(Ref* pSender)
 {
-  auto size = GoodsData::getSharedDictionary()->size();
-  auto goods = GoodsData::getGoodsDataById(arc4random() % size);
-  size = CultureData::getSharedDictionary()->size();
-  auto culture = CultureData::getCultureDataById(arc4random() % size);
-  CCLOG("price of goods : %s in  culture : %s, is %d", goods->getGoodsName().c_str(), culture->getCultureName().c_str(), GoodsBasePriceData::getGoodsBasePrice(goods->getGoodsId(), culture->getCutureId()));
-//  SHDataManager::loadData(1);
+//  auto size = GoodsData::getSharedDictionary()->size();
+//  auto goods = GoodsData::getGoodsDataById(arc4random() % size);
+//  size = CultureData::getSharedDictionary()->size();
+//  auto culture = CultureData::getCultureDataById(arc4random() % size);
+//  CCLOG("price of goods : %s in  culture : %s, is %d", goods->getGoodsName().c_str(), culture->getCultureName().c_str(), GoodsBasePriceData::getGoodsBasePrice(goods->getGoodsId(), culture->getCutureId()));
+  SHDataManager::loadData(1);
+  auto val = GoodsPricePercentData::getGoodsPricePercent(1, 1);
+  CCLOG("======== %d", val);
+  
 //  auto shipDic = ShipData::getSharedDictionary();
 //  for (auto iter : *shipDic) {
 //    CCLOG("ship : %s ", iter.second->description().c_str());

@@ -11,6 +11,7 @@ This file (SHDataManager.hpp) is generated
 #include "CityTypeData.hpp"
 #include "SystemButtonData.hpp"
 #include "ShipTeamData.hpp"
+#include "GoodsPricePercentData.hpp"
 #include "DialogData.hpp"
 #include "ItemData.hpp"
 #include "ShipSizeData.hpp"

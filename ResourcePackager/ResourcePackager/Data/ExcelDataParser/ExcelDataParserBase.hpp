@@ -55,7 +55,7 @@ public:
   virtual void addDataLoadFunction(CPPClass* dataManager) const;
   void generateCode(const string& folderPath);
   
-  bool containWritableData() const;
+  virtual bool containWritableData() const;
   
   static ExcelDataParserBase* createWithPath(const string &filePath);
 };

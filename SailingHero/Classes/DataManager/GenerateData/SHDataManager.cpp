@@ -8,6 +8,7 @@ This file (SHDataManager.cpp) is generated
 #include "cocos2d.h"
 #include "GuildData.hpp"
 #include "ShipTeamData.hpp"
+#include "GoodsPricePercentData.hpp"
 #include "CityGoodsData.hpp"
 #include "CityData.hpp"
 #include "ShipData.hpp"
@@ -375,6 +376,10 @@ bool SHDataManager::saveData(int index)
 		CCLOG("Failed to save ShipTeamData, %s", path.c_str());
 		return false;
 	}
+	if (!GoodsPricePercentData::saveData(path)) {
+		CCLOG("Failed to save GoodsPricePercentData, %s", path.c_str());
+		return false;
+	}
 	if (!CityGoodsData::saveData(path)) {
 		CCLOG("Failed to save CityGoodsData, %s", path.c_str());
 		return false;
@@ -414,6 +419,10 @@ bool SHDataManager::loadData(int index)
 		CCLOG("Failed to load ShipTeamData, %s", path.c_str());
 		return false;
 	}
+	if (!GoodsPricePercentData::loadData(path)) {
+		CCLOG("Failed to load GoodsPricePercentData, %s", path.c_str());
+		return false;
+	}
 	if (!CityGoodsData::loadData(path)) {
 		CCLOG("Failed to load CityGoodsData, %s", path.c_str());
 		return false;
@@ -441,6 +450,7 @@ bool SHDataManager::clearData()
 {
 	GuildData::clearData();
 	ShipTeamData::clearData();
+	GoodsPricePercentData::clearData();
 	CityGoodsData::clearData();
 	CityData::clearData();
 	ShipData::clearData();
