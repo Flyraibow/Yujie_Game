@@ -1,0 +1,12 @@
+﻿areaId,areaName,iconId,left,rightUp,right,rightDown,up,down,x1,y1,x2,y2
+id,language,icon,string,string,string,string,string,string,double,double,double,double
+int,chinese,res/base/icon/area,-,-,-,-,-,-,-,-,-,-
+writable,N,N,N,N,N,N,N,N,N,N,N,N
+1,北海,RouteMap1.png,0,0,0,0,0,2,102.2,44.5,142.6,18
+2,地中海,RouteMap2.png,3,0,0,0,1,0,95,18,136.8,-10.8
+3,非洲,RouteMap3.png,4,0,0,2,0,0,38.9,36.7,102.2,-5
+4,印度洋,RouteMap4.png,5,3,0,0,6,0,-30.2,18,57.3,-39.6
+5,东南亚,RouteMap5.png,0,7,6,4,0,0,-116.6,43.2,-30.2,-13.7
+6,东亚,RouteMap6.png,5,0,0,0,7,4,-20.2,55.5,38.9,16.6
+7,新大陆,RouteMap7.png,5,0,0,0,0,6,-7.2,65.5,25.9,43.9
+8,全世界,RouteMap8.png,0,0,0,0,0,0,0,0,0,0
