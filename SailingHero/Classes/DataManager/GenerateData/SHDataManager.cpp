@@ -314,6 +314,20 @@ CategoryUpdateData* SHDataManager::getCategoryUpdateDataById(const string& categ
 	return CategoryUpdateData::getCategoryUpdateDataById(atoi(categoryUpdateId.c_str()));
 }
 
+AreaData* SHDataManager::getAreaDataById(int areaId)
+{
+	if (AreaData::getSharedDictionary()->count(areaId)) {
+		return AreaData::getSharedDictionary()->at(areaId);
+	}
+	return nullptr;
+}
+
+AreaData* SHDataManager::getAreaDataById(const string& areaId)
+{
+	if (areaId.length() == 0) return nullptr;
+	return AreaData::getAreaDataById(atoi(areaId.c_str()));
+}
+
 ShipData* SHDataManager::getShipDataById(int shipId)
 {
 	if (ShipData::getSharedDictionary()->count(shipId)) {

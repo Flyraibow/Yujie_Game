@@ -93,18 +93,13 @@ void SailingHeroMenu::clickGameSetting(Ref* pSender)
 #include "CityData.hpp"
 #include "SHCityDataHelper.hpp"
 #include "DialogPhotoFrame.hpp"
+#include "SailMapScene.hpp"
 
 void SailingHeroMenu::clickTest1(cocos2d::Ref* pSender)
 {
-  auto city = CityData::getCityDataById("1");
-  CCLOG("%s", city->description().c_str());
-  for (auto goods : city->getCityGoodsDataVector()) {
-    CCLOG("%s : %s", goods->getGoodsData()->getGoodsName().c_str(), goods->description().c_str());
-  }
-//  HeroData *hero = HeroData::getHeroDataById("1");
-//  hero->setHeroFirstName("予杰");
-//  hero->setLevel(arc4random() % 100);
-//  SaveDataManager::saveData(1);
+  GameData::getSharedInstance()->setCityId("69");
+  auto mapScene = SailMapScene::createScene();
+  Director::getInstance()->pushScene(mapScene);
 }
 
 #include "MultiSelectionFrame.hpp"

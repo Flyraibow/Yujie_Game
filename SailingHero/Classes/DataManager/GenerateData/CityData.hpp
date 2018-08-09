@@ -7,6 +7,7 @@ This file (CityData.hpp) is generated
 #include "BaseData.h"
 #include <set>
 #include <vector>
+#include "AreaData.hpp"
 #include "CultureData.hpp"
 #include "CityStatusData.hpp"
 #include "TownPhotoData.hpp"
@@ -22,6 +23,7 @@ private:
 	static map<int, CityData*>* p_sharedDictionary;
 	int p_cityId;
 	string p_cityName;
+	string p_areaId;
 	string p_cultureId;
 	string p_cityStatusId;
 	string p_backGroundId;
@@ -38,6 +40,8 @@ public:
 	int getCityId() const;
 	void setCityName(string cityName);
 	string getCityName() const;
+	AreaData* getAreaData() const;
+	string getAreaId() const;
 	CultureData* getCultureData() const;
 	string getCultureId() const;
 	CityStatusData* getCityStatusData() const;

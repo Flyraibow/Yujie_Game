@@ -26,6 +26,7 @@ This file (SHDataManager.hpp) is generated
 #include "CityBuildingData.hpp"
 #include "HeroSelectData.hpp"
 #include "CategoryUpdateData.hpp"
+#include "AreaData.hpp"
 #include "ShipData.hpp"
 #include "GoodsBasePriceData.hpp"
 #include "GameData.hpp"
@@ -79,6 +80,8 @@ public:
 	static HeroSelectData* getHeroSelectDataById(const string& selectHeroId);
 	static CategoryUpdateData* getCategoryUpdateDataById(int categoryUpdateId);
 	static CategoryUpdateData* getCategoryUpdateDataById(const string& categoryUpdateId);
+	static AreaData* getAreaDataById(int areaId);
+	static AreaData* getAreaDataById(const string& areaId);
 	static ShipData* getShipDataById(int shipId);
 	static ShipData* getShipDataById(const string& shipId);
 	static GameData* getGameData();

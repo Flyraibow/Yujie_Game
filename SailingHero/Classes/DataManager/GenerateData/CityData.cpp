@@ -36,6 +36,16 @@ string CityData::getCityName() const
 	return LocalizationHelper::getLocalization(localId);
 }
 
+AreaData* CityData::getAreaData() const
+{
+	return AreaData::getAreaDataById(p_areaId);
+}
+
+string CityData::getAreaId() const
+{
+	return p_areaId;
+}
+
 CultureData* CityData::getCultureData() const
 {
 	return CultureData::getCultureDataById(p_cultureId);
@@ -164,6 +174,7 @@ string CityData::description() const
 	string desc = "cityData = {\n";
 	desc += "\tcityId : " + to_string(p_cityId) + "\n";
 	desc += "\tcityName : " + getCityName() + "\n";
+	desc += "\tarea : " + to_string(p_areaId) + "\n";
 	desc += "\tculture : " + to_string(p_cultureId) + "\n";
 	desc += "\tcityStatus : " + to_string(p_cityStatusId) + "\n";
 	desc += "\tbackGround : " + to_string(p_backGroundId) + "\n";
@@ -193,6 +204,7 @@ const map<int, CityData*>* CityData::getSharedDictionary()
 			for (int i = 0; i < count; ++i) {
 				CityData* cityData = new CityData();
 				cityData->p_cityId = buffer->getInt();
+				cityData->p_areaId = buffer->getString();
 				cityData->p_cultureId = buffer->getString();
 				cityData->p_cityStatusId = buffer->getString();
 				cityData->p_backGroundId = buffer->getString();

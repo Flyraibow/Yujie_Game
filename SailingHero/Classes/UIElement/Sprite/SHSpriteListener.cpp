@@ -9,9 +9,26 @@
 
 static bool isTouchInsideNode(Touch *touch, Node *node)
 {
-  auto nodePoint = node->convertToNodeSpace(touch->getLocationInView());
-  auto rect = Rect(0, 0, node->getContentSize().width, node->getContentSize().height);
-  return rect.containsPoint(nodePoint);
+  
+  auto worldPoint = touch->getLocation();//node->getParent()->convertToWorldSpace(touch->getLocation());
+  auto size = node->getContentSize();
+  auto worldRectOrigin = node->convertToWorldSpace(Vec2());
+  auto worldRectMax = node->convertToWorldSpace(Vec2(size.width, size.height));
+  auto rect = Rect(
+                   MIN(worldRectOrigin.x, worldRectMax.x),
+                   MIN(worldRectOrigin.y, worldRectMax.y),
+                   abs(worldRectOrigin.x - worldRectMax.x),
+                   abs(worldRectOrigin.y - worldRectMax.y)
+  );
+  CCLOG("touch->getLocationInView(): %f, %f", touch->getLocationInView().x, touch->getLocationInView().y);
+  CCLOG("touch->getLocation(): %f, %f", touch->getLocation().x, touch->getLocation().y);
+  CCLOG("pos: %f, %f", worldPoint.x, worldPoint.y);
+  CCLOG("rect1: %f, %f", rect.getMinX(), rect.getMinY());
+  CCLOG("rect2: %f, %f", rect.getMaxX(), rect.getMaxY());
+  return rect.containsPoint(worldPoint);
+//  auto nodePoint = node->convertToNodeSpace(touch->getLocationInView());
+//  auto rect = Rect(0, 0, node->getContentSize().width, node->getContentSize().height);
+//  return rect.containsPoint(nodePoint);
 }
 
 SHSpriteListener* SHSpriteListener::createWithNode(Node *node, bool swallowTouches)

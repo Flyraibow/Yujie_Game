@@ -161,6 +161,18 @@
 		EC82887521169DE30041497C /* GoodsBasePriceData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82887221169DE20041497C /* GoodsBasePriceData.cpp */; };
 		EC8288782117CDE80041497C /* GoodsPricePercentData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8288762117CDE70041497C /* GoodsPricePercentData.cpp */; };
 		EC8288792117CDE80041497C /* GoodsPricePercentData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8288762117CDE70041497C /* GoodsPricePercentData.cpp */; };
+		EC82887C211B61790041497C /* AreaData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82887A211B61780041497C /* AreaData.cpp */; };
+		EC82887D211B61790041497C /* AreaData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82887A211B61780041497C /* AreaData.cpp */; };
+		EC828880211B620A0041497C /* SailMapFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82887E211B620A0041497C /* SailMapFrame.cpp */; };
+		EC828881211B620A0041497C /* SailMapFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82887E211B620A0041497C /* SailMapFrame.cpp */; };
+		EC828884211B622F0041497C /* SailMapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828882211B622F0041497C /* SailMapScene.cpp */; };
+		EC828885211B622F0041497C /* SailMapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828882211B622F0041497C /* SailMapScene.cpp */; };
+		EC82888C211B6A1D0041497C /* DateFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82888A211B6A1D0041497C /* DateFrame.cpp */; };
+		EC82888D211B6A1D0041497C /* DateFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82888A211B6A1D0041497C /* DateFrame.cpp */; };
+		EC828890211B6F360041497C /* AreaMapFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82888E211B6F360041497C /* AreaMapFrame.cpp */; };
+		EC828891211B6F360041497C /* AreaMapFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82888E211B6F360041497C /* AreaMapFrame.cpp */; };
+		EC828894211B89F00041497C /* AreaMapGoButtonFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828892211B89F00041497C /* AreaMapGoButtonFrame.cpp */; };
+		EC828895211B89F00041497C /* AreaMapGoButtonFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828892211B89F00041497C /* AreaMapGoButtonFrame.cpp */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 /* End PBXBuildFile section */
@@ -356,6 +368,18 @@
 		EC82887321169DE30041497C /* GoodsBasePriceData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GoodsBasePriceData.hpp; path = GenerateData/GoodsBasePriceData.hpp; sourceTree = "<group>"; };
 		EC8288762117CDE70041497C /* GoodsPricePercentData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GoodsPricePercentData.cpp; path = GenerateData/GoodsPricePercentData.cpp; sourceTree = "<group>"; };
 		EC8288772117CDE70041497C /* GoodsPricePercentData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GoodsPricePercentData.hpp; path = GenerateData/GoodsPricePercentData.hpp; sourceTree = "<group>"; };
+		EC82887A211B61780041497C /* AreaData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AreaData.cpp; path = GenerateData/AreaData.cpp; sourceTree = "<group>"; };
+		EC82887B211B61790041497C /* AreaData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = AreaData.hpp; path = GenerateData/AreaData.hpp; sourceTree = "<group>"; };
+		EC82887E211B620A0041497C /* SailMapFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SailMapFrame.cpp; sourceTree = "<group>"; };
+		EC82887F211B620A0041497C /* SailMapFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SailMapFrame.hpp; sourceTree = "<group>"; };
+		EC828882211B622F0041497C /* SailMapScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SailMapScene.cpp; sourceTree = "<group>"; };
+		EC828883211B622F0041497C /* SailMapScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SailMapScene.hpp; sourceTree = "<group>"; };
+		EC82888A211B6A1D0041497C /* DateFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DateFrame.cpp; sourceTree = "<group>"; };
+		EC82888B211B6A1D0041497C /* DateFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DateFrame.hpp; sourceTree = "<group>"; };
+		EC82888E211B6F360041497C /* AreaMapFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AreaMapFrame.cpp; sourceTree = "<group>"; };
+		EC82888F211B6F360041497C /* AreaMapFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AreaMapFrame.hpp; sourceTree = "<group>"; };
+		EC828892211B89F00041497C /* AreaMapGoButtonFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AreaMapGoButtonFrame.cpp; sourceTree = "<group>"; };
+		EC828893211B89F00041497C /* AreaMapGoButtonFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AreaMapGoButtonFrame.hpp; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -551,6 +575,8 @@
 				EC828846210D75AB0041497C /* SelectHeroDisplayScene.hpp */,
 				EC828848210D75AB0041497C /* SelectHeroMenuScene.cpp */,
 				EC82884A210D75AB0041497C /* SelectHeroMenuScene.hpp */,
+				EC828882211B622F0041497C /* SailMapScene.cpp */,
+				EC828883211B622F0041497C /* SailMapScene.hpp */,
 			);
 			path = SceneUI;
 			sourceTree = "<group>";
@@ -578,6 +604,14 @@
 				EC828796210D75050041497C /* MultiSelectionFrame.hpp */,
 				EC82879E210D75050041497C /* SystemBarFrame.cpp */,
 				EC8287A5210D75060041497C /* SystemBarFrame.hpp */,
+				EC82887E211B620A0041497C /* SailMapFrame.cpp */,
+				EC82887F211B620A0041497C /* SailMapFrame.hpp */,
+				EC82888A211B6A1D0041497C /* DateFrame.cpp */,
+				EC82888B211B6A1D0041497C /* DateFrame.hpp */,
+				EC82888E211B6F360041497C /* AreaMapFrame.cpp */,
+				EC82888F211B6F360041497C /* AreaMapFrame.hpp */,
+				EC828892211B89F00041497C /* AreaMapGoButtonFrame.cpp */,
+				EC828893211B89F00041497C /* AreaMapGoButtonFrame.hpp */,
 			);
 			path = Frame;
 			sourceTree = "<group>";
@@ -615,6 +649,8 @@
 		ECD52B1F20BFB05A000F7170 /* GenerateData */ = {
 			isa = PBXGroup;
 			children = (
+				EC82887A211B61780041497C /* AreaData.cpp */,
+				EC82887B211B61790041497C /* AreaData.hpp */,
 				EC8288762117CDE70041497C /* GoodsPricePercentData.cpp */,
 				EC8288772117CDE70041497C /* GoodsPricePercentData.hpp */,
 				EC82887221169DE20041497C /* GoodsBasePriceData.cpp */,
@@ -873,17 +909,21 @@
 				EC82884F210D75AC0041497C /* CityScene.cpp in Sources */,
 				EC8287A8210D75060041497C /* InputBoxFrame.cpp in Sources */,
 				EC828808210D758C0041497C /* TownPhotoData.cpp in Sources */,
+				EC82888C211B6A1D0041497C /* DateFrame.cpp in Sources */,
 				EC82886D21164EE00041497C /* SHDataManager.cpp in Sources */,
 				EC82881A210D758C0041497C /* CityBuildingData.cpp in Sources */,
+				EC828890211B6F360041497C /* AreaMapFrame.cpp in Sources */,
 				EC8287B4210D75060041497C /* CityBuildingFrame.cpp in Sources */,
 				EC828816210D758C0041497C /* GenderData.cpp in Sources */,
 				EC8287C2210D75300041497C /* SHColorNode.cpp in Sources */,
+				EC82887C211B61790041497C /* AreaData.cpp in Sources */,
 				EC828818210D758C0041497C /* CannonData.cpp in Sources */,
 				EC8287D2210D75560041497C /* ByteBuffer.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				EC828810210D758C0041497C /* GoodsCategoryData.cpp in Sources */,
 				EC828830210D758C0041497C /* ItemData.cpp in Sources */,
 				EC82883D210D759C0041497C /* Calendar.cpp in Sources */,
+				EC828880211B620A0041497C /* SailMapFrame.cpp in Sources */,
 				EC8287B8210D75060041497C /* MultiSelectionFrame.cpp in Sources */,
 				EC8287CA210D75490041497C /* SystemButton.cpp in Sources */,
 				EC82887421169DE30041497C /* GoodsBasePriceData.cpp in Sources */,
@@ -900,8 +940,10 @@
 				EC8287B2210D75060041497C /* SystemBarFrame.cpp in Sources */,
 				EC82880E210D758C0041497C /* CategoryUpdateData.cpp in Sources */,
 				EC82881C210D758C0041497C /* GoodsData.cpp in Sources */,
+				EC828884211B622F0041497C /* SailMapScene.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				EC82881E210D758C0041497C /* ItemCategoryData.cpp in Sources */,
+				EC828894211B89F00041497C /* AreaMapGoButtonFrame.cpp in Sources */,
 				EC828865211629490041497C /* ShipSizeData.cpp in Sources */,
 				EC828841210D759C0041497C /* SHCityDataHelper.cpp in Sources */,
 			);
@@ -911,13 +953,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC828885211B622F0041497C /* SailMapScene.cpp in Sources */,
 				EC82880B210D758C0041497C /* AbilityData.cpp in Sources */,
 				EC828842210D759C0041497C /* SHCityDataHelper.cpp in Sources */,
 				EC8287BB210D75060041497C /* CityDataFrame.cpp in Sources */,
 				EC8287B3210D75060041497C /* SystemBarFrame.cpp in Sources */,
 				EC8287AD210D75060041497C /* HeroSelectingFrame.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				EC82888D211B6A1D0041497C /* DateFrame.cpp in Sources */,
 				EC82882D210D758C0041497C /* DialogData.cpp in Sources */,
+				EC82887D211B61790041497C /* AreaData.cpp in Sources */,
 				EC82886A211629490041497C /* ShipData.cpp in Sources */,
 				EC8287B5210D75060041497C /* CityBuildingFrame.cpp in Sources */,
 				EC82881B210D758C0041497C /* CityBuildingData.cpp in Sources */,
@@ -926,6 +971,7 @@
 				EC828850210D75AC0041497C /* CityScene.cpp in Sources */,
 				EC82880F210D758C0041497C /* CategoryUpdateData.cpp in Sources */,
 				EC828840210D759C0041497C /* SHGameDataHelper.cpp in Sources */,
+				EC828891211B6F360041497C /* AreaMapFrame.cpp in Sources */,
 				EC828866211629490041497C /* ShipSizeData.cpp in Sources */,
 				EC8287D3210D75560041497C /* ByteBuffer.cpp in Sources */,
 				EC82881F210D758C0041497C /* ItemCategoryData.cpp in Sources */,
@@ -941,6 +987,7 @@
 				EC828811210D758C0041497C /* GoodsCategoryData.cpp in Sources */,
 				EC8287D1210D75560041497C /* LocalizationHelper.cpp in Sources */,
 				EC8287A9210D75060041497C /* InputBoxFrame.cpp in Sources */,
+				EC828881211B620A0041497C /* SailMapFrame.cpp in Sources */,
 				EC8287C3210D75300041497C /* SHColorNode.cpp in Sources */,
 				EC828793210D74D10041497C /* SailingHeroMenu.cpp in Sources */,
 				EC828815210D758C0041497C /* GameData.cpp in Sources */,
@@ -959,6 +1006,7 @@
 				EC8287B7210D75060041497C /* DialogPhotoFrame.cpp in Sources */,
 				EC8287C7210D75300041497C /* SHScene.cpp in Sources */,
 				EC828823210D758C0041497C /* CityData.cpp in Sources */,
+				EC828895211B89F00041497C /* AreaMapGoButtonFrame.cpp in Sources */,
 				EC82884C210D75AC0041497C /* SelectHeroDisplayScene.cpp in Sources */,
 				EC828844210D759C0041497C /* Utils.cpp in Sources */,
 				EC828809210D758C0041497C /* TownPhotoData.cpp in Sources */,
