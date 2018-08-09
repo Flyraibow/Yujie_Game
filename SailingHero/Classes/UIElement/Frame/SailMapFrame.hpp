@@ -23,6 +23,7 @@ private:
   AreaData* p_currentArea;
   AreaMapFrame p_areaMap;
   vector<Node*> p_buttonList;
+  Label* p_labCurrentArea;
   void updateAreaData(AreaData *areaData);
   void addButton(AreaData *areaData, AREA_BUTTON_POSITION position);
 public:

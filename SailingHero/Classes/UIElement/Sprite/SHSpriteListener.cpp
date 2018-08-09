@@ -20,15 +20,7 @@ static bool isTouchInsideNode(Touch *touch, Node *node)
                    abs(worldRectOrigin.x - worldRectMax.x),
                    abs(worldRectOrigin.y - worldRectMax.y)
   );
-  CCLOG("touch->getLocationInView(): %f, %f", touch->getLocationInView().x, touch->getLocationInView().y);
-  CCLOG("touch->getLocation(): %f, %f", touch->getLocation().x, touch->getLocation().y);
-  CCLOG("pos: %f, %f", worldPoint.x, worldPoint.y);
-  CCLOG("rect1: %f, %f", rect.getMinX(), rect.getMinY());
-  CCLOG("rect2: %f, %f", rect.getMaxX(), rect.getMaxY());
   return rect.containsPoint(worldPoint);
-//  auto nodePoint = node->convertToNodeSpace(touch->getLocationInView());
-//  auto rect = Rect(0, 0, node->getContentSize().width, node->getContentSize().height);
-//  return rect.containsPoint(nodePoint);
 }
 
 SHSpriteListener* SHSpriteListener::createWithNode(Node *node, bool swallowTouches)

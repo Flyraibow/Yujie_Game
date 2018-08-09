@@ -30,6 +30,11 @@ SailMapFrame::SailMapFrame()
   dateFrameSprite->setAnchorPoint(Vec2());
   dateFrameSprite->setNormalizedPosition(Vec2(0.01, 0.005));
   p_sprite->addChild(dateFrameSprite, 1);
+  
+  p_labCurrentArea = Label::createWithSystemFont("", "Helvetica", 16);
+  p_labCurrentArea->setNormalizedPosition(Vec2(0.136, 0.885));
+  p_labCurrentArea->setScale(1.0 / p_scale);
+  p_sprite->addChild(p_labCurrentArea);
 
   updateAreaData(GameData::getSharedInstance()->getCityData()->getAreaData());
 }
@@ -42,7 +47,7 @@ void SailMapFrame::updateAreaData(AreaData *areaData)
     areaButton->removeFromParent();
   }
   p_buttonList.clear();
-  
+  p_labCurrentArea->setString(areaData->getAreaName());
   addButton(p_currentArea->getLeftData(), AREA_BUTTON_POSITION::LEFT);
   addButton(p_currentArea->getRightUpData(), AREA_BUTTON_POSITION::RIGHT_UP);
   addButton(p_currentArea->getRightData(), AREA_BUTTON_POSITION::RIGHT);

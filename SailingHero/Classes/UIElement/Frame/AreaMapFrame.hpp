@@ -21,6 +21,8 @@ private:
   Node* p_areaSprite;
   void refresh();
   AreaData* p_areaData;
+  Vector<MenuItem*> p_cityList;
+  void cityClickCallback(cocos2d::Ref* pSender);
 public:
   AreaMapFrame();
   void setAreaData(AreaData* areaData);

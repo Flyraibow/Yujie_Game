@@ -28,11 +28,57 @@ string CityTypeData::getCityTypeName() const
 	return LocalizationHelper::getLocalization(localId);
 }
 
+cocos2d::Sprite* CityTypeData::getCityUpIcon(bool isDefaultSize)
+{
+	static const string s_basePath = "res/base/icon/sailMap/";
+	string path = s_basePath + p_cityUpIconId;
+	auto icon = cocos2d::Sprite::create(path);
+	if (!isDefaultSize) {
+		icon->setScale(cocos2d::Director::getInstance()->getContentScaleFactor());
+	}
+	return icon;
+}
+
+string CityTypeData::getCityUpIconPath()
+{
+	static const string s_basePath = "res/base/icon/sailMap/";
+	return s_basePath + p_cityUpIconId;
+}
+
+string CityTypeData::getCityUpIconId() const
+{
+	return p_cityUpIconId;
+}
+
+cocos2d::Sprite* CityTypeData::getCityDownIcon(bool isDefaultSize)
+{
+	static const string s_basePath = "res/base/icon/sailMap/";
+	string path = s_basePath + p_cityDownIconId;
+	auto icon = cocos2d::Sprite::create(path);
+	if (!isDefaultSize) {
+		icon->setScale(cocos2d::Director::getInstance()->getContentScaleFactor());
+	}
+	return icon;
+}
+
+string CityTypeData::getCityDownIconPath()
+{
+	static const string s_basePath = "res/base/icon/sailMap/";
+	return s_basePath + p_cityDownIconId;
+}
+
+string CityTypeData::getCityDownIconId() const
+{
+	return p_cityDownIconId;
+}
+
 string CityTypeData::description() const
 {
 	string desc = "cityTypeData = {\n";
 	desc += "\tcityTypeId : " + to_string(p_cityTypeId) + "\n";
 	desc += "\tcityTypeName : " + getCityTypeName() + "\n";
+	desc += "\tcityUpIconId : " + to_string(p_cityUpIconId) + "\n";
+	desc += "\tcityDownIconId : " + to_string(p_cityDownIconId) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -50,6 +96,8 @@ const map<int, CityTypeData*>* CityTypeData::getSharedDictionary()
 			for (int i = 0; i < count; ++i) {
 				CityTypeData* cityTypeData = new CityTypeData();
 				cityTypeData->p_cityTypeId = buffer->getInt();
+				cityTypeData->p_cityUpIconId = buffer->getString();
+				cityTypeData->p_cityDownIconId = buffer->getString();
 				p_sharedDictionary->insert(pair<int, CityTypeData*>(cityTypeData->p_cityTypeId, cityTypeData));
 			}
 		}

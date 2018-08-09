@@ -1,6 +1,6 @@
-﻿cityTypeId,cityTypeName
-id,language
-int,chinese
-writable,N
-1,城市
-2,港口
+﻿cityTypeId,cityTypeName,cityUpIconId,cityDownIconId
+id,language,icon,icon
+int,chinese,res/base/icon/sailMap/,res/base/icon/sailMap/
+writable,N,N,N
+1,城市,city1_up.png,city1_down.png
+2,港口,city2_up.png,city2_down.png

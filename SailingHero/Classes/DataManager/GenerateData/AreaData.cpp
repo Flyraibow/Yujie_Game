@@ -121,14 +121,14 @@ double AreaData::getX1() const
 	return p_x1;
 }
 
-double AreaData::getY1() const
-{
-	return p_y1;
-}
-
 double AreaData::getX2() const
 {
 	return p_x2;
+}
+
+double AreaData::getY1() const
+{
+	return p_y1;
 }
 
 double AreaData::getY2() const
@@ -149,8 +149,8 @@ string AreaData::description() const
 	desc += "\tup : " + to_string(p_upId) + "\n";
 	desc += "\tdown : " + to_string(p_downId) + "\n";
 	desc += "\tx1 : " + to_string(p_x1) + "\n";
-	desc += "\ty1 : " + to_string(p_y1) + "\n";
 	desc += "\tx2 : " + to_string(p_x2) + "\n";
+	desc += "\ty1 : " + to_string(p_y1) + "\n";
 	desc += "\ty2 : " + to_string(p_y2) + "\n";
 	desc += "}\n";
 	return desc;
@@ -177,8 +177,8 @@ const map<int, AreaData*>* AreaData::getSharedDictionary()
 				areaData->p_upId = buffer->getString();
 				areaData->p_downId = buffer->getString();
 				areaData->p_x1 = buffer->getDouble();
-				areaData->p_y1 = buffer->getDouble();
 				areaData->p_x2 = buffer->getDouble();
+				areaData->p_y1 = buffer->getDouble();
 				areaData->p_y2 = buffer->getDouble();
 				p_sharedDictionary->insert(pair<int, AreaData*>(areaData->p_areaId, areaData));
 			}

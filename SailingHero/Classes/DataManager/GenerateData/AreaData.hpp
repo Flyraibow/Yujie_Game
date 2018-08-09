@@ -26,8 +26,8 @@ private:
 	string p_upId;
 	string p_downId;
 	double p_x1;
-	double p_y1;
 	double p_x2;
+	double p_y1;
 	double p_y2;
 public:
 	string getId() const;
@@ -49,8 +49,8 @@ public:
 	AreaData* getDownData() const;
 	string getDownId() const;
 	double getX1() const;
-	double getY1() const;
 	double getX2() const;
+	double getY1() const;
 	double getY2() const;
 	string description() const;
 	static const map<int, AreaData*>* getSharedDictionary();
