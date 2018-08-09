@@ -57,9 +57,6 @@
     <ClCompile Include="..\Classes\UIElement\Sprite\SHScene.cpp">
       <Filter>deps</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PlotEditor\SHDataManager.cpp">
-      <Filter>SailingHeroAPI</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\PlotEditor\GameData\Utils.cpp">
       <Filter>csv_classes</Filter>
     </ClCompile>
@@ -150,6 +147,33 @@
     <ClCompile Include="..\..\PlotEditor\UI\HeroSelectionScene.cpp">
       <Filter>UI</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\SHSoundManager.cpp">
+      <Filter>SailingHeroAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DataManager\GenerateData\SHDataManager.cpp">
+      <Filter>SailingHeroAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DataManager\GenerateData\AreaData.cpp">
+      <Filter>csv_classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DataManager\GenerateData\GoodsBasePriceData.cpp">
+      <Filter>csv_classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DataManager\GenerateData\GoodsPricePercentData.cpp">
+      <Filter>csv_classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DataManager\GenerateData\ShipData.cpp">
+      <Filter>csv_classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DataManager\GenerateData\ShipSizeData.cpp">
+      <Filter>csv_classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DataManager\GenerateData\ShipStyleData.cpp">
+      <Filter>csv_classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DataManager\GenerateData\ShipTeamData.cpp">
+      <Filter>csv_classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -178,9 +202,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\UIElement\Sprite\SHScene.hpp">
       <Filter>deps</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\PlotEditor\SHDataManager.h">
-      <Filter>SailingHeroAPI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\PlotEditor\GameData\Utils.hpp">
       <Filter>csv_classes</Filter>
@@ -271,6 +292,33 @@
     </ClInclude>
     <ClInclude Include="..\..\PlotEditor\UI\HeroSelectionScene.h">
       <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\SHSoundManager.h">
+      <Filter>SailingHeroAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\SHDataManager.hpp">
+      <Filter>SailingHeroAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\AreaData.hpp">
+      <Filter>csv_classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\GoodsBasePriceData.hpp">
+      <Filter>csv_classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\GoodsPricePercentData.hpp">
+      <Filter>csv_classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\ShipData.hpp">
+      <Filter>csv_classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\ShipSizeData.hpp">
+      <Filter>csv_classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\ShipStyleData.hpp">
+      <Filter>csv_classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\ShipTeamData.hpp">
+      <Filter>csv_classes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

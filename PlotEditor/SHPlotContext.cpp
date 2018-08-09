@@ -1,7 +1,7 @@
 #include "SHPlotContext.h"
 
 #include "StringParser.h"
-#include "SHDataManager.h"
+#include "Classes/DataManager/GenerateData/SHDataManager.hpp"
 
 namespace SailingHeroAPI {
 
@@ -31,7 +31,7 @@ std::string SHPlotContext::executeQuery(std::string query)
         int heroId = ToInt(heroIdStr);
         if (!heroIdStr.empty()) {
             HeroData *heroData =
-                SHDataManager::getInstance()->getHeroData(heroId);
+                SHDataManager::getHeroDataById(heroIdStr);
             if (heroData) {
                 result += heroData->getHeroFirstName();
                 result += ' ';
@@ -41,6 +41,11 @@ std::string SHPlotContext::executeQuery(std::string query)
     }
 
     return result;
+}
+
+bool SHPlotContext::evalCondition(std::string conditionName)
+{
+    return false;
 }
 
 }

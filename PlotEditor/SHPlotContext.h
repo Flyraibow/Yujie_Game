@@ -16,6 +16,8 @@ public:
 
     std::string executeQuery(std::string query);
 
+    bool evalCondition(std::string conditionName);
+
 private:
     static SHPlotContext instance;
 
