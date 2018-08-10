@@ -1,8 +1,8 @@
 #include "SHPlotBuilder.h"
 
+#include "Classes/DataManager/GenerateData/SHDataManager.hpp"
 #include "CSVReader.h"
 #include "SHDirector.h"
-#include "SHDataManager.h"
 #include "SHPlotContext.h"
 #include "StringParser.h"
 #include "UI/Button.h"
@@ -14,10 +14,7 @@ namespace SailingHeroAPI {
 
 cocos2d::Scene * SHPlotBuilder::Build(std::wstring csvFile)
 {
-    SHDataManager * dataManager = SHDataManager::getInstance();
     SHDirector * director = SHDirector::getInstance();
-
-    dataManager->loadData(cocos2d::FileUtils::getInstance()->getWritablePath() + "/res/base/data");
 
     SHScenario * currentScenario = nullptr;
     CSVReader csvReader(csvFile);
@@ -69,14 +66,16 @@ cocos2d::Scene * SHPlotBuilder::Build(std::wstring csvFile)
             && lineItems[0] == L"ui"
             && lineItems[1] == L"dialog") {
             DialogData *dialogData =
-                dataManager->getDialogData(WStringToString(lineItems[2]));
-            ui::Dialog dialog;
-            dialog.templateName = dialogData->getDialogId();
-            dialog.showFullName = dialogData->getShowFullNames();
-            dialog.showImage = dialogData->getShowImage();
-            dialog.heroId = ToInt(dialogData->getHeroIdId());
-            dialog.text = dialogData->getDialogContent() + " I'm @HeroName !!!";
-            currentScenario->addDialog(dialog);
+                SHDataManager::getDialogDataById(WStringToString(lineItems[2]));
+            if (dialogData) {
+                ui::Dialog dialog;
+                dialog.templateName = dialogData->getDialogId();
+                dialog.showFullName = dialogData->getShowFullNames();
+                dialog.showImage = dialogData->getShowImage();
+                dialog.heroId = ToInt(dialogData->getHeroIdId());
+                dialog.text = dialogData->getDialogContent() + " I'm @HeroName !!!";
+                currentScenario->addDialog(dialog);
+            }
             continue;
         }
 

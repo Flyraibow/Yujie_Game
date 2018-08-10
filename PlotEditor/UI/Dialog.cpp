@@ -2,7 +2,7 @@
 
 #include "cocos2d.h"
 
-#include "../SHDataManager.h"
+#include "Classes/DataManager/GenerateData/SHDataManager.hpp"
 #include "../SHPlotContext.h"
 
 namespace SailingHeroAPI {
@@ -63,7 +63,7 @@ cocos2d::LayerColor * SHDialogToCCDialog(const Dialog & shDialog)
 
     if (shDialog.showFullName) {
         cocos2d::Label *dialogSpeakerName = cocos2d::Label::createWithSystemFont(
-            SHDataManager::getInstance()->getHeroData(shDialog.heroId)->getHeroFirstName(),
+            SHDataManager::getHeroDataById(shDialog.heroId)->getHeroFirstName(),
             "Arial", 14);
         dialogSpeakerName->setTextColor(Color4B::BLACK);
         dialogSpeakerName->setScale(1.0f / scale);
@@ -77,7 +77,7 @@ cocos2d::LayerColor * SHDialogToCCDialog(const Dialog & shDialog)
         cocos2d::Sprite *dialogSpeakerBackground =
             cocos2d::Sprite::create("res/base/dialog/dialogPhotoFrame.png");
         cocos2d::Sprite * dialogSpeakerPhoto =
-            SHDataManager::getInstance()->getHeroData(shDialog.heroId)->getPhoto();
+            SHDataManager::getHeroDataById(shDialog.heroId)->getPhoto();
 
         dialogSpeakerBackground->setAnchorPoint(Vec2());
         dialogSpeaker->addChild(dialogSpeakerBackground, 2);
