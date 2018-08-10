@@ -12,8 +12,11 @@
 #include "AreaData.hpp"
 #include "AreaMapFrame.hpp"
 #include "AreaMapGoButtonFrame.hpp"
+#include "TradeInfoFrame.hpp"
 
 USING_NS_CC;
+
+class CityData;
 
 class SailMapFrame
 {
@@ -24,8 +27,10 @@ private:
   AreaMapFrame p_areaMap;
   vector<Node*> p_buttonList;
   Label* p_labCurrentArea;
+  TradeInfoFrame* p_tradeInfoFrame;
   void updateAreaData(AreaData *areaData);
   void addButton(AreaData *areaData, AREA_BUTTON_POSITION position);
+  void citySelectCallback(CityData* cityData);
 public:
   SailMapFrame();
   Sprite* getSprite() const;

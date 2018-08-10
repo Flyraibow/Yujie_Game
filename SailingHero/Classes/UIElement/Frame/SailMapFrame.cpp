@@ -21,8 +21,9 @@ SailMapFrame::SailMapFrame()
   p_sprite->setAnchorPoint(Vec2(0, 0));
   p_sprite->setNormalizedPosition(Vec2(0, 0));
   
+  p_areaMap.setCityDataSelectCallback(CC_CALLBACK_1(SailMapFrame::citySelectCallback, this));
   auto areaMapSprite = p_areaMap.getSprite();
-  areaMapSprite->setPosition(Vec2(14, 13));
+  areaMapSprite->setPosition(Vec2(14 / p_scale, 13 / p_scale));
   p_sprite->addChild(areaMapSprite);
   
   DateFrame dateFrame;
@@ -36,6 +37,7 @@ SailMapFrame::SailMapFrame()
   p_labCurrentArea->setScale(1.0 / p_scale);
   p_sprite->addChild(p_labCurrentArea);
 
+  p_tradeInfoFrame = nullptr;
   updateAreaData(GameData::getSharedInstance()->getCityData()->getAreaData());
 }
 
@@ -62,7 +64,6 @@ void SailMapFrame::addButton(AreaData *areaData, AREA_BUTTON_POSITION position)
     AreaMapGoButtonFrame button(areaData, position);
     auto listener = SHSpriteListener::createWithNode(button.getSprite());
     listener->setTouchEnd([areaData, this](Touch* touch, Event* event){
-      CCLOG("select area 0: %s", areaData->getAreaName().c_str());
       this->updateAreaData(areaData);
     }, nullptr);
     
@@ -71,6 +72,19 @@ void SailMapFrame::addButton(AreaData *areaData, AREA_BUTTON_POSITION position)
   }
 }
 
+void SailMapFrame::citySelectCallback(CityData* cityData)
+{
+  CCLOG("========= city: %s", cityData->getCityName().c_str());
+  if (p_tradeInfoFrame == nullptr) {
+    p_tradeInfoFrame = new TradeInfoFrame();
+    auto sprite = p_tradeInfoFrame->getSprite();
+    sprite->setAnchorPoint(Vec2(0, 0.5));
+    sprite->setNormalizedPosition(Vec2(0, 0.5));
+    p_sprite->addChild(sprite);
+  }
+  p_tradeInfoFrame->setCityData(cityData);
+  
+}
 
 Sprite* SailMapFrame::getSprite() const
 {

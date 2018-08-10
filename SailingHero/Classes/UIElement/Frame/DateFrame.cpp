@@ -12,7 +12,7 @@ DateFrame::DateFrame()
 {
   auto f = Director::getInstance()->getContentScaleFactor();
   p_sprite = Sprite::create("res/base/frame/areaButtonFrame.png");
-  p_labDate = Label::createWithSystemFont(getGameDate(), "Helvetica", 16);
+  p_labDate = Label::createWithSystemFont(getGameDate(), "Helvetica", 13);
   p_labDate->setAnchorPoint(Vec2(1, 0.5));
   p_labDate->setNormalizedPosition(Vec2(0.95, 0.5));
   auto size = p_sprite->getContentSize();

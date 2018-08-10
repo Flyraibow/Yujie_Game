@@ -36,14 +36,19 @@ void AreaMapFrame::refresh()
     auto city = iter->second;
     auto cityPoint = Vec2(city->getLongitude(), city->getLatitude());
     if (rect.containsPoint(cityPoint)) {
+      auto cityDataSelectCallback = p_cityDataSelectCallback;
       auto cityIcon = MenuItemImage::create(
                                             city->getCityTypeData()->getCityUpIconPath(),
                                             city->getCityTypeData()->getCityDownIconPath(),
-                                            CC_CALLBACK_1(AreaMapFrame::cityClickCallback, this));
+                                            [cityDataSelectCallback](cocos2d::Ref* pSender) {
+                                              auto menuItem = dynamic_cast<MenuItemImage *>(pSender);
+                                              int cityId = menuItem->getTag();
+                                              auto cityData = CityData::getCityDataById(cityId);
+                                              cityDataSelectCallback(cityData);
+                                            });
       cityIcon->setTag(city->getCityId());
       cityIcon->setPosition(Vec2((cityPoint.x - rect.origin.x) / rect.size.width * p_areaSprite->getContentSize().width,
                                            (cityPoint.y - rect.origin.y) / rect.size.height * p_areaSprite->getContentSize().height));
-//      p_areaSprite->addChild(cityIcon);
       p_cityList.pushBack(cityIcon);
     }
   }
@@ -52,12 +57,9 @@ void AreaMapFrame::refresh()
   p_areaSprite->addChild(menu);
 }
 
-void AreaMapFrame::cityClickCallback(cocos2d::Ref* pSender)
+void AreaMapFrame::setCityDataSelectCallback(ccCityDataSelectCallback cityDataSelectCallback)
 {
-  auto menuItem = dynamic_cast<MenuItemImage *>(pSender);
-  int cityId = menuItem->getTag();
-  auto cityData = CityData::getCityDataById(cityId);
-  CCLOG("=== city : %s", cityData->getCityName().c_str());
+  p_cityDataSelectCallback = cityDataSelectCallback;
 }
 
 Node* AreaMapFrame::getSprite() const

@@ -18,7 +18,7 @@ AreaMapGoButtonFrame::AreaMapGoButtonFrame(AreaData* targetArea, AREA_BUTTON_POS
   p_labAreaTarget->setScale(1 / f);
   auto size = p_sprite->getContentSize();
   if (p_isVertical) {
-    p_labAreaTarget->setContentSize(Size(size.height, size.width));
+    p_labAreaTarget->setContentSize(Size(size.height + 10, size.width + 10));
     p_labAreaTarget->setDimensions(size.height, size.width);
     p_labAreaTarget->setRotation(-90);
     p_sprite->setRotation(90);

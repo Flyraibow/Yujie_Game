@@ -14,6 +14,10 @@
 USING_NS_CC;
 using namespace std;
 
+class CityData;
+
+typedef function<void(CityData *)> ccCityDataSelectCallback;
+
 class AreaMapFrame
 {
 private:
@@ -22,10 +26,11 @@ private:
   void refresh();
   AreaData* p_areaData;
   Vector<MenuItem*> p_cityList;
-  void cityClickCallback(cocos2d::Ref* pSender);
+  ccCityDataSelectCallback p_cityDataSelectCallback;
 public:
   AreaMapFrame();
   void setAreaData(AreaData* areaData);
+  void setCityDataSelectCallback(ccCityDataSelectCallback cityDataSelectCallback);
   Node* getSprite() const;
 };
 

@@ -173,6 +173,8 @@
 		EC828891211B6F360041497C /* AreaMapFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82888E211B6F360041497C /* AreaMapFrame.cpp */; };
 		EC828894211B89F00041497C /* AreaMapGoButtonFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828892211B89F00041497C /* AreaMapGoButtonFrame.cpp */; };
 		EC828895211B89F00041497C /* AreaMapGoButtonFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828892211B89F00041497C /* AreaMapGoButtonFrame.cpp */; };
+		ECAF6F37211D3E2200BAF207 /* TradeInfoFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECAF6F36211D3E2200BAF207 /* TradeInfoFrame.cpp */; };
+		ECAF6F38211D3E2200BAF207 /* TradeInfoFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECAF6F36211D3E2200BAF207 /* TradeInfoFrame.cpp */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 /* End PBXBuildFile section */
@@ -380,6 +382,8 @@
 		EC82888F211B6F360041497C /* AreaMapFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AreaMapFrame.hpp; sourceTree = "<group>"; };
 		EC828892211B89F00041497C /* AreaMapGoButtonFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AreaMapGoButtonFrame.cpp; sourceTree = "<group>"; };
 		EC828893211B89F00041497C /* AreaMapGoButtonFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AreaMapGoButtonFrame.hpp; sourceTree = "<group>"; };
+		ECAF6F35211D3E2200BAF207 /* TradeInfoFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TradeInfoFrame.hpp; sourceTree = "<group>"; };
+		ECAF6F36211D3E2200BAF207 /* TradeInfoFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TradeInfoFrame.cpp; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -612,6 +616,8 @@
 				EC82888F211B6F360041497C /* AreaMapFrame.hpp */,
 				EC828892211B89F00041497C /* AreaMapGoButtonFrame.cpp */,
 				EC828893211B89F00041497C /* AreaMapGoButtonFrame.hpp */,
+				ECAF6F36211D3E2200BAF207 /* TradeInfoFrame.cpp */,
+				ECAF6F35211D3E2200BAF207 /* TradeInfoFrame.hpp */,
 			);
 			path = Frame;
 			sourceTree = "<group>";
@@ -900,6 +906,7 @@
 				EC8287C4210D75300041497C /* SHSpriteListener.cpp in Sources */,
 				EC828832210D758C0041497C /* SystemButtonData.cpp in Sources */,
 				EC828828210D758C0041497C /* CultureData.cpp in Sources */,
+				ECAF6F37211D3E2200BAF207 /* TradeInfoFrame.cpp in Sources */,
 				EC8288782117CDE80041497C /* GoodsPricePercentData.cpp in Sources */,
 				EC828843210D759C0041497C /* Utils.cpp in Sources */,
 				EC82884B210D75AC0041497C /* SelectHeroDisplayScene.cpp in Sources */,
@@ -1005,6 +1012,7 @@
 				EC8287C5210D75300041497C /* SHSpriteListener.cpp in Sources */,
 				EC8287B7210D75060041497C /* DialogPhotoFrame.cpp in Sources */,
 				EC8287C7210D75300041497C /* SHScene.cpp in Sources */,
+				ECAF6F38211D3E2200BAF207 /* TradeInfoFrame.cpp in Sources */,
 				EC828823210D758C0041497C /* CityData.cpp in Sources */,
 				EC828895211B89F00041497C /* AreaMapGoButtonFrame.cpp in Sources */,
 				EC82884C210D75AC0041497C /* SelectHeroDisplayScene.cpp in Sources */,
