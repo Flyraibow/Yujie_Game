@@ -18,8 +18,11 @@ class TradeInfoFrame
 private:
   Sprite* p_sprite;
   CityData* p_cityData;
+  double p_scale;
+  map<int, Label *> p_categoryPriceLabs;
+  Label* createLabelWithScale(Vec2 position, Vec2 anchor, string text);
 public:
-  TradeInfoFrame();
+  TradeInfoFrame(double scale);
   void setCityData(CityData *cityData);
   Sprite* getSprite() const;
 };

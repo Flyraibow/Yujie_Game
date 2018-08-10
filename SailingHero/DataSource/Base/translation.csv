@@ -20,3 +20,5 @@ tag_military,武装度
 tag_goods,特产品
 dialog_select,是%s吗？
 tag_money,所持金
+tag_price,物价
+tag_category,种类

@@ -23,7 +23,7 @@ SailMapFrame::SailMapFrame()
   
   p_areaMap.setCityDataSelectCallback(CC_CALLBACK_1(SailMapFrame::citySelectCallback, this));
   auto areaMapSprite = p_areaMap.getSprite();
-  areaMapSprite->setPosition(Vec2(14 / p_scale, 13 / p_scale));
+  areaMapSprite->setNormalizedPosition(Vec2(0.0296, 0.0354));
   p_sprite->addChild(areaMapSprite);
   
   DateFrame dateFrame;
@@ -76,11 +76,13 @@ void SailMapFrame::citySelectCallback(CityData* cityData)
 {
   CCLOG("========= city: %s", cityData->getCityName().c_str());
   if (p_tradeInfoFrame == nullptr) {
-    p_tradeInfoFrame = new TradeInfoFrame();
+    p_tradeInfoFrame = new TradeInfoFrame(p_scale);
     auto sprite = p_tradeInfoFrame->getSprite();
     sprite->setAnchorPoint(Vec2(0, 0.5));
     sprite->setNormalizedPosition(Vec2(0, 0.5));
-    p_sprite->addChild(sprite);
+    p_sprite->addChild(p_tradeInfoFrame->getSprite());
+  } else {
+    p_tradeInfoFrame->getSprite()->setVisible(true);
   }
   p_tradeInfoFrame->setCityData(cityData);
   
