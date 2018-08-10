@@ -4,6 +4,7 @@
 
 #include "Classes/DataManager/GenerateData/SHDataManager.hpp"
 #include "../SHPlotContext.h"
+#include "../SHExpression.h"
 
 namespace SailingHeroAPI {
 namespace ui {
@@ -18,14 +19,14 @@ bool IsQueryCharacter(char c) {
 std::string SubstituteTextParameters(const std::string & text) {
     std::string out;
     for (size_t i = 0; i < text.size();) {
-        if (text[i] == '@') {
+        if (text[i] == '%') {
             i = i + 1;
             size_t j = i;
-            while (j < text.size() && IsQueryCharacter(text[j]))
+            while (j < text.size() && text[j] != '%')
                 ++j;
-            out.append(SHPlotContext::getInstance()->executeQuery(
-                text.substr(i, j - i)));
-            i = j;
+            auto expr = BuildSHExpression(text.substr(i, j - i));
+            out.append(expr->eval());
+            i = j + 1;
         }
         else {
             out.push_back(text[i]);

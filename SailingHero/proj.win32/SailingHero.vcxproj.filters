@@ -150,9 +150,6 @@
     <ClCompile Include="..\..\PlotEditor\SHSoundManager.cpp">
       <Filter>SailingHeroAPI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\DataManager\GenerateData\SHDataManager.cpp">
-      <Filter>SailingHeroAPI</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\DataManager\GenerateData\AreaData.cpp">
       <Filter>csv_classes</Filter>
     </ClCompile>
@@ -173,6 +170,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\DataManager\GenerateData\ShipTeamData.cpp">
       <Filter>csv_classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DataManager\GenerateData\SHDataManager.cpp">
+      <Filter>deps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\SHExpression.cpp">
+      <Filter>SailingHeroAPI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -296,9 +299,6 @@
     <ClInclude Include="..\..\PlotEditor\SHSoundManager.h">
       <Filter>SailingHeroAPI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\DataManager\GenerateData\SHDataManager.hpp">
-      <Filter>SailingHeroAPI</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\DataManager\GenerateData\AreaData.hpp">
       <Filter>csv_classes</Filter>
     </ClInclude>
@@ -319,6 +319,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\DataManager\GenerateData\ShipTeamData.hpp">
       <Filter>csv_classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DataManager\GenerateData\SHDataManager.hpp">
+      <Filter>deps</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\SHExpression.h">
+      <Filter>SailingHeroAPI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -22,30 +22,34 @@ std::string SHPlotContext::cacheGet(std::string key)
     return cache[key];
 }
 
-std::string SHPlotContext::executeQuery(std::string query)
-{
-    std::string result;
-
-    if (query == "HeroName") {
-        std::string heroIdStr = cacheGet("heroId");
-        int heroId = ToInt(heroIdStr);
-        if (!heroIdStr.empty()) {
-            HeroData *heroData =
-                SHDataManager::getHeroDataById(heroIdStr);
-            if (heroData) {
-                result += heroData->getHeroFirstName();
-                result += ' ';
-                result += heroData->getHeroLastName();
-            }
-        }
-    }
-
-    return result;
-}
-
 bool SHPlotContext::evalCondition(std::string conditionName)
 {
+    // TODO
     return false;
+}
+
+std::string SHPlotContext::evalBuiltinFunction(const std::string & funcName,
+                                               const std::vector<std::string> & arguments)
+{
+    // TODO
+    assert(false);
+    return "";
+}
+
+std::string SHPlotContext::evalGameDataQuery(const std::string & dataSetName,
+                                             const std::string & id,
+                                             const std::string & fieldName)
+{
+    // TODO: SHDataManager support lookup(dataSetName,id,fieldName)
+    if (dataSetName == "HeroData" && fieldName == "firstName")
+        return SHDataManager::getHeroDataById(id)->getHeroFirstName();
+    else
+        return "";
+}
+
+std::string SHPlotContext::evalCacheDataQuery(const std::string & key)
+{
+    return cache[key];
 }
 
 }

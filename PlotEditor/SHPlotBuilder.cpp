@@ -73,7 +73,8 @@ cocos2d::Scene * SHPlotBuilder::Build(std::wstring csvFile)
                 dialog.showFullName = dialogData->getShowFullNames();
                 dialog.showImage = dialogData->getShowImage();
                 dialog.heroId = ToInt(dialogData->getHeroIdId());
-                dialog.text = dialogData->getDialogContent() + " I'm @HeroName !!!";
+                dialog.text = dialogData->getDialogContent() +
+                    " I'm %game.HeroData(" + std::to_string(dialog.heroId) + ").firstName% !!!";
                 currentScenario->addDialog(dialog);
             }
             continue;

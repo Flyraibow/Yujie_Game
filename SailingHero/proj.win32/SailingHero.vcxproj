@@ -152,6 +152,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\..\PlotEditor\GameData\Utils.cpp" />
     <ClCompile Include="..\..\PlotEditor\SHAppDelegate.cpp" />
     <ClCompile Include="..\..\PlotEditor\SHDirector.cpp" />
+    <ClCompile Include="..\..\PlotEditor\SHExpression.cpp" />
     <ClCompile Include="..\..\PlotEditor\SHPlotBuilder.cpp" />
     <ClCompile Include="..\..\PlotEditor\SHPlotContext.cpp" />
     <ClCompile Include="..\..\PlotEditor\SHScenario.cpp" />
@@ -205,6 +206,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\..\PlotEditor\SHAppDelegate.h" />
     <ClInclude Include="..\..\PlotEditor\SHDirector.h" />
     <ClInclude Include="..\..\PlotEditor\SHCommand.h" />
+    <ClInclude Include="..\..\PlotEditor\SHExpression.h" />
     <ClInclude Include="..\..\PlotEditor\SHPlotBuilder.h" />
     <ClInclude Include="..\..\PlotEditor\SHPlotContext.h" />
     <ClInclude Include="..\..\PlotEditor\SHScenario.h" />
