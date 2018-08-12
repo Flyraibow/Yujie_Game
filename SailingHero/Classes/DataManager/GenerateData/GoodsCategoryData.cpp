@@ -22,9 +22,9 @@ int GoodsCategoryData::getCategoryId() const
 	return p_categoryId;
 }
 
-string GoodsCategoryData::getCategory_name() const
+string GoodsCategoryData::getCategoryName() const
 {
-	string localId = "goodsCategory_category_name_" + to_string(p_categoryId);
+	string localId = "goodsCategory_categoryName_" + to_string(p_categoryId);
 	return LocalizationHelper::getLocalization(localId);
 }
 
@@ -42,7 +42,7 @@ string GoodsCategoryData::description() const
 {
 	string desc = "goodsCategoryData = {\n";
 	desc += "\tcategoryId : " + to_string(p_categoryId) + "\n";
-	desc += "\tcategory_name : " + getCategory_name() + "\n";
+	desc += "\tcategoryName : " + getCategoryName() + "\n";
 	desc += "\tcategoryUpdate : " + to_string(p_categoryUpdateId) + "\n";
 	desc += "}\n";
 	return desc;

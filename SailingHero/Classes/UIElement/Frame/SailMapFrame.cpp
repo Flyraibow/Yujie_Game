@@ -17,6 +17,7 @@ SailMapFrame::SailMapFrame()
   Vec2 origin = Director::getInstance()->getVisibleOrigin();
   auto visibleSize = Director::getInstance()->getVisibleSize();
   p_scale = visibleSize.height / p_sprite->getContentSize().height;
+  auto f = Director::getInstance()->getContentScaleFactor();
   p_sprite->setScale(p_scale);
   p_sprite->setAnchorPoint(Vec2(0, 0));
   p_sprite->setNormalizedPosition(Vec2(0, 0));
@@ -34,7 +35,7 @@ SailMapFrame::SailMapFrame()
   
   p_labCurrentArea = Label::createWithSystemFont("", "Helvetica", 16);
   p_labCurrentArea->setNormalizedPosition(Vec2(0.136, 0.885));
-  p_labCurrentArea->setScale(1.0 / p_scale);
+  p_labCurrentArea->setScale(1.0 / f);
   p_sprite->addChild(p_labCurrentArea);
 
   p_tradeInfoFrame = nullptr;
@@ -74,16 +75,16 @@ void SailMapFrame::addButton(AreaData *areaData, AREA_BUTTON_POSITION position)
 
 void SailMapFrame::citySelectCallback(CityData* cityData)
 {
-  CCLOG("========= city: %s", cityData->getCityName().c_str());
   if (p_tradeInfoFrame == nullptr) {
     p_tradeInfoFrame = new TradeInfoFrame(p_scale);
     auto sprite = p_tradeInfoFrame->getSprite();
     sprite->setAnchorPoint(Vec2(0, 0.5));
     sprite->setNormalizedPosition(Vec2(0, 0.5));
-    p_sprite->addChild(p_tradeInfoFrame->getSprite());
+    p_sprite->addChild(p_tradeInfoFrame->getSprite(), 2);
   } else {
     p_tradeInfoFrame->getSprite()->setVisible(true);
   }
+  p_tradeInfoFrame->updateGoodsCategory();
   p_tradeInfoFrame->setCityData(cityData);
   
 }

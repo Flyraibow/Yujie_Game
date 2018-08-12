@@ -1,4 +1,4 @@
-﻿categoryId,category_name,categoryUpdate
+﻿categoryId,categoryName,categoryUpdate
 id,language,friend_id
 int,chinese,CategoryUpdate
 writable,N,N

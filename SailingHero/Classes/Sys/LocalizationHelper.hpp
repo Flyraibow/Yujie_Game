@@ -20,6 +20,7 @@ public:
   static LocalizationHelper*  getInstance();
   
   static std::string getLocalization(const std::string &localId);
+  static std::string getLocalization(const std::string &localId, const std::string &param);
 };
 
 #endif /* LocalizationHelper_hpp */

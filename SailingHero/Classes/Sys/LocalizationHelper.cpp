@@ -59,3 +59,12 @@ string LocalizationHelper::getLocalization(const string &localId)
   return localId;
 }
 
+string LocalizationHelper::getLocalization(const string &localId, const string &param)
+{
+  if (LocalizationHelper::getInstance()->s_map.count(localId)) {
+    return SHUtil::format(LocalizationHelper::getInstance()->s_map.at(localId).c_str(), param.c_str());
+  }
+  CCLOGWARN("Local id doesn't have translation: %s", localId.c_str());
+  return localId;
+}
+

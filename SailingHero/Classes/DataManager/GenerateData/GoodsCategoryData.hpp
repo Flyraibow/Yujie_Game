@@ -17,7 +17,7 @@ private:
 public:
 	string getId() const;
 	int getCategoryId() const;
-	string getCategory_name() const;
+	string getCategoryName() const;
 	CategoryUpdateData* getCategoryUpdateData() const;
 	string getCategoryUpdateId() const;
 	string description() const;
