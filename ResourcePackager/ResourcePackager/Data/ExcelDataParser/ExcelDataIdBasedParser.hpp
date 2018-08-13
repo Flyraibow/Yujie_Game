@@ -34,6 +34,8 @@ public:
   virtual CPPFileComplete* getMainCppFile() const;
   virtual CPPClass* getMainCppClass() const;
   virtual void addDataLoadFunction(CPPClass* dataManager) const;
+  virtual void addSetFieldFunction(CPPFunction* setFieldFunc) const;
+  virtual void addGetFieldFunction(CPPFunction* getFieldFunc) const;
 };
 
 #endif /* ExcelData_hpp */

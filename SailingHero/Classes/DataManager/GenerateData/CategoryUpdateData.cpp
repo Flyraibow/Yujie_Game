@@ -81,3 +81,16 @@ CategoryUpdateData* CategoryUpdateData::getCategoryUpdateDataById(const string& 
 	return CategoryUpdateData::getCategoryUpdateDataById(atoi(categoryUpdateId.c_str()));
 }
 
+string CategoryUpdateData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "categoryUpdateId") {
+		return to_string(this->getCategoryUpdateId());
+	} else if (fieldName == "categoryUpdateName") {
+		return to_string(this->getCategoryUpdateName());
+	} else if (fieldName == "updateMonth") {
+		return to_string(this->getUpdateMonth());
+	}
+	CCLOGWARN("Couldn't recognize %s in CategoryUpdateData", fieldName.c_str());
+	return "";
+}
+

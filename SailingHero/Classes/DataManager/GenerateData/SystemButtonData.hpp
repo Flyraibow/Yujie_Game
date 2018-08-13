@@ -20,5 +20,6 @@ public:
 	static const map<int, SystemButtonData*>* getSharedDictionary();
 	static SystemButtonData* getSystemButtonDataById(int buttonId);
 	static SystemButtonData* getSystemButtonDataById(const string& buttonId);
+	string getFieldValue(const string & fieldName);
 };
 #endif

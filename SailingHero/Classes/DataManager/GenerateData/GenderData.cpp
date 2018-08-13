@@ -71,3 +71,14 @@ GenderData* GenderData::getGenderDataById(const string& genderId)
 	return GenderData::getGenderDataById(atoi(genderId.c_str()));
 }
 
+string GenderData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "genderId") {
+		return to_string(this->getGenderId());
+	} else if (fieldName == "genderName") {
+		return to_string(this->getGenderName());
+	}
+	CCLOGWARN("Couldn't recognize %s in GenderData", fieldName.c_str());
+	return "";
+}
+

@@ -203,3 +203,33 @@ bool GuildData::clearData()
 	return true;
 }
 
+void GuildData::setFieldValue(const string & fieldName, const string & value)
+{
+	if (fieldName == "guildName") {
+		this->setGuildName(value);
+	} else if (fieldName == "shipTeam") {
+		this->setShipTeamIdVector(atovector(value));
+	} else if (fieldName == "money") {
+		this->setMoney(atoi(value.c_str()));
+	}
+}
+
+string GuildData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "guildId") {
+		return to_string(this->getGuildId());
+	} else if (fieldName == "guildName") {
+		return to_string(this->getGuildName());
+	} else if (fieldName == "leader") {
+		return to_string(this->getLeaderId());
+	} else if (fieldName == "shipTeam") {
+		return to_string(this->getShipTeamIdVector());
+	} else if (fieldName == "style") {
+		return to_string(this->getStyle());
+	} else if (fieldName == "money") {
+		return to_string(this->getMoney());
+	}
+	CCLOGWARN("Couldn't recognize %s in GuildData", fieldName.c_str());
+	return "";
+}
+

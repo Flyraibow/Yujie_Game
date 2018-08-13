@@ -24,5 +24,6 @@ public:
 	static const map<int, GoodsCategoryData*>* getSharedDictionary();
 	static GoodsCategoryData* getGoodsCategoryDataById(int categoryId);
 	static GoodsCategoryData* getGoodsCategoryDataById(const string& categoryId);
+	string getFieldValue(const string & fieldName);
 };
 #endif

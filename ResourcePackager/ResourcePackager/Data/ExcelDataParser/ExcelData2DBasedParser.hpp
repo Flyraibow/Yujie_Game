@@ -38,6 +38,8 @@ public:
   virtual CPPClass* getMainCppClass() const;
   virtual void addDataLoadFunction(CPPClass* dataManager) const;
   virtual bool containWritableData() const;
+  virtual void addSetFieldFunction(CPPFunction* setFieldFunc) const;
+  virtual void addGetFieldFunction(CPPFunction* getFieldFunc) const;
 };
 
 #endif /* ExcelData2DBasedParser_hpp */

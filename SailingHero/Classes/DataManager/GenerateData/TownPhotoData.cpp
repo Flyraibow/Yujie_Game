@@ -81,3 +81,14 @@ TownPhotoData* TownPhotoData::getTownPhotoDataById(const string& townPhotoId)
 	return nullptr;
 }
 
+string TownPhotoData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "townPhotoId") {
+		return to_string(this->getTownPhotoId());
+	} else if (fieldName == "townPhotoImageId") {
+		return to_string(this->getTownPhotoImageId());
+	}
+	CCLOGWARN("Couldn't recognize %s in TownPhotoData", fieldName.c_str());
+	return "";
+}
+

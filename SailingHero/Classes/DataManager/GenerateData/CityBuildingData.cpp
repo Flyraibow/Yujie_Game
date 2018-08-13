@@ -123,3 +123,24 @@ CityBuildingData* CityBuildingData::getCityBuildingDataById(const string& buildi
 	return CityBuildingData::getCityBuildingDataById(atoi(buildingId.c_str()));
 }
 
+string CityBuildingData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "buildingId") {
+		return to_string(this->getBuildingId());
+	} else if (fieldName == "buildingName") {
+		return to_string(this->getBuildingName());
+	} else if (fieldName == "buildingImageId") {
+		return to_string(this->getBuildingImageId());
+	} else if (fieldName == "anchorX") {
+		return to_string(this->getAnchorX());
+	} else if (fieldName == "anchorY") {
+		return to_string(this->getAnchorY());
+	} else if (fieldName == "posX") {
+		return to_string(this->getPosX());
+	} else if (fieldName == "posY") {
+		return to_string(this->getPosY());
+	}
+	CCLOGWARN("Couldn't recognize %s in CityBuildingData", fieldName.c_str());
+	return "";
+}
+

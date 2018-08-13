@@ -508,3 +508,107 @@ bool HeroData::clearData()
 	return true;
 }
 
+void HeroData::setFieldValue(const string & fieldName, const string & value)
+{
+	if (fieldName == "heroFirstName") {
+		this->setHeroFirstName(value);
+	} else if (fieldName == "heroLastName") {
+		this->setHeroLastName(value);
+	} else if (fieldName == "gender") {
+		this->setGenderId(value);
+	} else if (fieldName == "birthMonth") {
+		this->setBirthMonth(atoi(value.c_str()));
+	} else if (fieldName == "birthDay") {
+		this->setBirthDay(atoi(value.c_str()));
+	} else if (fieldName == "level") {
+		this->setLevel(atoi(value.c_str()));
+	} else if (fieldName == "physicalStrength") {
+		this->setPhysicalStrength(atoi(value.c_str()));
+	} else if (fieldName == "agility") {
+		this->setAgility(atoi(value.c_str()));
+	} else if (fieldName == "charm") {
+		this->setCharm(atoi(value.c_str()));
+	} else if (fieldName == "intelligence") {
+		this->setIntelligence(atoi(value.c_str()));
+	} else if (fieldName == "mentalStrength") {
+		this->setMentalStrength(atoi(value.c_str()));
+	} else if (fieldName == "luck") {
+		this->setLuck(atoi(value.c_str()));
+	} else if (fieldName == "healthPoint") {
+		this->setHealthPoint(atoi(value.c_str()));
+	} else if (fieldName == "commandingAbility") {
+		this->setCommandingAbility(atoi(value.c_str()));
+	} else if (fieldName == "drivingAbility") {
+		this->setDrivingAbility(atoi(value.c_str()));
+	} else if (fieldName == "measuringAbility") {
+		this->setMeasuringAbility(atoi(value.c_str()));
+	} else if (fieldName == "accountingAbility") {
+		this->setAccountingAbility(atoi(value.c_str()));
+	} else if (fieldName == "fencingAbility") {
+		this->setFencingAbility(atoi(value.c_str()));
+	} else if (fieldName == "aimingAbility") {
+		this->setAimingAbility(atoi(value.c_str()));
+	} else if (fieldName == "eloquence") {
+		this->setEloquence(atoi(value.c_str()));
+	} else if (fieldName == "strategyAbility") {
+		this->setStrategyAbility(atoi(value.c_str()));
+	} else if (fieldName == "observingAbility") {
+		this->setObservingAbility(atoi(value.c_str()));
+	}
+}
+
+string HeroData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "heroId") {
+		return to_string(this->getHeroId());
+	} else if (fieldName == "heroFirstName") {
+		return to_string(this->getHeroFirstName());
+	} else if (fieldName == "heroLastName") {
+		return to_string(this->getHeroLastName());
+	} else if (fieldName == "photoId") {
+		return to_string(this->getPhotoId());
+	} else if (fieldName == "gender") {
+		return to_string(this->getGenderId());
+	} else if (fieldName == "birthMonth") {
+		return to_string(this->getBirthMonth());
+	} else if (fieldName == "birthDay") {
+		return to_string(this->getBirthDay());
+	} else if (fieldName == "level") {
+		return to_string(this->getLevel());
+	} else if (fieldName == "physicalStrength") {
+		return to_string(this->getPhysicalStrength());
+	} else if (fieldName == "agility") {
+		return to_string(this->getAgility());
+	} else if (fieldName == "charm") {
+		return to_string(this->getCharm());
+	} else if (fieldName == "intelligence") {
+		return to_string(this->getIntelligence());
+	} else if (fieldName == "mentalStrength") {
+		return to_string(this->getMentalStrength());
+	} else if (fieldName == "luck") {
+		return to_string(this->getLuck());
+	} else if (fieldName == "healthPoint") {
+		return to_string(this->getHealthPoint());
+	} else if (fieldName == "commandingAbility") {
+		return to_string(this->getCommandingAbility());
+	} else if (fieldName == "drivingAbility") {
+		return to_string(this->getDrivingAbility());
+	} else if (fieldName == "measuringAbility") {
+		return to_string(this->getMeasuringAbility());
+	} else if (fieldName == "accountingAbility") {
+		return to_string(this->getAccountingAbility());
+	} else if (fieldName == "fencingAbility") {
+		return to_string(this->getFencingAbility());
+	} else if (fieldName == "aimingAbility") {
+		return to_string(this->getAimingAbility());
+	} else if (fieldName == "eloquence") {
+		return to_string(this->getEloquence());
+	} else if (fieldName == "strategyAbility") {
+		return to_string(this->getStrategyAbility());
+	} else if (fieldName == "observingAbility") {
+		return to_string(this->getObservingAbility());
+	}
+	CCLOGWARN("Couldn't recognize %s in HeroData", fieldName.c_str());
+	return "";
+}
+

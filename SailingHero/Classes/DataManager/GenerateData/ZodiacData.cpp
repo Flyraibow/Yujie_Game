@@ -123,3 +123,24 @@ ZodiacData* ZodiacData::getZodiacDataById(const string& zodiacId)
 	return ZodiacData::getZodiacDataById(atoi(zodiacId.c_str()));
 }
 
+string ZodiacData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "zodiacId") {
+		return to_string(this->getZodiacId());
+	} else if (fieldName == "zodiacName") {
+		return to_string(this->getZodiacName());
+	} else if (fieldName == "iconId") {
+		return to_string(this->getIconId());
+	} else if (fieldName == "startMonth") {
+		return to_string(this->getStartMonth());
+	} else if (fieldName == "startDate") {
+		return to_string(this->getStartDate());
+	} else if (fieldName == "endMonth") {
+		return to_string(this->getEndMonth());
+	} else if (fieldName == "endDate") {
+		return to_string(this->getEndDate());
+	}
+	CCLOGWARN("Couldn't recognize %s in ZodiacData", fieldName.c_str());
+	return "";
+}
+

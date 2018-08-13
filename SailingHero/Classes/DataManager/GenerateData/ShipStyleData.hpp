@@ -39,5 +39,6 @@ public:
 	static const map<int, ShipStyleData*>* getSharedDictionary();
 	static ShipStyleData* getShipStyleDataById(int shipStyleId);
 	static ShipStyleData* getShipStyleDataById(const string& shipStyleId);
+	string getFieldValue(const string & fieldName);
 };
 #endif

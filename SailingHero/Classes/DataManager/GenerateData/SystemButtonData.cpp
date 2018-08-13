@@ -71,3 +71,14 @@ SystemButtonData* SystemButtonData::getSystemButtonDataById(const string& button
 	return SystemButtonData::getSystemButtonDataById(atoi(buttonId.c_str()));
 }
 
+string SystemButtonData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "buttonId") {
+		return to_string(this->getButtonId());
+	} else if (fieldName == "buttonName") {
+		return to_string(this->getButtonName());
+	}
+	CCLOGWARN("Couldn't recognize %s in SystemButtonData", fieldName.c_str());
+	return "";
+}
+

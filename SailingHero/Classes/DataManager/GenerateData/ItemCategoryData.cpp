@@ -71,3 +71,14 @@ ItemCategoryData* ItemCategoryData::getItemCategoryDataById(const string& itemCa
 	return ItemCategoryData::getItemCategoryDataById(atoi(itemCategoryId.c_str()));
 }
 
+string ItemCategoryData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "itemCategoryId") {
+		return to_string(this->getItemCategoryId());
+	} else if (fieldName == "itemCategoryName") {
+		return to_string(this->getItemCategoryName());
+	}
+	CCLOGWARN("Couldn't recognize %s in ItemCategoryData", fieldName.c_str());
+	return "";
+}
+

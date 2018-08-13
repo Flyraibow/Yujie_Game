@@ -392,3 +392,19 @@ void ExcelDataIdBasedParser::addRegisterDataFunction()
   });
   p_class->addFunction(unregisterFunc, false);
 }
+
+void ExcelDataIdBasedParser::addSetFieldFunction(CPPFunction* setFieldFunc) const
+{
+  string prefix = setFieldFunc->flag++ == 0 ? "" : "} else ";
+  setFieldFunc->addBodyStatements(prefix + "if (dataSet == \"" + p_className + "\") {");
+  setFieldFunc->addBodyStatements("auto data = " + p_className + "::get" + p_className + "ById(id);", 1);
+  setFieldFunc->addBodyStatements("data->setFieldValue(fieldName, value);", 1);
+}
+
+void ExcelDataIdBasedParser::addGetFieldFunction(CPPFunction* getFieldFunc) const
+{
+  string prefix = getFieldFunc->flag++ == 0 ? "" : "} else ";
+  getFieldFunc->addBodyStatements(prefix + "if (dataSet == \"" + p_className + "\") {");
+  getFieldFunc->addBodyStatements("auto data = " + p_className + "::get" + p_className + "ById(id);", 1);
+  getFieldFunc->addBodyStatements("return data->getFieldValue(fieldName);", 1);
+}

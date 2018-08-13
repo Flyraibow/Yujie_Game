@@ -135,3 +135,26 @@ ItemData* ItemData::getItemDataById(const string& itemId)
 	return ItemData::getItemDataById(atoi(itemId.c_str()));
 }
 
+string ItemData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "itemId") {
+		return to_string(this->getItemId());
+	} else if (fieldName == "itemName") {
+		return to_string(this->getItemName());
+	} else if (fieldName == "iconId") {
+		return to_string(this->getIconId());
+	} else if (fieldName == "itemCategory") {
+		return to_string(this->getItemCategoryId());
+	} else if (fieldName == "value") {
+		return to_string(this->getValue());
+	} else if (fieldName == "job") {
+		return to_string(this->getJob());
+	} else if (fieldName == "price") {
+		return to_string(this->getPrice());
+	} else if (fieldName == "itemDescription") {
+		return to_string(this->getItemDescription());
+	}
+	CCLOGWARN("Couldn't recognize %s in ItemData", fieldName.c_str());
+	return "";
+}
+

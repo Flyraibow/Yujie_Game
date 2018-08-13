@@ -33,6 +33,7 @@ public:
   CPPFunction(const string &funcName, const string &returnType);
   CPPFunction(const string &funcName, const string &returnType, bool isStatic);
   CPPFunction(const string &funcName, const string &returnType, const vector<const CPPVariable *> &arguments, bool isStatic, bool isConst, bool isVirtual = false);
+  int flag;
   void addBodyStatements(const string &statement);
   void addBodyStatements(const string &statement, int tabNumber);
   void addBodyStatementsList(const vector<pair<string, int>> &statementList);

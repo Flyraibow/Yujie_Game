@@ -147,3 +147,26 @@ ShipStyleData* ShipStyleData::getShipStyleDataById(const string& shipStyleId)
 	return ShipStyleData::getShipStyleDataById(atoi(shipStyleId.c_str()));
 }
 
+string ShipStyleData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "shipStyleId") {
+		return to_string(this->getShipStyleId());
+	} else if (fieldName == "shipStyleName") {
+		return to_string(this->getShipStyleName());
+	} else if (fieldName == "shipSize") {
+		return to_string(this->getShipSizeId());
+	} else if (fieldName == "iconId") {
+		return to_string(this->getIconId());
+	} else if (fieldName == "developValue") {
+		return to_string(this->getDevelopValue());
+	} else if (fieldName == "price") {
+		return to_string(this->getPrice());
+	} else if (fieldName == "duration") {
+		return to_string(this->getDuration());
+	} else if (fieldName == "sellCulture") {
+		return to_string(this->getSellCultureIdSet());
+	}
+	CCLOGWARN("Couldn't recognize %s in ShipStyleData", fieldName.c_str());
+	return "";
+}
+

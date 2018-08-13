@@ -28,5 +28,6 @@ public:
 	static const map<int, CityTypeData*>* getSharedDictionary();
 	static CityTypeData* getCityTypeDataById(int cityTypeId);
 	static CityTypeData* getCityTypeDataById(const string& cityTypeId);
+	string getFieldValue(const string & fieldName);
 };
 #endif

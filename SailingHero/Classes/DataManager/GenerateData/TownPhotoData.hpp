@@ -22,5 +22,6 @@ public:
 	string description() const;
 	static const map<string, TownPhotoData*>* getSharedDictionary();
 	static TownPhotoData* getTownPhotoDataById(const string& townPhotoId);
+	string getFieldValue(const string & fieldName);
 };
 #endif

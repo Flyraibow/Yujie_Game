@@ -20,5 +20,6 @@ public:
 	static const map<int, ShipSizeData*>* getSharedDictionary();
 	static ShipSizeData* getShipSizeDataById(int shipSizeId);
 	static ShipSizeData* getShipSizeDataById(const string& shipSizeId);
+	string getFieldValue(const string & fieldName);
 };
 #endif

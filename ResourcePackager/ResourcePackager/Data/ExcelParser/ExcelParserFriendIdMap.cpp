@@ -101,6 +101,22 @@ void ExcelParserFriendIdMap::addLoadFuncBody(CPPFunction *loadFunc, bool isFirst
   });
 }
 
+void ExcelParserFriendIdMap::addSetFieldValueFuncBody(CPPFunction *setFieldFunc)
+{
+  int level = 0;
+  auto schemaName = getVariableName();
+  auto list = p_schema->getName() + "List";
+  auto dataMap = convertMapDefine();
+  setFieldFunc->addBodyStatementsList({
+    make_pair(getVariableType() + " " + dataMap + ";", level + 1),
+    make_pair("auto " + list +" = atomap(value);", level + 1),
+    make_pair("for (auto mapData : " + list + ") {", level + 1),
+    make_pair(dataMap + ".insert(make_pair(mapData.first, " + castFromStringToValue(s_subtype_map.at(p_valueType), "mapData.second") + "));", level + 2),
+    make_pair("}", level + 1),
+    make_pair("this->" + getVariableSetterName() + "(" + dataMap + ");", level + 1),
+  });
+}
+
 void ExcelParserFriendIdMap::addInitFuncBody(CPPFunction *func,const string &variableName, int level) const
 {
   string schemaName = this->getVariableName();

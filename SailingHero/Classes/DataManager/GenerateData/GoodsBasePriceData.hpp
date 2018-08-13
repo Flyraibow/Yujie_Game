@@ -14,5 +14,6 @@ private:
 public:
 	static const map<int, map<int,int>>* getSharedDictionary();
 	static int getGoodsBasePrice(int goodsId, int cultureId);
+	string getFieldValue(const string & fieldName);
 };
 #endif

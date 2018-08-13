@@ -36,5 +36,6 @@ public:
 	static const map<int, HeroSelectData*>* getSharedDictionary();
 	static HeroSelectData* getHeroSelectDataById(int selectHeroId);
 	static HeroSelectData* getHeroSelectDataById(const string& selectHeroId);
+	string getFieldValue(const string & fieldName);
 };
 #endif

@@ -298,3 +298,13 @@ void ExcelData2DBasedParser::addDataLoadFunction(CPPClass* dataManager) const
 void ExcelData2DBasedParser::addRegisterDataFunction()
 {
 }
+
+void ExcelData2DBasedParser::addSetFieldFunction(CPPFunction* setFieldFunc) const
+{
+  
+}
+
+void ExcelData2DBasedParser::addGetFieldFunction(CPPFunction* getFieldFunc) const
+{
+  
+}

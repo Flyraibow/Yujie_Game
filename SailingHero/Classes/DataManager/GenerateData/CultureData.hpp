@@ -34,5 +34,6 @@ public:
 	static const map<int, CultureData*>* getSharedDictionary();
 	static CultureData* getCultureDataById(int cutureId);
 	static CultureData* getCultureDataById(const string& cutureId);
+	string getFieldValue(const string & fieldName);
 };
 #endif

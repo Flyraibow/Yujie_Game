@@ -140,3 +140,26 @@ GoodsData* GoodsData::getGoodsDataById(const string& goodsId)
 	return GoodsData::getGoodsDataById(atoi(goodsId.c_str()));
 }
 
+string GoodsData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "goodsId") {
+		return to_string(this->getGoodsId());
+	} else if (fieldName == "goodsName") {
+		return to_string(this->getGoodsName());
+	} else if (fieldName == "category") {
+		return to_string(this->getCategoryId());
+	} else if (fieldName == "iconId") {
+		return to_string(this->getIconId());
+	} else if (fieldName == "maxPrice") {
+		return to_string(this->getMaxPrice());
+	} else if (fieldName == "unlockItem") {
+		return to_string(this->getUnlockItemId());
+	} else if (fieldName == "levelUpExp") {
+		return to_string(this->getLevelUpExp());
+	} else if (fieldName == "goodsDescription") {
+		return to_string(this->getGoodsDescription());
+	}
+	CCLOGWARN("Couldn't recognize %s in GoodsData", fieldName.c_str());
+	return "";
+}
+

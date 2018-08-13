@@ -55,3 +55,9 @@ int GoodsBasePriceData::getGoodsBasePrice(int goodsId, int cultureId)
 	return 0;
 }
 
+string GoodsBasePriceData::getFieldValue(const string & fieldName)
+{
+	CCLOGWARN("Couldn't recognize %s in GoodsBasePriceData", fieldName.c_str());
+	return "";
+}
+

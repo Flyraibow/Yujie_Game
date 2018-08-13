@@ -20,5 +20,6 @@ public:
 	static const map<int, GenderData*>* getSharedDictionary();
 	static GenderData* getGenderDataById(int genderId);
 	static GenderData* getGenderDataById(const string& genderId);
+	string getFieldValue(const string & fieldName);
 };
 #endif

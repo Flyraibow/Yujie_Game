@@ -71,3 +71,14 @@ CityStatusData* CityStatusData::getCityStatusDataById(const string& cityStatusId
 	return CityStatusData::getCityStatusDataById(atoi(cityStatusId.c_str()));
 }
 
+string CityStatusData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "cityStatusId") {
+		return to_string(this->getCityStatusId());
+	} else if (fieldName == "cityStatusName") {
+		return to_string(this->getCityStatusName());
+	}
+	CCLOGWARN("Couldn't recognize %s in CityStatusData", fieldName.c_str());
+	return "";
+}
+

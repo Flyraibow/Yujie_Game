@@ -178,3 +178,31 @@ bool CityGoodsData::clearData()
 	return true;
 }
 
+void CityGoodsData::setFieldValue(const string & fieldName, const string & value)
+{
+	if (fieldName == "abundance") {
+		this->setAbundance(atoi(value.c_str()));
+	} else if (fieldName == "isHidden") {
+		this->setIsHidden((atoi(value.c_str()) != 0));
+	}
+}
+
+string CityGoodsData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "cityGoodsId") {
+		return to_string(this->getCityGoodsId());
+	} else if (fieldName == "goods") {
+		return to_string(this->getGoodsId());
+	} else if (fieldName == "commercialRequirement") {
+		return to_string(this->getCommercialRequirement());
+	} else if (fieldName == "basePrice") {
+		return to_string(this->getBasePrice());
+	} else if (fieldName == "abundance") {
+		return to_string(this->getAbundance());
+	} else if (fieldName == "isHidden") {
+		return to_string(this->getIsHidden());
+	}
+	CCLOGWARN("Couldn't recognize %s in CityGoodsData", fieldName.c_str());
+	return "";
+}
+

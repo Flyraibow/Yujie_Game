@@ -122,3 +122,13 @@ bool GoodsPricePercentData::clearData()
 	return true;
 }
 
+void GoodsPricePercentData::setFieldValue(const string & fieldName, const string & value)
+{
+}
+
+string GoodsPricePercentData::getFieldValue(const string & fieldName)
+{
+	CCLOGWARN("Couldn't recognize %s in GoodsPricePercentData", fieldName.c_str());
+	return "";
+}
+

@@ -32,5 +32,6 @@ public:
 	static const map<int, ZodiacData*>* getSharedDictionary();
 	static ZodiacData* getZodiacDataById(int zodiacId);
 	static ZodiacData* getZodiacDataById(const string& zodiacId);
+	string getFieldValue(const string & fieldName);
 };
 #endif

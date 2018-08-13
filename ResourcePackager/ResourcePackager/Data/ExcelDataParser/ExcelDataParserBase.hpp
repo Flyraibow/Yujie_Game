@@ -31,6 +31,9 @@ protected:
   string p_fileNameWithoutExt;   // e.g. city
   CPPFileComplete *p_file;
   CPPClass *p_class;
+  CPPFunction * p_getFieldFunction;
+  CPPFunction * p_setFieldFunction;
+  
   vector<DataSchema *> p_dataSchemas;
   vector<vector<string>> p_values;
   virtual void setPrepareFunction();     // decide which header to add
@@ -38,6 +41,8 @@ protected:
   virtual void setLoadFunction(const CPPVariable* pathVar);
   virtual void setSaveFunction(const CPPVariable* pathVar);
   virtual void setClearFunction();
+  virtual void setGetFieldFunction();
+  virtual void setSetFieldFunction();
   string getSaveLoadPathCode() const;
   int p_needSaveDataNumber;
   
@@ -53,6 +58,8 @@ public:
   
   virtual void saveData(const string& folderPath, LanguageData &langData);
   virtual void addDataLoadFunction(CPPClass* dataManager) const;
+  virtual void addSetFieldFunction(CPPFunction* setFieldFunc) const;
+  virtual void addGetFieldFunction(CPPFunction* getFieldFunc) const;
   void generateCode(const string& folderPath);
   
   virtual bool containWritableData() const;

@@ -23,6 +23,8 @@ private:
   CPPFunction *p_saveFunc;
   CPPFunction *p_loadFunc;
   CPPFunction *p_clearFunc;
+  CPPFunction *p_setFieldFunc;
+  CPPFunction *p_getFieldFunc;
 public:
   SaveDataManagerWriter(const string &fileName);
   void addExcel(const ExcelDataParserBase *excel);

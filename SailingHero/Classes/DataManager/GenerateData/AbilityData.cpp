@@ -78,3 +78,16 @@ AbilityData* AbilityData::getAbilityDataById(const string& abilityId)
 	return AbilityData::getAbilityDataById(atoi(abilityId.c_str()));
 }
 
+string AbilityData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "abilityId") {
+		return to_string(this->getAbilityId());
+	} else if (fieldName == "abilityName") {
+		return to_string(this->getAbilityName());
+	} else if (fieldName == "abilityDescription") {
+		return to_string(this->getAbilityDescription());
+	}
+	CCLOGWARN("Couldn't recognize %s in AbilityData", fieldName.c_str());
+	return "";
+}
+

@@ -27,5 +27,6 @@ public:
 	string description() const;
 	static const map<string, DialogData*>* getSharedDictionary();
 	static DialogData* getDialogDataById(const string& dialogId);
+	string getFieldValue(const string & fieldName);
 };
 #endif

@@ -119,3 +119,18 @@ CityTypeData* CityTypeData::getCityTypeDataById(const string& cityTypeId)
 	return CityTypeData::getCityTypeDataById(atoi(cityTypeId.c_str()));
 }
 
+string CityTypeData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "cityTypeId") {
+		return to_string(this->getCityTypeId());
+	} else if (fieldName == "cityTypeName") {
+		return to_string(this->getCityTypeName());
+	} else if (fieldName == "cityUpIconId") {
+		return to_string(this->getCityUpIconId());
+	} else if (fieldName == "cityDownIconId") {
+		return to_string(this->getCityDownIconId());
+	}
+	CCLOGWARN("Couldn't recognize %s in CityTypeData", fieldName.c_str());
+	return "";
+}
+

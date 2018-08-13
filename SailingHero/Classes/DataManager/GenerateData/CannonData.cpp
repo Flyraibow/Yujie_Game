@@ -130,3 +130,26 @@ CannonData* CannonData::getCannonDataById(const string& cannonId)
 	return CannonData::getCannonDataById(atoi(cannonId.c_str()));
 }
 
+string CannonData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "cannonId") {
+		return to_string(this->getCannonId());
+	} else if (fieldName == "cannonName") {
+		return to_string(this->getCannonName());
+	} else if (fieldName == "cannonDescription") {
+		return to_string(this->getCannonDescription());
+	} else if (fieldName == "iconId") {
+		return to_string(this->getIconId());
+	} else if (fieldName == "milltaryValue") {
+		return to_string(this->getMilltaryValue());
+	} else if (fieldName == "price") {
+		return to_string(this->getPrice());
+	} else if (fieldName == "range") {
+		return to_string(this->getRange());
+	} else if (fieldName == "power") {
+		return to_string(this->getPower());
+	}
+	CCLOGWARN("Couldn't recognize %s in CannonData", fieldName.c_str());
+	return "";
+}
+

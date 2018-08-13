@@ -83,3 +83,16 @@ GoodsCategoryData* GoodsCategoryData::getGoodsCategoryDataById(const string& cat
 	return GoodsCategoryData::getGoodsCategoryDataById(atoi(categoryId.c_str()));
 }
 
+string GoodsCategoryData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "categoryId") {
+		return to_string(this->getCategoryId());
+	} else if (fieldName == "categoryName") {
+		return to_string(this->getCategoryName());
+	} else if (fieldName == "categoryUpdate") {
+		return to_string(this->getCategoryUpdateId());
+	}
+	CCLOGWARN("Couldn't recognize %s in GoodsCategoryData", fieldName.c_str());
+	return "";
+}
+

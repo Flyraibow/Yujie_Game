@@ -338,3 +338,62 @@ bool CityData::clearData()
 	return true;
 }
 
+void CityData::setFieldValue(const string & fieldName, const string & value)
+{
+	if (fieldName == "cityName") {
+		this->setCityName(value);
+	} else if (fieldName == "cityStatus") {
+		this->setCityStatusId(value);
+	} else if (fieldName == "backGround") {
+		this->setBackGroundId(value);
+	} else if (fieldName == "commerce") {
+		this->setCommerce(atoi(value.c_str()));
+	} else if (fieldName == "milltary") {
+		this->setMilltary(atoi(value.c_str()));
+	} else if (fieldName == "guildShare") {
+		map<string, int> guildShareMap;
+		auto guildShareList = atomap(value);
+		for (auto mapData : guildShareList) {
+			guildShareMap.insert(make_pair(mapData.first, atoi(mapData.second.c_str())));
+		}
+		this->setGuildShareMap(guildShareMap);
+	} else if (fieldName == "building") {
+		this->setBuildingIdSet(atoset(value));
+	}
+}
+
+string CityData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "cityId") {
+		return to_string(this->getCityId());
+	} else if (fieldName == "cityName") {
+		return to_string(this->getCityName());
+	} else if (fieldName == "area") {
+		return to_string(this->getAreaId());
+	} else if (fieldName == "culture") {
+		return to_string(this->getCultureId());
+	} else if (fieldName == "cityStatus") {
+		return to_string(this->getCityStatusId());
+	} else if (fieldName == "backGround") {
+		return to_string(this->getBackGroundId());
+	} else if (fieldName == "cityType") {
+		return to_string(this->getCityTypeId());
+	} else if (fieldName == "longitude") {
+		return to_string(this->getLongitude());
+	} else if (fieldName == "latitude") {
+		return to_string(this->getLatitude());
+	} else if (fieldName == "commerce") {
+		return to_string(this->getCommerce());
+	} else if (fieldName == "milltary") {
+		return to_string(this->getMilltary());
+	} else if (fieldName == "guildShare") {
+		return to_string(this->getGuildShareMap());
+	} else if (fieldName == "cityGoods") {
+		return to_string(this->getCityGoodsIdVector());
+	} else if (fieldName == "building") {
+		return to_string(this->getBuildingIdSet());
+	}
+	CCLOGWARN("Couldn't recognize %s in CityData", fieldName.c_str());
+	return "";
+}
+

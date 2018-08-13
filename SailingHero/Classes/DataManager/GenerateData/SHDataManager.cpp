@@ -473,3 +473,118 @@ bool SHDataManager::clearData()
 	return true;
 }
 
+string SHDataManager::getData(const string & dataSet, const string & id, const string & fieldName)
+{
+	if (dataSet == "GoodsCategoryData") {
+		auto data = GoodsCategoryData::getGoodsCategoryDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "GuildData") {
+		auto data = GuildData::getGuildDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "GenderData") {
+		auto data = GenderData::getGenderDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "CultureData") {
+		auto data = CultureData::getCultureDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "AbilityData") {
+		auto data = AbilityData::getAbilityDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "CityTypeData") {
+		auto data = CityTypeData::getCityTypeDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "SystemButtonData") {
+		auto data = SystemButtonData::getSystemButtonDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "ShipTeamData") {
+		auto data = ShipTeamData::getShipTeamDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "DialogData") {
+		auto data = DialogData::getDialogDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "ItemData") {
+		auto data = ItemData::getItemDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "ShipSizeData") {
+		auto data = ShipSizeData::getShipSizeDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "CityGoodsData") {
+		auto data = CityGoodsData::getCityGoodsDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "ShipStyleData") {
+		auto data = ShipStyleData::getShipStyleDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "CannonData") {
+		auto data = CannonData::getCannonDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "GoodsData") {
+		auto data = GoodsData::getGoodsDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "ItemCategoryData") {
+		auto data = ItemCategoryData::getItemCategoryDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "CityData") {
+		auto data = CityData::getCityDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "TownPhotoData") {
+		auto data = TownPhotoData::getTownPhotoDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "ZodiacData") {
+		auto data = ZodiacData::getZodiacDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "CityBuildingData") {
+		auto data = CityBuildingData::getCityBuildingDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "HeroSelectData") {
+		auto data = HeroSelectData::getHeroSelectDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "CategoryUpdateData") {
+		auto data = CategoryUpdateData::getCategoryUpdateDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "AreaData") {
+		auto data = AreaData::getAreaDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "ShipData") {
+		auto data = ShipData::getShipDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "GameData") {
+		auto data = GameData::getSharedInstance();
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "HeroData") {
+		auto data = HeroData::getHeroDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "CityStatusData") {
+		auto data = CityStatusData::getCityStatusDataById(id);
+		return data->getFieldValue(fieldName);
+	}
+	CCLOGWARN("Couldn't recognize %s file", dataSet.c_str());
+	return "";
+}
+
+void SHDataManager::setData(const string & dataSet, const string & id, const string & fieldName, const string & value)
+{
+	if (dataSet == "GuildData") {
+		auto data = GuildData::getGuildDataById(id);
+		data->setFieldValue(fieldName, value);
+	} else if (dataSet == "ShipTeamData") {
+		auto data = ShipTeamData::getShipTeamDataById(id);
+		data->setFieldValue(fieldName, value);
+	} else if (dataSet == "CityGoodsData") {
+		auto data = CityGoodsData::getCityGoodsDataById(id);
+		data->setFieldValue(fieldName, value);
+	} else if (dataSet == "CityData") {
+		auto data = CityData::getCityDataById(id);
+		data->setFieldValue(fieldName, value);
+	} else if (dataSet == "ShipData") {
+		auto data = ShipData::getShipDataById(id);
+		data->setFieldValue(fieldName, value);
+	} else if (dataSet == "GameData") {
+		auto data = GameData::getSharedInstance();
+		data->setFieldValue(fieldName, value);
+	} else if (dataSet == "HeroData") {
+		auto data = HeroData::getHeroDataById(id);
+		data->setFieldValue(fieldName, value);
+	}
+	CCLOGWARN("Couldn't recognize %s file", dataSet.c_str());
+}
+

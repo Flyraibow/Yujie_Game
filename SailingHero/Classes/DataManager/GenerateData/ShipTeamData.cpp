@@ -354,3 +354,59 @@ bool ShipTeamData::clearData()
 	return true;
 }
 
+void ShipTeamData::setFieldValue(const string & fieldName, const string & value)
+{
+	if (fieldName == "isActive") {
+		this->setIsActive((atoi(value.c_str()) != 0));
+	} else if (fieldName == "isDismissed") {
+		this->setIsDismissed((atoi(value.c_str()) != 0));
+	} else if (fieldName == "hasInformation") {
+		this->setHasInformation((atoi(value.c_str()) != 0));
+	} else if (fieldName == "hasMet") {
+		this->setHasMet((atoi(value.c_str()) != 0));
+	} else if (fieldName == "ship") {
+		this->setShipIdVector(atovector(value));
+	} else if (fieldName == "isOut") {
+		this->setIsOut((atoi(value.c_str()) != 0));
+	} else if (fieldName == "posX") {
+		this->setPosX(atof(value.c_str()));
+	} else if (fieldName == "posY") {
+		this->setPosY(atof(value.c_str()));
+	} else if (fieldName == "city") {
+		this->setCityId(value);
+	} else if (fieldName == "tireness") {
+		this->setTireness(atoi(value.c_str()));
+	}
+}
+
+string ShipTeamData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "shipTeamId") {
+		return to_string(this->getShipTeamId());
+	} else if (fieldName == "leader") {
+		return to_string(this->getLeaderId());
+	} else if (fieldName == "isActive") {
+		return to_string(this->getIsActive());
+	} else if (fieldName == "isDismissed") {
+		return to_string(this->getIsDismissed());
+	} else if (fieldName == "hasInformation") {
+		return to_string(this->getHasInformation());
+	} else if (fieldName == "hasMet") {
+		return to_string(this->getHasMet());
+	} else if (fieldName == "ship") {
+		return to_string(this->getShipIdVector());
+	} else if (fieldName == "isOut") {
+		return to_string(this->getIsOut());
+	} else if (fieldName == "posX") {
+		return to_string(this->getPosX());
+	} else if (fieldName == "posY") {
+		return to_string(this->getPosY());
+	} else if (fieldName == "city") {
+		return to_string(this->getCityId());
+	} else if (fieldName == "tireness") {
+		return to_string(this->getTireness());
+	}
+	CCLOGWARN("Couldn't recognize %s in ShipTeamData", fieldName.c_str());
+	return "";
+}
+

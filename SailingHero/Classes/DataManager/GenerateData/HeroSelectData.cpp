@@ -143,3 +143,22 @@ HeroSelectData* HeroSelectData::getHeroSelectDataById(const string& selectHeroId
 	return HeroSelectData::getHeroSelectDataById(atoi(selectHeroId.c_str()));
 }
 
+string HeroSelectData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "selectHeroId") {
+		return to_string(this->getSelectHeroId());
+	} else if (fieldName == "iconId") {
+		return to_string(this->getIconId());
+	} else if (fieldName == "smallIconId") {
+		return to_string(this->getSmallIconId());
+	} else if (fieldName == "startCityId") {
+		return to_string(this->getStartCityIdId());
+	} else if (fieldName == "guild") {
+		return to_string(this->getGuildId());
+	} else if (fieldName == "heroDescription") {
+		return to_string(this->getHeroDescription());
+	}
+	CCLOGWARN("Couldn't recognize %s in HeroSelectData", fieldName.c_str());
+	return "";
+}
+

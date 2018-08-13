@@ -201,3 +201,36 @@ AreaData* AreaData::getAreaDataById(const string& areaId)
 	return AreaData::getAreaDataById(atoi(areaId.c_str()));
 }
 
+string AreaData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "areaId") {
+		return to_string(this->getAreaId());
+	} else if (fieldName == "areaName") {
+		return to_string(this->getAreaName());
+	} else if (fieldName == "iconId") {
+		return to_string(this->getIconId());
+	} else if (fieldName == "left") {
+		return to_string(this->getLeftId());
+	} else if (fieldName == "rightUp") {
+		return to_string(this->getRightUpId());
+	} else if (fieldName == "right") {
+		return to_string(this->getRightId());
+	} else if (fieldName == "rightDown") {
+		return to_string(this->getRightDownId());
+	} else if (fieldName == "up") {
+		return to_string(this->getUpId());
+	} else if (fieldName == "down") {
+		return to_string(this->getDownId());
+	} else if (fieldName == "x1") {
+		return to_string(this->getX1());
+	} else if (fieldName == "x2") {
+		return to_string(this->getX2());
+	} else if (fieldName == "y1") {
+		return to_string(this->getY1());
+	} else if (fieldName == "y2") {
+		return to_string(this->getY2());
+	}
+	CCLOGWARN("Couldn't recognize %s in AreaData", fieldName.c_str());
+	return "";
+}
+

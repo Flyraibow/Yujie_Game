@@ -157,7 +157,9 @@ void ExcelDataParserBase::generateCode(const string& folderPath)
     this->setSaveFunction(pathVar);
     this->setLoadFunction(pathVar);
     this->setClearFunction();
+    this->setSetFieldFunction();
   }
+  this->setGetFieldFunction();
   p_file->addClass(p_class);
   p_file->saveFiles(folderPath);
   delete p_class;
@@ -282,6 +284,52 @@ string ExcelDataParserBase::getInstanceCode() const
   return "auto data = " + getClassName() + "::getSharedInstance();";
 }
 
+void ExcelDataParserBase::setGetFieldFunction()
+{
+  auto fieldVar = new CPPVariable("fieldName", "const string &");
+  p_getFieldFunction = new CPPFunction("getFieldValue", TYPE_STRING, {fieldVar}, false, false);
+  int count = 0;
+  for (auto schema : p_dataSchemas) {
+    if (schema->getType() != COMMENT && schema->getType() != ENUM) {
+      auto parser = ExcelParserBase::createWithSchema(schema, "");
+      string prefix = (count > 0) ? "} else " : "";
+      p_getFieldFunction->addBodyStatements(prefix + "if (fieldName == \"" + schema->getName() + "\") {");
+      parser->addGetFieldValueFuncBody(p_getFieldFunction);
+      delete parser;
+      ++count;
+    }
+  }
+  if (count > 0) {
+    p_getFieldFunction->addBodyStatements("}");
+  }
+  p_getFieldFunction->addBodyStatements("CCLOGWARN(\"Couldn't recognize %s in " + p_class->getClassName() + "\", fieldName.c_str());");
+  p_getFieldFunction->addBodyStatements("return \"\";");
+  p_class->addFunction(p_getFieldFunction, false);
+}
+
+void ExcelDataParserBase::setSetFieldFunction()
+{
+  auto fieldVar = new CPPVariable("fieldName", "const string &");
+  auto value = new CPPVariable("value", "const string &");
+  p_setFieldFunction = new CPPFunction("setFieldValue", TYPE_VOID, {fieldVar, value}, false, false);
+  int count = 0;
+  for (auto schema : p_dataSchemas) {
+    if (schema->isWritable() && schema->getType() != ID) {
+      auto parser = ExcelParserBase::createWithSchema(schema, "");
+      string prefix = (count > 0) ? "} else " : "";
+      p_setFieldFunction->addBodyStatements(prefix + "if (fieldName == \"" + schema->getName() + "\") {");
+      parser->addSetFieldValueFuncBody(p_setFieldFunction);
+      delete parser;
+      ++count;
+    }
+  }
+  if (count > 0) {
+    p_setFieldFunction->addBodyStatements("}");
+  }
+  
+  p_class->addFunction(p_setFieldFunction, false);
+}
+
 void ExcelDataParserBase::setLoadFunction(const CPPVariable* pathVar)
 {
   auto loadFunc = new CPPFunction("loadData", TYPE_BOOL, {pathVar}, true, false);
@@ -369,4 +417,20 @@ void ExcelDataParserBase::addDataLoadFunction(CPPClass* dataManager) const
   auto loadDataFunc = new CPPFunction("get" + p_className, p_classTypeName, {}, true, false);
   loadDataFunc->addBodyStatements("return " + p_className + "::getSharedInstance();");
   dataManager->addFunction(loadDataFunc, false);
+}
+
+void ExcelDataParserBase::addSetFieldFunction(CPPFunction* setFieldFunc) const
+{
+  string prefix = setFieldFunc->flag++ == 0 ? "" : "} else ";
+  setFieldFunc->addBodyStatements(prefix + "if (dataSet == \"" + p_className + "\") {");
+  setFieldFunc->addBodyStatements("auto data = " + p_className + "::getSharedInstance();", 1);
+  setFieldFunc->addBodyStatements("data->setFieldValue(fieldName, value);", 1);
+}
+
+void ExcelDataParserBase::addGetFieldFunction(CPPFunction* getFieldFunc) const
+{
+  string prefix = getFieldFunc->flag++ == 0 ? "" : "} else ";
+  getFieldFunc->addBodyStatements(prefix + "if (dataSet == \"" + p_className + "\") {");
+  getFieldFunc->addBodyStatements("auto data = " + p_className + "::getSharedInstance();", 1);
+  getFieldFunc->addBodyStatements("return data->getFieldValue(fieldName);", 1);
 }

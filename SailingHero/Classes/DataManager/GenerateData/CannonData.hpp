@@ -33,5 +33,6 @@ public:
 	static const map<int, CannonData*>* getSharedDictionary();
 	static CannonData* getCannonDataById(int cannonId);
 	static CannonData* getCannonDataById(const string& cannonId);
+	string getFieldValue(const string & fieldName);
 };
 #endif

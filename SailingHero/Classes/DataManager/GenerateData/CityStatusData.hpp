@@ -30,5 +30,6 @@ public:
 	static const map<int, CityStatusData*>* getSharedDictionary();
 	static CityStatusData* getCityStatusDataById(int cityStatusId);
 	static CityStatusData* getCityStatusDataById(const string& cityStatusId);
+	string getFieldValue(const string & fieldName);
 };
 #endif

@@ -145,3 +145,22 @@ CultureData* CultureData::getCultureDataById(const string& cutureId)
 	return CultureData::getCultureDataById(atoi(cutureId.c_str()));
 }
 
+string CultureData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "cutureId") {
+		return to_string(this->getCutureId());
+	} else if (fieldName == "cultureName") {
+		return to_string(this->getCultureName());
+	} else if (fieldName == "oceanMusicId") {
+		return to_string(this->getOceanMusicId());
+	} else if (fieldName == "cityMusicId") {
+		return to_string(this->getCityMusicId());
+	} else if (fieldName == "plazaStoreIconId") {
+		return to_string(this->getPlazaStoreIconId());
+	} else if (fieldName == "plazaBuildingIconId") {
+		return to_string(this->getPlazaBuildingIconId());
+	}
+	CCLOGWARN("Couldn't recognize %s in CultureData", fieldName.c_str());
+	return "";
+}
+

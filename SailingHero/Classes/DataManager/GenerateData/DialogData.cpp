@@ -91,3 +91,20 @@ DialogData* DialogData::getDialogDataById(const string& dialogId)
 	return nullptr;
 }
 
+string DialogData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "dialogId") {
+		return to_string(this->getDialogId());
+	} else if (fieldName == "showFullNames") {
+		return to_string(this->getShowFullNames());
+	} else if (fieldName == "showImage") {
+		return to_string(this->getShowImage());
+	} else if (fieldName == "heroId") {
+		return to_string(this->getHeroIdId());
+	} else if (fieldName == "dialogContent") {
+		return to_string(this->getDialogContent());
+	}
+	CCLOGWARN("Couldn't recognize %s in DialogData", fieldName.c_str());
+	return "";
+}
+

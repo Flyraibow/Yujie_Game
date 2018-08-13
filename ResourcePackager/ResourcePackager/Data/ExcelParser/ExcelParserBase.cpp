@@ -83,6 +83,16 @@ string ExcelParserBase::getDescription() const
 }
 
 
+void ExcelParserBase::addSetFieldValueFuncBody(CPPFunction *setFieldFunc)
+{
+  setFieldFunc->addBodyStatements("\tthis->" + getVariableSetterName() + "(" + castFromStringToValue(p_schema->getType(), "value") + ");");
+}
+
+void ExcelParserBase::addGetFieldValueFuncBody(CPPFunction *getFieldFunc)
+{
+  getFieldFunc->addBodyStatements("\treturn to_string(this->" + getVariableGetterName()+ "());");
+}
+
 string ExcelParserBase::getType() const
 {
   string finalType;

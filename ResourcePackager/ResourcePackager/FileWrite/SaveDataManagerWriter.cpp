@@ -20,6 +20,14 @@ SaveDataManagerWriter::SaveDataManagerWriter(const string &fileName)
   p_saveFunc = new CPPFunction("saveData", TYPE_BOOL, {indexVar}, true, false);
   p_loadFunc = new CPPFunction("loadData", TYPE_BOOL, {indexVar}, true, false);
   p_clearFunc = new CPPFunction("clearData", TYPE_BOOL, {}, true, false);
+  
+  auto dataSet = new CPPVariable("dataSet", "const string &");
+  auto idVariable = new CPPVariable("id", "const string &");
+  auto fieldName = new CPPVariable("fieldName", "const string &");
+  auto valueVariable = new CPPVariable("value", "const string &");
+  p_setFieldFunc = new CPPFunction("setData", TYPE_VOID, {dataSet, idVariable, fieldName, valueVariable}, true, false);
+  p_getFieldFunc = new CPPFunction("getData", TYPE_STRING, {dataSet, idVariable, fieldName}, true, false);
+  
   p_file->addHeaders("sys/types.h", false, false);
   p_file->addHeaders("sys/stat.h", false, false);
   p_file->addHeaders("unistd.h", false, false);
@@ -48,8 +56,8 @@ void SaveDataManagerWriter::addExcel(const ExcelDataParserBase *excel)
 {
   p_file->addHeaders(excel->getClassName() + ".hpp", true, true);
   excel->addDataLoadFunction(p_mainClass);
+  string fileName = excel->getClassName();
   if (excel->containWritableData()) {
-    string fileName = excel->getClassName();
     p_file->addHeaders(fileName +".hpp", true, false);
     p_saveFunc->addBodyStatements("if (!" + fileName + "::saveData(path)) {");
     p_saveFunc->addBodyStatements("CCLOG(\"Failed to save " + fileName+ ", %s\", path.c_str());", 1);
@@ -62,7 +70,9 @@ void SaveDataManagerWriter::addExcel(const ExcelDataParserBase *excel)
     p_loadFunc->addBodyStatements("}");
     
     p_clearFunc->addBodyStatements(fileName + "::clearData();");
+    excel->addSetFieldFunction(p_setFieldFunc);
   }
+  excel->addGetFieldFunction(p_getFieldFunc);
 }
 
 void SaveDataManagerWriter::writeToPath(const std::string &path)
@@ -70,9 +80,18 @@ void SaveDataManagerWriter::writeToPath(const std::string &path)
   p_saveFunc->addBodyStatements("return true;");
   p_loadFunc->addBodyStatements("return true;");
   p_clearFunc->addBodyStatements("return true;");
+  
+  p_getFieldFunc->addBodyStatements("}");
+  p_setFieldFunc->addBodyStatements("}");
+  p_getFieldFunc->addBodyStatements("CCLOGWARN(\"Couldn't recognize %s file\", dataSet.c_str());");
+  p_getFieldFunc->addBodyStatements("return \"\";");
+  p_setFieldFunc->addBodyStatements("CCLOGWARN(\"Couldn't recognize %s file\", dataSet.c_str());");
+  
   p_mainClass->addFunction(p_saveFunc, false);
   p_mainClass->addFunction(p_loadFunc, false);
   p_mainClass->addFunction(p_clearFunc, false);
+  p_mainClass->addFunction(p_getFieldFunc, false);
+  p_mainClass->addFunction(p_setFieldFunc, false);
   p_file->addClass(p_mainClass);
   p_file->saveFiles(path);
 }

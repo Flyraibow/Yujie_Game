@@ -21,5 +21,6 @@ public:
 	static const map<int, AbilityData*>* getSharedDictionary();
 	static AbilityData* getAbilityDataById(int abilityId);
 	static AbilityData* getAbilityDataById(const string& abilityId);
+	string getFieldValue(const string & fieldName);
 };
 #endif

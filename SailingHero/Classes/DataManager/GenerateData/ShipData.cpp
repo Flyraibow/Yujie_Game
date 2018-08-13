@@ -248,3 +248,35 @@ bool ShipData::clearData()
 	return true;
 }
 
+void ShipData::setFieldValue(const string & fieldName, const string & value)
+{
+	if (fieldName == "shipName") {
+		this->setShipName(value);
+	} else if (fieldName == "cannon") {
+		this->setCannonId(value);
+	} else if (fieldName == "currentDuration") {
+		this->setCurrentDuration(atoi(value.c_str()));
+	} else if (fieldName == "leader") {
+		this->setLeaderId(value);
+	}
+}
+
+string ShipData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "shipId") {
+		return to_string(this->getShipId());
+	} else if (fieldName == "shipName") {
+		return to_string(this->getShipName());
+	} else if (fieldName == "shipStyle") {
+		return to_string(this->getShipStyleId());
+	} else if (fieldName == "cannon") {
+		return to_string(this->getCannonId());
+	} else if (fieldName == "currentDuration") {
+		return to_string(this->getCurrentDuration());
+	} else if (fieldName == "leader") {
+		return to_string(this->getLeaderId());
+	}
+	CCLOGWARN("Couldn't recognize %s in ShipData", fieldName.c_str());
+	return "";
+}
+

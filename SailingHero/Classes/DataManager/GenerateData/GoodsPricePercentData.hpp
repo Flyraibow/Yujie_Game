@@ -18,5 +18,7 @@ public:
 	static bool saveData(const string & path);
 	static bool loadData(const string & path);
 	static bool clearData();
+	void setFieldValue(const string & fieldName, const string & value);
+	string getFieldValue(const string & fieldName);
 };
 #endif

@@ -161,3 +161,35 @@ bool GameData::clearData()
 	return true;
 }
 
+void GameData::setFieldValue(const string & fieldName, const string & value)
+{
+	if (fieldName == "year") {
+		this->setYear(atoi(value.c_str()));
+	} else if (fieldName == "month") {
+		this->setMonth(atoi(value.c_str()));
+	} else if (fieldName == "day") {
+		this->setDay(atoi(value.c_str()));
+	} else if (fieldName == "city") {
+		this->setCityId(value);
+	} else if (fieldName == "guild") {
+		this->setGuildId(value);
+	}
+}
+
+string GameData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "year") {
+		return to_string(this->getYear());
+	} else if (fieldName == "month") {
+		return to_string(this->getMonth());
+	} else if (fieldName == "day") {
+		return to_string(this->getDay());
+	} else if (fieldName == "city") {
+		return to_string(this->getCityId());
+	} else if (fieldName == "guild") {
+		return to_string(this->getGuildId());
+	}
+	CCLOGWARN("Couldn't recognize %s in GameData", fieldName.c_str());
+	return "";
+}
+

@@ -37,5 +37,6 @@ public:
 	static const map<int, GoodsData*>* getSharedDictionary();
 	static GoodsData* getGoodsDataById(int goodsId);
 	static GoodsData* getGoodsDataById(const string& goodsId);
+	string getFieldValue(const string & fieldName);
 };
 #endif

@@ -56,5 +56,6 @@ public:
 	static const map<int, AreaData*>* getSharedDictionary();
 	static AreaData* getAreaDataById(int areaId);
 	static AreaData* getAreaDataById(const string& areaId);
+	string getFieldValue(const string & fieldName);
 };
 #endif

@@ -71,3 +71,14 @@ ShipSizeData* ShipSizeData::getShipSizeDataById(const string& shipSizeId)
 	return ShipSizeData::getShipSizeDataById(atoi(shipSizeId.c_str()));
 }
 
+string ShipSizeData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "shipSizeId") {
+		return to_string(this->getShipSizeId());
+	} else if (fieldName == "shipSizeName") {
+		return to_string(this->getShipSizeName());
+	}
+	CCLOGWARN("Couldn't recognize %s in ShipSizeData", fieldName.c_str());
+	return "";
+}
+
