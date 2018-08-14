@@ -24,6 +24,7 @@ public:
   void clickTest1(cocos2d::Ref* pSender);
   void clickTest2(cocos2d::Ref* pSender);
   void clickTest3(cocos2d::Ref* pSender);
+  void clickTest4(cocos2d::Ref* pSender);
   
   // implement the "static create()" method manually
   CREATE_FUNC(SailingHeroMenu);

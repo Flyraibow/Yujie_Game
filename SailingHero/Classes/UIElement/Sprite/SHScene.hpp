@@ -13,12 +13,14 @@
 USING_NS_CC;
 
 #define SCREEN_COVER_LAYER_HEIGHT 100
+#define SCREEN_FOREGROUND_LAYER_HEIGHT 101
 //#define COVER_DEBUG
 
 class SHScene : public cocos2d::Scene
 {
 private:
   Node* s_background;
+  Node* s_foreground;
   Size s_screenSize;
   bool s_isFullScreen;
 protected:
@@ -29,6 +31,7 @@ protected:
   void setScreenCover(Size ratioSize);
   void setFullScreenCover();
   void setBackgroundImage(std::string imgPath);
+  void setForegroundImage(std::string imgPath);
   void setBackgroundMusic(std::string path);
   Node* s_window;
   

@@ -175,6 +175,8 @@
 		EC828895211B89F00041497C /* AreaMapGoButtonFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828892211B89F00041497C /* AreaMapGoButtonFrame.cpp */; };
 		ECAF6F37211D3E2200BAF207 /* TradeInfoFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECAF6F36211D3E2200BAF207 /* TradeInfoFrame.cpp */; };
 		ECAF6F38211D3E2200BAF207 /* TradeInfoFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECAF6F36211D3E2200BAF207 /* TradeInfoFrame.cpp */; };
+		ECAF6F3B21228EB500BAF207 /* StoryScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECAF6F3921228EB400BAF207 /* StoryScene.cpp */; };
+		ECAF6F3C21228EB500BAF207 /* StoryScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECAF6F3921228EB400BAF207 /* StoryScene.cpp */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 /* End PBXBuildFile section */
@@ -384,6 +386,8 @@
 		EC828893211B89F00041497C /* AreaMapGoButtonFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AreaMapGoButtonFrame.hpp; sourceTree = "<group>"; };
 		ECAF6F35211D3E2200BAF207 /* TradeInfoFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TradeInfoFrame.hpp; sourceTree = "<group>"; };
 		ECAF6F36211D3E2200BAF207 /* TradeInfoFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TradeInfoFrame.cpp; sourceTree = "<group>"; };
+		ECAF6F3921228EB400BAF207 /* StoryScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StoryScene.cpp; sourceTree = "<group>"; };
+		ECAF6F3A21228EB400BAF207 /* StoryScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StoryScene.hpp; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -581,6 +585,8 @@
 				EC82884A210D75AB0041497C /* SelectHeroMenuScene.hpp */,
 				EC828882211B622F0041497C /* SailMapScene.cpp */,
 				EC828883211B622F0041497C /* SailMapScene.hpp */,
+				ECAF6F3921228EB400BAF207 /* StoryScene.cpp */,
+				ECAF6F3A21228EB400BAF207 /* StoryScene.hpp */,
 			);
 			path = SceneUI;
 			sourceTree = "<group>";
@@ -920,6 +926,7 @@
 				EC82886D21164EE00041497C /* SHDataManager.cpp in Sources */,
 				EC82881A210D758C0041497C /* CityBuildingData.cpp in Sources */,
 				EC828890211B6F360041497C /* AreaMapFrame.cpp in Sources */,
+				ECAF6F3B21228EB500BAF207 /* StoryScene.cpp in Sources */,
 				EC8287B4210D75060041497C /* CityBuildingFrame.cpp in Sources */,
 				EC828816210D758C0041497C /* GenderData.cpp in Sources */,
 				EC8287C2210D75300041497C /* SHColorNode.cpp in Sources */,
@@ -974,6 +981,7 @@
 				EC8287B5210D75060041497C /* CityBuildingFrame.cpp in Sources */,
 				EC82881B210D758C0041497C /* CityBuildingData.cpp in Sources */,
 				EC82881D210D758C0041497C /* GoodsData.cpp in Sources */,
+				ECAF6F3C21228EB500BAF207 /* StoryScene.cpp in Sources */,
 				EC82880D210D758C0041497C /* ZodiacData.cpp in Sources */,
 				EC828850210D75AC0041497C /* CityScene.cpp in Sources */,
 				EC82880F210D758C0041497C /* CategoryUpdateData.cpp in Sources */,

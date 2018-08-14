@@ -112,6 +112,24 @@ void SHScene::setBackgroundImage(std::string imgPath) {
   this->addChild(s_background);
 }
 
+void SHScene::setForegroundImage(std::string imgPath)
+{
+  s_foreground = Sprite::create(imgPath);
+  CCASSERT(s_foreground, ("unable to find image with path : " + imgPath).c_str());
+  auto visibleSize = this->getScreenSize();
+  auto contentSize = s_foreground->getContentSize();
+  // TODO: ADD how to set align, vertical or horizontal or minimum or maximum or actual size
+  auto r1 = visibleSize.width / contentSize.width;
+  auto r2 = visibleSize.height / contentSize.height;
+  if (s_isFullScreen) {
+    s_foreground->setScale(r1, r2);
+  } else {
+    auto r = max(r1, r2);
+    s_foreground->setScale(r);
+  }
+  s_foreground->setNormalizedPosition(Vec2(0.5, 0.5));
+  this->addChild(s_foreground, SCREEN_FOREGROUND_LAYER_HEIGHT);
+}
 
 Node* SHScene::getBackground()
 {
