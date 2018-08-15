@@ -96,8 +96,21 @@ cocos2d::Scene * SHPlotBuilder::Build(std::wstring csvFile)
                         SHDirector::getInstance()->getScenario(sceneId)->getCCScene());
                 } else {
                     auto expr = BuildSHExpression(text);
-                    if (expr)
-                        CCLOG("expr '%s' eval to '%s'.", text.data(), expr->eval().data());
+                    if (expr) {
+                        std::string debugStr;
+                        std::string indent;
+                        for (char c : expr->DebugString()) {
+                            if (c == '(') {
+                                debugStr += "\n";
+                                debugStr += indent;
+                                indent += "  ";
+                            } else if (c == ')')
+                                indent.pop_back(), indent.pop_back();
+                            debugStr += c;
+                        }
+                        CCLOG("expr '%s' eval to '%s'.\n%s", text.data(),
+                              expr->eval().data(), debugStr.data());
+                    }
                 }
             };
             currentScenario->addInputBox(inputBox);

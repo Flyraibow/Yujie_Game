@@ -31,7 +31,7 @@ public:
 
     std::string eval() override {
         bool result = false;;
-        if ((op | (LT|LE|EQ|GE|GT|NE)) != 0) {
+        if ((op & (LT|LE|EQ|GE|GT|NE)) != 0) {
             double v1 = ToNumber(left->eval());
             double v2 = ToNumber(right->eval());
             switch (op) {
@@ -54,6 +54,27 @@ public:
         }
         return result ? "true" : "false";
     }
+    std::string DebugString() override {
+        std::string s = "(";
+        switch (op) {
+            case LT: s += "LT"; break;
+            case LE: s += "LE"; break;
+            case EQ: s += "EQ"; break;
+            case GE: s += "GE"; break;
+            case GT: s += "GT"; break;
+            case NE: s += "NE"; break;
+            case AND: s += "AND"; break;
+            case OR: s += "OR"; break;
+            default: s += "INVALID"; break;
+        }
+        s += ' ';
+        s += left->DebugString();
+        s += ' ';
+        s += right->DebugString();
+        s += ")=";
+        s += eval();
+        return s;
+    }
 };
 
 class UnaryExpr : public Expr {
@@ -67,6 +88,15 @@ public:
 
     std::string eval() override {
         return ToBoolean(expr->eval()) ? "false" : "true";
+    }
+    std::string DebugString() override {
+        std::string s = "(";
+        s += (op == NOT ? "NOT" : "INVALID");
+        s += ' ';
+        s += expr->DebugString();
+        s += ")=";
+        s += eval();
+        return s;
     }
 };
 
@@ -126,6 +156,19 @@ public:
         }
         return result;
     }
+    std::string DebugString() override {
+        std::string s = "(";
+        switch (op) {
+            case GAME_DATA_QUERY: s += "GAME"; break;
+            case CACHE_DATA_QUERY: s += "CACHE"; break;
+            case CONSTANT: s += "CONST"; break;
+            case FUNCTION: s += "FUNC"; break;
+            default: s += "INVALID"; break;
+        }
+        s += ")=";
+        s += eval();
+        return s;
+    }
 };
 
 class Tokenizer {
@@ -154,7 +197,10 @@ public:
         return pos < expr.size() && (expr[pos] == '_' || isalpha(expr[pos]));
     }
     bool isConst() const {
-        return pos < expr.size() && (expr[pos] == '"' || isdigit(expr[pos]));
+        return pos < expr.size() && (expr[pos] == '"'
+                                     || isdigit(expr[pos])
+                                     || expr.substr(pos, 4) == "true"
+                                     || expr.substr(pos, 5) == "false");
     }
     bool skipChar(char c) {
         if (pos < expr.size() && expr[pos] == c) {
@@ -238,9 +284,13 @@ public:
         return name;
     }
     std::string getConst() {
-        size_t end = pos;
         std::string constant;
-        if (end < expr.size()) {
+        if (expr.substr(pos, 4) == "true")
+            constant = "true", advancePos(4);
+        else if (expr.substr(pos, 5) == "false")
+            constant = "false", advancePos(5);
+        else if (pos < expr.size()) {
+            size_t end = pos;
             if (isdigit(expr[end])) {
                 while (end < expr.size() && isdigit(expr[end]))
                     ++end;
@@ -290,9 +340,9 @@ private:
 class ExpressionParser {
 public:
     ExpressionParser(const std::string & expr) : tokens(expr) {}
-    std::unique_ptr<Expr> relExpr() {
-        std::unique_ptr<Expr> left = orExpr();
-        if (tokens.isRelOp()) {
+    std::unique_ptr<Expr> orExpr() {
+        std::unique_ptr<Expr> left = andExpr();
+        if (tokens.isOrOp()) {
             BinaryExpr::Operator op = tokens.getBinaryOp();
             std::unique_ptr<Expr> right = orExpr();
 
@@ -304,13 +354,14 @@ public:
                 return std::unique_ptr<Expr>(rel);
             } else
                 return nullptr;
-        } else {
+        }
+        else {
             return left;
         }
     }
-    std::unique_ptr<Expr> orExpr() {
-        std::unique_ptr<Expr> left = andExpr();
-        if (tokens.isOrOp()) {
+    std::unique_ptr<Expr> andExpr() {
+        std::unique_ptr<Expr> left = relExpr();
+        if (tokens.isAndOp()) {
             BinaryExpr::Operator op = tokens.getBinaryOp();
             std::unique_ptr<Expr> right = andExpr();
 
@@ -327,11 +378,11 @@ public:
             return left;
         }
     }
-    std::unique_ptr<Expr> andExpr() {
+    std::unique_ptr<Expr> relExpr() {
         std::unique_ptr<Expr> left = notExpr();
-        if (tokens.isAndOp()) {
+        if (tokens.isRelOp()) {
             BinaryExpr::Operator op = tokens.getBinaryOp();
-            std::unique_ptr<Expr> right = notExpr();
+            std::unique_ptr<Expr> right = relExpr();
 
             if (left && right) {
                 BinaryExpr * rel = new BinaryExpr;
@@ -341,8 +392,7 @@ public:
                 return std::unique_ptr<Expr>(rel);
             } else
                 return nullptr;
-        }
-        else {
+        } else {
             return left;
         }
     }
@@ -365,7 +415,14 @@ public:
     std::unique_ptr<Expr> primaryExpr() {
         std::unique_ptr<Expr> expr;
 
-        if (tokens.isName())
+        if (tokens.isConst())
+        {
+            PrimaryExpr *primary = new PrimaryExpr;
+            primary->op = PrimaryExpr::CONSTANT;
+            primary->metadata.constant_data.value = tokens.getConst();
+            expr.reset(primary);
+        }
+        else if (tokens.isName())
         {
             PrimaryExpr::Operator op;
             PrimaryExpr::Metadata md;
@@ -423,13 +480,6 @@ public:
                 expr.reset(primary);
             }
         }
-        else if (tokens.isConst())
-        {
-            PrimaryExpr *primary = new PrimaryExpr;
-            primary->op = PrimaryExpr::CONSTANT;
-            primary->metadata.constant_data.value = tokens.getConst();
-            expr.reset(primary);
-        }
         else
         {
             if (tokens.skipChar('('))
@@ -448,7 +498,7 @@ private:
 std::unique_ptr<SHExpression> BuildSHExpression(std::string expr)
 {
     ExpressionParser parser(expr);
-    return parser.relExpr();
+    return parser.orExpr();
 }
 
 }
