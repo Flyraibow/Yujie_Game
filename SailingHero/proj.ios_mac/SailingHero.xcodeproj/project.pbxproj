@@ -173,6 +173,8 @@
 		EC828891211B6F360041497C /* AreaMapFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82888E211B6F360041497C /* AreaMapFrame.cpp */; };
 		EC828894211B89F00041497C /* AreaMapGoButtonFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828892211B89F00041497C /* AreaMapGoButtonFrame.cpp */; };
 		EC828895211B89F00041497C /* AreaMapGoButtonFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828892211B89F00041497C /* AreaMapGoButtonFrame.cpp */; };
+		EC9265482123F41E00EE2D7A /* TestScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC9265472123F41D00EE2D7A /* TestScene.cpp */; };
+		EC9265492123F41E00EE2D7A /* TestScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC9265472123F41D00EE2D7A /* TestScene.cpp */; };
 		ECAF6F37211D3E2200BAF207 /* TradeInfoFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECAF6F36211D3E2200BAF207 /* TradeInfoFrame.cpp */; };
 		ECAF6F38211D3E2200BAF207 /* TradeInfoFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECAF6F36211D3E2200BAF207 /* TradeInfoFrame.cpp */; };
 		ECAF6F3B21228EB500BAF207 /* StoryScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECAF6F3921228EB400BAF207 /* StoryScene.cpp */; };
@@ -384,6 +386,8 @@
 		EC82888F211B6F360041497C /* AreaMapFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AreaMapFrame.hpp; sourceTree = "<group>"; };
 		EC828892211B89F00041497C /* AreaMapGoButtonFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AreaMapGoButtonFrame.cpp; sourceTree = "<group>"; };
 		EC828893211B89F00041497C /* AreaMapGoButtonFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AreaMapGoButtonFrame.hpp; sourceTree = "<group>"; };
+		EC9265462123F41D00EE2D7A /* TestScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TestScene.hpp; sourceTree = "<group>"; };
+		EC9265472123F41D00EE2D7A /* TestScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScene.cpp; sourceTree = "<group>"; };
 		ECAF6F35211D3E2200BAF207 /* TradeInfoFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TradeInfoFrame.hpp; sourceTree = "<group>"; };
 		ECAF6F36211D3E2200BAF207 /* TradeInfoFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TradeInfoFrame.cpp; sourceTree = "<group>"; };
 		ECAF6F3921228EB400BAF207 /* StoryScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StoryScene.cpp; sourceTree = "<group>"; };
@@ -587,6 +591,8 @@
 				EC828883211B622F0041497C /* SailMapScene.hpp */,
 				ECAF6F3921228EB400BAF207 /* StoryScene.cpp */,
 				ECAF6F3A21228EB400BAF207 /* StoryScene.hpp */,
+				EC9265472123F41D00EE2D7A /* TestScene.cpp */,
+				EC9265462123F41D00EE2D7A /* TestScene.hpp */,
 			);
 			path = SceneUI;
 			sourceTree = "<group>";
@@ -940,6 +946,7 @@
 				EC828880211B620A0041497C /* SailMapFrame.cpp in Sources */,
 				EC8287B8210D75060041497C /* MultiSelectionFrame.cpp in Sources */,
 				EC8287CA210D75490041497C /* SystemButton.cpp in Sources */,
+				EC9265482123F41E00EE2D7A /* TestScene.cpp in Sources */,
 				EC82887421169DE30041497C /* GoodsBasePriceData.cpp in Sources */,
 				EC82880C210D758C0041497C /* ZodiacData.cpp in Sources */,
 				EC8287AE210D75060041497C /* MoneyFrame.cpp in Sources */,
@@ -1029,6 +1036,7 @@
 				EC82886E21164EE00041497C /* SHDataManager.cpp in Sources */,
 				EC8288792117CDE80041497C /* GoodsPricePercentData.cpp in Sources */,
 				EC82882B210D758C0041497C /* HeroData.cpp in Sources */,
+				EC9265492123F41E00EE2D7A /* TestScene.cpp in Sources */,
 				EC828819210D758C0041497C /* CannonData.cpp in Sources */,
 				EC8287B1210D75060041497C /* DialogFrame.cpp in Sources */,
 			);

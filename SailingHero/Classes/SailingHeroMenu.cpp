@@ -66,7 +66,7 @@ bool SailingHeroMenu::init()
                                         CC_CALLBACK_1(SailingHeroMenu::clickTest2, this)),
     SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("test 3"),
                                         CC_CALLBACK_1(SailingHeroMenu::clickTest3, this)),
-    SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("test 4"),
+    SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("测试界面"),
                                         CC_CALLBACK_1(SailingHeroMenu::clickTest4, this)),
     
   });
@@ -149,11 +149,11 @@ void SailingHeroMenu::clickTest3(Ref* pSender)
 //  Director::getInstance()->pushScene(scene);
 }
 
-#include "StoryScene.hpp"
+#include "TestScene.hpp"
 
 void SailingHeroMenu::clickTest4(Ref* pSender)
 {
-  auto storyScene = StoryScene::createScene();
-  Director::getInstance()->pushScene(storyScene);
+  auto testScene = TestScene::createScene();
+  Director::getInstance()->pushScene(testScene);
 }
 
