@@ -15,4 +15,8 @@ ui,button,goto 4,4
 ui,dialog,3,
 ui,select,aaaaaa;bbbbbbbbbbb;ccccccccccccc,
 4,场景4,,
+bgp,title_background.jpg,,
+ui,button,goto 5,5
+ui,input,Just a hint message,type something...
+5,场景5,,
 scene,HeroSelection,,

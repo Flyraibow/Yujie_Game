@@ -36,6 +36,9 @@ public:
         for (auto & dialog : scenario->getAllDialog()) {
             addChild(SailingHeroAPI::ui::SHDialogToCCDialog(dialog));
         }
+        for (auto & inputBox : scenario->getAllInputBox()) {
+            addChild(SailingHeroAPI::ui::SHInputBoxToCCInputBox(inputBox));
+        }
         for (auto & multiSelectList : scenario->getAllMultiSelectList()) {
             addChild(SailingHeroAPI::ui::SHMultiSelectListToCCMultiSelectList(multiSelectList));
         }

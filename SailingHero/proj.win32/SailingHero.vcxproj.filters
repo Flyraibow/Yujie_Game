@@ -177,6 +177,12 @@
     <ClCompile Include="..\..\PlotEditor\SHExpression.cpp">
       <Filter>SailingHeroAPI</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\PlotEditor\UI\InputBox.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UIElement\Button\SystemButton.cpp">
+      <Filter>deps</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -325,6 +331,9 @@
     </ClInclude>
     <ClInclude Include="..\..\PlotEditor\SHExpression.h">
       <Filter>SailingHeroAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PlotEditor\UI\InputBox.h">
+      <Filter>UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -7,6 +7,7 @@
 #include "UI/Button.h"
 #include "UI/Dialog.h"
 #include "UI/MultiSelectList.h"
+#include "UI/InputBox.h"
 
 namespace SailingHeroAPI {
 
@@ -36,6 +37,12 @@ public:
     const std::vector<ui::Dialog> & getAllDialog() const {
         return dialogs;
     }
+    void addInputBox(const ui::InputBox & inputBox) {
+        inputBoxes.push_back(inputBox);
+    }
+    const std::vector<ui::InputBox> & getAllInputBox() const {
+        return inputBoxes;
+    }
     void addMultiSelectList(const ui::MultiSelectList & multiSelectList) {
         multiSelectLists.push_back(multiSelectList);
     }
@@ -55,6 +62,7 @@ private:
     std::string bgMusic;
     std::vector<ui::Button> buttons;
     std::vector<ui::Dialog> dialogs;
+    std::vector<ui::InputBox> inputBoxes;
     std::vector<ui::MultiSelectList> multiSelectLists;
     cocos2d::Scene * ccScene;
     bool ccSceneReady;

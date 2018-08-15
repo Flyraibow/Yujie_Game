@@ -4,11 +4,13 @@
 #include "CSVReader.h"
 #include "SHDirector.h"
 #include "SHPlotContext.h"
+#include "SHExpression.h"
 #include "StringParser.h"
 #include "UI/Button.h"
 #include "UI/Dialog.h"
 #include "UI/MultiSelectList.h"
 #include "UI/HeroSelectionScene.h"
+#include "UI/InputBox.h"
 
 namespace SailingHeroAPI {
 
@@ -77,6 +79,28 @@ cocos2d::Scene * SHPlotBuilder::Build(std::wstring csvFile)
                     " I'm %game.HeroData(" + std::to_string(dialog.heroId) + ").firstName% !!!";
                 currentScenario->addDialog(dialog);
             }
+            continue;
+        }
+
+        // input box
+        if (lineItems.size() == 4
+            && lineItems[0] == L"ui"
+            && lineItems[1] == L"input") {
+            ui::InputBox inputBox;
+            inputBox.hintLabel = WStringToString(lineItems[2]);
+            inputBox.defaultText = WStringToString(lineItems[3]);
+            inputBox.onInput = [](const std::string & text) {
+                if (text.substr(0, 4) == "goto" && isdigit(text.back())) {
+                    int sceneId = text.back() - '0';
+                    cocos2d::Director::getInstance()->replaceScene(
+                        SHDirector::getInstance()->getScenario(sceneId)->getCCScene());
+                } else {
+                    auto expr = BuildSHExpression(text);
+                    if (expr)
+                        CCLOG("expr '%s' eval to '%s'.", text.data(), expr->eval().data());
+                }
+            };
+            currentScenario->addInputBox(inputBox);
             continue;
         }
 
