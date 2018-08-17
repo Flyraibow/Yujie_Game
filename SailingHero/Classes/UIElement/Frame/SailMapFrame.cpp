@@ -77,16 +77,19 @@ void SailMapFrame::citySelectCallback(CityData* cityData)
 {
   if (p_tradeInfoFrame == nullptr) {
     p_tradeInfoFrame = new TradeInfoFrame(p_scale);
-    auto sprite = p_tradeInfoFrame->getSprite();
-    sprite->setAnchorPoint(Vec2(0, 0.5));
-    sprite->setNormalizedPosition(Vec2(0, 0.5));
-    p_sprite->addChild(p_tradeInfoFrame->getSprite(), 2);
+    p_tradeInfoFrame->addToParent(p_sprite, 2, true);
   } else {
-    p_tradeInfoFrame->getSprite()->setVisible(true);
+    p_tradeInfoFrame->setVisible(true);
   }
   p_tradeInfoFrame->updateGoodsCategory();
   p_tradeInfoFrame->setCityData(cityData);
   
+//    if (p_cityInfoFrame == nullptr) {
+//      p_cityInfoFrame = new CityDataFrame();
+//      auto sprite = p_cityInfoFrame->getSprite();
+//      p_sprite->addChild(sprite, 2);
+//    }
+//    p_cityInfoFrame->setCityData(cityData);
 }
 
 Sprite* SailMapFrame::getSprite() const

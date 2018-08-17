@@ -35,7 +35,7 @@ void AreaMapFrame::refresh()
   for (auto iter = dict->begin(); iter != dict->end(); ++iter) {
     auto city = iter->second;
     auto cityPoint = Vec2(city->getLongitude(), city->getLatitude());
-    if (rect.containsPoint(cityPoint)) {
+    if (city->getAreaId() == p_areaData->getId() && rect.containsPoint(cityPoint)) {
       auto cityDataSelectCallback = p_cityDataSelectCallback;
       auto cityIcon = MenuItemImage::create(
                                             city->getCityTypeData()->getCityUpIconPath(),

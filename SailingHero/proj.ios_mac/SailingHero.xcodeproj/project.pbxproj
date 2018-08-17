@@ -173,6 +173,8 @@
 		EC828891211B6F360041497C /* AreaMapFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82888E211B6F360041497C /* AreaMapFrame.cpp */; };
 		EC828894211B89F00041497C /* AreaMapGoButtonFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828892211B89F00041497C /* AreaMapGoButtonFrame.cpp */; };
 		EC828895211B89F00041497C /* AreaMapGoButtonFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828892211B89F00041497C /* AreaMapGoButtonFrame.cpp */; };
+		EC923EB5212551B2005EB97D /* SHBaseFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC923EB4212551B2005EB97D /* SHBaseFrame.cpp */; };
+		EC923EB6212551B2005EB97D /* SHBaseFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC923EB4212551B2005EB97D /* SHBaseFrame.cpp */; };
 		EC9265482123F41E00EE2D7A /* TestScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC9265472123F41D00EE2D7A /* TestScene.cpp */; };
 		EC9265492123F41E00EE2D7A /* TestScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC9265472123F41D00EE2D7A /* TestScene.cpp */; };
 		ECAF6F37211D3E2200BAF207 /* TradeInfoFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECAF6F36211D3E2200BAF207 /* TradeInfoFrame.cpp */; };
@@ -386,6 +388,8 @@
 		EC82888F211B6F360041497C /* AreaMapFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AreaMapFrame.hpp; sourceTree = "<group>"; };
 		EC828892211B89F00041497C /* AreaMapGoButtonFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AreaMapGoButtonFrame.cpp; sourceTree = "<group>"; };
 		EC828893211B89F00041497C /* AreaMapGoButtonFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AreaMapGoButtonFrame.hpp; sourceTree = "<group>"; };
+		EC923EB3212551B2005EB97D /* SHBaseFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SHBaseFrame.hpp; sourceTree = "<group>"; };
+		EC923EB4212551B2005EB97D /* SHBaseFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SHBaseFrame.cpp; sourceTree = "<group>"; };
 		EC9265462123F41D00EE2D7A /* TestScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TestScene.hpp; sourceTree = "<group>"; };
 		EC9265472123F41D00EE2D7A /* TestScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScene.cpp; sourceTree = "<group>"; };
 		ECAF6F35211D3E2200BAF207 /* TradeInfoFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TradeInfoFrame.hpp; sourceTree = "<group>"; };
@@ -600,6 +604,8 @@
 		EC72727420F87A6B005BD63D /* Frame */ = {
 			isa = PBXGroup;
 			children = (
+				EC923EB4212551B2005EB97D /* SHBaseFrame.cpp */,
+				EC923EB3212551B2005EB97D /* SHBaseFrame.hpp */,
 				EC82879F210D75050041497C /* CityBuildingFrame.cpp */,
 				EC828799210D75050041497C /* CityBuildingFrame.hpp */,
 				EC8287A6210D75060041497C /* CityDataFrame.cpp */,
@@ -913,6 +919,7 @@
 				EC8287AC210D75060041497C /* HeroSelectingFrame.cpp in Sources */,
 				EC828826210D758C0041497C /* GuildData.cpp in Sources */,
 				EC828814210D758C0041497C /* GameData.cpp in Sources */,
+				EC923EB5212551B2005EB97D /* SHBaseFrame.cpp in Sources */,
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
 				EC8287B6210D75060041497C /* DialogPhotoFrame.cpp in Sources */,
 				EC8287C4210D75300041497C /* SHSpriteListener.cpp in Sources */,
@@ -989,6 +996,7 @@
 				EC82881B210D758C0041497C /* CityBuildingData.cpp in Sources */,
 				EC82881D210D758C0041497C /* GoodsData.cpp in Sources */,
 				ECAF6F3C21228EB500BAF207 /* StoryScene.cpp in Sources */,
+				EC923EB6212551B2005EB97D /* SHBaseFrame.cpp in Sources */,
 				EC82880D210D758C0041497C /* ZodiacData.cpp in Sources */,
 				EC828850210D75AC0041497C /* CityScene.cpp in Sources */,
 				EC82880F210D758C0041497C /* CategoryUpdateData.cpp in Sources */,
