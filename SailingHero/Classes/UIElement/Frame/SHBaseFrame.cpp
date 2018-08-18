@@ -19,7 +19,9 @@ SHBaseFrame::SHBaseFrame(SCALE_TYPE scaleType)
 void SHBaseFrame::addToParent(Node* node, int order, bool withCover)
 {
   assert(p_cover == nullptr);
-  p_sprite = getSprite(node->getScale());
+  if (p_sprite == nullptr) {
+    p_sprite = genSprite(node->getScale());
+  }
   if (withCover) {
     // TODO: NEED RE-ADJUST THE SIZE AND POSIITON FOR COVER
     p_cover = SHColorNode::create(Color4B());
@@ -60,4 +62,18 @@ void SHBaseFrame::setVisible(bool visible)
       p_cover->getEventDispatcher()->pauseEventListenersForTarget(p_cover);
     }
   }
+}
+
+void SHBaseFrame::addClickEvent(SHSpriteListener::ccTouchCallback touchEndCallback)
+{
+  if (p_sprite != nullptr) {
+    auto listener = SHSpriteListener::createWithNode(p_sprite);
+    listener->setTouchEnd(touchEndCallback, nullptr);
+  }
+}
+
+Node* SHBaseFrame::getSprite() const
+{
+  CCASSERT(p_sprite != nullptr, "generate it before get it");
+  return p_sprite;
 }

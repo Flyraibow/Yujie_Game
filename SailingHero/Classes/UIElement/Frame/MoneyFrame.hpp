@@ -9,23 +9,24 @@
 #define MoneyFrame_hpp
 
 #include "cocos2d.h"
+#include "SHBaseFrame.hpp"
 #include "GuildData.hpp"
 
 USING_NS_CC;
 using namespace std;
 
-class MoneyFrame
+class MoneyFrame : public SHBaseFrame
 {
 private:
-  Node* p_sprite;
   GuildData* p_guildData;
   Label* p_labMoney;
+protected:
+  virtual Node* genSprite(double scale);
 public:
   MoneyFrame();
   void setGuildDataId(int guildId);
   void setGuildData(GuildData *guildData);
   void refresh();
-  Node* getSprite() const;
 };
 
 

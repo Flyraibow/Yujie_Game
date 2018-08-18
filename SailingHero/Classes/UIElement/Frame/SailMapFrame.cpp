@@ -10,44 +10,13 @@
 #include "GameData.hpp"
 #include "SHSpriteListener.hpp"
 
-SailMapFrame::SailMapFrame()
-{
-  p_sprite = Sprite::create("res/base/frame/sailSceneFrame.png");
-  
-  Vec2 origin = Director::getInstance()->getVisibleOrigin();
-  auto visibleSize = Director::getInstance()->getVisibleSize();
-  p_scale = visibleSize.height / p_sprite->getContentSize().height;
-  auto f = Director::getInstance()->getContentScaleFactor();
-  p_sprite->setScale(p_scale);
-  p_sprite->setAnchorPoint(Vec2(0, 0));
-  p_sprite->setNormalizedPosition(Vec2(0, 0));
-  
-  p_areaMap.setCityDataSelectCallback(CC_CALLBACK_1(SailMapFrame::citySelectCallback, this));
-  auto areaMapSprite = p_areaMap.getSprite();
-  areaMapSprite->setNormalizedPosition(Vec2(0.0296, 0.0354));
-  p_sprite->addChild(areaMapSprite);
-  
-  DateFrame dateFrame;
-  auto dateFrameSprite = dateFrame.getSprite();
-  dateFrameSprite->setAnchorPoint(Vec2());
-  dateFrameSprite->setNormalizedPosition(Vec2(0.01, 0.005));
-  p_sprite->addChild(dateFrameSprite, 1);
-  
-  p_labCurrentArea = Label::createWithSystemFont("", "Helvetica", 16);
-  p_labCurrentArea->setNormalizedPosition(Vec2(0.136, 0.885));
-  p_labCurrentArea->setScale(1.0 / f);
-  p_sprite->addChild(p_labCurrentArea);
-
-  p_tradeInfoFrame = nullptr;
-  updateAreaData(GameData::getSharedInstance()->getCityData()->getAreaData());
-}
-
 void SailMapFrame::updateAreaData(AreaData *areaData)
 {
   p_currentArea = areaData;
   p_areaMap.setAreaData(p_currentArea);
   for (auto areaButton : p_buttonList) {
     areaButton->removeFromParent();
+    delete areaButton;
   }
   p_buttonList.clear();
   p_labCurrentArea->setString(areaData->getAreaName());
@@ -62,21 +31,20 @@ void SailMapFrame::updateAreaData(AreaData *areaData)
 void SailMapFrame::addButton(AreaData *areaData, AREA_BUTTON_POSITION position)
 {
   if (areaData != nullptr) {
-    AreaMapGoButtonFrame button(areaData, position);
-    auto listener = SHSpriteListener::createWithNode(button.getSprite());
-    listener->setTouchEnd([areaData, this](Touch* touch, Event* event){
+    AreaMapGoButtonFrame *button = new AreaMapGoButtonFrame();
+    button->setTargetArea(areaData, position);
+    button->addToParent(p_sprite);
+    button->addClickEvent([areaData, this](Touch* touch, Event* event){
       this->updateAreaData(areaData);
-    }, nullptr);
-    
-    p_buttonList.push_back(button.getSprite());
-    p_sprite->addChild(button.getSprite());
+    });
+    p_buttonList.push_back(button);
   }
 }
 
 void SailMapFrame::citySelectCallback(CityData* cityData)
 {
   if (p_tradeInfoFrame == nullptr) {
-    p_tradeInfoFrame = new TradeInfoFrame(p_scale);
+    p_tradeInfoFrame = new TradeInfoFrame();
     p_tradeInfoFrame->addToParent(p_sprite, 2, true);
   } else {
     p_tradeInfoFrame->setVisible(true);
@@ -92,7 +60,32 @@ void SailMapFrame::citySelectCallback(CityData* cityData)
 //    p_cityInfoFrame->setCityData(cityData);
 }
 
-Sprite* SailMapFrame::getSprite() const
+Node* SailMapFrame::genSprite(double scale)
 {
+  p_sprite = Sprite::create("res/base/frame/sailSceneFrame.png");
+  
+  Vec2 origin = Director::getInstance()->getVisibleOrigin();
+  auto visibleSize = Director::getInstance()->getVisibleSize();
+  p_scale = visibleSize.height / p_sprite->getContentSize().height;
+  auto f = Director::getInstance()->getContentScaleFactor();
+  p_sprite->setScale(p_scale);
+  p_sprite->setAnchorPoint(Vec2(0, 0));
+  p_sprite->setNormalizedPosition(Vec2(0, 0));
+  
+  p_areaMap.setCityDataSelectCallback(CC_CALLBACK_1(SailMapFrame::citySelectCallback, this));
+  p_areaMap.addToParent(p_sprite);
+  
+  DateFrame dateFrame;
+  dateFrame.addToParent(p_sprite, 1);
+  dateFrame.getSprite()->setAnchorPoint(Vec2());
+  dateFrame.getSprite()->setNormalizedPosition(Vec2(0.01, 0.005));
+  
+  p_labCurrentArea = Label::createWithSystemFont("", "Helvetica", 16);
+  p_labCurrentArea->setNormalizedPosition(Vec2(0.136, 0.885));
+  p_labCurrentArea->setScale(1.0 / f);
+  p_sprite->addChild(p_labCurrentArea);
+  
+  p_tradeInfoFrame = nullptr;
+  updateAreaData(GameData::getSharedInstance()->getCityData()->getAreaData());
   return p_sprite;
 }

@@ -8,7 +8,12 @@
 #include "DateFrame.hpp"
 #include "SHGameDataHelper.hpp"
 
-DateFrame::DateFrame()
+void DateFrame::refresh()
+{
+  p_labDate->setString(getGameDate());
+}
+
+Node* DateFrame::genSprite(double scale)
 {
   auto f = Director::getInstance()->getContentScaleFactor();
   p_sprite = Sprite::create("res/base/frame/areaButtonFrame.png");
@@ -21,14 +26,5 @@ DateFrame::DateFrame()
   p_labDate->setAlignment(TextHAlignment::CENTER, TextVAlignment::CENTER);
   p_labDate->setScale(1 / f);
   p_sprite->addChild(p_labDate);
-}
-
-void DateFrame::refresh()
-{
-  p_labDate->setString(getGameDate());
-}
-
-Node* DateFrame::getSprite() const
-{
   return p_sprite;
 }

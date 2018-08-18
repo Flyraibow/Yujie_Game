@@ -55,18 +55,17 @@ CitySceneFrame::CitySceneFrame()
     auto label = createLabelWithScale(Vec2(0.968, 0.60 - i * 0.1),Vec2(1,0), LocalizationHelper::getLocalization("tag_goods"));
     p_labGuildShareList.push_back(label);
   }
-  
+  p_systemBarFrame.addToParent(p_sprite);
   p_systemBarFrame.setTextScale(1/p_scale);
   auto systemBarSprite = p_systemBarFrame.getSprite();
   systemBarSprite->setAnchorPoint(Vec2(0, 0));
   systemBarSprite->setNormalizedPosition(Vec2());
-  p_sprite->addChild(systemBarSprite);
   
+  p_moneyFrame.addToParent(p_sprite);
   auto moneySprite = p_moneyFrame.getSprite();
   p_moneyFrame.setGuildData(GameData::getSharedInstance()->getGuildData());
   moneySprite->setAnchorPoint(Vec2(1, 0));
   moneySprite->setNormalizedPosition(Vec2(0.75, 0.083));
-  p_sprite->addChild(moneySprite);
   
 //  auto button1 = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("test 2"),
 //                                                     CC_CALLBACK_1(CitySceneFrame::clickTest2, this));

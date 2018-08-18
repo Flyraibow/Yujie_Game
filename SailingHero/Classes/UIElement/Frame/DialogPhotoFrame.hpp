@@ -10,19 +10,20 @@
 
 #include "cocos2d.h"
 #include "HeroData.hpp"
+#include "SHBaseFrame.hpp"
 
 USING_NS_CC;
 using namespace std;
 
-class DialogPhotoFrame
+class DialogPhotoFrame : public SHBaseFrame
 {
 private:
-  Node* p_background;
   Sprite* p_photoSprite;
   HeroData* p_heroData;
+protected:
+  virtual Node* genSprite(double scale);
 public:
   DialogPhotoFrame();
-  Node* getSprite() const;
   void setHeroData(HeroData* heroData);
 };
 

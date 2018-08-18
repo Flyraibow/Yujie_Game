@@ -10,6 +10,7 @@
 
 #include "cocos2d.h"
 #include "AreaData.hpp"
+#include "SHBaseFrame.hpp"
 
 USING_NS_CC;
 using namespace std;
@@ -24,7 +25,7 @@ enum class AREA_BUTTON_POSITION
   DOWN = 5,
 };
 
-class AreaMapGoButtonFrame
+class AreaMapGoButtonFrame : public SHBaseFrame
 {
 private:
   bool p_isVertical;
@@ -32,9 +33,10 @@ private:
   Label* p_labAreaTarget;
   AreaData* p_targetArea;
   AREA_BUTTON_POSITION p_position;
+protected:
+  virtual Node* genSprite(double scale);
 public:
-  AreaMapGoButtonFrame(AreaData* targetArea, AREA_BUTTON_POSITION position);
-  Node* getSprite() const;
+  void setTargetArea(AreaData* targetArea, AREA_BUTTON_POSITION position);
 };
 
 #endif /* AreaMapGoButtonFrame_hpp */

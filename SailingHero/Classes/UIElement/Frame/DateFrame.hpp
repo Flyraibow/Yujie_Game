@@ -9,19 +9,19 @@
 #define DateFrame_hpp
 
 #include "cocos2d.h"
+#include "SHBaseFrame.hpp"
 
 USING_NS_CC;
 using namespace std;
 
-class DateFrame
+class DateFrame : public SHBaseFrame
 {
 private:
-  Node* p_sprite;
   Label* p_labDate;
+protected:
+  virtual Node* genSprite(double scale);
 public:
-  DateFrame();
   void refresh();
-  Node* getSprite() const;
 };
 
 

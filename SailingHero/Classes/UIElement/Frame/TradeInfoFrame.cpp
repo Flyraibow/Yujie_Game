@@ -12,11 +12,6 @@
 #include "LocalizationHelper.hpp"
 #include "SHSpriteListener.hpp"
 
-TradeInfoFrame::TradeInfoFrame(double scale) : SHBaseFrame::SHBaseFrame(SCALE_TYPE::DEFAULT)
-{
-  
-}
-
 Label* TradeInfoFrame::createLabelWithScale(Vec2 position, Vec2 anchor, string text)
 {
   auto label = Label::createWithSystemFont(text, "Helvetica", 14);
@@ -64,14 +59,11 @@ void TradeInfoFrame::updateGoodsCategory(int categoryId)
   }
 }
 
-Node* TradeInfoFrame::getSprite(double scale)
+Node* TradeInfoFrame::genSprite(double scale)
 {
-  if (p_sprite != nullptr) {
-    return p_sprite;
-  }
+  CCASSERT(p_sprite == nullptr, "sprite already exist");
   p_sprite = Sprite::create("res/base/frame/tradeInfoFrame.png");
   auto f = Director::getInstance()->getContentScaleFactor();
-  p_scale = scale;
   createLabelWithScale(Vec2(0.096, 0.877), Vec2(0.5, 0.5), LocalizationHelper::getLocalization("tag_category"));
   createLabelWithScale(Vec2(0.216, 0.877), Vec2(0.5, 0.5), LocalizationHelper::getLocalization("tag_price"));
   p_labCategoryType = createLabelWithScale(Vec2(0.59, 0.875), Vec2(0, 0.5), "");

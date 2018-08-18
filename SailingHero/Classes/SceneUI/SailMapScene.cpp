@@ -33,11 +33,8 @@ bool SailMapScene::init()
   }
   this->setScreenCover(Size(4, 3));
   
-  auto sailMapSprite = p_sailMapFrame.getSprite();
-  
-  s_window->addChild(sailMapSprite);
-  
-  
+  p_sailMapFrame.addToParent(s_window);
+
   return true;
 }
 

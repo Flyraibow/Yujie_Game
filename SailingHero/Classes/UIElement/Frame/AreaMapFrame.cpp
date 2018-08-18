@@ -11,7 +11,6 @@
 
 AreaMapFrame::AreaMapFrame()
 {
-  p_background = Node::create();
   p_areaData = nullptr;
 }
 
@@ -23,13 +22,16 @@ void AreaMapFrame::setAreaData(AreaData* areaData)
 
 void AreaMapFrame::refresh()
 {
+  if (p_areaData == nullptr) {
+    return;
+  }
   if (p_areaSprite != nullptr) {
     p_areaSprite->removeFromParent();
     p_cityList.clear();
   }
   p_areaSprite = p_areaData->getIcon();
   p_areaSprite->setAnchorPoint(Vec2());
-  p_background->addChild(p_areaSprite);
+  p_sprite->addChild(p_areaSprite);
   auto dict = CityData::getSharedDictionary();
   auto rect = Rect(p_areaData->getX1(), p_areaData->getY1(), p_areaData->getX2() - p_areaData->getX1(), p_areaData->getY2() - p_areaData->getY1());
   for (auto iter = dict->begin(); iter != dict->end(); ++iter) {
@@ -62,7 +64,11 @@ void AreaMapFrame::setCityDataSelectCallback(ccCityDataSelectCallback cityDataSe
   p_cityDataSelectCallback = cityDataSelectCallback;
 }
 
-Node* AreaMapFrame::getSprite() const
+Node* AreaMapFrame::genSprite(double scale)
 {
-  return p_background;
+  CCASSERT(p_sprite == nullptr, "sprite already exist");
+  p_sprite = Node::create();
+  refresh();
+  p_sprite->setNormalizedPosition(Vec2(0.0296, 0.0354));
+  return p_sprite;
 }

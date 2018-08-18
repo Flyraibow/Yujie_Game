@@ -10,6 +10,7 @@
 
 #include "cocos2d.h"
 #include "AreaData.hpp"
+#include "SHBaseFrame.hpp"
 
 USING_NS_CC;
 using namespace std;
@@ -18,20 +19,20 @@ class CityData;
 
 typedef function<void(CityData *)> ccCityDataSelectCallback;
 
-class AreaMapFrame
+class AreaMapFrame : public SHBaseFrame
 {
 private:
-  Node* p_background;
   Node* p_areaSprite;
   void refresh();
   AreaData* p_areaData;
   Vector<MenuItem*> p_cityList;
   ccCityDataSelectCallback p_cityDataSelectCallback;
+protected:
+  virtual Node* genSprite(double scale);
 public:
   AreaMapFrame();
   void setAreaData(AreaData* areaData);
   void setCityDataSelectCallback(ccCityDataSelectCallback cityDataSelectCallback);
-  Node* getSprite() const;
 };
 
 

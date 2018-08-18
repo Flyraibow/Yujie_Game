@@ -22,6 +22,8 @@ DialogFrame::DialogFrame(const vector<string>& dialogIds, ccDialogCallback dialo
   listener->setTouchEnd(CC_CALLBACK_2(DialogFrame::clickDialogPanel, this), nullptr);
   
   p_dialogFrame = Sprite::create("res/base/dialog/dialogFrame.png");
+  
+  p_dialogPhotoFrame.addToParent(p_dialogFrame);
   auto sprite = p_dialogPhotoFrame.getSprite();
   
   double width = sprite->getContentSize().width + p_dialogFrame->getContentSize().width;
@@ -50,9 +52,7 @@ DialogFrame::DialogFrame(const vector<string>& dialogIds, ccDialogCallback dialo
   p_dialogFrame->addChild(p_dialogName);
   
   sprite->setAnchorPoint(Vec2(1, 0));
-//  sprite->setVisible(false);
   sprite->setNormalizedPosition(Vec2());
-  p_dialogFrame->addChild(sprite);
   
   p_index = 0;
   clickDialogPanel(nullptr, nullptr);

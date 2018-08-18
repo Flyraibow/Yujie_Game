@@ -10,18 +10,18 @@
 
 DialogPhotoFrame::DialogPhotoFrame()
 {
-  p_background = Node::create();
-  auto frame = Sprite::create("res/base/dialog/dialogPhotoFrame.png");
-  frame->setAnchorPoint(Vec2());
-  p_background->addChild(frame, 2);
-  p_background->setContentSize(frame->getContentSize());
   p_heroData = nullptr;
   p_photoSprite = nullptr;
 }
 
-Node* DialogPhotoFrame::getSprite() const
+Node* DialogPhotoFrame::genSprite(double scale)
 {
-  return p_background;
+  p_sprite = Node::create();
+  auto frame = Sprite::create("res/base/dialog/dialogPhotoFrame.png");
+  frame->setAnchorPoint(Vec2());
+  p_sprite->addChild(frame, 2);
+  p_sprite->setContentSize(frame->getContentSize());
+  return p_sprite;
 }
 
 void DialogPhotoFrame::setHeroData(HeroData* heroData)
@@ -37,6 +37,6 @@ void DialogPhotoFrame::setHeroData(HeroData* heroData)
     auto f = Director::getInstance()->getContentScaleFactor();
     p_photoSprite->setAnchorPoint(Vec2());
     p_photoSprite->setPosition(Vec2(8 / f, 8 / f));
-    p_background->addChild(p_photoSprite);
+    getSprite()->addChild(p_photoSprite);
   }
 }

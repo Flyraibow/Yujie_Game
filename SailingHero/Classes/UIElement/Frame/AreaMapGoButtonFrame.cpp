@@ -7,14 +7,20 @@
 
 #include "AreaMapGoButtonFrame.hpp"
 
-AreaMapGoButtonFrame::AreaMapGoButtonFrame(AreaData* targetArea, AREA_BUTTON_POSITION position)
+
+void AreaMapGoButtonFrame::setTargetArea(AreaData* targetArea, AREA_BUTTON_POSITION position)
 {
   p_targetArea = targetArea;
   p_position = position;
-  p_isVertical = !(position == AREA_BUTTON_POSITION::UP || position == AREA_BUTTON_POSITION::DOWN);
+}
+
+Node* AreaMapGoButtonFrame::genSprite(double scale)
+{
+  CCASSERT(p_sprite == nullptr, "sprite already exist");
+  p_isVertical = !(p_position == AREA_BUTTON_POSITION::UP || p_position == AREA_BUTTON_POSITION::DOWN);
   p_sprite = Sprite::create("res/base/frame/areaButtonFrame.png");
   auto f = Director::getInstance()->getContentScaleFactor();
-  p_labAreaTarget = Label::createWithSystemFont(targetArea->getAreaName(), "Helvetica", 13);
+  p_labAreaTarget = Label::createWithSystemFont(p_targetArea->getAreaName(), "Helvetica", 13);
   p_labAreaTarget->setScale(1 / f);
   auto size = p_sprite->getContentSize();
   if (p_isVertical) {
@@ -31,7 +37,7 @@ AreaMapGoButtonFrame::AreaMapGoButtonFrame(AreaData* targetArea, AREA_BUTTON_POS
   p_labAreaTarget->setNormalizedPosition(Vec2(0.5, 0.5));
   p_sprite->addChild(p_labAreaTarget);
   
-  switch (position)
+  switch (p_position)
   {
     case AREA_BUTTON_POSITION::LEFT:
       p_sprite->setAnchorPoint(Vec2(0, 0));
@@ -58,9 +64,5 @@ AreaMapGoButtonFrame::AreaMapGoButtonFrame(AreaData* targetArea, AREA_BUTTON_POS
       p_sprite->setNormalizedPosition(Vec2(0.5, 0));
       break;
   }
-}
-
-Node* AreaMapGoButtonFrame::getSprite() const
-{
   return p_sprite;
 }

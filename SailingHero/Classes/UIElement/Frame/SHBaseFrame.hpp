@@ -9,7 +9,7 @@
 #define SHBaseFrame_hpp
 
 #include "cocos2d.h"
-
+#include "SHSpriteListener.hpp"
 
 enum class SCALE_TYPE
 {
@@ -29,12 +29,22 @@ private:
   Node* p_cover;
 protected:
   Node* p_sprite;
-  virtual Node* getSprite(double scale) = 0;
+  virtual Node* genSprite(double scale) = 0;
 public:
   SHBaseFrame(SCALE_TYPE scaleType = SCALE_TYPE::DEFAULT);
   void addToParent(Node* node, int order = 0, bool withCover = false);
   void removeFromParent();
   void setVisible(bool visible);
+  
+  /*
+   * set location etc. don't add child.
+   */
+  Node* getSprite() const;
+  
+  /**
+   * add click event, this function need call after the sprite created
+   */
+  void addClickEvent(SHSpriteListener::ccTouchCallback touchEndCallback);
 };
 
 

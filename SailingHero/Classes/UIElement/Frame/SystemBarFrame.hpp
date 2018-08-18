@@ -11,21 +11,21 @@
 #include "cocos2d.h"
 #include <vector>
 #include "ui/UIButton.h"
+#include "SHBaseFrame.hpp"
 
 USING_NS_CC;
 using namespace std;
 
-class SystemBarFrame
+class SystemBarFrame : public SHBaseFrame
 {
 private:
-  Sprite* p_sprite;
   vector<ui::Button *> p_buttonList;
 
   void clickSystemButton(cocos2d::Ref* pSender);
+protected:
+  virtual Node* genSprite(double scale);
 public:
-  SystemBarFrame();
   void setTextScale(double f);
-  Sprite* getSprite() const;
 };
 
 

@@ -12,7 +12,20 @@
 
 static const int SYSTEM_BAR_BUTTON_NUM = 5;
 
-SystemBarFrame::SystemBarFrame()
+void SystemBarFrame::setTextScale(double f)
+{
+  for (int i = 0; i < SYSTEM_BAR_BUTTON_NUM; ++i) {
+    p_buttonList[i]->setScale(f);
+  }
+}
+
+void SystemBarFrame::clickSystemButton(cocos2d::Ref* pSender)
+{
+  Button *button = dynamic_cast<Button *>(pSender);
+  CCLOG("click system button %d", button->getTag());
+}
+
+Node* SystemBarFrame::genSprite(double scale)
 {
   p_sprite = Sprite::create("res/base/frame/systemBar.png");
   
@@ -27,22 +40,5 @@ SystemBarFrame::SystemBarFrame()
     p_buttonList.push_back(button);
     p_sprite->addChild(button);
   }
-}
-
-void SystemBarFrame::setTextScale(double f)
-{
-  for (int i = 0; i < SYSTEM_BAR_BUTTON_NUM; ++i) {
-    p_buttonList[i]->setScale(f);
-  }
-}
-
-void SystemBarFrame::clickSystemButton(cocos2d::Ref* pSender)
-{
-  Button *button = dynamic_cast<Button *>(pSender);
-  CCLOG("click system button %d", button->getTag());
-}
-
-Sprite* SystemBarFrame::getSprite() const
-{
   return p_sprite;
 }
