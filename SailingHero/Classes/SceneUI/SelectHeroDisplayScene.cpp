@@ -135,6 +135,7 @@ void SelectHeroDisplayScene::refreshScene()
 
 void SelectHeroDisplayScene::clickChangeHeroName(cocos2d::Ref *pSender)
 {
+  // call event (inputView, parameter(请输入姓氏, type), successcalback, failureCallback )
   auto heroData = p_selectHeroData->getGuildData()->getLeaderData();
   auto inputLastNameSprite = InputBoxFrame::createWithHint(LocalizationHelper::getLocalization("input_last_name"), heroData->getHeroLastName(), [this](const string &lastName, bool canceled, Node* node){
     node->removeFromParent();
