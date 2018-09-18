@@ -51,6 +51,10 @@
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
+		EC2655F02150B19D00B8A025 /* SHBaseSceneContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2655EE2150B19D00B8A025 /* SHBaseSceneContent.cpp */; };
+		EC2655F12150B19D00B8A025 /* SHBaseSceneContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2655EE2150B19D00B8A025 /* SHBaseSceneContent.cpp */; };
+		EC2655F52150CDB200B8A025 /* TestJsonScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2655F32150CDB200B8A025 /* TestJsonScene.cpp */; };
+		EC2655F62150CDB200B8A025 /* TestJsonScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2655F32150CDB200B8A025 /* TestJsonScene.cpp */; };
 		EC828792210D74D10041497C /* SailingHeroMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828791210D74D10041497C /* SailingHeroMenu.cpp */; };
 		EC828793210D74D10041497C /* SailingHeroMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828791210D74D10041497C /* SailingHeroMenu.cpp */; };
 		EC8287A8210D75060041497C /* InputBoxFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828795210D75040041497C /* InputBoxFrame.cpp */; };
@@ -267,6 +271,11 @@
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
+		EC2655EE2150B19D00B8A025 /* SHBaseSceneContent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHBaseSceneContent.cpp; sourceTree = "<group>"; };
+		EC2655EF2150B19D00B8A025 /* SHBaseSceneContent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHBaseSceneContent.hpp; sourceTree = "<group>"; };
+		EC2655F22150B24400B8A025 /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
+		EC2655F32150CDB200B8A025 /* TestJsonScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TestJsonScene.cpp; sourceTree = "<group>"; };
+		EC2655F42150CDB200B8A025 /* TestJsonScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TestJsonScene.hpp; sourceTree = "<group>"; };
 		EC828790210D74D10041497C /* SailingHeroMenu.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SailingHeroMenu.hpp; sourceTree = "<group>"; };
 		EC828791210D74D10041497C /* SailingHeroMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SailingHeroMenu.cpp; sourceTree = "<group>"; };
 		EC828794210D75040041497C /* CityDataFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CityDataFrame.hpp; sourceTree = "<group>"; };
@@ -597,6 +606,8 @@
 				ECAF6F3A21228EB400BAF207 /* StoryScene.hpp */,
 				EC9265472123F41D00EE2D7A /* TestScene.cpp */,
 				EC9265462123F41D00EE2D7A /* TestScene.hpp */,
+				EC2655F32150CDB200B8A025 /* TestJsonScene.cpp */,
+				EC2655F42150CDB200B8A025 /* TestJsonScene.hpp */,
 			);
 			path = SceneUI;
 			sourceTree = "<group>";
@@ -662,6 +673,7 @@
 		ECADF32120ACFC9D00B77618 /* Sys */ = {
 			isa = PBXGroup;
 			children = (
+				EC2655F22150B24400B8A025 /* json.hpp */,
 				EC8287CE210D75550041497C /* ByteBuffer.cpp */,
 				EC8287CF210D75560041497C /* ByteBuffer.hpp */,
 				EC8287CD210D75550041497C /* LocalizationHelper.cpp */,
@@ -756,6 +768,8 @@
 		ECF294A820B1357700536532 /* Sprite */ = {
 			isa = PBXGroup;
 			children = (
+				EC2655EE2150B19D00B8A025 /* SHBaseSceneContent.cpp */,
+				EC2655EF2150B19D00B8A025 /* SHBaseSceneContent.hpp */,
 				EC8287BD210D75300041497C /* SHColorNode.cpp */,
 				EC8287BC210D75300041497C /* SHColorNode.hpp */,
 				EC8287C0210D75300041497C /* SHScene.cpp */,
@@ -920,7 +934,9 @@
 				EC828826210D758C0041497C /* GuildData.cpp in Sources */,
 				EC828814210D758C0041497C /* GameData.cpp in Sources */,
 				EC923EB5212551B2005EB97D /* SHBaseFrame.cpp in Sources */,
+				EC2655F52150CDB200B8A025 /* TestJsonScene.cpp in Sources */,
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
+				EC2655F02150B19D00B8A025 /* SHBaseSceneContent.cpp in Sources */,
 				EC8287B6210D75060041497C /* DialogPhotoFrame.cpp in Sources */,
 				EC8287C4210D75300041497C /* SHSpriteListener.cpp in Sources */,
 				EC828832210D758C0041497C /* SystemButtonData.cpp in Sources */,
@@ -1015,6 +1031,7 @@
 				EC828831210D758C0041497C /* ItemData.cpp in Sources */,
 				EC82887521169DE30041497C /* GoodsBasePriceData.cpp in Sources */,
 				EC828811210D758C0041497C /* GoodsCategoryData.cpp in Sources */,
+				EC2655F62150CDB200B8A025 /* TestJsonScene.cpp in Sources */,
 				EC8287D1210D75560041497C /* LocalizationHelper.cpp in Sources */,
 				EC8287A9210D75060041497C /* InputBoxFrame.cpp in Sources */,
 				EC828881211B620A0041497C /* SailMapFrame.cpp in Sources */,
@@ -1039,6 +1056,7 @@
 				EC828823210D758C0041497C /* CityData.cpp in Sources */,
 				EC828895211B89F00041497C /* AreaMapGoButtonFrame.cpp in Sources */,
 				EC82884C210D75AC0041497C /* SelectHeroDisplayScene.cpp in Sources */,
+				EC2655F12150B19D00B8A025 /* SHBaseSceneContent.cpp in Sources */,
 				EC828844210D759C0041497C /* Utils.cpp in Sources */,
 				EC828809210D758C0041497C /* TownPhotoData.cpp in Sources */,
 				EC82886E21164EE00041497C /* SHDataManager.cpp in Sources */,

@@ -9,6 +9,7 @@
 #define SHScene_hpp
 
 #include "cocos2d.h"
+#include "SHBaseSceneContent.hpp"
 
 USING_NS_CC;
 
@@ -34,6 +35,8 @@ protected:
   void setForegroundImage(std::string imgPath);
   void setBackgroundMusic(std::string path);
   Node* s_window;
+  
+  SHBaseSceneContent* initSceneWithJson(std::string jsonFilePath);
   
 public:
   CREATE_FUNC(SHScene);

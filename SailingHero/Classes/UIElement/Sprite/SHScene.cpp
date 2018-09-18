@@ -95,6 +95,9 @@ Size SHScene::getScreenSize() const
 }
 
 void SHScene::setBackgroundImage(std::string imgPath) {
+  if (imgPath.length() == 0) {
+    return;
+  }
   s_background = Sprite::create(imgPath);
   CCASSERT(s_background, ("unable to find image with path : " + imgPath).c_str());
   auto visibleSize = this->getScreenSize();
@@ -141,5 +144,15 @@ void SHScene::setBackgroundMusic(std::string path) {
   audio->stopBackgroundMusic();
   audio->preloadBackgroundMusic(path.c_str());
   audio->playBackgroundMusic(path.c_str(), true);
+}
+
+SHBaseSceneContent* SHScene::initSceneWithJson(std::string jsonFilePath)
+{
+  SHBaseSceneContent *content = SHBaseSceneContent::loadContentFromPath(jsonFilePath);
+  setBackgroundImage(content->getBackgroundImage());
+  if (content->isFullScreenCover()) {
+    setFullScreenCover();
+  }
+  return content;
 }
 

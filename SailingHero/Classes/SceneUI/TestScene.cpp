@@ -37,6 +37,7 @@ bool TestScene::init()
   
   auto buttonList = {
     SystemButton::defaultButtonWithText("测试航海图",  CC_CALLBACK_1(TestScene::testSailMap, this)),
+    SystemButton::defaultButtonWithText("测试新图",  CC_CALLBACK_1(TestScene::testNewScene, this)),
     SystemButton::defaultButtonWithText("返回",  CC_CALLBACK_1(TestScene::clickBack, this)),
   };
   
@@ -58,6 +59,14 @@ void TestScene::testSailMap(cocos2d::Ref* pSender)
 {
   GameData::getSharedInstance()->setCityId("69");
   auto mapScene = SailMapScene::createScene();
+  Director::getInstance()->pushScene(mapScene);
+}
+
+#include "TestJsonScene.hpp"
+
+void TestScene::testNewScene(cocos2d::Ref* pSender)
+{
+  auto mapScene = TestJsonScene::createScene();
   Director::getInstance()->pushScene(mapScene);
 }
 

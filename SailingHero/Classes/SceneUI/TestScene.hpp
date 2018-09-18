@@ -14,6 +14,7 @@ class TestScene : public SHScene
 {
 private:
   void testSailMap(cocos2d::Ref* pSender);
+  void testNewScene(cocos2d::Ref* pSender);
   void clickBack(cocos2d::Ref* pSender);
 public:
   static TestScene* createScene();
