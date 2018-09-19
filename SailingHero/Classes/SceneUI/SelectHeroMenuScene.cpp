@@ -50,12 +50,11 @@ bool SelectHeroMenuScene::init()
 {
   //////////////////////////////
   // 1. super init first
-  if ( !Scene::init() )
+  if ( !SHScene::init() )
   {
     return false;
   }
-  this->setFullScreenCover();
-  this->setBackgroundImage("res/default_background.png");
+  initSceneWithJson("selectHeroMenu");
   
   Vec2 origin = Director::getInstance()->getVisibleOrigin();
   auto visibleSize = Director::getInstance()->getVisibleSize();

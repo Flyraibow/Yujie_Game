@@ -36,10 +36,11 @@ protected:
   void setBackgroundMusic(std::string path);
   Node* s_window;
   
-  SHBaseSceneContent* initSceneWithJson(std::string jsonFilePath);
+  SHBaseSceneContent* initSceneWithJson(std::string jsonFileName);
   
 public:
   CREATE_FUNC(SHScene);
+  virtual bool init();
   Size getScreenSize() const;
   Node* getBackground();
 };

@@ -12,6 +12,7 @@
 #include "LocalizationHelper.hpp"
 #include "SHDataManager.hpp"
 #include "SelectHeroMenuScene.hpp"
+#include "EventManager.hpp"
 
 #include "SHColorNode.hpp"
 #include <string>
@@ -42,36 +43,34 @@ bool SailingHeroMenu::init()
 {
   //////////////////////////////
   // 1. super init first
-  if ( !Scene::init() )
+  if ( !SHScene::init() )
   {
     return false;
   }
-  this->setBackgroundImage("res/default_background.png");
-  this->setBackgroundMusic("title.mp3");
-  this->setFullScreenCover();
+  initSceneWithJson("menu");
   
-  Vec2 origin = Director::getInstance()->getVisibleOrigin();
+  EventManager::getShareInstance()->runEvent("menuList");
   
-  auto strs = std::vector<std::string>({"start_game", "load_game", "game_setting"});
-  auto buttons = vector<Button *>({
-    SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("start_game"),
-                                        CC_CALLBACK_1(SailingHeroMenu::clickStartGame, this)),
-    SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("load_game"),
-                                        CC_CALLBACK_1(SailingHeroMenu::clickLoadGame, this)),
-    SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("game_setting"),
-                                        CC_CALLBACK_1(SailingHeroMenu::clickGameSetting, this)),
-    SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("test 1"),
-                                        CC_CALLBACK_1(SailingHeroMenu::clickTest1, this)),
-    SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("test 2"),
-                                        CC_CALLBACK_1(SailingHeroMenu::clickTest2, this)),
-    SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("test 3"),
-                                        CC_CALLBACK_1(SailingHeroMenu::clickTest3, this)),
-    SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("测试界面"),
-                                        CC_CALLBACK_1(SailingHeroMenu::clickTest4, this)),
-    
-  });
-  auto node = SystemButton::getButtonGroupNode(buttons);
-  this->addChild(node);
+//  auto strs = std::vector<std::string>({"start_game", "load_game", "game_setting"});
+//  auto buttons = vector<Button *>({
+//    SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("start_game"),
+//                                        CC_CALLBACK_1(SailingHeroMenu::clickStartGame, this)),
+//    SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("load_game"),
+//                                        CC_CALLBACK_1(SailingHeroMenu::clickLoadGame, this)),
+//    SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("game_setting"),
+//                                        CC_CALLBACK_1(SailingHeroMenu::clickGameSetting, this)),
+//    SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("test 1"),
+//                                        CC_CALLBACK_1(SailingHeroMenu::clickTest1, this)),
+//    SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("test 2"),
+//                                        CC_CALLBACK_1(SailingHeroMenu::clickTest2, this)),
+//    SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("test 3"),
+//                                        CC_CALLBACK_1(SailingHeroMenu::clickTest3, this)),
+//    SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("测试界面"),
+//                                        CC_CALLBACK_1(SailingHeroMenu::clickTest4, this)),
+//    
+//  });
+//  auto node = SystemButton::getButtonGroupNode(buttons);
+//  this->addChild(node);
   
   return true;
 }

@@ -27,11 +27,11 @@ bool SailMapScene::init()
 {
   //////////////////////////////
   // 1. super init first
-  if ( !Scene::init())
+  if ( !SHScene::init())
   {
     return false;
   }
-  this->setScreenCover(Size(4, 3));
+  initSceneWithJson("sailMap");
   
   p_sailMapFrame.addToParent(s_window);
 

@@ -28,12 +28,11 @@ bool TestScene::init()
 {
   //////////////////////////////
   // 1. super init first
-  if ( !Scene::init())
+  if ( !SHScene::init())
   {
     return false;
   }
-  this->setFullScreenCover();
-  this->setBackgroundImage("res/default_background.png");
+  initSceneWithJson("testScene");
   
   auto buttonList = {
     SystemButton::defaultButtonWithText("测试航海图",  CC_CALLBACK_1(TestScene::testSailMap, this)),

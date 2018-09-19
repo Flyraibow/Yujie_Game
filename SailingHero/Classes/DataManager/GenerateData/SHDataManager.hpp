@@ -3,8 +3,10 @@ This file (SHDataManager.hpp) is generated
 */
 #ifndef SHDataManager_hpp
 #define SHDataManager_hpp
+#include "ConditionData.hpp"
 #include "GoodsCategoryData.hpp"
 #include "GuildData.hpp"
+#include "ButtonData.hpp"
 #include "GenderData.hpp"
 #include "CultureData.hpp"
 #include "AbilityData.hpp"
@@ -24,6 +26,7 @@ This file (SHDataManager.hpp) is generated
 #include "TownPhotoData.hpp"
 #include "ZodiacData.hpp"
 #include "CityBuildingData.hpp"
+#include "EventData.hpp"
 #include "HeroSelectData.hpp"
 #include "CategoryUpdateData.hpp"
 #include "AreaData.hpp"
@@ -38,10 +41,12 @@ class SHDataManager
 {
 private:
 public:
+	static ConditionData* getConditionDataById(const string& conditionId);
 	static GoodsCategoryData* getGoodsCategoryDataById(int categoryId);
 	static GoodsCategoryData* getGoodsCategoryDataById(const string& categoryId);
 	static GuildData* getGuildDataById(int guildId);
 	static GuildData* getGuildDataById(const string& guildId);
+	static ButtonData* getButtonDataById(const string& buttonId);
 	static GenderData* getGenderDataById(int genderId);
 	static GenderData* getGenderDataById(const string& genderId);
 	static CultureData* getCultureDataById(int cutureId);
@@ -76,6 +81,7 @@ public:
 	static ZodiacData* getZodiacDataById(const string& zodiacId);
 	static CityBuildingData* getCityBuildingDataById(int buildingId);
 	static CityBuildingData* getCityBuildingDataById(const string& buildingId);
+	static EventData* getEventDataById(const string& eventId);
 	static HeroSelectData* getHeroSelectDataById(int selectHeroId);
 	static HeroSelectData* getHeroSelectDataById(const string& selectHeroId);
 	static CategoryUpdateData* getCategoryUpdateDataById(int categoryUpdateId);

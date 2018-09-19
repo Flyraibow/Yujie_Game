@@ -140,19 +140,42 @@ Node* SHScene::getBackground()
 }
 
 void SHScene::setBackgroundMusic(std::string path) {
+  if (path.length() == 0) {
+    return;
+  }
   auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
   audio->stopBackgroundMusic();
   audio->preloadBackgroundMusic(path.c_str());
   audio->playBackgroundMusic(path.c_str(), true);
 }
 
-SHBaseSceneContent* SHScene::initSceneWithJson(std::string jsonFilePath)
+SHBaseSceneContent* SHScene::initSceneWithJson(std::string jsonFileName)
 {
-  SHBaseSceneContent *content = SHBaseSceneContent::loadContentFromPath(jsonFilePath);
+  string path = "res/base/scene/" + jsonFileName + ".json";
+  SHBaseSceneContent *content = SHBaseSceneContent::loadContentFromPath(path);
+  setBackgroundMusic(content->getBackgroundMusic());
   setBackgroundImage(content->getBackgroundImage());
   if (content->isFullScreenCover()) {
     setFullScreenCover();
+  } else {
+    Size ratio = content->getScreenCoverRatio();
+    if (ratio.width > 0 && ratio.height > 0) {
+      setScreenCover(ratio);
+    }
   }
   return content;
 }
 
+#include "EventManager.hpp"
+
+bool SHScene::init()
+{
+  //////////////////////////////
+  // 1. super init first
+  if ( !Scene::init() )
+  {
+    return false;
+  }
+  EventManager::setCurrentScene(this);
+  return true;
+}

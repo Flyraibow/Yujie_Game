@@ -1,0 +1,5 @@
+﻿eventId,comment,eventType,parameters
+id,comment,string,vector
+string,-,-,string
+writable,N,N,N
+menuList,开始菜单,groupButton,startGame;loadGame;gameSetting

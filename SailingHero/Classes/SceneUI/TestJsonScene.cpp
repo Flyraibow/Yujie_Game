@@ -27,10 +27,10 @@ bool TestJsonScene::init()
 {
   //////////////////////////////
   // 1. super init first
-  if ( !Scene::init())
+  if ( !SHScene::init())
   {
     return false;
   }
-  initSceneWithJson("res/base/scene/city.json");
+  initSceneWithJson("testJson");
   return true;
 }

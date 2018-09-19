@@ -21,7 +21,9 @@ public:
   static SHBaseSceneContent* loadContentFromPath(std::string jsonFilePath);
   
   std::string getBackgroundImage();
+  std::string getBackgroundMusic();
   bool isFullScreenCover();
+  Size getScreenCoverRatio();
 };
 
 #endif /* BaseScene_hpp */

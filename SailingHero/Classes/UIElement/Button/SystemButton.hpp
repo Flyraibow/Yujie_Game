@@ -21,12 +21,14 @@ using namespace std;
 class SystemButton
 {
 public:
-    static Button* defaultButtonWithText(std::string text);
-    static Button* defaultButtonWithText(std::string text, const Widget::ccWidgetClickCallback &callback);
-    static SHColorNode* getButtonGroupNode(const vector<Button *> &buttons);
-    static SHColorNode* getButtonGroupNode(const vector<Button *> &buttons, bool withCloseButton);
-    static SHColorNode* getButtonGroupNode(const vector<Button *> &buttons, bool withCloseButton, bool italic);
-    static SHColorNode* getButtonGroupNode(const vector<Button *> &buttons, bool withCloseButton, bool italic, const Color4B& color);
+  static Button* defaultButtonWithText(std::string text);
+  static Button* defaultButtonWithText(std::string text, const Widget::ccWidgetClickCallback &callback);
+  static SHColorNode* getButtonGroupNode(const vector<Button *> &buttons);
+  static SHColorNode* getButtonGroupNode(const vector<Button *> &buttons, bool withCloseButton);
+  static SHColorNode* getButtonGroupNode(const vector<Button *> &buttons, bool withCloseButton, bool italic);
+  static SHColorNode* getButtonGroupNode(const vector<Button *> &buttons, bool withCloseButton, bool italic, const Color4B& color);
+  static SHColorNode* getButtonGroupFromEvent(vector<string> parameters);
 };
 
 #endif /* SystemButton_hpp */
+

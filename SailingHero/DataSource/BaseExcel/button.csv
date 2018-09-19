@@ -1,0 +1,7 @@
+﻿buttonId,label,condition,triggerEvent
+id,language,friend_id,friend_id
+string,chinese,Condition,Event
+writable,N,N,N
+startGame,开始游戏,TRUE,startGame
+loadGame,读取游戏,TRUE,loadGame
+gameSetting,游戏设置,TRUE,gameSetting

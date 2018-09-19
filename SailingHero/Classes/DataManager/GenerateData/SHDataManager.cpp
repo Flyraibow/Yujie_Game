@@ -18,6 +18,14 @@ This file (SHDataManager.cpp) is generated
 
 
 
+ConditionData* SHDataManager::getConditionDataById(const string& conditionId)
+{
+	if (ConditionData::getSharedDictionary()->count(conditionId)) {
+		return ConditionData::getSharedDictionary()->at(conditionId);
+	}
+	return nullptr;
+}
+
 GoodsCategoryData* SHDataManager::getGoodsCategoryDataById(int categoryId)
 {
 	if (GoodsCategoryData::getSharedDictionary()->count(categoryId)) {
@@ -44,6 +52,14 @@ GuildData* SHDataManager::getGuildDataById(const string& guildId)
 {
 	if (guildId.length() == 0) return nullptr;
 	return GuildData::getGuildDataById(atoi(guildId.c_str()));
+}
+
+ButtonData* SHDataManager::getButtonDataById(const string& buttonId)
+{
+	if (ButtonData::getSharedDictionary()->count(buttonId)) {
+		return ButtonData::getSharedDictionary()->at(buttonId);
+	}
+	return nullptr;
 }
 
 GenderData* SHDataManager::getGenderDataById(int genderId)
@@ -286,6 +302,14 @@ CityBuildingData* SHDataManager::getCityBuildingDataById(const string& buildingI
 	return CityBuildingData::getCityBuildingDataById(atoi(buildingId.c_str()));
 }
 
+EventData* SHDataManager::getEventDataById(const string& eventId)
+{
+	if (EventData::getSharedDictionary()->count(eventId)) {
+		return EventData::getSharedDictionary()->at(eventId);
+	}
+	return nullptr;
+}
+
 HeroSelectData* SHDataManager::getHeroSelectDataById(int selectHeroId)
 {
 	if (HeroSelectData::getSharedDictionary()->count(selectHeroId)) {
@@ -475,11 +499,17 @@ bool SHDataManager::clearData()
 
 string SHDataManager::getData(const string & dataSet, const string & id, const string & fieldName)
 {
-	if (dataSet == "GoodsCategoryData") {
+	if (dataSet == "ConditionData") {
+		auto data = ConditionData::getConditionDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "GoodsCategoryData") {
 		auto data = GoodsCategoryData::getGoodsCategoryDataById(id);
 		return data->getFieldValue(fieldName);
 	} else if (dataSet == "GuildData") {
 		auto data = GuildData::getGuildDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "ButtonData") {
+		auto data = ButtonData::getButtonDataById(id);
 		return data->getFieldValue(fieldName);
 	} else if (dataSet == "GenderData") {
 		auto data = GenderData::getGenderDataById(id);
@@ -534,6 +564,9 @@ string SHDataManager::getData(const string & dataSet, const string & id, const s
 		return data->getFieldValue(fieldName);
 	} else if (dataSet == "CityBuildingData") {
 		auto data = CityBuildingData::getCityBuildingDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "EventData") {
+		auto data = EventData::getEventDataById(id);
 		return data->getFieldValue(fieldName);
 	} else if (dataSet == "HeroSelectData") {
 		auto data = HeroSelectData::getHeroSelectDataById(id);

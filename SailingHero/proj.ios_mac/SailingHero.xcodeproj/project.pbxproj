@@ -51,6 +51,14 @@
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
+		EC2000C6215229E000308FDA /* EventData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2000BF215229DD00308FDA /* EventData.cpp */; };
+		EC2000C7215229E000308FDA /* EventData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2000BF215229DD00308FDA /* EventData.cpp */; };
+		EC2000C8215229E000308FDA /* ConditionData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2000C1215229DE00308FDA /* ConditionData.cpp */; };
+		EC2000C9215229E000308FDA /* ConditionData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2000C1215229DE00308FDA /* ConditionData.cpp */; };
+		EC2000CA215229E000308FDA /* ButtonData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2000C4215229DF00308FDA /* ButtonData.cpp */; };
+		EC2000CB215229E000308FDA /* ButtonData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2000C4215229DF00308FDA /* ButtonData.cpp */; };
+		EC2000CE21522A7B00308FDA /* EventManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2000CC21522A7B00308FDA /* EventManager.cpp */; };
+		EC2000CF21522A7B00308FDA /* EventManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2000CC21522A7B00308FDA /* EventManager.cpp */; };
 		EC2655F02150B19D00B8A025 /* SHBaseSceneContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2655EE2150B19D00B8A025 /* SHBaseSceneContent.cpp */; };
 		EC2655F12150B19D00B8A025 /* SHBaseSceneContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2655EE2150B19D00B8A025 /* SHBaseSceneContent.cpp */; };
 		EC2655F52150CDB200B8A025 /* TestJsonScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2655F32150CDB200B8A025 /* TestJsonScene.cpp */; };
@@ -271,6 +279,14 @@
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
+		EC2000BF215229DD00308FDA /* EventData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EventData.cpp; path = GenerateData/EventData.cpp; sourceTree = "<group>"; };
+		EC2000C1215229DE00308FDA /* ConditionData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ConditionData.cpp; path = GenerateData/ConditionData.cpp; sourceTree = "<group>"; };
+		EC2000C2215229DF00308FDA /* ButtonData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ButtonData.hpp; path = GenerateData/ButtonData.hpp; sourceTree = "<group>"; };
+		EC2000C3215229DF00308FDA /* EventData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = EventData.hpp; path = GenerateData/EventData.hpp; sourceTree = "<group>"; };
+		EC2000C4215229DF00308FDA /* ButtonData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ButtonData.cpp; path = GenerateData/ButtonData.cpp; sourceTree = "<group>"; };
+		EC2000C5215229E000308FDA /* ConditionData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ConditionData.hpp; path = GenerateData/ConditionData.hpp; sourceTree = "<group>"; };
+		EC2000CC21522A7B00308FDA /* EventManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EventManager.cpp; sourceTree = "<group>"; };
+		EC2000CD21522A7B00308FDA /* EventManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = EventManager.hpp; sourceTree = "<group>"; };
 		EC2655EE2150B19D00B8A025 /* SHBaseSceneContent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHBaseSceneContent.cpp; sourceTree = "<group>"; };
 		EC2655EF2150B19D00B8A025 /* SHBaseSceneContent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHBaseSceneContent.hpp; sourceTree = "<group>"; };
 		EC2655F22150B24400B8A025 /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
@@ -587,6 +603,8 @@
 			children = (
 				ECD52B3D20C26398000F7170 /* Utils */,
 				ECD52B1F20BFB05A000F7170 /* GenerateData */,
+				EC2000CC21522A7B00308FDA /* EventManager.cpp */,
+				EC2000CD21522A7B00308FDA /* EventManager.hpp */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -685,6 +703,12 @@
 		ECD52B1F20BFB05A000F7170 /* GenerateData */ = {
 			isa = PBXGroup;
 			children = (
+				EC2000C4215229DF00308FDA /* ButtonData.cpp */,
+				EC2000C2215229DF00308FDA /* ButtonData.hpp */,
+				EC2000C1215229DE00308FDA /* ConditionData.cpp */,
+				EC2000C5215229E000308FDA /* ConditionData.hpp */,
+				EC2000BF215229DD00308FDA /* EventData.cpp */,
+				EC2000C3215229DF00308FDA /* EventData.hpp */,
 				EC82887A211B61780041497C /* AreaData.cpp */,
 				EC82887B211B61790041497C /* AreaData.hpp */,
 				EC8288762117CDE70041497C /* GoodsPricePercentData.cpp */,
@@ -941,6 +965,7 @@
 				EC8287C4210D75300041497C /* SHSpriteListener.cpp in Sources */,
 				EC828832210D758C0041497C /* SystemButtonData.cpp in Sources */,
 				EC828828210D758C0041497C /* CultureData.cpp in Sources */,
+				EC2000C6215229E000308FDA /* EventData.cpp in Sources */,
 				ECAF6F37211D3E2200BAF207 /* TradeInfoFrame.cpp in Sources */,
 				EC8288782117CDE80041497C /* GoodsPricePercentData.cpp in Sources */,
 				EC828843210D759C0041497C /* Utils.cpp in Sources */,
@@ -952,8 +977,10 @@
 				EC8287A8210D75060041497C /* InputBoxFrame.cpp in Sources */,
 				EC828808210D758C0041497C /* TownPhotoData.cpp in Sources */,
 				EC82888C211B6A1D0041497C /* DateFrame.cpp in Sources */,
+				EC2000CA215229E000308FDA /* ButtonData.cpp in Sources */,
 				EC82886D21164EE00041497C /* SHDataManager.cpp in Sources */,
 				EC82881A210D758C0041497C /* CityBuildingData.cpp in Sources */,
+				EC2000C8215229E000308FDA /* ConditionData.cpp in Sources */,
 				EC828890211B6F360041497C /* AreaMapFrame.cpp in Sources */,
 				ECAF6F3B21228EB500BAF207 /* StoryScene.cpp in Sources */,
 				EC8287B4210D75060041497C /* CityBuildingFrame.cpp in Sources */,
@@ -965,6 +992,7 @@
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				EC828810210D758C0041497C /* GoodsCategoryData.cpp in Sources */,
 				EC828830210D758C0041497C /* ItemData.cpp in Sources */,
+				EC2000CE21522A7B00308FDA /* EventManager.cpp in Sources */,
 				EC82883D210D759C0041497C /* Calendar.cpp in Sources */,
 				EC828880211B620A0041497C /* SailMapFrame.cpp in Sources */,
 				EC8287B8210D75060041497C /* MultiSelectionFrame.cpp in Sources */,
@@ -1038,7 +1066,9 @@
 				EC8287C3210D75300041497C /* SHColorNode.cpp in Sources */,
 				EC828793210D74D10041497C /* SailingHeroMenu.cpp in Sources */,
 				EC828815210D758C0041497C /* GameData.cpp in Sources */,
+				EC2000CB215229E000308FDA /* ButtonData.cpp in Sources */,
 				EC828813210D758C0041497C /* CityStatusData.cpp in Sources */,
+				EC2000C7215229E000308FDA /* EventData.cpp in Sources */,
 				EC828833210D758C0041497C /* SystemButtonData.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				EC82884E210D75AC0041497C /* SelectHeroMenuScene.cpp in Sources */,
@@ -1049,6 +1079,7 @@
 				EC8287B9210D75060041497C /* MultiSelectionFrame.cpp in Sources */,
 				EC82882F210D758C0041497C /* CityTypeData.cpp in Sources */,
 				EC828807210D758C0041497C /* CityGoodsData.cpp in Sources */,
+				EC2000CF21522A7B00308FDA /* EventManager.cpp in Sources */,
 				EC8287C5210D75300041497C /* SHSpriteListener.cpp in Sources */,
 				EC8287B7210D75060041497C /* DialogPhotoFrame.cpp in Sources */,
 				EC8287C7210D75300041497C /* SHScene.cpp in Sources */,
@@ -1059,6 +1090,7 @@
 				EC2655F12150B19D00B8A025 /* SHBaseSceneContent.cpp in Sources */,
 				EC828844210D759C0041497C /* Utils.cpp in Sources */,
 				EC828809210D758C0041497C /* TownPhotoData.cpp in Sources */,
+				EC2000C9215229E000308FDA /* ConditionData.cpp in Sources */,
 				EC82886E21164EE00041497C /* SHDataManager.cpp in Sources */,
 				EC8288792117CDE80041497C /* GoodsPricePercentData.cpp in Sources */,
 				EC82882B210D758C0041497C /* HeroData.cpp in Sources */,

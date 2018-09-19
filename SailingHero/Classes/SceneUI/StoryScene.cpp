@@ -27,11 +27,11 @@ bool StoryScene::init()
 {
   //////////////////////////////
   // 1. super init first
-  if ( !Scene::init())
+  if ( !SHScene::init())
   {
     return false;
   }
-  this->setScreenCover(Size(4, 3));
+  initSceneWithJson("story");
   
   this->setForegroundImage("res/base/frame/eventFrame.png");
   

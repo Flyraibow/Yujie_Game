@@ -84,3 +84,21 @@ SHColorNode* SystemButton::getButtonGroupNode(const vector<Button *> &buttons)
   return SystemButton::getButtonGroupNode(buttons, false);
 }
 
+#include "ButtonData.hpp"
+#include "EventManager.hpp"
+
+SHColorNode* SystemButton::getButtonGroupFromEvent(vector<string> parameters)
+{
+  vector<Button *> buttons;
+  for (int i = 0; i < parameters.size(); ++i) {
+    auto buttonData = ButtonData::getButtonDataById(parameters[i]);
+    if (buttonData != nullptr) {
+      // also need check button data condition;
+      auto button = SystemButton::defaultButtonWithText(buttonData->getLabel(), [&, buttonData] (cocos2d::Ref *pSender) {
+        EventManager::getShareInstance()->runEvent(buttonData->getTriggerEventId());
+      });
+      buttons.push_back(button);
+    }
+  }
+  return SystemButton::getButtonGroupNode(buttons);
+}

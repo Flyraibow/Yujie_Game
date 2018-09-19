@@ -35,13 +35,12 @@ bool SelectHeroDisplayScene::init()
 {
   //////////////////////////////
   // 1. super init first
-  if ( !Scene::init() )
+  if ( !SHScene::init() )
   {
     return false;
   }
   
-  this->setFullScreenCover();
-  this->setBackgroundImage("res/default_background.png");
+  initSceneWithJson("selectHeroDisplay");
   
   p_labHeroName = Label::createWithSystemFont("", "Helvetica", 22);
   p_labHeroName->setAnchorPoint(Vec2());
