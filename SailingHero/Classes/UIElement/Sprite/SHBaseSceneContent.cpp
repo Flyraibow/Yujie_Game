@@ -40,6 +40,14 @@ std::string SHBaseSceneContent::getBackgroundMusic()
   return "";
 }
 
+std::string SHBaseSceneContent::getInitialEvent()
+{
+  if (p_jsonContent.count("initialEvent")) {
+    return p_jsonContent.at("initialEvent");
+  }
+  return "";
+}
+
 bool SHBaseSceneContent::isFullScreenCover()
 {
   if (p_jsonContent.count("fullScreenCover")) {

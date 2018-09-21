@@ -22,6 +22,7 @@ public:
   
   std::string getBackgroundImage();
   std::string getBackgroundMusic();
+  std::string getInitialEvent();
   bool isFullScreenCover();
   Size getScreenCoverRatio();
 };

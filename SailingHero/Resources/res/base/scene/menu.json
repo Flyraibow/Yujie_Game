@@ -1,5 +1,6 @@
 {
 	"backgroundImage": "res/default_background.png",
 	"backgroundMusic": "title.mp3",
+	"initialEvent": "menuList",
 	"fullScreenCover":true
 }

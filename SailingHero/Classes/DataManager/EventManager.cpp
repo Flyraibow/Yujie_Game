@@ -31,6 +31,7 @@ void EventManager::setCurrentScene(SHScene *scene)
 
 void EventManager::runEvent(std::string eventName)
 {
+  if (eventName.size() == 0) return;
   auto eventData = EventData::getEventDataById(eventName);
   if (eventData == nullptr) {
     CCLOGWARN("Counldn't find event : %s", eventName.c_str());

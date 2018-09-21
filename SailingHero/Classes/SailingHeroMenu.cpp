@@ -49,7 +49,6 @@ bool SailingHeroMenu::init()
   }
   initSceneWithJson("menu");
   
-  EventManager::getShareInstance()->runEvent("menuList");
 
   return true;
 }

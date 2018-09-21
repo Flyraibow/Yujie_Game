@@ -149,6 +149,8 @@ void SHScene::setBackgroundMusic(std::string path) {
   audio->playBackgroundMusic(path.c_str(), true);
 }
 
+#include "EventManager.hpp"
+
 SHBaseSceneContent* SHScene::initSceneWithJson(std::string jsonFileName)
 {
   string path = "res/base/scene/" + jsonFileName + ".json";
@@ -163,10 +165,11 @@ SHBaseSceneContent* SHScene::initSceneWithJson(std::string jsonFileName)
       setScreenCover(ratio);
     }
   }
+  
+  EventManager::getShareInstance()->runEvent(content->getInitialEvent());
   return content;
 }
 
-#include "EventManager.hpp"
 
 bool SHScene::init()
 {
