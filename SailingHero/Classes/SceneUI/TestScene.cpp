@@ -11,7 +11,7 @@
 USING_NS_CC;
 using namespace ui;
 
-TestScene* TestScene::createScene()
+SHScene* TestScene::createScene()
 {
   return TestScene::create();
 }

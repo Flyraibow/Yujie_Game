@@ -17,7 +17,7 @@ private:
   void testNewScene(cocos2d::Ref* pSender);
   void clickBack(cocos2d::Ref* pSender);
 public:
-  static TestScene* createScene();
+  static SHScene* createScene();
   
   virtual bool init();
   

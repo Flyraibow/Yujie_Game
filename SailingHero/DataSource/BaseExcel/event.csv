@@ -2,4 +2,6 @@
 id,comment,string,vector
 string,-,-,string
 writable,N,N,N
-menuList,开始菜单,groupButton,startGame;loadGame;gameSetting
+menuList,开始菜单,groupButton,startGame;loadGame;gameSetting;testScene
+startGame,进入选人界面,scene,SelectHeroMenuScene
+testScene,进入测试界面,scene,TestScene

@@ -1,4 +1,5 @@
 {
 	"backgroundImage": "res/default_background.png",
+	"backgroundMusic": "title.mp3",
 	"fullScreenCover":true
 }

@@ -27,6 +27,7 @@ void EventManager::setCurrentScene(SHScene *scene)
 }
 
 #include "SystemButton.hpp"
+#include "SceneManager.hpp"
 
 void EventManager::runEvent(std::string eventName)
 {
@@ -41,6 +42,9 @@ void EventManager::runEvent(std::string eventName)
     CCASSERT(p_currentScene != nullptr, "current scene mustn't be nil");
     auto buttonGroup = SystemButton::getButtonGroupFromEvent(eventData->getParameters());
     p_currentScene->addChild(buttonGroup);
+  } else if (eventType == "scene") {
+    CCASSERT(eventData->getParameters().size() > 0, "scene must be provided with a name");
+    SceneManager::getShareInstance()->pushScene(eventData->getParameters().at(0));
   } else {
     CCLOGWARN("unkown type event : %s, type : %s", eventName.c_str(), eventType.c_str());
   }

@@ -18,14 +18,6 @@ public:
   
   virtual bool init();
   
-  void clickStartGame(cocos2d::Ref* pSender);
-  void clickLoadGame(cocos2d::Ref* pSender);
-  void clickGameSetting(cocos2d::Ref* pSender);
-  void clickTest1(cocos2d::Ref* pSender);
-  void clickTest2(cocos2d::Ref* pSender);
-  void clickTest3(cocos2d::Ref* pSender);
-  void clickTest4(cocos2d::Ref* pSender);
-  
   // implement the "static create()" method manually
   CREATE_FUNC(SailingHeroMenu);
 };

@@ -13,7 +13,7 @@
 class SelectHeroMenuScene : public SHScene
 {
 public:
-  static cocos2d::Scene* createScene();
+  static SHScene* createScene();
   
   virtual bool init();
   

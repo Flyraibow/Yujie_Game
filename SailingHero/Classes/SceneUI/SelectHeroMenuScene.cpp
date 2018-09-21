@@ -19,7 +19,7 @@
 USING_NS_CC;
 using namespace ui;
 
-Scene* SelectHeroMenuScene::createScene()
+SHScene* SelectHeroMenuScene::createScene()
 {
   return SelectHeroMenuScene::create();
 }

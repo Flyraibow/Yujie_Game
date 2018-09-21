@@ -63,6 +63,8 @@
 		EC2655F12150B19D00B8A025 /* SHBaseSceneContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2655EE2150B19D00B8A025 /* SHBaseSceneContent.cpp */; };
 		EC2655F52150CDB200B8A025 /* TestJsonScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2655F32150CDB200B8A025 /* TestJsonScene.cpp */; };
 		EC2655F62150CDB200B8A025 /* TestJsonScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2655F32150CDB200B8A025 /* TestJsonScene.cpp */; };
+		EC3D03C621549E1A0065E585 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3D03C521549E190065E585 /* SceneManager.cpp */; };
+		EC3D03C721549E1A0065E585 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3D03C521549E190065E585 /* SceneManager.cpp */; };
 		EC828792210D74D10041497C /* SailingHeroMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828791210D74D10041497C /* SailingHeroMenu.cpp */; };
 		EC828793210D74D10041497C /* SailingHeroMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828791210D74D10041497C /* SailingHeroMenu.cpp */; };
 		EC8287A8210D75060041497C /* InputBoxFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828795210D75040041497C /* InputBoxFrame.cpp */; };
@@ -292,6 +294,8 @@
 		EC2655F22150B24400B8A025 /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
 		EC2655F32150CDB200B8A025 /* TestJsonScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TestJsonScene.cpp; sourceTree = "<group>"; };
 		EC2655F42150CDB200B8A025 /* TestJsonScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TestJsonScene.hpp; sourceTree = "<group>"; };
+		EC3D03C421549E190065E585 /* SceneManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SceneManager.hpp; sourceTree = "<group>"; };
+		EC3D03C521549E190065E585 /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
 		EC828790210D74D10041497C /* SailingHeroMenu.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SailingHeroMenu.hpp; sourceTree = "<group>"; };
 		EC828791210D74D10041497C /* SailingHeroMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SailingHeroMenu.cpp; sourceTree = "<group>"; };
 		EC828794210D75040041497C /* CityDataFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CityDataFrame.hpp; sourceTree = "<group>"; };
@@ -605,6 +609,8 @@
 				ECD52B1F20BFB05A000F7170 /* GenerateData */,
 				EC2000CC21522A7B00308FDA /* EventManager.cpp */,
 				EC2000CD21522A7B00308FDA /* EventManager.hpp */,
+				EC3D03C521549E190065E585 /* SceneManager.cpp */,
+				EC3D03C421549E190065E585 /* SceneManager.hpp */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -1003,6 +1009,7 @@
 				EC8287AE210D75060041497C /* MoneyFrame.cpp in Sources */,
 				EC828867211629490041497C /* ShipTeamData.cpp in Sources */,
 				EC828806210D758C0041497C /* CityGoodsData.cpp in Sources */,
+				EC3D03C621549E1A0065E585 /* SceneManager.cpp in Sources */,
 				EC82882C210D758C0041497C /* DialogData.cpp in Sources */,
 				EC82882E210D758C0041497C /* CityTypeData.cpp in Sources */,
 				EC828820210D758C0041497C /* HeroSelectData.cpp in Sources */,
@@ -1072,6 +1079,7 @@
 				EC828833210D758C0041497C /* SystemButtonData.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				EC82884E210D75AC0041497C /* SelectHeroMenuScene.cpp in Sources */,
+				EC3D03C721549E1A0065E585 /* SceneManager.cpp in Sources */,
 				EC828864211629490041497C /* ShipStyleData.cpp in Sources */,
 				EC828827210D758C0041497C /* GuildData.cpp in Sources */,
 				EC8287CB210D75490041497C /* SystemButton.cpp in Sources */,
