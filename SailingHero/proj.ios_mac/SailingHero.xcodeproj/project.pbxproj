@@ -63,6 +63,12 @@
 		EC2655F12150B19D00B8A025 /* SHBaseSceneContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2655EE2150B19D00B8A025 /* SHBaseSceneContent.cpp */; };
 		EC2655F52150CDB200B8A025 /* TestJsonScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2655F32150CDB200B8A025 /* TestJsonScene.cpp */; };
 		EC2655F62150CDB200B8A025 /* TestJsonScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2655F32150CDB200B8A025 /* TestJsonScene.cpp */; };
+		EC3B738521576B1C00059F91 /* SHLabelComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3B738221576B1C00059F91 /* SHLabelComponent.cpp */; };
+		EC3B738621576B1C00059F91 /* SHLabelComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3B738221576B1C00059F91 /* SHLabelComponent.cpp */; };
+		EC3B738721576B1C00059F91 /* SHComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3B738321576B1C00059F91 /* SHComponent.cpp */; };
+		EC3B738821576B1C00059F91 /* SHComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3B738321576B1C00059F91 /* SHComponent.cpp */; };
+		EC3B738F2157733C00059F91 /* SHButtonComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3B738D2157733C00059F91 /* SHButtonComponent.cpp */; };
+		EC3B73902157733C00059F91 /* SHButtonComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3B738D2157733C00059F91 /* SHButtonComponent.cpp */; };
 		EC3D03C621549E1A0065E585 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3D03C521549E190065E585 /* SceneManager.cpp */; };
 		EC3D03C721549E1A0065E585 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3D03C521549E190065E585 /* SceneManager.cpp */; };
 		EC828792210D74D10041497C /* SailingHeroMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828791210D74D10041497C /* SailingHeroMenu.cpp */; };
@@ -294,6 +300,12 @@
 		EC2655F22150B24400B8A025 /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
 		EC2655F32150CDB200B8A025 /* TestJsonScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TestJsonScene.cpp; sourceTree = "<group>"; };
 		EC2655F42150CDB200B8A025 /* TestJsonScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TestJsonScene.hpp; sourceTree = "<group>"; };
+		EC3B738121576B1C00059F91 /* SHLabelComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SHLabelComponent.hpp; sourceTree = "<group>"; };
+		EC3B738221576B1C00059F91 /* SHLabelComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SHLabelComponent.cpp; sourceTree = "<group>"; };
+		EC3B738321576B1C00059F91 /* SHComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SHComponent.cpp; sourceTree = "<group>"; };
+		EC3B738421576B1C00059F91 /* SHComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SHComponent.hpp; sourceTree = "<group>"; };
+		EC3B738D2157733C00059F91 /* SHButtonComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SHButtonComponent.cpp; sourceTree = "<group>"; };
+		EC3B738E2157733C00059F91 /* SHButtonComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SHButtonComponent.hpp; sourceTree = "<group>"; };
 		EC3D03C421549E190065E585 /* SceneManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SceneManager.hpp; sourceTree = "<group>"; };
 		EC3D03C521549E190065E585 /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
 		EC828790210D74D10041497C /* SailingHeroMenu.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SailingHeroMenu.hpp; sourceTree = "<group>"; };
@@ -615,6 +627,19 @@
 			path = DataManager;
 			sourceTree = "<group>";
 		};
+		EC3B73792156226800059F91 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				EC3B738321576B1C00059F91 /* SHComponent.cpp */,
+				EC3B738421576B1C00059F91 /* SHComponent.hpp */,
+				EC3B738221576B1C00059F91 /* SHLabelComponent.cpp */,
+				EC3B738121576B1C00059F91 /* SHLabelComponent.hpp */,
+				EC3B738D2157733C00059F91 /* SHButtonComponent.cpp */,
+				EC3B738E2157733C00059F91 /* SHButtonComponent.hpp */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		EC72726F20F7D00F005BD63D /* SceneUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -678,6 +703,7 @@
 		ECADF31A20ACF1BF00B77618 /* UIElement */ = {
 			isa = PBXGroup;
 			children = (
+				EC3B73792156226800059F91 /* Component */,
 				EC72727420F87A6B005BD63D /* Frame */,
 				ECF294A820B1357700536532 /* Sprite */,
 				ECADF31B20ACF1D500B77618 /* Button */,
@@ -958,9 +984,11 @@
 				EC828812210D758C0041497C /* CityStatusData.cpp in Sources */,
 				EC82884D210D75AC0041497C /* SelectHeroMenuScene.cpp in Sources */,
 				EC82883F210D759C0041497C /* SHGameDataHelper.cpp in Sources */,
+				EC3B738721576B1C00059F91 /* SHComponent.cpp in Sources */,
 				EC8287B0210D75060041497C /* DialogFrame.cpp in Sources */,
 				EC8287D0210D75560041497C /* LocalizationHelper.cpp in Sources */,
 				EC8287AC210D75060041497C /* HeroSelectingFrame.cpp in Sources */,
+				EC3B738521576B1C00059F91 /* SHLabelComponent.cpp in Sources */,
 				EC828826210D758C0041497C /* GuildData.cpp in Sources */,
 				EC828814210D758C0041497C /* GameData.cpp in Sources */,
 				EC923EB5212551B2005EB97D /* SHBaseFrame.cpp in Sources */,
@@ -1000,6 +1028,7 @@
 				EC828830210D758C0041497C /* ItemData.cpp in Sources */,
 				EC2000CE21522A7B00308FDA /* EventManager.cpp in Sources */,
 				EC82883D210D759C0041497C /* Calendar.cpp in Sources */,
+				EC3B738F2157733C00059F91 /* SHButtonComponent.cpp in Sources */,
 				EC828880211B620A0041497C /* SailMapFrame.cpp in Sources */,
 				EC8287B8210D75060041497C /* MultiSelectionFrame.cpp in Sources */,
 				EC8287CA210D75490041497C /* SystemButton.cpp in Sources */,
@@ -1033,6 +1062,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC828885211B622F0041497C /* SailMapScene.cpp in Sources */,
+				EC3B738621576B1C00059F91 /* SHLabelComponent.cpp in Sources */,
 				EC82880B210D758C0041497C /* AbilityData.cpp in Sources */,
 				EC828842210D759C0041497C /* SHCityDataHelper.cpp in Sources */,
 				EC8287BB210D75060041497C /* CityDataFrame.cpp in Sources */,
@@ -1047,6 +1077,7 @@
 				EC82881B210D758C0041497C /* CityBuildingData.cpp in Sources */,
 				EC82881D210D758C0041497C /* GoodsData.cpp in Sources */,
 				ECAF6F3C21228EB500BAF207 /* StoryScene.cpp in Sources */,
+				EC3B73902157733C00059F91 /* SHButtonComponent.cpp in Sources */,
 				EC923EB6212551B2005EB97D /* SHBaseFrame.cpp in Sources */,
 				EC82880D210D758C0041497C /* ZodiacData.cpp in Sources */,
 				EC828850210D75AC0041497C /* CityScene.cpp in Sources */,
@@ -1064,6 +1095,7 @@
 				EC828868211629490041497C /* ShipTeamData.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				EC828831210D758C0041497C /* ItemData.cpp in Sources */,
+				EC3B738821576B1C00059F91 /* SHComponent.cpp in Sources */,
 				EC82887521169DE30041497C /* GoodsBasePriceData.cpp in Sources */,
 				EC828811210D758C0041497C /* GoodsCategoryData.cpp in Sources */,
 				EC2655F62150CDB200B8A025 /* TestJsonScene.cpp in Sources */,

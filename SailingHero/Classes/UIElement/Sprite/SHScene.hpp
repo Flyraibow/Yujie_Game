@@ -11,6 +11,8 @@
 #include "cocos2d.h"
 #include "SHBaseSceneContent.hpp"
 
+#include <unordered_map>
+
 USING_NS_CC;
 
 #define SCREEN_COVER_LAYER_HEIGHT 100
@@ -36,6 +38,8 @@ protected:
   void setBackgroundMusic(std::string path);
   Node* s_window;
   
+  std::unordered_map<std::string, Node *> p_componentDict;
+  
   SHBaseSceneContent* initSceneWithJson(std::string jsonFileName);
   
 public:
@@ -43,6 +47,12 @@ public:
   virtual bool init();
   Size getScreenSize() const;
   Node* getBackground();
+  
+  template <typename T, typename std::enable_if<std::is_base_of<Node, T>::value>::type* = nullptr>
+  T* getComponentById(const std::string &componentId) {
+    CCASSERT(p_componentDict.count(componentId), ("Coudn't find component id : " + componentId).c_str());
+    return static_cast<T*>(p_componentDict.at(componentId));
+  }
 };
 
 #endif /* SHScene_hpp */

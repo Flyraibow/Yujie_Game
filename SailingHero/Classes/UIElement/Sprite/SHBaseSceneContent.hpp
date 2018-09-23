@@ -10,6 +10,8 @@
 
 #include "cocos2d.h"
 #include "json.hpp"
+#include "SHComponent.hpp"
+#include <vector>
 
 USING_NS_CC;
 
@@ -25,6 +27,8 @@ public:
   std::string getInitialEvent();
   bool isFullScreenCover();
   Size getScreenCoverRatio();
+  std::vector<SHComponent *> getComponentList();
+  
 };
 
 #endif /* BaseScene_hpp */

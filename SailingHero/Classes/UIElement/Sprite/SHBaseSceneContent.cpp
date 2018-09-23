@@ -22,8 +22,6 @@ SHBaseSceneContent* SHBaseSceneContent::loadContentFromPath(std::string jsonFile
   return sceneContent;
 }
 
-
-
 std::string SHBaseSceneContent::getBackgroundImage()
 {
   if (p_jsonContent.count("backgroundImage")) {
@@ -64,3 +62,10 @@ Size SHBaseSceneContent::getScreenCoverRatio()
   return Size();
 }
 
+std::vector<SHComponent *> SHBaseSceneContent::getComponentList()
+{
+  if (p_jsonContent.count("components")) {
+    return SHComponent::getComponentsFromJson(p_jsonContent.at("components"));
+  }
+  return vector<SHComponent *>();
+}

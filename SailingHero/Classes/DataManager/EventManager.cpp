@@ -46,6 +46,8 @@ void EventManager::runEvent(std::string eventName)
   } else if (eventType == "scene") {
     CCASSERT(eventData->getParameters().size() > 0, "scene must be provided with a name");
     SceneManager::getShareInstance()->pushScene(eventData->getParameters().at(0));
+  } else if (eventType == "popScene") {
+    Director::getInstance()->popScene();
   } else {
     CCLOGWARN("unkown type event : %s, type : %s", eventName.c_str(), eventType.c_str());
   }

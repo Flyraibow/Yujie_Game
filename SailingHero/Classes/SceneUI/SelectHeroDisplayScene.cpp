@@ -42,55 +42,20 @@ bool SelectHeroDisplayScene::init()
   
   initSceneWithJson("selectHeroDisplay");
   
-  p_labHeroName = Label::createWithSystemFont("", "Helvetica", 22);
-  p_labHeroName->setAnchorPoint(Vec2());
-  p_labHeroName->setNormalizedPosition(Vec2(0.5, 0.82));
-  s_window->addChild(p_labHeroName);
-  
-  p_labGuildName = Label::createWithSystemFont("", "Helvetica", 18);
-  p_labGuildName->setAnchorPoint(Vec2());
-  p_labGuildName->setNormalizedPosition(Vec2(0.55, 0.75));
-  s_window->addChild(p_labGuildName);
-  
-  P_labBirth = Label::createWithSystemFont("", "Helvetica", 18);
-  P_labBirth->setAnchorPoint(Vec2());
-  P_labBirth->setNormalizedPosition(Vec2(0.55, 0.7));
-  s_window->addChild(P_labBirth);
-  
-  p_labZodiac = Label::createWithSystemFont("", "Helvetica", 18);
-  p_labZodiac->setAnchorPoint(Vec2());
-  p_labZodiac->setNormalizedPosition(Vec2(0.75, 0.7));
-  s_window->addChild(p_labZodiac);
-  
-  p_zodiacIcon = nullptr;
-  
-  auto btnChangeHeroName = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("change_hero_name"), CC_CALLBACK_1(SelectHeroDisplayScene::clickChangeHeroName, this));
-  auto btnChangeGuildName = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("change_guild_name"), CC_CALLBACK_1(SelectHeroDisplayScene::clickChangeGuildName, this));
-  auto btnChangeHeroBirth = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("change_hero_birth"), CC_CALLBACK_1(SelectHeroDisplayScene::clickChangeHeroBirth, this));
+  p_labHeroName = this->getComponentById<Label>("hero_name");
+  p_labGuildName = this->getComponentById<Label>("guild_name");
+  P_labBirth = this->getComponentById<Label>("birth_label");
+  p_labZodiac = this->getComponentById<Label>("zodiac_label");
+  auto btnChangeHeroName = this->getComponentById<Button>("change_hero_btn");
+  btnChangeHeroName->addClickEventListener(CC_CALLBACK_1(SelectHeroDisplayScene::clickChangeHeroName, this));
+  auto btnChangeGuildName = this->getComponentById<Button>("change_guild_btn");
+  btnChangeGuildName->addClickEventListener(CC_CALLBACK_1(SelectHeroDisplayScene::clickChangeGuildName, this));
+  auto btnChangeHeroBirth = this->getComponentById<Button>("change_birth_btn");
+  btnChangeHeroBirth->addClickEventListener(CC_CALLBACK_1(SelectHeroDisplayScene::clickChangeHeroBirth, this));
+  auto btnConfirm = this->getComponentById<Button>("confirm_btn");
+  btnConfirm->addClickEventListener(CC_CALLBACK_1(SelectHeroDisplayScene::clickChangeStartGame, this));
 
-  btnChangeHeroName->setAnchorPoint(Vec2(0,0));
-  btnChangeGuildName->setAnchorPoint(Vec2(0,0));
-  btnChangeHeroBirth->setAnchorPoint(Vec2(0,0));
-  
-  btnChangeHeroName->setNormalizedPosition(Vec2(0.6, 0.36));
-  btnChangeGuildName->setNormalizedPosition(Vec2(0.6, 0.28));
-  btnChangeHeroBirth->setNormalizedPosition(Vec2(0.6, 0.2));
-  s_window->addChild(btnChangeHeroName);
-  s_window->addChild(btnChangeGuildName);
-  s_window->addChild(btnChangeHeroBirth);
-  
-  
-  auto btnCancel = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("sys_cancel"), [](cocos2d::Ref* pSender) {
-    Director::getInstance()->popScene();
-  });
-  btnCancel->setAnchorPoint(Vec2(0.5,0));
-  btnCancel->setNormalizedPosition(Vec2(0.75, 0.05));
-  s_window->addChild(btnCancel);
-  auto btnConfirm = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("sys_confirm"), CC_CALLBACK_1(SelectHeroDisplayScene::clickChangeStartGame, this));
-  btnConfirm->setAnchorPoint(Vec2(0.5,0));
-  btnConfirm->setNormalizedPosition(Vec2(0.55, 0.05));
-  
-  s_window->addChild(btnConfirm);
+  p_zodiacIcon = nullptr;
   return true;
 }
 

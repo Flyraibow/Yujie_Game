@@ -1,4 +1,70 @@
 {
-	"backgroundImage": "res/default_background.png",
-	"fullScreenCover":true
+  "backgroundImage": "res/default_background.png",
+  "fullScreenCover": true,
+  "components": [
+    {
+      "type": "label",
+      "id": "hero_name",
+      "normalized_position": [0.5, 0.82],
+      "anchor_point": [0, 0],
+      "text_size": 22
+    },
+    {
+      "type": "label",
+      "id": "guild_name",
+      "normalized_position": [0.55, 0.75],
+      "anchor_point": [0, 0],
+      "text_size": 18
+    },
+    {
+      "type": "label",
+      "id": "birth_label",
+      "normalized_position": [0.55, 0.7],
+      "anchor_point": [0, 0],
+      "text_size": 18
+    },
+    {
+      "type": "label",
+      "id": "zodiac_label",
+      "normalized_position": [0.75, 0.7],
+      "anchor_point": [0, 0],
+      "text_size": 18
+    },
+    {
+      "type": "button",
+      "id": "change_hero_btn",
+      "text": "change_hero_name",
+      "normalized_position": [0.6, 0.36],
+      "anchor_point": [0, 0]
+    },
+    {
+      "type": "button",
+      "id": "change_guild_btn",
+      "text": "change_guild_name",
+      "normalized_position": [0.6, 0.28],
+      "anchor_point": [0, 0]
+    },
+    {
+      "type": "button",
+      "id": "change_birth_btn",
+      "text": "change_hero_birth",
+      "normalized_position": [0.6, 0.2],
+      "anchor_point": [0, 0]
+    },
+    {
+      "type": "button",
+      "id": "cancel_btn",
+      "text": "sys_cancel",
+      "normalized_position": [0.75, 0.05],
+      "anchor_point": [0.5, 0],
+      "event": "popScene"
+    },
+    {
+      "type": "button",
+      "id": "confirm_btn",
+      "text": "sys_confirm",
+      "normalized_position": [0.55, 0.05],
+      "anchor_point": [0.5, 0]
+    }
+  ]
 }

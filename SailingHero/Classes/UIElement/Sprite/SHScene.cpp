@@ -165,6 +165,13 @@ SHBaseSceneContent* SHScene::initSceneWithJson(std::string jsonFileName)
       setScreenCover(ratio);
     }
   }
+  auto components = content->getComponentList();
+  for (int i = 0; i < components.size(); ++i) {
+    auto component = components.at(i);
+    auto node = component->generateComponent();
+    s_window->addChild(node);
+    p_componentDict[component->getId()] = node;
+  }
   
   EventManager::getShareInstance()->runEvent(content->getInitialEvent());
   return content;
