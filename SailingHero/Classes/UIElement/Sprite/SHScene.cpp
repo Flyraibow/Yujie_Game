@@ -151,10 +151,9 @@ void SHScene::setBackgroundMusic(std::string path) {
 
 #include "EventManager.hpp"
 
-SHBaseSceneContent* SHScene::initSceneWithJson(std::string jsonFileName)
+SHSceneContent* SHScene::initSceneWithJson(std::string jsonFileName)
 {
-  string path = "res/base/scene/" + jsonFileName + ".json";
-  SHBaseSceneContent *content = SHBaseSceneContent::loadContentFromPath(path);
+  auto content = new SHSceneContent(jsonFileName);
   setBackgroundMusic(content->getBackgroundMusic());
   setBackgroundImage(content->getBackgroundImage());
   if (content->isFullScreenCover()) {
@@ -168,12 +167,18 @@ SHBaseSceneContent* SHScene::initSceneWithJson(std::string jsonFileName)
   auto components = content->getComponentList();
   for (int i = 0; i < components.size(); ++i) {
     auto component = components.at(i);
-    auto node = component->generateComponent();
-    s_window->addChild(node);
-    p_componentDict[component->getId()] = node;
+    component->addComponentToParent(p_componentDict, s_window);
   }
   
   EventManager::getShareInstance()->runEvent(content->getInitialEvent());
+  return content;
+}
+
+SHPanelContent* SHScene::addPanelWithJson(std::string jsonFileName)
+{
+  auto content = new SHPanelContent(jsonFileName);
+  content->getComponent()->addComponentToParent(p_componentDict, s_window);
+  
   return content;
 }
 

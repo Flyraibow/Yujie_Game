@@ -31,6 +31,14 @@
       "text_size": 18
     },
     {
+      "type": "label",
+      "id": "description",
+      "normalized_position": [0.5, 0.65],
+      "anchor_point": [0, 1],
+      "normalized_dimensions": [0.425, 0],
+      "text_size": 18
+    },
+    {
       "type": "button",
       "id": "change_hero_btn",
       "text": "change_hero_name",

@@ -90,7 +90,7 @@ void ExcelDataIdBasedParser::setPrepareFunction()
   }
 
   if (containLanguage) {
-    p_file->addHeaders("LocalizationHelper.hpp", false, false);
+    p_file->addHeaders("LocalizationHelper.hpp", true, false);
   }
 }
 

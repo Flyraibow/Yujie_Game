@@ -7,19 +7,7 @@
 
 #include "SailingHeroMenu.hpp"
 
-#include "SimpleAudioEngine.h"
-#include "SystemButton.hpp"
-#include "LocalizationHelper.hpp"
-#include "SHDataManager.hpp"
-#include "SelectHeroMenuScene.hpp"
-#include "EventManager.hpp"
-
-#include "SHColorNode.hpp"
-#include <string>
-#include <vector>
-
 USING_NS_CC;
-using namespace ui;
 
 Scene* SailingHeroMenu::createScene()
 {
@@ -38,6 +26,8 @@ SailingHeroMenu::SailingHeroMenu()
   
 }
 
+#include "SHPanelContent.hpp"
+
 // on "init" you need to initialize your instance
 bool SailingHeroMenu::init()
 {
@@ -48,6 +38,9 @@ bool SailingHeroMenu::init()
     return false;
   }
   initSceneWithJson("menu");
+  
+  addPanelWithJson("input");
+  getComponentById<Label>("hint_label")->setString("hint text");
   
 
   return true;

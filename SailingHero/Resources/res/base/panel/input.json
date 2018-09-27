@@ -1,0 +1,51 @@
+{
+ 	"type": "color_node",
+ 	"id": "color_node",
+	"backgroundColor" : "alpha_black",
+	"components" : [
+		{
+	      "type": "sprite",
+	      "id": "info_box",
+	      "path": "res/base/frame/infoBox.png",
+	      "normalized_position": [0.5, 0.98],
+	      "anchor_point": [0.5, 1],
+	      "auto_scale": true,
+	      "components" : [
+	      	{
+		      "type": "label",
+		      "id": "hint_label",
+		      "normalized_position": [0.05, 0.83],
+		      "anchor_point": [0, 1],
+      		  "normalized_dimensions": [0.9, 0],
+		      "text_size": 18
+	      	},
+	      	{
+		      "type": "edit_box",
+		      "id": "edit_box",
+		      "path": "res/base/frame/inputFrame.jpg",
+		      "input_mode": "ANY",
+		      "normalized_position": [0.5, 0.5],
+		      "anchor_point": [0.5, 0.5],
+		      "size" : {
+		      	"normalized_width" : 1,
+		      	"height" : 24
+		      },
+		      "max_length" : 8
+	      	},
+		    {
+		      "type": "button",
+		      "id": "confirm_btn",
+		      "text": "sys_confirm",
+		      "normalized_position": [0.3, 0.25]
+		    },
+		    {
+		      "type": "button",
+		      "id": "cancel_btn",
+		      "text": "sys_cancel",
+		      "normalized_position": [0.7, 0.25],
+		      "event": "popPanel"
+		    }
+	      ]
+	    }
+	]
+}

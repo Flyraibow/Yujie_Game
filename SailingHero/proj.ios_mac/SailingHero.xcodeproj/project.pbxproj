@@ -59,8 +59,8 @@
 		EC2000CB215229E000308FDA /* ButtonData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2000C4215229DF00308FDA /* ButtonData.cpp */; };
 		EC2000CE21522A7B00308FDA /* EventManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2000CC21522A7B00308FDA /* EventManager.cpp */; };
 		EC2000CF21522A7B00308FDA /* EventManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2000CC21522A7B00308FDA /* EventManager.cpp */; };
-		EC2655F02150B19D00B8A025 /* SHBaseSceneContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2655EE2150B19D00B8A025 /* SHBaseSceneContent.cpp */; };
-		EC2655F12150B19D00B8A025 /* SHBaseSceneContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2655EE2150B19D00B8A025 /* SHBaseSceneContent.cpp */; };
+		EC2655F02150B19D00B8A025 /* SHSceneContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2655EE2150B19D00B8A025 /* SHSceneContent.cpp */; };
+		EC2655F12150B19D00B8A025 /* SHSceneContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2655EE2150B19D00B8A025 /* SHSceneContent.cpp */; };
 		EC2655F52150CDB200B8A025 /* TestJsonScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2655F32150CDB200B8A025 /* TestJsonScene.cpp */; };
 		EC2655F62150CDB200B8A025 /* TestJsonScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2655F32150CDB200B8A025 /* TestJsonScene.cpp */; };
 		EC3B738521576B1C00059F91 /* SHLabelComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3B738221576B1C00059F91 /* SHLabelComponent.cpp */; };
@@ -201,6 +201,18 @@
 		ECAF6F38211D3E2200BAF207 /* TradeInfoFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECAF6F36211D3E2200BAF207 /* TradeInfoFrame.cpp */; };
 		ECAF6F3B21228EB500BAF207 /* StoryScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECAF6F3921228EB400BAF207 /* StoryScene.cpp */; };
 		ECAF6F3C21228EB500BAF207 /* StoryScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECAF6F3921228EB400BAF207 /* StoryScene.cpp */; };
+		ECCE0269215C50A700F1AF96 /* SHPanelContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE0267215C50A700F1AF96 /* SHPanelContent.cpp */; };
+		ECCE026A215C50A700F1AF96 /* SHPanelContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE0267215C50A700F1AF96 /* SHPanelContent.cpp */; };
+		ECCE0276215C649800F1AF96 /* SHJSONContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE0274215C649800F1AF96 /* SHJSONContent.cpp */; };
+		ECCE0277215C649800F1AF96 /* SHJSONContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE0274215C649800F1AF96 /* SHJSONContent.cpp */; };
+		ECCE027E215C81CE00F1AF96 /* JsonUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE027D215C81CE00F1AF96 /* JsonUtil.cpp */; };
+		ECCE027F215C81CE00F1AF96 /* JsonUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE027D215C81CE00F1AF96 /* JsonUtil.cpp */; };
+		ECCE0282215C87BD00F1AF96 /* SHSpriteComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE0280215C87BD00F1AF96 /* SHSpriteComponent.cpp */; };
+		ECCE0283215C87BD00F1AF96 /* SHSpriteComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE0280215C87BD00F1AF96 /* SHSpriteComponent.cpp */; };
+		ECCE0286215C92B400F1AF96 /* SHColorNodeComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE0284215C92B400F1AF96 /* SHColorNodeComponent.cpp */; };
+		ECCE0287215C92B400F1AF96 /* SHColorNodeComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE0284215C92B400F1AF96 /* SHColorNodeComponent.cpp */; };
+		ECCE028A215CA97800F1AF96 /* SHEditBoxComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE0288215CA97800F1AF96 /* SHEditBoxComponent.cpp */; };
+		ECCE028B215CA97800F1AF96 /* SHEditBoxComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE0288215CA97800F1AF96 /* SHEditBoxComponent.cpp */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 /* End PBXBuildFile section */
@@ -295,8 +307,8 @@
 		EC2000C5215229E000308FDA /* ConditionData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ConditionData.hpp; path = GenerateData/ConditionData.hpp; sourceTree = "<group>"; };
 		EC2000CC21522A7B00308FDA /* EventManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EventManager.cpp; sourceTree = "<group>"; };
 		EC2000CD21522A7B00308FDA /* EventManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = EventManager.hpp; sourceTree = "<group>"; };
-		EC2655EE2150B19D00B8A025 /* SHBaseSceneContent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHBaseSceneContent.cpp; sourceTree = "<group>"; };
-		EC2655EF2150B19D00B8A025 /* SHBaseSceneContent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHBaseSceneContent.hpp; sourceTree = "<group>"; };
+		EC2655EE2150B19D00B8A025 /* SHSceneContent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHSceneContent.cpp; sourceTree = "<group>"; };
+		EC2655EF2150B19D00B8A025 /* SHSceneContent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHSceneContent.hpp; sourceTree = "<group>"; };
 		EC2655F22150B24400B8A025 /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
 		EC2655F32150CDB200B8A025 /* TestJsonScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TestJsonScene.cpp; sourceTree = "<group>"; };
 		EC2655F42150CDB200B8A025 /* TestJsonScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TestJsonScene.hpp; sourceTree = "<group>"; };
@@ -437,6 +449,18 @@
 		ECAF6F36211D3E2200BAF207 /* TradeInfoFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TradeInfoFrame.cpp; sourceTree = "<group>"; };
 		ECAF6F3921228EB400BAF207 /* StoryScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StoryScene.cpp; sourceTree = "<group>"; };
 		ECAF6F3A21228EB400BAF207 /* StoryScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StoryScene.hpp; sourceTree = "<group>"; };
+		ECCE0267215C50A700F1AF96 /* SHPanelContent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHPanelContent.cpp; sourceTree = "<group>"; };
+		ECCE0268215C50A700F1AF96 /* SHPanelContent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHPanelContent.hpp; sourceTree = "<group>"; };
+		ECCE0274215C649800F1AF96 /* SHJSONContent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHJSONContent.cpp; sourceTree = "<group>"; };
+		ECCE0275215C649800F1AF96 /* SHJSONContent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHJSONContent.hpp; sourceTree = "<group>"; };
+		ECCE027C215C81CE00F1AF96 /* JsonUtil.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JsonUtil.hpp; sourceTree = "<group>"; };
+		ECCE027D215C81CE00F1AF96 /* JsonUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JsonUtil.cpp; sourceTree = "<group>"; };
+		ECCE0280215C87BD00F1AF96 /* SHSpriteComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHSpriteComponent.cpp; sourceTree = "<group>"; };
+		ECCE0281215C87BD00F1AF96 /* SHSpriteComponent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHSpriteComponent.hpp; sourceTree = "<group>"; };
+		ECCE0284215C92B400F1AF96 /* SHColorNodeComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHColorNodeComponent.cpp; sourceTree = "<group>"; };
+		ECCE0285215C92B400F1AF96 /* SHColorNodeComponent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHColorNodeComponent.hpp; sourceTree = "<group>"; };
+		ECCE0288215CA97800F1AF96 /* SHEditBoxComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHEditBoxComponent.cpp; sourceTree = "<group>"; };
+		ECCE0289215CA97800F1AF96 /* SHEditBoxComponent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHEditBoxComponent.hpp; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -587,8 +611,6 @@
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
 				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
-				EC828791210D74D10041497C /* SailingHeroMenu.cpp */,
-				EC828790210D74D10041497C /* SailingHeroMenu.hpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -636,6 +658,12 @@
 				EC3B738121576B1C00059F91 /* SHLabelComponent.hpp */,
 				EC3B738D2157733C00059F91 /* SHButtonComponent.cpp */,
 				EC3B738E2157733C00059F91 /* SHButtonComponent.hpp */,
+				ECCE0280215C87BD00F1AF96 /* SHSpriteComponent.cpp */,
+				ECCE0281215C87BD00F1AF96 /* SHSpriteComponent.hpp */,
+				ECCE0284215C92B400F1AF96 /* SHColorNodeComponent.cpp */,
+				ECCE0285215C92B400F1AF96 /* SHColorNodeComponent.hpp */,
+				ECCE0288215CA97800F1AF96 /* SHEditBoxComponent.cpp */,
+				ECCE0289215CA97800F1AF96 /* SHEditBoxComponent.hpp */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -643,12 +671,14 @@
 		EC72726F20F7D00F005BD63D /* SceneUI */ = {
 			isa = PBXGroup;
 			children = (
+				EC828791210D74D10041497C /* SailingHeroMenu.cpp */,
+				EC828790210D74D10041497C /* SailingHeroMenu.hpp */,
 				EC828849210D75AB0041497C /* CityScene.cpp */,
 				EC828845210D75AB0041497C /* CityScene.hpp */,
-				EC828847210D75AB0041497C /* SelectHeroDisplayScene.cpp */,
-				EC828846210D75AB0041497C /* SelectHeroDisplayScene.hpp */,
 				EC828848210D75AB0041497C /* SelectHeroMenuScene.cpp */,
 				EC82884A210D75AB0041497C /* SelectHeroMenuScene.hpp */,
+				EC828847210D75AB0041497C /* SelectHeroDisplayScene.cpp */,
+				EC828846210D75AB0041497C /* SelectHeroDisplayScene.hpp */,
 				EC828882211B622F0041497C /* SailMapScene.cpp */,
 				EC828883211B622F0041497C /* SailMapScene.hpp */,
 				ECAF6F3921228EB400BAF207 /* StoryScene.cpp */,
@@ -703,6 +733,8 @@
 		ECADF31A20ACF1BF00B77618 /* UIElement */ = {
 			isa = PBXGroup;
 			children = (
+				ECCE026B215C58C100F1AF96 /* JSONFile */,
+				ECCE0266215C507C00F1AF96 /* Panel */,
 				EC3B73792156226800059F91 /* Component */,
 				EC72727420F87A6B005BD63D /* Frame */,
 				ECF294A820B1357700536532 /* Sprite */,
@@ -730,6 +762,26 @@
 				EC8287CC210D75550041497C /* LocalizationHelper.hpp */,
 			);
 			path = Sys;
+			sourceTree = "<group>";
+		};
+		ECCE0266215C507C00F1AF96 /* Panel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Panel;
+			sourceTree = "<group>";
+		};
+		ECCE026B215C58C100F1AF96 /* JSONFile */ = {
+			isa = PBXGroup;
+			children = (
+				ECCE0274215C649800F1AF96 /* SHJSONContent.cpp */,
+				ECCE0275215C649800F1AF96 /* SHJSONContent.hpp */,
+				EC2655EE2150B19D00B8A025 /* SHSceneContent.cpp */,
+				EC2655EF2150B19D00B8A025 /* SHSceneContent.hpp */,
+				ECCE0267215C50A700F1AF96 /* SHPanelContent.cpp */,
+				ECCE0268215C50A700F1AF96 /* SHPanelContent.hpp */,
+			);
+			path = JSONFile;
 			sourceTree = "<group>";
 		};
 		ECD52B1F20BFB05A000F7170 /* GenerateData */ = {
@@ -817,6 +869,8 @@
 				EC828835210D759C0041497C /* SHGameDataHelper.hpp */,
 				EC82883B210D759C0041497C /* Utils.cpp */,
 				EC82883C210D759C0041497C /* Utils.hpp */,
+				ECCE027D215C81CE00F1AF96 /* JsonUtil.cpp */,
+				ECCE027C215C81CE00F1AF96 /* JsonUtil.hpp */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -824,8 +878,6 @@
 		ECF294A820B1357700536532 /* Sprite */ = {
 			isa = PBXGroup;
 			children = (
-				EC2655EE2150B19D00B8A025 /* SHBaseSceneContent.cpp */,
-				EC2655EF2150B19D00B8A025 /* SHBaseSceneContent.hpp */,
 				EC8287BD210D75300041497C /* SHColorNode.cpp */,
 				EC8287BC210D75300041497C /* SHColorNode.hpp */,
 				EC8287C0210D75300041497C /* SHScene.cpp */,
@@ -982,6 +1034,7 @@
 				EC828869211629490041497C /* ShipData.cpp in Sources */,
 				EC82882A210D758C0041497C /* HeroData.cpp in Sources */,
 				EC828812210D758C0041497C /* CityStatusData.cpp in Sources */,
+				ECCE0286215C92B400F1AF96 /* SHColorNodeComponent.cpp in Sources */,
 				EC82884D210D75AC0041497C /* SelectHeroMenuScene.cpp in Sources */,
 				EC82883F210D759C0041497C /* SHGameDataHelper.cpp in Sources */,
 				EC3B738721576B1C00059F91 /* SHComponent.cpp in Sources */,
@@ -994,7 +1047,7 @@
 				EC923EB5212551B2005EB97D /* SHBaseFrame.cpp in Sources */,
 				EC2655F52150CDB200B8A025 /* TestJsonScene.cpp in Sources */,
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
-				EC2655F02150B19D00B8A025 /* SHBaseSceneContent.cpp in Sources */,
+				EC2655F02150B19D00B8A025 /* SHSceneContent.cpp in Sources */,
 				EC8287B6210D75060041497C /* DialogPhotoFrame.cpp in Sources */,
 				EC8287C4210D75300041497C /* SHSpriteListener.cpp in Sources */,
 				EC828832210D758C0041497C /* SystemButtonData.cpp in Sources */,
@@ -1010,6 +1063,7 @@
 				EC82884F210D75AC0041497C /* CityScene.cpp in Sources */,
 				EC8287A8210D75060041497C /* InputBoxFrame.cpp in Sources */,
 				EC828808210D758C0041497C /* TownPhotoData.cpp in Sources */,
+				ECCE027E215C81CE00F1AF96 /* JsonUtil.cpp in Sources */,
 				EC82888C211B6A1D0041497C /* DateFrame.cpp in Sources */,
 				EC2000CA215229E000308FDA /* ButtonData.cpp in Sources */,
 				EC82886D21164EE00041497C /* SHDataManager.cpp in Sources */,
@@ -1042,7 +1096,9 @@
 				EC82882C210D758C0041497C /* DialogData.cpp in Sources */,
 				EC82882E210D758C0041497C /* CityTypeData.cpp in Sources */,
 				EC828820210D758C0041497C /* HeroSelectData.cpp in Sources */,
+				ECCE0276215C649800F1AF96 /* SHJSONContent.cpp in Sources */,
 				EC8287AA210D75060041497C /* CitySceneFrame.cpp in Sources */,
+				ECCE0282215C87BD00F1AF96 /* SHSpriteComponent.cpp in Sources */,
 				EC828863211629490041497C /* ShipStyleData.cpp in Sources */,
 				1AF87B8A1F6F7822007BE51C /* main.m in Sources */,
 				EC8287B2210D75060041497C /* SystemBarFrame.cpp in Sources */,
@@ -1052,6 +1108,8 @@
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				EC82881E210D758C0041497C /* ItemCategoryData.cpp in Sources */,
 				EC828894211B89F00041497C /* AreaMapGoButtonFrame.cpp in Sources */,
+				ECCE028A215CA97800F1AF96 /* SHEditBoxComponent.cpp in Sources */,
+				ECCE0269215C50A700F1AF96 /* SHPanelContent.cpp in Sources */,
 				EC828865211629490041497C /* ShipSizeData.cpp in Sources */,
 				EC828841210D759C0041497C /* SHCityDataHelper.cpp in Sources */,
 			);
@@ -1061,6 +1119,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECCE028B215CA97800F1AF96 /* SHEditBoxComponent.cpp in Sources */,
 				EC828885211B622F0041497C /* SailMapScene.cpp in Sources */,
 				EC3B738621576B1C00059F91 /* SHLabelComponent.cpp in Sources */,
 				EC82880B210D758C0041497C /* AbilityData.cpp in Sources */,
@@ -1071,6 +1130,7 @@
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				EC82888D211B6A1D0041497C /* DateFrame.cpp in Sources */,
 				EC82882D210D758C0041497C /* DialogData.cpp in Sources */,
+				ECCE0287215C92B400F1AF96 /* SHColorNodeComponent.cpp in Sources */,
 				EC82887D211B61790041497C /* AreaData.cpp in Sources */,
 				EC82886A211629490041497C /* ShipData.cpp in Sources */,
 				EC8287B5210D75060041497C /* CityBuildingFrame.cpp in Sources */,
@@ -1082,6 +1142,7 @@
 				EC82880D210D758C0041497C /* ZodiacData.cpp in Sources */,
 				EC828850210D75AC0041497C /* CityScene.cpp in Sources */,
 				EC82880F210D758C0041497C /* CategoryUpdateData.cpp in Sources */,
+				ECCE027F215C81CE00F1AF96 /* JsonUtil.cpp in Sources */,
 				EC828840210D759C0041497C /* SHGameDataHelper.cpp in Sources */,
 				EC828891211B6F360041497C /* AreaMapFrame.cpp in Sources */,
 				EC828866211629490041497C /* ShipSizeData.cpp in Sources */,
@@ -1103,10 +1164,12 @@
 				EC8287A9210D75060041497C /* InputBoxFrame.cpp in Sources */,
 				EC828881211B620A0041497C /* SailMapFrame.cpp in Sources */,
 				EC8287C3210D75300041497C /* SHColorNode.cpp in Sources */,
+				ECCE0283215C87BD00F1AF96 /* SHSpriteComponent.cpp in Sources */,
 				EC828793210D74D10041497C /* SailingHeroMenu.cpp in Sources */,
 				EC828815210D758C0041497C /* GameData.cpp in Sources */,
 				EC2000CB215229E000308FDA /* ButtonData.cpp in Sources */,
 				EC828813210D758C0041497C /* CityStatusData.cpp in Sources */,
+				ECCE0277215C649800F1AF96 /* SHJSONContent.cpp in Sources */,
 				EC2000C7215229E000308FDA /* EventData.cpp in Sources */,
 				EC828833210D758C0041497C /* SystemButtonData.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
@@ -1115,6 +1178,7 @@
 				EC828864211629490041497C /* ShipStyleData.cpp in Sources */,
 				EC828827210D758C0041497C /* GuildData.cpp in Sources */,
 				EC8287CB210D75490041497C /* SystemButton.cpp in Sources */,
+				ECCE026A215C50A700F1AF96 /* SHPanelContent.cpp in Sources */,
 				EC828829210D758C0041497C /* CultureData.cpp in Sources */,
 				EC8287B9210D75060041497C /* MultiSelectionFrame.cpp in Sources */,
 				EC82882F210D758C0041497C /* CityTypeData.cpp in Sources */,
@@ -1127,7 +1191,7 @@
 				EC828823210D758C0041497C /* CityData.cpp in Sources */,
 				EC828895211B89F00041497C /* AreaMapGoButtonFrame.cpp in Sources */,
 				EC82884C210D75AC0041497C /* SelectHeroDisplayScene.cpp in Sources */,
-				EC2655F12150B19D00B8A025 /* SHBaseSceneContent.cpp in Sources */,
+				EC2655F12150B19D00B8A025 /* SHSceneContent.cpp in Sources */,
 				EC828844210D759C0041497C /* Utils.cpp in Sources */,
 				EC828809210D758C0041497C /* TownPhotoData.cpp in Sources */,
 				EC2000C9215229E000308FDA /* ConditionData.cpp in Sources */,

@@ -7,25 +7,28 @@
 
 #include "SHLabelComponent.hpp"
 #include "LocalizationHelper.hpp"
+#include "JsonUtil.hpp"
 
 USING_NS_CC;
 
 SHLabelComponent::SHLabelComponent(nlohmann::json componentJson) : SHComponent(componentJson)
 {
-  if (componentJson.count("text_size")) {
-    p_textSize = componentJson.at("text_size").get<float>();
-  }
-  if (componentJson.count("text")) {
-    p_text = componentJson.at("text").get<std::string>();
-  }
+  p_textSize = SHUtil::getFloatFromJson(componentJson, "text_size");
+  p_text = SHUtil::getStringFromJson(componentJson, "text");
+  p_normalizedDimension = SHUtil::getVec2FromJson(componentJson, "normalized_dimensions");
 }
 
-Node *SHLabelComponent::generateComponent()
+Node* SHLabelComponent::addComponentToParent(unordered_map<string, Node *> &dict, Node *parent) const
 {
   auto text = p_text.size() > 0 ? LocalizationHelper::getLocalization(p_text) : "";
   auto label = Label::createWithSystemFont(text, "Helvetica", p_textSize);
-  label->setName(p_id);
-  label->setAnchorPoint(p_anchorPoint);
-  label->setNormalizedPosition(p_normalizePosition);
+  
+  if (parent) {
+    if (!p_normalizedDimension.isZero()) {
+      label->setDimensions(parent->getContentSize().width * p_normalizedDimension.x,
+                           parent->getContentSize().height * p_normalizedDimension.y);
+    }
+  }
+  addNodeToParent(dict, label, parent);
   return label;
 }

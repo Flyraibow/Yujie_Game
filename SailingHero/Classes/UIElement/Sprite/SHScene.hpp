@@ -9,7 +9,8 @@
 #define SHScene_hpp
 
 #include "cocos2d.h"
-#include "SHBaseSceneContent.hpp"
+#include "SHSceneContent.hpp"
+#include "SHPanelContent.hpp"
 
 #include <unordered_map>
 
@@ -40,7 +41,8 @@ protected:
   
   std::unordered_map<std::string, Node *> p_componentDict;
   
-  SHBaseSceneContent* initSceneWithJson(std::string jsonFileName);
+  SHSceneContent* initSceneWithJson(std::string jsonFileName);
+  SHPanelContent* addPanelWithJson(std::string jsonFileName);
   
 public:
   CREATE_FUNC(SHScene);

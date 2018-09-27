@@ -9,6 +9,7 @@
 #define SHButtonComponent_hpp
 
 #include "SHComponent.hpp"
+USING_NS_CC;
 
 class SHButtonComponent : public SHComponent
 {
@@ -19,7 +20,7 @@ private:
 protected:
 public:
   SHButtonComponent(nlohmann::json componentJson);
-  cocos2d::Node *generateComponent();
+  Node *addComponentToParent(unordered_map<string, Node *> &dict, Node *parent = nullptr) const;
 };
 
 

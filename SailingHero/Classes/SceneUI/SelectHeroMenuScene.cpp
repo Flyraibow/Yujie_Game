@@ -69,14 +69,6 @@ bool SelectHeroMenuScene::init()
     peoplePanel->setPosition(Vec2(origin.x + visibleSize.width / 2  - 100 + index * 200, origin.y + visibleSize.height / 2));
     this->addChild(peoplePanel);
   }
-
-  auto btnCancel = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("sys_cancel"), [](cocos2d::Ref* pSender) {
-    Director::getInstance()->popScene();
-  });
-  btnCancel->setAnchorPoint(Vec2(0.5,0));
-  btnCancel->setNormalizedPosition(Vec2(0.5, 0.05));
-
-  s_window->addChild(btnCancel);
   
   return true;
 }

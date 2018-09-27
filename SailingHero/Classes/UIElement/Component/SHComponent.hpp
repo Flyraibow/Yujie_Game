@@ -12,27 +12,37 @@
 #include "json.hpp"
 
 #include <vector>
+#include <unordered_map>
 
 using namespace std;
+USING_NS_CC;
 
 class SHComponent
 {
 private:
 protected:
-  std::string p_type;
-  std::string p_id;
-  cocos2d::Vec2 p_normalizePosition;
-  cocos2d::Vec2 p_anchorPoint;
+  string p_type;
+  string p_id;
+  bool p_isAutoScale;
+  Vec2 p_normalizePosition;
+  Vec2 p_anchorPoint;
+  nlohmann::json p_size;
+  
+  float p_scale;
+  
+  vector<SHComponent *> p_componentList;
+  Size getComponentSize(Node *parent) const;
 public:
   SHComponent(const nlohmann::json &componentJson);
-  virtual cocos2d::Node *generateComponent() = 0;
-  std::string getId() const;
+  void addNodeToParent(unordered_map<string, Node *> &dict, Node *child, Node *parent) const;
+  virtual Node *addComponentToParent(unordered_map<string, Node *> &dict, Node *parent = nullptr) const = 0;
+  string getId() const;
   
   /**
    * It will create real component by type
    */
   static SHComponent* getComponentFromJson(const nlohmann::json &componentJson);
-  static vector<SHComponent *> getComponentsFromJson(const nlohmann::json &componentJsonList);
+  static vector<SHComponent *> getComponentsFromJson(const nlohmann::json &componentJson);
 };
 
 #endif /* SHComponent_hpp */

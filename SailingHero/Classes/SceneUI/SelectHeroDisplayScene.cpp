@@ -42,10 +42,6 @@ bool SelectHeroDisplayScene::init()
   
   initSceneWithJson("selectHeroDisplay");
   
-  p_labHeroName = this->getComponentById<Label>("hero_name");
-  p_labGuildName = this->getComponentById<Label>("guild_name");
-  P_labBirth = this->getComponentById<Label>("birth_label");
-  p_labZodiac = this->getComponentById<Label>("zodiac_label");
   auto btnChangeHeroName = this->getComponentById<Button>("change_hero_btn");
   btnChangeHeroName->addClickEventListener(CC_CALLBACK_1(SelectHeroDisplayScene::clickChangeHeroName, this));
   auto btnChangeGuildName = this->getComponentById<Button>("change_guild_btn");
@@ -63,16 +59,11 @@ void SelectHeroDisplayScene::setSelectHeroData(HeroSelectData *selectHeroData)
 {
   p_selectHeroData = selectHeroData;
   auto peoplePanel = HeroSelectingFrame::createBigPhotoWithSelectHeroId(selectHeroData->getId());
-  auto visibleSize = Director::getInstance()->getVisibleSize();
   peoplePanel->setAnchorPoint(Vec2(0,0.5));
   peoplePanel->setNormalizedPosition(Vec2(0.1, 0.5));
   s_window->addChild(peoplePanel);
   
-  auto descriptionLabel = Label::createWithSystemFont(selectHeroData->getHeroDescription(), "Helvetica", 18);
-  descriptionLabel->setAnchorPoint(Vec2(0, 1));
-  descriptionLabel->setNormalizedPosition(Vec2(0.5, 0.65));
-  descriptionLabel->setDimensions(visibleSize.width / 2 * 0.85, 0);
-  s_window->addChild(descriptionLabel);
+  getComponentById<Label>("description")->setString(selectHeroData->getHeroDescription());
   
   this->refreshScene();
 }
@@ -82,10 +73,12 @@ void SelectHeroDisplayScene::refreshScene()
 {
   auto heroData = p_selectHeroData->getGuildData()->getLeaderData();
   auto zodiac = getZodiacFromHero(heroData);
-  p_labHeroName->setString(getHeroFullName(heroData));
-  p_labGuildName->setString(p_selectHeroData->getGuildData()->getGuildName());
-  p_labZodiac->setString(zodiac->getZodiacName());
-  P_labBirth->setString(getHeroBirthName(heroData));
+  
+  getComponentById<Label>("hero_name")->setString(getHeroFullName(heroData));
+  getComponentById<Label>("guild_name")->setString(p_selectHeroData->getGuildData()->getGuildName());
+  getComponentById<Label>("birth_label")->setString(getHeroBirthName(heroData));
+  getComponentById<Label>("zodiac_label")->setString(zodiac->getZodiacName());
+  
   if (p_zodiacIcon != nullptr) {
     p_zodiacIcon->removeFromParent();
   }

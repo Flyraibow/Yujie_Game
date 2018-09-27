@@ -1,4 +1,12 @@
 {
 	"backgroundImage": "res/default_background.png",
-	"fullScreenCover":true
+	"fullScreenCover":true,
+  "components": [{
+     "type": "button",
+     "id": "cancel_btn",
+     "text": "sys_cancel",
+     "normalized_position": [0.5, 0.05],
+     "anchor_point": [0.5, 0],
+     "event": "popScene"
+  }]
 }

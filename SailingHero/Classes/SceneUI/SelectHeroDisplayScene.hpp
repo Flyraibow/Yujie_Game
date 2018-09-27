@@ -16,10 +16,6 @@ USING_NS_CC;
 class SelectHeroDisplayScene : public SHScene
 {
 private:
-  Label* p_labHeroName;
-  Label* p_labGuildName;
-  Label* P_labBirth;
-  Label* p_labZodiac;
   Sprite* p_zodiacIcon;
   HeroSelectData* p_selectHeroData;
 public:
