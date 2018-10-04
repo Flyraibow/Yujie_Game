@@ -12,12 +12,14 @@
 #include "SHGameDataHelper.hpp"
 #include "InputBoxFrame.hpp"
 #include "Calendar.hpp"
+#include "DataManager.hpp"
 
 USING_NS_CC;
 using namespace ui;
 
 Scene* SelectHeroDisplayScene::createScene(HeroSelectData *selectHeroData)
 {
+  DataManager::getShareInstance()->setTempData("selectHero", selectHeroData);
   auto scene = SelectHeroDisplayScene::create();
   scene->setSelectHeroData(selectHeroData);
   return scene;
@@ -42,10 +44,6 @@ bool SelectHeroDisplayScene::init()
   
   initSceneWithJson("selectHeroDisplay");
   
-  auto btnChangeHeroName = this->getComponentById<Button>("change_hero_btn");
-  btnChangeHeroName->addClickEventListener(CC_CALLBACK_1(SelectHeroDisplayScene::clickChangeHeroName, this));
-  auto btnChangeGuildName = this->getComponentById<Button>("change_guild_btn");
-  btnChangeGuildName->addClickEventListener(CC_CALLBACK_1(SelectHeroDisplayScene::clickChangeGuildName, this));
   auto btnChangeHeroBirth = this->getComponentById<Button>("change_birth_btn");
   btnChangeHeroBirth->addClickEventListener(CC_CALLBACK_1(SelectHeroDisplayScene::clickChangeHeroBirth, this));
   auto btnConfirm = this->getComponentById<Button>("confirm_btn");
@@ -62,8 +60,9 @@ void SelectHeroDisplayScene::setSelectHeroData(HeroSelectData *selectHeroData)
   peoplePanel->setAnchorPoint(Vec2(0,0.5));
   peoplePanel->setNormalizedPosition(Vec2(0.1, 0.5));
   s_window->addChild(peoplePanel);
-  
-  getComponentById<Label>("description")->setString(selectHeroData->getHeroDescription());
+  auto guild = p_selectHeroData->getGuildData();
+  DataManager::getShareInstance()->setTempData("guild", guild);
+  DataManager::getShareInstance()->setTempData("hero", guild->getLeaderData());
   
   this->refreshScene();
 }
@@ -71,11 +70,12 @@ void SelectHeroDisplayScene::setSelectHeroData(HeroSelectData *selectHeroData)
 
 void SelectHeroDisplayScene::refreshScene()
 {
-  auto heroData = p_selectHeroData->getGuildData()->getLeaderData();
+  auto guildData = p_selectHeroData->getGuildData();
+  auto heroData = guildData->getLeaderData();
   auto zodiac = getZodiacFromHero(heroData);
   
   getComponentById<Label>("hero_name")->setString(getHeroFullName(heroData));
-  getComponentById<Label>("guild_name")->setString(p_selectHeroData->getGuildData()->getGuildName());
+  getComponentById<Label>("guild_name")->setString(guildData->getGuildName());
   getComponentById<Label>("birth_label")->setString(getHeroBirthName(heroData));
   getComponentById<Label>("zodiac_label")->setString(zodiac->getZodiacName());
   
@@ -87,42 +87,6 @@ void SelectHeroDisplayScene::refreshScene()
   p_zodiacIcon->setAnchorPoint(Vec2());
   p_zodiacIcon->setNormalizedPosition(Vec2(0.85, 0.7));
   s_window->addChild(p_zodiacIcon);
-}
-
-
-void SelectHeroDisplayScene::clickChangeHeroName(cocos2d::Ref *pSender)
-{
-  // call event (inputView, parameter(请输入姓氏, type), successcalback, failureCallback )
-  auto heroData = p_selectHeroData->getGuildData()->getLeaderData();
-  auto inputLastNameSprite = InputBoxFrame::createWithHint(LocalizationHelper::getLocalization("input_last_name"), heroData->getHeroLastName(), [this](const string &lastName, bool canceled, Node* node){
-    node->removeFromParent();
-    if (!canceled) {
-      auto heroData = p_selectHeroData->getGuildData()->getLeaderData();
-      auto inputFirstNameSprite = InputBoxFrame::createWithHint(LocalizationHelper::getLocalization("input_first_name"), heroData->getHeroFirstName(), [lastName, heroData, this](const string &firstName, bool canceled, Node* node){
-        node->removeFromParent();
-        if (!canceled) {
-          heroData->setHeroLastName(lastName);
-          heroData->setHeroFirstName(firstName);
-          this->refreshScene();
-        }
-      });
-      s_window->addChild(inputFirstNameSprite);
-    }
-  });
-  s_window->addChild(inputLastNameSprite);
-}
-
-void SelectHeroDisplayScene::clickChangeGuildName(cocos2d::Ref *pSender)
-{
-  auto guildName = p_selectHeroData->getGuildData()->getGuildName();
-  auto inputLastNameSprite = InputBoxFrame::createWithHint(LocalizationHelper::getLocalization("input_guild_name"), guildName, [this](const string &guildName, bool canceled, Node* node){
-    node->removeFromParent();
-    if (!canceled) {
-      this->p_selectHeroData->getGuildData()->setGuildName(guildName);
-      this->refreshScene();
-    }
-  });
-  s_window->addChild(inputLastNameSprite);
 }
 
 void SelectHeroDisplayScene::clickChangeHeroBirth(cocos2d::Ref *pSender)

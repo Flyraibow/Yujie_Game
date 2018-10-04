@@ -213,6 +213,14 @@
 		ECCE0287215C92B400F1AF96 /* SHColorNodeComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE0284215C92B400F1AF96 /* SHColorNodeComponent.cpp */; };
 		ECCE028A215CA97800F1AF96 /* SHEditBoxComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE0288215CA97800F1AF96 /* SHEditBoxComponent.cpp */; };
 		ECCE028B215CA97800F1AF96 /* SHEditBoxComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE0288215CA97800F1AF96 /* SHEditBoxComponent.cpp */; };
+		ECCE028E215DDEDA00F1AF96 /* PanelManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE028C215DDEDA00F1AF96 /* PanelManager.cpp */; };
+		ECCE028F215DDEDA00F1AF96 /* PanelManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE028C215DDEDA00F1AF96 /* PanelManager.cpp */; };
+		ECCE0292215DDF4C00F1AF96 /* SHPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE0290215DDF4C00F1AF96 /* SHPanel.cpp */; };
+		ECCE0293215DDF4C00F1AF96 /* SHPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE0290215DDF4C00F1AF96 /* SHPanel.cpp */; };
+		ECCE0296215DE2E400F1AF96 /* SHInputPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE0294215DE2E400F1AF96 /* SHInputPanel.cpp */; };
+		ECCE0297215DE2E400F1AF96 /* SHInputPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE0294215DE2E400F1AF96 /* SHInputPanel.cpp */; };
+		ECCE029B2165E0DF00F1AF96 /* DataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE02992165E0DF00F1AF96 /* DataManager.cpp */; };
+		ECCE029C2165E0DF00F1AF96 /* DataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE02992165E0DF00F1AF96 /* DataManager.cpp */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 /* End PBXBuildFile section */
@@ -461,6 +469,14 @@
 		ECCE0285215C92B400F1AF96 /* SHColorNodeComponent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHColorNodeComponent.hpp; sourceTree = "<group>"; };
 		ECCE0288215CA97800F1AF96 /* SHEditBoxComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHEditBoxComponent.cpp; sourceTree = "<group>"; };
 		ECCE0289215CA97800F1AF96 /* SHEditBoxComponent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHEditBoxComponent.hpp; sourceTree = "<group>"; };
+		ECCE028C215DDEDA00F1AF96 /* PanelManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PanelManager.cpp; sourceTree = "<group>"; };
+		ECCE028D215DDEDA00F1AF96 /* PanelManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PanelManager.hpp; sourceTree = "<group>"; };
+		ECCE0290215DDF4C00F1AF96 /* SHPanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHPanel.cpp; sourceTree = "<group>"; };
+		ECCE0291215DDF4C00F1AF96 /* SHPanel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHPanel.hpp; sourceTree = "<group>"; };
+		ECCE0294215DE2E400F1AF96 /* SHInputPanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHInputPanel.cpp; sourceTree = "<group>"; };
+		ECCE0295215DE2E400F1AF96 /* SHInputPanel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHInputPanel.hpp; sourceTree = "<group>"; };
+		ECCE02992165E0DF00F1AF96 /* DataManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DataManager.cpp; sourceTree = "<group>"; };
+		ECCE029A2165E0DF00F1AF96 /* DataManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DataManager.hpp; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -645,6 +661,10 @@
 				EC2000CD21522A7B00308FDA /* EventManager.hpp */,
 				EC3D03C521549E190065E585 /* SceneManager.cpp */,
 				EC3D03C421549E190065E585 /* SceneManager.hpp */,
+				ECCE028C215DDEDA00F1AF96 /* PanelManager.cpp */,
+				ECCE028D215DDEDA00F1AF96 /* PanelManager.hpp */,
+				ECCE02992165E0DF00F1AF96 /* DataManager.cpp */,
+				ECCE029A2165E0DF00F1AF96 /* DataManager.hpp */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -767,6 +787,10 @@
 		ECCE0266215C507C00F1AF96 /* Panel */ = {
 			isa = PBXGroup;
 			children = (
+				ECCE0290215DDF4C00F1AF96 /* SHPanel.cpp */,
+				ECCE0291215DDF4C00F1AF96 /* SHPanel.hpp */,
+				ECCE0294215DE2E400F1AF96 /* SHInputPanel.cpp */,
+				ECCE0295215DE2E400F1AF96 /* SHInputPanel.hpp */,
 			);
 			path = Panel;
 			sourceTree = "<group>";
@@ -1032,6 +1056,7 @@
 				EC828792210D74D10041497C /* SailingHeroMenu.cpp in Sources */,
 				1AF87B781F6F77F7007BE51C /* AppController.mm in Sources */,
 				EC828869211629490041497C /* ShipData.cpp in Sources */,
+				ECCE0296215DE2E400F1AF96 /* SHInputPanel.cpp in Sources */,
 				EC82882A210D758C0041497C /* HeroData.cpp in Sources */,
 				EC828812210D758C0041497C /* CityStatusData.cpp in Sources */,
 				ECCE0286215C92B400F1AF96 /* SHColorNodeComponent.cpp in Sources */,
@@ -1048,6 +1073,7 @@
 				EC2655F52150CDB200B8A025 /* TestJsonScene.cpp in Sources */,
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
 				EC2655F02150B19D00B8A025 /* SHSceneContent.cpp in Sources */,
+				ECCE029B2165E0DF00F1AF96 /* DataManager.cpp in Sources */,
 				EC8287B6210D75060041497C /* DialogPhotoFrame.cpp in Sources */,
 				EC8287C4210D75300041497C /* SHSpriteListener.cpp in Sources */,
 				EC828832210D758C0041497C /* SystemButtonData.cpp in Sources */,
@@ -1059,6 +1085,7 @@
 				EC82884B210D75AC0041497C /* SelectHeroDisplayScene.cpp in Sources */,
 				EC8287BA210D75060041497C /* CityDataFrame.cpp in Sources */,
 				EC828822210D758C0041497C /* CityData.cpp in Sources */,
+				ECCE0292215DDF4C00F1AF96 /* SHPanel.cpp in Sources */,
 				EC82880A210D758C0041497C /* AbilityData.cpp in Sources */,
 				EC82884F210D75AC0041497C /* CityScene.cpp in Sources */,
 				EC8287A8210D75060041497C /* InputBoxFrame.cpp in Sources */,
@@ -1068,6 +1095,7 @@
 				EC2000CA215229E000308FDA /* ButtonData.cpp in Sources */,
 				EC82886D21164EE00041497C /* SHDataManager.cpp in Sources */,
 				EC82881A210D758C0041497C /* CityBuildingData.cpp in Sources */,
+				ECCE028E215DDEDA00F1AF96 /* PanelManager.cpp in Sources */,
 				EC2000C8215229E000308FDA /* ConditionData.cpp in Sources */,
 				EC828890211B6F360041497C /* AreaMapFrame.cpp in Sources */,
 				ECAF6F3B21228EB500BAF207 /* StoryScene.cpp in Sources */,
@@ -1130,10 +1158,12 @@
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				EC82888D211B6A1D0041497C /* DateFrame.cpp in Sources */,
 				EC82882D210D758C0041497C /* DialogData.cpp in Sources */,
+				ECCE0297215DE2E400F1AF96 /* SHInputPanel.cpp in Sources */,
 				ECCE0287215C92B400F1AF96 /* SHColorNodeComponent.cpp in Sources */,
 				EC82887D211B61790041497C /* AreaData.cpp in Sources */,
 				EC82886A211629490041497C /* ShipData.cpp in Sources */,
 				EC8287B5210D75060041497C /* CityBuildingFrame.cpp in Sources */,
+				ECCE0293215DDF4C00F1AF96 /* SHPanel.cpp in Sources */,
 				EC82881B210D758C0041497C /* CityBuildingData.cpp in Sources */,
 				EC82881D210D758C0041497C /* GoodsData.cpp in Sources */,
 				ECAF6F3C21228EB500BAF207 /* StoryScene.cpp in Sources */,
@@ -1150,6 +1180,7 @@
 				EC82881F210D758C0041497C /* ItemCategoryData.cpp in Sources */,
 				EC828817210D758C0041497C /* GenderData.cpp in Sources */,
 				EC8287AF210D75060041497C /* MoneyFrame.cpp in Sources */,
+				ECCE029C2165E0DF00F1AF96 /* DataManager.cpp in Sources */,
 				EC828821210D758C0041497C /* HeroSelectData.cpp in Sources */,
 				EC8287AB210D75060041497C /* CitySceneFrame.cpp in Sources */,
 				EC82883E210D759C0041497C /* Calendar.cpp in Sources */,
@@ -1164,6 +1195,7 @@
 				EC8287A9210D75060041497C /* InputBoxFrame.cpp in Sources */,
 				EC828881211B620A0041497C /* SailMapFrame.cpp in Sources */,
 				EC8287C3210D75300041497C /* SHColorNode.cpp in Sources */,
+				ECCE028F215DDEDA00F1AF96 /* PanelManager.cpp in Sources */,
 				ECCE0283215C87BD00F1AF96 /* SHSpriteComponent.cpp in Sources */,
 				EC828793210D74D10041497C /* SailingHeroMenu.cpp in Sources */,
 				EC828815210D758C0041497C /* GameData.cpp in Sources */,

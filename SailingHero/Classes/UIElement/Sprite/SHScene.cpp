@@ -94,7 +94,7 @@ Size SHScene::getScreenSize() const
   return s_screenSize;
 }
 
-void SHScene::setBackgroundImage(std::string imgPath) {
+void SHScene::setBackgroundImage(const std::string &imgPath) {
   if (imgPath.length() == 0) {
     return;
   }
@@ -115,7 +115,7 @@ void SHScene::setBackgroundImage(std::string imgPath) {
   this->addChild(s_background);
 }
 
-void SHScene::setForegroundImage(std::string imgPath)
+void SHScene::setForegroundImage(const std::string &imgPath)
 {
   s_foreground = Sprite::create(imgPath);
   CCASSERT(s_foreground, ("unable to find image with path : " + imgPath).c_str());
@@ -139,7 +139,7 @@ Node* SHScene::getBackground()
   return s_background;
 }
 
-void SHScene::setBackgroundMusic(std::string path) {
+void SHScene::setBackgroundMusic(const std::string &path) {
   if (path.length() == 0) {
     return;
   }
@@ -149,9 +149,18 @@ void SHScene::setBackgroundMusic(std::string path) {
   audio->playBackgroundMusic(path.c_str(), true);
 }
 
+
+void SHScene::addPanelWithParameters(SHPanel *panel)
+{
+  auto panelName = panel->getPanelName();
+  CCLOG("Add panel %s", panelName.c_str());
+  panel->addToParent(s_window);
+  p_panelStack.push(panel);
+}
+
 #include "EventManager.hpp"
 
-SHSceneContent* SHScene::initSceneWithJson(std::string jsonFileName)
+SHSceneContent* SHScene::initSceneWithJson(const std::string &jsonFileName)
 {
   auto content = new SHSceneContent(jsonFileName);
   setBackgroundMusic(content->getBackgroundMusic());
@@ -174,14 +183,24 @@ SHSceneContent* SHScene::initSceneWithJson(std::string jsonFileName)
   return content;
 }
 
-SHPanelContent* SHScene::addPanelWithJson(std::string jsonFileName)
+void SHScene::popPanel()
 {
-  auto content = new SHPanelContent(jsonFileName);
-  content->getComponent()->addComponentToParent(p_componentDict, s_window);
-  
-  return content;
+  if (p_panelStack.size() == 0) {
+    return;
+  }
+  auto panel = p_panelStack.top();
+  p_panelStack.pop();
+  panel->removeFromParent();
+  delete panel;
 }
 
+SHPanel* SHScene::topPanel () const
+{
+  if (p_panelStack.size() == 0) {
+    return nullptr;
+  }
+  return p_panelStack.top();
+}
 
 bool SHScene::init()
 {

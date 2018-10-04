@@ -6,3 +6,24 @@ menuList,groupButton,startGame;loadGame;gameSetting;testScene,开始菜单
 startGame,scene,SelectHeroMenuScene,进入选人界面
 testScene,scene,TestScene,进入测试界面
 popScene,popScene,,返回上个页面
+inputPanel,panel,input,显示输入面板 （）
+popPanel,popPanel,,离开上一个面板
+refreshScene,refreshScene,,刷新场景
+processPanel,processPanel,,执行面板
+input_hero_last_name,eventList,input_hero_last_name_hint;input_hero_last_name_default;input_hero_last_name_confirm;inputPanel;,显示英雄 姓氏修改界面
+input_hero_last_name_hint,setTempStr,hint;translation.input_last_name,设置提示“请输入姓氏”
+input_hero_last_name_default,setTempStr,default;data.hero.heroLastName,设置默认值
+input_hero_last_name_confirm,setTempStr,event;input_hero_first_name,设置回调
+input_hero_last_name_complete,setDataValue,data.hero;heroLastName;temp.input,保存英雄的姓
+input_hero_first_name,eventList,processPanel;input_hero_last_name_complete;popPanel;input_hero_first_name_hint;input_hero_first_name_default;input_hero_first_name_confirm;inputPanel;,显示英雄 名字修改界面
+input_hero_first_name_hint,setTempStr,hint;translation.input_first_name,设置提示“请输入名字”
+input_hero_first_name_default,setTempStr,default;data.hero.heroFirstName,设置默认值
+input_hero_first_name_confirm,setTempStr,event;input_hero_name_complete,完成取名
+input_hero_name_complete,eventList,processPanel;input_hero_first_name_complete;popPanel;refreshScene,;
+input_hero_first_name_complete,setDataValue,data.hero;heroFirstName;temp.input,保存英雄的名
+input_guild_name,eventList,input_guild_name_hint;input_guild_name_default;input_guild_name_confirm;inputPanel;,显示工会名修改界面
+input_guild_name_hint,setTempStr,hint;translation.input_guild_name,设置提示“请输入工会名”
+input_guild_name_default,setTempStr,default;data.guild.guildName,设置默认值
+input_guild_name_confirm,setTempStr,event;input_guild_name_complete,设置回调
+input_guild_name_complete,eventList,processPanel;input_guild_name_change_data;popPanel;refreshScene,保存工会的名字
+input_guild_name_change_data,setDataValue,data.guild;guildName;temp.input,;

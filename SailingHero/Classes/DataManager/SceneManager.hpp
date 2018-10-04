@@ -12,6 +12,8 @@
 #include <unordered_map>
 #include "SHScene.hpp"
 
+class SHPanel;
+
 typedef SHScene* (*getScene)();
 
 class SceneManager
@@ -21,10 +23,14 @@ private:
   std::unordered_map<std::string, getScene> p_sceneFuncMap;
   
   template <typename T, typename std::enable_if<std::is_base_of<SHScene, T>::value>::type* = nullptr>
-  void registerScene(std::string sceneName);
+  void registerScene(const std::string &sceneName);
 public:
   static SceneManager* getShareInstance();
-  void pushScene(std::string sceneName);
+  void pushScene(const std::string &sceneName);
+  void refreshScene() const;
+  void addPanel(const std::string &panelName);
+  void popPanel();
+  SHPanel* topPanel() const;
 };
 
 #endif /* SceneManager_hpp */

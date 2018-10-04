@@ -28,6 +28,7 @@ void EventManager::setCurrentScene(SHScene *scene)
 
 #include "SystemButton.hpp"
 #include "SceneManager.hpp"
+#include "DataManager.hpp"
 
 void EventManager::runEvent(std::string eventName)
 {
@@ -48,6 +49,28 @@ void EventManager::runEvent(std::string eventName)
     SceneManager::getShareInstance()->pushScene(eventData->getParameters().at(0));
   } else if (eventType == "popScene") {
     Director::getInstance()->popScene();
+  } else if (eventType == "panel") {
+    CCASSERT(eventData->getParameters().size() > 0, "panel must be provided with a name");
+    SceneManager::getShareInstance()->addPanel(eventData->getParameters().at(0));
+  } else if (eventType == "popPanel") {
+    SceneManager::getShareInstance()->popPanel();
+  } else if (eventType == "eventList") {
+    for (int i = 0; i < eventData->getParameters().size(); ++i) {
+      runEvent(eventData->getParameters().at(i));
+    }
+  } else if (eventType == "setTempStr") {
+    auto parameters = eventData->getParameters();
+    CCASSERT(parameters.size() == 2, "setTempStr must be provided with key and value");
+    DataManager::getShareInstance()->setTempString(parameters.at(0), parameters.at(1));
+  } else if (eventType == "processPanel") {
+    auto panel = SceneManager::getShareInstance()->topPanel();
+    panel->process();
+  } else if (eventType == "setDataValue") {
+    auto parameters = eventData->getParameters();
+    CCASSERT(parameters.size() == 3, "setDataValue must be provided with key, field and value");
+    DataManager::getShareInstance()->setDataValue(parameters.at(0), parameters.at(1), parameters.at(2));
+  } else if (eventType == "refreshScene") {
+    SceneManager::getShareInstance()->refreshScene();
   } else {
     CCLOGWARN("unkown type event : %s, type : %s", eventName.c_str(), eventType.c_str());
   }

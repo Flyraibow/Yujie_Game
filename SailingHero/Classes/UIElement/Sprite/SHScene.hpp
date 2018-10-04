@@ -11,14 +11,17 @@
 #include "cocos2d.h"
 #include "SHSceneContent.hpp"
 #include "SHPanelContent.hpp"
+#include "SHPanel.hpp"
 
 #include <unordered_map>
+#include <stack>
 
 USING_NS_CC;
 
 #define SCREEN_COVER_LAYER_HEIGHT 100
 #define SCREEN_FOREGROUND_LAYER_HEIGHT 101
 //#define COVER_DEBUG
+
 
 class SHScene : public cocos2d::Scene
 {
@@ -34,21 +37,27 @@ protected:
    */
   void setScreenCover(Size ratioSize);
   void setFullScreenCover();
-  void setBackgroundImage(std::string imgPath);
-  void setForegroundImage(std::string imgPath);
-  void setBackgroundMusic(std::string path);
+  void setBackgroundImage(const std::string &imgPath);
+  void setForegroundImage(const std::string &imgPath);
+  void setBackgroundMusic(const std::string &path);
   Node* s_window;
   
-  std::unordered_map<std::string, Node *> p_componentDict;
+  ComponentDict p_componentDict;
+  std::stack<SHPanel *> p_panelStack;
   
-  SHSceneContent* initSceneWithJson(std::string jsonFileName);
-  SHPanelContent* addPanelWithJson(std::string jsonFileName);
+  SHSceneContent* initSceneWithJson(const std::string &jsonFileName);
   
 public:
   CREATE_FUNC(SHScene);
   virtual bool init();
+  virtual void refreshScene() {};
   Size getScreenSize() const;
   Node* getBackground();
+  
+  
+  void addPanelWithParameters(SHPanel *panel);
+  void popPanel();
+  SHPanel* topPanel () const;
   
   template <typename T, typename std::enable_if<std::is_base_of<Node, T>::value>::type* = nullptr>
   T* getComponentById(const std::string &componentId) {

@@ -4,7 +4,7 @@
   "components": [{
      "type": "button",
      "id": "cancel_btn",
-     "text": "sys_cancel",
+     "text": "translation.sys_cancel",
      "normalized_position": [0.5, 0.05],
      "anchor_point": [0.5, 0],
      "event": "popScene"

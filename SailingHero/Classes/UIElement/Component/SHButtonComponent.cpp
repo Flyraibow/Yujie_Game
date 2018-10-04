@@ -7,21 +7,22 @@
 
 #include "SHButtonComponent.hpp"
 #include "SystemButton.hpp"
-#include "LocalizationHelper.hpp"
 #include "EventManager.hpp"
 #include "JsonUtil.hpp"
+#include "DataManager.hpp"
 
 USING_NS_CC;
 
 SHButtonComponent::SHButtonComponent(nlohmann::json componentJson) : SHComponent(componentJson)
 {
   p_text = SHUtil::getStringFromJson(componentJson, "text");
-  p_eventId = SHUtil::getStringFromJson(componentJson, "event");
+  auto eventId = SHUtil::getStringFromJson(componentJson, "event");
+  p_eventId = DataManager::getShareInstance()->decipherString(eventId);
 }
 
 Node* SHButtonComponent::addComponentToParent(unordered_map<string, Node *> &dict, cocos2d::Node *parent) const
 {
-  auto text = p_text.size() > 0 ? LocalizationHelper::getLocalization(p_text) : "";
+  auto text = p_text.size() > 0 ? DataManager::getShareInstance()->decipherString(p_text) : "";
   auto button = SystemButton::defaultButtonWithText(text);
   if (p_eventId.size() > 0) {
     auto eventId = p_eventId;

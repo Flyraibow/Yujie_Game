@@ -58,6 +58,7 @@ namespace SHUtil {
   ::std::set<::std::string> atoset(const ::std::string &str);
   ::std::vector<::std::string> atovector(const ::std::string &str);
   ::std::vector<::std::pair<::std::string, ::std::string>> atomap(const ::std::string &str);
+  ::std::vector<::std::string> split(const ::std::string &s, char delim);
   
   ::std::string format(const char *fmt, ...)
 #ifdef __GNUC__

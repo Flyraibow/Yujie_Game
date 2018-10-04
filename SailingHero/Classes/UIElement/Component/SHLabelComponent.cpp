@@ -6,8 +6,8 @@
 //
 
 #include "SHLabelComponent.hpp"
-#include "LocalizationHelper.hpp"
 #include "JsonUtil.hpp"
+#include "DataManager.hpp"
 
 USING_NS_CC;
 
@@ -20,7 +20,7 @@ SHLabelComponent::SHLabelComponent(nlohmann::json componentJson) : SHComponent(c
 
 Node* SHLabelComponent::addComponentToParent(unordered_map<string, Node *> &dict, Node *parent) const
 {
-  auto text = p_text.size() > 0 ? LocalizationHelper::getLocalization(p_text) : "";
+  auto text = p_text.size() > 0 ? DataManager::getShareInstance()->decipherString(p_text) : "";
   auto label = Label::createWithSystemFont(text, "Helvetica", p_textSize);
   
   if (parent) {

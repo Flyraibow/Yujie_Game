@@ -38,10 +38,6 @@ bool SailingHeroMenu::init()
     return false;
   }
   initSceneWithJson("menu");
-  
-  addPanelWithJson("input");
-  getComponentById<Label>("hint_label")->setString("hint text");
-  
 
   return true;
 }

@@ -20,10 +20,6 @@ Node* SHColorNodeComponent::addComponentToParent(unordered_map<string, Node *> &
 {
   auto parentSize = parent->getContentSize();
   auto background = SHColorNode::create(p_color, parentSize.width, parentSize.height);
-  
-  for (int i = 0; i < p_componentList.size(); ++i) {
-    p_componentList[i]->addComponentToParent(dict, background);
-  }
 
   addNodeToParent(dict, background, parent);
 

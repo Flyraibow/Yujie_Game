@@ -8,6 +8,7 @@
 #include "SHEditBoxComponent.hpp"
 #include "JsonUtil.hpp"
 #include <unordered_map>
+#include "DataManager.hpp"
 
 SHEditBoxComponent::SHEditBoxComponent(nlohmann::json componentJson) : SHComponent(componentJson)
 {
@@ -34,7 +35,8 @@ SHEditBoxComponent::SHEditBoxComponent(nlohmann::json componentJson) : SHCompone
 Node* SHEditBoxComponent::addComponentToParent(unordered_map<string, Node *> &dict, cocos2d::Node *parent) const
 {
   auto editBox = ui::EditBox::create(getComponentSize(parent), p_iconPath);
-  editBox->setPlaceHolder(p_text.c_str());
+  auto defaultText = DataManager::getShareInstance()->decipherString(p_text);
+  editBox->setPlaceHolder(defaultText.c_str());
   editBox->setInputMode(p_mode);
   editBox->setNormalizedPosition(p_normalizePosition);
   editBox->setMaxLength(p_length);

@@ -47,6 +47,7 @@ Size SHComponent::getComponentSize(Node *parent) const
 
 void SHComponent::addNodeToParent(unordered_map<string, Node *> &dict, Node *child, Node *parent) const
 {
+  CCLOG("adding panel id : %s", p_id.c_str());
   child->setAnchorPoint(p_anchorPoint);
   child->setNormalizedPosition(p_normalizePosition);
   child->setName(p_id);

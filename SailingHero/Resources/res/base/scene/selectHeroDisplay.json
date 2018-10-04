@@ -33,6 +33,7 @@
     {
       "type": "label",
       "id": "description",
+      "text": "data.selectHero.heroDescription",
       "normalized_position": [0.5, 0.65],
       "anchor_point": [0, 1],
       "normalized_dimensions": [0.425, 0],
@@ -41,28 +42,30 @@
     {
       "type": "button",
       "id": "change_hero_btn",
-      "text": "change_hero_name",
+      "text": "translation.change_hero_name",
       "normalized_position": [0.6, 0.36],
-      "anchor_point": [0, 0]
+      "anchor_point": [0, 0],
+      "event": "input_hero_last_name"
     },
     {
       "type": "button",
       "id": "change_guild_btn",
-      "text": "change_guild_name",
+      "text": "translation.change_guild_name",
       "normalized_position": [0.6, 0.28],
-      "anchor_point": [0, 0]
+      "anchor_point": [0, 0],
+      "event": "input_guild_name"
     },
     {
       "type": "button",
       "id": "change_birth_btn",
-      "text": "change_hero_birth",
+      "text": "translation.change_hero_birth",
       "normalized_position": [0.6, 0.2],
       "anchor_point": [0, 0]
     },
     {
       "type": "button",
       "id": "cancel_btn",
-      "text": "sys_cancel",
+      "text": "translation.sys_cancel",
       "normalized_position": [0.75, 0.05],
       "anchor_point": [0.5, 0],
       "event": "popScene"
@@ -70,7 +73,7 @@
     {
       "type": "button",
       "id": "confirm_btn",
-      "text": "sys_confirm",
+      "text": "translation.sys_confirm",
       "normalized_position": [0.55, 0.05],
       "anchor_point": [0.5, 0]
     }

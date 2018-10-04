@@ -27,6 +27,8 @@ class BaseData
 public:
   virtual string getId() const = 0;
   virtual string description() const = 0;
+  virtual string getFieldValue(const string & fieldName) = 0;
+  virtual void setFieldValue(const string & fieldName, const string & value) {};
 };
 
 template<typename T>

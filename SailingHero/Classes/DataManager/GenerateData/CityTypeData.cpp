@@ -5,7 +5,7 @@ This file (CityTypeData.cpp) is generated
 #include "cocos2d.h"
 #include "ByteBuffer.hpp"
 #include "Utils.hpp"
-#include <LocalizationHelper.hpp>
+#include "LocalizationHelper.hpp"
 
 
 using namespace SHUtil;

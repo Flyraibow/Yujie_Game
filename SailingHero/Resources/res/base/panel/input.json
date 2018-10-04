@@ -14,6 +14,7 @@
 	      	{
 		      "type": "label",
 		      "id": "hint_label",
+		      "text": "temp.hint",
 		      "normalized_position": [0.05, 0.83],
 		      "anchor_point": [0, 1],
       		  "normalized_dimensions": [0.9, 0],
@@ -24,6 +25,7 @@
 		      "id": "edit_box",
 		      "path": "res/base/frame/inputFrame.jpg",
 		      "input_mode": "ANY",
+		      "text": "temp.default",
 		      "normalized_position": [0.5, 0.5],
 		      "anchor_point": [0.5, 0.5],
 		      "size" : {
@@ -35,13 +37,14 @@
 		    {
 		      "type": "button",
 		      "id": "confirm_btn",
-		      "text": "sys_confirm",
-		      "normalized_position": [0.3, 0.25]
+		      "text": "translation.sys_confirm",
+		      "normalized_position": [0.3, 0.25],
+		      "event" : "temp.event"
 		    },
 		    {
 		      "type": "button",
 		      "id": "cancel_btn",
-		      "text": "sys_cancel",
+		      "text": "translation.sys_cancel",
 		      "normalized_position": [0.7, 0.25],
 		      "event": "popPanel"
 		    }

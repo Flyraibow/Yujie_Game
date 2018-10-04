@@ -34,6 +34,7 @@ protected:
   Size getComponentSize(Node *parent) const;
 public:
   SHComponent(const nlohmann::json &componentJson);
+  virtual ~SHComponent() {};
   void addNodeToParent(unordered_map<string, Node *> &dict, Node *child, Node *parent) const;
   virtual Node *addComponentToParent(unordered_map<string, Node *> &dict, Node *parent = nullptr) const = 0;
   string getId() const;
