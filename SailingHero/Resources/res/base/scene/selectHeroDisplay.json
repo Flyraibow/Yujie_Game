@@ -60,7 +60,8 @@
       "id": "change_birth_btn",
       "text": "translation.change_hero_birth",
       "normalized_position": [0.6, 0.2],
-      "anchor_point": [0, 0]
+      "anchor_point": [0, 0],
+      "event": "input_hero_birth_month"
     },
     {
       "type": "button",

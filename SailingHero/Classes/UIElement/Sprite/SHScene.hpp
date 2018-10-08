@@ -22,6 +22,7 @@ USING_NS_CC;
 #define SCREEN_FOREGROUND_LAYER_HEIGHT 101
 //#define COVER_DEBUG
 
+class DialogFrame;
 
 class SHScene : public cocos2d::Scene
 {
@@ -54,9 +55,9 @@ public:
   Size getScreenSize() const;
   Node* getBackground();
   
-  
   void addPanelWithParameters(SHPanel *panel);
   void popPanel();
+  void addDialogFrame(DialogFrame* dialog);
   SHPanel* topPanel () const;
   
   template <typename T, typename std::enable_if<std::is_base_of<Node, T>::value>::type* = nullptr>

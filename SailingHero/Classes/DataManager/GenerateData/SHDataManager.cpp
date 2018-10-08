@@ -385,6 +385,14 @@ HeroData* SHDataManager::getHeroDataById(const string& heroId)
 	return HeroData::getHeroDataById(atoi(heroId.c_str()));
 }
 
+CalculationData* SHDataManager::getCalculationDataById(const string& calculationId)
+{
+	if (CalculationData::getSharedDictionary()->count(calculationId)) {
+		return CalculationData::getSharedDictionary()->at(calculationId);
+	}
+	return nullptr;
+}
+
 CityStatusData* SHDataManager::getCityStatusDataById(int cityStatusId)
 {
 	if (CityStatusData::getSharedDictionary()->count(cityStatusId)) {
@@ -585,6 +593,9 @@ string SHDataManager::getData(const string & dataSet, const string & id, const s
 		return data->getFieldValue(fieldName);
 	} else if (dataSet == "HeroData") {
 		auto data = HeroData::getHeroDataById(id);
+		return data->getFieldValue(fieldName);
+	} else if (dataSet == "CalculationData") {
+		auto data = CalculationData::getCalculationDataById(id);
 		return data->getFieldValue(fieldName);
 	} else if (dataSet == "CityStatusData") {
 		auto data = CityStatusData::getCityStatusDataById(id);

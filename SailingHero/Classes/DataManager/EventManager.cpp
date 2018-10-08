@@ -71,6 +71,18 @@ void EventManager::runEvent(std::string eventName)
     DataManager::getShareInstance()->setDataValue(parameters.at(0), parameters.at(1), parameters.at(2));
   } else if (eventType == "refreshScene") {
     SceneManager::getShareInstance()->refreshScene();
+  } else if (eventType == "condition") {
+    auto parameters = eventData->getParameters();
+    CCASSERT(parameters.size() == 3, "condition must be provided with conditionId, successEvent and failureEvent");
+    if (DataManager::getShareInstance()->checkCondition(parameters.at(0))) {
+      runEvent(parameters.at(1));
+    } else {
+      runEvent(parameters.at(2));
+    }
+  } else if (eventType == "dialog") {
+    auto parameters = eventData->getParameters();
+    CCASSERT(parameters.size() > 0, "dialog must be provided with dialogId");
+    SceneManager::getShareInstance()->addDialog(parameters);
   } else {
     CCLOGWARN("unkown type event : %s, type : %s", eventName.c_str(), eventType.c_str());
   }

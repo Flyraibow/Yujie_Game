@@ -221,6 +221,8 @@
 		ECCE0297215DE2E400F1AF96 /* SHInputPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE0294215DE2E400F1AF96 /* SHInputPanel.cpp */; };
 		ECCE029B2165E0DF00F1AF96 /* DataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE02992165E0DF00F1AF96 /* DataManager.cpp */; };
 		ECCE029C2165E0DF00F1AF96 /* DataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE02992165E0DF00F1AF96 /* DataManager.cpp */; };
+		ECCE02A7216B1EE200F1AF96 /* CalculationData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE02A6216B1EE200F1AF96 /* CalculationData.cpp */; };
+		ECCE02A8216B1EE200F1AF96 /* CalculationData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE02A6216B1EE200F1AF96 /* CalculationData.cpp */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 /* End PBXBuildFile section */
@@ -477,6 +479,8 @@
 		ECCE0295215DE2E400F1AF96 /* SHInputPanel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHInputPanel.hpp; sourceTree = "<group>"; };
 		ECCE02992165E0DF00F1AF96 /* DataManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DataManager.cpp; sourceTree = "<group>"; };
 		ECCE029A2165E0DF00F1AF96 /* DataManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DataManager.hpp; sourceTree = "<group>"; };
+		ECCE02A5216B1EE200F1AF96 /* CalculationData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CalculationData.hpp; path = GenerateData/CalculationData.hpp; sourceTree = "<group>"; };
+		ECCE02A6216B1EE200F1AF96 /* CalculationData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CalculationData.cpp; path = GenerateData/CalculationData.cpp; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -811,6 +815,8 @@
 		ECD52B1F20BFB05A000F7170 /* GenerateData */ = {
 			isa = PBXGroup;
 			children = (
+				ECCE02A6216B1EE200F1AF96 /* CalculationData.cpp */,
+				ECCE02A5216B1EE200F1AF96 /* CalculationData.hpp */,
 				EC2000C4215229DF00308FDA /* ButtonData.cpp */,
 				EC2000C2215229DF00308FDA /* ButtonData.hpp */,
 				EC2000C1215229DE00308FDA /* ConditionData.cpp */,
@@ -1081,6 +1087,7 @@
 				EC2000C6215229E000308FDA /* EventData.cpp in Sources */,
 				ECAF6F37211D3E2200BAF207 /* TradeInfoFrame.cpp in Sources */,
 				EC8288782117CDE80041497C /* GoodsPricePercentData.cpp in Sources */,
+				ECCE02A7216B1EE200F1AF96 /* CalculationData.cpp in Sources */,
 				EC828843210D759C0041497C /* Utils.cpp in Sources */,
 				EC82884B210D75AC0041497C /* SelectHeroDisplayScene.cpp in Sources */,
 				EC8287BA210D75060041497C /* CityDataFrame.cpp in Sources */,
@@ -1199,6 +1206,7 @@
 				ECCE0283215C87BD00F1AF96 /* SHSpriteComponent.cpp in Sources */,
 				EC828793210D74D10041497C /* SailingHeroMenu.cpp in Sources */,
 				EC828815210D758C0041497C /* GameData.cpp in Sources */,
+				ECCE02A8216B1EE200F1AF96 /* CalculationData.cpp in Sources */,
 				EC2000CB215229E000308FDA /* ButtonData.cpp in Sources */,
 				EC828813210D758C0041497C /* CityStatusData.cpp in Sources */,
 				ECCE0277215C649800F1AF96 /* SHJSONContent.cpp in Sources */,

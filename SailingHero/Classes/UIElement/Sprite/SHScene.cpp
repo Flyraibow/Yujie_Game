@@ -202,6 +202,13 @@ SHPanel* SHScene::topPanel () const
   return p_panelStack.top();
 }
 
+#include "DialogFrame.hpp"
+
+void SHScene::addDialogFrame(DialogFrame* dialog)
+{
+  s_window->addChild(dialog->getSprite());
+}
+
 bool SHScene::init()
 {
   //////////////////////////////

@@ -1,5 +1,11 @@
-﻿conditionId
-id
-string
-writable
-TRUE
+﻿conditionId,leftType,leftParameter,compareFunction,rightType,rightParameter
+id,string,string,string,string,string
+string,-,-,-,-,-
+writable,N,N,N,N,N
+is_input_number_>0,int,temp.input,>,int,0
+is_input_month_<13,int,temp.input,<,int,13
+is_input_month_valid,,is_input_number_>0,and,,is_input_month_<13
+is_input_day_in_big_month,string,data.hero.birthMonth,belong,set,1;3;5;7;8;10;12
+is_input_day_in_feb,int,data.hero.birthMonth,=,int,2
+is_input_day_<,int,temp.input,<=,calculation,days_of_input_month
+is_input_day_valid,,is_input_number_>0,and,,is_input_day_<

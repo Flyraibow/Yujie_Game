@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include <unordered_map>
+#include <vector>
 #include "SHScene.hpp"
 
 class SHPanel;
@@ -31,6 +32,7 @@ public:
   void addPanel(const std::string &panelName);
   void popPanel();
   SHPanel* topPanel() const;
+  void addDialog(const vector<string> &dialogIds) const;
 };
 
 #endif /* SceneManager_hpp */

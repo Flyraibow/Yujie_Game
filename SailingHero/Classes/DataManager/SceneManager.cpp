@@ -69,3 +69,14 @@ SHPanel* SceneManager::topPanel() const
   }
   return nullptr;
 }
+
+#include "DialogFrame.hpp"
+
+void SceneManager::addDialog(const vector<string> &dialogIds) const
+{
+  auto scene = dynamic_cast<SHScene *>(Director::getInstance()->getRunningScene());
+  auto dialog = DialogFrame::createWithDialogIds(dialogIds, [this]() {
+    
+  });
+  scene->addDialogFrame(dialog);
+}

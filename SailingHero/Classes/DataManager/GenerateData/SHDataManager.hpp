@@ -34,6 +34,7 @@ This file (SHDataManager.hpp) is generated
 #include "GoodsBasePriceData.hpp"
 #include "GameData.hpp"
 #include "HeroData.hpp"
+#include "CalculationData.hpp"
 #include "CityStatusData.hpp"
 
 
@@ -93,6 +94,7 @@ public:
 	static GameData* getGameData();
 	static HeroData* getHeroDataById(int heroId);
 	static HeroData* getHeroDataById(const string& heroId);
+	static CalculationData* getCalculationDataById(const string& calculationId);
 	static CityStatusData* getCityStatusDataById(int cityStatusId);
 	static CityStatusData* getCityStatusDataById(const string& cityStatusId);
 	static bool saveData(int index);

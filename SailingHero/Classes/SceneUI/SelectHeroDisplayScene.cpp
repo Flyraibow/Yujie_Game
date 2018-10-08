@@ -43,9 +43,7 @@ bool SelectHeroDisplayScene::init()
   }
   
   initSceneWithJson("selectHeroDisplay");
-  
-  auto btnChangeHeroBirth = this->getComponentById<Button>("change_birth_btn");
-  btnChangeHeroBirth->addClickEventListener(CC_CALLBACK_1(SelectHeroDisplayScene::clickChangeHeroBirth, this));
+
   auto btnConfirm = this->getComponentById<Button>("confirm_btn");
   btnConfirm->addClickEventListener(CC_CALLBACK_1(SelectHeroDisplayScene::clickChangeStartGame, this));
 
@@ -87,36 +85,6 @@ void SelectHeroDisplayScene::refreshScene()
   p_zodiacIcon->setAnchorPoint(Vec2());
   p_zodiacIcon->setNormalizedPosition(Vec2(0.85, 0.7));
   s_window->addChild(p_zodiacIcon);
-}
-
-void SelectHeroDisplayScene::clickChangeHeroBirth(cocos2d::Ref *pSender)
-{
-  auto month = p_selectHeroData->getGuildData()->getLeaderData()->getBirthMonth();
-  auto inputLastNameSprite = InputBoxFrame::createWithHint(LocalizationHelper::getLocalization("input_birth_month"), to_string(month), [this](const string &monthStr, bool canceled, Node* node){
-    node->removeFromParent();
-    if (!canceled) {
-      auto day = p_selectHeroData->getGuildData()->getLeaderData()->getBirthDay();
-      auto inputFirstNameSprite = InputBoxFrame::createWithHint(LocalizationHelper::getLocalization("input_birth_day"), to_string(day), [monthStr, this](const string &dayStr, bool canceled, Node* node){
-        node->removeFromParent();
-        if (!canceled) {
-          auto heroData = p_selectHeroData->getGuildData()->getLeaderData();
-          int month = atoi(monthStr.c_str());
-          int day = atoi(dayStr.c_str());
-          if (isDateValid(month, day)) {
-            heroData->setBirthMonth(month);
-            heroData->setBirthDay(day);
-            this->refreshScene();
-          } else {
-            // TODO: Add a dialog, invalid birth
-            CCLOG("Invalid birth month %d , day %d ", month, day);
-            this->clickChangeHeroBirth(nullptr);
-          }
-        }
-      }, 2, ui::EditBox::InputMode::NUMERIC);
-      s_window->addChild(inputFirstNameSprite);
-    }
-  }, 2, ui::EditBox::InputMode::NUMERIC);
-  s_window->addChild(inputLastNameSprite);
 }
 
 #include "DialogFrame.hpp"

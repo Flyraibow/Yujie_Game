@@ -1,0 +1,6 @@
+﻿calculationId,condition,yesType,yesParameter,noType,noParameter
+id,friend_id,string,string,string,string
+string,Condition,-,-,-,-
+writable,N,N,N,N,N
+days_of_input_month,is_input_day_in_big_month,int,31,calculation,days_of_input_non_big_month
+days_of_input_non_big_month,is_input_day_in_feb,int,28,int,30
