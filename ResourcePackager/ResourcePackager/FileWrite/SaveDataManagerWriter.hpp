@@ -25,6 +25,7 @@ private:
   CPPFunction *p_clearFunc;
   CPPFunction *p_setFieldFunc;
   CPPFunction *p_getFieldFunc;
+  CPPFunction *p_getDataFunc;
 public:
   SaveDataManagerWriter(const string &fileName);
   void addExcel(const ExcelDataParserBase *excel);

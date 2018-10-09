@@ -44,3 +44,11 @@ input_hero_birth_day_check,condition,is_input_day_valid;input_hero_birth_day_che
 input_hero_birth_day_check_success,eventList,input_hero_birthday_complete;popPanel;refreshScene,完成输入
 input_hero_birth_day_check_fail,dialog,dialog_input_correct_day,重新输入，对话框
 input_hero_birthday_complete,setDataValue,data.hero;birthDay;temp.input,设置数据
+initial_game,eventList,initial_game_set_guild;initial_game_set_city;initial_game_complete,初始化游戏
+initial_game_set_guild,setDataValue,game;guild;data.guild.guildId,;
+initial_game_set_city,setDataValue,game;city;data.selectHero.startCityId,;
+initial_game_complete,scene,CityScene,;
+select_hero_panel_event,eventList,select_hero_panel_set_guild;select_hero_panel_set_hero,选角色界面的设置数据
+select_hero_panel_set_guild,setTempData,guild;GuildData;data.selectHero.guild,;
+select_hero_panel_set_hero,setTempData,hero;HeroData;data.guild.leader,;
+,,,;

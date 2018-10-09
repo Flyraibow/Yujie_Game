@@ -127,8 +127,12 @@ string CityTypeData::getFieldValue(const string & fieldName)
 		return to_string(this->getCityTypeName());
 	} else if (fieldName == "cityUpIconId") {
 		return to_string(this->getCityUpIconId());
+	} else if (fieldName == "getCityUpIconPath") {
+		return to_string(this->getCityUpIconPath());
 	} else if (fieldName == "cityDownIconId") {
 		return to_string(this->getCityDownIconId());
+	} else if (fieldName == "getCityDownIconPath") {
+		return to_string(this->getCityDownIconPath());
 	}
 	CCLOGWARN("Couldn't recognize %s in CityTypeData", fieldName.c_str());
 	return "";

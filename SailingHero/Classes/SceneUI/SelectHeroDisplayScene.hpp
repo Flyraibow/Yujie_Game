@@ -17,19 +17,12 @@ class SelectHeroDisplayScene : public SHScene
 {
 private:
   Sprite* p_zodiacIcon;
-  HeroSelectData* p_selectHeroData;
 public:
   static cocos2d::Scene* createScene(HeroSelectData *selectHeroData);
   
   virtual bool init();
   
-  void setSelectHeroData(HeroSelectData *selectHeroData);
   void refreshScene();
-  void clickChangeHeroName(cocos2d::Ref* pSender);
-  void clickChangeGuildName(cocos2d::Ref* pSender);
-  void clickChangeHeroBirth(cocos2d::Ref* pSender);
-  void clickChangeStartGame(cocos2d::Ref* pSender);
-  void selectHero();
   
   // implement the "static create()" method manually
   CREATE_FUNC(SelectHeroDisplayScene);

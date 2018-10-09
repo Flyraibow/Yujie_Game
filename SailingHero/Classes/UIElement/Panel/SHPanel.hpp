@@ -30,7 +30,7 @@ public:
   virtual void initialize() {};
   virtual void referesh() {};
   virtual void process() {};
-  void addToParent(Node *parent);
+  Node* addToParent(Node *parent);
   void removeFromParent();
   
   template <typename T, typename std::enable_if<std::is_base_of<Node, T>::value>::type* = nullptr>

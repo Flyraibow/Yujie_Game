@@ -21,11 +21,11 @@ private:
   CitySceneFrame p_citySceneFrame;
   CityData* p_cityData;
 public:
-  static CityScene* createScene();
+  static SHScene* createScene();
 
   virtual bool init();
   
-  void setCityDataId(int cityDataId);
+  void setCityData(CityData *cityData);
   
   // implement the "static create()" method manually
   CREATE_FUNC(CityScene);

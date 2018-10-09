@@ -153,12 +153,20 @@ string CultureData::getFieldValue(const string & fieldName)
 		return to_string(this->getCultureName());
 	} else if (fieldName == "oceanMusicId") {
 		return to_string(this->getOceanMusicId());
+	} else if (fieldName == "getOceanMusicPath") {
+		return to_string(this->getOceanMusicPath());
 	} else if (fieldName == "cityMusicId") {
 		return to_string(this->getCityMusicId());
+	} else if (fieldName == "getCityMusicPath") {
+		return to_string(this->getCityMusicPath());
 	} else if (fieldName == "plazaStoreIconId") {
 		return to_string(this->getPlazaStoreIconId());
+	} else if (fieldName == "getPlazaStoreIconPath") {
+		return to_string(this->getPlazaStoreIconPath());
 	} else if (fieldName == "plazaBuildingIconId") {
 		return to_string(this->getPlazaBuildingIconId());
+	} else if (fieldName == "getPlazaBuildingIconPath") {
+		return to_string(this->getPlazaBuildingIconPath());
 	}
 	CCLOGWARN("Couldn't recognize %s in CultureData", fieldName.c_str());
 	return "";

@@ -100,7 +100,8 @@ public:
 	static bool saveData(int index);
 	static bool loadData(int index);
 	static bool clearData();
-	static string getData(const string & dataSet, const string & id, const string & fieldName);
-	static void setData(const string & dataSet, const string & id, const string & fieldName, const string & value);
+	static BaseData * getData(const string & dataSet, const string & id);
+	static string getDataField(const string & dataSet, const string & id, const string & fieldName);
+	static void setDataField(const string & dataSet, const string & id, const string & fieldName, const string & value);
 };
 #endif

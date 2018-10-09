@@ -23,16 +23,3 @@ Sprite * HeroSelectingFrame::createWithSelectHeroId(const string &selectHeroId)
   sprite->setScale(f);
   return sprite;
 }
-
-Sprite* HeroSelectingFrame::createBigPhotoWithSelectHeroId(const string &selectHeroId)
-{
-  auto sprite = Sprite::create("res/base/frame/bigPhotoFrame.png");
-  auto heroSprite = HeroSelectData::getHeroSelectDataById(selectHeroId)->getIcon();
-  heroSprite->setAnchorPoint(Vec2(0, 0));
-  auto f = Director::getInstance()->getContentScaleFactor();
-  heroSprite->setPosition(Vec2(32 / f, 64 / f));
-  heroSprite->setContentSize(Size(210 / f, 258 / f));
-  sprite->addChild(heroSprite);
-  sprite->setScale(f);
-  return sprite;
-}

@@ -131,6 +131,8 @@ string CityBuildingData::getFieldValue(const string & fieldName)
 		return to_string(this->getBuildingName());
 	} else if (fieldName == "buildingImageId") {
 		return to_string(this->getBuildingImageId());
+	} else if (fieldName == "getBuildingImagePath") {
+		return to_string(this->getBuildingImagePath());
 	} else if (fieldName == "anchorX") {
 		return to_string(this->getAnchorX());
 	} else if (fieldName == "anchorY") {

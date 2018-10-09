@@ -22,7 +22,6 @@ class HeroSelectingFrame
 {
 public:
   static Sprite* createWithSelectHeroId(const string &selectHeroId);
-  static Sprite* createBigPhotoWithSelectHeroId(const string &selectHeroId);
 };
 
 #endif /* HeroSelectingFrame_hpp */

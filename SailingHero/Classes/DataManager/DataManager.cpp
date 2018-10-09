@@ -10,6 +10,8 @@
 #include "Utils.hpp"
 #include "LocalizationHelper.hpp"
 #include "CalculationData.hpp"
+#include "GameData.hpp"
+#include "SHDataManager.hpp"
 
 DataManager* DataManager::p_sharedManager = nullptr;
 
@@ -41,6 +43,17 @@ void DataManager::setTempString(const string &key, const string &value)
   p_tempStrMap[key] = decipherString(value);
 }
 
+void DataManager::setData(const string &key, const string &tableName, const string &id)
+{
+  auto strId = decipherString(id);
+  auto data = SHDataManager::getData(tableName, strId);
+  if (data != nullptr) {
+    setTempData(key, data);
+  } else {
+    CCLOGWARN("Couldn't find data from key : %s", key.c_str());
+  }
+}
+
 void DataManager::setDataValue(const string &key, const string &field, const string &value)
 {
   auto data = decipherData(key);
@@ -54,7 +67,9 @@ void DataManager::setDataValue(const string &key, const string &field, const str
 BaseData* DataManager::decipherData(const string &value) const
 {
   auto args = SHUtil::split(value, '.');
-  if (args.size() > 1) {
+  if (value == "game") {
+    return GameData::getSharedInstance();
+  } else if (args.size() > 1) {
     auto k = args.at(0);
     auto v = args.at(1);
     if (k == "data") {
@@ -88,6 +103,7 @@ string DataManager::decipherString(const string &value) const
           val = p_tempDataMap.at(dataKey)->getFieldValue(args.at(2));
         } else {
           val = p_tempDataMap.at(dataKey)->description();
+          CCLOGWARN("Cannot decipher value : %s", value.c_str());
         }
       } else {
         CCLOGWARN("Cannot decipher value : %s", value.c_str());

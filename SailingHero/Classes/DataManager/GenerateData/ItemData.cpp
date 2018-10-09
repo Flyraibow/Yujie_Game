@@ -143,6 +143,8 @@ string ItemData::getFieldValue(const string & fieldName)
 		return to_string(this->getItemName());
 	} else if (fieldName == "iconId") {
 		return to_string(this->getIconId());
+	} else if (fieldName == "getIconPath") {
+		return to_string(this->getIconPath());
 	} else if (fieldName == "itemCategory") {
 		return to_string(this->getItemCategoryId());
 	} else if (fieldName == "value") {

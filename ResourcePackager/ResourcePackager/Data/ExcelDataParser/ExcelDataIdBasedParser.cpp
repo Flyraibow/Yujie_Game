@@ -405,6 +405,5 @@ void ExcelDataIdBasedParser::addGetFieldFunction(CPPFunction* getFieldFunc) cons
 {
   string prefix = getFieldFunc->flag++ == 0 ? "" : "} else ";
   getFieldFunc->addBodyStatements(prefix + "if (dataSet == \"" + p_className + "\") {");
-  getFieldFunc->addBodyStatements("auto data = " + p_className + "::get" + p_className + "ById(id);", 1);
-  getFieldFunc->addBodyStatements("return data->getFieldValue(fieldName);", 1);
+  getFieldFunc->addBodyStatements("return " + p_className + "::get" + p_className + "ById(id);", 1);
 }

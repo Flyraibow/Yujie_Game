@@ -137,12 +137,14 @@ CPPFileComplete* ExcelDataParserBase::getMainCppFile() const
   file->addHeaders("ByteBuffer.hpp", true, false);
   file->addHeaders("Utils.hpp", true, false);
   file->addNamespaces("using namespace SHUtil;", false, true);
+  file->addHeaders("BaseData.h", true, true);
   return file;
 }
 
 CPPClass* ExcelDataParserBase::getMainCppClass() const
 {
   CPPClass* cppClass = new CPPClass(p_className);
+  cppClass->setFatherClass("BaseData");
   return cppClass;
 }
 
@@ -431,6 +433,5 @@ void ExcelDataParserBase::addGetFieldFunction(CPPFunction* getFieldFunc) const
 {
   string prefix = getFieldFunc->flag++ == 0 ? "" : "} else ";
   getFieldFunc->addBodyStatements(prefix + "if (dataSet == \"" + p_className + "\") {");
-  getFieldFunc->addBodyStatements("auto data = " + p_className + "::getSharedInstance();", 1);
-  getFieldFunc->addBodyStatements("return data->getFieldValue(fieldName);", 1);
+  getFieldFunc->addBodyStatements("return " + p_className + "::getSharedInstance();", 1);
 }

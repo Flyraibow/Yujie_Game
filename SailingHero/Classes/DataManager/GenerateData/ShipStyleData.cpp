@@ -157,6 +157,8 @@ string ShipStyleData::getFieldValue(const string & fieldName)
 		return to_string(this->getShipSizeId());
 	} else if (fieldName == "iconId") {
 		return to_string(this->getIconId());
+	} else if (fieldName == "getIconPath") {
+		return to_string(this->getIconPath());
 	} else if (fieldName == "developValue") {
 		return to_string(this->getDevelopValue());
 	} else if (fieldName == "price") {

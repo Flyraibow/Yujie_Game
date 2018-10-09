@@ -25,3 +25,12 @@ void ExcelParserMusic::addFunctionsInclass(CPPClass *cppClass) const
   cppClass->addFunction(getIconFunction, false);
   this->ExcelParserBase::addFunctionsInclass(cppClass);
 }
+
+void ExcelParserMusic::addGetFieldValueFuncBody(CPPFunction *getFieldFunc) const
+{
+  ExcelParserBase::addGetFieldValueFuncBody(getFieldFunc);
+  string getIconFuncName = this->getVariableGetterName(); // getGoodsIconId
+  getIconFuncName = getIconFuncName.substr(0, getIconFuncName.length() - 2) + "Path";  // getGoodsIcon
+  getFieldFunc->addBodyStatements("} else if (fieldName == \"" + getIconFuncName + "\") {");
+  getFieldFunc->addBodyStatements("\treturn to_string(this->" + getIconFuncName + "());");
+}

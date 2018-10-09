@@ -73,8 +73,6 @@
 		EC3D03C721549E1A0065E585 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3D03C521549E190065E585 /* SceneManager.cpp */; };
 		EC828792210D74D10041497C /* SailingHeroMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828791210D74D10041497C /* SailingHeroMenu.cpp */; };
 		EC828793210D74D10041497C /* SailingHeroMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828791210D74D10041497C /* SailingHeroMenu.cpp */; };
-		EC8287A8210D75060041497C /* InputBoxFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828795210D75040041497C /* InputBoxFrame.cpp */; };
-		EC8287A9210D75060041497C /* InputBoxFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828795210D75040041497C /* InputBoxFrame.cpp */; };
 		EC8287AA210D75060041497C /* CitySceneFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828797210D75050041497C /* CitySceneFrame.cpp */; };
 		EC8287AB210D75060041497C /* CitySceneFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828797210D75050041497C /* CitySceneFrame.cpp */; };
 		EC8287AC210D75060041497C /* HeroSelectingFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82879A210D75050041497C /* HeroSelectingFrame.cpp */; };
@@ -333,7 +331,6 @@
 		EC828790210D74D10041497C /* SailingHeroMenu.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SailingHeroMenu.hpp; sourceTree = "<group>"; };
 		EC828791210D74D10041497C /* SailingHeroMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SailingHeroMenu.cpp; sourceTree = "<group>"; };
 		EC828794210D75040041497C /* CityDataFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CityDataFrame.hpp; sourceTree = "<group>"; };
-		EC828795210D75040041497C /* InputBoxFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputBoxFrame.cpp; sourceTree = "<group>"; };
 		EC828796210D75050041497C /* MultiSelectionFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MultiSelectionFrame.hpp; sourceTree = "<group>"; };
 		EC828797210D75050041497C /* CitySceneFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CitySceneFrame.cpp; sourceTree = "<group>"; };
 		EC828798210D75050041497C /* DialogFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DialogFrame.hpp; sourceTree = "<group>"; };
@@ -351,7 +348,6 @@
 		EC8287A4210D75060041497C /* CitySceneFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CitySceneFrame.hpp; sourceTree = "<group>"; };
 		EC8287A5210D75060041497C /* SystemBarFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SystemBarFrame.hpp; sourceTree = "<group>"; };
 		EC8287A6210D75060041497C /* CityDataFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CityDataFrame.cpp; sourceTree = "<group>"; };
-		EC8287A7210D75060041497C /* InputBoxFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InputBoxFrame.hpp; sourceTree = "<group>"; };
 		EC8287BC210D75300041497C /* SHColorNode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SHColorNode.hpp; sourceTree = "<group>"; };
 		EC8287BD210D75300041497C /* SHColorNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SHColorNode.cpp; sourceTree = "<group>"; };
 		EC8287BE210D75300041497C /* SHScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SHScene.hpp; sourceTree = "<group>"; };
@@ -732,8 +728,6 @@
 				EC8287A2210D75060041497C /* DialogPhotoFrame.hpp */,
 				EC82879A210D75050041497C /* HeroSelectingFrame.cpp */,
 				EC8287A0210D75050041497C /* HeroSelectingFrame.hpp */,
-				EC828795210D75040041497C /* InputBoxFrame.cpp */,
-				EC8287A7210D75060041497C /* InputBoxFrame.hpp */,
 				EC82879C210D75050041497C /* MoneyFrame.cpp */,
 				EC82879B210D75050041497C /* MoneyFrame.hpp */,
 				EC8287A3210D75060041497C /* MultiSelectionFrame.cpp */,
@@ -1095,7 +1089,6 @@
 				ECCE0292215DDF4C00F1AF96 /* SHPanel.cpp in Sources */,
 				EC82880A210D758C0041497C /* AbilityData.cpp in Sources */,
 				EC82884F210D75AC0041497C /* CityScene.cpp in Sources */,
-				EC8287A8210D75060041497C /* InputBoxFrame.cpp in Sources */,
 				EC828808210D758C0041497C /* TownPhotoData.cpp in Sources */,
 				ECCE027E215C81CE00F1AF96 /* JsonUtil.cpp in Sources */,
 				EC82888C211B6A1D0041497C /* DateFrame.cpp in Sources */,
@@ -1199,7 +1192,6 @@
 				EC828811210D758C0041497C /* GoodsCategoryData.cpp in Sources */,
 				EC2655F62150CDB200B8A025 /* TestJsonScene.cpp in Sources */,
 				EC8287D1210D75560041497C /* LocalizationHelper.cpp in Sources */,
-				EC8287A9210D75060041497C /* InputBoxFrame.cpp in Sources */,
 				EC828881211B620A0041497C /* SailMapFrame.cpp in Sources */,
 				EC8287C3210D75300041497C /* SHColorNode.cpp in Sources */,
 				ECCE028F215DDEDA00F1AF96 /* PanelManager.cpp in Sources */,

@@ -40,3 +40,14 @@ void ExcelParserIcon::addFunctionsInclass(CPPClass *cppClass) const
   cppClass->addFunction(getIconPathFunction, false);
   this->ExcelParserBase::addFunctionsInclass(cppClass);
 }
+
+
+void ExcelParserIcon::addGetFieldValueFuncBody(CPPFunction *getFieldFunc) const
+{
+  ExcelParserBase::addGetFieldValueFuncBody(getFieldFunc);
+  string getIconFuncName = this->getVariableGetterName(); // getGoodsIconId
+  getIconFuncName = getIconFuncName.substr(0, getIconFuncName.length() - 2) + "Path";  // getGoodsIcon
+  getFieldFunc->addBodyStatements("} else if (fieldName == \"" + getIconFuncName + "\") {");
+  getFieldFunc->addBodyStatements("\treturn to_string(this->" + getIconFuncName + "());");
+}
+

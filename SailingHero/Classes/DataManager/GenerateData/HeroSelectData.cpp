@@ -149,8 +149,12 @@ string HeroSelectData::getFieldValue(const string & fieldName)
 		return to_string(this->getSelectHeroId());
 	} else if (fieldName == "iconId") {
 		return to_string(this->getIconId());
+	} else if (fieldName == "getIconPath") {
+		return to_string(this->getIconPath());
 	} else if (fieldName == "smallIconId") {
 		return to_string(this->getSmallIconId());
+	} else if (fieldName == "getSmallIconPath") {
+		return to_string(this->getSmallIconPath());
 	} else if (fieldName == "startCityId") {
 		return to_string(this->getStartCityIdId());
 	} else if (fieldName == "guild") {

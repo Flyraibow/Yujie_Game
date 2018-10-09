@@ -83,6 +83,10 @@ void EventManager::runEvent(std::string eventName)
     auto parameters = eventData->getParameters();
     CCASSERT(parameters.size() > 0, "dialog must be provided with dialogId");
     SceneManager::getShareInstance()->addDialog(parameters);
+  } else if (eventType == "setTempData") {
+    auto parameters = eventData->getParameters();
+    CCASSERT(parameters.size() == 3, "setTempData must be provided with key, data name and value");
+    DataManager::getShareInstance()->setData(parameters.at(0), parameters.at(1), parameters.at(2));
   } else {
     CCLOGWARN("unkown type event : %s, type : %s", eventName.c_str(), eventType.c_str());
   }

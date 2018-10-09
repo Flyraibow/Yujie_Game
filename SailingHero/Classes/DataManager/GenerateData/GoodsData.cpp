@@ -150,6 +150,8 @@ string GoodsData::getFieldValue(const string & fieldName)
 		return to_string(this->getCategoryId());
 	} else if (fieldName == "iconId") {
 		return to_string(this->getIconId());
+	} else if (fieldName == "getIconPath") {
+		return to_string(this->getIconPath());
 	} else if (fieldName == "maxPrice") {
 		return to_string(this->getMaxPrice());
 	} else if (fieldName == "unlockItem") {

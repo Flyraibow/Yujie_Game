@@ -1,7 +1,26 @@
 {
   "backgroundImage": "res/default_background.png",
   "fullScreenCover": true,
+  "initialEvent": "select_hero_panel_event",
   "components": [
+    {
+      "type": "sprite",
+      "id": "hero_photo_frame",
+      "path": "res/base/frame/bigPhotoFrame.png",
+      "anchor_point": [0, 0.5],
+      "normalized_position": [0.1, 0.5],
+      "auto_scale": true,
+      "components" : [
+        {
+          "type": "sprite",
+          "id": "hero_photo",
+          "path": "data.selectHero.getIconPath",
+          "anchor_point": [0, 0],
+          "auto_scale": true,
+          "normalized_position": [0.106667, 0.173913]
+        }
+      ]
+    },
     {
       "type": "label",
       "id": "hero_name",
@@ -76,7 +95,8 @@
       "id": "confirm_btn",
       "text": "translation.sys_confirm",
       "normalized_position": [0.55, 0.05],
-      "anchor_point": [0.5, 0]
+      "anchor_point": [0.5, 0],
+      "event": "initial_game"
     }
   ]
 }

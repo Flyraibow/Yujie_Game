@@ -12,6 +12,7 @@
 CPPFunction::~CPPFunction()
 {
   delete p_returnVar;
+  flag = 0;
 }
 
 
@@ -23,6 +24,7 @@ CPPFunction::CPPFunction(const CPPFunction &func)
   p_returnVar = func.p_returnVar;
   p_statements = func.p_statements;
   p_arguments = func.p_arguments;
+  flag = 0;
 }
 
 CPPFunction::CPPFunction(const string &funcName, const string &returnType) : CPPFunction::CPPFunction(funcName, returnType, {}, false, true)

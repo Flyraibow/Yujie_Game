@@ -40,15 +40,16 @@ string getGameDate()
 ZodiacData* getZodiacFromHero(HeroData *heroData)
 {
   auto zodiacDic = ZodiacData::getSharedDictionary();
+  auto birthDate = heroData->getBirthMonth() * 100 + heroData->getBirthDay();
   for (auto iter = zodiacDic->begin(); iter != zodiacDic->end(); ++iter) {
     auto zodiacData = iter->second;
     auto startDate = zodiacData->getStartMonth() * 100 + zodiacData->getStartDate();
     auto endDate = zodiacData->getEndMonth() * 100 + zodiacData->getEndDate();
-    auto birthDate = heroData->getBirthMonth() * 100 + heroData->getBirthDay();
-    if (endDate < startDate) {
-      endDate += 1200;
-    }
-    if ( startDate <= birthDate && endDate >= birthDate) {
+    if (endDate > startDate) {
+      if (startDate <= birthDate && endDate >= birthDate) {
+        return zodiacData;
+      }
+    } else if (startDate <= birthDate || endDate >= birthDate) {
       return zodiacData;
     }
   }

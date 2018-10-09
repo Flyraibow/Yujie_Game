@@ -16,8 +16,9 @@ Button* SystemButton::defaultButtonWithText(std::string text)
 {
   auto image = "res/button_up.png";
   auto button = Button::create(image);
+  auto f = Director::getInstance()->getWinSize().width / 800;
   button->setScale9Enabled(true);
-  button->setTitleFontSize(18);
+  button->setTitleFontSize(18 * f);
   button->setTitleAlignment(TextHAlignment::CENTER);
   button->setTitleText(text);
   auto lbl_size = button->getTitleRenderer()->getContentSize();

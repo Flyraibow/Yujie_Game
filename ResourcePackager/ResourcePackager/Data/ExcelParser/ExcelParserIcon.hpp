@@ -16,6 +16,7 @@ class ExcelParserIcon : public ExcelParserBase {
 public:
   ExcelParserIcon(const DataSchema *schema,const string & idSchemaName);
   virtual void addFunctionsInclass(CPPClass *cppClass) const;
+  virtual void addGetFieldValueFuncBody(CPPFunction *getFieldFunc) const;
 };
 
 #endif /* ExcelParserIcon_hpp */

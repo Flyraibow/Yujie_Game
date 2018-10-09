@@ -30,10 +30,20 @@ public:
   string decipherString(const string &value) const;
   BaseData* decipherData(const string &value) const;
   string getTempString(const string &key) const;
+  void setData(const string &key, const string &tableName, const string &id);
   void setDataValue(const string &key, const string &field, const string &value);
   
   string getCalculationData(const string &calculationId) const;
   bool checkCondition(const string &conditionId) const;
+  
+  
+  template <typename T, typename std::enable_if<std::is_base_of<BaseData, T>::value>::type* = nullptr>
+  T* getTempData(const string &key) const {
+    if (p_tempDataMap.count(key)) {
+      return dynamic_cast<T*>(p_tempDataMap.at(key));
+    }
+    return nullptr;
+  }
 };
 
 #endif /* DataManager_hpp */

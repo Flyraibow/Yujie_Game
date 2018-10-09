@@ -209,6 +209,8 @@ string AreaData::getFieldValue(const string & fieldName)
 		return to_string(this->getAreaName());
 	} else if (fieldName == "iconId") {
 		return to_string(this->getIconId());
+	} else if (fieldName == "getIconPath") {
+		return to_string(this->getIconPath());
 	} else if (fieldName == "left") {
 		return to_string(this->getLeftId());
 	} else if (fieldName == "rightUp") {

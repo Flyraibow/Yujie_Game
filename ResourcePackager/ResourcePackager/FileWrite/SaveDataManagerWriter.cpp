@@ -25,8 +25,9 @@ SaveDataManagerWriter::SaveDataManagerWriter(const string &fileName)
   auto idVariable = new CPPVariable("id", "const string &");
   auto fieldName = new CPPVariable("fieldName", "const string &");
   auto valueVariable = new CPPVariable("value", "const string &");
-  p_setFieldFunc = new CPPFunction("setData", TYPE_VOID, {dataSet, idVariable, fieldName, valueVariable}, true, false);
-  p_getFieldFunc = new CPPFunction("getData", TYPE_STRING, {dataSet, idVariable, fieldName}, true, false);
+  p_setFieldFunc = new CPPFunction("setDataField", TYPE_VOID, {dataSet, idVariable, fieldName, valueVariable}, true, false);
+  p_getFieldFunc = new CPPFunction("getDataField", TYPE_STRING, {dataSet, idVariable, fieldName}, true, false);
+  p_getDataFunc = new CPPFunction("getData", "BaseData *", {dataSet, idVariable}, true, false);
   
   p_file->addHeaders("sys/types.h", false, false);
   p_file->addHeaders("sys/stat.h", false, false);
@@ -72,7 +73,7 @@ void SaveDataManagerWriter::addExcel(const ExcelDataParserBase *excel)
     p_clearFunc->addBodyStatements(fileName + "::clearData();");
     excel->addSetFieldFunction(p_setFieldFunc);
   }
-  excel->addGetFieldFunction(p_getFieldFunc);
+  excel->addGetFieldFunction(p_getDataFunc);
 }
 
 void SaveDataManagerWriter::writeToPath(const std::string &path)
@@ -81,15 +82,22 @@ void SaveDataManagerWriter::writeToPath(const std::string &path)
   p_loadFunc->addBodyStatements("return true;");
   p_clearFunc->addBodyStatements("return true;");
   
-  p_getFieldFunc->addBodyStatements("}");
+  p_getDataFunc->addBodyStatements("}");
   p_setFieldFunc->addBodyStatements("}");
-  p_getFieldFunc->addBodyStatements("CCLOGWARN(\"Couldn't recognize %s file\", dataSet.c_str());");
-  p_getFieldFunc->addBodyStatements("return \"\";");
+  p_getDataFunc->addBodyStatements("CCLOGWARN(\"Couldn't recognize %s file\", dataSet.c_str());");
+  p_getDataFunc->addBodyStatements("return nullptr;");
   p_setFieldFunc->addBodyStatements("CCLOGWARN(\"Couldn't recognize %s file\", dataSet.c_str());");
+  
+  p_getFieldFunc->addBodyStatements("auto data = getData(dataSet, id);");
+  p_getFieldFunc->addBodyStatements("if (data != nullptr) {");
+  p_getFieldFunc->addBodyStatements("return data->getFieldValue(fieldName);", 1);
+  p_getFieldFunc->addBodyStatements("}");
+  p_getFieldFunc->addBodyStatements("return \"\";");
   
   p_mainClass->addFunction(p_saveFunc, false);
   p_mainClass->addFunction(p_loadFunc, false);
   p_mainClass->addFunction(p_clearFunc, false);
+  p_mainClass->addFunction(p_getDataFunc, false);
   p_mainClass->addFunction(p_getFieldFunc, false);
   p_mainClass->addFunction(p_setFieldFunc, false);
   p_file->addClass(p_mainClass);

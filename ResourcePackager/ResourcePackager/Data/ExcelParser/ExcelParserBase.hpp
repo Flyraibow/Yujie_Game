@@ -59,7 +59,7 @@ public:
   virtual void addSaveFuncBody(CPPFunction *saveFunc, const string dataName = "data", int level = 1) const;
   virtual void addLoadFuncBody(CPPFunction *loadFunc, bool isFirstOne, const string dataName = "data" , int level = 4) const;
   virtual void addSetFieldValueFuncBody(CPPFunction *setFieldFunc);
-  virtual void addGetFieldValueFuncBody(CPPFunction *getFieldFunc);
+  virtual void addGetFieldValueFuncBody(CPPFunction *getFieldFunc) const;
 };
 
 #endif /* ExcelParserBase_hpp */

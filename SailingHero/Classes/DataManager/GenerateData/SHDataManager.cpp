@@ -505,107 +505,85 @@ bool SHDataManager::clearData()
 	return true;
 }
 
-string SHDataManager::getData(const string & dataSet, const string & id, const string & fieldName)
+BaseData * SHDataManager::getData(const string & dataSet, const string & id)
 {
 	if (dataSet == "ConditionData") {
-		auto data = ConditionData::getConditionDataById(id);
-		return data->getFieldValue(fieldName);
+		return ConditionData::getConditionDataById(id);
 	} else if (dataSet == "GoodsCategoryData") {
-		auto data = GoodsCategoryData::getGoodsCategoryDataById(id);
-		return data->getFieldValue(fieldName);
+		return GoodsCategoryData::getGoodsCategoryDataById(id);
 	} else if (dataSet == "GuildData") {
-		auto data = GuildData::getGuildDataById(id);
-		return data->getFieldValue(fieldName);
+		return GuildData::getGuildDataById(id);
 	} else if (dataSet == "ButtonData") {
-		auto data = ButtonData::getButtonDataById(id);
-		return data->getFieldValue(fieldName);
+		return ButtonData::getButtonDataById(id);
 	} else if (dataSet == "GenderData") {
-		auto data = GenderData::getGenderDataById(id);
-		return data->getFieldValue(fieldName);
+		return GenderData::getGenderDataById(id);
 	} else if (dataSet == "CultureData") {
-		auto data = CultureData::getCultureDataById(id);
-		return data->getFieldValue(fieldName);
+		return CultureData::getCultureDataById(id);
 	} else if (dataSet == "AbilityData") {
-		auto data = AbilityData::getAbilityDataById(id);
-		return data->getFieldValue(fieldName);
+		return AbilityData::getAbilityDataById(id);
 	} else if (dataSet == "CityTypeData") {
-		auto data = CityTypeData::getCityTypeDataById(id);
-		return data->getFieldValue(fieldName);
+		return CityTypeData::getCityTypeDataById(id);
 	} else if (dataSet == "SystemButtonData") {
-		auto data = SystemButtonData::getSystemButtonDataById(id);
-		return data->getFieldValue(fieldName);
+		return SystemButtonData::getSystemButtonDataById(id);
 	} else if (dataSet == "ShipTeamData") {
-		auto data = ShipTeamData::getShipTeamDataById(id);
-		return data->getFieldValue(fieldName);
+		return ShipTeamData::getShipTeamDataById(id);
 	} else if (dataSet == "DialogData") {
-		auto data = DialogData::getDialogDataById(id);
-		return data->getFieldValue(fieldName);
+		return DialogData::getDialogDataById(id);
 	} else if (dataSet == "ItemData") {
-		auto data = ItemData::getItemDataById(id);
-		return data->getFieldValue(fieldName);
+		return ItemData::getItemDataById(id);
 	} else if (dataSet == "ShipSizeData") {
-		auto data = ShipSizeData::getShipSizeDataById(id);
-		return data->getFieldValue(fieldName);
+		return ShipSizeData::getShipSizeDataById(id);
 	} else if (dataSet == "CityGoodsData") {
-		auto data = CityGoodsData::getCityGoodsDataById(id);
-		return data->getFieldValue(fieldName);
+		return CityGoodsData::getCityGoodsDataById(id);
 	} else if (dataSet == "ShipStyleData") {
-		auto data = ShipStyleData::getShipStyleDataById(id);
-		return data->getFieldValue(fieldName);
+		return ShipStyleData::getShipStyleDataById(id);
 	} else if (dataSet == "CannonData") {
-		auto data = CannonData::getCannonDataById(id);
-		return data->getFieldValue(fieldName);
+		return CannonData::getCannonDataById(id);
 	} else if (dataSet == "GoodsData") {
-		auto data = GoodsData::getGoodsDataById(id);
-		return data->getFieldValue(fieldName);
+		return GoodsData::getGoodsDataById(id);
 	} else if (dataSet == "ItemCategoryData") {
-		auto data = ItemCategoryData::getItemCategoryDataById(id);
-		return data->getFieldValue(fieldName);
+		return ItemCategoryData::getItemCategoryDataById(id);
 	} else if (dataSet == "CityData") {
-		auto data = CityData::getCityDataById(id);
-		return data->getFieldValue(fieldName);
+		return CityData::getCityDataById(id);
 	} else if (dataSet == "TownPhotoData") {
-		auto data = TownPhotoData::getTownPhotoDataById(id);
-		return data->getFieldValue(fieldName);
+		return TownPhotoData::getTownPhotoDataById(id);
 	} else if (dataSet == "ZodiacData") {
-		auto data = ZodiacData::getZodiacDataById(id);
-		return data->getFieldValue(fieldName);
+		return ZodiacData::getZodiacDataById(id);
 	} else if (dataSet == "CityBuildingData") {
-		auto data = CityBuildingData::getCityBuildingDataById(id);
-		return data->getFieldValue(fieldName);
+		return CityBuildingData::getCityBuildingDataById(id);
 	} else if (dataSet == "EventData") {
-		auto data = EventData::getEventDataById(id);
-		return data->getFieldValue(fieldName);
+		return EventData::getEventDataById(id);
 	} else if (dataSet == "HeroSelectData") {
-		auto data = HeroSelectData::getHeroSelectDataById(id);
-		return data->getFieldValue(fieldName);
+		return HeroSelectData::getHeroSelectDataById(id);
 	} else if (dataSet == "CategoryUpdateData") {
-		auto data = CategoryUpdateData::getCategoryUpdateDataById(id);
-		return data->getFieldValue(fieldName);
+		return CategoryUpdateData::getCategoryUpdateDataById(id);
 	} else if (dataSet == "AreaData") {
-		auto data = AreaData::getAreaDataById(id);
-		return data->getFieldValue(fieldName);
+		return AreaData::getAreaDataById(id);
 	} else if (dataSet == "ShipData") {
-		auto data = ShipData::getShipDataById(id);
-		return data->getFieldValue(fieldName);
+		return ShipData::getShipDataById(id);
 	} else if (dataSet == "GameData") {
-		auto data = GameData::getSharedInstance();
-		return data->getFieldValue(fieldName);
+		return GameData::getSharedInstance();
 	} else if (dataSet == "HeroData") {
-		auto data = HeroData::getHeroDataById(id);
-		return data->getFieldValue(fieldName);
+		return HeroData::getHeroDataById(id);
 	} else if (dataSet == "CalculationData") {
-		auto data = CalculationData::getCalculationDataById(id);
-		return data->getFieldValue(fieldName);
+		return CalculationData::getCalculationDataById(id);
 	} else if (dataSet == "CityStatusData") {
-		auto data = CityStatusData::getCityStatusDataById(id);
-		return data->getFieldValue(fieldName);
+		return CityStatusData::getCityStatusDataById(id);
 	}
 	CCLOGWARN("Couldn't recognize %s file", dataSet.c_str());
+	return nullptr;
+}
+
+string SHDataManager::getDataField(const string & dataSet, const string & id, const string & fieldName)
+{
+	auto data = getData(dataSet, id);
+	if (data != nullptr) {
+		return data->getFieldValue(fieldName);
+	}
 	return "";
 }
 
-void SHDataManager::setData(const string & dataSet, const string & id, const string & fieldName, const string & value)
+void SHDataManager::setDataField(const string & dataSet, const string & id, const string & fieldName, const string & value)
 {
 	if (dataSet == "GuildData") {
 		auto data = GuildData::getGuildDataById(id);

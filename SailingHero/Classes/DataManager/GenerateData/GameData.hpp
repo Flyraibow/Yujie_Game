@@ -3,11 +3,12 @@ This file (GameData.hpp) is generated
 */
 #ifndef GameData_hpp
 #define GameData_hpp
+#include "BaseData.h"
 #include "CityData.hpp"
 #include "GuildData.hpp"
 
 
-class GameData
+class GameData: public BaseData
 {
 private:
 	static GameData* p_sharedData;

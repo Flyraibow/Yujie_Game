@@ -27,10 +27,11 @@ std::string SHPanel::getPanelName() const
   return p_panelName;
 }
 
-void SHPanel::addToParent(Node *parent)
+Node* SHPanel::addToParent(Node *parent)
 {
-  CCASSERT(p_node == nullptr, "Nee remove it before regenerate it");
+  CCASSERT(p_node == nullptr, "Need remove it before regenerate it");
   p_node = p_component->addComponentToParent(p_componentDict, parent);
+  return p_node;
 }
 
 void SHPanel::removeFromParent()

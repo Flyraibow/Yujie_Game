@@ -10,7 +10,6 @@
 #include "LocalizationHelper.hpp"
 #include "HeroSelectingFrame.hpp"
 #include "SHGameDataHelper.hpp"
-#include "InputBoxFrame.hpp"
 #include "Calendar.hpp"
 #include "DataManager.hpp"
 
@@ -21,7 +20,6 @@ Scene* SelectHeroDisplayScene::createScene(HeroSelectData *selectHeroData)
 {
   DataManager::getShareInstance()->setTempData("selectHero", selectHeroData);
   auto scene = SelectHeroDisplayScene::create();
-  scene->setSelectHeroData(selectHeroData);
   return scene;
 }
 
@@ -42,34 +40,17 @@ bool SelectHeroDisplayScene::init()
     return false;
   }
   
-  initSceneWithJson("selectHeroDisplay");
-
-  auto btnConfirm = this->getComponentById<Button>("confirm_btn");
-  btnConfirm->addClickEventListener(CC_CALLBACK_1(SelectHeroDisplayScene::clickChangeStartGame, this));
-
   p_zodiacIcon = nullptr;
+  initSceneWithJson("selectHeroDisplay");
+  refreshScene();
+
   return true;
 }
 
-void SelectHeroDisplayScene::setSelectHeroData(HeroSelectData *selectHeroData)
-{
-  p_selectHeroData = selectHeroData;
-  auto peoplePanel = HeroSelectingFrame::createBigPhotoWithSelectHeroId(selectHeroData->getId());
-  peoplePanel->setAnchorPoint(Vec2(0,0.5));
-  peoplePanel->setNormalizedPosition(Vec2(0.1, 0.5));
-  s_window->addChild(peoplePanel);
-  auto guild = p_selectHeroData->getGuildData();
-  DataManager::getShareInstance()->setTempData("guild", guild);
-  DataManager::getShareInstance()->setTempData("hero", guild->getLeaderData());
-  
-  this->refreshScene();
-}
-
-
 void SelectHeroDisplayScene::refreshScene()
 {
-  auto guildData = p_selectHeroData->getGuildData();
-  auto heroData = guildData->getLeaderData();
+  auto guildData = DataManager::getShareInstance()->getTempData<GuildData>("guild");
+  auto heroData = DataManager::getShareInstance()->getTempData<HeroData>("hero");
   auto zodiac = getZodiacFromHero(heroData);
   
   getComponentById<Label>("hero_name")->setString(getHeroFullName(heroData));
@@ -87,46 +68,34 @@ void SelectHeroDisplayScene::refreshScene()
   s_window->addChild(p_zodiacIcon);
 }
 
+// TODO: Move this logic to event too
+
 #include "DialogFrame.hpp"
 #include "MultiSelectionFrame.hpp"
 #include "AbilityData.hpp"
 
-void SelectHeroDisplayScene::clickChangeStartGame(cocos2d::Ref* pSender)
-{
-  auto dialog = DialogFrame::createWithDialogIds({"1"}, [this](){
-    // 对话结束了
-    auto abilityMapList = AbilityData::getSharedDictionary();
-    vector<AbilityData *> datalist;
-    vector<string> selectList;
-    for(auto it = abilityMapList->begin(); it != abilityMapList->end(); ++it ) {
-      datalist.push_back(it->second);
-      selectList.push_back(it->second->getAbilityDescription());
-    }
-    
-    auto frame = MultiSelectionFrame::createMultiSelectFrame(selectList, 3, [datalist, this](vector<int> selectedIndexes){
-      for (int i = 0; i < selectedIndexes.size(); ++i) {
-        int index = selectedIndexes[i];
-        CCLOG("选择了 %d", index);
-        CCLOG("选择了 %s", datalist.at(index)->getAbilityName().c_str());
-      }
-      this->selectHero();
-      
-    });
-    this->addChild(frame, 2);
-  });
-  s_window->addChild(dialog->getSprite());
-}
-
-#include "GameData.hpp"
-#include "CityScene.hpp"
-
-void SelectHeroDisplayScene::selectHero()
-{
-  CCASSERT(p_selectHeroData, "Must select a hero");
-  auto gameData = GameData::getSharedInstance();
-  gameData->setGuildId(p_selectHeroData->getGuildId());
-  gameData->setCityId(p_selectHeroData->getStartCityIdId());
-  CityScene *cityScene = CityScene::create();
-  cityScene->setCityDataId(gameData->getCityData()->getCityId());
-  Director::getInstance()->replaceScene(cityScene);
-}
+//void SelectHeroDisplayScene::clickChangeStartGame(cocos2d::Ref* pSender)
+//{
+//  auto dialog = DialogFrame::createWithDialogIds({"1"}, [this](){
+//    // 对话结束了
+//    auto abilityMapList = AbilityData::getSharedDictionary();
+//    vector<AbilityData *> datalist;
+//    vector<string> selectList;
+//    for(auto it = abilityMapList->begin(); it != abilityMapList->end(); ++it ) {
+//      datalist.push_back(it->second);
+//      selectList.push_back(it->second->getAbilityDescription());
+//    }
+//    
+//    auto frame = MultiSelectionFrame::createMultiSelectFrame(selectList, 3, [datalist, this](vector<int> selectedIndexes){
+//      for (int i = 0; i < selectedIndexes.size(); ++i) {
+//        int index = selectedIndexes[i];
+//        CCLOG("选择了 %d", index);
+//        CCLOG("选择了 %s", datalist.at(index)->getAbilityName().c_str());
+//      }
+////      this->selectHero();
+//      
+//    });
+//    this->addChild(frame, 2);
+//  });
+//  s_window->addChild(dialog->getSprite());
+//}

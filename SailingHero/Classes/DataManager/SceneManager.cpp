@@ -9,6 +9,7 @@
 #include "SelectHeroMenuScene.hpp"
 #include "TestScene.hpp"
 #include "PanelManager.hpp"
+#include "CityScene.hpp"
 
 SceneManager* SceneManager::p_sharedManager = nullptr;
 
@@ -18,6 +19,7 @@ SceneManager* SceneManager::getShareInstance()
     p_sharedManager = new SceneManager();
     p_sharedManager->registerScene<SelectHeroMenuScene>("SelectHeroMenuScene");
     p_sharedManager->registerScene<TestScene>("TestScene");
+    p_sharedManager->registerScene<CityScene>("CityScene");
   }
   return p_sharedManager;
 }

@@ -567,6 +567,8 @@ string HeroData::getFieldValue(const string & fieldName)
 		return to_string(this->getHeroLastName());
 	} else if (fieldName == "photoId") {
 		return to_string(this->getPhotoId());
+	} else if (fieldName == "getPhotoPath") {
+		return to_string(this->getPhotoPath());
 	} else if (fieldName == "gender") {
 		return to_string(this->getGenderId());
 	} else if (fieldName == "birthMonth") {

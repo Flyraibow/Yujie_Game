@@ -6,14 +6,16 @@
 //
 
 #include "CityScene.hpp"
-
+#include "GameData.hpp"
 
 USING_NS_CC;
 using namespace ui;
 
-CityScene* CityScene::createScene()
+SHScene* CityScene::createScene()
 {
-  return CityScene::create();
+  auto cityScene = CityScene::create();
+  cityScene->setCityData(GameData::getSharedInstance()->getCityData());
+  return cityScene;
 }
 
 // Print useful error message instead of segfaulting when files are not there.
@@ -34,18 +36,18 @@ bool CityScene::init()
   }
   initSceneWithJson("city");
 
-  auto citySceneSprite = p_citySceneFrame.getSprite();
-  
-  s_window->addChild(citySceneSprite);
+//  auto citySceneSprite = p_citySceneFrame.getSprite();
+//  
+//  s_window->addChild(citySceneSprite);
   
 
   return true;
 }
 
-void CityScene::setCityDataId(int cityDataId)
+void CityScene::setCityData(CityData *cityData)
 {
-  p_cityData = CityData::getCityDataById(cityDataId);
-  CCASSERT(p_cityData != nullptr, "City Data shouldn't be null");
+  CCASSERT(cityData != nullptr, "City Data shouldn't be null");
+  p_cityData = cityData;
   this->setBackgroundMusic(p_cityData->getCultureData()->getCityMusicPath());
   p_citySceneFrame.setCityData(p_cityData);
 }

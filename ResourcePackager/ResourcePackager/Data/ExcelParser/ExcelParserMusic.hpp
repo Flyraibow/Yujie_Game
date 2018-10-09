@@ -15,6 +15,7 @@ class ExcelParserMusic : public ExcelParserBase {
 public:
   ExcelParserMusic(const DataSchema *schema,const string & idSchemaName);
   virtual void addFunctionsInclass(CPPClass *cppClass) const;
+  virtual void addGetFieldValueFuncBody(CPPFunction *getFieldFunc) const;
 };
 
 #endif /* ExcelParserMusic_hpp */
