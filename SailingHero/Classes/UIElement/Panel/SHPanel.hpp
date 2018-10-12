@@ -13,7 +13,6 @@
 #include <unordered_map>
 
 USING_NS_CC;
-typedef std::unordered_map<std::string, Node *> ComponentDict;
 
 class SHPanel
 {
@@ -36,7 +35,8 @@ public:
   template <typename T, typename std::enable_if<std::is_base_of<Node, T>::value>::type* = nullptr>
   T* getComponentById(const std::string &componentId) {
     CCASSERT(p_componentDict.count(componentId), ("Coudn't find component id : " + componentId).c_str());
-    return static_cast<T*>(p_componentDict.at(componentId));
+    auto component = p_componentDict.at(componentId);
+    return static_cast<T*>(component->getNode());
   }
 };
 

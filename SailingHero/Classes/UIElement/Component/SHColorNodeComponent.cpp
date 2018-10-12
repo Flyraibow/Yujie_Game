@@ -16,7 +16,7 @@ SHColorNodeComponent::SHColorNodeComponent(nlohmann::json componentJson) : SHCom
   p_color = SHUtil::getColorFromJson(componentJson, "backgroundColor");
 }
 
-Node* SHColorNodeComponent::addComponentToParent(unordered_map<string, Node *> &dict, cocos2d::Node *parent) const
+Node* SHColorNodeComponent::addComponentToParent(ComponentDict &dict, cocos2d::Node *parent)
 {
   auto parentSize = parent->getContentSize();
   auto background = SHColorNode::create(p_color, parentSize.width, parentSize.height);

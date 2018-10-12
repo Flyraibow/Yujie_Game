@@ -18,7 +18,7 @@ SHLabelComponent::SHLabelComponent(nlohmann::json componentJson) : SHComponent(c
   p_normalizedDimension = SHUtil::getVec2FromJson(componentJson, "normalized_dimensions");
 }
 
-Node* SHLabelComponent::addComponentToParent(unordered_map<string, Node *> &dict, Node *parent) const
+Node* SHLabelComponent::addComponentToParent(ComponentDict &dict, Node *parent)
 {
   auto text = p_text.size() > 0 ? DataManager::getShareInstance()->decipherString(p_text) : "";
   auto label = Label::createWithSystemFont(text, "Helvetica", p_textSize);
@@ -31,4 +31,11 @@ Node* SHLabelComponent::addComponentToParent(unordered_map<string, Node *> &dict
   }
   addNodeToParent(dict, label, parent);
   return label;
+}
+
+void SHLabelComponent::refresh()
+{
+  auto text = p_text.size() > 0 ? DataManager::getShareInstance()->decipherString(p_text) : "";
+  auto label = dynamic_cast<Label *>(p_node);
+  label->setString(text);
 }

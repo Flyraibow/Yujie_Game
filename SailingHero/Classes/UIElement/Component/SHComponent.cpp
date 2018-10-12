@@ -25,6 +25,8 @@ SHComponent::SHComponent(const nlohmann::json &componentJson)
   if (componentJson.count("size")) {
     p_size = componentJson.at("size");
   }
+  p_scale = SHUtil::getFloatFromJson(componentJson, "scale", 1.0);
+  p_node = nullptr;
 }
 
 Size SHComponent::getComponentSize(Node *parent) const
@@ -45,7 +47,7 @@ Size SHComponent::getComponentSize(Node *parent) const
   return Size(width, height);
 }
 
-void SHComponent::addNodeToParent(unordered_map<string, Node *> &dict, Node *child, Node *parent) const
+void SHComponent::addNodeToParent(ComponentDict &dict, Node *child, Node *parent)
 {
   CCLOG("adding panel id : %s", p_id.c_str());
   child->setAnchorPoint(p_anchorPoint);
@@ -55,7 +57,7 @@ void SHComponent::addNodeToParent(unordered_map<string, Node *> &dict, Node *chi
     if (dict.count(p_id)) {
       CCLOGWARN("duplicate id : %s", p_id.c_str());
     }
-    dict[p_id] = child;
+    dict[p_id] = this;
   }
   
   auto parentScale = parent ? parent->getScale() : 1;
@@ -63,7 +65,7 @@ void SHComponent::addNodeToParent(unordered_map<string, Node *> &dict, Node *chi
   if (p_isAutoScale) {
     f *= Director::getInstance()->getContentScaleFactor();
   }
-  child->setScale(f);
+  child->setScale(f * p_scale);
   
   for (int i = 0; i < p_componentList.size(); ++i) {
     p_componentList[i]->addComponentToParent(dict, child);
@@ -72,6 +74,7 @@ void SHComponent::addNodeToParent(unordered_map<string, Node *> &dict, Node *chi
   if (parent) {
     parent->addChild(child);
   }
+  p_node = child;
 }
 
 #include "SHLabelComponent.hpp"

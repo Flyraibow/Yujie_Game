@@ -6,6 +6,7 @@ This file (SHDataManager.hpp) is generated
 #include "ConditionData.hpp"
 #include "GoodsCategoryData.hpp"
 #include "GuildData.hpp"
+#include "ConditionCalculationData.hpp"
 #include "ButtonData.hpp"
 #include "GenderData.hpp"
 #include "CultureData.hpp"
@@ -29,12 +30,12 @@ This file (SHDataManager.hpp) is generated
 #include "EventData.hpp"
 #include "HeroSelectData.hpp"
 #include "CategoryUpdateData.hpp"
+#include "FunctionCalculationData.hpp"
 #include "AreaData.hpp"
 #include "ShipData.hpp"
 #include "GoodsBasePriceData.hpp"
 #include "GameData.hpp"
 #include "HeroData.hpp"
-#include "CalculationData.hpp"
 #include "CityStatusData.hpp"
 
 
@@ -47,6 +48,7 @@ public:
 	static GoodsCategoryData* getGoodsCategoryDataById(const string& categoryId);
 	static GuildData* getGuildDataById(int guildId);
 	static GuildData* getGuildDataById(const string& guildId);
+	static ConditionCalculationData* getConditionCalculationDataById(const string& conditionCalculationId);
 	static ButtonData* getButtonDataById(const string& buttonId);
 	static GenderData* getGenderDataById(int genderId);
 	static GenderData* getGenderDataById(const string& genderId);
@@ -87,6 +89,7 @@ public:
 	static HeroSelectData* getHeroSelectDataById(const string& selectHeroId);
 	static CategoryUpdateData* getCategoryUpdateDataById(int categoryUpdateId);
 	static CategoryUpdateData* getCategoryUpdateDataById(const string& categoryUpdateId);
+	static FunctionCalculationData* getFunctionCalculationDataById(const string& functionCalculatonId);
 	static AreaData* getAreaDataById(int areaId);
 	static AreaData* getAreaDataById(const string& areaId);
 	static ShipData* getShipDataById(int shipId);
@@ -94,7 +97,6 @@ public:
 	static GameData* getGameData();
 	static HeroData* getHeroDataById(int heroId);
 	static HeroData* getHeroDataById(const string& heroId);
-	static CalculationData* getCalculationDataById(const string& calculationId);
 	static CityStatusData* getCityStatusDataById(int cityStatusId);
 	static CityStatusData* getCityStatusDataById(const string& cityStatusId);
 	static bool saveData(int index);

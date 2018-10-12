@@ -173,14 +173,23 @@ SHSceneContent* SHScene::initSceneWithJson(const std::string &jsonFileName)
       setScreenCover(ratio);
     }
   }
+  
+  EventManager::getShareInstance()->runEvent(content->getInitialEvent());
+  
   auto components = content->getComponentList();
   for (int i = 0; i < components.size(); ++i) {
     auto component = components.at(i);
     component->addComponentToParent(p_componentDict, s_window);
   }
   
-  EventManager::getShareInstance()->runEvent(content->getInitialEvent());
   return content;
+}
+
+void SHScene::refreshScene()
+{
+  for (auto component : p_componentDict) {
+    component.second->refresh();
+  }
 }
 
 void SHScene::popPanel()

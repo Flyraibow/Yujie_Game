@@ -16,16 +16,15 @@ USING_NS_CC;
 SHButtonComponent::SHButtonComponent(nlohmann::json componentJson) : SHComponent(componentJson)
 {
   p_text = SHUtil::getStringFromJson(componentJson, "text");
-  auto eventId = SHUtil::getStringFromJson(componentJson, "event");
-  p_eventId = DataManager::getShareInstance()->decipherString(eventId);
+  p_eventId = SHUtil::getStringFromJson(componentJson, "event");
 }
 
-Node* SHButtonComponent::addComponentToParent(unordered_map<string, Node *> &dict, cocos2d::Node *parent) const
+Node* SHButtonComponent::addComponentToParent(ComponentDict &dict, cocos2d::Node *parent)
 {
   auto text = p_text.size() > 0 ? DataManager::getShareInstance()->decipherString(p_text) : "";
   auto button = SystemButton::defaultButtonWithText(text);
   if (p_eventId.size() > 0) {
-    auto eventId = p_eventId;
+    auto eventId = DataManager::getShareInstance()->decipherString(p_eventId);
     button->addClickEventListener([eventId](cocos2d::Ref* pSender) {
       EventManager::getShareInstance()->runEvent(eventId);
     });

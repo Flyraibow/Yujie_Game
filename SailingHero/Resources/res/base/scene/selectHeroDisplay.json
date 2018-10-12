@@ -22,32 +22,45 @@
       ]
     },
     {
+      "type": "sprite",
+      "id": "hero_zodiac_icon",
+      "path": "function.hero_zodiac_data.getIconPath",
+      "anchor_point": [0, 0],
+      "auto_scale": true,
+      "scale": 1.5,
+      "normalized_position": [0.85, 0.7]
+    },
+    {
       "type": "label",
       "id": "hero_name",
       "normalized_position": [0.5, 0.82],
       "anchor_point": [0, 0],
-      "text_size": 22
+      "text_size": 22,
+      "text": "function.hero_full_name"
     },
     {
       "type": "label",
       "id": "guild_name",
       "normalized_position": [0.55, 0.75],
       "anchor_point": [0, 0],
-      "text_size": 18
+      "text_size": 18,
+      "text": "data.guild.guildName"
     },
     {
       "type": "label",
       "id": "birth_label",
       "normalized_position": [0.55, 0.7],
       "anchor_point": [0, 0],
-      "text_size": 18
+      "text_size": 18,
+      "text": "function.hero_birth_day"
     },
     {
       "type": "label",
       "id": "zodiac_label",
       "normalized_position": [0.75, 0.7],
       "anchor_point": [0, 0],
-      "text_size": 18
+      "text_size": 18,
+      "text": "function.hero_zodiac_data.zodiacName"
     },
     {
       "type": "label",

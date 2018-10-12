@@ -1,0 +1,3 @@
+react_native_update?app_version=0&fields=update{download_uri,file_size,uncompressed_size,version_code,resources_checksum,ota_update_policy,download_uri_delta,file_size_delta,fallback_to_full_update,download_uri_delta_base,version_code_delta_base,allowed_networks}&format=json&locale=zh_CN&ota_version_code=0&pretty=0&sdk=ios&sdk_version=3&version_code=126707849&version_name=192.0.0.61.85
+
+ota_override?app_version=0&fields=ota_version&major_version=190

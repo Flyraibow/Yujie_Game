@@ -13,18 +13,25 @@ USING_NS_CC;
 
 SHSpriteComponent::SHSpriteComponent(nlohmann::json componentJson) : SHComponent(componentJson)
 {
-  auto path = SHUtil::getStringFromJson(componentJson, "path");
-  p_iconPath = DataManager::getShareInstance()->decipherString(path);
+  p_iconPath = SHUtil::getStringFromJson(componentJson, "path");
 }
 
-Node* SHSpriteComponent::addComponentToParent(unordered_map<string, Node *> &dict, cocos2d::Node *parent) const
+Node* SHSpriteComponent::addComponentToParent(ComponentDict &dict, cocos2d::Node *parent)
 {
   Sprite *sprite;
   if (p_iconPath.length() > 0) {
-    sprite = Sprite::create(p_iconPath);
+    auto path = DataManager::getShareInstance()->decipherString(p_iconPath);
+    sprite = Sprite::create(path);
   }
 
   addNodeToParent(dict, sprite, parent);
   
   return sprite;
+}
+
+void SHSpriteComponent::refresh()
+{
+  auto sprite = dynamic_cast<Sprite *>(p_node);
+  auto path = DataManager::getShareInstance()->decipherString(p_iconPath);
+  sprite->setTexture(path);
 }

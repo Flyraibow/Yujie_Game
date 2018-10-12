@@ -9,16 +9,19 @@
 #define SHGameDataHelper_hpp
 
 #include <stdio.h>
-
 #include "HeroData.hpp"
-#include "ZodiacData.hpp"
+
+#include "FunctionCalculationData.hpp"
 
 using namespace std;
 
-string getHeroFullName(HeroData *heroData);
-string getHeroBirthName(HeroData *heroData);
+//string getHeroFullName(HeroData *heroData);
+//string getHeroBirthName(HeroData *heroData);
 string getHeroDialogName(HeroData *heroData, bool showFullName);
-ZodiacData* getZodiacFromHero(HeroData *heroData);
 string getGameDate();
+
+namespace SHFunction {
+  BaseData* getDataFromFunctionData(FunctionCalculationData *functionData);
+}
 
 #endif /* SHGameDataHelper_hpp */

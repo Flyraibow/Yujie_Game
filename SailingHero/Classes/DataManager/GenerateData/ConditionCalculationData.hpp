@@ -1,18 +1,18 @@
 /*
-This file (CalculationData.hpp) is generated
+This file (ConditionCalculationData.hpp) is generated
 */
-#ifndef CalculationData_hpp
-#define CalculationData_hpp
+#ifndef ConditionCalculationData_hpp
+#define ConditionCalculationData_hpp
 #include <map>
 #include "BaseData.h"
 #include "ConditionData.hpp"
 
 
-class CalculationData: public BaseData
+class ConditionCalculationData: public BaseData
 {
 private:
-	static map<string, CalculationData*>* p_sharedDictionary;
-	string p_calculationId;
+	static map<string, ConditionCalculationData*>* p_sharedDictionary;
+	string p_conditionCalculationId;
 	string p_conditionId;
 	string p_yesType;
 	string p_yesParameter;
@@ -20,7 +20,7 @@ private:
 	string p_noParameter;
 public:
 	string getId() const;
-	string getCalculationId() const;
+	string getConditionCalculationId() const;
 	ConditionData* getConditionData() const;
 	string getConditionId() const;
 	string getYesType() const;
@@ -28,8 +28,8 @@ public:
 	string getNoType() const;
 	string getNoParameter() const;
 	string description() const;
-	static const map<string, CalculationData*>* getSharedDictionary();
-	static CalculationData* getCalculationDataById(const string& calculationId);
+	static const map<string, ConditionCalculationData*>* getSharedDictionary();
+	static ConditionCalculationData* getConditionCalculationDataById(const string& conditionCalculationId);
 	string getFieldValue(const string & fieldName);
 };
 #endif

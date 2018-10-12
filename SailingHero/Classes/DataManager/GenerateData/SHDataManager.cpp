@@ -54,6 +54,14 @@ GuildData* SHDataManager::getGuildDataById(const string& guildId)
 	return GuildData::getGuildDataById(atoi(guildId.c_str()));
 }
 
+ConditionCalculationData* SHDataManager::getConditionCalculationDataById(const string& conditionCalculationId)
+{
+	if (ConditionCalculationData::getSharedDictionary()->count(conditionCalculationId)) {
+		return ConditionCalculationData::getSharedDictionary()->at(conditionCalculationId);
+	}
+	return nullptr;
+}
+
 ButtonData* SHDataManager::getButtonDataById(const string& buttonId)
 {
 	if (ButtonData::getSharedDictionary()->count(buttonId)) {
@@ -338,6 +346,14 @@ CategoryUpdateData* SHDataManager::getCategoryUpdateDataById(const string& categ
 	return CategoryUpdateData::getCategoryUpdateDataById(atoi(categoryUpdateId.c_str()));
 }
 
+FunctionCalculationData* SHDataManager::getFunctionCalculationDataById(const string& functionCalculatonId)
+{
+	if (FunctionCalculationData::getSharedDictionary()->count(functionCalculatonId)) {
+		return FunctionCalculationData::getSharedDictionary()->at(functionCalculatonId);
+	}
+	return nullptr;
+}
+
 AreaData* SHDataManager::getAreaDataById(int areaId)
 {
 	if (AreaData::getSharedDictionary()->count(areaId)) {
@@ -383,14 +399,6 @@ HeroData* SHDataManager::getHeroDataById(const string& heroId)
 {
 	if (heroId.length() == 0) return nullptr;
 	return HeroData::getHeroDataById(atoi(heroId.c_str()));
-}
-
-CalculationData* SHDataManager::getCalculationDataById(const string& calculationId)
-{
-	if (CalculationData::getSharedDictionary()->count(calculationId)) {
-		return CalculationData::getSharedDictionary()->at(calculationId);
-	}
-	return nullptr;
 }
 
 CityStatusData* SHDataManager::getCityStatusDataById(int cityStatusId)
@@ -513,6 +521,8 @@ BaseData * SHDataManager::getData(const string & dataSet, const string & id)
 		return GoodsCategoryData::getGoodsCategoryDataById(id);
 	} else if (dataSet == "GuildData") {
 		return GuildData::getGuildDataById(id);
+	} else if (dataSet == "ConditionCalculationData") {
+		return ConditionCalculationData::getConditionCalculationDataById(id);
 	} else if (dataSet == "ButtonData") {
 		return ButtonData::getButtonDataById(id);
 	} else if (dataSet == "GenderData") {
@@ -557,6 +567,8 @@ BaseData * SHDataManager::getData(const string & dataSet, const string & id)
 		return HeroSelectData::getHeroSelectDataById(id);
 	} else if (dataSet == "CategoryUpdateData") {
 		return CategoryUpdateData::getCategoryUpdateDataById(id);
+	} else if (dataSet == "FunctionCalculationData") {
+		return FunctionCalculationData::getFunctionCalculationDataById(id);
 	} else if (dataSet == "AreaData") {
 		return AreaData::getAreaDataById(id);
 	} else if (dataSet == "ShipData") {
@@ -565,8 +577,6 @@ BaseData * SHDataManager::getData(const string & dataSet, const string & id)
 		return GameData::getSharedInstance();
 	} else if (dataSet == "HeroData") {
 		return HeroData::getHeroDataById(id);
-	} else if (dataSet == "CalculationData") {
-		return CalculationData::getCalculationDataById(id);
 	} else if (dataSet == "CityStatusData") {
 		return CityStatusData::getCityStatusDataById(id);
 	}

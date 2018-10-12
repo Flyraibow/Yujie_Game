@@ -32,7 +32,7 @@ SHEditBoxComponent::SHEditBoxComponent(nlohmann::json componentJson) : SHCompone
   p_text = SHUtil::getStringFromJson(componentJson, "text");
 }
 
-Node* SHEditBoxComponent::addComponentToParent(unordered_map<string, Node *> &dict, cocos2d::Node *parent) const
+Node* SHEditBoxComponent::addComponentToParent(ComponentDict &dict, cocos2d::Node *parent)
 {
   auto editBox = ui::EditBox::create(getComponentSize(parent), p_iconPath);
   auto defaultText = DataManager::getShareInstance()->decipherString(p_text);

@@ -15,15 +15,11 @@ USING_NS_CC;
 
 class SelectHeroDisplayScene : public SHScene
 {
-private:
-  Sprite* p_zodiacIcon;
 public:
   static cocos2d::Scene* createScene(HeroSelectData *selectHeroData);
   
   virtual bool init();
-  
-  void refreshScene();
-  
+
   // implement the "static create()" method manually
   CREATE_FUNC(SelectHeroDisplayScene);
 };

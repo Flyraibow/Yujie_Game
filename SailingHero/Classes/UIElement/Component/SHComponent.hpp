@@ -17,6 +17,10 @@
 using namespace std;
 USING_NS_CC;
 
+class SHComponent;
+
+typedef std::unordered_map<string, SHComponent *> ComponentDict;
+
 class SHComponent
 {
 private:
@@ -27,7 +31,7 @@ protected:
   Vec2 p_normalizePosition;
   Vec2 p_anchorPoint;
   nlohmann::json p_size;
-  
+  Node* p_node;
   float p_scale;
   
   vector<SHComponent *> p_componentList;
@@ -35,9 +39,11 @@ protected:
 public:
   SHComponent(const nlohmann::json &componentJson);
   virtual ~SHComponent() {};
-  void addNodeToParent(unordered_map<string, Node *> &dict, Node *child, Node *parent) const;
-  virtual Node *addComponentToParent(unordered_map<string, Node *> &dict, Node *parent = nullptr) const = 0;
+  void addNodeToParent(ComponentDict &dict, Node *child, Node *parent);
+  virtual Node *addComponentToParent(ComponentDict &dict, Node *parent = nullptr) = 0;
   string getId() const;
+  virtual void refresh() {};
+  Node* getNode() {return p_node;};
   
   /**
    * It will create real component by type

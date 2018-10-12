@@ -51,7 +51,7 @@ protected:
 public:
   CREATE_FUNC(SHScene);
   virtual bool init();
-  virtual void refreshScene() {};
+  virtual void refreshScene();
   Size getScreenSize() const;
   Node* getBackground();
   

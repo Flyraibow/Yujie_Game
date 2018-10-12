@@ -1,4 +1,4 @@
-﻿calculationId,condition,yesType,yesParameter,noType,noParameter
+﻿conditionCalculationId,condition,yesType,yesParameter,noType,noParameter
 id,friend_id,string,string,string,string
 string,Condition,-,-,-,-
 writable,N,N,N,N,N

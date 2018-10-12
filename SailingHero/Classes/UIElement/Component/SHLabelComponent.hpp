@@ -19,7 +19,8 @@ private:
 protected:
 public:
   SHLabelComponent(nlohmann::json componentJson);
-  cocos2d::Node *addComponentToParent(unordered_map<string, Node *> &dict, cocos2d::Node *parent = nullptr) const;
+  cocos2d::Node *addComponentToParent(ComponentDict &dict, cocos2d::Node *parent = nullptr);
+  virtual void refresh();
 };
 
 

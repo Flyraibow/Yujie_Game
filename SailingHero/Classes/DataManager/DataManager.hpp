@@ -12,6 +12,8 @@
 #include <unordered_map>
 #include "BaseData.h"
 
+class FunctionCalculationData;
+
 using namespace std;
 
 class DataManager
@@ -23,6 +25,7 @@ private:
   
   int getConditionIntNumber(const string &type, const string &parameter) const;
   string getConditionString(const string &type, const string &parameter) const;
+  string getFormatStringFromFunction(FunctionCalculationData *functionData) const;
 public:
   static DataManager* getShareInstance();
   void setTempData(const string &key, BaseData* value);
@@ -34,6 +37,8 @@ public:
   void setDataValue(const string &key, const string &field, const string &value);
   
   string getCalculationData(const string &calculationId) const;
+  string getFunctionString(const string &functionId) const;
+  BaseData* getFunctionData(const std::string &functionId) const;
   bool checkCondition(const string &conditionId) const;
   
   
@@ -41,6 +46,15 @@ public:
   T* getTempData(const string &key) const {
     if (p_tempDataMap.count(key)) {
       return dynamic_cast<T*>(p_tempDataMap.at(key));
+    }
+    return nullptr;
+  }
+  
+  template <typename T, typename std::enable_if<std::is_base_of<BaseData, T>::value>::type* = nullptr>
+  T* decipherData(const string &value) const {
+    auto data = decipherData(value);
+    if (data != nullptr) {
+      return dynamic_cast<T*>(data);
     }
     return nullptr;
   }

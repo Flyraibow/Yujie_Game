@@ -20,7 +20,7 @@ private:
 protected:
 public:
   SHButtonComponent(nlohmann::json componentJson);
-  Node *addComponentToParent(unordered_map<string, Node *> &dict, Node *parent = nullptr) const;
+  Node *addComponentToParent(ComponentDict &dict, Node *parent = nullptr);
 };
 
 

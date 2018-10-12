@@ -17,7 +17,7 @@ private:
 protected:
 public:
   SHColorNodeComponent(nlohmann::json componentJson);
-  cocos2d::Node *addComponentToParent(unordered_map<string, Node *> &dict, cocos2d::Node *parent = nullptr) const;
+  cocos2d::Node *addComponentToParent(ComponentDict &dict, cocos2d::Node *parent = nullptr);
 };
 
 #endif /* SHColorNodeComponent_hpp */

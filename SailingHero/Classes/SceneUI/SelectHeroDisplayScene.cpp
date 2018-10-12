@@ -39,33 +39,10 @@ bool SelectHeroDisplayScene::init()
   {
     return false;
   }
-  
-  p_zodiacIcon = nullptr;
+
   initSceneWithJson("selectHeroDisplay");
-  refreshScene();
 
   return true;
-}
-
-void SelectHeroDisplayScene::refreshScene()
-{
-  auto guildData = DataManager::getShareInstance()->getTempData<GuildData>("guild");
-  auto heroData = DataManager::getShareInstance()->getTempData<HeroData>("hero");
-  auto zodiac = getZodiacFromHero(heroData);
-  
-  getComponentById<Label>("hero_name")->setString(getHeroFullName(heroData));
-  getComponentById<Label>("guild_name")->setString(guildData->getGuildName());
-  getComponentById<Label>("birth_label")->setString(getHeroBirthName(heroData));
-  getComponentById<Label>("zodiac_label")->setString(zodiac->getZodiacName());
-  
-  if (p_zodiacIcon != nullptr) {
-    p_zodiacIcon->removeFromParent();
-  }
-  p_zodiacIcon = zodiac->getIcon();
-  p_zodiacIcon->setScale(Director::getInstance()->getContentScaleFactor() * 1.5);
-  p_zodiacIcon->setAnchorPoint(Vec2());
-  p_zodiacIcon->setNormalizedPosition(Vec2(0.85, 0.7));
-  s_window->addChild(p_zodiacIcon);
 }
 
 // TODO: Move this logic to event too
