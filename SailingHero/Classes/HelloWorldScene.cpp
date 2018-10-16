@@ -118,8 +118,6 @@ bool HelloWorld::init()
     return true;
 }
 
-#include "SailingHeroMenu.hpp"
-
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {
     //Close the cocos2d-x game scene and quit the application

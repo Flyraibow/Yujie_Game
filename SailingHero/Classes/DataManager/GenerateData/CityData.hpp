@@ -31,7 +31,7 @@ private:
 	double p_longitude;
 	double p_latitude;
 	int p_commerce;
-	int p_milltary;
+	int p_military;
 	map<string, int> p_guildShareMap;
 	vector<string> p_cityGoodsIdVector;
 	set<string> p_buildingIdSet;
@@ -56,8 +56,8 @@ public:
 	double getLatitude() const;
 	int getCommerce() const;
 	void setCommerce(int commerce);
-	int getMilltary() const;
-	void setMilltary(int milltary);
+	int getMilitary() const;
+	void setMilitary(int military);
 	map<string, int> getGuildShareMap() const;
 	void setGuildShareMap(map<string, int> guildShare);
 	vector<CityGoodsData*> getCityGoodsDataVector() const;

@@ -47,9 +47,9 @@ bool SelectHeroDisplayScene::init()
 
 // TODO: Move this logic to event too
 
-#include "DialogFrame.hpp"
-#include "MultiSelectionFrame.hpp"
-#include "AbilityData.hpp"
+//#include "DialogFrame.hpp"
+//#include "MultiSelectionFrame.hpp"
+//#include "AbilityData.hpp"
 
 //void SelectHeroDisplayScene::clickChangeStartGame(cocos2d::Ref* pSender)
 //{

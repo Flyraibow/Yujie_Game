@@ -1,0 +1,206 @@
+{
+	"screenCoverRatio" : [4, 3],
+	"backgroundMusic": "data.culture.getCityMusicPath",
+	"initialEvent": "city_scene_initial",
+	"components": [
+		{
+			"type": "sprite",
+			"id": "background_image",
+			"path": "data.townPhoto.getTownPhotoImagePath",
+      		"anchor_point": [0, 0],
+      		"normalized_position": [0, 0],
+      		"full_screen": true
+		},
+		{
+			"type": "sprite",
+			"id": "city_frame",
+			"path": "res/base/frame/citySceneFrame.png",
+      		"anchor_point": [0, 0],
+      		"normalized_position": [0, 0],
+      		"full_screen": true,
+      		"components": [
+			    {
+			    	"type": "panel",
+					"file_name": "systemBar",
+			  		"anchor_point": [0, 0],
+			  		"normalized_position": [0, 0],
+			      	"parent_scale": true
+			    },
+			    {
+			    	"type": "panelList",
+			    	"file_name": "cityBuilding",
+			    	"data_list": "cityBuildingList",
+			    	"cache_name": "cityBuilding",
+			      	"parent_scale": true
+			    }
+      		]
+		},
+	    {
+	      "type": "label",
+	      "id": "city_name",
+	      "normalized_position": [0.792, 0.933],
+	      "anchor_point": [0, 0],
+	      "text_size": 16,
+	      "text": "data.city.cityName"
+	    },
+	    {
+	      "type": "label",
+	      "id": "city_type",
+	      "normalized_position": [0.792, 0.866],
+	      "anchor_point": [0, 0],
+	      "text_size": 16,
+	      "text": "data.cityType.cityTypeName"
+	    },
+	    {
+	      "type": "label",
+	      "id": "culture_name",
+	      "normalized_position": [0.86, 0.866],
+	      "anchor_point": [0, 0],
+	      "text_size": 16,
+	      "text": "data.culture.cultureName"
+	    },
+	    {
+	      "type": "label",
+	      "id": "tag_commerce",
+	      "normalized_position": [0.792, 0.802],
+	      "anchor_point": [0, 0],
+	      "text_size": 16,
+	      "text": "translation.tag_commerce"
+	    },
+	    {
+	      "type": "label",
+	      "id": "tag_military",
+	      "normalized_position": [0.792, 0.75],
+	      "anchor_point": [0, 0],
+	      "text_size": 16,
+	      "text": "translation.tag_military"
+	    },
+	    {
+	      "type": "label",
+	      "id": "commerce_value",
+	      "normalized_position": [0.97, 0.802],
+	      "anchor_point": [1, 0],
+	      "text_size": 16,
+	      "text": "data.city.commerce"
+	    },
+	    {
+	      "type": "label",
+	      "id": "military_value",
+	      "normalized_position": [0.97, 0.75],
+	      "anchor_point": [1, 0],
+	      "text_size": 16,
+	      "text": "data.city.military"
+	    },
+	    {
+	      "type": "label",
+	      "id": "city_status",
+	      "normalized_position": [0.88, 0.701],
+	      "anchor_point": [0.5, 0],
+	      "text_size": 16,
+	      "text": "data.cityStatus.cityStatusName"
+	    },
+	    {
+	      "type": "label",
+	      "id": "city_goods_1",
+	      "normalized_position": [0.792, 0.302],
+	      "text_size": 16,
+	      "anchor_point": [0, 0],
+	      "text": "list.goodsList.0.goodsName"
+	    },
+	    {
+	      "type": "label",
+	      "id": "city_goods_2",
+	      "normalized_position": [0.792, 0.2522],
+	      "text_size": 16,
+	      "anchor_point": [0, 0],
+	      "text": "list.goodsList.1.goodsName"
+	    },
+	    {
+	      "type": "label",
+	      "id": "city_goods_3",
+	      "normalized_position": [0.792, 0.2024],
+	      "text_size": 16,
+	      "anchor_point": [0, 0],
+	      "text": "list.goodsList.2.goodsName"
+	    },
+	    {
+	      "type": "label",
+	      "id": "city_goods_4",
+	      "normalized_position": [0.792, 0.1526],
+	      "text_size": 16,
+	      "anchor_point": [0, 0],
+	      "text": "list.goodsList.3.goodsName"
+	    },
+	    {
+	      "type": "label",
+	      "id": "city_goods_5",
+	      "normalized_position": [0.792, 0.1028],
+	      "text_size": 16,
+	      "anchor_point": [0, 0],
+	      "text": "list.goodsList.4.goodsName"
+	    },
+	    {
+	      "type": "label",
+	      "id": "city_guild_name_1",
+	      "normalized_position": [0.792, 0.65],
+	      "text_size": 16,
+	      "anchor_point": [0, 0],
+	      "text": "list.guildList.0.guildName"
+	    },
+	    {
+	      "type": "label",
+	      "id": "city_guild_name_2",
+	      "normalized_position": [0.792, 0.55],
+	      "text_size": 16,
+	      "anchor_point": [0, 0],
+	      "text": "list.guildList.1.guildName"
+	    },
+	    {
+	      "type": "label",
+	      "id": "city_guild_name_3",
+	      "normalized_position": [0.792, 0.45],
+	      "text_size": 16,
+	      "anchor_point": [0, 0],
+	      "text": "list.guildList.2.guildName"
+	    },
+	    {
+	      "type": "label",
+	      "id": "city_guild_share_1",
+	      "normalized_position": [0.968, 0.6],
+	      "text_size": 16,
+	      "anchor_point": [1, 0],
+	      "text": "map.guildShares.0.value"
+	    },
+	    {
+	      "type": "label",
+	      "id": "city_guild_share_2",
+	      "normalized_position": [0.968, 0.5],
+	      "text_size": 16,
+	      "anchor_point": [1, 0],
+	      "text": "map.guildShares.1.value"
+	    },
+	    {
+	      "type": "label",
+	      "id": "city_guild_share_3",
+	      "normalized_position": [0.968, 0.4],
+	      "text_size": 16,
+	      "anchor_point": [1, 0],
+	      "text": "map.guildShares.2.value"
+	    },
+	    {
+	      "type": "label",
+	      "id": "game_date",
+	      "normalized_position": [0.88, 0.05],
+	      "text_size": 20,
+	      "anchor_point": [0.5, 0.5],
+	      "text": "function.game_date"
+	    },
+	    {
+	    	"type": "panel",
+			"file_name": "moneyPanel",
+	  		"anchor_point": [1, 0],
+	  		"normalized_position": [0.75, 0.083],
+	      	"auto_scale": true
+	    }
+	]
+}

@@ -9,6 +9,7 @@
 #include "audio/include/SimpleAudioEngine.h"
 
 #include "SHColorNode.hpp"
+#include "DataManager.hpp"
 #include <string>
 
 #ifdef COVER_DEBUG
@@ -163,8 +164,10 @@ void SHScene::addPanelWithParameters(SHPanel *panel)
 SHSceneContent* SHScene::initSceneWithJson(const std::string &jsonFileName)
 {
   auto content = new SHSceneContent(jsonFileName);
-  setBackgroundMusic(content->getBackgroundMusic());
-  setBackgroundImage(content->getBackgroundImage());
+  EventManager::getShareInstance()->runEvent(content->getInitialEvent());
+  auto dataManager = DataManager::getShareInstance();
+  setBackgroundMusic(dataManager->decipherString(content->getBackgroundMusic()));
+  setBackgroundImage(dataManager->decipherString(content->getBackgroundImage()));
   if (content->isFullScreenCover()) {
     setFullScreenCover();
   } else {
@@ -173,14 +176,13 @@ SHSceneContent* SHScene::initSceneWithJson(const std::string &jsonFileName)
       setScreenCover(ratio);
     }
   }
-  
-  EventManager::getShareInstance()->runEvent(content->getInitialEvent());
-  
+
   auto components = content->getComponentList();
   for (int i = 0; i < components.size(); ++i) {
     auto component = components.at(i);
     component->addComponentToParent(p_componentDict, s_window);
   }
+  EventManager::getShareInstance()->runEvent(content->getAddOnEvent());
   
   return content;
 }
@@ -228,4 +230,11 @@ bool SHScene::init()
   }
   EventManager::setCurrentScene(this);
   return true;
+}
+
+SHScene* SHScene::createScene(const string &jsonFile)
+{
+  auto scene =  SHScene::create();
+  scene->initSceneWithJson(jsonFile);
+  return scene;
 }

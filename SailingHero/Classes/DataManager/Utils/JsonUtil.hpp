@@ -19,6 +19,7 @@ namespace SHUtil {
   float getFloatFromJson(const nlohmann::json &json, const std::string &field, const float defaultValue = 0);
   bool getBoolFromJson(const nlohmann::json &json, const std::string &field, bool defaultValue = false);
   cocos2d::Color4B getColorFromJson(const nlohmann::json &json, const std::string &field, const cocos2d::Color4B &defaultValue = cocos2d::Color4B::BLACK);
+  std::vector<std::string> getStringListFromJson(const nlohmann::json &json, const std::string &field);
 }
 
 #endif /* JsonUtil_hpp */

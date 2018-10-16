@@ -29,6 +29,11 @@ std::string SHSceneContent::getInitialEvent() const
   return SHUtil::getStringFromJson(p_jsonContent, "initialEvent");
 }
 
+std::string SHSceneContent::getAddOnEvent() const
+{
+  return SHUtil::getStringFromJson(p_jsonContent, "addOnEvent");
+}
+
 bool SHSceneContent::isFullScreenCover() const
 {
   return SHUtil::getBoolFromJson(p_jsonContent, "fullScreenCover");

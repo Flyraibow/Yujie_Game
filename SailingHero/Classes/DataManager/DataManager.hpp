@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include <unordered_map>
+#include <vector>
 #include "BaseData.h"
 
 class FunctionCalculationData;
@@ -21,7 +22,9 @@ class DataManager
 private:
   static DataManager* p_sharedManager;
   unordered_map<string, BaseData*> p_tempDataMap;
+  unordered_map<string, vector<BaseData*>> p_tempDataListMap;
   unordered_map<string, string> p_tempStrMap;
+  unordered_map<string, vector<pair<string, string>>> p_tempKeyValueMap;
   
   int getConditionIntNumber(const string &type, const string &parameter) const;
   string getConditionString(const string &type, const string &parameter) const;
@@ -29,12 +32,18 @@ private:
 public:
   static DataManager* getShareInstance();
   void setTempData(const string &key, BaseData* value);
+  void setTempDataList(const string &key, const vector<BaseData*> &value);
   void setTempString(const string &key, const string &value);
   string decipherString(const string &value) const;
   BaseData* decipherData(const string &value) const;
+  vector<BaseData*> decipherDataList(const string &value) const;
   string getTempString(const string &key) const;
   void setData(const string &key, const string &tableName, const string &id);
+  void setDataList(const string &key, const string &tableName, const string &id);
+  void setDataList(const string &key, const string &tableName, const string &tempListKey, const string &id);
+  void filtDataList(const string &key, const string &tempKey, const string &conditionId);
   void setDataValue(const string &key, const string &field, const string &value);
+  void setSortKeyValuePair(const string &key, const string &type, const string &content, const string &orderConditionId);
   
   string getCalculationData(const string &calculationId) const;
   string getFunctionString(const string &functionId) const;

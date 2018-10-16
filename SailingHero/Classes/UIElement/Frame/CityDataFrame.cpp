@@ -59,7 +59,7 @@ void CityDataFrame::refresh()
   p_labCityName->setString(p_cityData->getCityName());
   p_labCityType->setString(p_cityData->getCityTypeData()->getCityTypeName());
   p_labCulture->setString(p_cityData->getCultureData()->getCultureName());
-  p_labMilitaryValue->setString(to_string(p_cityData->getMilltary()));
+  p_labMilitaryValue->setString(to_string(p_cityData->getMilitary()));
   p_labCommerceValue->setString(to_string(p_cityData->getCommerce()));
   p_labCityStatus->setString(p_cityData->getCityStatusData()->getCityStatusName());
   auto goodsList = p_cityData->getCityGoodsDataVector();

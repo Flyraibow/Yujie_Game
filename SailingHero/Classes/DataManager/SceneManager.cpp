@@ -9,7 +9,6 @@
 #include "SelectHeroMenuScene.hpp"
 #include "TestScene.hpp"
 #include "PanelManager.hpp"
-#include "CityScene.hpp"
 
 SceneManager* SceneManager::p_sharedManager = nullptr;
 
@@ -18,8 +17,6 @@ SceneManager* SceneManager::getShareInstance()
   if (p_sharedManager == nullptr) {
     p_sharedManager = new SceneManager();
     p_sharedManager->registerScene<SelectHeroMenuScene>("SelectHeroMenuScene");
-    p_sharedManager->registerScene<TestScene>("TestScene");
-    p_sharedManager->registerScene<CityScene>("CityScene");
   }
   return p_sharedManager;
 }
@@ -32,12 +29,14 @@ void SceneManager::registerScene(const std::string &sceneName)
 
 void SceneManager::pushScene(const std::string &sceneName)
 {
+  SHScene *scene = nullptr;
   if (p_sceneFuncMap.count(sceneName) > 0) {
-    SHScene *scene = p_sceneFuncMap[sceneName]();
-    Director::getInstance()->pushScene(scene);
+    scene = p_sceneFuncMap[sceneName]();
   } else {
-    CCLOGERROR("Couldn't find scene by name %s", sceneName.c_str());
+    scene = SHScene::createScene(sceneName);
   }
+  CCASSERT(scene != nullptr, ("unrecognized scene : " + sceneName).c_str());
+  Director::getInstance()->pushScene(scene);
 }
 
 void SceneManager::addPanel(const std::string &panelName)

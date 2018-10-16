@@ -17,6 +17,7 @@ private:
   float p_textSize;
   std::string p_text;
   std::string p_eventId;
+  std::string p_imagePath;
 protected:
 public:
   SHButtonComponent(nlohmann::json componentJson);

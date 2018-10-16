@@ -20,7 +20,7 @@ USING_NS_CC;
 
 #define SCREEN_COVER_LAYER_HEIGHT 100
 #define SCREEN_FOREGROUND_LAYER_HEIGHT 101
-//#define COVER_DEBUG
+#define COVER_DEBUG
 
 class DialogFrame;
 
@@ -49,6 +49,7 @@ protected:
   SHSceneContent* initSceneWithJson(const std::string &jsonFileName);
   
 public:
+  static SHScene* createScene(const string &jsonFile);
   CREATE_FUNC(SHScene);
   virtual bool init();
   virtual void refreshScene();

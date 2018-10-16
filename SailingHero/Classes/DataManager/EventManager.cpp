@@ -87,6 +87,23 @@ void EventManager::runEvent(std::string eventName)
     auto parameters = eventData->getParameters();
     CCASSERT(parameters.size() == 3, "setTempData must be provided with key, data name and value");
     DataManager::getShareInstance()->setData(parameters.at(0), parameters.at(1), parameters.at(2));
+  } else if (eventType == "setTempDataList") {
+    auto parameters = eventData->getParameters();
+    if (parameters.size() == 3) {
+      DataManager::getShareInstance()->setDataList(parameters.at(0), parameters.at(1), parameters.at(2));
+    } else if (parameters.size() == 4) {
+      DataManager::getShareInstance()->setDataList(parameters.at(0), parameters.at(1), parameters.at(2), parameters.at(3));
+    } else {
+      CCASSERT(false, "setTempDataList must be provided with key, data name and value, or key, data name, list, list key");
+    }
+  } else if (eventType == "filtTempDataList") {
+    auto parameters = eventData->getParameters();
+    CCASSERT(parameters.size() == 3, "filtTempDataList must be provided with key, tempKey name and condiiton");
+    DataManager::getShareInstance()->filtDataList(parameters.at(0), parameters.at(1), parameters.at(2));
+  } else if (eventType == "setSortTempKeyValuePair") {
+    auto parameters = eventData->getParameters();
+    CCASSERT(parameters.size() == 4, "setSortTempKeyValuePair must be provided with key, type, content and compare condiiton");
+    DataManager::getShareInstance()->setSortKeyValuePair(parameters.at(0), parameters.at(1), parameters.at(2), parameters.at(3));
   } else {
     CCLOGWARN("unkown type event : %s, type : %s", eventName.c_str(), eventType.c_str());
   }

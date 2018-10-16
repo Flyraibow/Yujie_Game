@@ -32,6 +32,10 @@ void DataManager::setTempData(const string &key, BaseData* value)
   p_tempDataMap[key] = value;
 }
 
+void DataManager::setTempDataList(const string &key, const vector<BaseData*> &value)
+{
+  p_tempDataListMap[key] = value;
+}
 
 string DataManager::getTempString(const string &key) const
 {
@@ -57,6 +61,57 @@ void DataManager::setData(const string &key, const string &tableName, const stri
   }
 }
 
+void DataManager::setDataList(const string &key, const string &tableName, const string &id)
+{
+  vector<BaseData *> dataList;
+  auto strIdList = SHUtil::atovector(decipherString(id));
+  for (auto strId : strIdList) {
+    auto data = SHDataManager::getData(tableName, strId);
+    if (data != nullptr) {
+      dataList.push_back(data);
+    } else {
+      CCLOGWARN("Couldn't find data from key : %s", key.c_str());
+    }
+  }
+  setTempDataList(key, dataList);
+}
+
+void DataManager::setDataList(const string &key, const string &tableName, const string &tempListKey, const string &id)
+{
+  vector<BaseData *> dataList;
+  if (p_tempDataListMap.count(tempListKey)) {
+    auto tempList = p_tempDataListMap.at(tempListKey);
+    for (auto tempData : tempList) {
+      auto strId = tempData->getFieldValue(id);
+      auto data = SHDataManager::getData(tableName, strId);
+      if (data != nullptr) {
+        dataList.push_back(data);
+      }
+    }
+  } else {
+    CCLOGWARN("Couldn't find list from key : %s", tempListKey.c_str());
+  }
+  
+  setTempDataList(key, dataList);
+}
+
+void DataManager::filtDataList(const string &key, const string &tempKey, const string &conditionId)
+{
+  vector<BaseData *> dataList;
+  if (p_tempDataListMap.count(key)) {
+    auto tempList = p_tempDataListMap.at(key);
+    for (auto tempData : tempList) {
+      setTempData(tempKey, tempData);
+      if (checkCondition(conditionId)) {
+        dataList.push_back(tempData);
+      }
+    }
+  } else {
+    CCLOGWARN("Couldn't find list from key : %s", key.c_str());
+  }
+  setTempDataList(key, dataList);
+}
+
 void DataManager::setDataValue(const string &key, const string &field, const string &value)
 {
   auto data = decipherData(key);
@@ -65,6 +120,32 @@ void DataManager::setDataValue(const string &key, const string &field, const str
   } else {
     CCLOGWARN("Couldn't find data from key : %s", key.c_str());
   }
+}
+
+void DataManager::setSortKeyValuePair(const string &key, const string &type, const string &content, const string &orderConditionId)
+{
+  vector<pair<string, string>> result;
+  auto strContent = decipherString(content);
+  typedef function<bool(pair<string, string>, pair<string, string>)>  Comparator;
+  Comparator compFunctor =
+  [this, orderConditionId](std::pair<std::string, string> elem1 ,std::pair<std::string, string> elem2)
+  {
+    this->setTempString("leftKey", elem1.first);
+    this->setTempString("rightKey", elem2.first);
+    this->setTempString("leftValue", elem1.second);
+    this->setTempString("rightValue", elem2.second);
+    return this->checkCondition(orderConditionId);
+  };
+  if (type == "map") {
+    auto mapContent = SHUtil::atomap(strContent);
+    set<pair<string, string>, Comparator> setOfPairs(mapContent.begin(), mapContent.end(), compFunctor);
+    for (pair<string, string> element : setOfPairs) {
+      result.push_back(element);
+    }
+  } else {
+    CCLOGERROR("unsopport type: %s", type.c_str());
+  }
+  p_tempKeyValueMap[key] = result;
 }
 
 BaseData* DataManager::decipherData(const string &value) const
@@ -84,6 +165,21 @@ BaseData* DataManager::decipherData(const string &value) const
   return nullptr;
 }
 
+vector<BaseData*> DataManager::decipherDataList(const string &value) const
+{
+  vector<BaseData*> result;
+  auto args = SHUtil::split(value, '.');
+  if (args.size() == 1) {
+    if (p_tempDataListMap.count(value)) {
+      result = p_tempDataListMap.at(value);
+    }
+  } else {
+    CCLOGERROR("not define data list value: %s", value.c_str());
+  }
+  
+  return result;
+}
+
 string DataManager::decipherString(const string &value) const
 {
   auto args = SHUtil::split(value, '.');
@@ -98,6 +194,14 @@ string DataManager::decipherString(const string &value) const
         val = p_tempStrMap.at(dataKey);
       } else {
         CCLOGWARN("Temp string doesn't contain this value : %s", dataKey.c_str());
+      }
+    } else if (k == "game") {
+      val = GameData::getSharedInstance()->getFieldValue(args.at(1));
+    } else if (k == "gamedata") {
+      if (args.size() == 4) {
+        val = SHDataManager::getDataField(args.at(1), args.at(2), args.at(3));
+      } else {
+        CCLOGWARN("gamedata string doesn't contain this value : %s", value.c_str());
       }
     } else if (k == "data") {
       auto dataKey = args.at(1);
@@ -127,6 +231,49 @@ string DataManager::decipherString(const string &value) const
         val = getCalculationData(calculationId);
       } else {
         CCLOGWARN("Cannot decipher value : %s", value.c_str());
+      }
+    } else if (k == "list") {
+      auto key = args.at(1);
+      if (p_tempDataListMap.count(key) && args.size() >= 4) {
+        auto list = p_tempDataListMap.at(key);
+        auto index = atoi(args.at(2).c_str());
+        if (list.size() > index) {
+          val = list.at(index)->getFieldValue(args.at(3));
+        } else {
+          val = args.size() > 4 ? args.at(4) : "";
+        }
+      } else {
+        CCLOGWARN("Cannot decipher value : %s", value.c_str());
+      }
+    } else if (k == "map") {
+      auto key = args.at(1);
+      if (p_tempKeyValueMap.count(key) && args.size() > 2) {
+        auto list = p_tempKeyValueMap.at(key);
+        if (args.size() == 3) {
+          auto n = args.at(2);
+          vector<string> res;
+          for (auto p : list) {
+            if (n == "keyList") {
+              res.push_back(p.first);
+            } else if (n == "valueList") {
+              res.push_back(p.second);
+            }
+          }
+          val = SHUtil::to_string(res);
+        } else if (args.size() >= 4) {
+          auto index = atoi(args.at(2).c_str());
+          if (index < list.size()) {
+            auto p = list.at(index);
+            auto n = args.at(3);
+            if (n == "key") {
+              val = p.first;
+            } else if (n == "value") {
+              val = p.second;
+            }
+          } else {
+            val = args.size() > 4 ? args.at(4) : "";
+          }
+        }
       }
     }
   }

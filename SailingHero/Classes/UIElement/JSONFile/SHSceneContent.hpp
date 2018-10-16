@@ -19,6 +19,7 @@ public:
   std::string getBackgroundImage() const;
   std::string getBackgroundMusic() const;
   std::string getInitialEvent() const;
+  std::string getAddOnEvent() const;
   bool isFullScreenCover() const;
   Size getScreenCoverRatio() const;
   

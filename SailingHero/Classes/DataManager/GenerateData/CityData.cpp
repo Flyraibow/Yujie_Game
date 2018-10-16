@@ -116,14 +116,14 @@ void CityData::setCommerce(int commerce)
 	p_commerce = commerce;
 }
 
-int CityData::getMilltary() const
+int CityData::getMilitary() const
 {
-	return p_milltary;
+	return p_military;
 }
 
-void CityData::setMilltary(int milltary)
+void CityData::setMilitary(int military)
 {
-	p_milltary = milltary;
+	p_military = military;
 }
 
 map<string, int> CityData::getGuildShareMap() const
@@ -182,7 +182,7 @@ string CityData::description() const
 	desc += "\tlongitude : " + to_string(p_longitude) + "\n";
 	desc += "\tlatitude : " + to_string(p_latitude) + "\n";
 	desc += "\tcommerce : " + to_string(p_commerce) + "\n";
-	desc += "\tmilltary : " + to_string(p_milltary) + "\n";
+	desc += "\tmilitary : " + to_string(p_military) + "\n";
 	
 	desc += "\tguildShare : " + to_string(p_guildShareMap)+ "\n";
 	desc += "\tcityGoods : " + to_string(p_cityGoodsIdVector) + "\n";
@@ -212,7 +212,7 @@ const map<int, CityData*>* CityData::getSharedDictionary()
 				cityData->p_longitude = buffer->getDouble();
 				cityData->p_latitude = buffer->getDouble();
 				cityData->p_commerce = buffer->getInt();
-				cityData->p_milltary = buffer->getInt();
+				cityData->p_military = buffer->getInt();
 				auto guildShareCount = buffer->getLong();
 				for (int j = 0; j < guildShareCount; ++j) {
 					auto key = buffer->getString();
@@ -267,8 +267,8 @@ bool CityData::saveData(const string & path)
 		buffer->putString(to_string(data->p_backGroundId));
 		buffer->putString("p_commerce");
 		buffer->putString(to_string(data->p_commerce));
-		buffer->putString("p_milltary");
-		buffer->putString(to_string(data->p_milltary));
+		buffer->putString("p_military");
+		buffer->putString(to_string(data->p_military));
 		buffer->putString("p_guildShareMap");
 		buffer->putString(to_string(data->p_guildShareMap));
 		buffer->putString("p_buildingIdSet");
@@ -306,8 +306,8 @@ bool CityData::loadData(const string & path)
 						data->p_backGroundId = value;
 					} else if (key == "p_commerce") {
 						data->p_commerce = atoi(value.c_str());
-					} else if (key == "p_milltary") {
-						data->p_milltary = atoi(value.c_str());
+					} else if (key == "p_military") {
+						data->p_military = atoi(value.c_str());
 					} else if (key == "p_guildShareMap") {
 						map<string, int> guildShareMap;
 						auto guildShareList = atomap(value);
@@ -348,8 +348,8 @@ void CityData::setFieldValue(const string & fieldName, const string & value)
 		this->setBackGroundId(value);
 	} else if (fieldName == "commerce") {
 		this->setCommerce(atoi(value.c_str()));
-	} else if (fieldName == "milltary") {
-		this->setMilltary(atoi(value.c_str()));
+	} else if (fieldName == "military") {
+		this->setMilitary(atoi(value.c_str()));
 	} else if (fieldName == "guildShare") {
 		map<string, int> guildShareMap;
 		auto guildShareList = atomap(value);
@@ -384,8 +384,8 @@ string CityData::getFieldValue(const string & fieldName)
 		return to_string(this->getLatitude());
 	} else if (fieldName == "commerce") {
 		return to_string(this->getCommerce());
-	} else if (fieldName == "milltary") {
-		return to_string(this->getMilltary());
+	} else if (fieldName == "military") {
+		return to_string(this->getMilitary());
 	} else if (fieldName == "guildShare") {
 		return to_string(this->getGuildShareMap());
 	} else if (fieldName == "cityGoods") {

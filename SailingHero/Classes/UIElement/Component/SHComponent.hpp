@@ -28,11 +28,15 @@ protected:
   string p_type;
   string p_id;
   bool p_isAutoScale;
+  bool p_isParentScale;
   Vec2 p_normalizePosition;
+  vector<string> p_normalizePositionStr;
   Vec2 p_anchorPoint;
+  vector<string> p_anchorPointStr;
   nlohmann::json p_size;
   Node* p_node;
   float p_scale;
+  bool p_isFullScreen;
   
   vector<SHComponent *> p_componentList;
   Size getComponentSize(Node *parent) const;
@@ -50,6 +54,8 @@ public:
    */
   static SHComponent* getComponentFromJson(const nlohmann::json &componentJson);
   static vector<SHComponent *> getComponentsFromJson(const nlohmann::json &componentJson);
+
+  virtual void copyAttributesFromJson(const nlohmann::json &componentJson);
 };
 
 #endif /* SHComponent_hpp */

@@ -92,3 +92,15 @@ bool SHUtil::getBoolFromJson(const nlohmann::json &json, const std::string &fiel
   }
   return defaultValue;
 }
+
+std::vector<std::string> SHUtil::getStringListFromJson(const nlohmann::json &json, const std::string &field)
+{
+  std::vector<std::string> defaultValue;
+  if (json.count(field)) {
+    auto vec = json.at(field);
+    for (auto content : vec) {
+      defaultValue.push_back(content.get<std::string>());
+    }
+  }
+  return defaultValue;
+}

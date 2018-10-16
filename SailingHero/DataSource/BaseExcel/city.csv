@@ -1,4 +1,4 @@
-﻿cityId,cityName,area,culture,cityStatus,backGround,cityType,longitude,latitude,commerce,milltary,guildShare,cityGoods,building
+﻿cityId,cityName,area,culture,cityStatus,backGround,cityType,longitude,latitude,commerce,military,guildShare,cityGoods,building
 id,language,friend_id,friend_id,friend_id,friend_id,friend_id,double,double,int,int,friend_id_map,friend_id_vector,friend_id_set
 int,chinese,Area,Culture,CityStatus,TownPhoto,CityType,-,-,-,-,Guild;int,CityGoods,CityBuilding
 writable,Y,N,N,Y,Y,N,N,N,Y,Y,Y,N,Y

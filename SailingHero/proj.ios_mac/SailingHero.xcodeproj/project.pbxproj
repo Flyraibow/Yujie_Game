@@ -61,8 +61,6 @@
 		EC2000CF21522A7B00308FDA /* EventManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2000CC21522A7B00308FDA /* EventManager.cpp */; };
 		EC2655F02150B19D00B8A025 /* SHSceneContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2655EE2150B19D00B8A025 /* SHSceneContent.cpp */; };
 		EC2655F12150B19D00B8A025 /* SHSceneContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2655EE2150B19D00B8A025 /* SHSceneContent.cpp */; };
-		EC2655F52150CDB200B8A025 /* TestJsonScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2655F32150CDB200B8A025 /* TestJsonScene.cpp */; };
-		EC2655F62150CDB200B8A025 /* TestJsonScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2655F32150CDB200B8A025 /* TestJsonScene.cpp */; };
 		EC3B738521576B1C00059F91 /* SHLabelComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3B738221576B1C00059F91 /* SHLabelComponent.cpp */; };
 		EC3B738621576B1C00059F91 /* SHLabelComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3B738221576B1C00059F91 /* SHLabelComponent.cpp */; };
 		EC3B738721576B1C00059F91 /* SHComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3B738321576B1C00059F91 /* SHComponent.cpp */; };
@@ -71,20 +69,10 @@
 		EC3B73902157733C00059F91 /* SHButtonComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3B738D2157733C00059F91 /* SHButtonComponent.cpp */; };
 		EC3D03C621549E1A0065E585 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3D03C521549E190065E585 /* SceneManager.cpp */; };
 		EC3D03C721549E1A0065E585 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3D03C521549E190065E585 /* SceneManager.cpp */; };
-		EC828792210D74D10041497C /* SailingHeroMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828791210D74D10041497C /* SailingHeroMenu.cpp */; };
-		EC828793210D74D10041497C /* SailingHeroMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828791210D74D10041497C /* SailingHeroMenu.cpp */; };
-		EC8287AA210D75060041497C /* CitySceneFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828797210D75050041497C /* CitySceneFrame.cpp */; };
-		EC8287AB210D75060041497C /* CitySceneFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828797210D75050041497C /* CitySceneFrame.cpp */; };
 		EC8287AC210D75060041497C /* HeroSelectingFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82879A210D75050041497C /* HeroSelectingFrame.cpp */; };
 		EC8287AD210D75060041497C /* HeroSelectingFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82879A210D75050041497C /* HeroSelectingFrame.cpp */; };
-		EC8287AE210D75060041497C /* MoneyFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82879C210D75050041497C /* MoneyFrame.cpp */; };
-		EC8287AF210D75060041497C /* MoneyFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82879C210D75050041497C /* MoneyFrame.cpp */; };
 		EC8287B0210D75060041497C /* DialogFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82879D210D75050041497C /* DialogFrame.cpp */; };
 		EC8287B1210D75060041497C /* DialogFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82879D210D75050041497C /* DialogFrame.cpp */; };
-		EC8287B2210D75060041497C /* SystemBarFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82879E210D75050041497C /* SystemBarFrame.cpp */; };
-		EC8287B3210D75060041497C /* SystemBarFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82879E210D75050041497C /* SystemBarFrame.cpp */; };
-		EC8287B4210D75060041497C /* CityBuildingFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82879F210D75050041497C /* CityBuildingFrame.cpp */; };
-		EC8287B5210D75060041497C /* CityBuildingFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82879F210D75050041497C /* CityBuildingFrame.cpp */; };
 		EC8287B6210D75060041497C /* DialogPhotoFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287A1210D75060041497C /* DialogPhotoFrame.cpp */; };
 		EC8287B7210D75060041497C /* DialogPhotoFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287A1210D75060041497C /* DialogPhotoFrame.cpp */; };
 		EC8287B8210D75060041497C /* MultiSelectionFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8287A3210D75060041497C /* MultiSelectionFrame.cpp */; };
@@ -159,8 +147,6 @@
 		EC82884C210D75AC0041497C /* SelectHeroDisplayScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828847210D75AB0041497C /* SelectHeroDisplayScene.cpp */; };
 		EC82884D210D75AC0041497C /* SelectHeroMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828848210D75AB0041497C /* SelectHeroMenuScene.cpp */; };
 		EC82884E210D75AC0041497C /* SelectHeroMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828848210D75AB0041497C /* SelectHeroMenuScene.cpp */; };
-		EC82884F210D75AC0041497C /* CityScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828849210D75AB0041497C /* CityScene.cpp */; };
-		EC828850210D75AC0041497C /* CityScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC828849210D75AB0041497C /* CityScene.cpp */; };
 		EC828856210D76450041497C /* res in Resources */ = {isa = PBXBuildFile; fileRef = EC828855210D76450041497C /* res */; };
 		EC828857210D76450041497C /* res in Resources */ = {isa = PBXBuildFile; fileRef = EC828855210D76450041497C /* res */; };
 		EC828859210D76E70041497C /* title.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EC828858210D76E70041497C /* title.mp3 */; };
@@ -199,10 +185,14 @@
 		EC9C323021704D3B003A61DE /* ConditionCalculationData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC9C322D21704D3A003A61DE /* ConditionCalculationData.cpp */; };
 		EC9C323221704D61003A61DE /* FunctionCalculationData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC9C323121704D61003A61DE /* FunctionCalculationData.cpp */; };
 		EC9C323321704D61003A61DE /* FunctionCalculationData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC9C323121704D61003A61DE /* FunctionCalculationData.cpp */; };
+		EC9C32362174577E003A61DE /* SHPanelComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC9C32342174577E003A61DE /* SHPanelComponent.cpp */; };
+		EC9C32372174577E003A61DE /* SHPanelComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC9C32342174577E003A61DE /* SHPanelComponent.cpp */; };
 		ECAF6F37211D3E2200BAF207 /* TradeInfoFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECAF6F36211D3E2200BAF207 /* TradeInfoFrame.cpp */; };
 		ECAF6F38211D3E2200BAF207 /* TradeInfoFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECAF6F36211D3E2200BAF207 /* TradeInfoFrame.cpp */; };
 		ECAF6F3B21228EB500BAF207 /* StoryScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECAF6F3921228EB400BAF207 /* StoryScene.cpp */; };
 		ECAF6F3C21228EB500BAF207 /* StoryScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECAF6F3921228EB400BAF207 /* StoryScene.cpp */; };
+		ECC4EB8B2175AD7F00FA0EDF /* SHListComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECC4EB892175AD7F00FA0EDF /* SHListComponent.cpp */; };
+		ECC4EB8C2175AD7F00FA0EDF /* SHListComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECC4EB892175AD7F00FA0EDF /* SHListComponent.cpp */; };
 		ECCE0269215C50A700F1AF96 /* SHPanelContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE0267215C50A700F1AF96 /* SHPanelContent.cpp */; };
 		ECCE026A215C50A700F1AF96 /* SHPanelContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE0267215C50A700F1AF96 /* SHPanelContent.cpp */; };
 		ECCE0276215C649800F1AF96 /* SHJSONContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCE0274215C649800F1AF96 /* SHJSONContent.cpp */; };
@@ -320,8 +310,6 @@
 		EC2655EE2150B19D00B8A025 /* SHSceneContent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHSceneContent.cpp; sourceTree = "<group>"; };
 		EC2655EF2150B19D00B8A025 /* SHSceneContent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHSceneContent.hpp; sourceTree = "<group>"; };
 		EC2655F22150B24400B8A025 /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
-		EC2655F32150CDB200B8A025 /* TestJsonScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TestJsonScene.cpp; sourceTree = "<group>"; };
-		EC2655F42150CDB200B8A025 /* TestJsonScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TestJsonScene.hpp; sourceTree = "<group>"; };
 		EC3B738121576B1C00059F91 /* SHLabelComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SHLabelComponent.hpp; sourceTree = "<group>"; };
 		EC3B738221576B1C00059F91 /* SHLabelComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SHLabelComponent.cpp; sourceTree = "<group>"; };
 		EC3B738321576B1C00059F91 /* SHComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SHComponent.cpp; sourceTree = "<group>"; };
@@ -330,25 +318,15 @@
 		EC3B738E2157733C00059F91 /* SHButtonComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SHButtonComponent.hpp; sourceTree = "<group>"; };
 		EC3D03C421549E190065E585 /* SceneManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SceneManager.hpp; sourceTree = "<group>"; };
 		EC3D03C521549E190065E585 /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
-		EC828790210D74D10041497C /* SailingHeroMenu.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SailingHeroMenu.hpp; sourceTree = "<group>"; };
-		EC828791210D74D10041497C /* SailingHeroMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SailingHeroMenu.cpp; sourceTree = "<group>"; };
 		EC828794210D75040041497C /* CityDataFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CityDataFrame.hpp; sourceTree = "<group>"; };
 		EC828796210D75050041497C /* MultiSelectionFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MultiSelectionFrame.hpp; sourceTree = "<group>"; };
-		EC828797210D75050041497C /* CitySceneFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CitySceneFrame.cpp; sourceTree = "<group>"; };
 		EC828798210D75050041497C /* DialogFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DialogFrame.hpp; sourceTree = "<group>"; };
-		EC828799210D75050041497C /* CityBuildingFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CityBuildingFrame.hpp; sourceTree = "<group>"; };
 		EC82879A210D75050041497C /* HeroSelectingFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeroSelectingFrame.cpp; sourceTree = "<group>"; };
-		EC82879B210D75050041497C /* MoneyFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MoneyFrame.hpp; sourceTree = "<group>"; };
-		EC82879C210D75050041497C /* MoneyFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MoneyFrame.cpp; sourceTree = "<group>"; };
 		EC82879D210D75050041497C /* DialogFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DialogFrame.cpp; sourceTree = "<group>"; };
-		EC82879E210D75050041497C /* SystemBarFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SystemBarFrame.cpp; sourceTree = "<group>"; };
-		EC82879F210D75050041497C /* CityBuildingFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CityBuildingFrame.cpp; sourceTree = "<group>"; };
 		EC8287A0210D75050041497C /* HeroSelectingFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = HeroSelectingFrame.hpp; sourceTree = "<group>"; };
 		EC8287A1210D75060041497C /* DialogPhotoFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DialogPhotoFrame.cpp; sourceTree = "<group>"; };
 		EC8287A2210D75060041497C /* DialogPhotoFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DialogPhotoFrame.hpp; sourceTree = "<group>"; };
 		EC8287A3210D75060041497C /* MultiSelectionFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MultiSelectionFrame.cpp; sourceTree = "<group>"; };
-		EC8287A4210D75060041497C /* CitySceneFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CitySceneFrame.hpp; sourceTree = "<group>"; };
-		EC8287A5210D75060041497C /* SystemBarFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SystemBarFrame.hpp; sourceTree = "<group>"; };
 		EC8287A6210D75060041497C /* CityDataFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CityDataFrame.cpp; sourceTree = "<group>"; };
 		EC8287BC210D75300041497C /* SHColorNode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SHColorNode.hpp; sourceTree = "<group>"; };
 		EC8287BD210D75300041497C /* SHColorNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SHColorNode.cpp; sourceTree = "<group>"; };
@@ -415,11 +393,9 @@
 		EC82883A210D759C0041497C /* SHCityDataHelper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SHCityDataHelper.hpp; sourceTree = "<group>"; };
 		EC82883B210D759C0041497C /* Utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Utils.cpp; sourceTree = "<group>"; };
 		EC82883C210D759C0041497C /* Utils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Utils.hpp; sourceTree = "<group>"; };
-		EC828845210D75AB0041497C /* CityScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CityScene.hpp; sourceTree = "<group>"; };
 		EC828846210D75AB0041497C /* SelectHeroDisplayScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SelectHeroDisplayScene.hpp; sourceTree = "<group>"; };
 		EC828847210D75AB0041497C /* SelectHeroDisplayScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectHeroDisplayScene.cpp; sourceTree = "<group>"; };
 		EC828848210D75AB0041497C /* SelectHeroMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectHeroMenuScene.cpp; sourceTree = "<group>"; };
-		EC828849210D75AB0041497C /* CityScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CityScene.cpp; sourceTree = "<group>"; };
 		EC82884A210D75AB0041497C /* SelectHeroMenuScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SelectHeroMenuScene.hpp; sourceTree = "<group>"; };
 		EC828855210D76450041497C /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		EC828858210D76E70041497C /* title.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = title.mp3; sourceTree = "<group>"; };
@@ -457,10 +433,14 @@
 		EC9C322D21704D3A003A61DE /* ConditionCalculationData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ConditionCalculationData.cpp; path = GenerateData/ConditionCalculationData.cpp; sourceTree = "<group>"; };
 		EC9C322E21704D3A003A61DE /* ConditionCalculationData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ConditionCalculationData.hpp; path = GenerateData/ConditionCalculationData.hpp; sourceTree = "<group>"; };
 		EC9C323121704D61003A61DE /* FunctionCalculationData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FunctionCalculationData.cpp; path = GenerateData/FunctionCalculationData.cpp; sourceTree = "<group>"; };
+		EC9C32342174577E003A61DE /* SHPanelComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHPanelComponent.cpp; sourceTree = "<group>"; };
+		EC9C32352174577E003A61DE /* SHPanelComponent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHPanelComponent.hpp; sourceTree = "<group>"; };
 		ECAF6F35211D3E2200BAF207 /* TradeInfoFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TradeInfoFrame.hpp; sourceTree = "<group>"; };
 		ECAF6F36211D3E2200BAF207 /* TradeInfoFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TradeInfoFrame.cpp; sourceTree = "<group>"; };
 		ECAF6F3921228EB400BAF207 /* StoryScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StoryScene.cpp; sourceTree = "<group>"; };
 		ECAF6F3A21228EB400BAF207 /* StoryScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StoryScene.hpp; sourceTree = "<group>"; };
+		ECC4EB892175AD7F00FA0EDF /* SHListComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHListComponent.cpp; sourceTree = "<group>"; };
+		ECC4EB8A2175AD7F00FA0EDF /* SHListComponent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHListComponent.hpp; sourceTree = "<group>"; };
 		ECCE0267215C50A700F1AF96 /* SHPanelContent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHPanelContent.cpp; sourceTree = "<group>"; };
 		ECCE0268215C50A700F1AF96 /* SHPanelContent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SHPanelContent.hpp; sourceTree = "<group>"; };
 		ECCE0274215C649800F1AF96 /* SHJSONContent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHJSONContent.cpp; sourceTree = "<group>"; };
@@ -688,6 +668,10 @@
 				ECCE0285215C92B400F1AF96 /* SHColorNodeComponent.hpp */,
 				ECCE0288215CA97800F1AF96 /* SHEditBoxComponent.cpp */,
 				ECCE0289215CA97800F1AF96 /* SHEditBoxComponent.hpp */,
+				EC9C32342174577E003A61DE /* SHPanelComponent.cpp */,
+				EC9C32352174577E003A61DE /* SHPanelComponent.hpp */,
+				ECC4EB892175AD7F00FA0EDF /* SHListComponent.cpp */,
+				ECC4EB8A2175AD7F00FA0EDF /* SHListComponent.hpp */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -695,10 +679,6 @@
 		EC72726F20F7D00F005BD63D /* SceneUI */ = {
 			isa = PBXGroup;
 			children = (
-				EC828791210D74D10041497C /* SailingHeroMenu.cpp */,
-				EC828790210D74D10041497C /* SailingHeroMenu.hpp */,
-				EC828849210D75AB0041497C /* CityScene.cpp */,
-				EC828845210D75AB0041497C /* CityScene.hpp */,
 				EC828848210D75AB0041497C /* SelectHeroMenuScene.cpp */,
 				EC82884A210D75AB0041497C /* SelectHeroMenuScene.hpp */,
 				EC828847210D75AB0041497C /* SelectHeroDisplayScene.cpp */,
@@ -709,8 +689,6 @@
 				ECAF6F3A21228EB400BAF207 /* StoryScene.hpp */,
 				EC9265472123F41D00EE2D7A /* TestScene.cpp */,
 				EC9265462123F41D00EE2D7A /* TestScene.hpp */,
-				EC2655F32150CDB200B8A025 /* TestJsonScene.cpp */,
-				EC2655F42150CDB200B8A025 /* TestJsonScene.hpp */,
 			);
 			path = SceneUI;
 			sourceTree = "<group>";
@@ -720,24 +698,16 @@
 			children = (
 				EC923EB4212551B2005EB97D /* SHBaseFrame.cpp */,
 				EC923EB3212551B2005EB97D /* SHBaseFrame.hpp */,
-				EC82879F210D75050041497C /* CityBuildingFrame.cpp */,
-				EC828799210D75050041497C /* CityBuildingFrame.hpp */,
 				EC8287A6210D75060041497C /* CityDataFrame.cpp */,
 				EC828794210D75040041497C /* CityDataFrame.hpp */,
-				EC828797210D75050041497C /* CitySceneFrame.cpp */,
-				EC8287A4210D75060041497C /* CitySceneFrame.hpp */,
 				EC82879D210D75050041497C /* DialogFrame.cpp */,
 				EC828798210D75050041497C /* DialogFrame.hpp */,
 				EC8287A1210D75060041497C /* DialogPhotoFrame.cpp */,
 				EC8287A2210D75060041497C /* DialogPhotoFrame.hpp */,
 				EC82879A210D75050041497C /* HeroSelectingFrame.cpp */,
 				EC8287A0210D75050041497C /* HeroSelectingFrame.hpp */,
-				EC82879C210D75050041497C /* MoneyFrame.cpp */,
-				EC82879B210D75050041497C /* MoneyFrame.hpp */,
 				EC8287A3210D75060041497C /* MultiSelectionFrame.cpp */,
 				EC828796210D75050041497C /* MultiSelectionFrame.hpp */,
-				EC82879E210D75050041497C /* SystemBarFrame.cpp */,
-				EC8287A5210D75060041497C /* SystemBarFrame.hpp */,
 				EC82887E211B620A0041497C /* SailMapFrame.cpp */,
 				EC82887F211B620A0041497C /* SailMapFrame.hpp */,
 				EC82888A211B6A1D0041497C /* DateFrame.cpp */,
@@ -1059,10 +1029,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC8287C6210D75300041497C /* SHScene.cpp in Sources */,
-				EC828792210D74D10041497C /* SailingHeroMenu.cpp in Sources */,
 				1AF87B781F6F77F7007BE51C /* AppController.mm in Sources */,
 				EC828869211629490041497C /* ShipData.cpp in Sources */,
 				ECCE0296215DE2E400F1AF96 /* SHInputPanel.cpp in Sources */,
+				EC9C32362174577E003A61DE /* SHPanelComponent.cpp in Sources */,
 				EC82882A210D758C0041497C /* HeroData.cpp in Sources */,
 				EC828812210D758C0041497C /* CityStatusData.cpp in Sources */,
 				ECCE0286215C92B400F1AF96 /* SHColorNodeComponent.cpp in Sources */,
@@ -1076,7 +1046,6 @@
 				EC828826210D758C0041497C /* GuildData.cpp in Sources */,
 				EC828814210D758C0041497C /* GameData.cpp in Sources */,
 				EC923EB5212551B2005EB97D /* SHBaseFrame.cpp in Sources */,
-				EC2655F52150CDB200B8A025 /* TestJsonScene.cpp in Sources */,
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
 				EC2655F02150B19D00B8A025 /* SHSceneContent.cpp in Sources */,
 				ECCE029B2165E0DF00F1AF96 /* DataManager.cpp in Sources */,
@@ -1093,7 +1062,6 @@
 				EC828822210D758C0041497C /* CityData.cpp in Sources */,
 				ECCE0292215DDF4C00F1AF96 /* SHPanel.cpp in Sources */,
 				EC82880A210D758C0041497C /* AbilityData.cpp in Sources */,
-				EC82884F210D75AC0041497C /* CityScene.cpp in Sources */,
 				EC828808210D758C0041497C /* TownPhotoData.cpp in Sources */,
 				ECCE027E215C81CE00F1AF96 /* JsonUtil.cpp in Sources */,
 				EC82888C211B6A1D0041497C /* DateFrame.cpp in Sources */,
@@ -1104,7 +1072,6 @@
 				EC2000C8215229E000308FDA /* ConditionData.cpp in Sources */,
 				EC828890211B6F360041497C /* AreaMapFrame.cpp in Sources */,
 				ECAF6F3B21228EB500BAF207 /* StoryScene.cpp in Sources */,
-				EC8287B4210D75060041497C /* CityBuildingFrame.cpp in Sources */,
 				EC828816210D758C0041497C /* GenderData.cpp in Sources */,
 				EC8287C2210D75300041497C /* SHColorNode.cpp in Sources */,
 				EC82887C211B61790041497C /* AreaData.cpp in Sources */,
@@ -1122,7 +1089,6 @@
 				EC9265482123F41E00EE2D7A /* TestScene.cpp in Sources */,
 				EC82887421169DE30041497C /* GoodsBasePriceData.cpp in Sources */,
 				EC82880C210D758C0041497C /* ZodiacData.cpp in Sources */,
-				EC8287AE210D75060041497C /* MoneyFrame.cpp in Sources */,
 				EC828867211629490041497C /* ShipTeamData.cpp in Sources */,
 				EC828806210D758C0041497C /* CityGoodsData.cpp in Sources */,
 				EC3D03C621549E1A0065E585 /* SceneManager.cpp in Sources */,
@@ -1130,11 +1096,9 @@
 				EC82882E210D758C0041497C /* CityTypeData.cpp in Sources */,
 				EC828820210D758C0041497C /* HeroSelectData.cpp in Sources */,
 				ECCE0276215C649800F1AF96 /* SHJSONContent.cpp in Sources */,
-				EC8287AA210D75060041497C /* CitySceneFrame.cpp in Sources */,
 				ECCE0282215C87BD00F1AF96 /* SHSpriteComponent.cpp in Sources */,
 				EC828863211629490041497C /* ShipStyleData.cpp in Sources */,
 				1AF87B8A1F6F7822007BE51C /* main.m in Sources */,
-				EC8287B2210D75060041497C /* SystemBarFrame.cpp in Sources */,
 				EC82880E210D758C0041497C /* CategoryUpdateData.cpp in Sources */,
 				EC82881C210D758C0041497C /* GoodsData.cpp in Sources */,
 				EC828884211B622F0041497C /* SailMapScene.cpp in Sources */,
@@ -1146,6 +1110,7 @@
 				EC9C322F21704D3B003A61DE /* ConditionCalculationData.cpp in Sources */,
 				EC9C323221704D61003A61DE /* FunctionCalculationData.cpp in Sources */,
 				EC828865211629490041497C /* ShipSizeData.cpp in Sources */,
+				ECC4EB8B2175AD7F00FA0EDF /* SHListComponent.cpp in Sources */,
 				EC828841210D759C0041497C /* SHCityDataHelper.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1161,16 +1126,15 @@
 				EC82880B210D758C0041497C /* AbilityData.cpp in Sources */,
 				EC828842210D759C0041497C /* SHCityDataHelper.cpp in Sources */,
 				EC8287BB210D75060041497C /* CityDataFrame.cpp in Sources */,
-				EC8287B3210D75060041497C /* SystemBarFrame.cpp in Sources */,
 				EC8287AD210D75060041497C /* HeroSelectingFrame.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				EC82888D211B6A1D0041497C /* DateFrame.cpp in Sources */,
+				EC9C32372174577E003A61DE /* SHPanelComponent.cpp in Sources */,
 				EC82882D210D758C0041497C /* DialogData.cpp in Sources */,
 				ECCE0297215DE2E400F1AF96 /* SHInputPanel.cpp in Sources */,
 				ECCE0287215C92B400F1AF96 /* SHColorNodeComponent.cpp in Sources */,
 				EC82887D211B61790041497C /* AreaData.cpp in Sources */,
 				EC82886A211629490041497C /* ShipData.cpp in Sources */,
-				EC8287B5210D75060041497C /* CityBuildingFrame.cpp in Sources */,
 				ECCE0293215DDF4C00F1AF96 /* SHPanel.cpp in Sources */,
 				EC82881B210D758C0041497C /* CityBuildingData.cpp in Sources */,
 				EC82881D210D758C0041497C /* GoodsData.cpp in Sources */,
@@ -1178,7 +1142,6 @@
 				EC3B73902157733C00059F91 /* SHButtonComponent.cpp in Sources */,
 				EC923EB6212551B2005EB97D /* SHBaseFrame.cpp in Sources */,
 				EC82880D210D758C0041497C /* ZodiacData.cpp in Sources */,
-				EC828850210D75AC0041497C /* CityScene.cpp in Sources */,
 				EC82880F210D758C0041497C /* CategoryUpdateData.cpp in Sources */,
 				ECCE027F215C81CE00F1AF96 /* JsonUtil.cpp in Sources */,
 				EC828840210D759C0041497C /* SHGameDataHelper.cpp in Sources */,
@@ -1187,10 +1150,9 @@
 				EC8287D3210D75560041497C /* ByteBuffer.cpp in Sources */,
 				EC82881F210D758C0041497C /* ItemCategoryData.cpp in Sources */,
 				EC828817210D758C0041497C /* GenderData.cpp in Sources */,
-				EC8287AF210D75060041497C /* MoneyFrame.cpp in Sources */,
 				ECCE029C2165E0DF00F1AF96 /* DataManager.cpp in Sources */,
 				EC828821210D758C0041497C /* HeroSelectData.cpp in Sources */,
-				EC8287AB210D75060041497C /* CitySceneFrame.cpp in Sources */,
+				ECC4EB8C2175AD7F00FA0EDF /* SHListComponent.cpp in Sources */,
 				EC82883E210D759C0041497C /* Calendar.cpp in Sources */,
 				EC828868211629490041497C /* ShipTeamData.cpp in Sources */,
 				EC9C323021704D3B003A61DE /* ConditionCalculationData.cpp in Sources */,
@@ -1199,13 +1161,11 @@
 				EC3B738821576B1C00059F91 /* SHComponent.cpp in Sources */,
 				EC82887521169DE30041497C /* GoodsBasePriceData.cpp in Sources */,
 				EC828811210D758C0041497C /* GoodsCategoryData.cpp in Sources */,
-				EC2655F62150CDB200B8A025 /* TestJsonScene.cpp in Sources */,
 				EC8287D1210D75560041497C /* LocalizationHelper.cpp in Sources */,
 				EC828881211B620A0041497C /* SailMapFrame.cpp in Sources */,
 				EC8287C3210D75300041497C /* SHColorNode.cpp in Sources */,
 				ECCE028F215DDEDA00F1AF96 /* PanelManager.cpp in Sources */,
 				ECCE0283215C87BD00F1AF96 /* SHSpriteComponent.cpp in Sources */,
-				EC828793210D74D10041497C /* SailingHeroMenu.cpp in Sources */,
 				EC828815210D758C0041497C /* GameData.cpp in Sources */,
 				EC2000CB215229E000308FDA /* ButtonData.cpp in Sources */,
 				EC828813210D758C0041497C /* CityStatusData.cpp in Sources */,
