@@ -46,7 +46,7 @@ protected:
   ComponentDict p_componentDict;
   std::stack<SHPanel *> p_panelStack;
   
-  SHSceneContent* initSceneWithJson(const std::string &jsonFileName);
+  void initSceneWithJson(const std::string &jsonFileName);
   
 public:
   static SHScene* createScene(const string &jsonFile);

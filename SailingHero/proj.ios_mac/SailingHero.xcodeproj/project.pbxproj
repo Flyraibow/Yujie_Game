@@ -181,6 +181,12 @@
 		EC923EB6212551B2005EB97D /* SHBaseFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC923EB4212551B2005EB97D /* SHBaseFrame.cpp */; };
 		EC9265482123F41E00EE2D7A /* TestScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC9265472123F41D00EE2D7A /* TestScene.cpp */; };
 		EC9265492123F41E00EE2D7A /* TestScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC9265472123F41D00EE2D7A /* TestScene.cpp */; };
+		EC93C1F3217A538C00248925 /* StoryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC93C1F2217A538C00248925 /* StoryData.cpp */; };
+		EC93C1F4217A538C00248925 /* StoryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC93C1F2217A538C00248925 /* StoryData.cpp */; };
+		EC93C1F7217A576B00248925 /* StoryEventData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC93C1F5217A576A00248925 /* StoryEventData.cpp */; };
+		EC93C1F8217A576B00248925 /* StoryEventData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC93C1F5217A576A00248925 /* StoryEventData.cpp */; };
+		EC93C1FB217A579C00248925 /* StoryManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC93C1F9217A579C00248925 /* StoryManager.cpp */; };
+		EC93C1FC217A579C00248925 /* StoryManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC93C1F9217A579C00248925 /* StoryManager.cpp */; };
 		EC9C322F21704D3B003A61DE /* ConditionCalculationData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC9C322D21704D3A003A61DE /* ConditionCalculationData.cpp */; };
 		EC9C323021704D3B003A61DE /* ConditionCalculationData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC9C322D21704D3A003A61DE /* ConditionCalculationData.cpp */; };
 		EC9C323221704D61003A61DE /* FunctionCalculationData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC9C323121704D61003A61DE /* FunctionCalculationData.cpp */; };
@@ -429,6 +435,12 @@
 		EC923EB4212551B2005EB97D /* SHBaseFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SHBaseFrame.cpp; sourceTree = "<group>"; };
 		EC9265462123F41D00EE2D7A /* TestScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TestScene.hpp; sourceTree = "<group>"; };
 		EC9265472123F41D00EE2D7A /* TestScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScene.cpp; sourceTree = "<group>"; };
+		EC93C1F0217A538B00248925 /* StoryData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = StoryData.hpp; path = GenerateData/StoryData.hpp; sourceTree = "<group>"; };
+		EC93C1F2217A538C00248925 /* StoryData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StoryData.cpp; path = GenerateData/StoryData.cpp; sourceTree = "<group>"; };
+		EC93C1F5217A576A00248925 /* StoryEventData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StoryEventData.cpp; path = GenerateData/StoryEventData.cpp; sourceTree = "<group>"; };
+		EC93C1F6217A576A00248925 /* StoryEventData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = StoryEventData.hpp; path = GenerateData/StoryEventData.hpp; sourceTree = "<group>"; };
+		EC93C1F9217A579C00248925 /* StoryManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StoryManager.cpp; sourceTree = "<group>"; };
+		EC93C1FA217A579C00248925 /* StoryManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StoryManager.hpp; sourceTree = "<group>"; };
 		EC9C322B21704D3A003A61DE /* FunctionCalculationData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = FunctionCalculationData.hpp; path = GenerateData/FunctionCalculationData.hpp; sourceTree = "<group>"; };
 		EC9C322D21704D3A003A61DE /* ConditionCalculationData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ConditionCalculationData.cpp; path = GenerateData/ConditionCalculationData.cpp; sourceTree = "<group>"; };
 		EC9C322E21704D3A003A61DE /* ConditionCalculationData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ConditionCalculationData.hpp; path = GenerateData/ConditionCalculationData.hpp; sourceTree = "<group>"; };
@@ -649,6 +661,8 @@
 				ECCE028D215DDEDA00F1AF96 /* PanelManager.hpp */,
 				ECCE02992165E0DF00F1AF96 /* DataManager.cpp */,
 				ECCE029A2165E0DF00F1AF96 /* DataManager.hpp */,
+				EC93C1F9217A579C00248925 /* StoryManager.cpp */,
+				EC93C1FA217A579C00248925 /* StoryManager.hpp */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -783,6 +797,10 @@
 		ECD52B1F20BFB05A000F7170 /* GenerateData */ = {
 			isa = PBXGroup;
 			children = (
+				EC93C1F5217A576A00248925 /* StoryEventData.cpp */,
+				EC93C1F6217A576A00248925 /* StoryEventData.hpp */,
+				EC93C1F2217A538C00248925 /* StoryData.cpp */,
+				EC93C1F0217A538B00248925 /* StoryData.hpp */,
 				EC9C322D21704D3A003A61DE /* ConditionCalculationData.cpp */,
 				EC9C322E21704D3A003A61DE /* ConditionCalculationData.hpp */,
 				EC9C322B21704D3A003A61DE /* FunctionCalculationData.hpp */,
@@ -1046,6 +1064,7 @@
 				EC828826210D758C0041497C /* GuildData.cpp in Sources */,
 				EC828814210D758C0041497C /* GameData.cpp in Sources */,
 				EC923EB5212551B2005EB97D /* SHBaseFrame.cpp in Sources */,
+				EC93C1F7217A576B00248925 /* StoryEventData.cpp in Sources */,
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
 				EC2655F02150B19D00B8A025 /* SHSceneContent.cpp in Sources */,
 				ECCE029B2165E0DF00F1AF96 /* DataManager.cpp in Sources */,
@@ -1055,6 +1074,7 @@
 				EC828828210D758C0041497C /* CultureData.cpp in Sources */,
 				EC2000C6215229E000308FDA /* EventData.cpp in Sources */,
 				ECAF6F37211D3E2200BAF207 /* TradeInfoFrame.cpp in Sources */,
+				EC93C1FB217A579C00248925 /* StoryManager.cpp in Sources */,
 				EC8288782117CDE80041497C /* GoodsPricePercentData.cpp in Sources */,
 				EC828843210D759C0041497C /* Utils.cpp in Sources */,
 				EC82884B210D75AC0041497C /* SelectHeroDisplayScene.cpp in Sources */,
@@ -1110,6 +1130,7 @@
 				EC9C322F21704D3B003A61DE /* ConditionCalculationData.cpp in Sources */,
 				EC9C323221704D61003A61DE /* FunctionCalculationData.cpp in Sources */,
 				EC828865211629490041497C /* ShipSizeData.cpp in Sources */,
+				EC93C1F3217A538C00248925 /* StoryData.cpp in Sources */,
 				ECC4EB8B2175AD7F00FA0EDF /* SHListComponent.cpp in Sources */,
 				EC828841210D759C0041497C /* SHCityDataHelper.cpp in Sources */,
 			);
@@ -1147,6 +1168,7 @@
 				EC828840210D759C0041497C /* SHGameDataHelper.cpp in Sources */,
 				EC828891211B6F360041497C /* AreaMapFrame.cpp in Sources */,
 				EC828866211629490041497C /* ShipSizeData.cpp in Sources */,
+				EC93C1F8217A576B00248925 /* StoryEventData.cpp in Sources */,
 				EC8287D3210D75560041497C /* ByteBuffer.cpp in Sources */,
 				EC82881F210D758C0041497C /* ItemCategoryData.cpp in Sources */,
 				EC828817210D758C0041497C /* GenderData.cpp in Sources */,
@@ -1165,6 +1187,7 @@
 				EC828881211B620A0041497C /* SailMapFrame.cpp in Sources */,
 				EC8287C3210D75300041497C /* SHColorNode.cpp in Sources */,
 				ECCE028F215DDEDA00F1AF96 /* PanelManager.cpp in Sources */,
+				EC93C1FC217A579C00248925 /* StoryManager.cpp in Sources */,
 				ECCE0283215C87BD00F1AF96 /* SHSpriteComponent.cpp in Sources */,
 				EC828815210D758C0041497C /* GameData.cpp in Sources */,
 				EC2000CB215229E000308FDA /* ButtonData.cpp in Sources */,
@@ -1192,6 +1215,7 @@
 				EC828895211B89F00041497C /* AreaMapGoButtonFrame.cpp in Sources */,
 				EC82884C210D75AC0041497C /* SelectHeroDisplayScene.cpp in Sources */,
 				EC2655F12150B19D00B8A025 /* SHSceneContent.cpp in Sources */,
+				EC93C1F4217A538C00248925 /* StoryData.cpp in Sources */,
 				EC828844210D759C0041497C /* Utils.cpp in Sources */,
 				EC828809210D758C0041497C /* TownPhotoData.cpp in Sources */,
 				EC2000C9215229E000308FDA /* ConditionData.cpp in Sources */,

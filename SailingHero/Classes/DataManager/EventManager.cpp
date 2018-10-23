@@ -29,6 +29,7 @@ void EventManager::setCurrentScene(SHScene *scene)
 #include "SystemButton.hpp"
 #include "SceneManager.hpp"
 #include "DataManager.hpp"
+#include "StoryManager.hpp"
 
 void EventManager::runEvent(std::string eventName)
 {
@@ -54,6 +55,8 @@ void EventManager::runEvent(std::string eventName)
     SceneManager::getShareInstance()->addPanel(eventData->getParameters().at(0));
   } else if (eventType == "popPanel") {
     SceneManager::getShareInstance()->popPanel();
+  } else if (eventType == "storyCheck") {
+    StoryManager::getShareInstance()->checkAndStartStory();
   } else if (eventType == "eventList") {
     for (int i = 0; i < eventData->getParameters().size(); ++i) {
       runEvent(eventData->getParameters().at(i));

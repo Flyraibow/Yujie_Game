@@ -71,6 +71,25 @@ void GameData::setGuildId(string guild)
 	p_guildId = guild;
 }
 
+set<StoryData*> GameData::getExperiencedStoriesDataSet() const
+{
+	set<StoryData*> resultSet;
+	for (auto objId : p_experiencedStoriesIdSet) {
+		resultSet.insert(StoryData::getStoryDataById(objId));
+	}
+	return resultSet;
+}
+
+set<string> GameData::getExperiencedStoriesIdSet() const
+{
+	return p_experiencedStoriesIdSet;
+}
+
+void GameData::setExperiencedStoriesIdSet(set<string> experiencedStories)
+{
+	p_experiencedStoriesIdSet = experiencedStories;
+}
+
 string GameData::description() const
 {
 	string desc = "gameData = {\n";
@@ -79,6 +98,7 @@ string GameData::description() const
 	desc += "\tday : " + to_string(p_day) + "\n";
 	desc += "\tcity : " + to_string(p_cityId) + "\n";
 	desc += "\tguild : " + to_string(p_guildId) + "\n";
+	desc += "\texperiencedStories : " + to_string(p_experiencedStoriesIdSet) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -97,6 +117,10 @@ GameData* GameData::getSharedInstance()
 			p_sharedData->p_day = buffer->getInt();
 			p_sharedData->p_cityId = buffer->getString();
 			p_sharedData->p_guildId = buffer->getString();
+			auto experiencedStoriesCount = buffer->getLong();
+			for (int j = 0; j < experiencedStoriesCount; ++j) {
+				p_sharedData->p_experiencedStoriesIdSet.insert(buffer->getString());
+			}
 		}
 	}
 	return p_sharedData;
@@ -107,7 +131,7 @@ bool GameData::saveData(const string & path)
 	auto filePath = path + "/GameData.dat";
 	auto data = GameData::getSharedInstance();
 	auto buffer = std::make_unique<bb::ByteBuffer>();
-	buffer->putInt(5);
+	buffer->putInt(6);
 	buffer->putString("p_year");
 	buffer->putString(to_string(data->p_year));
 	buffer->putString("p_month");
@@ -118,6 +142,8 @@ bool GameData::saveData(const string & path)
 	buffer->putString(to_string(data->p_cityId));
 	buffer->putString("p_guildId");
 	buffer->putString(to_string(data->p_guildId));
+	buffer->putString("p_experiencedStoriesIdSet");
+	buffer->putString(to_string(data->p_experiencedStoriesIdSet));
 	buffer->writeToFile(filePath);
 	return true;
 }
@@ -145,6 +171,8 @@ bool GameData::loadData(const string & path)
 					data->p_cityId = value;
 				} else if (key == "p_guildId") {
 					data->p_guildId = value;
+				} else if (key == "p_experiencedStoriesIdSet") {
+					data->p_experiencedStoriesIdSet = atoset(value);
 				}
 			}
 		}
@@ -173,6 +201,8 @@ void GameData::setFieldValue(const string & fieldName, const string & value)
 		this->setCityId(value);
 	} else if (fieldName == "guild") {
 		this->setGuildId(value);
+	} else if (fieldName == "experiencedStories") {
+		this->setExperiencedStoriesIdSet(atoset(value));
 	}
 }
 
@@ -188,6 +218,8 @@ string GameData::getFieldValue(const string & fieldName)
 		return to_string(this->getCityId());
 	} else if (fieldName == "guild") {
 		return to_string(this->getGuildId());
+	} else if (fieldName == "experiencedStories") {
+		return to_string(this->getExperiencedStoriesIdSet());
 	}
 	CCLOGWARN("Couldn't recognize %s in GameData", fieldName.c_str());
 	return "";

@@ -11,6 +11,7 @@ This file (SHDataManager.hpp) is generated
 #include "GenderData.hpp"
 #include "CultureData.hpp"
 #include "AbilityData.hpp"
+#include "StoryData.hpp"
 #include "CityTypeData.hpp"
 #include "SystemButtonData.hpp"
 #include "ShipTeamData.hpp"
@@ -32,6 +33,7 @@ This file (SHDataManager.hpp) is generated
 #include "CategoryUpdateData.hpp"
 #include "FunctionCalculationData.hpp"
 #include "AreaData.hpp"
+#include "StoryEventData.hpp"
 #include "ShipData.hpp"
 #include "GoodsBasePriceData.hpp"
 #include "GameData.hpp"
@@ -56,6 +58,7 @@ public:
 	static CultureData* getCultureDataById(const string& cutureId);
 	static AbilityData* getAbilityDataById(int abilityId);
 	static AbilityData* getAbilityDataById(const string& abilityId);
+	static StoryData* getStoryDataById(const string& storyId);
 	static CityTypeData* getCityTypeDataById(int cityTypeId);
 	static CityTypeData* getCityTypeDataById(const string& cityTypeId);
 	static SystemButtonData* getSystemButtonDataById(int buttonId);
@@ -92,6 +95,7 @@ public:
 	static FunctionCalculationData* getFunctionCalculationDataById(const string& functionCalculatonId);
 	static AreaData* getAreaDataById(int areaId);
 	static AreaData* getAreaDataById(const string& areaId);
+	static StoryEventData* getStoryEventDataById(const string& storyEventId);
 	static ShipData* getShipDataById(int shipId);
 	static ShipData* getShipDataById(const string& shipId);
 	static GameData* getGameData();

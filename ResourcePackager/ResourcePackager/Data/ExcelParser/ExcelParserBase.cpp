@@ -14,6 +14,7 @@
 #include "ExcelParserFriendIdSet.hpp"
 #include "ExcelParserFriendIdVector.hpp"
 #include "ExcelParserFriendIdMap.hpp"
+#include "ExcelParserMap.hpp"
 #include "Utils.hpp"
 
 ExcelParserBase* ExcelParserBase::createWithSchema(const DataSchema *schema, const string &idSchemaName)
@@ -34,6 +35,8 @@ ExcelParserBase* ExcelParserBase::createWithSchema(const DataSchema *schema, con
       return new ExcelParserFriendIdVector(schema,idSchemaName);
     case FRIEND_ID_MAP:
       return new ExcelParserFriendIdMap(schema, idSchemaName);
+    case MAP:
+      return new ExcelParserMap(schema, idSchemaName);
     default:
       return new ExcelParserBase(schema,idSchemaName);
   }

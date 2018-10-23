@@ -21,7 +21,7 @@ vector<string> utils::split(const string &s, char delim) {
     string item;
     vector<string> tokens;
     while (getline(ss, item, delim)) {
-        tokens.push_back(item);
+      tokens.push_back(item);
     }
     return tokens;
 }

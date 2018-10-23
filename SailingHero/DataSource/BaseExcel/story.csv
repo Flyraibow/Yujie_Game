@@ -1,0 +1,5 @@
+storyId,storyEvent,hero,repeated,priority
+id,friend_id,friend_id,bool,int
+string,StoryEvent,Hero,-,-
+writable,N,N,N,N
+lafeier_story_begin,lafeier_strory_begin_1,0,0,1000

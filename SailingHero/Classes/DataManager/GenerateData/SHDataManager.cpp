@@ -112,6 +112,14 @@ AbilityData* SHDataManager::getAbilityDataById(const string& abilityId)
 	return AbilityData::getAbilityDataById(atoi(abilityId.c_str()));
 }
 
+StoryData* SHDataManager::getStoryDataById(const string& storyId)
+{
+	if (StoryData::getSharedDictionary()->count(storyId)) {
+		return StoryData::getSharedDictionary()->at(storyId);
+	}
+	return nullptr;
+}
+
 CityTypeData* SHDataManager::getCityTypeDataById(int cityTypeId)
 {
 	if (CityTypeData::getSharedDictionary()->count(cityTypeId)) {
@@ -368,6 +376,14 @@ AreaData* SHDataManager::getAreaDataById(const string& areaId)
 	return AreaData::getAreaDataById(atoi(areaId.c_str()));
 }
 
+StoryEventData* SHDataManager::getStoryEventDataById(const string& storyEventId)
+{
+	if (StoryEventData::getSharedDictionary()->count(storyEventId)) {
+		return StoryEventData::getSharedDictionary()->at(storyEventId);
+	}
+	return nullptr;
+}
+
 ShipData* SHDataManager::getShipDataById(int shipId)
 {
 	if (ShipData::getSharedDictionary()->count(shipId)) {
@@ -531,6 +547,8 @@ BaseData * SHDataManager::getData(const string & dataSet, const string & id)
 		return CultureData::getCultureDataById(id);
 	} else if (dataSet == "AbilityData") {
 		return AbilityData::getAbilityDataById(id);
+	} else if (dataSet == "StoryData") {
+		return StoryData::getStoryDataById(id);
 	} else if (dataSet == "CityTypeData") {
 		return CityTypeData::getCityTypeDataById(id);
 	} else if (dataSet == "SystemButtonData") {
@@ -571,6 +589,8 @@ BaseData * SHDataManager::getData(const string & dataSet, const string & id)
 		return FunctionCalculationData::getFunctionCalculationDataById(id);
 	} else if (dataSet == "AreaData") {
 		return AreaData::getAreaDataById(id);
+	} else if (dataSet == "StoryEventData") {
+		return StoryEventData::getStoryEventDataById(id);
 	} else if (dataSet == "ShipData") {
 		return ShipData::getShipDataById(id);
 	} else if (dataSet == "GameData") {

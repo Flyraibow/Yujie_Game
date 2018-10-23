@@ -49,7 +49,7 @@ namespace SHUtil {
   ::std::string to_string(const ::std::map<T, P> &pMap) {
     ::std::string st = "{ ";
     for (auto iter = pMap.begin(); iter != pMap.end(); ++iter) {
-      st += to_string(iter->first) + ":" + ::std::to_string(iter->second) + ",";
+      st += to_string(iter->first) + ":" + to_string(iter->second) + ",";
     }
     st += "}";
     return st;

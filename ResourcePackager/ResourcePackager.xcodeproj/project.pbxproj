@@ -27,6 +27,7 @@
 		ECADF35B20AD4E4E00B77618 /* LanguageWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF35920AD4E4E00B77618 /* LanguageWriter.cpp */; };
 		ECADF35E20AD54C400B77618 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECADF35C20AD54C400B77618 /* Utils.cpp */; };
 		ECBEF12120E497520010A767 /* SaveDataManagerWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBEF11F20E497520010A767 /* SaveDataManagerWriter.cpp */; };
+		ECC4EB93217B8E3400FA0EDF /* ExcelParserMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECC4EB91217B8E3400FA0EDF /* ExcelParserMap.cpp */; };
 		ECD52B2620BFB2FF000F7170 /* CPPFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B2420BFB2FF000F7170 /* CPPFile.cpp */; };
 		ECD52B2A20BFB394000F7170 /* CPPClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B2820BFB394000F7170 /* CPPClass.cpp */; };
 		ECD52B2D20BFB3A4000F7170 /* CPPFunction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD52B2B20BFB3A4000F7170 /* CPPFunction.cpp */; };
@@ -89,6 +90,8 @@
 		ECADF35D20AD54C400B77618 /* Utils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Utils.hpp; sourceTree = "<group>"; };
 		ECBEF11F20E497520010A767 /* SaveDataManagerWriter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SaveDataManagerWriter.cpp; sourceTree = "<group>"; };
 		ECBEF12020E497520010A767 /* SaveDataManagerWriter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SaveDataManagerWriter.hpp; sourceTree = "<group>"; };
+		ECC4EB91217B8E3400FA0EDF /* ExcelParserMap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExcelParserMap.cpp; sourceTree = "<group>"; };
+		ECC4EB92217B8E3400FA0EDF /* ExcelParserMap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ExcelParserMap.hpp; sourceTree = "<group>"; };
 		ECD52B2420BFB2FF000F7170 /* CPPFile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CPPFile.cpp; sourceTree = "<group>"; };
 		ECD52B2520BFB2FF000F7170 /* CPPFile.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CPPFile.hpp; sourceTree = "<group>"; };
 		ECD52B2820BFB394000F7170 /* CPPClass.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CPPClass.cpp; sourceTree = "<group>"; };
@@ -135,6 +138,8 @@
 				EC99853320FDBBDA00338850 /* ExcelParserFriendIdVector.hpp */,
 				ECE1B6ED21001245005807E2 /* ExcelParserFriendIdMap.cpp */,
 				ECE1B6EE21001245005807E2 /* ExcelParserFriendIdMap.hpp */,
+				ECC4EB91217B8E3400FA0EDF /* ExcelParserMap.cpp */,
+				ECC4EB92217B8E3400FA0EDF /* ExcelParserMap.hpp */,
 			);
 			path = ExcelParser;
 			sourceTree = "<group>";
@@ -307,6 +312,7 @@
 				EC99852420FC6C9200338850 /* ExcelParserTranslation.cpp in Sources */,
 				ECADF34E20AD3A8F00B77618 /* ProjectPackagerBase.cpp in Sources */,
 				EC217D8820BCB815000ADDE3 /* ExcelDataIdBasedParser.cpp in Sources */,
+				ECC4EB93217B8E3400FA0EDF /* ExcelParserMap.cpp in Sources */,
 				ECADF35520AD3E6900B77618 /* LanguageData.cpp in Sources */,
 				ECADF34620AD37F900B77618 /* ByteBuffer.cpp in Sources */,
 				ECADF35220AD3D9000B77618 /* DataSchema.cpp in Sources */,

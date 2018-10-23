@@ -10,53 +10,56 @@
 
 SHColorNode * SHColorNode::create(const Color4B& color, GLfloat width, GLfloat height)
 {
-    SHColorNode * layer = new (std::nothrow) SHColorNode();
-    if( layer && layer->initWithColor(color,width,height))
-    {
-        layer->autorelease();
-        return layer;
-    }
-    CC_SAFE_DELETE(layer);
-    return nullptr;
+  SHColorNode * layer = new (std::nothrow) SHColorNode();
+  if( layer && layer->initWithColor(color,width,height))
+  {
+    layer->autorelease();
+    return layer;
+  }
+  CC_SAFE_DELETE(layer);
+  return nullptr;
 }
 
 SHColorNode * SHColorNode::create(const Color4B& color)
 {
-    SHColorNode * layer = new (std::nothrow) SHColorNode();
-    if(layer && layer->initWithColor(color))
-    {
-        layer->autorelease();
-        return layer;
-    }
-    CC_SAFE_DELETE(layer);
-    return nullptr;
+  SHColorNode * layer = new (std::nothrow) SHColorNode();
+  if(layer && layer->initWithColor(color))
+  {
+    layer->autorelease();
+    return layer;
+  }
+  CC_SAFE_DELETE(layer);
+  return nullptr;
 }
 
 bool SHColorNode::init()
 {
-    if (LayerColor::init()) {
-        this->commonInit();
-        return true;
-    }
-    return false;
+  if (LayerColor::init()) {
+    p_color = Color4B();
+    this->commonInit();
+    return true;
+  }
+  return false;
 }
 
 bool SHColorNode::initWithColor(const Color4B& color, GLfloat w, GLfloat h)
 {
-    if(LayerColor::initWithColor(color, w, h)) {
-        this->commonInit();
-        return true;
-    }
-    return false;
+  if(LayerColor::initWithColor(color, w, h)) {
+    p_color = color;
+    this->commonInit();
+    return true;
+  }
+  return false;
 }
 
 bool SHColorNode::initWithColor(const Color4B& color)
 {
-    if ( LayerColor::initWithColor(color)) {
-        this->commonInit();
-        return true;
-    }
-    return false;
+  if ( LayerColor::initWithColor(color)) {
+    p_color = color;
+    this->commonInit();
+    return true;
+  }
+  return false;
 }
 
 void SHColorNode::commonInit()
@@ -74,3 +77,9 @@ void SHColorNode::commonInit()
   };
   this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
 }
+
+void SHColorNode::setColor(const Color4B& color)
+{
+  
+}
+

@@ -161,13 +161,14 @@ void SHScene::addPanelWithParameters(SHPanel *panel)
 
 #include "EventManager.hpp"
 
-SHSceneContent* SHScene::initSceneWithJson(const std::string &jsonFileName)
+void SHScene::initSceneWithJson(const std::string &jsonFileName)
 {
   auto content = new SHSceneContent(jsonFileName);
   EventManager::getShareInstance()->runEvent(content->getInitialEvent());
   auto dataManager = DataManager::getShareInstance();
   setBackgroundMusic(dataManager->decipherString(content->getBackgroundMusic()));
   setBackgroundImage(dataManager->decipherString(content->getBackgroundImage()));
+  
   if (content->isFullScreenCover()) {
     setFullScreenCover();
   } else {
@@ -184,7 +185,7 @@ SHSceneContent* SHScene::initSceneWithJson(const std::string &jsonFileName)
   }
   EventManager::getShareInstance()->runEvent(content->getAddOnEvent());
   
-  return content;
+  delete content;
 }
 
 void SHScene::refreshScene()

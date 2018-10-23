@@ -27,6 +27,7 @@ const static unordered_map<string, DataType> s_type_map({
   {"effect", EFFECT},
   {"string", STRING},
   {"vector", VECTOR},
+  {"map", MAP},
   {"comment", COMMENT},
   {"language", LANGUAGE},
   {"friend_id", FRIEND_ID},
@@ -177,6 +178,21 @@ void DataSchema::addValueIntoBuffer(std::unique_ptr<bb::ByteBuffer> &buffer, con
         auto pairStr = vals.at(k);
         auto pairList = utils::split(pairStr, ',');
         buffer->putString(pairList[0]);
+        addAutoTypeToBuffer(buffer, s_subtype_map.at(valueType), pairList[1]);
+      }
+      break;
+    }
+    case MAP: {
+      auto vals = utils::split(value, ';');
+      auto subValueTypes = utils::split(p_subType, ';');
+      auto keyType = subValueTypes[0];
+      auto valueType = subValueTypes[1];
+      buffer->putLong(vals.size());
+      for (int k = 0; k < vals.size(); ++k) {
+        auto pairStr = vals.at(k);
+        auto pairList = utils::split(pairStr, ':');
+        assert(pairList.size() == 2);
+        addAutoTypeToBuffer(buffer, s_subtype_map.at(keyType), pairList[0]);
         addAutoTypeToBuffer(buffer, s_subtype_map.at(valueType), pairList[1]);
       }
       break;

@@ -24,6 +24,7 @@ enum DataType {
   DOUBLE,
   STRING,
   VECTOR,
+  MAP,
   ICON,
   LANGUAGE,
   MUSIC,
