@@ -430,3 +430,29 @@ string DataManager::getFormatStringFromFunction(FunctionCalculationData *functio
   }
   return val;
 }
+
+#include "DialogData.hpp"
+
+string DataManager::getLocalizedDialogString(const string &dialogId) const
+{
+  auto dialogData = DialogData::getDialogDataById(dialogId);
+  auto content = dialogData->getDialogContent();
+  for (int i = (int)content.size() - 1; i > 0; --i) {
+    char c = content.at(i);
+    if (c == 'n' && content.at(i - 1) == '\\') {
+      content.erase(i, 1);
+      content[--i] = '\n';
+    }
+  }
+  auto parameters = dialogData->getParameters();
+  CCASSERT(parameters.size() <= 3, "Don't support parameters greater than 3");
+  switch (parameters.size()) {
+    case 0: return content;
+    case 1: return SHUtil::format(content.c_str(), decipherString(parameters.at(0)).c_str());
+    case 2: return SHUtil::format(content.c_str(), decipherString(parameters.at(0)).c_str(), decipherString(parameters.at(1)).c_str());
+    default: return SHUtil::format(content.c_str(),
+                                   decipherString(parameters.at(0)).c_str(),
+                                   decipherString(parameters.at(1)).c_str(),
+                                   decipherString(parameters.at(2)).c_str());
+  }
+}

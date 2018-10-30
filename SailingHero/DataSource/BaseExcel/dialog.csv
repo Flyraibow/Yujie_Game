@@ -1,10 +1,11 @@
-﻿dialogId,showFullNames,showImage,heroId,dialogContent,comment
-id,bool,bool,friend_id,language,comment
-string,-,-,Hero,chinese,-
-writable,N,N,N,N,N
-1,0,0,-1,请选择三种熟练的技能,选人界面，提示框
-2,0,0,8,拉斐尔，你对海上的英雄有什么看法？,需要把 拉斐尔替换成变量
-3,1,1,7,乎，来了呀……。,;
-dialog_select_abilities,0,0,-1,是%s吗？,选择初始加成
-dialog_input_correct_month,0,0,-1,请输入正确的月份,;
-dialog_input_correct_day,0,0,-1,请输入正确的日期,;
+﻿dialogId,showFullNames,showImage,heroId,dialogContent,parameters,comment
+id,bool,bool,friend_id,language,vector,comment
+string,-,-,Hero,chinese,string,-
+writable,N,N,N,N,N,N
+1,0,0,-1,请选择三种熟练的技能,,选人界面，提示框
+2,0,0,8,拉斐尔，你对海上的英雄有什么看法？,,需要把 拉斐尔替换成变量
+3,1,1,7,乎，来了呀……。,,;
+dialog_select_abilities,0,0,-1,是%s吗？,,选择初始加成
+dialog_input_correct_month,0,0,-1,请输入正确的月份,,;
+dialog_input_correct_day,0,0,-1,请输入正确的日期,,;
+story_text_1,0,0,0,%s，\n你想给我看什么?,gamedata.HeroData.8.heroFirstName,;

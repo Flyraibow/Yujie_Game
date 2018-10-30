@@ -64,6 +64,14 @@ void StoryScene::startStoryEvent(StoryEventData *storyData)
     addPictures(storyData);
   } else if (type == "movePicture") {
     movePictures(storyData);
+  } else if (type == "removePicture") {
+    auto name = storyData->getName();
+    p_originalValue.erase(name);
+    if (p_pictures.count(name)) {
+      auto picture = p_pictures.at(name);
+      picture->removeFromParent();
+      p_pictures.erase(name);
+    }
   }
   if (storyData->getDuration() > 0) {
     if (p_storyEventDeltas.size() == 0) {
@@ -109,6 +117,9 @@ void StoryScene::update(float delta)
   }
 }
 
+
+#include "DataManager.hpp"
+
 void StoryScene::addPictures(StoryEventData *storyEventData)
 {
   Node* picture = nullptr;
@@ -118,6 +129,11 @@ void StoryScene::addPictures(StoryEventData *storyEventData)
   } else if (parameters.count("color")) {
     auto color = getColorFromParameters(parameters);
     picture = LayerColor::create(color, s_window->getContentSize().width, s_window->getContentSize().height);
+  } else if (parameters.count("text")) {
+    auto text = DataManager::getShareInstance()->getLocalizedDialogString(parameters.at("text"));
+    auto textPicture = Label::createWithSystemFont(text, "Helvetica", 30);
+    textPicture->setTextColor(Color4B::WHITE);
+    picture = textPicture;
   }
   if (parameters.count("screenscale")) {
     auto f = atof(parameters.at("screenscale").c_str());

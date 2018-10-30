@@ -49,6 +49,7 @@ public:
   string getFunctionString(const string &functionId) const;
   BaseData* getFunctionData(const std::string &functionId) const;
   bool checkCondition(const string &conditionId) const;
+  string getLocalizedDialogString(const string &dialogId) const;
   
   
   template <typename T, typename std::enable_if<std::is_base_of<BaseData, T>::value>::type* = nullptr>

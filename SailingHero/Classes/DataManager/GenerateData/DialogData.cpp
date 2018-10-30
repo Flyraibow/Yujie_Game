@@ -48,6 +48,11 @@ string DialogData::getDialogContent() const
 	return LocalizationHelper::getLocalization(localId);
 }
 
+vector<string> DialogData::getParameters() const
+{
+	return p_parameters;
+}
+
 string DialogData::description() const
 {
 	string desc = "dialogData = {\n";
@@ -56,6 +61,7 @@ string DialogData::description() const
 	desc += "\tshowImage : " + to_string(p_showImage) + "\n";
 	desc += "\theroId : " + to_string(p_heroIdId) + "\n";
 	desc += "\tdialogContent : " + getDialogContent() + "\n";
+	desc += "\tparameters : " + to_string(p_parameters) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -76,6 +82,10 @@ const map<string, DialogData*>* DialogData::getSharedDictionary()
 				dialogData->p_showFullNames = buffer->getChar();
 				dialogData->p_showImage = buffer->getChar();
 				dialogData->p_heroIdId = buffer->getString();
+				auto parametersCount = buffer->getLong();
+				for (int j = 0; j < parametersCount; ++j) {
+					dialogData->p_parameters.push_back(buffer->getString());
+				}
 				p_sharedDictionary->insert(pair<string, DialogData*>(dialogData->p_dialogId, dialogData));
 			}
 		}
@@ -103,6 +113,8 @@ string DialogData::getFieldValue(const string & fieldName)
 		return to_string(this->getHeroIdId());
 	} else if (fieldName == "dialogContent") {
 		return to_string(this->getDialogContent());
+	} else if (fieldName == "parameters") {
+		return to_string(this->getParameters());
 	}
 	CCLOGWARN("Couldn't recognize %s in DialogData", fieldName.c_str());
 	return "";
