@@ -19,6 +19,10 @@ private:
   unordered_map<string, Node*> p_pictures;
   unordered_map<string, map<string, string>> p_originalValue;
   
+  bool p_isTouching;
+  bool p_moveFast;
+  float p_touchedDuration;
+  
   void addPictures(StoryEventData *storyEventData);
   void movePictures(StoryEventData *storyEventData);
   void setPicture(const string &pictureName, const map<string, string> &originalParameters, const map<string, string> &destinyParameters, float totalDuration = 0, float leftTime = 0);

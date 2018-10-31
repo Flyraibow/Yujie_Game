@@ -46,6 +46,27 @@ bool StoryScene::init()
   initSceneWithJson("story");
   
   this->setForegroundImage("res/base/frame/eventFrame.png");
+  p_moveFast = false;
+  
+  // Add color
+  auto colorCover = LayerColor::create(Color4B());
+  s_window->addChild(colorCover, 2000);
+  p_isTouching = false;
+  p_touchedDuration = 0;
+  auto listener = EventListenerTouchOneByOne::create();
+  listener->onTouchBegan = [this](Touch *touch, Event *unused_event) {
+    p_isTouching = true;
+    p_touchedDuration = 0;
+    CCLOG("Touch screen begin");
+    return true;
+  };
+  listener->onTouchEnded = [this](Touch *touch, Event *unused_event) {
+    p_isTouching = false;
+    p_moveFast = false;
+    
+    CCLOG("Touch screen end");
+  };
+  colorCover->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
   
   return true;
 }
@@ -88,6 +109,15 @@ void StoryScene::startStoryEvent(StoryEventData *storyData)
 
 void StoryScene::update(float delta)
 {
+  if (p_isTouching) {
+    p_touchedDuration += delta;
+    if (p_touchedDuration > 1.0) {
+      p_moveFast = true;
+    }
+  }
+  if (p_moveFast) {
+    delta *= 20;
+  }
   vector<StoryEventData *> removelist;
   for (auto iter = p_storyEventDeltas.begin(); iter != p_storyEventDeltas.end(); ++iter) {
     auto storyData = iter->first;
