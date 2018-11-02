@@ -9,6 +9,7 @@
 #define StoryScene_hpp
 
 #include "SHScene.hpp"
+#include <stack>
 
 class StoryEventData;
 
@@ -18,11 +19,14 @@ private:
   unordered_map<StoryEventData *, float> p_storyEventDeltas;
   unordered_map<string, Node*> p_pictures;
   unordered_map<string, map<string, string>> p_originalValue;
+  stack<StoryEventData *> p_stackStories;
   
   bool p_isTouching;
   bool p_moveFast;
   float p_touchedDuration;
   
+  void startNextStoryEvent(StoryEventData *storyData);
+  void addDialogs(StoryEventData *storyEventData);
   void addPictures(StoryEventData *storyEventData);
   void movePictures(StoryEventData *storyEventData);
   void setPicture(const string &pictureName, const map<string, string> &originalParameters, const map<string, string> &destinyParameters, float totalDuration = 0, float leftTime = 0);

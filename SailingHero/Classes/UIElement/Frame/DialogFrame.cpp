@@ -9,10 +9,11 @@
 #include "SHSpriteListener.hpp"
 #include "DialogData.hpp"
 #include "SHGameDataHelper.hpp"
+#include "DataManager.hpp"
 
-DialogFrame::DialogFrame(const vector<string>& dialogIds, ccDialogCallback dialogCallback, Size windowSize)
+DialogFrame::DialogFrame(const vector<string>& dialogIds, ccDialogCallback dialogCallback, Color4B color, Size windowSize)
 {
-  p_sprite = LayerColor::create(Color4B(0,0,0,50));
+  p_sprite = LayerColor::create(color);
   p_sprite->setAnchorPoint(Vec2());
   p_sprite->setContentSize(windowSize);
   auto listener = SHSpriteListener::createWithNode(p_sprite);
@@ -87,29 +88,30 @@ void DialogFrame::clickDialogPanel(Touch* touch, Event* event)
     auto photoSprite = p_dialogPhotoFrame.getSprite();
     if (showImage != photoSprite->isVisible()) {
       photoSprite->setVisible(showImage);
-      if (showImage) {
-        p_dialogFrame->setAnchorPoint(Vec2());
-        p_dialogFrame->setPosition(Vec2(photoSprite->getContentSize().width * p_scale, 0));
-        p_dialogPhotoFrame.setHeroData(hero);
-      } else {
-        p_dialogFrame->setAnchorPoint(Vec2(0.5, 0));
-        p_dialogFrame->setNormalizedPosition(Vec2(0.5, 0));
-      }
     }
-    p_dialogContent->setString(dialog->getDialogContent());
+    if (showImage) {
+      p_dialogFrame->setAnchorPoint(Vec2());
+      p_dialogFrame->setPosition(Vec2(photoSprite->getContentSize().width * p_scale, 0));
+      p_dialogPhotoFrame.setHeroData(hero);
+    } else {
+      p_dialogFrame->setAnchorPoint(Vec2(0.5, 0));
+      p_dialogFrame->setNormalizedPosition(Vec2(0.5, 0));
+    }
+    auto content = DataManager::getShareInstance()->getLocalizedDialogString(dialog->getDialogId());
+    p_dialogContent->setString(content);
   } else {
     p_dialogContent->setString(p_dialogIds[p_index -1] + " is not defined");
   }
 }
 
-DialogFrame* DialogFrame::createWithDialogId(const string& dialogId, ccDialogCallback dialogCallback, Size windowSize)
+DialogFrame* DialogFrame::createWithDialogId(const string& dialogId, ccDialogCallback dialogCallback,Color4B color, Size windowSize)
 {
-  return DialogFrame::createWithDialogIds({dialogId}, dialogCallback, windowSize);
+  return DialogFrame::createWithDialogIds({dialogId}, dialogCallback, color, windowSize);
 }
 
-DialogFrame* DialogFrame::createWithDialogIds(const vector<string>& dialogIdList, ccDialogCallback dialogCallback, Size windowSize)
+DialogFrame* DialogFrame::createWithDialogIds(const vector<string>& dialogIdList, ccDialogCallback dialogCallback,Color4B color, Size windowSize)
 {
   CCASSERT(dialogIdList.size() > 0, "Shouldn't create dialog without dialogIDs");
-  auto dialogFrame = new DialogFrame(dialogIdList, dialogCallback,windowSize);
+  auto dialogFrame = new DialogFrame(dialogIdList, dialogCallback, color, windowSize);
   return dialogFrame;
 }

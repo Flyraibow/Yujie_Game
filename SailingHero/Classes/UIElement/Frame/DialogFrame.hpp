@@ -31,12 +31,12 @@ private:
   ccDialogCallback p_callback;
   
   void clickDialogPanel(Touch* touch, Event* event);
-  DialogFrame(const vector<string>&, ccDialogCallback dialogCallback, Size windowSize);
+  DialogFrame(const vector<string>&, ccDialogCallback dialogCallback, Color4B color, Size windowSize);
 public:
   Node* getSprite() const;
   
-  static DialogFrame* createWithDialogId(const string& dialogId, ccDialogCallback dialogCallback, Size windowSize = Director::getInstance()->getVisibleSize());
-  static DialogFrame* createWithDialogIds(const vector<string> &dialogIdList, ccDialogCallback dialogCallback, Size windowSize = Director::getInstance()->getVisibleSize());
+  static DialogFrame* createWithDialogId(const string& dialogId, ccDialogCallback dialogCallback, Color4B color = Color4B(), Size windowSize = Director::getInstance()->getVisibleSize());
+  static DialogFrame* createWithDialogIds(const vector<string> &dialogIdList, ccDialogCallback dialogCallback, Color4B color = Color4B(), Size windowSize = Director::getInstance()->getVisibleSize());
 };
 
 #endif /* DialogFrame_hpp */

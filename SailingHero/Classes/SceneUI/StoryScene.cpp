@@ -8,6 +8,10 @@
 #include "StoryScene.hpp"
 #include "StoryEventData.hpp"
 #include "audio/include/SimpleAudioEngine.h"
+#include "DialogFrame.hpp"
+#include "Utils.hpp"
+#include "DataManager.hpp"
+
 
 USING_NS_CC;
 using namespace ui;
@@ -71,6 +75,19 @@ bool StoryScene::init()
   return true;
 }
 
+void StoryScene::startNextStoryEvent(StoryEventData *storyData)
+{
+  if (storyData->getNextStoryData() != nullptr) {
+    startStoryEvent(storyData->getNextStoryData());
+  } else if (p_stackStories.size() > 0) {
+    auto story = p_stackStories.top();
+    p_stackStories.pop();
+    startStoryEvent(story);
+  } else {
+    Director::getInstance()->popScene();
+  }
+}
+
 void StoryScene::startStoryEvent(StoryEventData *storyData)
 {
   auto type = storyData->getType();
@@ -93,6 +110,22 @@ void StoryScene::startStoryEvent(StoryEventData *storyData)
       picture->removeFromParent();
       p_pictures.erase(name);
     }
+  } else if (type == "dialog") {
+    if (!p_moveFast) {
+      addDialogs(storyData);
+      return;
+    }
+  } else if (type == "subStory") {
+    auto parameters = storyData->getParametrsMap();
+    for (auto parameter : parameters) {
+      DataManager::getShareInstance()->setTempString(parameter.first, parameter.second);
+    }
+    if (storyData->getNextStoryData() != nullptr) {
+      p_stackStories.push(storyData->getNextStoryData());
+    }
+    auto subStory = StoryEventData::getStoryEventDataById(storyData->getName());
+    startStoryEvent(subStory);
+    return;
   }
   if (storyData->getDuration() > 0) {
     if (p_storyEventDeltas.size() == 0) {
@@ -102,8 +135,8 @@ void StoryScene::startStoryEvent(StoryEventData *storyData)
   }
   if (type == "wait") {
     return;
-  } else if (storyData->getNextStoryData() != nullptr) {
-    startStoryEvent(storyData->getNextStoryData());
+  } else {
+    startNextStoryEvent(storyData);
   }
 }
 
@@ -139,7 +172,7 @@ void StoryScene::update(float delta)
   for (auto story : removelist) {
     p_storyEventDeltas.erase(story);
     if (story->getType() == "wait") {
-      startStoryEvent(story->getNextStoryData());
+      startNextStoryEvent(story);
     }
   }
   if (p_storyEventDeltas.size() == 0) {
@@ -147,8 +180,6 @@ void StoryScene::update(float delta)
   }
 }
 
-
-#include "DataManager.hpp"
 
 void StoryScene::addPictures(StoryEventData *storyEventData)
 {
@@ -165,11 +196,23 @@ void StoryScene::addPictures(StoryEventData *storyEventData)
     textPicture->setTextColor(Color4B::WHITE);
     picture = textPicture;
   }
+  
+  if (parameters.count("opacity")) {
+    auto destinyOpacity = atof(parameters.at("opacity").c_str());
+    picture->setOpacity(destinyOpacity);
+  }
   if (parameters.count("screenscale")) {
     auto f = atof(parameters.at("screenscale").c_str());
     auto scaleX = s_window->getContentSize().width / picture->getContentSize().width * f;
     auto scaleY = s_window->getContentSize().height / picture->getContentSize().height * f;
     picture->setScale(scaleX, scaleY);
+  } else if (parameters.count("heightScreenScale")) {
+    auto f = atof(parameters.at("heightScreenScale").c_str());
+    auto scaleY = s_window->getContentSize().height / picture->getContentSize().height * f;
+    picture->setScale(scaleY);
+  } else {
+    auto f = Director::getInstance()->getContentScaleFactor();
+    picture->setScale(f);
   }
   auto anchorX = parameters.count("anchorX") ? atof(parameters.at("anchorX").c_str()) : 0.0;
   auto anchorY = parameters.count("anchorY") ? atof(parameters.at("anchorY").c_str()) : 0.0;
@@ -192,9 +235,7 @@ void StoryScene::movePictures(StoryEventData *storyEventData)
   if (!p_pictures.count(name) && p_originalValue.count(name)) {
     CCLOGERROR("couldn't find picture : %s", storyEventData->description().c_str());
   }
-  if (storyEventData->getDuration() > 0) {
-    p_storyEventDeltas[storyEventData] = storyEventData->getDuration();
-  } else {
+  if (storyEventData->getDuration() <= 0) {
     auto originalPrameters = p_originalValue.at(name);
     setPicture(name, originalPrameters, storyEventData->getParametrsMap());
   }
@@ -260,4 +301,27 @@ void StoryScene::setPicture(const string &pictureName, const map<string, string>
     auto scaleY = s_window->getContentSize().height / originalPicture->getContentSize().height * screenScale;
     originalPicture->setScale(scaleX, scaleY);
   }
+}
+
+void StoryScene::addDialogs(StoryEventData *storyEventData)
+{
+  auto parameters = storyEventData->getParametrsMap();
+  vector<string> dialogIds;
+  if (parameters.count("dialogIds")) {
+    auto dialogIdsString = storyEventData->getParametrsMap().at("dialogIds");
+    dialogIds = SHUtil::split(dialogIdsString, ',');
+  } else if (parameters.count("dialogPrefix") && parameters.count("from") && parameters.count("to")) {
+    auto prefix = parameters.at("dialogPrefix");
+    auto from = atoi(parameters.at("from").c_str());
+    auto to = atoi(parameters.at("to").c_str());
+    for (auto i = from; i <= to; ++i) {
+      dialogIds.push_back(prefix + to_string(i));
+    }
+  } else {
+    CCLOGERROR("error dialog format: %s", storyEventData->description().c_str());
+  }
+  auto dialog = DialogFrame::createWithDialogIds(dialogIds, [this, storyEventData]() {
+    startStoryEvent(storyEventData->getNextStoryData());
+  });
+  s_window->addChild(dialog->getSprite(), 100);
 }
