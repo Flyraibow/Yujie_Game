@@ -531,7 +531,7 @@ bool SHDataManager::clearData()
 
 BaseData * SHDataManager::getData(const string & dataSet, const string & id)
 {
-	if (dataSet == "ConditionData") {
+	} else if (dataSet == "ConditionData") {
 		return ConditionData::getConditionDataById(id);
 	} else if (dataSet == "GoodsCategoryData") {
 		return GoodsCategoryData::getGoodsCategoryDataById(id);
@@ -615,7 +615,7 @@ string SHDataManager::getDataField(const string & dataSet, const string & id, co
 
 void SHDataManager::setDataField(const string & dataSet, const string & id, const string & fieldName, const string & value)
 {
-	if (dataSet == "GuildData") {
+	} else if (dataSet == "GuildData") {
 		auto data = GuildData::getGuildDataById(id);
 		data->setFieldValue(fieldName, value);
 	} else if (dataSet == "ShipTeamData") {

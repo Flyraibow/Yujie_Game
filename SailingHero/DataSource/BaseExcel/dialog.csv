@@ -9,6 +9,7 @@ dialog_select_abilities,0,0,-1,是%s吗？,,选择初始加成
 dialog_input_correct_month,0,0,-1,请输入正确的月份,,;
 dialog_input_correct_day,0,0,-1,请输入正确的日期,,;
 dialog_get_money,0,0,-1,获得%s金币,temp.money,;
+dialog_add_friend,0,0,-1,%s·%s成为伙伴！,temp.firstName;temp.lastName,;
 story_text_1,0,0,0,%s，\n你想给我看什么?,gamedata.HeroData.8.heroFirstName,;
 story_text_2,0,0,8,行了，行了。去了就明白了。,,;
 story_text_3,0,0,8,%s，你对海上的英雄有什么看法？,gamedata.HeroData.0.heroFirstName,拉斐尔，你对海上的英雄有什么看法？
@@ -113,3 +114,10 @@ story_text_101,1,1,9,既然舰长这么说的话。,,;
 story_text_102,1,1,8,啊，别学我说话！老头！,,;
 story_text_103,1,1,9,哼，谁学你？,,;
 story_text_104,1,1,7,……好了好了。,,;
+story_text_105,1,1,9,别管这傻瓜，如果这样决定了，准备工作很重要。航海所需的物品备齐了吗？,,;
+story_text_106,1,1,9,我们要不畏艰难，努力做下去。,,;
+story_text_107,1,1,0,是！多多指教！,,;
+story_text_108,1,1,8,呸，那老头，只不过知道一点航海相关知识，就把自己当做是拉斐尔的老师。,,;
+story_text_109,1,1,7,喂喂，不好胡说了，走吧。,,;
+story_text_110,1,1,7,那么开始进行航海的必要准备吧。,,;
+story_text_111,1,1,7,跟%s先生学准备的方法吗？还是自己进行出海的准备呢？,gamedata.HeroData.9.heroFirstName,;

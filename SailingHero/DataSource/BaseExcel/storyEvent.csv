@@ -5,7 +5,11 @@ writable,N,N,N,N,N,N,N
 get_money_story_1,,wait,1,,,,get_money_story_2
 get_money_story_2,,playSound,,,res/base/SE/golds.wav,,get_money_story_3
 get_money_story_3,,dialog,,,,dialogIds:dialog_get_money,get_money_story_4
-get_money_story_4,,wait,1,,,,;
+get_money_story_4,,wait,0.5,,,,;
+add_friend_story_1,,wait,1,,,,add_friend_story_2
+add_friend_story_2,,playSound,,,res/base/SE/addTeam.wav,,add_friend_story_3
+add_friend_story_3,,dialog,,,,dialogIds:dialog_add_friend,add_friend_story_4
+add_friend_story_4,,wait,0.5,,,,;
 lafeier_strory_begin_1,停止背景音,stopMusic,0,,,,lafeier_strory_begin_2
 lafeier_strory_begin_2,等待3秒,wait,3,,,,lafeier_strory_begin_3
 lafeier_strory_begin_3,播放海浪背景,playMusic,0,,res/base/SE/seaWave.m4v,,lafeier_strory_begin_4
@@ -175,25 +179,25 @@ lafeier_strory_begin_93,"既然给了你，所以连利息在内要按期还我�
 啊，别学我说话！老头！
 哼，谁学你？
 ……好了好了。",dialog,,,,dialogPrefix:story_text_;from:64;to:104,lafeier_strory_begin_94
-lafeier_strory_begin_94,画面黑暗,,,,,,lafeier_strory_begin_95
-lafeier_strory_begin_95,设置图片a透明,,,,,,lafeier_strory_begin_96
-lafeier_strory_begin_96,等待2秒,,,,,,lafeier_strory_begin_97
-lafeier_strory_begin_97,回复a不透明,,,,,,lafeier_strory_begin_98
-lafeier_strory_begin_98,等待2秒,,,,,,lafeier_strory_begin_99
-lafeier_strory_begin_99,别管这傻瓜，如果这样决定了，准备工作很重要。航海所需的物品备齐了吗？,,,,,,lafeier_strory_begin_100
-lafeier_strory_begin_100,我们要不畏艰难，努力做下去。,,,,,,lafeier_strory_begin_101
-lafeier_strory_begin_101,是！多多指教！,,,,,,lafeier_strory_begin_102
-lafeier_strory_begin_102,呸，那老头，只不过知道一点航海相关知识，就把自己当做是拉斐尔的老师。,,,,,,lafeier_strory_begin_103
-lafeier_strory_begin_103,脚步声,,,,,,lafeier_strory_begin_104
-lafeier_strory_begin_104,喂喂，不好胡说了，走吧。,,,,,,lafeier_strory_begin_105
-lafeier_strory_begin_105,杰拿斯加入,,,,,,lafeier_strory_begin_106
-lafeier_strory_begin_106,库拉乌迪·马奈乌斯成为伙伴！,,,,,,lafeier_strory_begin_107
-lafeier_strory_begin_107,弗里奥·埃涅科成为伙伴！,,,,,,lafeier_strory_begin_108
-lafeier_strory_begin_108,那么开始进行航海的必要准备吧。,,,,,,lafeier_strory_begin_109
-lafeier_strory_begin_109,跟弗里奥先生学准备的方法吗？还是自己进行出海的准备呢？,,,,,,lafeier_strory_begin_110
-lafeier_strory_begin_110,获得 船只 ,,,,,,lafeier_strory_begin_111
-lafeier_strory_begin_111,选项学学吧、自己也能做的,,,,,,lafeier_strory_begin_112
-lafeier_strory_begin_112,恩。那么开始准备吧。先去交易所吗？,,,,,,lafeier_strory_begin_113
-lafeier_strory_begin_113,在任何城市，出海前去交易所、酒馆、广场转转的好。,,,,,,lafeier_strory_begin_114
-lafeier_strory_begin_114,开启触发交易所剧情,,,,,,lafeier_strory_begin_115
-lafeier_strory_begin_115,开启触发酒馆剧情,,,,,,;
+lafeier_strory_begin_94,画面黑暗,addPicture,0,color,,color:black;screenscale:1;order:1000;opacity:0,lafeier_strory_begin_95
+lafeier_strory_begin_95,设置图片a透明,movePicture,1,color,,opacity:255,lafeier_strory_begin_96
+lafeier_strory_begin_96,等待2秒,wait,2,,,,lafeier_strory_begin_97
+lafeier_strory_begin_97,回复a不透明,movePicture,1,color,,opacity:0,lafeier_strory_begin_98
+lafeier_strory_begin_98,等待2秒,wait,2,,,,lafeier_strory_begin_99
+lafeier_strory_begin_99,"别管这傻瓜，如果这样决定了，准备工作很重要。航海所需的物品备齐了吗？
+我们要不畏艰难，努力做下去。
+是！多多指教！
+呸，那老头，只不过知道一点航海相关知识，就把自己当做是拉斐尔的老师。
+喂喂，不好胡说了，走吧。",dialog,,,,dialogPrefix:story_text_;from:105;to:109,lafeier_strory_begin_100
+lafeier_strory_begin_100,脚步声,playSound,,,res/base/SE/steps.wav,,lafeier_strory_begin_101
+lafeier_strory_begin_101,杰拿斯加入,subStory,,add_friend_story_1,,firstName:gamedata.HeroData.7.heroFirstName;lastName:gamedata.HeroData.7.heroLastName,lafeier_strory_begin_102
+lafeier_strory_begin_102,库拉乌迪·马奈乌斯成为伙伴！,subStory,,add_friend_story_1,,firstName:gamedata.HeroData.8.heroFirstName;lastName:gamedata.HeroData.8.heroLastName,lafeier_strory_begin_103
+lafeier_strory_begin_103,弗里奥·埃涅科成为伙伴！,subStory,,add_friend_story_1,,firstName:gamedata.HeroData.9.heroFirstName;lastName:gamedata.HeroData.9.heroLastName,lafeier_strory_begin_104
+lafeier_strory_begin_104,那么开始进行航海的必要准备吧。,,,,,,lafeier_strory_begin_105
+lafeier_strory_begin_105,跟弗里奥先生学准备的方法吗？还是自己进行出海的准备呢？,,,,,,lafeier_strory_begin_106
+lafeier_strory_begin_106,获得 船只 ,,,,,,lafeier_strory_begin_107
+lafeier_strory_begin_107,选项学学吧、自己也能做的,,,,,,lafeier_strory_begin_108
+lafeier_strory_begin_108,恩。那么开始准备吧。先去交易所吗？,,,,,,lafeier_strory_begin_109
+lafeier_strory_begin_109,在任何城市，出海前去交易所、酒馆、广场转转的好。,,,,,,lafeier_strory_begin_110
+lafeier_strory_begin_110,开启触发交易所剧情,,,,,,lafeier_strory_begin_111
+lafeier_strory_begin_111,开启触发酒馆剧情,,,,,,;
