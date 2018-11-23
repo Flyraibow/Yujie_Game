@@ -12,7 +12,6 @@
 CPPFunction::~CPPFunction()
 {
   delete p_returnVar;
-  flag = 0;
 }
 
 
@@ -24,7 +23,7 @@ CPPFunction::CPPFunction(const CPPFunction &func)
   p_returnVar = func.p_returnVar;
   p_statements = func.p_statements;
   p_arguments = func.p_arguments;
-  flag = 0;
+  p_isEmpty = true;
 }
 
 CPPFunction::CPPFunction(const string &funcName, const string &returnType) : CPPFunction::CPPFunction(funcName, returnType, {}, false, true)
@@ -45,6 +44,7 @@ CPPFunction::CPPFunction(const string &funcName, const string &returnType,const 
   p_isVirtual = isVirtual;
   p_returnVar = new CPPVariable(returnType);
   p_arguments = arguments;
+  p_isEmpty = true;
 }
 
 void CPPFunction::addBodyStatements(const string &statement)
@@ -132,3 +132,14 @@ string CPPFunction::getBodyContent() const
   return body;
 }
 
+#include <iostream>
+
+bool CPPFunction::getIsEmpty() const
+{
+  return p_isEmpty;
+}
+
+void CPPFunction::setIsEmpty(bool empty)
+{
+  p_isEmpty = empty;
+}

@@ -423,7 +423,8 @@ void ExcelDataParserBase::addDataLoadFunction(CPPClass* dataManager) const
 
 void ExcelDataParserBase::addSetFieldFunction(CPPFunction* setFieldFunc) const
 {
-  string prefix = setFieldFunc->flag++ == 0 ? "" : "} else ";
+  string prefix = setFieldFunc->getIsEmpty() ? "" : "} else ";
+  setFieldFunc->setIsEmpty(false);
   setFieldFunc->addBodyStatements(prefix + "if (dataSet == \"" + p_className + "\") {");
   setFieldFunc->addBodyStatements("auto data = " + p_className + "::getSharedInstance();", 1);
   setFieldFunc->addBodyStatements("data->setFieldValue(fieldName, value);", 1);
@@ -431,7 +432,8 @@ void ExcelDataParserBase::addSetFieldFunction(CPPFunction* setFieldFunc) const
 
 void ExcelDataParserBase::addGetFieldFunction(CPPFunction* getFieldFunc) const
 {
-  string prefix = getFieldFunc->flag++ == 0 ? "" : "} else ";
+  string prefix = getFieldFunc->getIsEmpty() ? "" : "} else ";
+  getFieldFunc->setIsEmpty(false);
   getFieldFunc->addBodyStatements(prefix + "if (dataSet == \"" + p_className + "\") {");
   getFieldFunc->addBodyStatements("return " + p_className + "::getSharedInstance();", 1);
 }

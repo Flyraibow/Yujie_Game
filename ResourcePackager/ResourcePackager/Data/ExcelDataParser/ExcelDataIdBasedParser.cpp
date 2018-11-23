@@ -395,7 +395,8 @@ void ExcelDataIdBasedParser::addRegisterDataFunction()
 
 void ExcelDataIdBasedParser::addSetFieldFunction(CPPFunction* setFieldFunc) const
 {
-  string prefix = setFieldFunc->flag++ == 0 ? "" : "} else ";
+  string prefix = setFieldFunc->getIsEmpty()? "" : "} else ";
+  setFieldFunc->setIsEmpty(false);
   setFieldFunc->addBodyStatements(prefix + "if (dataSet == \"" + p_className + "\") {");
   setFieldFunc->addBodyStatements("auto data = " + p_className + "::get" + p_className + "ById(id);", 1);
   setFieldFunc->addBodyStatements("data->setFieldValue(fieldName, value);", 1);
@@ -403,7 +404,8 @@ void ExcelDataIdBasedParser::addSetFieldFunction(CPPFunction* setFieldFunc) cons
 
 void ExcelDataIdBasedParser::addGetFieldFunction(CPPFunction* getFieldFunc) const
 {
-  string prefix = getFieldFunc->flag++ == 0 ? "" : "} else ";
+  string prefix = getFieldFunc->getIsEmpty() ? "" : "} else ";
+  getFieldFunc->setIsEmpty(false);
   getFieldFunc->addBodyStatements(prefix + "if (dataSet == \"" + p_className + "\") {");
   getFieldFunc->addBodyStatements("return " + p_className + "::get" + p_className + "ById(id);", 1);
 }

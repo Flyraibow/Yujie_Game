@@ -23,6 +23,7 @@ private:
   bool p_isConst;
   bool p_isStatic;
   bool p_isVirtual;
+  bool p_isEmpty;  // to mark is this function empty
   string p_funcName;
   vector<const CPPVariable *> p_arguments;
   const CPPVariable *p_returnVar;
@@ -33,11 +34,12 @@ public:
   CPPFunction(const string &funcName, const string &returnType);
   CPPFunction(const string &funcName, const string &returnType, bool isStatic);
   CPPFunction(const string &funcName, const string &returnType, const vector<const CPPVariable *> &arguments, bool isStatic, bool isConst, bool isVirtual = false);
-  int flag;
   void addBodyStatements(const string &statement);
   void addBodyStatements(const string &statement, int tabNumber);
   void addBodyStatementsList(const vector<pair<string, int>> &statementList);
   void addBodyStatementsList(const vector<string> &statementList, int tabNumber);
+  bool getIsEmpty() const;
+  void setIsEmpty(bool empty);
   string getDefinitionString(const CPPClass *cppClass, bool isHeader = true) const;
   string getContentString(const CPPClass *cppClass) const;
   string getReturnTypeString() const;
