@@ -28,7 +28,7 @@ void StoryManager::startStory(const StoryData *story)
   auto storyEvent = StoryEventData::getStoryEventDataById(story->getStoryEventId());
   if (storyEvent != nullptr) {
     p_storyScene = StoryScene::createScene();
-    Director::getInstance()->pushScene(p_storyScene);
+    SceneManager::getShareInstance()->pushScene(p_storyScene);
     p_storyScene->startStoryEvent(storyEvent);
   }
 }

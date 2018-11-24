@@ -16,7 +16,7 @@ USING_NS_CC;
 class SelectHeroDisplayScene : public SHScene
 {
 public:
-  static cocos2d::Scene* createScene(HeroSelectData *selectHeroData);
+  static SHScene* createScene(HeroSelectData *selectHeroData);
   
   virtual bool init();
 

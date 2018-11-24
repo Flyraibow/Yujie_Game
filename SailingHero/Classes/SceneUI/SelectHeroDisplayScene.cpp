@@ -16,7 +16,7 @@
 USING_NS_CC;
 using namespace ui;
 
-Scene* SelectHeroDisplayScene::createScene(HeroSelectData *selectHeroData)
+SHScene* SelectHeroDisplayScene::createScene(HeroSelectData *selectHeroData)
 {
   DataManager::getShareInstance()->setTempData("selectHero", selectHeroData);
   auto scene = SelectHeroDisplayScene::create();

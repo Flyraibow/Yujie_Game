@@ -144,6 +144,7 @@ void SHScene::setBackgroundMusic(const std::string &path) {
   if (path.length() == 0) {
     return;
   }
+  p_backgroundMusic = path;
   auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
   audio->stopBackgroundMusic();
   audio->preloadBackgroundMusic(path.c_str());
@@ -193,6 +194,10 @@ void SHScene::refreshScene()
   for (auto component : p_componentDict) {
     component.second->refresh();
   }
+}
+
+void SHScene::refreshMusic() {
+  setBackgroundMusic(p_backgroundMusic);
 }
 
 void SHScene::popPanel()

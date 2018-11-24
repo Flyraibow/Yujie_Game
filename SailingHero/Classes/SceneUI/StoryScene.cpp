@@ -11,7 +11,8 @@
 #include "DialogFrame.hpp"
 #include "Utils.hpp"
 #include "DataManager.hpp"
-
+#include "SceneManager.hpp"
+#include "ButtonData.hpp"
 
 USING_NS_CC;
 using namespace ui;
@@ -84,7 +85,9 @@ void StoryScene::startNextStoryEvent(StoryEventData *storyData)
     p_stackStories.pop();
     startStoryEvent(story);
   } else {
-    Director::getInstance()->popScene();
+    SceneManager::getShareInstance()->popScene();
+    auto topScene = SceneManager::getShareInstance()->currentScene();
+    topScene->refreshMusic();
   }
 }
 
@@ -95,6 +98,7 @@ void StoryScene::startStoryEvent(StoryEventData *storyData)
   if (type == "stopMusic") {
     CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
   } else if (type == "playMusic") {
+    CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
     CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(storyData->getPath().c_str(), true);
   } else if (type == "playSound") {
     CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(storyData->getPath().c_str());
@@ -115,6 +119,9 @@ void StoryScene::startStoryEvent(StoryEventData *storyData)
       addDialogs(storyData);
       return;
     }
+  } else if (type == "selection") {
+    showSelections(storyData);
+    return;
   } else if (type == "subStory") {
     auto parameters = storyData->getParametrsMap();
     for (auto parameter : parameters) {
@@ -322,6 +329,28 @@ void StoryScene::addDialogs(StoryEventData *storyEventData)
   }
   auto dialog = DialogFrame::createWithDialogIds(dialogIds, [this, storyEventData]() {
     startStoryEvent(storyEventData->getNextStoryData());
-  });
+  }, Color4B(), s_window->getContentSize());
   s_window->addChild(dialog->getSprite(), 100);
+}
+
+#include "SystemButton.hpp"
+
+void StoryScene::showSelections(StoryEventData *storyEventData)
+{
+  auto parameters = storyEventData->getParametrsMap();
+  CCASSERT(parameters.count("options"), ("selection must contain 'options' parameters, %s" + storyEventData->description()).c_str());
+  auto selections = SHUtil::split(parameters.at("options"), ',');
+  CCASSERT(selections.size() > 0, ("selection must contain more than 0 'options', %s" + storyEventData->description()).c_str());
+  vector<SHButton *> buttons;
+  for (auto i = 0; i < selections.size(); ++i) {
+    auto selection = selections.at(i);
+    auto buttonData = ButtonData::getButtonDataById(selection);
+    auto button = SystemButton::defaultButtonWithText(buttonData->getLabel(), [buttonData, this](cocos2d::Ref* pSender) {
+      auto storyEventData = StoryEventData::getStoryEventDataById(buttonData->getTriggerStoryId());
+      this->startStoryEvent(storyEventData);
+    });
+    buttons.push_back(button);
+  }
+  auto buttonGroup = SystemButton::getButtonGroupNode(buttons, GroupButtonOptionSelectClose);
+  s_window->addChild(buttonGroup, 100);
 }

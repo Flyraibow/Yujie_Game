@@ -31,6 +31,7 @@ private:
   Node* s_foreground;
   Size s_screenSize;
   bool s_isFullScreen;
+  std::string p_backgroundMusic;
 protected:
   /** Set a screen cover to make screen the same ratio of ratioSize
    *
@@ -53,6 +54,7 @@ public:
   CREATE_FUNC(SHScene);
   virtual bool init();
   virtual void refreshScene();
+  void refreshMusic();
   Size getScreenSize() const;
   Node* getBackground();
   

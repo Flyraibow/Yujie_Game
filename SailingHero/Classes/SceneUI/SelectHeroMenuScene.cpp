@@ -14,6 +14,7 @@
 #include "HeroSelectData.hpp"
 #include "SelectHeroDisplayScene.hpp"
 #include "SHDataManager.hpp"
+#include "SceneManager.hpp"
 
 
 USING_NS_CC;
@@ -39,7 +40,7 @@ static void setEventListenerForSprite(Sprite *sprite, HeroSelectData *selectData
   auto touchEnd = [selectData](Touch* touch, Event* event){
     SHDataManager::clearData();
     auto scene = SelectHeroDisplayScene::createScene(selectData);
-    Director::getInstance()->pushScene(scene);
+    SceneManager::getShareInstance()->pushScene(scene);
   };
   listener->setTouchOver(nullptr, nullptr);
   listener->setTouchEnd(touchEnd, nullptr);

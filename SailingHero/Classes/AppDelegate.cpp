@@ -120,8 +120,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
   // create a scene. it's an autorelease object
   auto scene = SHScene::createScene("menu");
   
+  SceneManager::getShareInstance()->pushScene(scene);
   // run
-  director->runWithScene(scene);
+//  director->runWithScene(scene);
   
   return true;
 }

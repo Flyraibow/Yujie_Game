@@ -60,7 +60,6 @@ DialogFrame::DialogFrame(const vector<string>& dialogIds, ccDialogCallback dialo
   
 }
 
-
 Node* DialogFrame::getSprite() const
 {
   return p_sprite;

@@ -49,7 +49,7 @@ void EventManager::runEvent(std::string eventName)
     CCASSERT(eventData->getParameters().size() > 0, "scene must be provided with a name");
     SceneManager::getShareInstance()->pushScene(eventData->getParameters().at(0));
   } else if (eventType == "popScene") {
-    Director::getInstance()->popScene();
+    SceneManager::getShareInstance()->popScene();
   } else if (eventType == "panel") {
     CCASSERT(eventData->getParameters().size() > 0, "panel must be provided with a name");
     SceneManager::getShareInstance()->addPanel(eventData->getParameters().at(0));

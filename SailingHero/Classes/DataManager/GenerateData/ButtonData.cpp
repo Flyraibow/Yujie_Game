@@ -48,6 +48,16 @@ string ButtonData::getTriggerEventId() const
 	return p_triggerEventId;
 }
 
+StoryEventData* ButtonData::getTriggerStoryData() const
+{
+	return StoryEventData::getStoryEventDataById(p_triggerStoryId);
+}
+
+string ButtonData::getTriggerStoryId() const
+{
+	return p_triggerStoryId;
+}
+
 string ButtonData::description() const
 {
 	string desc = "buttonData = {\n";
@@ -55,6 +65,7 @@ string ButtonData::description() const
 	desc += "\tlabel : " + getLabel() + "\n";
 	desc += "\tcondition : " + to_string(p_conditionId) + "\n";
 	desc += "\ttriggerEvent : " + to_string(p_triggerEventId) + "\n";
+	desc += "\ttriggerStory : " + to_string(p_triggerStoryId) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -74,6 +85,7 @@ const map<string, ButtonData*>* ButtonData::getSharedDictionary()
 				buttonData->p_buttonId = buffer->getString();
 				buttonData->p_conditionId = buffer->getString();
 				buttonData->p_triggerEventId = buffer->getString();
+				buttonData->p_triggerStoryId = buffer->getString();
 				p_sharedDictionary->insert(pair<string, ButtonData*>(buttonData->p_buttonId, buttonData));
 			}
 		}
@@ -99,6 +111,8 @@ string ButtonData::getFieldValue(const string & fieldName)
 		return to_string(this->getConditionId());
 	} else if (fieldName == "triggerEvent") {
 		return to_string(this->getTriggerEventId());
+	} else if (fieldName == "triggerStory") {
+		return to_string(this->getTriggerStoryId());
 	}
 	CCLOGWARN("Couldn't recognize %s in ButtonData", fieldName.c_str());
 	return "";

@@ -12,10 +12,36 @@
 USING_NS_CC;
 using namespace ui;
 
-Button* SystemButton::defaultButtonWithText(std::string text)
+
+void SHButton::pushClickEventListener(const Widget::ccWidgetClickCallback &callback)
+{
+  _callbackList.push_back(callback);
+  this->addClickEventListener([this](cocos2d::Ref* pSender) {
+    for (auto callback : _callbackList) {
+      callback(pSender);
+    }
+  });
+}
+
+SHButton* SHButton::create(const std::string &normalImage,
+                       const std::string& selectedImage,
+                       const std::string& disableImage,
+                       TextureResType texType)
+{
+  SHButton *btn = new (std::nothrow) SHButton;
+  if (btn && btn->init(normalImage,selectedImage,disableImage,texType))
+  {
+    btn->autorelease();
+    return btn;
+  }
+  CC_SAFE_DELETE(btn);
+  return nullptr;
+}
+
+SHButton* SystemButton::defaultButtonWithText(std::string text)
 {
   auto image = "res/button_up.png";
-  auto button = Button::create(image);
+  auto button = SHButton::create(image);
   auto f = Director::getInstance()->getWinSize().width / 800;
   button->setScale9Enabled(true);
   button->setTitleFontSize(18 * f);
@@ -32,23 +58,40 @@ Button* SystemButton::defaultButtonWithText(std::string text)
 }
 
 
-Button* SystemButton::defaultButtonWithText(std::string text, const Widget::ccWidgetClickCallback &callback)
+SHButton* SystemButton::defaultButtonWithText(std::string text, const Widget::ccWidgetClickCallback &callback)
 {
   auto button = SystemButton::defaultButtonWithText(text);
-  button->addClickEventListener(callback);
+  button->pushClickEventListener(callback);
   return button;
 }
 
+SHColorNode* SystemButton::getButtonGroupNode(const vector<SHButton *> &buttons)
+{
+  return SystemButton::getButtonGroupNode(buttons, GroupButtonOptionItalic);
+}
 
-SHColorNode* SystemButton::getButtonGroupNode(const vector<Button *> &buttons, bool withCloseButton, bool italic, const Color4B& color)
+SHColorNode* SystemButton::getButtonGroupNode(const vector<SHButton *> &buttons, int option)
+{
+  return SystemButton::getButtonGroupNode(buttons, option, Color4B());
+}
+
+SHColorNode* SystemButton::getButtonGroupNode(const vector<SHButton *> &buttons, int option, const Color4B& color)
 {
   auto buttonGroup = buttons;
-  if (withCloseButton) {
+  bool isItalic = GroupButtonOptionItalic & option;
+  
+  auto closeGroupCallback = [&] (cocos2d::Ref *pSender) {
+    auto btn = dynamic_cast<Button*>(pSender);
+    btn->getParent()->removeFromParentAndCleanup(true);
+  };
+  if (GroupButtonOptionSelectClose & option) {
+    for (auto button : buttons) {
+      button->pushClickEventListener(closeGroupCallback);
+    }
+  }
+  if (GroupButtonOptionWithCloseButton & option) {
     auto button = SystemButton::defaultButtonWithText(LocalizationHelper::getLocalization("sys_close"),
-                                                      [&] (cocos2d::Ref *pSender) {
-                                                        auto btn = dynamic_cast<Button*>(pSender);
-                                                        btn->getParent()->removeFromParentAndCleanup(true);
-                                                      });
+                                                      closeGroupCallback);
     buttonGroup.push_back(button);
   }
   auto node = SHColorNode::create(color);
@@ -62,7 +105,7 @@ SHColorNode* SystemButton::getButtonGroupNode(const vector<Button *> &buttons, b
       button->setAnchorPoint(Vec2(0.5, 0.5));
       auto diff = ((size - 1) / 2.0 - i);
       double offset_y = diff * distance;
-      double offset_x = italic ? diff * h_dist : 0;
+      double offset_x = isItalic ? diff * h_dist : 0;
       button->setNormalizedPosition(Vec2(0.5 + offset_x, offset_y + 0.5));
       node->addChild(button);
     }
@@ -70,27 +113,12 @@ SHColorNode* SystemButton::getButtonGroupNode(const vector<Button *> &buttons, b
   return node;
 }
 
-SHColorNode* SystemButton::getButtonGroupNode(const vector<Button *> &buttons, bool withCloseButton, bool italic)
-{
-  return SystemButton::getButtonGroupNode(buttons, withCloseButton, italic, Color4B());
-}
-
-SHColorNode* SystemButton::getButtonGroupNode(const vector<Button *> &buttons, bool withCloseButton)
-{
-  return SystemButton::getButtonGroupNode(buttons, withCloseButton, true);
-}
-
-SHColorNode* SystemButton::getButtonGroupNode(const vector<Button *> &buttons)
-{
-  return SystemButton::getButtonGroupNode(buttons, false);
-}
-
 #include "ButtonData.hpp"
 #include "EventManager.hpp"
 
 SHColorNode* SystemButton::getButtonGroupFromEvent(vector<string> parameters)
 {
-  vector<Button *> buttons;
+  vector<SHButton *> buttons;
   for (int i = 0; i < parameters.size(); ++i) {
     auto buttonData = ButtonData::getButtonDataById(parameters[i]);
     if (buttonData != nullptr) {

@@ -36,7 +36,33 @@ void SceneManager::pushScene(const std::string &sceneName)
     scene = SHScene::createScene(sceneName);
   }
   CCASSERT(scene != nullptr, ("unrecognized scene : " + sceneName).c_str());
-  Director::getInstance()->pushScene(scene);
+  pushScene(scene);
+}
+
+void SceneManager::pushScene(SHScene *scene)
+{
+  CCASSERT(scene != nullptr, "cannot push null scene!");
+  if (p_sceneStack.empty()) {
+    Director::getInstance()->runWithScene(scene);
+  } else {
+    Director::getInstance()->pushScene(scene);
+  }
+  p_sceneStack.push(scene);
+  
+}
+
+void SceneManager::popScene()
+{
+  p_sceneStack.pop();
+  Director::getInstance()->popScene();
+}
+
+SHScene* SceneManager::currentScene() const
+{
+  if (!p_sceneStack.empty()) {
+    return p_sceneStack.top();
+  }
+  return nullptr;
 }
 
 void SceneManager::addPanel(const std::string &panelName)

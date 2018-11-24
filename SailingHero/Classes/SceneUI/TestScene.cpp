@@ -7,6 +7,7 @@
 
 #include "TestScene.hpp"
 #include "SystemButton.hpp"
+#include "SceneManager.hpp"
 
 USING_NS_CC;
 using namespace ui;
@@ -47,7 +48,7 @@ bool TestScene::init()
 
 void TestScene::clickBack(cocos2d::Ref* pSender)
 {
-  Director::getInstance()->popScene();
+  SceneManager::getShareInstance()->popScene();
 }
 
 #include "GameData.hpp"
@@ -57,5 +58,5 @@ void TestScene::testSailMap(cocos2d::Ref* pSender)
 {
   GameData::getSharedInstance()->setCityId("69");
   auto mapScene = SailMapScene::createScene();
-  Director::getInstance()->pushScene(mapScene);
+  SceneManager::getShareInstance()->pushScene(mapScene);
 }

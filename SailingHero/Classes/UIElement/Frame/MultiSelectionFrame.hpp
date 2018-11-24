@@ -15,6 +15,7 @@
 USING_NS_CC;
 using namespace std;
 
+class SHButton;
 
 typedef std::function<void(vector<int> selectIndexes)> ccMultiSelectionCallback;
 
@@ -24,7 +25,7 @@ private:
   Node* p_background;
   ccMultiSelectionCallback p_callback;
   int p_totalNumber;
-  vector<ui::Button *> p_buttonList;
+  vector<SHButton *> p_buttonList;
   void clickCallback(cocos2d::Ref* pSender);
   MultiSelectionFrame(vector<string> selectList, int selectNumber, ccMultiSelectionCallback callback);
 public:

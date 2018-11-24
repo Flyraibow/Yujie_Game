@@ -7,6 +7,7 @@ This file (ButtonData.hpp) is generated
 #include "BaseData.h"
 #include "ConditionData.hpp"
 #include "EventData.hpp"
+#include "StoryEventData.hpp"
 
 
 class ButtonData: public BaseData
@@ -16,6 +17,7 @@ private:
 	string p_buttonId;
 	string p_conditionId;
 	string p_triggerEventId;
+	string p_triggerStoryId;
 public:
 	string getId() const;
 	string getButtonId() const;
@@ -24,6 +26,8 @@ public:
 	string getConditionId() const;
 	EventData* getTriggerEventData() const;
 	string getTriggerEventId() const;
+	StoryEventData* getTriggerStoryData() const;
+	string getTriggerStoryId() const;
 	string description() const;
 	static const map<string, ButtonData*>* getSharedDictionary();
 	static ButtonData* getButtonDataById(const string& buttonId);

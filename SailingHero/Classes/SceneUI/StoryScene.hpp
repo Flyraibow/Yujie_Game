@@ -29,6 +29,7 @@ private:
   void addDialogs(StoryEventData *storyEventData);
   void addPictures(StoryEventData *storyEventData);
   void movePictures(StoryEventData *storyEventData);
+  void showSelections(StoryEventData *storyEventData);
   void setPicture(const string &pictureName, const map<string, string> &originalParameters, const map<string, string> &destinyParameters, float totalDuration = 0, float leftTime = 0);
 public:
   static StoryScene* createScene();

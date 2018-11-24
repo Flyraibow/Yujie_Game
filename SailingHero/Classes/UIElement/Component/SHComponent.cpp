@@ -86,7 +86,7 @@ void SHComponent::addNodeToParent(ComponentDict &dict, Node *child, Node *parent
     auto scaleY = parent->getContentSize().height / child->getContentSize().height;
     child->setScale(scaleX, scaleY);
   } else {
-    auto parentScale = parent ? parent->getScale() : 1;
+    auto parentScale = parent ? parent->getScaleX() : 1;
     float f = 1.0;
     if (!p_isParentScale) {
       f /= parentScale;

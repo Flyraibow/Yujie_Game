@@ -194,9 +194,9 @@ lafeier_strory_begin_101,杰拿斯加入,subStory,,add_friend_story_1,,firstName
 lafeier_strory_begin_102,库拉乌迪·马奈乌斯成为伙伴！,subStory,,add_friend_story_1,,firstName:gamedata.HeroData.8.heroFirstName;lastName:gamedata.HeroData.8.heroLastName,lafeier_strory_begin_103
 lafeier_strory_begin_103,弗里奥·埃涅科成为伙伴！,subStory,,add_friend_story_1,,firstName:gamedata.HeroData.9.heroFirstName;lastName:gamedata.HeroData.9.heroLastName,lafeier_strory_begin_104
 lafeier_strory_begin_104,选项：跟弗里奥先生学准备的方法吗？还是自己进行出海的准备呢？,dialog,,,,"dialogIds:story_text_110,story_text_111",lafeier_strory_begin_105
-lafeier_strory_begin_105,获得 船只 ,,,,,,lafeier_strory_begin_106
-lafeier_strory_begin_106,选项学学吧、自己也能做的,,,,,,lafeier_strory_begin_107
-lafeier_strory_begin_107,恩。那么开始准备吧。先去交易所吗？,,,,,,lafeier_strory_begin_108
-lafeier_strory_begin_108,在任何城市，出海前去交易所、酒馆、广场转转的好。,,,,,,lafeier_strory_begin_109
-lafeier_strory_begin_109,开启触发交易所剧情,,,,,,lafeier_strory_begin_110
-lafeier_strory_begin_110,开启触发酒馆剧情,,,,,,;
+lafeier_strory_begin_105,选项学学吧、自己也能做的,selection,,,,"options:story_lafeier_story_1,story_lafeier_story_2",lafeier_strory_begin_106
+lafeier_strory_begin_106,恩。那么开始准备吧。先去交易所吗？,dialog,,,,dialogIds:story_text_112,lafeier_strory_begin_107
+lafeier_strory_begin_107,在任何城市，出海前去交易所、酒馆、广场转转的好。,,,,,,lafeier_strory_begin_108
+lafeier_strory_begin_108,开启触发交易所剧情,,,,,,lafeier_strory_begin_109
+lafeier_strory_begin_109,开启触发酒馆剧情,,,,,,;
+lafeier_strory_begin_110,,,,,,,;

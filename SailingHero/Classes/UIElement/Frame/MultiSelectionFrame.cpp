@@ -25,7 +25,7 @@ MultiSelectionFrame::MultiSelectionFrame(vector<string> selectList, int selectNu
     auto button = SystemButton::defaultButtonWithText(selectList[i]);
     p_buttonList.push_back(button);
   }
-  p_background = SystemButton::getButtonGroupNode(p_buttonList, true, false, Color4B(100, 0, 0, 100));
+  p_background = SystemButton::getButtonGroupNode(p_buttonList, GroupButtonOptionWithCloseButton, Color4B(100, 0, 0, 100));
   p_callback = callback;
   p_totalNumber = selectNumber;
 }
