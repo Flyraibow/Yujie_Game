@@ -93,6 +93,9 @@ void StoryScene::startNextStoryEvent(StoryEventData *storyData)
 
 void StoryScene::startStoryEvent(StoryEventData *storyData)
 {
+  if (storyData == nullptr) {
+    return;
+  }
   auto type = storyData->getType();
   CCLOG("start story: %s", storyData->description().c_str());
   if (type == "stopMusic") {
@@ -328,7 +331,7 @@ void StoryScene::addDialogs(StoryEventData *storyEventData)
     CCLOGERROR("error dialog format: %s", storyEventData->description().c_str());
   }
   auto dialog = DialogFrame::createWithDialogIds(dialogIds, [this, storyEventData]() {
-    startStoryEvent(storyEventData->getNextStoryData());
+    this->startNextStoryEvent(storyEventData);
   }, Color4B(), s_window->getContentSize());
   s_window->addChild(dialog->getSprite(), 100);
 }
@@ -345,9 +348,13 @@ void StoryScene::showSelections(StoryEventData *storyEventData)
   for (auto i = 0; i < selections.size(); ++i) {
     auto selection = selections.at(i);
     auto buttonData = ButtonData::getButtonDataById(selection);
-    auto button = SystemButton::defaultButtonWithText(buttonData->getLabel(), [buttonData, this](cocos2d::Ref* pSender) {
-      auto storyEventData = StoryEventData::getStoryEventDataById(buttonData->getTriggerStoryId());
-      this->startStoryEvent(storyEventData);
+    auto button = SystemButton::defaultButtonWithText(buttonData->getLabel(), [buttonData,storyEventData, this](cocos2d::Ref* pSender) {
+      auto story = StoryEventData::getStoryEventDataById(buttonData->getTriggerStoryId());
+      if (story != nullptr) {
+        this->startStoryEvent(story);
+      } else if (storyEventData->getNextStoryData() != nullptr) {
+        this->startStoryEvent(storyEventData->getNextStoryData());
+      }
     });
     buttons.push_back(button);
   }
