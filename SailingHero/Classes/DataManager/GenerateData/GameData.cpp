@@ -90,6 +90,16 @@ void GameData::setExperiencedStoriesIdSet(set<string> experiencedStories)
 	p_experiencedStoriesIdSet = experiencedStories;
 }
 
+set<string> GameData::getGameSwitch() const
+{
+	return p_gameSwitch;
+}
+
+void GameData::setGameSwitch(set<string> gameSwitch)
+{
+	p_gameSwitch = gameSwitch;
+}
+
 string GameData::description() const
 {
 	string desc = "gameData = {\n";
@@ -99,6 +109,7 @@ string GameData::description() const
 	desc += "\tcity : " + to_string(p_cityId) + "\n";
 	desc += "\tguild : " + to_string(p_guildId) + "\n";
 	desc += "\texperiencedStories : " + to_string(p_experiencedStoriesIdSet) + "\n";
+	desc += "\tgameSwitch : " + to_string(p_gameSwitch) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -121,6 +132,10 @@ GameData* GameData::getSharedInstance()
 			for (int j = 0; j < experiencedStoriesCount; ++j) {
 				p_sharedData->p_experiencedStoriesIdSet.insert(buffer->getString());
 			}
+			auto gameSwitchCount = buffer->getLong();
+			for (int j = 0; j < gameSwitchCount; ++j) {
+				p_sharedData->p_gameSwitch.insert(buffer->getString());
+			}
 		}
 	}
 	return p_sharedData;
@@ -131,7 +146,7 @@ bool GameData::saveData(const string & path)
 	auto filePath = path + "/GameData.dat";
 	auto data = GameData::getSharedInstance();
 	auto buffer = std::make_unique<bb::ByteBuffer>();
-	buffer->putInt(6);
+	buffer->putInt(7);
 	buffer->putString("p_year");
 	buffer->putString(to_string(data->p_year));
 	buffer->putString("p_month");
@@ -144,6 +159,8 @@ bool GameData::saveData(const string & path)
 	buffer->putString(to_string(data->p_guildId));
 	buffer->putString("p_experiencedStoriesIdSet");
 	buffer->putString(to_string(data->p_experiencedStoriesIdSet));
+	buffer->putString("p_gameSwitch");
+	buffer->putString(to_string(data->p_gameSwitch));
 	buffer->writeToFile(filePath);
 	return true;
 }
@@ -173,6 +190,8 @@ bool GameData::loadData(const string & path)
 					data->p_guildId = value;
 				} else if (key == "p_experiencedStoriesIdSet") {
 					data->p_experiencedStoriesIdSet = atoset(value);
+				} else if (key == "p_gameSwitch") {
+					data->p_gameSwitch = atoset(value);
 				}
 			}
 		}
@@ -203,6 +222,8 @@ void GameData::setFieldValue(const string & fieldName, const string & value)
 		this->setGuildId(value);
 	} else if (fieldName == "experiencedStories") {
 		this->setExperiencedStoriesIdSet(atoset(value));
+	} else if (fieldName == "gameSwitch") {
+		this->setGameSwitch(atoset(value));
 	}
 }
 
@@ -220,6 +241,8 @@ string GameData::getFieldValue(const string & fieldName)
 		return to_string(this->getGuildId());
 	} else if (fieldName == "experiencedStories") {
 		return to_string(this->getExperiencedStoriesIdSet());
+	} else if (fieldName == "gameSwitch") {
+		return to_string(this->getGameSwitch());
 	}
 	CCLOGWARN("Couldn't recognize %s in GameData", fieldName.c_str());
 	return "";

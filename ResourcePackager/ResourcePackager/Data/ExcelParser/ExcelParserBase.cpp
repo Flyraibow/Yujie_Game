@@ -205,7 +205,7 @@ void ExcelParserBase::addInitFuncBody(CPPFunction *func, const string &variableN
       func->addBodyStatementsList({
         "auto " + p_schema->getName() + "Count = buffer->getLong();",
         "for (int j = 0; j < " + p_schema->getName() + "Count; ++j) {"
-      }, 3);
+      }, level);
       string getterFuncName = p_schema->getSubtype(); // int
       getterFuncName[0] = toupper(getterFuncName[0]);  // Int
       getterFuncName = "get" + getterFuncName + "()";  // getInt()

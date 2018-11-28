@@ -10,6 +10,7 @@
 #include "EventManager.hpp"
 #include "JsonUtil.hpp"
 #include "DataManager.hpp"
+#include "BaseData.h"
 
 USING_NS_CC;
 
@@ -24,9 +25,9 @@ SHButtonComponent::SHButtonComponent(nlohmann::json componentJson) : SHComponent
 Node* SHButtonComponent::addComponentToParent(ComponentDict &dict, cocos2d::Node *parent)
 {
   ui::Button* button = nullptr;
-  auto text = p_text.size() > 0 ? DataManager::getShareInstance()->decipherString(p_text) : "";
+  auto text = p_text.size() > 0 ? decipherValue(p_text) : "";
   if (p_imagePath.length() > 0) {
-    auto path = DataManager::getShareInstance()->decipherString(p_imagePath);
+    auto path = decipherValue(p_imagePath);
     button = ui::Button::create(path);
     button->setTitleText(text);
   } else {
@@ -40,8 +41,13 @@ Node* SHButtonComponent::addComponentToParent(ComponentDict &dict, cocos2d::Node
     button->setContentSize(size);
   }
   if (p_eventId.size() > 0) {
-    auto eventId = DataManager::getShareInstance()->decipherString(p_eventId);
-    button->addClickEventListener([eventId](cocos2d::Ref* pSender) {
+    auto eventId = decipherValue(p_eventId);
+    auto associateData = p_associateData;
+    button->addClickEventListener([eventId, associateData](cocos2d::Ref* pSender) {
+      if (associateData != nullptr) {
+        DataManager::getShareInstance()->setTempData("clickData", associateData);
+        CCLOG("%s", associateData->description().c_str());
+      }
       EventManager::getShareInstance()->runEvent(eventId);
     });
   }
@@ -49,4 +55,11 @@ Node* SHButtonComponent::addComponentToParent(ComponentDict &dict, cocos2d::Node
   addNodeToParent(dict, button, parent);
   
   return button;
+}
+
+void SHButtonComponent::refresh()
+{
+  if (p_shouldHideCondition.length() > 0) {
+    p_node->setVisible(!DataManager::getShareInstance()->checkCondition(p_shouldHideCondition));
+  }
 }

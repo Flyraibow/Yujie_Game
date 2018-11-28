@@ -54,7 +54,7 @@ namespace SHUtil {
     st += "}";
     return st;
   }
-  
+
   ::std::set<::std::string> atoset(const ::std::string &str);
   ::std::vector<::std::string> atovector(const ::std::string &str);
   ::std::vector<::std::pair<::std::string, ::std::string>> atomap(const ::std::string &str);

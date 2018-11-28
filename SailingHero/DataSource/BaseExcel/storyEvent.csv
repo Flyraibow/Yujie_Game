@@ -10,70 +10,70 @@ add_friend_story_1,,wait,1,,,,add_friend_story_2
 add_friend_story_2,,playSound,,,res/base/SE/addTeam.wav,,add_friend_story_3
 add_friend_story_3,,dialog,,,,dialogIds:dialog_add_friend,add_friend_story_4
 add_friend_story_4,,wait,0.5,,,,;
-lafeier_strory_begin_1,停止背景音,stopMusic,0,,,,lafeier_strory_begin_2
-lafeier_strory_begin_2,等待3秒,wait,3,,,,lafeier_strory_begin_3
-lafeier_strory_begin_3,播放海浪背景,playMusic,0,,res/base/SE/seaWave.m4v,,lafeier_strory_begin_4
-lafeier_strory_begin_4,播放海鸥声音,playSound,0,,res/base/SE/seagull.m4v,,lafeier_strory_begin_5
-lafeier_strory_begin_5,添加图片,addPicture,0,a,res/base/CG/CG_1.png,screenscale:1;order:2,lafeier_strory_begin_6
-lafeier_strory_begin_6,设成黑色,addPicture,0,color,,color:black;screenscale:1;order:1000,lafeier_strory_begin_7
-lafeier_strory_begin_7,用两秒恢复正常透明度,movePicture,2,color,,color:normal,lafeier_strory_begin_8
-lafeier_strory_begin_8,等待3秒,wait,3,,,,lafeier_strory_begin_9
-lafeier_strory_begin_9,添加第二张图片b,addPicture,0,b,res/base/CG/CG_1.png,screenscale:2;anchorX:1;anchorY:0;posX:1;posY:0;order:1,lafeier_strory_begin_10
-lafeier_strory_begin_10,图片a渐渐透明,movePicture,3,a,,opacity:0,lafeier_strory_begin_11
-lafeier_strory_begin_11,等待3秒,wait,3,,,,lafeier_strory_begin_12
-lafeier_strory_begin_12,移除图片a,removePicture,0,a,,,lafeier_strory_begin_13
-lafeier_strory_begin_13,移动图片b，向上,movePicture,6,b,,posX:1;posY:-1;screenscale:2,lafeier_strory_begin_14
-lafeier_strory_begin_14,等待8秒,wait,8,,,,lafeier_strory_begin_15
-lafeier_strory_begin_15,移动图片b，向左下,movePicture,6,b,,posX:2;posY:0;screenscale:2,lafeier_strory_begin_16
-lafeier_strory_begin_16,等待8秒,wait,8,,,,lafeier_strory_begin_17
-lafeier_strory_begin_17,放大图片b到2.5倍,movePicture,3,b,,screenscale:2.5;posX:2.5;posY:0,lafeier_strory_begin_18
-lafeier_strory_begin_18,显示文字，库拉乌，\n你想给我看什么,addPicture,0,text,,text:story_text_1;anchorX:0;anchorY:0;posX:0.05;posY:0.05;order:5,lafeier_strory_begin_19
-lafeier_strory_begin_19,等待6秒,wait,6,,,,lafeier_strory_begin_20
-lafeier_strory_begin_20,移除文字,removePicture,0,text,,,lafeier_strory_begin_21
-lafeier_strory_begin_21,等待3秒,wait,3,,,,lafeier_strory_begin_22
-lafeier_strory_begin_22,显示图片c,addPicture,0,c,res/base/CG/CG_2.png,screenscale:1,lafeier_strory_begin_23
-lafeier_strory_begin_23,b变成透明3秒,movePicture,3,b,,opacity:0,lafeier_strory_begin_24
-lafeier_strory_begin_24,等待4秒,wait,4,,,,lafeier_strory_begin_25
-lafeier_strory_begin_25,移除b,removePicture,0,b,,,lafeier_strory_begin_26
-lafeier_strory_begin_26,播放拉斐尔主题音,playMusic,0,,res/base/music/south_europe.mp3,,lafeier_strory_begin_27
-lafeier_strory_begin_27,对话（行了，行了。去了就明白了。）,dialog,0,,,"dialogIds:story_text_2,story_text_3,story_text_4,story_text_5,story_text_6,story_text_7,story_text_8",lafeier_strory_begin_28
-lafeier_strory_begin_28,备注：添加脚步声,playSound,0,,res/base/SE/steps.wav,,lafeier_strory_begin_29
-lafeier_strory_begin_29,对话（到了）,dialog,0,,,dialogIds:story_text_9,lafeier_strory_begin_30
-lafeier_strory_begin_30,设置图片c透明,movePicture,2,c,,opacity:0,lafeier_strory_begin_31
-lafeier_strory_begin_31,等待2秒,wait,2,,,,lafeier_strory_begin_32
-lafeier_strory_begin_32,移除图片c,removePicture,0,c,,,lafeier_strory_begin_33
-lafeier_strory_begin_33,对话（呀，来了啊....。）,dialog,0,,,"dialogIds:story_text_10,story_text_11",lafeier_strory_begin_34
-lafeier_strory_begin_34,加载图片d,addPicture,0,d,res/base/CG/CG_3.png,screenscale:2;anchorX:1;anchorY:0;posX:1;posY:0;order:1;opacity:0,lafeier_strory_begin_35
-lafeier_strory_begin_35,d显示,movePicture,2.5,d,,opacity:255;posX:1;posY:0,lafeier_strory_begin_36
-lafeier_strory_begin_36,等3秒,wait,3,,,,lafeier_strory_begin_37
-lafeier_strory_begin_37,木匠声音,playSound,0,,res/base/SE/carpenter.wav,,lafeier_strory_begin_38
-lafeier_strory_begin_38,d图片移动到左下角,movePicture,6,d,,posX:1.8;posY:0,lafeier_strory_begin_39
-lafeier_strory_begin_39,等待7秒,wait,7,,,,lafeier_strory_begin_40
-lafeier_strory_begin_40,d图片移动到左上角,movePicture,6,d,,posX:2;posY:-1,lafeier_strory_begin_41
-lafeier_strory_begin_41,等待7秒,wait,7,,,,lafeier_strory_begin_42
-lafeier_strory_begin_42,显示文字，是船。。。。,addPicture,0,text,,text:story_text_12;anchorX:0;anchorY:0;posX:0.05;posY:0.05;order:5,lafeier_strory_begin_43
-lafeier_strory_begin_43,等待点击,wait,5,,,,lafeier_strory_begin_44
-lafeier_strory_begin_44,移除文字,removePicture,0,text,,,lafeier_strory_begin_45
-lafeier_strory_begin_45,等待2秒,wait,2,,,,lafeier_strory_begin_46
-lafeier_strory_begin_46,对话（怎么了？吓了一跳吧！名字已经取好了，叫“卡鲁提拉号”，好吧！）,dialog,0,,,"dialogIds:story_text_13,story_text_14,story_text_15",lafeier_strory_begin_47
-lafeier_strory_begin_47,加载图片e,addPicture,0,e,res/base/CG/CG_4.png,screenscale:1;order:1;opacity:0,lafeier_strory_begin_48
-lafeier_strory_begin_48,d显示,movePicture,2.5,e,,opacity:255,lafeier_strory_begin_49
-lafeier_strory_begin_49,等待4秒,wait,4,,,,lafeier_strory_begin_50
-lafeier_strory_begin_50,移除图片d,removePicture,0,d,,,lafeier_strory_begin_51
-lafeier_strory_begin_51,显示文字，走吧……。,addPicture,0,text,,text:story_text_16;anchorX:0;anchorY:0;posX:0.05;posY:0.05;order:5,lafeier_strory_begin_52
-lafeier_strory_begin_52,等待点击,wait,2,,,,lafeier_strory_begin_53
-lafeier_strory_begin_53,移除文字,removePicture,0,text,,,lafeier_strory_begin_54
-lafeier_strory_begin_54,等待1秒,wait,1,,,,lafeier_strory_begin_55
-lafeier_strory_begin_55,对话（嗯？）,dialog,0,,,"dialogIds:story_text_17,story_text_18,story_text_19",lafeier_strory_begin_56
-lafeier_strory_begin_56,添加城市图片 city,wait,2,,,,lafeier_strory_begin_57
-lafeier_strory_begin_57,等待2秒,addPicture,0,city,res/base/icon/townGrp/12-1.png,screenscale:1;order:1;opacity:0,lafeier_strory_begin_58
-lafeier_strory_begin_58,显示city 图片,wait,2,,,,lafeier_strory_begin_59
-lafeier_strory_begin_59,显示图片a,movePicture,2,city,,opacity:255,lafeier_strory_begin_60
-lafeier_strory_begin_60,等待3秒,wait,3,,,,lafeier_strory_begin_61
-lafeier_strory_begin_61,移除图片e,removePicture,0,e,,,lafeier_strory_begin_62
-lafeier_strory_begin_62,对话（现在去找弗里奥大叔！！）,dialog,0,,,"dialogIds:story_text_20,story_text_21,story_text_22",lafeier_strory_begin_63
-lafeier_strory_begin_63,脚步声,playSound,0,,res/base/SE/steps.wav,,lafeier_strory_begin_64
-lafeier_strory_begin_64,"喂！等一下！%s！
+lafeier_story_begin_1,停止背景音,stopMusic,0,,,,lafeier_story_begin_2
+lafeier_story_begin_2,等待3秒,wait,3,,,,lafeier_story_begin_3
+lafeier_story_begin_3,播放海浪背景,playMusic,0,,res/base/SE/seaWave.m4v,,lafeier_story_begin_4
+lafeier_story_begin_4,播放海鸥声音,playSound,0,,res/base/SE/seagull.m4v,,lafeier_story_begin_5
+lafeier_story_begin_5,添加图片,addPicture,0,a,res/base/CG/CG_1.png,screenscale:1;order:2,lafeier_story_begin_6
+lafeier_story_begin_6,设成黑色,addPicture,0,color,,color:black;screenscale:1;order:1000,lafeier_story_begin_7
+lafeier_story_begin_7,用两秒恢复正常透明度,movePicture,2,color,,color:normal,lafeier_story_begin_8
+lafeier_story_begin_8,等待3秒,wait,3,,,,lafeier_story_begin_9
+lafeier_story_begin_9,添加第二张图片b,addPicture,0,b,res/base/CG/CG_1.png,screenscale:2;anchorX:1;anchorY:0;posX:1;posY:0;order:1,lafeier_story_begin_10
+lafeier_story_begin_10,图片a渐渐透明,movePicture,3,a,,opacity:0,lafeier_story_begin_11
+lafeier_story_begin_11,等待3秒,wait,3,,,,lafeier_story_begin_12
+lafeier_story_begin_12,移除图片a,removePicture,0,a,,,lafeier_story_begin_13
+lafeier_story_begin_13,移动图片b，向上,movePicture,6,b,,posX:1;posY:-1;screenscale:2,lafeier_story_begin_14
+lafeier_story_begin_14,等待8秒,wait,8,,,,lafeier_story_begin_15
+lafeier_story_begin_15,移动图片b，向左下,movePicture,6,b,,posX:2;posY:0;screenscale:2,lafeier_story_begin_16
+lafeier_story_begin_16,等待8秒,wait,8,,,,lafeier_story_begin_17
+lafeier_story_begin_17,放大图片b到2.5倍,movePicture,3,b,,screenscale:2.5;posX:2.5;posY:0,lafeier_story_begin_18
+lafeier_story_begin_18,显示文字，库拉乌，\n你想给我看什么,addPicture,0,text,,text:story_text_1;anchorX:0;anchorY:0;posX:0.05;posY:0.05;order:5,lafeier_story_begin_19
+lafeier_story_begin_19,等待6秒,wait,6,,,,lafeier_story_begin_20
+lafeier_story_begin_20,移除文字,removePicture,0,text,,,lafeier_story_begin_21
+lafeier_story_begin_21,等待3秒,wait,3,,,,lafeier_story_begin_22
+lafeier_story_begin_22,显示图片c,addPicture,0,c,res/base/CG/CG_2.png,screenscale:1,lafeier_story_begin_23
+lafeier_story_begin_23,b变成透明3秒,movePicture,3,b,,opacity:0,lafeier_story_begin_24
+lafeier_story_begin_24,等待4秒,wait,4,,,,lafeier_story_begin_25
+lafeier_story_begin_25,移除b,removePicture,0,b,,,lafeier_story_begin_26
+lafeier_story_begin_26,播放拉斐尔主题音,playMusic,0,,res/base/music/south_europe.mp3,,lafeier_story_begin_27
+lafeier_story_begin_27,对话（行了，行了。去了就明白了。）,dialog,0,,,"dialogIds:story_text_2,story_text_3,story_text_4,story_text_5,story_text_6,story_text_7,story_text_8",lafeier_story_begin_28
+lafeier_story_begin_28,备注：添加脚步声,playSound,0,,res/base/SE/steps.wav,,lafeier_story_begin_29
+lafeier_story_begin_29,对话（到了）,dialog,0,,,dialogIds:story_text_9,lafeier_story_begin_30
+lafeier_story_begin_30,设置图片c透明,movePicture,2,c,,opacity:0,lafeier_story_begin_31
+lafeier_story_begin_31,等待2秒,wait,2,,,,lafeier_story_begin_32
+lafeier_story_begin_32,移除图片c,removePicture,0,c,,,lafeier_story_begin_33
+lafeier_story_begin_33,对话（呀，来了啊....。）,dialog,0,,,"dialogIds:story_text_10,story_text_11",lafeier_story_begin_34
+lafeier_story_begin_34,加载图片d,addPicture,0,d,res/base/CG/CG_3.png,screenscale:2;anchorX:1;anchorY:0;posX:1;posY:0;order:1;opacity:0,lafeier_story_begin_35
+lafeier_story_begin_35,d显示,movePicture,2.5,d,,opacity:255;posX:1;posY:0,lafeier_story_begin_36
+lafeier_story_begin_36,等3秒,wait,3,,,,lafeier_story_begin_37
+lafeier_story_begin_37,木匠声音,playSound,0,,res/base/SE/carpenter.wav,,lafeier_story_begin_38
+lafeier_story_begin_38,d图片移动到左下角,movePicture,6,d,,posX:1.8;posY:0,lafeier_story_begin_39
+lafeier_story_begin_39,等待7秒,wait,7,,,,lafeier_story_begin_40
+lafeier_story_begin_40,d图片移动到左上角,movePicture,6,d,,posX:2;posY:-1,lafeier_story_begin_41
+lafeier_story_begin_41,等待7秒,wait,7,,,,lafeier_story_begin_42
+lafeier_story_begin_42,显示文字，是船。。。。,addPicture,0,text,,text:story_text_12;anchorX:0;anchorY:0;posX:0.05;posY:0.05;order:5,lafeier_story_begin_43
+lafeier_story_begin_43,等待点击,wait,5,,,,lafeier_story_begin_44
+lafeier_story_begin_44,移除文字,removePicture,0,text,,,lafeier_story_begin_45
+lafeier_story_begin_45,等待2秒,wait,2,,,,lafeier_story_begin_46
+lafeier_story_begin_46,对话（怎么了？吓了一跳吧！名字已经取好了，叫“卡鲁提拉号”，好吧！）,dialog,0,,,"dialogIds:story_text_13,story_text_14,story_text_15",lafeier_story_begin_47
+lafeier_story_begin_47,加载图片e,addPicture,0,e,res/base/CG/CG_4.png,screenscale:1;order:1;opacity:0,lafeier_story_begin_48
+lafeier_story_begin_48,d显示,movePicture,2.5,e,,opacity:255,lafeier_story_begin_49
+lafeier_story_begin_49,等待4秒,wait,4,,,,lafeier_story_begin_50
+lafeier_story_begin_50,移除图片d,removePicture,0,d,,,lafeier_story_begin_51
+lafeier_story_begin_51,显示文字，走吧……。,addPicture,0,text,,text:story_text_16;anchorX:0;anchorY:0;posX:0.05;posY:0.05;order:5,lafeier_story_begin_52
+lafeier_story_begin_52,等待点击,wait,2,,,,lafeier_story_begin_53
+lafeier_story_begin_53,移除文字,removePicture,0,text,,,lafeier_story_begin_54
+lafeier_story_begin_54,等待1秒,wait,1,,,,lafeier_story_begin_55
+lafeier_story_begin_55,对话（嗯？）,dialog,0,,,"dialogIds:story_text_17,story_text_18,story_text_19",lafeier_story_begin_56
+lafeier_story_begin_56,添加城市图片 city,wait,2,,,,lafeier_story_begin_57
+lafeier_story_begin_57,等待2秒,addPicture,0,city,res/base/icon/townGrp/12-1.png,screenscale:1;order:1;opacity:0,lafeier_story_begin_58
+lafeier_story_begin_58,显示city 图片,wait,2,,,,lafeier_story_begin_59
+lafeier_story_begin_59,显示图片a,movePicture,2,city,,opacity:255,lafeier_story_begin_60
+lafeier_story_begin_60,等待3秒,wait,3,,,,lafeier_story_begin_61
+lafeier_story_begin_61,移除图片e,removePicture,0,e,,,lafeier_story_begin_62
+lafeier_story_begin_62,对话（现在去找弗里奥大叔！！）,dialog,0,,,"dialogIds:story_text_20,story_text_21,story_text_22",lafeier_story_begin_63
+lafeier_story_begin_63,脚步声,playSound,0,,res/base/SE/steps.wav,,lafeier_story_begin_64
+lafeier_story_begin_64,"喂！等一下！%s！
 哎呀，结果那家伙最想出海。
 哈哈，传染上了库拉乌的毛病。一旦决定做什么就非马上动手不可。
 那家伙本来就是那样。只是平时看不出来。修理得怎么样了？
@@ -81,19 +81,19 @@ lafeier_strory_begin_64,"喂！等一下！%s！
 行了，不要斤斤计较。想得开才会快乐。
 啊哈，是啊。那我们也去吗？%s大叔那儿。
 当然。%s还是希望我也跟着去，对吧。
-好的好，我明白了。走吧走吧。",dialog,0,,,dialogPrefix:story_text_;from:23;to:31,lafeier_strory_begin_65
-lafeier_strory_begin_65,隐藏城市图片,movePicture,2.5,city,,opacity:0,lafeier_strory_begin_66
-lafeier_strory_begin_66,等待2秒,wait,2,,,,lafeier_strory_begin_67
-lafeier_strory_begin_67,停止背景音,stopMusic,,,,,lafeier_strory_begin_68
-lafeier_strory_begin_68,添加酒馆图片,addPicture,,tavern,res/base/CG/CG_5.png,screenscale:1;order:1;opacity:0,lafeier_strory_begin_69
-lafeier_strory_begin_69,显示图片a,movePicture,1,tavern,,opacity:255,lafeier_strory_begin_70
-lafeier_strory_begin_70,等待5秒,wait,1,,,,lafeier_strory_begin_71
-lafeier_strory_begin_71,移除城市图片,removePicture,0,city,,,lafeier_strory_begin_72
-lafeier_strory_begin_72,添加弗里奥大叔,addPicture,0,portrait,res/base/icon/portrait/10-1.png,heightScreenScale:0.9;order:2;opacity:1;anchorX:0.5;anchorY:0;posX:0.5;posY:0,lafeier_strory_begin_73
-lafeier_strory_begin_73,显示 portrait 2秒,movePicture,1,portrait,,opacity:255,lafeier_strory_begin_74
-lafeier_strory_begin_74,等待2秒,wait,2,,,,lafeier_strory_begin_75
-lafeier_strory_begin_75,播放拉斐尔背景,playMusic,,,res/base/music/lafeier.wav,,lafeier_strory_begin_76
-lafeier_strory_begin_76,"什么！？又借钱！%s你这小子，岂有此理！想做什么用？
+好的好，我明白了。走吧走吧。",dialog,0,,,dialogPrefix:story_text_;from:23;to:31,lafeier_story_begin_65
+lafeier_story_begin_65,隐藏城市图片,movePicture,2.5,city,,opacity:0,lafeier_story_begin_66
+lafeier_story_begin_66,等待2秒,wait,2,,,,lafeier_story_begin_67
+lafeier_story_begin_67,停止背景音,stopMusic,,,,,lafeier_story_begin_68
+lafeier_story_begin_68,添加酒馆图片,addPicture,,tavern,res/base/CG/CG_5.png,screenscale:1;order:1;opacity:0,lafeier_story_begin_69
+lafeier_story_begin_69,显示图片a,movePicture,1,tavern,,opacity:255,lafeier_story_begin_70
+lafeier_story_begin_70,等待5秒,wait,1,,,,lafeier_story_begin_71
+lafeier_story_begin_71,移除城市图片,removePicture,0,city,,,lafeier_story_begin_72
+lafeier_story_begin_72,添加弗里奥大叔,addPicture,0,portrait,res/base/icon/portrait/10-1.png,heightScreenScale:0.9;order:2;opacity:1;anchorX:0.5;anchorY:0;posX:0.5;posY:0,lafeier_story_begin_73
+lafeier_story_begin_73,显示 portrait 2秒,movePicture,1,portrait,,opacity:255,lafeier_story_begin_74
+lafeier_story_begin_74,等待2秒,wait,2,,,,lafeier_story_begin_75
+lafeier_story_begin_75,播放拉斐尔背景,playMusic,,,res/base/music/lafeier.wav,,lafeier_story_begin_76
+lafeier_story_begin_76,"什么！？又借钱！%s你这小子，岂有此理！想做什么用？
 ……。不要突然喊这么大声，大叔！
 对不起，给您添麻烦了。
 啊，你是%s家的少爷吗？
@@ -109,36 +109,36 @@ lafeier_strory_begin_76,"什么！？又借钱！%s你这小子，岂有此理�
 啊，是吗？我不求您了。喂，走吧。%s，%s。
 喂喂，我知道了，别拉我。
 ……给您添麻烦了对不起。告辞了。
-……",dialog,,,,dialogPrefix:story_text_;from:32;to:48,lafeier_strory_begin_77
-lafeier_strory_begin_77,脚步声,playSound,0,,res/base/SE/steps.wav,,lafeier_strory_begin_78
-lafeier_strory_begin_78,设置酒馆图片透明,movePicture,1,tavern,,opacity:0,lafeier_strory_begin_79
-lafeier_strory_begin_79,设置大叔肖像透明,movePicture,1,portrait,,opacity:0,lafeier_strory_begin_80
-lafeier_strory_begin_80,等待1秒,wait,1,,,,lafeier_strory_begin_81
-lafeier_strory_begin_81,移除a,removePicture,,tavern,,,lafeier_strory_begin_82
-lafeier_strory_begin_82,移除b,removePicture,,portrait,,,lafeier_strory_begin_83
-lafeier_strory_begin_83,显示城市图片,addPicture,,city,res/base/icon/townGrp/12-1.png,screenscale:1;order:1;opacity:0,lafeier_strory_begin_84
-lafeier_strory_begin_84,设置城市图透明度,movePicture,1,city,,opacity:255,lafeier_strory_begin_85
-lafeier_strory_begin_85,等待1秒,wait,1,,,,lafeier_strory_begin_86
-lafeier_strory_begin_86,"啊，虽然这么说，但你想怎么办呢？
+……",dialog,,,,dialogPrefix:story_text_;from:32;to:48,lafeier_story_begin_77
+lafeier_story_begin_77,脚步声,playSound,0,,res/base/SE/steps.wav,,lafeier_story_begin_78
+lafeier_story_begin_78,设置酒馆图片透明,movePicture,1,tavern,,opacity:0,lafeier_story_begin_79
+lafeier_story_begin_79,设置大叔肖像透明,movePicture,1,portrait,,opacity:0,lafeier_story_begin_80
+lafeier_story_begin_80,等待1秒,wait,1,,,,lafeier_story_begin_81
+lafeier_story_begin_81,移除a,removePicture,,tavern,,,lafeier_story_begin_82
+lafeier_story_begin_82,移除b,removePicture,,portrait,,,lafeier_story_begin_83
+lafeier_story_begin_83,显示城市图片,addPicture,,city,res/base/icon/townGrp/12-1.png,screenscale:1;order:1;opacity:0,lafeier_story_begin_84
+lafeier_story_begin_84,设置城市图透明度,movePicture,1,city,,opacity:255,lafeier_story_begin_85
+lafeier_story_begin_85,等待1秒,wait,1,,,,lafeier_story_begin_86
+lafeier_story_begin_86,"啊，虽然这么说，但你想怎么办呢？
 %s，为什么你不求你父亲呢？
 ……父亲总是把我当孩子。他一定反对我上船。
 现在不做点儿什么，永远无法改变他的观念！
 恩，%s！好！有气概！男子汉应当这样！
 那无关紧要，但最重要的东西还没有。光靠男子汉气概……。
-不要说那些。唉，只能踏踏实实的做下去。",dialog,,,,dialogPrefix:story_text_;from:49;to:55,lafeier_strory_begin_87
-lafeier_strory_begin_87,脚步声,playSound,0,,res/base/SE/steps.wav,,lafeier_strory_begin_88
-lafeier_strory_begin_88,等待2秒,wait,2,,,,lafeier_strory_begin_89
-lafeier_strory_begin_89,喂————,dialog,,,,dialogIds:story_text_56,lafeier_strory_begin_90
-lafeier_strory_begin_90,,wait,1,,,,lafeier_strory_begin_91
-lafeier_strory_begin_91,"哎呀是弗里奥先生。什么事？
+不要说那些。唉，只能踏踏实实的做下去。",dialog,,,,dialogPrefix:story_text_;from:49;to:55,lafeier_story_begin_87
+lafeier_story_begin_87,脚步声,playSound,0,,res/base/SE/steps.wav,,lafeier_story_begin_88
+lafeier_story_begin_88,等待2秒,wait,2,,,,lafeier_story_begin_89
+lafeier_story_begin_89,喂————,dialog,,,,dialogIds:story_text_56,lafeier_story_begin_90
+lafeier_story_begin_90,,wait,1,,,,lafeier_story_begin_91
+lafeier_story_begin_91,"哎呀是弗里奥先生。什么事？
 能追上你们，太好了。
 什么事？
 我想了很多……。
 啊，真令人心急啊。快说，大叔。
 是这样。……恩，拉斐尔，这你拿去吧。
-！！这是！！",dialog,,,,dialogPrefix:story_text_;from:57;to:63,lafeier_strory_begin_92
-lafeier_strory_begin_92,获得30000金币,subStory,,get_money_story_1,,money:gamedata.GuildData.0.money,lafeier_strory_begin_93
-lafeier_strory_begin_93,"既然给了你，所以连利息在内要按期还我。
+！！这是！！",dialog,,,,dialogPrefix:story_text_;from:57;to:63,lafeier_story_begin_92
+lafeier_story_begin_92,获得30000金币,subStory,,get_money_story_1,,money:gamedata.GuildData.0.money,lafeier_story_begin_93
+lafeier_story_begin_93,"既然给了你，所以连利息在内要按期还我。
 是，是！我一定努力！
 但是，我还是担心资金的去向。因此我决定看守着。
 ？？
@@ -178,25 +178,40 @@ lafeier_strory_begin_93,"既然给了你，所以连利息在内要按期还我�
 既然舰长这么说的话。
 啊，别学我说话！老头！
 哼，谁学你？
-……好了好了。",dialog,,,,dialogPrefix:story_text_;from:64;to:104,lafeier_strory_begin_94
-lafeier_strory_begin_94,画面黑暗,addPicture,0,color,,color:black;screenscale:1;order:1000;opacity:0,lafeier_strory_begin_95
-lafeier_strory_begin_95,设置图片a透明,movePicture,1,color,,opacity:255,lafeier_strory_begin_96
-lafeier_strory_begin_96,等待2秒,wait,2,,,,lafeier_strory_begin_97
-lafeier_strory_begin_97,回复a不透明,movePicture,1,color,,opacity:0,lafeier_strory_begin_98
-lafeier_strory_begin_98,等待2秒,wait,2,,,,lafeier_strory_begin_99
-lafeier_strory_begin_99,"别管这傻瓜，如果这样决定了，准备工作很重要。航海所需的物品备齐了吗？
+……好了好了。",dialog,,,,dialogPrefix:story_text_;from:64;to:104,lafeier_story_begin_94
+lafeier_story_begin_94,画面黑暗,addPicture,0,color,,color:black;screenscale:1;order:1000;opacity:0,lafeier_story_begin_95
+lafeier_story_begin_95,设置图片a透明,movePicture,1,color,,opacity:255,lafeier_story_begin_96
+lafeier_story_begin_96,等待2秒,wait,2,,,,lafeier_story_begin_97
+lafeier_story_begin_97,回复a不透明,movePicture,1,color,,opacity:0,lafeier_story_begin_98
+lafeier_story_begin_98,等待2秒,wait,2,,,,lafeier_story_begin_99
+lafeier_story_begin_99,"别管这傻瓜，如果这样决定了，准备工作很重要。航海所需的物品备齐了吗？
 我们要不畏艰难，努力做下去。
 是！多多指教！
 呸，那老头，只不过知道一点航海相关知识，就把自己当做是拉斐尔的老师。
-喂喂，不好胡说了，走吧。",dialog,,,,dialogPrefix:story_text_;from:105;to:109,lafeier_strory_begin_100
-lafeier_strory_begin_100,脚步声,playSound,,,res/base/SE/steps.wav,,lafeier_strory_begin_101
-lafeier_strory_begin_101,杰拿斯加入,subStory,,add_friend_story_1,,firstName:gamedata.HeroData.7.heroFirstName;lastName:gamedata.HeroData.7.heroLastName,lafeier_strory_begin_102
-lafeier_strory_begin_102,库拉乌迪·马奈乌斯成为伙伴！,subStory,,add_friend_story_1,,firstName:gamedata.HeroData.8.heroFirstName;lastName:gamedata.HeroData.8.heroLastName,lafeier_strory_begin_103
-lafeier_strory_begin_103,弗里奥·埃涅科成为伙伴！,subStory,,add_friend_story_1,,firstName:gamedata.HeroData.9.heroFirstName;lastName:gamedata.HeroData.9.heroLastName,lafeier_strory_begin_104
-lafeier_strory_begin_104,选项：跟弗里奥先生学准备的方法吗？还是自己进行出海的准备呢？,dialog,,,,"dialogIds:story_text_110,story_text_111",lafeier_strory_begin_105
-lafeier_strory_begin_105,选项学学吧、自己也能做的,selection,,,,"options:story_lafeier_story_1,story_lafeier_story_2",lafeier_strory_begin_106
-lafeier_strory_begin_106,奥！这可以交给你。喂，要加油啊。,dialog,,,,dialogIds:story_text_114,;
-lafeier_strory_begin_learn_1,"恩。那么开始准备吧。先去交易所吗？
-在任何城市，出海前去交易所、酒馆、广场转转的好。",dialog,,,,"dialogIds:story_text_112,story_text_113",lafeier_strory_begin_learn_2
-lafeier_strory_begin_learn_2,开启触发交易所剧情,,,,,,lafeier_strory_begin_learn_3
-lafeier_strory_begin_learn_3,开启触发酒馆剧情,,,,,,;
+喂喂，不好胡说了，走吧。",dialog,,,,dialogPrefix:story_text_;from:105;to:109,lafeier_story_begin_100
+lafeier_story_begin_100,脚步声,playSound,,,res/base/SE/steps.wav,,lafeier_story_begin_101
+lafeier_story_begin_101,杰拿斯加入,subStory,,add_friend_story_1,,firstName:gamedata.HeroData.7.heroFirstName;lastName:gamedata.HeroData.7.heroLastName,lafeier_story_begin_102
+lafeier_story_begin_102,库拉乌迪·马奈乌斯成为伙伴！,subStory,,add_friend_story_1,,firstName:gamedata.HeroData.8.heroFirstName;lastName:gamedata.HeroData.8.heroLastName,lafeier_story_begin_103
+lafeier_story_begin_103,弗里奥·埃涅科成为伙伴！,subStory,,add_friend_story_1,,firstName:gamedata.HeroData.9.heroFirstName;lastName:gamedata.HeroData.9.heroLastName,lafeier_story_begin_104
+lafeier_story_begin_104,选项：跟弗里奥先生学准备的方法吗？还是自己进行出海的准备呢？,dialog,,,,"dialogIds:story_text_110,story_text_111",lafeier_story_begin_105
+lafeier_story_begin_105,选项学学吧、自己也能做的,selection,,,,"options:story_lafeier_story_1,story_lafeier_story_2",lafeier_story_begin_106
+lafeier_story_begin_106,奥！这可以交给你。喂，要加油啊。,dialog,,,,dialogIds:story_text_114,;
+lafeier_story_begin_learn_1,"恩。那么开始准备吧。先去交易所吗？
+在任何城市，出海前去交易所、酒馆、广场转转的好。",dialog,,,,"dialogIds:story_text_112,story_text_113",lafeier_story_begin_learn_2
+lafeier_story_begin_learn_2,开启触发交易所剧情；开启触发酒馆剧情,data,,,,"on:lafeier_exchange_intro,lafeier_bar_intro",;
+lafeier_exchange_intro_1,显示交易所图片；设置图片a透明,addPicture,0,e,res/base/CG/CG_5.png,screenscale:1;order:1;opacity:0,lafeier_exchange_intro_2
+lafeier_exchange_intro_2,a透明正常1秒,movePicture,1,e,,opacity:255,lafeier_exchange_intro_3
+lafeier_exchange_intro_3,等待2秒,wait,2,,,,lafeier_exchange_intro_4
+lafeier_exchange_intro_4,"交易品低价买入高价卖出，这是交易的基本常识。
+如果能往返于地中海和非洲之间，可以很容易赚到钱。
+还有，不要一下子就突然出远洋，应该在近海多看一看。
+查看各城市的市场行情，可以瞄准机会赚大钱。
+可以在里斯本购买藏红花或者杏仁到休达一带去卖。
+最初，船只数量、可以存储货物的货仓，数量都很少。一次可以买卖的货物数量不多。
+一个货仓可以装载的最大限量是买卖的一个单位。可以购买货物的数量要对应货仓数。
+此外根据“占有率”不同，一次交易的数量也发生变化。当然“占有率越高，可以交易的数量越多。",dialog,,,,dialogPrefix:story_exchange_text_;from:1;to:8,lafeier_exchange_intro_5
+lafeier_exchange_intro_5,市场占有率？;原来如此。,selection,,,,"options:story_lafeier_exchange_story_1,story_lafeier_exchange_story_2",lafeier_exchange_intro_6
+lafeier_exchange_intro_6,"占有率……怎么才能增加呢？
+如果占有率有空缺，王宫、交易所会分配给投资者。
+哎呀，最初可以不理。等赚了一些钱，船只数量增加之后再说。总之，先进行交易试试看。",dialog,,,,dialogPrefix:story_exchange_text_;from:9;to:11,lafeier_exchange_intro_7
+lafeier_exchange_intro_7,如果一切都好了，按“确定”交易完成。来吧，做做看。,,,,,dialogIds:12,;

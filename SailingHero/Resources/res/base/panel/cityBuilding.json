@@ -1,12 +1,13 @@
 {
     "type": "button",
-    "path": "data.cityBuilding.getBuildingImagePath",
+    "path": "associate.getBuildingImagePath",
+    "event": "click_city_building",
     "anchor_point_str":[
-      "data.cityBuilding.anchorX",
-      "data.cityBuilding.anchorY"
+      "associate.anchorX",
+      "associate.anchorY"
     ],
     "normalized_position_str":[
-      "data.cityBuilding.posX",
-      "data.cityBuilding.posY"
+      "associate.posX",
+      "associate.posY"
     ]
 }

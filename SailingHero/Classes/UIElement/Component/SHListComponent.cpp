@@ -17,22 +17,21 @@ SHListComponent::SHListComponent(nlohmann::json componentJson) : SHComponent(com
   p_panelName = SHUtil::getStringFromJson(componentJson, "file_name");
   auto dataListKey = SHUtil::getStringFromJson(componentJson, "data_list");
   p_dataList = DataManager::getShareInstance()->decipherDataList(dataListKey);
-  p_cacheKey = SHUtil::getStringFromJson(componentJson, "cache_name", "cache");
   if (p_panelName.length() > 0) {
-    auto panelContent = new SHPanelContent(p_panelName);
     for (int i = 0; i < p_dataList.size(); ++i) {
+      auto panelContent = new SHPanelContent(p_panelName);
       auto component = panelContent->getComponent();
       component->copyAttributesFromJson(componentJson);
+      component->setAssociateData(p_dataList.at(i));
       p_componentList.push_back(component);
+      delete panelContent;
     }
-    delete panelContent;
   }
 }
 
 Node* SHListComponent::addComponentToParent(ComponentDict &dict, cocos2d::Node *parent)
 {
   for (int i = 0; i < p_dataList.size(); ++i) {
-    DataManager::getShareInstance()->setTempData(p_cacheKey, p_dataList.at(i));
     auto component = p_componentList.at(i);
     component->addComponentToParent(dict, parent);
   }
@@ -42,7 +41,6 @@ Node* SHListComponent::addComponentToParent(ComponentDict &dict, cocos2d::Node *
 void SHListComponent::refresh()
 {
   for (int i = 0; i < p_dataList.size(); ++i) {
-    DataManager::getShareInstance()->setTempData(p_cacheKey, p_dataList.at(i));
     auto component = p_componentList.at(i);
     component->refresh();
   }

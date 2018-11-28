@@ -11,6 +11,7 @@
 #include "GameData.hpp"
 #include "SceneManager.hpp"
 #include "StoryScene.hpp"
+#include "DataManager.hpp"
 
 StoryManager* StoryManager::p_sharedManager = nullptr;
 
@@ -47,11 +48,24 @@ void StoryManager::checkAndStartStory()
           continue;
         }
       }
+      if (storyData->getCityData() != nullptr) {
+        if (gameData->getCityData() != storyData->getCityData()) {
+          continue;
+        }
+      }
+      if (storyData->getBuildingData() != nullptr) {
+        if (storyData->getBuildingData() != DataManager::getShareInstance()->getTempData<CityBuildingData>("building")) {
+          continue;
+        }
+      }
       if (!storyData->getRepeated()) {
         if (gameData->getExperiencedStoriesDataSet().count(storyData)) {
           continue;
         }
       }
+      auto experiencedStoriedIdSet = gameData->getExperiencedStoriesIdSet();
+      experiencedStoriedIdSet.insert(storyData->getId());
+      gameData->setExperiencedStoriesIdSet(experiencedStoriedIdSet);
       startStory(storyData);
     }
   }

@@ -456,3 +456,17 @@ string DataManager::getLocalizedDialogString(const string &dialogId) const
                                    decipherString(parameters.at(2)).c_str());
   }
 }
+
+bool DataManager::isGameSwitchOn(const string &gameSwitchName) const
+{
+  return GameData::getSharedInstance()->getGameSwitch().count(gameSwitchName);
+}
+
+void DataManager::setGameSwitch(const string &gameSwitchName, bool isOn) const
+{
+  if (isOn) {
+    GameData::getSharedInstance()->getGameSwitch().insert(gameSwitchName);
+  } else {
+    GameData::getSharedInstance()->getGameSwitch().erase(gameSwitchName);
+  }
+}

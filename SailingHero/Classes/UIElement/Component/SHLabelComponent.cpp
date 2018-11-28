@@ -35,6 +35,7 @@ Node* SHLabelComponent::addComponentToParent(ComponentDict &dict, Node *parent)
 
 void SHLabelComponent::refresh()
 {
+  SHComponent::refresh();
   auto text = p_text.size() > 0 ? DataManager::getShareInstance()->decipherString(p_text) : "";
   auto label = dynamic_cast<Label *>(p_node);
   label->setString(text);

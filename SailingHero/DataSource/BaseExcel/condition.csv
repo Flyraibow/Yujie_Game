@@ -13,3 +13,4 @@ show_city_goods,,show_city_goods_isNotHiden,and,,show_city_goods_isDeveloped
 show_city_goods_isNotHiden,int,data.cityGoods.isHidden,=,int,0
 show_city_goods_isDeveloped,int,data.cityGoods.commercialRequirement,<=,int,data.city.commerce
 decreasing_order,int,temp.leftValue,>=,int,temp.rightValue
+should_hide_building_icon,int,temp.hideBuildingIcon,=,int,1

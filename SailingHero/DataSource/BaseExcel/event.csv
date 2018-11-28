@@ -11,6 +11,7 @@ popPanel,popPanel,,离开上一个面板
 refreshScene,refreshScene,,刷新场景
 storyCheck,storyCheck,,检查故事
 processPanel,processPanel,,执行面板
+removeGroupButton,removeGroupButton,,移除按钮
 input_hero_last_name,eventList,input_hero_last_name_hint;input_hero_last_name_default;input_hero_last_name_confirm;inputPanel;,显示英雄 姓氏修改界面
 input_hero_last_name_hint,setTempStr,hint;translation.input_last_name,设置提示“请输入姓氏”
 input_hero_last_name_default,setTempStr,default;data.hero.heroLastName,设置默认值
@@ -64,3 +65,9 @@ city_scene_initial_set_goods,setTempDataList,goodsList;GoodsData;cityGoodsList;g
 city_scene_initial_set_guildShares,setSortTempKeyValuePair,guildShares;map;data.city.guildShare;decreasing_order,;
 city_scene_initial_set_guildList,setTempDataList,guildList;GuildData;map.guildShares.keyList,;
 city_scene_initial_set_buildingList,setTempDataList,cityBuildingList;CityBuildingData;data.city.building,;
+click_city_building,eventList,click_city_building_set_data;click_city_building_hide_icon;storyCheck;refreshScene;show_city_building_buttons,;
+click_city_building_set_data,setTempData,building;data.clickData,;
+click_city_building_hide_icon,setTempStr,hideBuildingIcon;1,;
+show_city_building_buttons,groupButton,data.building.groupButtons,;
+city_building_leave,eventList,click_city_building_show_icon;removeGroupButton;refreshScene,;
+click_city_building_show_icon,setTempStr,hideBuildingIcon;0,;

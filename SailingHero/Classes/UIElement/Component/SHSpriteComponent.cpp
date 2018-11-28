@@ -31,7 +31,11 @@ Node* SHSpriteComponent::addComponentToParent(ComponentDict &dict, cocos2d::Node
 
 void SHSpriteComponent::refresh()
 {
+  SHComponent::refresh();
   auto sprite = dynamic_cast<Sprite *>(p_node);
   auto path = DataManager::getShareInstance()->decipherString(p_iconPath);
   sprite->setTexture(path);
+  for (auto component : p_componentList) {
+    component->refresh();
+  }
 }

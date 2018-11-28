@@ -8,16 +8,7 @@
 #include "SHComponent.hpp"
 #include "JsonUtil.hpp"
 #include "DataManager.hpp"
-
-Vec2 getVec2FromStringVec2(const vector<string> &list)
-{
-  if (list.size() == 2) {
-    auto posX = atof(DataManager::getShareInstance()->decipherString(list.at(0)).c_str());
-    auto posY = atof(DataManager::getShareInstance()->decipherString(list.at(1)).c_str());
-    return Vec2(posX, posY);
-  }
-  return Vec2();
-}
+#include "Utils.hpp"
 
 std::string SHComponent::getId() const
 {
@@ -27,6 +18,7 @@ std::string SHComponent::getId() const
 SHComponent::SHComponent(const nlohmann::json &componentJson)
 {
   CCASSERT(componentJson.count("type"), ("Component type is required. json : " + componentJson.dump()).c_str());
+  p_associateData = nullptr;
   p_type = SHUtil::getStringFromJson(componentJson, "type");
   p_id = SHUtil::getStringFromJson(componentJson, "id");
   p_isAutoScale = SHUtil::getBoolFromJson(componentJson, "auto_scale");
@@ -36,6 +28,7 @@ SHComponent::SHComponent(const nlohmann::json &componentJson)
   p_anchorPointStr = SHUtil::getStringListFromJson(componentJson, "anchor_point_str");
   p_anchorPoint = SHUtil::getVec2FromJson(componentJson, "anchor_point", cocos2d::Vec2(0.5, 0.5));
   p_componentList = SHComponent::getComponentsFromJson(componentJson);
+  p_shouldHideCondition = SHUtil::getStringFromJson(componentJson, "hide_condition");
   if (componentJson.count("size")) {
     p_size = componentJson.at("size");
   }
@@ -107,6 +100,25 @@ void SHComponent::addNodeToParent(ComponentDict &dict, Node *child, Node *parent
   p_node = child;
 }
 
+Vec2 SHComponent::getVec2FromStringVec2(const vector<string> &list) const
+{
+  if (list.size() == 2) {
+    auto posX = atof(decipherValue(list.at(0)).c_str());
+    auto posY = atof(decipherValue(list.at(1)).c_str());
+    return Vec2(posX, posY);
+  }
+  return Vec2();
+}
+
+string SHComponent::decipherValue(const string &value) const
+{
+  auto arr = SHUtil::split(value, '.');
+  if (arr.size() > 1 && arr.at(0) == "associate") {
+    return p_associateData->getFieldValue(arr.at(1));
+  }
+  return DataManager::getShareInstance()->decipherString(value);
+}
+
 #include "SHLabelComponent.hpp"
 #include "SHButtonComponent.hpp"
 #include "SHSpriteComponent.hpp"
@@ -166,4 +178,12 @@ void SHComponent::copyAttributesFromJson(const nlohmann::json &componentJson)
   }
   p_scale = SHUtil::getFloatFromJson(componentJson, "scale", p_scale);
   p_isFullScreen = SHUtil::getBoolFromJson(componentJson, "full_screen", p_isFullScreen);
+  p_shouldHideCondition = SHUtil::getStringFromJson(componentJson, "hide_condition", p_shouldHideCondition);
+}
+
+void SHComponent::refresh()
+{
+  if (p_shouldHideCondition.length() > 0) {
+    p_node->setVisible(!DataManager::getShareInstance()->checkCondition(p_shouldHideCondition));
+  }
 }

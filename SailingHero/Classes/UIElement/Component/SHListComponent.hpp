@@ -17,7 +17,6 @@ private:
   std::string p_panelName;
   vector<SHComponent*> p_componentList;
   vector<BaseData *> p_dataList;
-  std::string p_cacheKey;
 protected:
 public:
   SHListComponent(nlohmann::json componentJson);

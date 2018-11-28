@@ -51,6 +51,9 @@ public:
   bool checkCondition(const string &conditionId) const;
   string getLocalizedDialogString(const string &dialogId) const;
   
+  bool isGameSwitchOn(const string &gameSwitchName) const;
+  void setGameSwitch(const string &gameSwitchName, bool isOn) const;
+  
   
   template <typename T, typename std::enable_if<std::is_base_of<BaseData, T>::value>::type* = nullptr>
   T* getTempData(const string &key) const {

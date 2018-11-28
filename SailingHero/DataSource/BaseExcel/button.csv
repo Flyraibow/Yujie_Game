@@ -6,5 +6,13 @@ startGame,开始游戏,TRUE,startGame,;
 loadGame,读取游戏,TRUE,loadGame,;
 gameSetting,游戏设置,TRUE,gameSetting,;
 testScene,测试界面,TRUE,testScene,;
+city_building_sign,签约,FALSE,;,;
+city_building_military_invest,军事投资,TRUE,;,;
+city_building_use_refer_letter,使用介绍信,FALSE,;,;
+city_building_use_recommendation_letter,使用推荐信,FALSE,;,;
+city_building_leave_palace,离开王宫,TRUE,city_building_leave,;
+city_building_leave_government_mansion,离开总督府,TRUE,city_building_leave,;
 story_lafeier_story_1,学学吧,TRUE,;,lafeier_strory_begin_learn_1
 story_lafeier_story_2,自己也能做的,TRUE,;,;
+story_lafeier_exchange_story_1,市场占有率？,TRUE,;,;
+story_lafeier_exchange_story_2,原来如此。,TRUE,;,lafeier_exchange_intro_7

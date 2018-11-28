@@ -191,6 +191,16 @@ namespace bb {
     }
   }
   
+  bool ByteBuffer::getBool() const
+  {
+    return read<char>() != 0;
+  }
+  
+  bool ByteBuffer::getBool(uint32_t index) const
+  {
+    return read<char>(index) != 0;
+  }
+  
   char ByteBuffer::getChar() const {
     return read<char>();
   }

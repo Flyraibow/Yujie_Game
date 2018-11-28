@@ -125,6 +125,20 @@ void StoryScene::startStoryEvent(StoryEventData *storyData)
   } else if (type == "selection") {
     showSelections(storyData);
     return;
+  } else if (type == "data") {
+    auto parameters = storyData->getParametrsMap();
+    if (parameters.count("on")) {
+      auto addOnSwitches = SHUtil::split(parameters.at("on"), ',');
+      for (auto addOnSwitch : addOnSwitches) {
+        DataManager::getShareInstance()->setGameSwitch(addOnSwitch, true);
+      }
+    }
+    if (parameters.count("off")) {
+      auto addOnSwitches = SHUtil::split(parameters.at("off"), ',');
+      for (auto addOnSwitch : addOnSwitches) {
+        DataManager::getShareInstance()->setGameSwitch(addOnSwitch, false);
+      }
+    }
   } else if (type == "subStory") {
     auto parameters = storyData->getParametrsMap();
     for (auto parameter : parameters) {

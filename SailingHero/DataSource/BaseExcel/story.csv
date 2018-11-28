@@ -1,5 +1,6 @@
-storyId,storyEvent,hero,repeated,priority
-id,friend_id,friend_id,bool,int
-string,StoryEvent,Hero,-,-
-writable,N,N,N,N
-lafeier_story_begin,lafeier_strory_begin_1,0,0,1000
+storyId,storyEvent,hero,gameSwitch,city,building,repeated,priority
+id,friend_id,friend_id,vector,friend_id,friend_id,bool,int
+string,StoryEvent,Hero,string,City,CityBuilding,-,-
+writable,N,N,N,N,N,N,N
+lafeier_story_begin,lafeier_story_begin_1,0,,-1,-1,0,1000
+lafeier_exchange_intro,lafeier_exchange_intro_1,0,lafeier_exchange_intro,-1,4,0,1000

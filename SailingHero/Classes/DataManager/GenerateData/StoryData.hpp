@@ -5,8 +5,11 @@ This file (StoryData.hpp) is generated
 #define StoryData_hpp
 #include <map>
 #include "BaseData.h"
+#include <vector>
 #include "StoryEventData.hpp"
 #include "HeroData.hpp"
+#include "CityData.hpp"
+#include "CityBuildingData.hpp"
 
 
 class StoryData: public BaseData
@@ -16,6 +19,9 @@ private:
 	string p_storyId;
 	string p_storyEventId;
 	string p_heroId;
+	vector<string> p_gameSwitch;
+	string p_cityId;
+	string p_buildingId;
 	bool p_repeated;
 	int p_priority;
 public:
@@ -25,6 +31,11 @@ public:
 	string getStoryEventId() const;
 	HeroData* getHeroData() const;
 	string getHeroId() const;
+	vector<string> getGameSwitch() const;
+	CityData* getCityData() const;
+	string getCityId() const;
+	CityBuildingData* getBuildingData() const;
+	string getBuildingId() const;
 	bool getRepeated() const;
 	int getPriority() const;
 	string description() const;

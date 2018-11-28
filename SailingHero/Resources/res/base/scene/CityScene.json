@@ -24,14 +24,15 @@
 					"file_name": "systemBar",
 			  		"anchor_point": [0, 0],
 			  		"normalized_position": [0, 0],
-			      	"parent_scale": true
+			      	"parent_scale": true,
+    				"hide_condition": "should_hide_building_icon"
 			    },
 			    {
 			    	"type": "panelList",
 			    	"file_name": "cityBuilding",
 			    	"data_list": "cityBuildingList",
-			    	"cache_name": "cityBuilding",
-			      	"parent_scale": true
+			      	"parent_scale": true,
+			      	"hide_condition": "should_hide_building_icon"
 			    }
       		]
 		},

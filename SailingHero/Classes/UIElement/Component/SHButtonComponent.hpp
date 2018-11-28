@@ -22,6 +22,7 @@ protected:
 public:
   SHButtonComponent(nlohmann::json componentJson);
   Node *addComponentToParent(ComponentDict &dict, Node *parent = nullptr);
+  virtual void refresh();
 };
 
 

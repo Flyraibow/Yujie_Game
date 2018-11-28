@@ -20,6 +20,7 @@ private:
 	string p_cityId;
 	string p_guildId;
 	set<string> p_experiencedStoriesIdSet;
+	set<string> p_gameSwitch;
 public:
 	int getYear() const;
 	void setYear(int year);
@@ -36,6 +37,8 @@ public:
 	set<StoryData*> getExperiencedStoriesDataSet() const;
 	set<string> getExperiencedStoriesIdSet() const;
 	void setExperiencedStoriesIdSet(set<string> experiencedStories);
+	set<string> getGameSwitch() const;
+	void setGameSwitch(set<string> gameSwitch);
 	string description() const;
 	static GameData* getSharedInstance();
 	static bool saveData(const string & path);

@@ -70,6 +70,20 @@ double CityBuildingData::getPosY() const
 	return p_posY;
 }
 
+vector<ButtonData*> CityBuildingData::getGroupButtonsDataVector() const
+{
+	vector<ButtonData*> resultVector;
+	for (auto objId : p_groupButtonsIdVector) {
+		resultVector.push_back(ButtonData::getButtonDataById(objId));
+	}
+	return resultVector;
+}
+
+vector<string> CityBuildingData::getGroupButtonsIdVector() const
+{
+	return p_groupButtonsIdVector;
+}
+
 string CityBuildingData::description() const
 {
 	string desc = "cityBuildingData = {\n";
@@ -80,6 +94,7 @@ string CityBuildingData::description() const
 	desc += "\tanchorY : " + to_string(p_anchorY) + "\n";
 	desc += "\tposX : " + to_string(p_posX) + "\n";
 	desc += "\tposY : " + to_string(p_posY) + "\n";
+	desc += "\tgroupButtons : " + to_string(p_groupButtonsIdVector) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -102,6 +117,10 @@ const map<int, CityBuildingData*>* CityBuildingData::getSharedDictionary()
 				cityBuildingData->p_anchorY = buffer->getDouble();
 				cityBuildingData->p_posX = buffer->getDouble();
 				cityBuildingData->p_posY = buffer->getDouble();
+				auto groupButtonsCount = buffer->getLong();
+				for (int j = 0; j < groupButtonsCount; ++j) {
+					cityBuildingData->p_groupButtonsIdVector.push_back(buffer->getString());
+				}
 				p_sharedDictionary->insert(pair<int, CityBuildingData*>(cityBuildingData->p_buildingId, cityBuildingData));
 			}
 		}
@@ -141,6 +160,8 @@ string CityBuildingData::getFieldValue(const string & fieldName)
 		return to_string(this->getPosX());
 	} else if (fieldName == "posY") {
 		return to_string(this->getPosY());
+	} else if (fieldName == "groupButtons") {
+		return to_string(this->getGroupButtonsIdVector());
 	}
 	CCLOGWARN("Couldn't recognize %s in CityBuildingData", fieldName.c_str());
 	return "";

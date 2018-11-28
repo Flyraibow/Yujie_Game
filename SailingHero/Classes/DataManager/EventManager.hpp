@@ -16,8 +16,10 @@ class EventManager
 private:
   static EventManager* p_sharedManager;
   static SHScene* p_currentScene;
+  Node *p_groupButton;
 public:
   static EventManager* getShareInstance();
+  EventManager();
   static void setCurrentScene(SHScene *scene);
   void runEvent(std::string eventName);
 };

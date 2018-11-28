@@ -1,5 +1,5 @@
-﻿year,month,day,city,guild,experiencedStories
-int,int,int,friend_Id,friend_id,friend_id_set
--,-,-,City,Guild,Story
-Y,Y,Y,Y,Y,Y
-1555,2,12,0,0,;
+﻿year,month,day,city,guild,experiencedStories,gameSwitch
+int,int,int,friend_Id,friend_id,friend_id_set,set
+-,-,-,City,Guild,Story,string
+Y,Y,Y,Y,Y,Y,Y
+1555,2,12,0,0,;,;

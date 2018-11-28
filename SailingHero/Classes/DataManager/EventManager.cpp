@@ -8,6 +8,7 @@
 #include "EventManager.hpp"
 #include "EventData.hpp"
 #include "SHScene.hpp"
+#include "Utils.hpp"
 
 EventManager* EventManager::p_sharedManager = nullptr;
 SHScene* EventManager::p_currentScene = nullptr;
@@ -20,6 +21,10 @@ EventManager* EventManager::getShareInstance()
   return p_sharedManager;
 }
 
+EventManager::EventManager()
+{
+  p_groupButton = nullptr;
+}
 
 void EventManager::setCurrentScene(SHScene *scene)
 {
@@ -43,8 +48,26 @@ void EventManager::runEvent(std::string eventName)
   auto eventType = eventData->getEventType();
   if (eventType == "groupButton") {
     CCASSERT(p_currentScene != nullptr, "current scene mustn't be nil");
-    auto buttonGroup = SystemButton::getButtonGroupFromEvent(eventData->getParameters());
-    p_currentScene->addChild(buttonGroup);
+    vector<string> selections;
+    if (eventData->getParameters().size() > 1) {
+      selections = eventData->getParameters();
+    } else {
+      auto selectionStr = DataManager::getShareInstance()->decipherString(eventData->getParameters().at(0));
+      selections = SHUtil::atovector(selectionStr);
+    }
+    if (selections.size() > 0) {
+      if (p_groupButton != nullptr) {
+        p_groupButton->removeFromParent();
+        p_groupButton = nullptr;
+      }
+      p_groupButton = SystemButton::getButtonGroupFromEvent(selections);
+      p_currentScene->addChild(p_groupButton, 1000);
+    }
+  } else if (eventType == "removeGroupButton") {
+    if (p_groupButton != nullptr) {
+      p_groupButton->removeFromParent();
+      p_groupButton = nullptr;
+    }
   } else if (eventType == "scene") {
     CCASSERT(eventData->getParameters().size() > 0, "scene must be provided with a name");
     SceneManager::getShareInstance()->pushScene(eventData->getParameters().at(0));
@@ -88,8 +111,14 @@ void EventManager::runEvent(std::string eventName)
     SceneManager::getShareInstance()->addDialog(parameters);
   } else if (eventType == "setTempData") {
     auto parameters = eventData->getParameters();
-    CCASSERT(parameters.size() == 3, "setTempData must be provided with key, data name and value");
-    DataManager::getShareInstance()->setData(parameters.at(0), parameters.at(1), parameters.at(2));
+    if (parameters.size() == 3) {
+      DataManager::getShareInstance()->setData(parameters.at(0), parameters.at(1), parameters.at(2));
+    } else if (parameters.size() == 2) {
+      auto data = DataManager::getShareInstance()->decipherData(parameters.at(1));
+      DataManager::getShareInstance()->setTempData(parameters.at(0), data);
+    } else {
+      CCASSERT(false, "setTempData must be provided with key, data name and value, or key and value");
+    }
   } else if (eventType == "setTempDataList") {
     auto parameters = eventData->getParameters();
     if (parameters.size() == 3) {
