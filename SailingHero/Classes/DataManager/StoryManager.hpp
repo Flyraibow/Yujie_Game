@@ -22,6 +22,7 @@ private:
   StoryScene* p_storyScene;
   
   void startStory(const StoryData *storyData);
+  void startEventAfterComplete() const;
 public:
   static StoryManager* getShareInstance();
   void checkAndStartStory();

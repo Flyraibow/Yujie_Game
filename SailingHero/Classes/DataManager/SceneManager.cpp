@@ -9,6 +9,7 @@
 #include "SelectHeroMenuScene.hpp"
 #include "TestScene.hpp"
 #include "PanelManager.hpp"
+#include "EventManager.hpp"
 
 SceneManager* SceneManager::p_sharedManager = nullptr;
 
@@ -55,6 +56,7 @@ void SceneManager::popScene()
 {
   p_sceneStack.pop();
   Director::getInstance()->popScene();
+  EventManager::setCurrentScene(currentScene());
 }
 
 SHScene* SceneManager::currentScene() const

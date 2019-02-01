@@ -13,6 +13,8 @@
 
 class StoryEventData;
 
+typedef std::function<void()> ccStoryEventCallback;
+
 class StoryScene : public SHScene
 {
 private:
@@ -24,8 +26,10 @@ private:
   bool p_isTouching;
   bool p_moveFast;
   float p_touchedDuration;
+  ccStoryEventCallback p_callback;
   
   void startNextStoryEvent(StoryEventData *storyData);
+  void startStoryEvent(StoryEventData *storyData);
   void addDialogs(StoryEventData *storyEventData);
   void addPictures(StoryEventData *storyEventData);
   void movePictures(StoryEventData *storyEventData);
@@ -36,7 +40,8 @@ public:
   
   virtual bool init();
   
-  void startStoryEvent(StoryEventData *storyData);
+  void startStory(StoryEventData *storyData, ccStoryEventCallback callback = nullptr);
+  
   virtual void update(float delta);
   
   // implement the "static create()" method manually

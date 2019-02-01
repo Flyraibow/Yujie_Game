@@ -88,7 +88,16 @@ void StoryScene::startNextStoryEvent(StoryEventData *storyData)
     SceneManager::getShareInstance()->popScene();
     auto topScene = SceneManager::getShareInstance()->currentScene();
     topScene->refreshMusic();
+    if (p_callback != nullptr) {
+      p_callback();
+    }
   }
+}
+
+void StoryScene::startStory(StoryEventData *storyData, ccStoryEventCallback callback)
+{
+  p_callback = callback;
+  startStoryEvent(storyData);
 }
 
 void StoryScene::startStoryEvent(StoryEventData *storyData)

@@ -12,6 +12,7 @@
 #include "SceneManager.hpp"
 #include "StoryScene.hpp"
 #include "DataManager.hpp"
+#include "EventManager.hpp"
 
 StoryManager* StoryManager::p_sharedManager = nullptr;
 
@@ -30,7 +31,9 @@ void StoryManager::startStory(const StoryData *story)
   if (storyEvent != nullptr) {
     p_storyScene = StoryScene::createScene();
     SceneManager::getShareInstance()->pushScene(p_storyScene);
-    p_storyScene->startStoryEvent(storyEvent);
+    p_storyScene->startStory(storyEvent, [this]() {
+      this->startEventAfterComplete();
+    });
   }
 }
 
@@ -67,6 +70,14 @@ void StoryManager::checkAndStartStory()
       experiencedStoriedIdSet.insert(storyData->getId());
       gameData->setExperiencedStoriesIdSet(experiencedStoriedIdSet);
       startStory(storyData);
+      return;
     }
   }
+  startEventAfterComplete();
+}
+
+void StoryManager::startEventAfterComplete() const
+{
+  auto eventId = DataManager::getShareInstance()->getTempString("event");
+  EventManager::getShareInstance()->runEvent(eventId);
 }

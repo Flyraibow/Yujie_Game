@@ -69,9 +69,13 @@ void SHSpriteListener::setTouchEnd(ccTouchCallback touchEnd, ccTouchCallback tou
   auto node = s_node;
   this->onTouchEnded = [node, touchEnd, touchCanceled](Touch* touch, Event* event){
     if (isTouchInsideNode(touch, node)) {
-      touchEnd(touch, event);
+      if (touchEnd != nullptr) {
+        touchEnd(touch, event);
+      }
     } else {
-      touchCanceled(touch, event);
+      if (touchCanceled != nullptr) {
+        touchCanceled(touch, event);
+      }
     }
   };
 }

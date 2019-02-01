@@ -5,8 +5,7 @@ This file (CityBuildingData.hpp) is generated
 #define CityBuildingData_hpp
 #include <map>
 #include "BaseData.h"
-#include <vector>
-#include "ButtonData.hpp"
+#include "EventData.hpp"
 
 
 class CityBuildingData: public BaseData
@@ -19,7 +18,7 @@ private:
 	double p_anchorY;
 	double p_posX;
 	double p_posY;
-	vector<string> p_groupButtonsIdVector;
+	string p_eventId;
 public:
 	string getId() const;
 	int getBuildingId() const;
@@ -31,8 +30,8 @@ public:
 	double getAnchorY() const;
 	double getPosX() const;
 	double getPosY() const;
-	vector<ButtonData*> getGroupButtonsDataVector() const;
-	vector<string> getGroupButtonsIdVector() const;
+	EventData* getEventData() const;
+	string getEventId() const;
 	string description() const;
 	static const map<int, CityBuildingData*>* getSharedDictionary();
 	static CityBuildingData* getCityBuildingDataById(int buildingId);
