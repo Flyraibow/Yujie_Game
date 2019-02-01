@@ -14,7 +14,8 @@
             "width" : 80,
             "height" : 20
         },
-        "parent_scale": true
+        "parent_scale": true,
+        "event": "gamedata.SystemButtonData.0.event"
       },
       {
         "type": "button",
@@ -27,7 +28,8 @@
             "width" : 80,
             "height" : 20
         },
-        "parent_scale": true
+        "parent_scale": true,
+        "event": "gamedata.SystemButtonData.1.event"
       },
       {
         "type": "button",
@@ -40,7 +42,8 @@
             "width" : 80,
             "height" : 20
         },
-        "parent_scale": true
+        "parent_scale": true,
+        "event": "gamedata.SystemButtonData.2.event"
       },
       {
         "type": "button",
@@ -53,7 +56,8 @@
             "width" : 80,
             "height" : 20
         },
-        "parent_scale": true
+        "parent_scale": true,
+        "event": "gamedata.SystemButtonData.3.event"
       },
       {
         "type": "button",
@@ -66,7 +70,8 @@
             "width" : 80,
             "height" : 20
         },
-        "parent_scale": true
+        "parent_scale": true,
+        "event": "gamedata.SystemButtonData.4.event"
       }
   	]
 }

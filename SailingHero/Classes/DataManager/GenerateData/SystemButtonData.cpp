@@ -28,11 +28,22 @@ string SystemButtonData::getButtonName() const
 	return LocalizationHelper::getLocalization(localId);
 }
 
+EventData* SystemButtonData::getEventData() const
+{
+	return EventData::getEventDataById(p_eventId);
+}
+
+string SystemButtonData::getEventId() const
+{
+	return p_eventId;
+}
+
 string SystemButtonData::description() const
 {
 	string desc = "systemButtonData = {\n";
 	desc += "\tbuttonId : " + to_string(p_buttonId) + "\n";
 	desc += "\tbuttonName : " + getButtonName() + "\n";
+	desc += "\tevent : " + to_string(p_eventId) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -50,6 +61,7 @@ const map<int, SystemButtonData*>* SystemButtonData::getSharedDictionary()
 			for (int i = 0; i < count; ++i) {
 				SystemButtonData* systemButtonData = new SystemButtonData();
 				systemButtonData->p_buttonId = buffer->getInt();
+				systemButtonData->p_eventId = buffer->getString();
 				p_sharedDictionary->insert(pair<int, SystemButtonData*>(systemButtonData->p_buttonId, systemButtonData));
 			}
 		}
@@ -77,6 +89,8 @@ string SystemButtonData::getFieldValue(const string & fieldName)
 		return to_string(this->getButtonId());
 	} else if (fieldName == "buttonName") {
 		return to_string(this->getButtonName());
+	} else if (fieldName == "event") {
+		return to_string(this->getEventId());
 	}
 	CCLOGWARN("Couldn't recognize %s in SystemButtonData", fieldName.c_str());
 	return "";
