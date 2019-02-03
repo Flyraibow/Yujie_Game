@@ -110,3 +110,8 @@ click_load_button_show_panel,,panel,systemLoad
 save_game_set_date,,setTempData,gameSaving;GameSavingData;temp.index
 save_game_set_value,,setDataValue,data.gameSaving;saved;1
 save_game_set_value_2,,setDataValue,data.gameSaving;saveDescription;function.game_saving_string
+click_end_button,点击结束游戏,eventList,removeGroupButton;click_end_button_message;click_end_button_selection
+click_end_button_message,,dialog,dialog_click_end_game
+click_end_button_selection,,groupButton,system_end_yes;system_end_no
+click_end_button_cancel,,eventList,removeGroupButton;click_system_button
+end_game,,setScene,menu

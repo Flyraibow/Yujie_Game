@@ -54,3 +54,5 @@ system_load,读取进度,TRUE,click_load_button,;
 system_end,游戏结束,TRUE,click_end_button,;
 system_settings,设置,TRUE,click_setting_button,;
 system_return,返回,TRUE,click_return_button,;
+system_end_yes,确定,TRUE,end_game,;
+system_end_no,取消,TRUE,click_end_button_cancel,;

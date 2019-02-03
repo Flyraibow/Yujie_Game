@@ -20,7 +20,7 @@ public:
 	string getButtonName() const;
 	EventData* getEventData() const;
 	string getEventId() const;
-	string description() const;
+	virtual string description() const;
 	static const map<int, SystemButtonData*>* getSharedDictionary();
 	static SystemButtonData* getSystemButtonDataById(int buttonId);
 	static SystemButtonData* getSystemButtonDataById(const string& buttonId);

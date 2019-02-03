@@ -49,7 +49,19 @@ void SceneManager::pushScene(SHScene *scene)
     Director::getInstance()->pushScene(scene);
   }
   p_sceneStack.push(scene);
-  
+}
+
+void SceneManager::setScene(const std::string &sceneName)
+{
+  SHScene *scene = nullptr;
+  if (p_sceneFuncMap.count(sceneName) > 0) {
+    scene = p_sceneFuncMap[sceneName]();
+  } else {
+    scene = SHScene::createScene(sceneName);
+  }
+  CCASSERT(scene != nullptr, ("unrecognized scene : " + sceneName).c_str());
+  p_sceneStack = stack<SHScene*>({scene});
+  Director::getInstance()->replaceScene(scene);
 }
 
 void SceneManager::popScene()
@@ -101,11 +113,24 @@ SHPanel* SceneManager::topPanel() const
 
 #include "DialogFrame.hpp"
 
-void SceneManager::addDialog(const vector<string> &dialogIds) const
+void SceneManager::addDialog(const vector<string> &dialogIds)
 {
   auto scene = dynamic_cast<SHScene *>(Director::getInstance()->getRunningScene());
-  auto dialog = DialogFrame::createWithDialogIds(dialogIds, [this]() {
-    
+  p_dialogFrame = DialogFrame::createWithDialogIds(dialogIds, [this]() {
+    p_dialogFrame = nullptr;
   });
-  scene->addDialogFrame(dialog);
+  scene->addDialogFrame(p_dialogFrame);
+}
+
+void SceneManager::removeDialog()
+{
+  if (p_dialogFrame != nullptr) {
+    p_dialogFrame->getSprite()->removeFromParent();
+    p_dialogFrame = nullptr;
+  }
+}
+
+bool SceneManager::showDialog() const
+{
+  return p_dialogFrame != nullptr;
 }

@@ -10,6 +10,7 @@ dialog_input_correct_month,0,0,-1,请输入正确的月份,,;
 dialog_input_correct_day,0,0,-1,请输入正确的日期,,;
 dialog_get_money,0,0,-1,获得%s金币,temp.money,;
 dialog_add_friend,0,0,-1,%s·%s成为伙伴！,temp.firstName;temp.lastName,;
+dialog_click_end_game,0,0,-1,你确定要回到主页面吗？没有存档的部分会丢失。,,退出游戏提示。
 story_text_1,0,0,0,%s，\n你想给我看什么?,gamedata.HeroData.8.heroFirstName,;
 story_text_2,0,0,8,行了，行了。去了就明白了。,,;
 story_text_3,0,0,8,%s，你对海上的英雄有什么看法？,gamedata.HeroData.0.heroFirstName,拉斐尔，你对海上的英雄有什么看法？

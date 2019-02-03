@@ -126,6 +126,7 @@ SHColorNode* SystemButton::getButtonGroupNode(const vector<SHButton *> &buttons,
 
 #include "ButtonData.hpp"
 #include "EventManager.hpp"
+#include "SceneManager.hpp"
 
 SHColorNode* SystemButton::getButtonGroupFromEvent(vector<string> parameters)
 {
@@ -135,6 +136,9 @@ SHColorNode* SystemButton::getButtonGroupFromEvent(vector<string> parameters)
     if (buttonData != nullptr) {
       // also need check button data condition;
       auto button = SystemButton::defaultButtonWithText(buttonData->getLabel(), [&, buttonData] (cocos2d::Ref *pSender) {
+        if (SceneManager::getShareInstance()->showDialog()) {
+          SceneManager::getShareInstance()->removeDialog();
+        }
         EventManager::getShareInstance()->runEvent(buttonData->getTriggerEventId());
       });
       buttons.push_back(button);
