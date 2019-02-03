@@ -11,12 +11,13 @@
 
 using namespace std;
 
-SaveDataManagerWriter::SaveDataManagerWriter(const string &fileName)
+SaveDataManagerWriter::SaveDataManagerWriter(const string &fileName, const string &prefix)
 {
   p_file = new CPPFileComplete(fileName);
   p_mainClass = new CPPClass(fileName);
   //(const string &funcName, const string &returnType,const vector<const CPPVariable *> &arguments, bool isStatic, bool isConst)
-  auto indexVar = new CPPVariable("index", TYPE_INT);
+  auto indexVar = new CPPVariable("fileName", TYPE_STRING);
+  indexVar->setInitialValue("");
   p_saveFunc = new CPPFunction("saveData", TYPE_BOOL, {indexVar}, true, false);
   p_loadFunc = new CPPFunction("loadData", TYPE_BOOL, {indexVar}, true, false);
   p_clearFunc = new CPPFunction("clearData", TYPE_BOOL, {}, true, false);
@@ -35,7 +36,7 @@ SaveDataManagerWriter::SaveDataManagerWriter(const string &fileName)
   p_file->addHeaders("cocos2d.h", true, false);
   
   p_saveFunc->addBodyStatementsList({
-    "string path = cocos2d::FileUtils::getInstance()->getWritablePath() + \"/\" + to_string(index);",
+    "string path = cocos2d::FileUtils::getInstance()->getWritablePath() + \"/" + prefix + "\" + fileName;",
     "struct stat st = {0};",
     "if (stat(path.c_str(), &st) == -1) {",
   }, 0);
@@ -44,7 +45,7 @@ SaveDataManagerWriter::SaveDataManagerWriter(const string &fileName)
   
   
   p_loadFunc->addBodyStatementsList({
-    "string path = cocos2d::FileUtils::getInstance()->getWritablePath() + \"/\" + to_string(index);",
+    "string path = cocos2d::FileUtils::getInstance()->getWritablePath() + \"/" + prefix + "\" + fileName;",
     "struct stat st = {0};",
     "if (stat(path.c_str(), &st) == -1) {",
   }, 0);

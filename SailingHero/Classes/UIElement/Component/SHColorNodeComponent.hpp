@@ -9,11 +9,17 @@
 #define SHColorNodeComponent_hpp
 
 #include "SHComponent.hpp"
+#include <vector>
+
+using namespace std;
 
 class SHColorNodeComponent : public SHComponent
 {
 private:
   cocos2d::Color4B p_color;
+  int p_buttonComponentOptions;
+  vector<SHComponent *> p_buttonComponentList;
+  void setButtonComponentsFromJson(const nlohmann::json &componentJson);
 protected:
 public:
   SHColorNodeComponent(nlohmann::json componentJson);

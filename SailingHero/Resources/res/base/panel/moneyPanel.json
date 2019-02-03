@@ -15,7 +15,7 @@
   		{
      		"type": "label",
      		"id": "money_label",
-     		"text": "data.guild.money",
+     		"text": "data.myguild.money",
      		"normalized_position": [0.95, 0.5],
      		"anchor_point": [1, 0.5],
      		"text_size": 16

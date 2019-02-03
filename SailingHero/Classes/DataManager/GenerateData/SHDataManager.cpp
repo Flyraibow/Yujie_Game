@@ -431,9 +431,9 @@ CityStatusData* SHDataManager::getCityStatusDataById(const string& cityStatusId)
 	return CityStatusData::getCityStatusDataById(atoi(cityStatusId.c_str()));
 }
 
-bool SHDataManager::saveData(int index)
+bool SHDataManager::saveData(string fileName)
 {
-	string path = cocos2d::FileUtils::getInstance()->getWritablePath() + "/" + to_string(index);
+	string path = cocos2d::FileUtils::getInstance()->getWritablePath() + "/gameData_" + fileName;
 	struct stat st = {0};
 	if (stat(path.c_str(), &st) == -1) {
 		mkdir(path.c_str(), 0700);
@@ -473,9 +473,9 @@ bool SHDataManager::saveData(int index)
 	return true;
 }
 
-bool SHDataManager::loadData(int index)
+bool SHDataManager::loadData(string fileName)
 {
-	string path = cocos2d::FileUtils::getInstance()->getWritablePath() + "/" + to_string(index);
+	string path = cocos2d::FileUtils::getInstance()->getWritablePath() + "/gameData_" + fileName;
 	struct stat st = {0};
 	if (stat(path.c_str(), &st) == -1) {
 		CCLOG("Failed to load data, there is no folder %s", path.c_str());

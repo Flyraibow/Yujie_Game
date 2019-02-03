@@ -13,6 +13,7 @@
 #include "FunctionCalculationData.hpp"
 #include "GameData.hpp"
 #include "SHDataManager.hpp"
+#include "SHGlobalDataManager.hpp"
 
 #include "SHGameDataHelper.hpp"
 
@@ -57,7 +58,12 @@ void DataManager::setData(const string &key, const string &tableName, const stri
   if (data != nullptr) {
     setTempData(key, data);
   } else {
-    CCLOGWARN("Couldn't find data from key : %s", key.c_str());
+    data = SHGlobalDataManager::getData(tableName, strId);
+    if (data != nullptr) {
+      setTempData(key, data);
+    } else {
+      CCLOGWARN("Couldn't find data from key : %s", key.c_str());
+    }
   }
 }
 
@@ -70,7 +76,12 @@ void DataManager::setDataList(const string &key, const string &tableName, const 
     if (data != nullptr) {
       dataList.push_back(data);
     } else {
-      CCLOGWARN("Couldn't find data from key : %s", key.c_str());
+      data = SHGlobalDataManager::getData(tableName, strId);
+      if (data != nullptr) {
+        dataList.push_back(data);
+      } else {
+        CCLOGWARN("Couldn't find data from key : %s", key.c_str());
+      }
     }
   }
   setTempDataList(key, dataList);
@@ -86,6 +97,11 @@ void DataManager::setDataList(const string &key, const string &tableName, const 
       auto data = SHDataManager::getData(tableName, strId);
       if (data != nullptr) {
         dataList.push_back(data);
+      } else {
+        data = SHGlobalDataManager::getData(tableName, strId);
+        if (data != nullptr) {
+          dataList.push_back(data);
+        }
       }
     }
   } else {
@@ -202,6 +218,12 @@ string DataManager::decipherString(const string &value) const
         val = SHDataManager::getDataField(args.at(1), args.at(2), args.at(3));
       } else {
         CCLOGWARN("gamedata string doesn't contain this value : %s", value.c_str());
+      }
+    } else if (k == "globaldata") {
+      if (args.size() == 4) {
+        val = SHGlobalDataManager::getDataField(args.at(1), args.at(2), args.at(3));
+      } else {
+        CCLOGWARN("globaldata string doesn't contain this value : %s", value.c_str());
       }
     } else if (k == "data") {
       auto dataKey = args.at(1);

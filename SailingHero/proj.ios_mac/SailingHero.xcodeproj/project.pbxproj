@@ -69,6 +69,10 @@
 		EC3B73902157733C00059F91 /* SHButtonComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3B738D2157733C00059F91 /* SHButtonComponent.cpp */; };
 		EC3D03C621549E1A0065E585 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3D03C521549E190065E585 /* SceneManager.cpp */; };
 		EC3D03C721549E1A0065E585 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3D03C521549E190065E585 /* SceneManager.cpp */; };
+		EC3F3FB922061E7C00A4F77F /* GameSavingData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3F3FB822061E7B00A4F77F /* GameSavingData.cpp */; };
+		EC3F3FBA22061E7C00A4F77F /* GameSavingData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3F3FB822061E7B00A4F77F /* GameSavingData.cpp */; };
+		EC3F3FBD22066E4200A4F77F /* SHGlobalDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3F3FBC22066E4100A4F77F /* SHGlobalDataManager.cpp */; };
+		EC3F3FBE22066E4200A4F77F /* SHGlobalDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3F3FBC22066E4100A4F77F /* SHGlobalDataManager.cpp */; };
 		EC8287AC210D75060041497C /* HeroSelectingFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82879A210D75050041497C /* HeroSelectingFrame.cpp */; };
 		EC8287AD210D75060041497C /* HeroSelectingFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82879A210D75050041497C /* HeroSelectingFrame.cpp */; };
 		EC8287B0210D75060041497C /* DialogFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC82879D210D75050041497C /* DialogFrame.cpp */; };
@@ -324,6 +328,10 @@
 		EC3B738E2157733C00059F91 /* SHButtonComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SHButtonComponent.hpp; sourceTree = "<group>"; };
 		EC3D03C421549E190065E585 /* SceneManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SceneManager.hpp; sourceTree = "<group>"; };
 		EC3D03C521549E190065E585 /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
+		EC3F3FB622061E7B00A4F77F /* GameSavingData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GameSavingData.hpp; path = GenerateData/GameSavingData.hpp; sourceTree = "<group>"; };
+		EC3F3FB822061E7B00A4F77F /* GameSavingData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameSavingData.cpp; path = GenerateData/GameSavingData.cpp; sourceTree = "<group>"; };
+		EC3F3FBB22066E4100A4F77F /* SHGlobalDataManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SHGlobalDataManager.hpp; path = GenerateData/SHGlobalDataManager.hpp; sourceTree = "<group>"; };
+		EC3F3FBC22066E4100A4F77F /* SHGlobalDataManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SHGlobalDataManager.cpp; path = GenerateData/SHGlobalDataManager.cpp; sourceTree = "<group>"; };
 		EC828794210D75040041497C /* CityDataFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CityDataFrame.hpp; sourceTree = "<group>"; };
 		EC828796210D75050041497C /* MultiSelectionFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MultiSelectionFrame.hpp; sourceTree = "<group>"; };
 		EC828798210D75050041497C /* DialogFrame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DialogFrame.hpp; sourceTree = "<group>"; };
@@ -797,6 +805,10 @@
 		ECD52B1F20BFB05A000F7170 /* GenerateData */ = {
 			isa = PBXGroup;
 			children = (
+				EC3F3FBC22066E4100A4F77F /* SHGlobalDataManager.cpp */,
+				EC3F3FBB22066E4100A4F77F /* SHGlobalDataManager.hpp */,
+				EC3F3FB822061E7B00A4F77F /* GameSavingData.cpp */,
+				EC3F3FB622061E7B00A4F77F /* GameSavingData.hpp */,
 				EC93C1F5217A576A00248925 /* StoryEventData.cpp */,
 				EC93C1F6217A576A00248925 /* StoryEventData.hpp */,
 				EC93C1F2217A538C00248925 /* StoryData.cpp */,
@@ -1114,6 +1126,7 @@
 				EC3D03C621549E1A0065E585 /* SceneManager.cpp in Sources */,
 				EC82882C210D758C0041497C /* DialogData.cpp in Sources */,
 				EC82882E210D758C0041497C /* CityTypeData.cpp in Sources */,
+				EC3F3FBD22066E4200A4F77F /* SHGlobalDataManager.cpp in Sources */,
 				EC828820210D758C0041497C /* HeroSelectData.cpp in Sources */,
 				ECCE0276215C649800F1AF96 /* SHJSONContent.cpp in Sources */,
 				ECCE0282215C87BD00F1AF96 /* SHSpriteComponent.cpp in Sources */,
@@ -1125,6 +1138,7 @@
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				EC82881E210D758C0041497C /* ItemCategoryData.cpp in Sources */,
 				EC828894211B89F00041497C /* AreaMapGoButtonFrame.cpp in Sources */,
+				EC3F3FB922061E7C00A4F77F /* GameSavingData.cpp in Sources */,
 				ECCE028A215CA97800F1AF96 /* SHEditBoxComponent.cpp in Sources */,
 				ECCE0269215C50A700F1AF96 /* SHPanelContent.cpp in Sources */,
 				EC9C322F21704D3B003A61DE /* ConditionCalculationData.cpp in Sources */,
@@ -1176,6 +1190,7 @@
 				EC828821210D758C0041497C /* HeroSelectData.cpp in Sources */,
 				ECC4EB8C2175AD7F00FA0EDF /* SHListComponent.cpp in Sources */,
 				EC82883E210D759C0041497C /* Calendar.cpp in Sources */,
+				EC3F3FBE22066E4200A4F77F /* SHGlobalDataManager.cpp in Sources */,
 				EC828868211629490041497C /* ShipTeamData.cpp in Sources */,
 				EC9C323021704D3B003A61DE /* ConditionCalculationData.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
@@ -1191,6 +1206,7 @@
 				ECCE0283215C87BD00F1AF96 /* SHSpriteComponent.cpp in Sources */,
 				EC828815210D758C0041497C /* GameData.cpp in Sources */,
 				EC2000CB215229E000308FDA /* ButtonData.cpp in Sources */,
+				EC3F3FBA22061E7C00A4F77F /* GameSavingData.cpp in Sources */,
 				EC828813210D758C0041497C /* CityStatusData.cpp in Sources */,
 				ECCE0277215C649800F1AF96 /* SHJSONContent.cpp in Sources */,
 				EC2000C7215229E000308FDA /* EventData.cpp in Sources */,

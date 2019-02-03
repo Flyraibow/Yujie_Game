@@ -60,6 +60,7 @@ cocos2d::Color4B SHUtil::getColorFromJson(const nlohmann::json &json, const std:
         {"alpha_blue", cocos2d::Color4B(cocos2d::Color3B::BLUE, 100)},
         {"alpha_green", cocos2d::Color4B(cocos2d::Color3B::GREEN, 100)},
         {"alpha_white", cocos2d::Color4B(cocos2d::Color3B::WHITE, 100)},
+        {"alpha_zero", cocos2d::Color4B(cocos2d::Color3B::WHITE, 0)},
       };
       
       CCASSERT(COLOR_MAP.count(j), ("Color must be color string, it's " + j.dump()).c_str());

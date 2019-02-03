@@ -67,7 +67,7 @@ SHButton* SystemButton::defaultButtonWithText(std::string text, const Widget::cc
 
 SHColorNode* SystemButton::getButtonGroupNode(const vector<SHButton *> &buttons)
 {
-  return SystemButton::getButtonGroupNode(buttons, GroupButtonOptionItalic);
+  return SystemButton::getButtonGroupNode(buttons, GroupButtonOptionItalic | GroupButtonOptionAlignAll);
 }
 
 SHColorNode* SystemButton::getButtonGroupNode(const vector<SHButton *> &buttons, int option)
@@ -94,6 +94,8 @@ SHColorNode* SystemButton::getButtonGroupNode(const vector<SHButton *> &buttons,
                                                       closeGroupCallback);
     buttonGroup.push_back(button);
   }
+  bool alignAll = GroupButtonOptionAlignAll & option;
+  float maxWidth = 0;
   auto node = SHColorNode::create(color);
   if (!buttonGroup.empty()) {
     static auto miniDistance = 0.07;
@@ -108,6 +110,15 @@ SHColorNode* SystemButton::getButtonGroupNode(const vector<SHButton *> &buttons,
       double offset_x = isItalic ? diff * h_dist : 0;
       button->setNormalizedPosition(Vec2(0.5 + offset_x, offset_y + 0.5));
       node->addChild(button);
+      if (maxWidth < button->getContentSize().width) {
+        maxWidth = button->getContentSize().width;
+      }
+    }
+    if (alignAll) {
+      for (int i = 0; i < size; ++i) {
+        auto button = buttonGroup.at(i);
+        button->setContentSize(Size(maxWidth, button->getContentSize().height));
+      }
     }
   }
   return node;

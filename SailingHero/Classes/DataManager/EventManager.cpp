@@ -9,6 +9,8 @@
 #include "EventData.hpp"
 #include "SHScene.hpp"
 #include "Utils.hpp"
+#include "SHDataManager.hpp"
+#include "SHGlobalDataManager.hpp"
 
 EventManager* EventManager::p_sharedManager = nullptr;
 SHScene* EventManager::p_currentScene = nullptr;
@@ -110,6 +112,16 @@ void EventManager::runEvent(std::string eventName)
     auto parameters = eventData->getParameters();
     CCASSERT(parameters.size() > 0, "dialog must be provided with dialogId");
     SceneManager::getShareInstance()->addDialog(parameters);
+  } else if (eventType == "saveData") {
+    // save game
+    auto indexString = DataManager::getShareInstance()->decipherString("temp.index");
+    SHDataManager::saveData(indexString);
+    SHGlobalDataManager::saveData("");
+  } else if (eventType == "loadData") {
+    // load game
+    auto indexString = DataManager::getShareInstance()->decipherString("temp.index");
+    SHDataManager::loadData(indexString);
+    
   } else if (eventType == "setTempData") {
     auto parameters = eventData->getParameters();
     if (parameters.size() == 3) {

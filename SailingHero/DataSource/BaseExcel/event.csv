@@ -5,6 +5,7 @@ writable,N,N,N
 menuList,开始菜单,groupButton,startGame;loadGame;gameSetting;testScene
 startGame,进入选人界面,scene,SelectHeroMenuScene
 testScene,进入测试界面,scene,TestScene
+loadGame,进入读取几面,scene,LoadScene
 popScene,返回上个页面,popScene,;
 inputPanel,显示输入面板 （）,panel,input
 popPanel,离开上一个面板,popPanel,;
@@ -12,6 +13,9 @@ refreshScene,刷新场景,refreshScene,;
 storyCheck,;,storyCheck,;
 processPanel,执行面板,processPanel,;
 removeGroupButton,移除按钮,removeGroupButton,;
+save_data,保存游戏数据,saveData,;
+load_game,,eventList,load_data;load_game_initial
+load_data,读取数据,loadData,;
 input_hero_last_name,显示英雄 姓氏修改界面,eventList,input_hero_last_name_hint;input_hero_last_name_default;input_hero_last_name_confirm;inputPanel;
 input_hero_last_name_hint,设置提示“请输入姓氏”,setTempStr,hint;translation.input_last_name
 input_hero_last_name_default,设置默认值,setTempStr,default;data.hero.heroLastName
@@ -46,9 +50,12 @@ input_hero_birth_day_check,检查日输入是否合理,condition,is_input_day_va
 input_hero_birth_day_check_success,完成输入,eventList,input_hero_birthday_complete;popPanel;refreshScene
 input_hero_birth_day_check_fail,重新输入，对话框,dialog,dialog_input_correct_day
 input_hero_birthday_complete,设置数据,setDataValue,data.hero;birthDay;temp.input
-initial_game,初始化游戏,eventList,initial_game_set_guild;initial_game_set_city;initial_game_complete;storyCheck
+initial_game,初始化游戏,eventList,initial_game_set_guild;initial_game_set_city;load_game_initial_1;load_game_initial_2;initial_game_complete;storyCheck
 initial_game_set_guild,;,setDataValue,game;guild;data.guild.guildId
 initial_game_set_city,;,setDataValue,game;city;data.selectHero.startCityId
+load_game_initial,读取游戏的初始化,eventList,load_game_initial_1;load_game_initial_2;initial_game_complete
+load_game_initial_1,,setTempData,myguild;GuildData;game.guild
+load_game_initial_2,,setTempData,gameHero;HeroData;data.myguild.leader
 initial_game_complete,;,scene,CityScene
 select_hero_panel_event,选角色界面的设置数据,eventList,select_hero_panel_set_guild;select_hero_panel_set_hero
 select_hero_panel_set_guild,;,setTempData,guild;GuildData;data.selectHero.guild
@@ -95,3 +102,11 @@ click_info_button,情报,groupButton,info_sailor;info_ship;info_ship_team;info_i
 click_arrange_sailors,分配水手,groupButton,;
 click_system_button,系统,groupButton,system_save;system_load;system_end;system_settings;system_return
 click_return_button,返回上个页面,eventList,removeGroupButton;refreshScene
+click_save_button,点击保存按钮,eventList,removeGroupButton;refreshScene;click_save_button_show_save_panel
+click_save_button_show_save_panel,,panel,systemSave
+save_game,保存游戏,eventList,save_game_set_date;save_game_set_value;save_game_set_value_2;save_data;popPanel;click_save_button_show_save_panel
+click_load_button,,eventList,removeGroupButton;refreshScene;click_load_button_show_panel
+click_load_button_show_panel,,panel,systemLoad
+save_game_set_date,,setTempData,gameSaving;GameSavingData;temp.index
+save_game_set_value,,setDataValue,data.gameSaving;saved;1
+save_game_set_value_2,,setDataValue,data.gameSaving;saveDescription;function.game_saving_string

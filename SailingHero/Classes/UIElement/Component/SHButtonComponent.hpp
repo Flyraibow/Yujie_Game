@@ -9,7 +9,9 @@
 #define SHButtonComponent_hpp
 
 #include "SHComponent.hpp"
+#include <unordered_map>
 USING_NS_CC;
+using namespace std;
 
 class SHButtonComponent : public SHComponent
 {
@@ -18,6 +20,7 @@ private:
   std::string p_text;
   std::string p_eventId;
   std::string p_imagePath;
+  unordered_map<string, string> p_setTempStrDict;
 protected:
 public:
   SHButtonComponent(nlohmann::json componentJson);

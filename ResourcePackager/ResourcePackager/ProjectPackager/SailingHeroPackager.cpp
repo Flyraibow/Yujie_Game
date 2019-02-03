@@ -32,7 +32,7 @@ void SailingHeroPackager::readBaseFiles()
   string excelExportCodeFolderPath = get_outputCodeFolderPath();
   vector<string> files = utils::getCSVFileList(excelFolderPath);
   
-  auto saveDataFile = SaveDataManagerWriter("SHDataManager");
+  auto saveDataFile = SaveDataManagerWriter("SHDataManager", "gameData_");
   for (int i = 0; i < files.size(); ++i) {
     string fileName = files[i];
     string path = excelFolderPath + fileName;
@@ -41,8 +41,21 @@ void SailingHeroPackager::readBaseFiles()
     excelData->generateCode(excelExportCodeFolderPath);
     saveDataFile.addExcel(excelData);
   }
+  // generate global excel data
+  auto globalSaveDataFile = SaveDataManagerWriter("SHGlobalDataManager", "globalData");
+  excelFolderPath = get_dataSourcePath() + "/GlobalExcel/";
+  files = utils::getCSVFileList(excelFolderPath);
+  for (int i = 0; i < files.size(); ++i) {
+    string fileName = files[i];
+    string path = excelFolderPath + fileName;
+    auto excelData = ExcelDataParserBase::createWithPath(path);
+    excelData->saveData(excelExportDataFolderPath, baseLanguage);
+    excelData->generateCode(excelExportCodeFolderPath);
+    globalSaveDataFile.addExcel(excelData);
+  }
   
   langWriter.writeLanguageData(baseLanguage, baseLanguageOutput);
   saveDataFile.writeToPath(excelExportCodeFolderPath);
+  globalSaveDataFile.writeToPath(excelExportCodeFolderPath);
 }
 

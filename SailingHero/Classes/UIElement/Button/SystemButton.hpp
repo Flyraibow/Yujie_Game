@@ -20,6 +20,7 @@ enum GroupButtonOption {
   GroupButtonOptionWithCloseButton = 1,
   GroupButtonOptionSelectClose = 1 << 1, // not working
   GroupButtonOptionItalic = 1 << 2,
+  GroupButtonOptionAlignAll = 1 << 3,
 };
 
 using namespace ui;

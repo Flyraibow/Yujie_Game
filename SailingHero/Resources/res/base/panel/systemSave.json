@@ -1,0 +1,86 @@
+{
+ 	"type": "color_node",
+ 	"id": "color_node",
+	"backgroundColor" : "alpha_black",
+	"group_button" : {
+		"options" : {
+			"close":true,
+			"italic":false,
+			"align":true
+		},
+		"components" : [
+			{
+		      "type": "button",
+		      "id": "save_button_1",
+		      "text": "globaldata.GameSavingData.1.saveDescription",
+		      "event": "save_game",
+		      "setTemp" : {
+		      	"index":"1"
+		      }
+			},
+			{
+		      "type": "button",
+		      "id": "save_button_2",
+		      "text": "globaldata.GameSavingData.2.saveDescription",
+		      "event": "save_game",
+		      "setTemp" : {
+		      	"index":"2"
+		      }
+			},
+			{
+		      "type": "button",
+		      "id": "save_button_3",
+		      "text": "globaldata.GameSavingData.3.saveDescription",
+		      "event": "save_game",
+		      "setTemp" : {
+		      	"index":"3"
+		      }
+			},
+			{
+		      "type": "button",
+		      "id": "save_button_4",
+		      "text": "globaldata.GameSavingData.4.saveDescription",
+		      "event": "save_game",
+		      "setTemp" : {
+		      	"index":"4"
+		      }
+			},
+			{
+		      "type": "button",
+		      "id": "save_button_5",
+		      "text": "globaldata.GameSavingData.5.saveDescription",
+		      "event": "save_game",
+		      "setTemp" : {
+		      	"index":"5"
+		      }
+			},
+			{
+		      "type": "button",
+		      "id": "save_button_6",
+		      "text": "globaldata.GameSavingData.6.saveDescription",
+		      "event": "save_game",
+		      "setTemp" : {
+		      	"index":"6"
+		      }
+			},
+			{
+		      "type": "button",
+		      "id": "save_button_7",
+		      "text": "globaldata.GameSavingData.7.saveDescription",
+		      "event": "save_game",
+		      "setTemp" : {
+		      	"index":"7"
+		      }
+			},
+			{
+		      "type": "button",
+		      "id": "save_button_8",
+		      "text": "globaldata.GameSavingData.8.saveDescription",
+		      "event": "save_game",
+		      "setTemp" : {
+		      	"index":"8"
+		      }
+			}
+		]
+	}
+}

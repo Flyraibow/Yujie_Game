@@ -103,8 +103,8 @@ public:
 	static HeroData* getHeroDataById(const string& heroId);
 	static CityStatusData* getCityStatusDataById(int cityStatusId);
 	static CityStatusData* getCityStatusDataById(const string& cityStatusId);
-	static bool saveData(int index);
-	static bool loadData(int index);
+	static bool saveData(string fileName);
+	static bool loadData(string fileName);
 	static bool clearData();
 	static BaseData * getData(const string & dataSet, const string & id);
 	static string getDataField(const string & dataSet, const string & id, const string & fieldName);
