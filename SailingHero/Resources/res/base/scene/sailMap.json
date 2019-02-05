@@ -1,4 +1,3 @@
 {
-	"screenCoverWidth" : 4,
-	"screenCoverHeight" : 3
+	"screenCoverRatio" : [4,3]
 }

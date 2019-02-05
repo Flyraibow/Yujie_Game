@@ -10,7 +10,7 @@
 USING_NS_CC;
 using namespace ui;
 
-SailMapScene* SailMapScene::createScene()
+SHScene* SailMapScene::createScene()
 {
   return SailMapScene::create();
 }

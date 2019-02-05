@@ -7,6 +7,7 @@
 
 #include "SceneManager.hpp"
 #include "SelectHeroMenuScene.hpp"
+#include "SailMapScene.hpp"
 #include "TestScene.hpp"
 #include "PanelManager.hpp"
 #include "EventManager.hpp"
@@ -18,6 +19,7 @@ SceneManager* SceneManager::getShareInstance()
   if (p_sharedManager == nullptr) {
     p_sharedManager = new SceneManager();
     p_sharedManager->registerScene<SelectHeroMenuScene>("SelectHeroMenuScene");
+    p_sharedManager->registerScene<SailMapScene>("sailMap");
   }
   return p_sharedManager;
 }

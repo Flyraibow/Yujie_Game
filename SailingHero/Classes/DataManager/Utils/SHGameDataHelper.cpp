@@ -16,28 +16,18 @@
 
 using namespace SHUtil;
 
-string getHeroFullName(HeroData *heroData)
-{
-  return heroData->getHeroFirstName() + " · " + heroData->getHeroLastName();
-}
-
 string getHeroDialogName(HeroData *heroData, bool showFullName)
 {
   if (showFullName) {
-    return getHeroFullName(heroData);
+    return heroData->getHeroFirstName() + " · " + heroData->getHeroLastName();
   }
   return "<" + heroData->getHeroFirstName() + ">";
-}
-
-string getHeroBirthName(HeroData *heroData)
-{
-  return format(LocalizationHelper::getLocalization("birth_display").c_str(), heroData->getBirthMonth(), heroData->getBirthDay());
 }
 
 string getGameDate()
 {
   auto gameData = GameData::getSharedInstance();
-  return format(LocalizationHelper::getLocalization("date_display").c_str(), gameData->getMonth(), gameData->getDay());
+  return format(LocalizationHelper::getLocalization("date_display").c_str(), to_string(gameData->getMonth()).c_str() , to_string(gameData->getDay()).c_str());
 }
 
 ZodiacData* getZodiacFromHero(HeroData *heroData)

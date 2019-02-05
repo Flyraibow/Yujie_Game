@@ -96,7 +96,8 @@ click_inn_building,;,eventList,inn_selection
 inn_selection,;,groupButton,city_building_inn_sleep_1;city_building_inn_sleep_3;city_building_inn_sleep_10;city_building_inn_sleep_30;city_building_inn_sleep_leave
 click_guild_building,;,eventList,guild_selection
 guild_selection,;,groupButton,city_building_guild_buy;city_building_guild_sell;city_building_guild_send_mail;city_building_guild_task;city_building_guild_leave
-click_map_info,航海图,groupButton,;
+click_map_info,航海图,eventList,show_map_scene
+show_map_scene,,scene,sailMap
 click_deck_info,甲板,groupButton,;
 click_info_button,情报,groupButton,info_sailor;info_ship;info_ship_team;info_item;info_return
 click_arrange_sailors,分配水手,groupButton,;

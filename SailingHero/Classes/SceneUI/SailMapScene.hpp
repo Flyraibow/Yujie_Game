@@ -16,7 +16,7 @@ class SailMapScene : public SHScene
 private:
   SailMapFrame p_sailMapFrame;
 public:
-  static SailMapScene* createScene();
+  static SHScene* createScene();
   
   virtual bool init();
   
