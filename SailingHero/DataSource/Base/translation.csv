@@ -23,3 +23,5 @@ tag_money,所持金
 tag_price,物价
 tag_category,种类
 tag_cityPrice,%s物价资讯
+sys_yes,是
+sys_no,否

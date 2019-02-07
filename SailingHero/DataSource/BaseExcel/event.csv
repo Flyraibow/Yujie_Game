@@ -13,9 +13,13 @@ refreshScene,刷新场景,refreshScene,;
 storyCheck,;,storyCheck,;
 processPanel,执行面板,processPanel,;
 removeGroupButton,移除按钮,removeGroupButton,;
+removeDialog,移除对话,removeDialog,;
+removeDialogAndGroupButton,,eventList,removeGroupButton;removeDialog
 save_data,保存游戏数据,saveData,;
 load_game,,eventList,load_data;load_game_initial
 load_data,读取数据,loadData,;
+wait_1_second,等待0.3秒,wait,0.3
+pass_1_day,过了1天,passDay,1
 input_hero_last_name,显示英雄 姓氏修改界面,eventList,input_hero_last_name_hint;input_hero_last_name_default;input_hero_last_name_confirm;inputPanel;
 input_hero_last_name_hint,设置提示“请输入姓氏”,setTempStr,hint;translation.input_last_name
 input_hero_last_name_default,设置默认值,setTempStr,default;data.hero.heroLastName
@@ -116,3 +120,23 @@ click_end_button_message,,dialog,dialog_click_end_game
 click_end_button_selection,,groupButton,system_end_yes;system_end_no
 click_end_button_cancel,,eventList,removeGroupButton;click_system_button
 end_game,,setScene,menu
+click_sleep_1,休息1天,eventList,sleep_set_day_1;sleep_set_money;sleep_check_money
+click_sleep_3,,eventList,sleep_set_day_3;sleep_set_money;sleep_check_money
+click_sleep_10,,eventList,sleep_set_day_10;sleep_set_money;sleep_check_money
+click_sleep_30,,eventList,sleep_set_day_30;sleep_set_money;sleep_check_money
+sleep_set_day_1,,setTempStr,sleep;1
+sleep_set_day_3,,setTempStr,sleep;3
+sleep_set_day_10,,setTempStr,sleep;10
+sleep_set_day_30,,setTempStr,sleep;30
+sleep_set_money,,setTempStr,money;temp.sleep
+sleep_check_money,检查资金够不够,condition,is_money_enough;sleep_confirm_list;sleep_money_not_enough_dialog
+sleep_money_not_enough_dialog,,dialog,dialog_sleep_money_not_enough
+sleep_confirm_list,,eventList,sleep_confirm_dialog;sleep_condition
+sleep_confirm_dialog,,dialog,dialog_sleep_confirm
+sleep_condition,如果还需要睡觉，继续睡,groupButton,"translation.sys_yes,sleep_continue;translation.sys_no,sleep_canceled"
+sleep_continue,,eventList,removeDialogAndGroupButton;sleep_cost_money;sleep_pass_1_day
+sleep_cost_money,,setDataValue,data.myguild;money;int;-;temp.money
+sleep_pass_1_day,,eventList,sleep_cost_1_day;pass_1_day;wait_1_second;refreshScene;sleep_is_sleep_over
+sleep_cost_1_day,,setTempStr,int;sleep;-;1
+sleep_is_sleep_over,,condition,is_sleep_over;sleep_canceled;sleep_pass_1_day
+sleep_canceled,,eventList,removeDialogAndGroupButton;click_inn_building

@@ -51,6 +51,12 @@ void DataManager::setTempString(const string &key, const string &value)
   p_tempStrMap[key] = decipherString(value);
 }
 
+void DataManager::calculateTempString(const string &type, const string &key, const string &func, const string &value)
+{
+  auto result = calculate(type, p_tempStrMap.at(key), decipherString(value), func);
+  setTempString(key, result);
+}
+
 void DataManager::setData(const string &key, const string &tableName, const string &id)
 {
   auto strId = decipherString(id);
@@ -133,6 +139,18 @@ void DataManager::setDataValue(const string &key, const string &field, const str
   auto data = decipherData(key);
   if (data != nullptr) {
     data->setFieldValue(field, decipherString(value));
+  } else {
+    CCLOGWARN("Couldn't find data from key : %s", key.c_str());
+  }
+}
+
+void DataManager::setDataValue(const string &key, const string &field, const string &type, const string &func, const string &value)
+{
+  auto data = decipherData(key);
+  auto funcValue = decipherString(value);
+  if (data != nullptr) {
+    auto result = calculate(type, data->getFieldValue(field), funcValue, func);
+    data->setFieldValue(field, result);
   } else {
     CCLOGWARN("Couldn't find data from key : %s", key.c_str());
   }
@@ -491,4 +509,24 @@ void DataManager::setGameSwitch(const string &gameSwitchName, bool isOn) const
   } else {
     GameData::getSharedInstance()->getGameSwitch().erase(gameSwitchName);
   }
+}
+
+string DataManager::calculate(const string &type, const string &a, const string &b, const string &func)
+{
+  if (type == "int") {
+    int origin = atoi(a.c_str());
+    int funcValue = atoi(b.c_str());
+    int result = 0;
+    if (func == "-") {
+      result = origin - funcValue;
+    } else if (func == "+") {
+      result = origin + funcValue;
+    } else {
+      CCLOGERROR("CALCULATION FUNCTION NOT DEFINED : %s", func.c_str());
+    }
+    return to_string(result);
+  } else {
+    CCLOGERROR("CALCULATION TYPE NOT DEFINED : %s", type.c_str());
+  }
+  return "";
 }

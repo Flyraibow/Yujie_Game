@@ -9,6 +9,7 @@
 #define Calendar_hpp
 
 #include <stdio.h>
+#include "GameData.hpp"
 
 struct Date
 {
@@ -27,6 +28,7 @@ bool isDateValid(int month, int day, int year = 1);
 int howManyDaysInMonth(int month, int year = 1);
 
 struct Date nextDay(int y, int m, int d);
+struct Date nextNDays(int y, int m, int d, int n);
 
 
 #endif /* Calendar_hpp */

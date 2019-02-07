@@ -48,3 +48,16 @@ struct Date nextDay(int y, int m, int d)
   }
   return Date(y, m, d);
 }
+
+struct Date nextNDays(int y, int m, int d, int n)
+{
+  d += n;
+  while (d > howManyDaysInMonth(m, y)) {
+    d -= howManyDaysInMonth(m, y);
+    if (++m > 12) {
+      m = 1;
+      ++y;
+    }
+  }
+  return Date(y, m, d);
+}

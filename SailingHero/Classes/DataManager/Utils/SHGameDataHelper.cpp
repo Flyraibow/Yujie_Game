@@ -53,6 +53,15 @@ ZodiacData* getZodiacFromHero(HeroData *heroData)
 }
 
 
+void passDays(int days)
+{
+  GameData *gameData = GameData::getSharedInstance();
+  auto date = nextNDays(gameData->getYear(), gameData->getMonth(), gameData->getDay(), days);
+  gameData->setDay(date.day);
+  gameData->setMonth(date.month);
+  gameData->setYear(date.year);
+}
+
 BaseData* SHFunction::getDataFromFunctionData(FunctionCalculationData *functionData)
 {
   CCASSERT(functionData != nullptr, "Function data is empty");

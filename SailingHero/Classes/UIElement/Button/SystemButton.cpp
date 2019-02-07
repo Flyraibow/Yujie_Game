@@ -128,7 +128,7 @@ SHColorNode* SystemButton::getButtonGroupNode(const vector<SHButton *> &buttons,
 #include "EventManager.hpp"
 #include "SceneManager.hpp"
 
-SHColorNode* SystemButton::getButtonGroupFromEvent(vector<string> parameters)
+SHColorNode* SystemButton::getButtonGroupFromButtonData(vector<string> parameters)
 {
   vector<SHButton *> buttons;
   for (int i = 0; i < parameters.size(); ++i) {

@@ -8,7 +8,6 @@
 #include "SceneManager.hpp"
 #include "SelectHeroMenuScene.hpp"
 #include "SailMapScene.hpp"
-#include "TestScene.hpp"
 #include "PanelManager.hpp"
 #include "EventManager.hpp"
 

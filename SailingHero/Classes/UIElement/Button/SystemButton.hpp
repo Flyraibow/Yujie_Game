@@ -48,7 +48,7 @@ public:
   static SHColorNode* getButtonGroupNode(const vector<SHButton *> &buttons);
   static SHColorNode* getButtonGroupNode(const vector<SHButton *> &buttons, int option);
   static SHColorNode* getButtonGroupNode(const vector<SHButton *> &buttons, int option, const Color4B& color);
-  static SHColorNode* getButtonGroupFromEvent(vector<string> parameters);
+  static SHColorNode* getButtonGroupFromButtonData(vector<string> parameters);
 };
 
 #endif /* SystemButton_hpp */

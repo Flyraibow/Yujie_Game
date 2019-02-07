@@ -14,3 +14,5 @@ show_city_goods_isNotHiden,int,data.cityGoods.isHidden,=,int,0
 show_city_goods_isDeveloped,int,data.cityGoods.commercialRequirement,<=,int,data.city.commerce
 decreasing_order,int,temp.leftValue,>=,int,temp.rightValue
 should_hide_building_icon,int,temp.hideBuildingIcon,=,int,1
+is_money_enough,int,temp.money,<=,int,data.myguild.money
+is_sleep_over,int,temp.sleep,=,int,0

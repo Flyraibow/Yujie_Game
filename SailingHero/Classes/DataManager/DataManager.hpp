@@ -29,11 +29,13 @@ private:
   int getConditionIntNumber(const string &type, const string &parameter) const;
   string getConditionString(const string &type, const string &parameter) const;
   string getFormatStringFromFunction(FunctionCalculationData *functionData) const;
+  string calculate(const string &type, const string &a, const string &b, const string &func);
 public:
   static DataManager* getShareInstance();
   void setTempData(const string &key, BaseData* value);
   void setTempDataList(const string &key, const vector<BaseData*> &value);
   void setTempString(const string &key, const string &value);
+  void calculateTempString(const string &type, const string &key, const string &func, const string &value);
   string decipherString(const string &value) const;
   BaseData* decipherData(const string &value) const;
   vector<BaseData*> decipherDataList(const string &value) const;
@@ -43,6 +45,7 @@ public:
   void setDataList(const string &key, const string &tableName, const string &tempListKey, const string &id);
   void filtDataList(const string &key, const string &tempKey, const string &conditionId);
   void setDataValue(const string &key, const string &field, const string &value);
+  void setDataValue(const string &key, const string &field, const string &type, const string &func, const string &value);
   void setSortKeyValuePair(const string &key, const string &type, const string &content, const string &orderConditionId);
   
   string getCalculationData(const string &calculationId) const;

@@ -17,6 +17,7 @@ using namespace std;
 
 string getHeroDialogName(HeroData *heroData, bool showFullName);
 string getGameDate();
+void passDays(int days);
 
 namespace SHFunction {
   BaseData* getDataFromFunctionData(FunctionCalculationData *functionData);
