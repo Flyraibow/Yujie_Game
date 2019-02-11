@@ -1,0 +1,39 @@
+{
+	"backgroundImage": "res/default_background.png",
+	"backgroundMusic": "title.mp3",
+	"fullScreenCover":true,
+	"components": [
+		{
+		 	"type": "color_node",
+		 	"id": "color_node",
+			"backgroundColor" : "alpha_zero",
+			"group_button" : {
+				"options" : {
+					"close":false,
+					"italic":true,
+					"align":true
+				},
+				"components" : [
+					{
+				      "type": "button",
+				      "id": "click_sail_map",
+				      "text": "测试航海图",
+				      "event": "show_map_scene",
+				      "setTemp" : {
+				      	"city":"69"
+				      }
+					},
+					{
+				      "type": "button",
+				      "id": "click_return",
+				      "text": "返回",
+				      "event": "popScene",
+				      "setTemp" : {
+				      	"city":"69"
+				      }
+					}
+				]
+			}
+		}
+	]
+}
