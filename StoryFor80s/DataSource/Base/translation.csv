@@ -1,0 +1,9 @@
+﻿localId,chinese
+start_game,开始游戏
+load_game,读取进度
+game_setting,游戏设置
+sys_close,关闭
+sys_cancel,取消
+sys_confirm,决定
+sys_yes,是
+sys_no,否

@@ -1,0 +1,12 @@
+﻿savingId,saveDescription,saved
+id,language,bool
+int,chinese,-
+writable,Y,Y
+1,1. 无进度,0
+2,2. 无进度,0
+3,3. 无进度,0
+4,4. 无进度,0
+5,5. 无进度,0
+6,6. 无进度,0
+7,7. 无进度,0
+8,8. 无进度,0
