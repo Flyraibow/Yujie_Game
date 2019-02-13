@@ -13,6 +13,7 @@ class SpriteComponent : public BaseComponent
 {
 private:
   std::string p_iconPath;
+  Color4B p_color;
 protected:
 public:
   SpriteComponent(nlohmann::json componentJson);

@@ -53,6 +53,8 @@
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
+		EC1272092212B3080058D7E6 /* title.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EC1272082212B3080058D7E6 /* title.mp3 */; };
+		EC12720A2212B3080058D7E6 /* title.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EC1272082212B3080058D7E6 /* title.mp3 */; };
 		EC84824422115335001956DE /* MenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC84824222115335001956DE /* MenuScene.cpp */; };
 		EC84824522115335001956DE /* MenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC84824222115335001956DE /* MenuScene.cpp */; };
 		EC84828222115812001956DE /* ByteBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC84828022115812001956DE /* ByteBuffer.cpp */; };
@@ -113,6 +115,14 @@
 		EC848302221171FC001956DE /* BaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8482FF221171FC001956DE /* BaseScene.cpp */; };
 		EC8483052211726F001956DE /* BasePanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8483032211726F001956DE /* BasePanel.cpp */; };
 		EC8483062211726F001956DE /* BasePanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8483032211726F001956DE /* BasePanel.cpp */; };
+		ECBA50692213DB2F00929BBA /* EventData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBA50682213DB2F00929BBA /* EventData.cpp */; };
+		ECBA506A2213DB2F00929BBA /* EventData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBA50682213DB2F00929BBA /* EventData.cpp */; };
+		ECBA506E2213DCC500929BBA /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBA506C2213DCC500929BBA /* SceneManager.cpp */; };
+		ECBA506F2213DCC500929BBA /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBA506C2213DCC500929BBA /* SceneManager.cpp */; };
+		ECBA50722213DD3600929BBA /* PanelManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBA50702213DD3600929BBA /* PanelManager.cpp */; };
+		ECBA50732213DD3600929BBA /* PanelManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBA50702213DD3600929BBA /* PanelManager.cpp */; };
+		ECBA50762213F1A000929BBA /* ConditionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBA50742213F1A000929BBA /* ConditionManager.cpp */; };
+		ECBA50772213F1A000929BBA /* ConditionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBA50742213F1A000929BBA /* ConditionManager.cpp */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 /* End PBXBuildFile section */
@@ -200,6 +210,7 @@
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
+		EC1272082212B3080058D7E6 /* title.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = title.mp3; sourceTree = "<group>"; };
 		EC84824222115335001956DE /* MenuScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MenuScene.cpp; sourceTree = "<group>"; };
 		EC84824322115335001956DE /* MenuScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MenuScene.hpp; sourceTree = "<group>"; };
 		EC84827F2211577B001956DE /* BaseData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseData.h; sourceTree = "<group>"; };
@@ -262,6 +273,14 @@
 		EC848300221171FC001956DE /* BaseScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BaseScene.hpp; sourceTree = "<group>"; };
 		EC8483032211726F001956DE /* BasePanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BasePanel.cpp; sourceTree = "<group>"; };
 		EC8483042211726F001956DE /* BasePanel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BasePanel.hpp; sourceTree = "<group>"; };
+		ECBA50662213DB2F00929BBA /* EventData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EventData.hpp; sourceTree = "<group>"; };
+		ECBA50682213DB2F00929BBA /* EventData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EventData.cpp; sourceTree = "<group>"; };
+		ECBA506C2213DCC500929BBA /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
+		ECBA506D2213DCC500929BBA /* SceneManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SceneManager.hpp; sourceTree = "<group>"; };
+		ECBA50702213DD3600929BBA /* PanelManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PanelManager.cpp; sourceTree = "<group>"; };
+		ECBA50712213DD3600929BBA /* PanelManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PanelManager.hpp; sourceTree = "<group>"; };
+		ECBA50742213F1A000929BBA /* ConditionManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConditionManager.cpp; sourceTree = "<group>"; };
+		ECBA50752213F1A000929BBA /* ConditionManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ConditionManager.hpp; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -390,6 +409,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EC1272082212B3080058D7E6 /* title.mp3 */,
 				521A8EA819F11F5000D177D7 /* fonts */,
 				3EACC98E19EE6D4300EB3C5E /* res */,
 				46880B7619C43A67006E1F66 /* CloseNormal.png */,
@@ -457,6 +477,8 @@
 		EC84826E2211566D001956DE /* GenerateData */ = {
 			isa = PBXGroup;
 			children = (
+				ECBA50682213DB2F00929BBA /* EventData.cpp */,
+				ECBA50662213DB2F00929BBA /* EventData.hpp */,
 				EC8482F422116FEB001956DE /* BaseDataManager.cpp */,
 				EC8482F522116FEB001956DE /* BaseDataManager.hpp */,
 				EC8482F322116FEA001956DE /* BaseGlobalDataManager.cpp */,
@@ -556,10 +578,16 @@
 		EC8482E122116E61001956DE /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				ECBA50702213DD3600929BBA /* PanelManager.cpp */,
+				ECBA50712213DD3600929BBA /* PanelManager.hpp */,
+				ECBA506C2213DCC500929BBA /* SceneManager.cpp */,
+				ECBA506D2213DCC500929BBA /* SceneManager.hpp */,
 				EC8482E322116ECE001956DE /* DataManager.cpp */,
 				EC8482E422116ECE001956DE /* DataManager.hpp */,
 				EC8482FB2211718A001956DE /* EventManager.cpp */,
 				EC8482FC2211718A001956DE /* EventManager.hpp */,
+				ECBA50742213F1A000929BBA /* ConditionManager.cpp */,
+				ECBA50752213F1A000929BBA /* ConditionManager.hpp */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -684,6 +712,7 @@
 				1AF87B891F6F781D007BE51C /* LaunchScreenBackground.png in Resources */,
 				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
 				1AF87B881F6F781D007BE51C /* LaunchScreen.storyboard in Resources */,
+				EC1272092212B3080058D7E6 /* title.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,6 +726,7 @@
 				521A8EAA19F11F5000D177D7 /* fonts in Resources */,
 				46880B7C19C43A67006E1F66 /* CloseNormal.png in Resources */,
 				46880B7E19C43A67006E1F66 /* CloseSelected.png in Resources */,
+				EC12720A2212B3080058D7E6 /* title.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -713,6 +743,7 @@
 				EC8482A9221161C6001956DE /* BaseButtonGroup.cpp in Sources */,
 				EC8482C7221168F4001956DE /* EditBoxComponent.cpp in Sources */,
 				EC8482C3221168F4001956DE /* ListComponent.cpp in Sources */,
+				ECBA50692213DB2F00929BBA /* EventData.cpp in Sources */,
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
 				EC8482F722116FEB001956DE /* BaseGlobalDataManager.cpp in Sources */,
 				EC8482E522116ECE001956DE /* DataManager.cpp in Sources */,
@@ -738,10 +769,13 @@
 				EC8482CD221168F4001956DE /* ButtonComponent.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				EC8482F122116F7E001956DE /* FunctionCalculationData.cpp in Sources */,
+				ECBA50722213DD3600929BBA /* PanelManager.cpp in Sources */,
+				ECBA506E2213DCC500929BBA /* SceneManager.cpp in Sources */,
 				EC8482D322116995001956DE /* JsonUtil.cpp in Sources */,
 				EC84829B22115AA4001956DE /* GameData.cpp in Sources */,
 				EC84828A22115876001956DE /* LocalizationHelper.cpp in Sources */,
 				EC8482C1221168F4001956DE /* ColorNodeComponent.cpp in Sources */,
+				ECBA50762213F1A000929BBA /* ConditionManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -754,6 +788,7 @@
 				EC8482872211584C001956DE /* Utils.cpp in Sources */,
 				EC8482C6221168F4001956DE /* SpriteComponent.cpp in Sources */,
 				EC8482FA22116FEB001956DE /* BaseDataManager.cpp in Sources */,
+				ECBA50772213F1A000929BBA /* ConditionManager.cpp in Sources */,
 				EC8482A62211601D001956DE /* BaseButton.cpp in Sources */,
 				EC8482FE2211718A001956DE /* EventManager.cpp in Sources */,
 				EC848302221171FC001956DE /* BaseScene.cpp in Sources */,
@@ -763,6 +798,7 @@
 				EC8482CC221168F4001956DE /* LabelComponent.cpp in Sources */,
 				EC8482AA221161C6001956DE /* BaseButtonGroup.cpp in Sources */,
 				EC8482AE2211624C001956DE /* BaseColorNode.cpp in Sources */,
+				ECBA506F2213DCC500929BBA /* SceneManager.cpp in Sources */,
 				EC8482E022116D39001956DE /* SceneContent.cpp in Sources */,
 				EC8482EE22116F7E001956DE /* ConditionCalculationData.cpp in Sources */,
 				EC8482DE22116D39001956DE /* JSONContent.cpp in Sources */,
@@ -776,9 +812,11 @@
 				EC84828B22115876001956DE /* LocalizationHelper.cpp in Sources */,
 				EC8482C8221168F4001956DE /* EditBoxComponent.cpp in Sources */,
 				EC8482F822116FEB001956DE /* BaseGlobalDataManager.cpp in Sources */,
+				ECBA50732213DD3600929BBA /* PanelManager.cpp in Sources */,
 				EC8483062211726F001956DE /* BasePanel.cpp in Sources */,
 				EC8482C2221168F4001956DE /* ColorNodeComponent.cpp in Sources */,
 				EC8482C4221168F4001956DE /* ListComponent.cpp in Sources */,
+				ECBA506A2213DB2F00929BBA /* EventData.cpp in Sources */,
 				EC8482F222116F7E001956DE /* FunctionCalculationData.cpp in Sources */,
 				EC8482CE221168F4001956DE /* ButtonComponent.cpp in Sources */,
 				EC84829622115AA4001956DE /* GameSavingData.cpp in Sources */,

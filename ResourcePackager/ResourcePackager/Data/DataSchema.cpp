@@ -183,6 +183,11 @@ void DataSchema::addValueIntoBuffer(std::unique_ptr<bb::ByteBuffer> &buffer, con
       break;
     }
     case MAP: {
+      if (value == ";") {
+        // skip
+        buffer->putLong(0);
+        break;
+      }
       auto vals = utils::split(value, ';');
       auto subValueTypes = utils::split(p_subType, ';');
       auto keyType = subValueTypes[0];

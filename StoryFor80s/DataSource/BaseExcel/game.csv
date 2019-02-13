@@ -1,5 +1,5 @@
-﻿year,month,day
-int,int,int
--,-,-
-Y,Y,Y
-1994,9,1
+﻿year,month,day,firstName,lastName
+int,int,int,string,string
+-,-,-,-,-
+Y,Y,Y,Y,Y
+1994,9,1,firstName,lastName

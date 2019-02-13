@@ -78,6 +78,17 @@ namespace SHUtil {
     return tokens;
   }
   
+  ::std::string join(const ::std::vector<::std::string> &v, const string &jointer) {
+    std::stringstream ss;
+    for(size_t i = 0; i < v.size(); ++i)
+    {
+      if(i != 0)
+        ss << jointer;
+      ss << v[i];
+    }
+    return ss.str();
+  }
+  
 #include <cstdio>
 #include <cstdarg>
   

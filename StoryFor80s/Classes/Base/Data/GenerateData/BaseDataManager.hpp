@@ -5,6 +5,7 @@ This file (BaseDataManager.hpp) is generated
 #define BaseDataManager_hpp
 #include "ConditionData.hpp"
 #include "ConditionCalculationData.hpp"
+#include "EventData.hpp"
 #include "FunctionCalculationData.hpp"
 #include "GameData.hpp"
 
@@ -15,6 +16,7 @@ private:
 public:
 	static ConditionData* getConditionDataById(const string& conditionId);
 	static ConditionCalculationData* getConditionCalculationDataById(const string& conditionCalculationId);
+	static EventData* getEventDataById(const string& eventId);
 	static FunctionCalculationData* getFunctionCalculationDataById(const string& functionCalculatonId);
 	static GameData* getGameData();
 	static bool saveData(string fileName);

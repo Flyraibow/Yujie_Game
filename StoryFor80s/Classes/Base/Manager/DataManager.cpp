@@ -382,23 +382,23 @@ int DataManager::getConditionIntNumber(const string &type, const string &paramet
   CCASSERT(false, "Doesn't allow this type");
 }
 
-bool compareInteger(int leftValue, int rightValue, const string &compare)
-{
-  if (compare == "<") {
-    return leftValue < rightValue;
-  } else if (compare == "<=") {
-    return leftValue <= rightValue;
-  } else if (compare == ">") {
-    return leftValue > rightValue;
-  } else if (compare == ">=") {
-    return leftValue >= rightValue;
-  } else if (compare == "=") {
-    return leftValue == rightValue;
-  } else if (compare == "!=") {
-    return leftValue != rightValue;
-  }
-  CCASSERT(false, "unrecognize compare type");
-}
+//bool compareInteger(int leftValue, int rightValue, const string &compare)
+//{
+//  if (compare == "<") {
+//    return leftValue < rightValue;
+//  } else if (compare == "<=") {
+//    return leftValue <= rightValue;
+//  } else if (compare == ">") {
+//    return leftValue > rightValue;
+//  } else if (compare == ">=") {
+//    return leftValue >= rightValue;
+//  } else if (compare == "=") {
+//    return leftValue == rightValue;
+//  } else if (compare == "!=") {
+//    return leftValue != rightValue;
+//  }
+//  CCASSERT(false, "unrecognize compare type");
+//}
 
 bool logicCondition(const string &leftCondition, const string &rightCondition, const string &logic) {
   auto instance = DataManager::getShareInstance();
@@ -414,27 +414,27 @@ bool logicCondition(const string &leftCondition, const string &rightCondition, c
 
 bool DataManager::checkCondition(const string &conditionId) const
 {
-  auto conditionData = ConditionData::getConditionDataById(conditionId);
-  auto compareType = conditionData->getCompareFunction();
-  static const unordered_set<string> comparison = {"<", ">", "=", "<=", ">=", "!="};
-  static const unordered_set<string> logic = {"and", "or", "xor"};
-  if (comparison.count(compareType)) {
-    // compare the number
-    // TODO currently only int value can compare
-    auto leftValue = getConditionIntNumber(conditionData->getLeftType(), conditionData->getLeftParameter());
-    auto rightValue = getConditionIntNumber(conditionData->getRightType(), conditionData->getRightParameter());
-    return compareInteger(leftValue, rightValue, compareType);
-  } else if (logic.count(compareType)) {
-    return logicCondition(conditionData->getLeftParameter(), conditionData->getRightParameter(), compareType);
-  } else if (compareType == "belong") {
-    auto str = getConditionString(conditionData->getLeftType(), conditionData->getLeftParameter());
-    auto strList = SHUtil::split(conditionData->getRightParameter(), ';');
-    unordered_set<string> container;
-    for (auto s : strList) {
-      container.insert(decipherString(s));
-    }
-    return container.count(str);
-  }
+//  auto conditionData = ConditionData::getConditionDataById(conditionId);
+//  auto compareType = conditionData->getCompareFunction();
+//  static const unordered_set<string> comparison = {"<", ">", "=", "<=", ">=", "!="};
+//  static const unordered_set<string> logic = {"and", "or", "xor"};
+//  if (comparison.count(compareType)) {
+//    // compare the number
+//    // TODO currently only int value can compare
+//    auto leftValue = getConditionIntNumber(conditionData->getLeftType(), conditionData->getLeftParameter());
+//    auto rightValue = getConditionIntNumber(conditionData->getRightType(), conditionData->getRightParameter());
+//    return compareInteger(leftValue, rightValue, compareType);
+//  } else if (logic.count(compareType)) {
+//    return logicCondition(conditionData->getLeftParameter(), conditionData->getRightParameter(), compareType);
+//  } else if (compareType == "belong") {
+//    auto str = getConditionString(conditionData->getLeftType(), conditionData->getLeftParameter());
+//    auto strList = SHUtil::split(conditionData->getRightParameter(), ';');
+//    unordered_set<string> container;
+//    for (auto s : strList) {
+//      container.insert(decipherString(s));
+//    }
+//    return container.count(str);
+//  }
   return false;
 }
 

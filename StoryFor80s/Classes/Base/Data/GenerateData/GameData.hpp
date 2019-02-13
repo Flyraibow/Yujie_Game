@@ -13,6 +13,8 @@ private:
 	int p_year;
 	int p_month;
 	int p_day;
+	string p_firstName;
+	string p_lastName;
 public:
 	int getYear() const;
 	void setYear(int year);
@@ -20,6 +22,10 @@ public:
 	void setMonth(int month);
 	int getDay() const;
 	void setDay(int day);
+	string getFirstName() const;
+	void setFirstName(string firstName);
+	string getLastName() const;
+	void setLastName(string lastName);
 	string description() const;
 	static GameData* getSharedInstance();
 	static bool saveData(const string & path);

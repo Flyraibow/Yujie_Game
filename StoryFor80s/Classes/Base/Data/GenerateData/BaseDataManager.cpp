@@ -27,6 +27,14 @@ ConditionCalculationData* BaseDataManager::getConditionCalculationDataById(const
 	return nullptr;
 }
 
+EventData* BaseDataManager::getEventDataById(const string& eventId)
+{
+	if (EventData::getSharedDictionary()->count(eventId)) {
+		return EventData::getSharedDictionary()->at(eventId);
+	}
+	return nullptr;
+}
+
 FunctionCalculationData* BaseDataManager::getFunctionCalculationDataById(const string& functionCalculatonId)
 {
 	if (FunctionCalculationData::getSharedDictionary()->count(functionCalculatonId)) {
@@ -81,6 +89,8 @@ BaseData * BaseDataManager::getData(const string & dataSet, const string & id)
 		return ConditionData::getConditionDataById(id);
 	} else if (dataSet == "ConditionCalculationData") {
 		return ConditionCalculationData::getConditionCalculationDataById(id);
+	} else if (dataSet == "EventData") {
+		return EventData::getEventDataById(id);
 	} else if (dataSet == "FunctionCalculationData") {
 		return FunctionCalculationData::getFunctionCalculationDataById(id);
 	} else if (dataSet == "GameData") {

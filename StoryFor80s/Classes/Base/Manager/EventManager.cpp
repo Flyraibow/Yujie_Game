@@ -7,7 +7,10 @@
 
 #include "EventManager.hpp"
 
-//#include "EventData.hpp"
+#include "EventData.hpp"
+#include "DataManager.hpp"
+#include "SceneManager.hpp"
+#include "ConditionManager.hpp"
 #include "Utils.hpp"
 
 EventManager* EventManager::p_sharedManager = nullptr;
@@ -35,12 +38,39 @@ void EventManager::setCurrentScene(BaseScene *scene)
 void EventManager::runEvent(std::string eventName)
 {
   if (eventName.size() == 0) return;
-//  eventName = DataManager::getShareInstance()->decipherString(eventName);
-//  auto eventData = EventData::getEventDataById(eventName);
-//  if (eventData == nullptr) {
-//    CCLOGWARN("Counldn't find event : %s", eventName.c_str());
-//    return;
-//  }
+  eventName = DataManager::getShareInstance()->decipherString(eventName);
+  auto eventData = EventData::getEventDataById(eventName);
+  if (eventData == nullptr) {
+    CCLOGWARN("Counldn't find event : %s", eventName.c_str());
+    return;
+  }
+  auto eventType = eventData->getType();
+  auto parameters = eventData->getParametrsMap();
+  if (eventType == "pushScene") {
+    if (parameters.count("sceneName")) {
+      auto sceneName = DataManager::getShareInstance()->decipherString(parameters.at("sceneName"));
+      SceneManager::getShareInstance()->pushScene(sceneName);
+    }
+  } else if (eventType == "popScene") {
+    SceneManager::getShareInstance()->popScene();
+  } else if (eventType == "condition") {
+    auto conditionStr = parameters.count("condition") ? parameters.at("condition") : "";
+    if (ConditionManager::getShareInstance()->checkConditionByString(conditionStr)) {
+      if (parameters.count("yes")) {
+        p_eventStack.push(parameters.at("yes"));
+      }
+    } else if (parameters.count("no")) {
+      p_eventStack.push(parameters.at("no"));
+    }
+  } else if (eventType == "eventlist") {
+    auto eventStr = parameters.count("event") ? parameters.at("event") : "";
+    auto events = SHUtil::split(eventStr, ',');
+    for (int i = events.size() - 1; i >= 0; --i) {
+      p_eventStack.push(events.at(i));
+    }
+  } else {
+    CCLOGWARN("unrecognized event type : %s", eventType.c_str());
+  }
   continueEvent();
 }
 

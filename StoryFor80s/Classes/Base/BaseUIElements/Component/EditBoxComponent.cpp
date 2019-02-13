@@ -29,6 +29,7 @@ EditBoxComponent::EditBoxComponent(nlohmann::json componentJson) : BaseComponent
   }
   p_length = SHUtil::getIntFromJson(componentJson, "max_length");
   p_text = SHUtil::getStringFromJson(componentJson, "text");
+  p_tempString = SHUtil::getStringFromJson(componentJson, "setTemp");
 }
 
 Node* EditBoxComponent::addComponentToParent(ComponentDict &dict, cocos2d::Node *parent)
@@ -39,8 +40,22 @@ Node* EditBoxComponent::addComponentToParent(ComponentDict &dict, cocos2d::Node 
   editBox->setInputMode(p_mode);
   editBox->setNormalizedPosition(p_normalizePosition);
   editBox->setMaxLength(p_length);
+  if (p_tempString.length() > 0) {
+    DataManager::getShareInstance()->setTempString(p_tempString, defaultText);
+    editBox->setDelegate(this);
+  }
   
   addNodeToParent(dict, editBox, parent);
   
   return editBox;
+}
+
+void EditBoxComponent::editBoxTextChanged(ui::EditBox* editBox, const std::string& text)
+{
+  DataManager::getShareInstance()->setTempString(p_tempString, editBox->getText());
+}
+
+void EditBoxComponent::editBoxReturn(ui::EditBox* editBox)
+{
+  DataManager::getShareInstance()->setTempString(p_tempString, editBox->getText());
 }

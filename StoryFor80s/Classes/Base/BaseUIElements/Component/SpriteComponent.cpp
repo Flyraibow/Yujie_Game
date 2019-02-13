@@ -13,6 +13,7 @@ USING_NS_CC;
 SpriteComponent::SpriteComponent(nlohmann::json componentJson) : BaseComponent(componentJson)
 {
   p_iconPath = SHUtil::getStringFromJson(componentJson, "path");
+  p_color = SHUtil::getColorFromJson(componentJson, "color");
 }
 
 Node* SpriteComponent::addComponentToParent(ComponentDict &dict, cocos2d::Node *parent)
@@ -21,6 +22,12 @@ Node* SpriteComponent::addComponentToParent(ComponentDict &dict, cocos2d::Node *
   if (p_iconPath.length() > 0) {
     auto path = DataManager::getShareInstance()->decipherString(p_iconPath);
     sprite = Sprite::create(path);
+  } else {
+    auto size = getComponentSize(parent);
+    sprite = Sprite::create();
+    sprite->setContentSize(size);
+    auto colorLayer = LayerColor::create(p_color, size.width, size.height);
+    sprite->addChild(colorLayer);
   }
 
   addNodeToParent(dict, sprite, parent);

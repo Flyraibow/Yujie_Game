@@ -16,20 +16,20 @@
 				"components" : [
 					{
 				      "type": "button",
-				      "id": "click_sail_map",
-				      "text": "测试航海图",
-				      "event": "show_map_scene",
+				      "id": "create_game",
+				      "text": "新的游戏",
+				      "event": "push_scene",
 				      "setTemp" : {
-				      	"city":"69"
+				      	"nextScene":"createGame"
 				      }
 					},
 					{
 				      "type": "button",
-				      "id": "click_return",
-				      "text": "返回",
-				      "event": "popScene",
+				      "id": "load_game",
+				      "text": "读取进度",
+				      "event": "pop_panel",
 				      "setTemp" : {
-				      	"city":"69"
+				      	"nextPanel":"loadGame"
 				      }
 					}
 				]

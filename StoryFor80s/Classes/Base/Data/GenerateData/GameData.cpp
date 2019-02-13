@@ -41,12 +41,34 @@ void GameData::setDay(int day)
 	p_day = day;
 }
 
+string GameData::getFirstName() const
+{
+	return p_firstName;
+}
+
+void GameData::setFirstName(string firstName)
+{
+	p_firstName = firstName;
+}
+
+string GameData::getLastName() const
+{
+	return p_lastName;
+}
+
+void GameData::setLastName(string lastName)
+{
+	p_lastName = lastName;
+}
+
 string GameData::description() const
 {
 	string desc = "gameData = {\n";
 	desc += "\tyear : " + to_string(p_year) + "\n";
 	desc += "\tmonth : " + to_string(p_month) + "\n";
 	desc += "\tday : " + to_string(p_day) + "\n";
+	desc += "\tfirstName : " + to_string(p_firstName) + "\n";
+	desc += "\tlastName : " + to_string(p_lastName) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -63,6 +85,8 @@ GameData* GameData::getSharedInstance()
 			p_sharedData->p_year = buffer->getInt();
 			p_sharedData->p_month = buffer->getInt();
 			p_sharedData->p_day = buffer->getInt();
+			p_sharedData->p_firstName = buffer->getString();
+			p_sharedData->p_lastName = buffer->getString();
 		}
 	}
 	return p_sharedData;
@@ -73,13 +97,17 @@ bool GameData::saveData(const string & path)
 	auto filePath = path + "/GameData.dat";
 	auto data = GameData::getSharedInstance();
 	auto buffer = std::make_unique<bb::ByteBuffer>();
-	buffer->putInt(3);
+	buffer->putInt(5);
 	buffer->putString("p_year");
 	buffer->putString(to_string(data->p_year));
 	buffer->putString("p_month");
 	buffer->putString(to_string(data->p_month));
 	buffer->putString("p_day");
 	buffer->putString(to_string(data->p_day));
+	buffer->putString("p_firstName");
+	buffer->putString(to_string(data->p_firstName));
+	buffer->putString("p_lastName");
+	buffer->putString(to_string(data->p_lastName));
 	buffer->writeToFile(filePath);
 	return true;
 }
@@ -103,6 +131,10 @@ bool GameData::loadData(const string & path)
 					data->p_month = atoi(value.c_str());
 				} else if (key == "p_day") {
 					data->p_day = atoi(value.c_str());
+				} else if (key == "p_firstName") {
+					data->p_firstName = value;
+				} else if (key == "p_lastName") {
+					data->p_lastName = value;
 				}
 			}
 		}
@@ -127,6 +159,10 @@ void GameData::setFieldValue(const string & fieldName, const string & value)
 		this->setMonth(atoi(value.c_str()));
 	} else if (fieldName == "day") {
 		this->setDay(atoi(value.c_str()));
+	} else if (fieldName == "firstName") {
+		this->setFirstName(value);
+	} else if (fieldName == "lastName") {
+		this->setLastName(value);
 	}
 }
 
@@ -138,6 +174,10 @@ string GameData::getFieldValue(const string & fieldName)
 		return to_string(this->getMonth());
 	} else if (fieldName == "day") {
 		return to_string(this->getDay());
+	} else if (fieldName == "firstName") {
+		return to_string(this->getFirstName());
+	} else if (fieldName == "lastName") {
+		return to_string(this->getLastName());
 	}
 	CCLOGWARN("Couldn't recognize %s in GameData", fieldName.c_str());
 	return "";
