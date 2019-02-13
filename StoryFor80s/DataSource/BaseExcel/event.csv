@@ -9,5 +9,6 @@ start_game,"开始新游戏, 确保有姓名",condition,condition:length.temp.fi
 start_game_check_lastname,,condition,condition:length.temp.lastName>int.0;yes:start_game_list;no:start_game_fail_lastname
 start_game_fail_firstname,,popPanel,panelName:errorPanel;setTemp:error=wrong_first_name
 start_game_fail_lastname,,popPanel,panelName:errorPanel;setTemp:error=wrong_last_name
-start_game_list,,eventlist,event:start_game_set_values
-start_game_set_values,,setValus,;
+start_game_list,,eventlist,"event:start_game_set_values,game_scene"
+start_game_set_values,,setValues,game.firstName:temp.firstName;game.lastName:temp.lastName
+game_scene,,pushScene,sceneName:gameScene

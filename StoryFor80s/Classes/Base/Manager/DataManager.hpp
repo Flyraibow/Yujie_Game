@@ -47,6 +47,7 @@ public:
   void setDataValue(const string &key, const string &field, const string &value);
   void setDataValue(const string &key, const string &field, const string &type, const string &func, const string &value);
   void setSortKeyValuePair(const string &key, const string &type, const string &content, const string &orderConditionId);
+  void setValue(const string &key, const string &value);
   
   string getCalculationData(const string &calculationId) const;
   string getFunctionString(const string &functionId) const;

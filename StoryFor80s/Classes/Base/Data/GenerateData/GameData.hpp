@@ -15,6 +15,9 @@ private:
 	int p_day;
 	string p_firstName;
 	string p_lastName;
+	int p_birthDay;
+	int p_birthMonth;
+	int p_birthYear;
 public:
 	int getYear() const;
 	void setYear(int year);
@@ -26,6 +29,12 @@ public:
 	void setFirstName(string firstName);
 	string getLastName() const;
 	void setLastName(string lastName);
+	int getBirthDay() const;
+	void setBirthDay(int birthDay);
+	int getBirthMonth() const;
+	void setBirthMonth(int birthMonth);
+	int getBirthYear() const;
+	void setBirthYear(int birthYear);
 	string description() const;
 	static GameData* getSharedInstance();
 	static bool saveData(const string & path);

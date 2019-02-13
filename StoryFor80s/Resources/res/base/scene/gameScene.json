@@ -1,0 +1,27 @@
+{
+	"backgroundImage": "res/default_background.png",
+	"fullScreenCover":true,
+	"components": [
+		{
+	      "type": "sprite",
+	      "id": "info_box",
+	      "size": {
+	      	"width": 200,
+	      	"height": 40
+	      },
+	      "color": "alpha_red",
+	      "normalized_position": [0.05, 0.95],
+	      "anchor_point": [0, 1],
+	      "components" : [
+	      	{
+		      "type": "label",
+		      "text": "function.my_full_name",
+		      "normalized_position": [0.5, 0.5],
+		      "anchor_point": [0.5, 0.5],
+	  		  "normalized_dimensions": [0.9, 0],
+		      "text_size": 22
+	      	}
+	      ]
+	  }
+	]
+}

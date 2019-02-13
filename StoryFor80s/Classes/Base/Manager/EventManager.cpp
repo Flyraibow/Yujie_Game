@@ -68,6 +68,12 @@ void EventManager::runEvent(std::string eventName)
     for (int i = events.size() - 1; i >= 0; --i) {
       p_eventStack.push(events.at(i));
     }
+  } else if (eventType == "setValues") {
+    for (auto iter = parameters.begin(); iter != parameters.end(); ++iter) {
+      auto key = iter->first;
+      auto value = iter->second;
+      DataManager::getShareInstance()->setValue(key, value);
+    }
   } else {
     CCLOGWARN("unrecognized event type : %s", eventType.c_str());
   }

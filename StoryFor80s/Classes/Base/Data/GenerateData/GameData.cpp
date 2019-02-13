@@ -61,6 +61,36 @@ void GameData::setLastName(string lastName)
 	p_lastName = lastName;
 }
 
+int GameData::getBirthDay() const
+{
+	return p_birthDay;
+}
+
+void GameData::setBirthDay(int birthDay)
+{
+	p_birthDay = birthDay;
+}
+
+int GameData::getBirthMonth() const
+{
+	return p_birthMonth;
+}
+
+void GameData::setBirthMonth(int birthMonth)
+{
+	p_birthMonth = birthMonth;
+}
+
+int GameData::getBirthYear() const
+{
+	return p_birthYear;
+}
+
+void GameData::setBirthYear(int birthYear)
+{
+	p_birthYear = birthYear;
+}
+
 string GameData::description() const
 {
 	string desc = "gameData = {\n";
@@ -69,6 +99,9 @@ string GameData::description() const
 	desc += "\tday : " + to_string(p_day) + "\n";
 	desc += "\tfirstName : " + to_string(p_firstName) + "\n";
 	desc += "\tlastName : " + to_string(p_lastName) + "\n";
+	desc += "\tbirthDay : " + to_string(p_birthDay) + "\n";
+	desc += "\tbirthMonth : " + to_string(p_birthMonth) + "\n";
+	desc += "\tbirthYear : " + to_string(p_birthYear) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -87,6 +120,9 @@ GameData* GameData::getSharedInstance()
 			p_sharedData->p_day = buffer->getInt();
 			p_sharedData->p_firstName = buffer->getString();
 			p_sharedData->p_lastName = buffer->getString();
+			p_sharedData->p_birthDay = buffer->getInt();
+			p_sharedData->p_birthMonth = buffer->getInt();
+			p_sharedData->p_birthYear = buffer->getInt();
 		}
 	}
 	return p_sharedData;
@@ -97,7 +133,7 @@ bool GameData::saveData(const string & path)
 	auto filePath = path + "/GameData.dat";
 	auto data = GameData::getSharedInstance();
 	auto buffer = std::make_unique<bb::ByteBuffer>();
-	buffer->putInt(5);
+	buffer->putInt(8);
 	buffer->putString("p_year");
 	buffer->putString(to_string(data->p_year));
 	buffer->putString("p_month");
@@ -108,6 +144,12 @@ bool GameData::saveData(const string & path)
 	buffer->putString(to_string(data->p_firstName));
 	buffer->putString("p_lastName");
 	buffer->putString(to_string(data->p_lastName));
+	buffer->putString("p_birthDay");
+	buffer->putString(to_string(data->p_birthDay));
+	buffer->putString("p_birthMonth");
+	buffer->putString(to_string(data->p_birthMonth));
+	buffer->putString("p_birthYear");
+	buffer->putString(to_string(data->p_birthYear));
 	buffer->writeToFile(filePath);
 	return true;
 }
@@ -135,6 +177,12 @@ bool GameData::loadData(const string & path)
 					data->p_firstName = value;
 				} else if (key == "p_lastName") {
 					data->p_lastName = value;
+				} else if (key == "p_birthDay") {
+					data->p_birthDay = atoi(value.c_str());
+				} else if (key == "p_birthMonth") {
+					data->p_birthMonth = atoi(value.c_str());
+				} else if (key == "p_birthYear") {
+					data->p_birthYear = atoi(value.c_str());
 				}
 			}
 		}
@@ -163,6 +211,12 @@ void GameData::setFieldValue(const string & fieldName, const string & value)
 		this->setFirstName(value);
 	} else if (fieldName == "lastName") {
 		this->setLastName(value);
+	} else if (fieldName == "birthDay") {
+		this->setBirthDay(atoi(value.c_str()));
+	} else if (fieldName == "birthMonth") {
+		this->setBirthMonth(atoi(value.c_str()));
+	} else if (fieldName == "birthYear") {
+		this->setBirthYear(atoi(value.c_str()));
 	}
 }
 
@@ -178,6 +232,12 @@ string GameData::getFieldValue(const string & fieldName)
 		return to_string(this->getFirstName());
 	} else if (fieldName == "lastName") {
 		return to_string(this->getLastName());
+	} else if (fieldName == "birthDay") {
+		return to_string(this->getBirthDay());
+	} else if (fieldName == "birthMonth") {
+		return to_string(this->getBirthMonth());
+	} else if (fieldName == "birthYear") {
+		return to_string(this->getBirthYear());
 	}
 	CCLOGWARN("Couldn't recognize %s in GameData", fieldName.c_str());
 	return "";

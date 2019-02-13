@@ -2,7 +2,7 @@
 id,string,string,vector,comment
 string,-,-,string,-
 writable,N,N,N,N
-hero_full_name,string,string_connect,data.hero.heroFirstName; · ;data.hero.heroLastName,function 包含 连接字符串， format字符串和自定义的function
+my_full_name,string,string_connect,game.lastName;game.firstName,function 包含 连接字符串， format字符串和自定义的function
 my_hero_full_name,string,string_connect,data.gameHero.heroFirstName; · ;data.gameHero.heroLastName,主角的名字
 hero_birth_day,string,string_format,birth_display;data.hero.birthMonth;data.hero.birthDay,拼接字符串
 hero_zodiac_data,data,zodiac_from_hero,data.hero,从hero得到他的星座

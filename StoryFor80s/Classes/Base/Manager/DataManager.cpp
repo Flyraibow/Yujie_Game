@@ -156,6 +156,23 @@ void DataManager::setDataValue(const string &key, const string &field, const str
   }
 }
 
+void DataManager::setValue(const string &key, const string &value)
+{
+  auto keyList = SHUtil::split(key, '.');
+  CCASSERT(keyList.size() >= 2, "The size of key list should be >= 2");
+  auto keyType = keyList.at(0);
+  if (keyType == "game") {
+    setDataValue(keyType, keyList.at(1), value);
+  } else if (keyType == "data") {
+    CCASSERT(keyList.size() >= 3, "The size of data-key list should be >= 3");
+    setDataValue(keyType + '.' + keyList.at(1), keyList.at(2), value);
+  } else if (keyType == "temp") {
+    setTempString(keyList.at(1), value);
+  } else {
+    CCLOGERROR("Un-recognized key : %s", key.c_str());
+  }
+}
+
 void DataManager::setSortKeyValuePair(const string &key, const string &type, const string &content, const string &orderConditionId)
 {
   vector<pair<string, string>> result;
