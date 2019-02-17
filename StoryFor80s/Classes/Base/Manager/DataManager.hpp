@@ -50,7 +50,6 @@ public:
   void setValue(const string &key, const string &value);
   
   string getCalculationData(const string &calculationId) const;
-  string getFunctionString(const string &functionId) const;
   BaseData* getFunctionData(const std::string &functionId) const;
   bool checkCondition(const string &conditionId) const;
   

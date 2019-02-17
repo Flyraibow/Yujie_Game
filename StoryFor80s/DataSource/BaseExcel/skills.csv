@@ -1,0 +1,9 @@
+﻿skillId,name,maxValue,passValue,value,requires
+id,language,int,int,int,friend_id_set
+string,chinese,-,-,-,Skills
+writable,N,N,N,Y,N
+1,加减法,100,60,0,;
+2,乘除法,100,60,0,1
+3,简单几何,100,60,0,;
+4,拼音,100,60,0,;
+5,识字认字,100,60,0,4

@@ -11,13 +11,8 @@
 #include <stdio.h>
 using namespace std;
 
-class ConditionManager
+namespace Manager
 {
-private:
-  static ConditionManager* p_sharedManager;
-  int convertConditionStrToInt(const string &str);
-public:
-  static ConditionManager* getShareInstance();
   bool checkConditionByString(const string &conditionStr);
 };
 

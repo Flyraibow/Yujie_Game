@@ -14,6 +14,7 @@
 #include "FunctionCalculationData.hpp"
 #include "GameData.hpp"
 #include "BaseDataManager.hpp"
+#include "FunctionManager.hpp"
 #include "BaseGlobalDataManager.hpp"
 
 
@@ -275,9 +276,9 @@ string DataManager::decipherString(const string &value) const
     } else if (k == "function") {
       auto functionId = args.at(1);
       if (args.size() == 2) {
-        val = getFunctionString(functionId);
+        val = Manager::getFunctionValueById(functionId);
       } else if (args.size() == 3) {
-        auto data = getFunctionData(functionId);
+        auto data = Manager::getFunctionDataById(functionId);
         val = data->getFieldValue(args.at(2));
       } else {
         CCLOGWARN("Cannot decipher value : %s", value.c_str());
@@ -337,7 +338,6 @@ string DataManager::decipherString(const string &value) const
   return val;
 }
 
-
 string DataManager::getCalculationData(const string &calculationId) const
 {
   auto calculationData = ConditionCalculationData::getConditionCalculationDataById(calculationId);
@@ -350,32 +350,7 @@ string DataManager::getCalculationData(const string &calculationId) const
   }
 }
 
-BaseData* DataManager::getFunctionData(const std::string &functionId) const
-{
-//  auto functionData = FunctionCalculationData::getFunctionCalculationDataById(functionId);
-  return nullptr;// SHFunction::getDataFromFunctionData(functionData);
-}
-
-string DataManager::getFunctionString(const string &functionId) const
-{
-  auto functionData = FunctionCalculationData::getFunctionCalculationDataById(functionId);
-  auto functionName = functionData->getFunctionName();
-  auto paramters = functionData->getParameters();
-  string val;
-  if (functionName == "string_connect") {
-    for (auto str : paramters) {
-      val += decipherString(str);
-    }
-  } else if (functionName == "string_format") {
-    val = getFormatStringFromFunction(functionData);
-  } else {
-    CCLOGERROR("unrecognized function id: %s", functionId.c_str());
-  }
-  return val;
-}
-
 #include <unordered_set>
-
 
 string DataManager::getConditionString(const string &type, const string &parameter) const
 {
@@ -455,38 +430,7 @@ bool DataManager::checkCondition(const string &conditionId) const
   return false;
 }
 
-string DataManager::getFormatStringFromFunction(FunctionCalculationData *functionData) const
-{
-  auto parameters = functionData->getParameters();
-  string val;
-  if (parameters.size() == 0) {
-    CCLOGERROR("string_format should take at list one argument: %s", functionData->getFunctionCalculatonId().c_str());
-  } else {
-    auto localStr = LocalizationHelper::getLocalization(parameters.at(0));
-    switch (parameters.size()) {
-      case 1:
-        val = localStr;
-        break;
-      case 2:
-      {
-        auto p1 = decipherString(parameters.at(1));
-        val = SHUtil::format(localStr.c_str(), p1.c_str());
-        break;
-      }
-      case 3:
-      {
-        auto p1 = decipherString(parameters.at(1));
-        auto p2 = decipherString(parameters.at(2));
-        val = SHUtil::format(localStr.c_str(), p1.c_str(), p2.c_str());
-        break;
-      }
-      default:
-        CCLOGERROR("string_format should take at list one argument : %s", functionData->getFunctionCalculatonId().c_str());
-        break;
-    }
-  }
-  return val;
-}
+
 
 string DataManager::calculate(const string &type, const string &a, const string &b, const string &func)
 {

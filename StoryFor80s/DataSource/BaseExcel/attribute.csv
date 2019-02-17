@@ -1,0 +1,13 @@
+﻿attributeId,name,value
+id,language,int
+string,chinese,-
+writable,N,Y
+intelligence,智商,10
+emotions,情商,10
+creativity,想象力,10
+rememberence,记忆力,10
+charms,魅力,10
+strength,体力,10
+pressure,压力,0
+health,健康,100
+money,金钱,0

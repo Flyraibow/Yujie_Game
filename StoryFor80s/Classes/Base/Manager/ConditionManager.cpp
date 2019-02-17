@@ -10,16 +10,6 @@
 #include "DataManager.hpp"
 #include "Utils.hpp"
 
-ConditionManager* ConditionManager::p_sharedManager = nullptr;
-
-ConditionManager* ConditionManager::getShareInstance()
-{
-  if (p_sharedManager == nullptr) {
-    p_sharedManager = new ConditionManager();
-  }
-  return p_sharedManager;
-}
-
 string findCompareType(const string &conditionStr)
 {
   if (conditionStr.find("<=") != string::npos) {
@@ -56,7 +46,7 @@ bool compareInteger(int leftValue, int rightValue, const string &compare)
   CCASSERT(false, "unrecognize compare type");
 }
 
-int ConditionManager::convertConditionStrToInt(const string &str)
+int convertConditionStrToInt(const string &str)
 {
   auto list = SHUtil::split(str, '.');
   auto type = list.at(0);
@@ -72,7 +62,7 @@ int ConditionManager::convertConditionStrToInt(const string &str)
 }
 
 
-bool ConditionManager::checkConditionByString(const string &conditionStr)
+bool Manager::checkConditionByString(const string &conditionStr)
 {
   // find the compare function
   auto compType = findCompareType(conditionStr);

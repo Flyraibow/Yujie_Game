@@ -1,0 +1,7 @@
+﻿itemId,name,category,price,number
+id,language,friend_id,int,int
+string,chinese,ItemCategory,-,-
+writable,N,N,N,Y
+2,小霸王游戏机,category_toy,500,0
+3,插画版《水浒传》,category_book,50,0
+4,西装,category_cloth,500,0

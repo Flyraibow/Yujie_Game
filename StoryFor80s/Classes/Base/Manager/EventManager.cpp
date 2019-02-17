@@ -55,7 +55,7 @@ void EventManager::runEvent(std::string eventName)
     SceneManager::getShareInstance()->popScene();
   } else if (eventType == "condition") {
     auto conditionStr = parameters.count("condition") ? parameters.at("condition") : "";
-    if (ConditionManager::getShareInstance()->checkConditionByString(conditionStr)) {
+    if (Manager::checkConditionByString(conditionStr)) {
       if (parameters.count("yes")) {
         p_eventStack.push(parameters.at("yes"));
       }

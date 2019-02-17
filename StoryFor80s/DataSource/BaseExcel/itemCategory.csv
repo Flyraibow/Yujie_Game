@@ -1,0 +1,8 @@
+﻿itemCategoryId,name
+id,language
+string,chinese
+writable,N
+category_toy,玩具
+category_book,书籍
+actegory_cloth,服装
+category_special,特殊道具

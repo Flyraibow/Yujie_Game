@@ -24,6 +24,7 @@
 
 #include "AppDelegate.h"
 #include "SceneManager.hpp"
+#include "FunctionManager.hpp"
 
 // #define USE_AUDIO_ENGINE 1
 // #define USE_SIMPLE_AUDIO_ENGINE 1
@@ -119,6 +120,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
   
   // run
   SceneManager::getShareInstance()->pushScene("menu");
+  string cal = "-1+3";
+  cal = "game.year-game.birthYear-1+function.my_age_pass_birthday";
+  CCLOG("%s=%d", cal.c_str(), Manager::calculateIntFromFunction(cal));
   
   return true;
 }

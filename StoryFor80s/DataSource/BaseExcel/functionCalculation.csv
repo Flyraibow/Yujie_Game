@@ -3,8 +3,12 @@ id,string,string,vector,comment
 string,-,-,string,-
 writable,N,N,N,N
 my_full_name,string,string_connect,game.lastName;game.firstName,function 包含 连接字符串， format字符串和自定义的function
-my_hero_full_name,string,string_connect,data.gameHero.heroFirstName; · ;data.gameHero.heroLastName,主角的名字
+my_age,string,string_format,age_display;function.my_age_number,我的年龄
+my_age_number,int,calculation,game.year-game.birthYear-1+function.my_age_pass_birthday,"计算年龄, 目前只支持加减法"
+my_age_pass_birthday,int,condition,int.game.month>int.game.birthMonth;1;function.my_age_pass_birthday_1,计算年龄，看看月份过了没
+my_age_pass_birthday_1,int,condition,int.game.month=int.game.birthMonth;function.my_age_pass_birthday_2;0,计算年龄看月份是否相同
+my_age_pass_birthday_2,int,condition,int.game.day>=int.game.birthDay;1;0,月份形同的话比较日子
 hero_birth_day,string,string_format,birth_display;data.hero.birthMonth;data.hero.birthDay,拼接字符串
 hero_zodiac_data,data,zodiac_from_hero,data.hero,从hero得到他的星座
-game_date,string,string_format,date_display;game.month;game.day,游戏日期， e.g. 3月4日
+game_date,string,string_format,date_display_with_year;game.year;game.month;game.day,游戏日期， e.g. 1997年3月4日
 game_saving_string,string,string_connect,temp.index;  ;function.my_hero_full_name;  ;function.game_date,存储的格式，编号 姓名 日期
