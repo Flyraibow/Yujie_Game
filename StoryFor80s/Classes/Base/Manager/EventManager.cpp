@@ -12,6 +12,7 @@
 #include "SceneManager.hpp"
 #include "ConditionManager.hpp"
 #include "Utils.hpp"
+#include "GameData.hpp"
 
 EventManager* EventManager::p_sharedManager = nullptr;
 BaseScene* EventManager::p_currentScene = nullptr;
@@ -46,13 +47,18 @@ void EventManager::runEvent(std::string eventName)
   }
   auto eventType = eventData->getType();
   auto parameters = eventData->getParametrsMap();
-  if (eventType == "pushScene") {
+  if (p_specialEventMap.count(eventType) > 0) {
+    // special event
+    p_specialEventMap.at(eventType)(parameters);
+  } else if (eventType == "pushScene") {
     if (parameters.count("sceneName")) {
       auto sceneName = DataManager::getShareInstance()->decipherString(parameters.at("sceneName"));
       SceneManager::getShareInstance()->pushScene(sceneName);
     }
   } else if (eventType == "popScene") {
     SceneManager::getShareInstance()->popScene();
+  } else if (eventType == "refreshScene") {
+    SceneManager::getShareInstance()->refreshScene();
   } else if (eventType == "condition") {
     auto conditionStr = parameters.count("condition") ? parameters.at("condition") : "";
     if (Manager::checkConditionByString(conditionStr)) {
@@ -101,3 +107,10 @@ void EventManager::continueEvent()
     runEvent(event_id);
   }
 }
+
+
+void EventManager::registerSpecialEventFunction(const string &eventId, SpecialFunctionWithDict function)
+{
+  p_specialEventMap[eventId] = function;
+}
+

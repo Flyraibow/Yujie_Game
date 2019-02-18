@@ -22,6 +22,7 @@
 	      	},
 	      	{
 		      "type": "label",
+		      "id": "my_age",
 		      "text": "function.my_age",
 		      "normalized_position": [0.5, 0.33],
 		      "anchor_point": [0.5, 0.5],
@@ -34,7 +35,7 @@
 	      "type": "sprite",
 	      "size": {
 	      	"width": 200,
-	      	"height": 40
+	      	"height": 60
 	      },
 	      "color": "alpha_red",
 	      "normalized_position": [0.95, 0.95],
@@ -42,12 +43,148 @@
 	      "components" : [
 	      	{
 		      "type": "label",
+		      "id": "game_data",
 		      "text": "function.game_date",
-		      "normalized_position": [0.5, 0.5],
+		      "normalized_position": [0.5, 0.66],
+		      "anchor_point": [0.5, 0.5],
+	  		  "normalized_dimensions": [0.9, 0],
+		      "text_size": 22
+	      	},
+	      	{
+		      "type": "label",
+		      "id": "my_money",
+		      "text": "function.my_money",
+		      "normalized_position": [0.5, 0.33],
 		      "anchor_point": [0.5, 0.5],
 	  		  "normalized_dimensions": [0.9, 0],
 		      "text_size": 22
 	      	}
+	      ]
+	   },
+	   {
+	      "type": "sprite",
+	      "size": {
+	      	"width": 200,
+	      	"height": 600
+	      },
+	      "color": "alpha_red",
+	      "normalized_position": [0.05, 0.85],
+	      "anchor_point": [0, 1],
+	      "components" : [
+	      	{
+		      "type": "label",
+		      "id": "my_intelligence",
+		      "text": "function.my_intelligence",
+		      "normalized_position": [0.5, 0.9],
+		      "anchor_point": [0.5, 0.5],
+	  		  "normalized_dimensions": [0.9, 0],
+		      "text_size": 22
+	      	},
+	      	{
+		      "type": "label",
+		      "id": "my_emotions",
+		      "text": "function.my_emotions",
+		      "normalized_position": [0.5, 0.8],
+		      "anchor_point": [0.5, 0.5],
+	  		  "normalized_dimensions": [0.9, 0],
+		      "text_size": 22
+	      	},
+	      	{
+		      "type": "label",
+		      "id": "my_imaginations",
+		      "text": "function.my_imaginations",
+		      "normalized_position": [0.5, 0.7],
+		      "anchor_point": [0.5, 0.5],
+	  		  "normalized_dimensions": [0.9, 0],
+		      "text_size": 22
+	      	},
+	      	{
+		      "type": "label",
+		      "id": "my_rememberence",
+		      "text": "function.my_rememberence",
+		      "normalized_position": [0.5, 0.6],
+		      "anchor_point": [0.5, 0.5],
+	  		  "normalized_dimensions": [0.9, 0],
+		      "text_size": 22
+	      	},
+	      	{
+		      "type": "label",
+		      "id": "my_charms",
+		      "text": "function.my_charms",
+		      "normalized_position": [0.5, 0.5],
+		      "anchor_point": [0.5, 0.5],
+	  		  "normalized_dimensions": [0.9, 0],
+		      "text_size": 22
+	      	},
+	      	{
+		      "type": "label",
+		      "id": "my_strength",
+		      "text": "function.my_strength",
+		      "normalized_position": [0.5, 0.4],
+		      "anchor_point": [0.5, 0.5],
+	  		  "normalized_dimensions": [0.9, 0],
+		      "text_size": 22
+	      	},
+	      	{
+		      "type": "label",
+		      "id": "my_health",
+		      "text": "function.my_health",
+		      "normalized_position": [0.5, 0.25],
+		      "anchor_point": [0.5, 0.5],
+	  		  "normalized_dimensions": [0.9, 0],
+		      "text_size": 22
+	      	},
+	      	{
+		      "type": "label",
+		      "id": "my_pressure",
+		      "text": "function.my_pressure",
+		      "normalized_position": [0.5, 0.15],
+		      "anchor_point": [0.5, 0.5],
+	  		  "normalized_dimensions": [0.9, 0],
+		      "text_size": 22
+	      	}
+	      ]
+	   },
+	   {
+	      "type": "sprite",
+	      "size": {
+	      	"width": 1000,
+	      	"height": 100
+	      },
+	      "color": "alpha_red",
+	      "normalized_position": [0.95, 0.05],
+	      "anchor_point": [1, 0],
+	      "components" : [
+	      	{
+		      "type": "button",
+		      "text": "gamedata.ActionData.action_sleep.name",
+		      "normalized_position": [0.9, 0.5],
+		      "event" : "gamedata.ActionData.action_sleep.event"
+		    },
+		    {
+		      "type": "button",
+		      "text": "gamedata.ActionData.action_social.name",
+		      "normalized_position": [0.7, 0.5],
+		      "event" : "gamedata.ActionData.action_social.event"
+		    },
+		    {
+		      "type": "button",
+		      "text": "gamedata.ActionData.action_play.name",
+		      "normalized_position": [0.5, 0.5],
+		      "event" : "gamedata.ActionData.action_play.event"
+		    },
+		    {
+		      "type": "button",
+		      "text": "gamedata.ActionData.action_study.name",
+		      "normalized_position": [0.3, 0.5],
+		      "event" : "gamedata.ActionData.action_study.event"
+		    },
+		    {
+		      "type": "button",
+		      "text": "gamedata.ActionData.action_work.name",
+		      "normalized_position": [0.1, 0.5],
+		      "event" : "gamedata.ActionData.action_work.event"
+		    }
 	      ]
 	   }
 	]

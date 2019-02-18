@@ -8,7 +8,16 @@ my_age_number,int,calculation,game.year-game.birthYear-1+function.my_age_pass_bi
 my_age_pass_birthday,int,condition,int.game.month>int.game.birthMonth;1;function.my_age_pass_birthday_1,计算年龄，看看月份过了没
 my_age_pass_birthday_1,int,condition,int.game.month=int.game.birthMonth;function.my_age_pass_birthday_2;0,计算年龄看月份是否相同
 my_age_pass_birthday_2,int,condition,int.game.day>=int.game.birthDay;1;0,月份形同的话比较日子
+my_money,string,string_format,my_money_display;gamedata.AttributeData.money.value,显示金钱
 hero_birth_day,string,string_format,birth_display;data.hero.birthMonth;data.hero.birthDay,拼接字符串
 hero_zodiac_data,data,zodiac_from_hero,data.hero,从hero得到他的星座
 game_date,string,string_format,date_display_with_year;game.year;game.month;game.day,游戏日期， e.g. 1997年3月4日
 game_saving_string,string,string_connect,temp.index;  ;function.my_hero_full_name;  ;function.game_date,存储的格式，编号 姓名 日期
+my_intelligence,string,string_format,my_intelligence_display;gamedata.AttributeData.intelligence.value,显示我的智商
+my_emotions,string,string_format,my_emotions_display;gamedata.AttributeData.emotions.value,显示我的情商
+my_imaginations,string,string_format,my_imaginations_display;gamedata.AttributeData.imaginations.value,显示我的想象力
+my_rememberence,string,string_format,my_rememberence_display;gamedata.AttributeData.rememberence.value,显示我的记忆力
+my_charms,string,string_format,my_charms_display;gamedata.AttributeData.charms.value,显示我的魅力
+my_strength,string,string_format,my_strength_display;gamedata.AttributeData.strength.value,显示我的体力
+my_health,string,string_format,my_health_display;gamedata.AttributeData.health.value,显示我的健康
+my_pressure,string,string_format,my_pressure_display;gamedata.AttributeData.pressure.value,显示我的压力

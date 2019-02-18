@@ -22,7 +22,7 @@ int main(int argc, const char * argv[]) {
   StoryFor80sPackager packager;
   packager.set_dataSourcePath("/Users/yujiel/Documents/cocos2dx/cocos2d-x/YUJIE_GAME/StoryFor80s/DataSource");
   packager.set_outputResourcePath("/Users/yujiel/Documents/cocos2dx/cocos2d-x/YUJIE_GAME/StoryFor80s/Resources/res");
-  packager.set_outputCodeFolderPath("/Users/yujiel/Documents/cocos2dx/cocos2d-x/YUJIE_GAME/StoryFor80s/Classes/Base/Data/GenerateData/");
+  packager.set_outputCodeFolderPath("/Users/yujiel/Documents/cocos2dx/cocos2d-x/YUJIE_GAME/StoryFor80s/Classes/GeneratedData/");
   packager.startPackage();
     return 0;
 }
