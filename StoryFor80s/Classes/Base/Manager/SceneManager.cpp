@@ -7,7 +7,6 @@
 
 #include "SceneManager.hpp"
 #include "PanelManager.hpp"
-#include "EventManager.hpp"
 
 SceneManager* SceneManager::p_sharedManager = nullptr;
 
@@ -65,7 +64,6 @@ void SceneManager::popScene()
 {
   p_sceneStack.pop();
   Director::getInstance()->popScene();
-  EventManager::setCurrentScene(currentScene());
 }
 
 BaseScene* SceneManager::currentScene() const

@@ -15,7 +15,7 @@ WaitEventContent::WaitEventContent(const nlohmann::json &jsonContent) : StoryEve
   p_duration = Utils::getFloatFromJson(jsonContent, "duration");
 }
 
-void WaitEventContent::runEvent(BaseScene *baseScene, StoryEventCallback callback) const
+void WaitEventContent::runEvent(BaseScene *baseScene, StoryEventCallback callback)
 {
   baseScene->schedule([callback] (float delta) {
     callback();

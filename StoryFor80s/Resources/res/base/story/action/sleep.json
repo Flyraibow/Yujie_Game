@@ -1,0 +1,12 @@
+{
+	"events": [
+		{
+			"__comment" : "过了一天",
+			"type" : "passDay"
+		},
+		{
+			"__comment" : "刷新页面",
+			"type" : "refreshScene"
+		}
+	]
+}

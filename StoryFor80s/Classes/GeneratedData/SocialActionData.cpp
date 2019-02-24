@@ -28,22 +28,11 @@ string SocialActionData::getName() const
 	return LocalizationHelper::getLocalization(localId);
 }
 
-EventData* SocialActionData::getEventData() const
-{
-	return EventData::getEventDataById(p_eventId);
-}
-
-string SocialActionData::getEventId() const
-{
-	return p_eventId;
-}
-
 string SocialActionData::description() const
 {
 	string desc = "socialActionData = {\n";
 	desc += "\tsocialActionId : " + to_string(p_socialActionId) + "\n";
 	desc += "\tname : " + getName() + "\n";
-	desc += "\tevent : " + to_string(p_eventId) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -61,7 +50,6 @@ const map<string, SocialActionData*>* SocialActionData::getSharedDictionary()
 			for (int i = 0; i < count; ++i) {
 				SocialActionData* socialActionData = new SocialActionData();
 				socialActionData->p_socialActionId = buffer->getString();
-				socialActionData->p_eventId = buffer->getString();
 				p_sharedDictionary->insert(pair<string, SocialActionData*>(socialActionData->p_socialActionId, socialActionData));
 			}
 		}
@@ -83,8 +71,6 @@ string SocialActionData::getFieldValue(const string & fieldName)
 		return to_string(this->getSocialActionId());
 	} else if (fieldName == "name") {
 		return to_string(this->getName());
-	} else if (fieldName == "event") {
-		return to_string(this->getEventId());
 	}
 	CCLOGWARN("Couldn't recognize %s in SocialActionData", fieldName.c_str());
 	return "";

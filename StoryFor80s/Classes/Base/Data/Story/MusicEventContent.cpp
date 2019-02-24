@@ -24,7 +24,7 @@ MusicEventContent::MusicEventContent(const nlohmann::json &jsonContent) : StoryE
   p_action = actionMap.at(action);
 }
 
-void MusicEventContent::runEvent(BaseScene *baseScene, StoryEventCallback callback) const
+void MusicEventContent::runEvent(BaseScene *baseScene, StoryEventCallback callback)
 {
   switch (p_action) {
     case MusicEventActionStop:

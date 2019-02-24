@@ -19,7 +19,7 @@ std::string StoryJsonContent::getScene() const
   return Utils::getStringFromJson(p_jsonContent, "scene");
 }
 
-vector<StoryEventContent *> StoryJsonContent::getStoryEventList() const
+vector<StoryEventContent *> StoryJsonContent::getStoryEventList()
 {
   return StoryEventContent::getStoryEventsFromJson(p_jsonContent);
 }

@@ -64,14 +64,14 @@
 		      "id": "confirm_btn",
 		      "text": "translation.sys_confirm",
 		      "normalized_position": [0.3, 0.25],
-		      "event" : "start_game"
+		      "storyId" : "initialGame"
 		    },
 		    {
 		      "type": "button",
 		      "id": "cancel_btn",
 		      "text": "translation.sys_cancel",
 		      "normalized_position": [0.7, 0.25],
-		      "event": "pop_scene"
+		      "storyId": "popScene"
 		    }
 	      ]
 	  }

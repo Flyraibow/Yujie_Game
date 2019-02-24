@@ -161,12 +161,9 @@ void BaseScene::addPanelWithParameters(BasePanel *panel)
   p_panelStack.push(panel);
 }
 
-#include "EventManager.hpp"
-
 void BaseScene::initSceneWithJson(const std::string &jsonFileName)
 {
   auto content = new SceneContent(jsonFileName);
-  EventManager::getShareInstance()->runEvent(content->getInitialEvent());
   auto dataManager = DataManager::getShareInstance();
   setBackgroundMusic(dataManager->decipherString(content->getBackgroundMusic()));
   setBackgroundImage(dataManager->decipherString(content->getBackgroundImage()));
@@ -185,7 +182,6 @@ void BaseScene::initSceneWithJson(const std::string &jsonFileName)
     auto component = components.at(i);
     component->addComponentToParent(p_componentDict, s_window);
   }
-  EventManager::getShareInstance()->runEvent(content->getAddOnEvent());
   
   delete content;
 }
@@ -220,11 +216,20 @@ BasePanel* BaseScene::topPanel () const
   return p_panelStack.top();
 }
 
-//#include "DialogFrame.hpp"
-
-void BaseScene::addDialogFrame(DialogFrame* dialog)
+void BaseScene::addStoryPicture(Node *picture, int order)
 {
-//  s_window->addChild(dialog->getSprite());
+  CCASSERT(picture != nullptr, "can not insert null story picture");
+  s_window->addChild(picture, order);
+}
+
+void BaseScene::removeStoryPicture(const string &name)
+{
+  s_window->removeChildByName(name);
+}
+
+Node *BaseScene::getStoryPictureByName(const string &name)
+{
+  return s_window->getChildByName(name);
 }
 
 bool BaseScene::init()
@@ -235,7 +240,6 @@ bool BaseScene::init()
   {
     return false;
   }
-  EventManager::setCurrentScene(this);
   return true;
 }
 

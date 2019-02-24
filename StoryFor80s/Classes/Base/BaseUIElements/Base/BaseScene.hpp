@@ -48,7 +48,6 @@ protected:
   std::stack<BasePanel *> p_panelStack;
   
   void initSceneWithJson(const std::string &jsonFileName);
-  
 public:
   static BaseScene* createScene(const string &jsonFile);
   CREATE_FUNC(BaseScene);
@@ -60,8 +59,11 @@ public:
   
   void addPanelWithParameters(BasePanel *panel);
   void popPanel();
-  void addDialogFrame(DialogFrame* dialog);
   BasePanel* topPanel () const;
+  
+  void addStoryPicture(Node *picture, int order);
+  void removeStoryPicture(const string &name);
+  Node *getStoryPictureByName(const string &name);
   
   template <typename T, typename std::enable_if<std::is_base_of<Node, T>::value>::type* = nullptr>
   T* getComponentById(const std::string &componentId) {

@@ -1,0 +1,26 @@
+{
+	"events": [
+		{
+			"__comment" : "播放海鸥音乐",
+			"type" : "music",
+			"action" : "playEffect",
+			"path" : "res/base/SE/seagull.m4v"
+		},
+		{
+			"__comment" : "等待5秒",
+			"type" : "wait",
+			"duration" : 5.0
+		},
+		{
+			"__comment" : "播放海鸥音乐",
+			"type" : "music",
+			"action" : "playEffect",
+			"path" : "res/base/SE/seagull.m4v"
+		},
+		{
+			"__comment" : "等待5秒",
+			"type" : "wait",
+			"duration" : 5.0
+		}
+	]
+}

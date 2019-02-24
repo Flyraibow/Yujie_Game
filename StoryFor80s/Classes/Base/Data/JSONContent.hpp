@@ -19,6 +19,7 @@ protected:
   nlohmann::json p_jsonContent;
 public:
   JSONContent(const std::string &jsonFilePath);
+  JSONContent(const nlohmann::json &jsonContent);
   const nlohmann::json& getContent() const;
 };
 

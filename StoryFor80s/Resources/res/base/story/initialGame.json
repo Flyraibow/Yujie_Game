@@ -1,0 +1,39 @@
+{
+	"events": [
+		{
+			"__comment" : "检查名是否符合",
+			"type" : "condition",
+			"condition" : "length.temp.firstName>int.0",
+			"no_story_id" : "stopStory"
+		},
+		{
+			"__comment" : "检查姓是否符合",
+			"type" : "condition",
+			"condition" : "length.temp.lastName>int.0",
+			"no_story" : {
+				"events" : [
+					{
+						"__comment" : "跳过",
+						"type" : "story",
+						"name" : "stopStory"
+					}
+				]
+			}
+		},
+		{
+			"__comment" : "设置玩家姓名",
+			"type" : "setValues",
+			"values" : {
+				"game.firstName" : "temp.firstName",
+				"game.lastName" : "temp.lastName"
+			}
+		},
+		{
+			"__comment" : "游戏界面",
+			"type" : "story",
+			"story" : {
+				"scene" : "gameScene"
+			}
+		}
+	]
+}

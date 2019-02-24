@@ -8,7 +8,7 @@
 #include "SpecialFunctions.hpp"
 #include "GameData.hpp"
 
-void story::passDay(const map<string, string> &parameters)
+void story::passDay(const nlohmann::json &jsonContent)
 {
   auto day = GameData::getSharedInstance()->getDay();
   auto month = GameData::getSharedInstance()->getMonth();

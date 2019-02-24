@@ -1,0 +1,8 @@
+{
+	"events" : [
+		{
+			"__comment" : "中断剧情",
+			"type" : "stopStory"
+		}
+	] 
+}

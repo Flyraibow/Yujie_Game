@@ -9,23 +9,23 @@
 #define StoryJsonData_hpp
 
 #include <stdio.h>
-#include "base/CCRef.h"
 #include "StoryEventContent.hpp"
 
 using namespace std;
 
-class StoryJsonData : public cocos2d::Ref
+class StoryJsonData
 {
 private:
   string p_sceneName;
   void initDataWithJson(const std::string &jsonFileName);
+  void initDataWithJsonContent(const nlohmann::json &jsonContent);
   vector<StoryEventContent *> p_storyEventList;
 public:
-  CREATE_FUNC(StoryJsonData);
-  bool init() { return true;}
+  ~StoryJsonData() {};
   string getSceneName() const;
-  vector<StoryEventContent *> getStoryEventsList();
+  vector<StoryEventContent *> getStoryEventsList() const;
   static StoryJsonData* createStoryData(const string &jsonFileName);
+  static StoryJsonData* createStoryData(const nlohmann::json &jsonContent);
 };
 
 #endif /* StoryJsonData_hpp */

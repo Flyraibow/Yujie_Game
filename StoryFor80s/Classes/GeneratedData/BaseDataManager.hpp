@@ -15,7 +15,6 @@ This file (BaseDataManager.hpp) is generated
 #include "FriendData.hpp"
 #include "ParentChatData.hpp"
 #include "AttributeData.hpp"
-#include "EventData.hpp"
 #include "FunctionCalculationData.hpp"
 #include "WorkData.hpp"
 #include "ActionData.hpp"
@@ -38,7 +37,6 @@ public:
 	static FriendData* getFriendDataById(const string& friendId);
 	static ParentChatData* getParentChatDataById(const string& chatId);
 	static AttributeData* getAttributeDataById(const string& attributeId);
-	static EventData* getEventDataById(const string& eventId);
 	static FunctionCalculationData* getFunctionCalculationDataById(const string& functionCalculatonId);
 	static WorkData* getWorkDataById(const string& actionId);
 	static ActionData* getActionDataById(const string& actionId);

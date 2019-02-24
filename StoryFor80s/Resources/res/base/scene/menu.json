@@ -18,19 +18,14 @@
 				      "type": "button",
 				      "id": "create_game",
 				      "text": "新的游戏",
-				      "event": "push_scene",
-				      "setTemp" : {
-				      	"nextScene":"createGame"
-				      }
+				      "story": {
+						"scene": "createGame"
+					  }
 					},
 					{
 				      "type": "button",
 				      "id": "load_game",
-				      "text": "读取进度",
-				      "event": "pop_panel",
-				      "setTemp" : {
-				      	"nextPanel":"loadGame"
-				      }
+				      "text": "读取进度"
 					}
 				]
 			}

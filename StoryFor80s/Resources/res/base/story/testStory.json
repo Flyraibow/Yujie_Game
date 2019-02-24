@@ -8,15 +8,54 @@
 			"path" : "res/test.mp3"
 		},
 		{
-			"__comment" : "等待五秒",
+			"__comment" : "等待1秒",
 			"type" : "wait",
-			"duration" : 5.0
+			"duration" : 1.0
 		},
 		{
-			"__comment" : "播放海鸥音乐",
-			"type" : "music",
-			"action" : "playEffect",
-			"path" : "res/base/SE/seagull.m4v"
+			"__comment" : "等待1秒",
+			"type" : "wait",
+			"duration" : 1.0
+		},
+		{
+			"__comment" : "添加图片",
+			"type" : "photo",
+			"action" : "add",
+			"path" : "res/story/picture/home3.jpg",
+			"name" : "a",
+			"normalized_position" : [0.5, 0.5],
+			"anchor_point" : [0.5, 0.5],
+			"scale" : "aspect_fit"
+		},
+		{
+			"__comment" : "等待2秒",
+			"type" : "wait",
+			"duration" : 2.0
+		},
+		{
+			"__comment" : "测试子任务",
+			"type" : "story",
+			"name" : "testSubStory"
+		},
+		{
+			"__comment" : "移动图片",
+			"type" : "photo",
+			"action" : "move",
+			"name" : "a",
+			"normalized_position" : [0, 0.5],
+			"duration" : 5.0,
+			"scale" : "aspect_fit"
+		},
+		{
+			"__comment" : "等待2秒",
+			"type" : "wait",
+			"duration" : 6.0
+		},
+		{
+			"__comment" : "移除图片",
+			"type" : "photo",
+			"action" : "remove",
+			"name" : "a"
 		}
 	]
 }

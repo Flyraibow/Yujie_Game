@@ -1,0 +1,8 @@
+{
+	"events": [
+		{
+			"__comment" : "退出当前页面",
+			"type" : "popScene"
+		}
+	]
+}

@@ -19,8 +19,9 @@ class StoryJsonContent : public JSONContent
 {
 public:
   StoryJsonContent(const std::string &jsonFileName);
+  StoryJsonContent(const nlohmann::json &jsonContent) : JSONContent(jsonContent) {};
   std::string getScene() const;
-  vector<StoryEventContent *> getStoryEventList() const;
+  vector<StoryEventContent *> getStoryEventList();
 };
 
 

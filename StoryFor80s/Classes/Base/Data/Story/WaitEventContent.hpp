@@ -16,7 +16,7 @@ private:
   float p_duration;
 public:
   WaitEventContent(const nlohmann::json &jsonContent);
-  void runEvent(BaseScene *baseScene, StoryEventCallback callback) const;
+  void runEvent(BaseScene *baseScene, StoryEventCallback callback);
 };
 
 #endif /* WaitEventContent_hpp */

@@ -10,11 +10,12 @@
 
 #include <stdio.h>
 #include <map>
+#include "json.hpp"
 
 using namespace std;
 
 namespace story {
-  void passDay(const map<string, string> &parameters);
+  void passDay(const nlohmann::json &jsonContent);
 }
 
 #endif /* SpecialFunctions_hpp */

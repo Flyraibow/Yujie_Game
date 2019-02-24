@@ -7,9 +7,9 @@
 
 #include "InitialSetups.hpp"
 #include "SpecialFunctions.hpp"
-#include "EventManager.hpp"
+#include "StoryManager.hpp"
 
 void story::setupForThisGame()
 {
-  EventManager::getShareInstance()->registerSpecialEventFunction("passDay", &story::passDay);
+  StoryManager::registerSpecialEventFunction("passDay", &story::passDay);
 }

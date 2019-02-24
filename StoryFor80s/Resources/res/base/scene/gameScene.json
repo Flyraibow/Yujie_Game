@@ -159,7 +159,7 @@
 		      "type": "button",
 		      "text": "gamedata.ActionData.action_sleep.name",
 		      "normalized_position": [0.9, 0.5],
-		      "event" : "gamedata.ActionData.action_sleep.event"
+		      "storyId" : "action/sleep"
 		    },
 		    {
 		      "type": "button",

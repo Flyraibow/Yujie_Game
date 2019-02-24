@@ -28,22 +28,11 @@ string ActionData::getName() const
 	return LocalizationHelper::getLocalization(localId);
 }
 
-EventData* ActionData::getEventData() const
-{
-	return EventData::getEventDataById(p_eventId);
-}
-
-string ActionData::getEventId() const
-{
-	return p_eventId;
-}
-
 string ActionData::description() const
 {
 	string desc = "actionData = {\n";
 	desc += "\tactionId : " + to_string(p_actionId) + "\n";
 	desc += "\tname : " + getName() + "\n";
-	desc += "\tevent : " + to_string(p_eventId) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -61,7 +50,6 @@ const map<string, ActionData*>* ActionData::getSharedDictionary()
 			for (int i = 0; i < count; ++i) {
 				ActionData* actionData = new ActionData();
 				actionData->p_actionId = buffer->getString();
-				actionData->p_eventId = buffer->getString();
 				p_sharedDictionary->insert(pair<string, ActionData*>(actionData->p_actionId, actionData));
 			}
 		}
@@ -83,8 +71,6 @@ string ActionData::getFieldValue(const string & fieldName)
 		return to_string(this->getActionId());
 	} else if (fieldName == "name") {
 		return to_string(this->getName());
-	} else if (fieldName == "event") {
-		return to_string(this->getEventId());
 	}
 	CCLOGWARN("Couldn't recognize %s in ActionData", fieldName.c_str());
 	return "";

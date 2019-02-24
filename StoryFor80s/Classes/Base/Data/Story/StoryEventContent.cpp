@@ -23,6 +23,7 @@ vector<StoryEventContent *> StoryEventContent::getStoryEventsFromJson(const nloh
 
 StoryEventContent::StoryEventContent(const nlohmann::json &jsonContent)
 {
+  p_content = jsonContent;
   p_type = Utils::getStringFromJson(jsonContent, "type");
   p_comment = Utils::getStringFromJson(jsonContent, "__comment");
 }
@@ -39,6 +40,11 @@ string StoryEventContent::getComment() const
 
 #include "MusicEventContent.hpp"
 #include "WaitEventContent.hpp"
+#include "PhotoEventContent.hpp"
+#include "SubStoryEventContent.hpp"
+#include "ConditionEventContent.hpp"
+#include "ValueEventContent.hpp"
+#include "StoryManager.hpp"
 
 StoryEventContent* StoryEventContent::getStoryEventFromJson(const nlohmann::json &jsonContent)
 {
@@ -48,8 +54,34 @@ StoryEventContent* StoryEventContent::getStoryEventFromJson(const nlohmann::json
     return new MusicEventContent(jsonContent);
   } else if (type == "wait") {
     return new WaitEventContent(jsonContent);
+  } else if (type == "photo") {
+    return new PhotoEventContent(jsonContent);
+  } else if (type == "story") {
+    return new SubStoryEventContent(jsonContent);
+  } else if (type == "condition") {
+    return new ConditionEventContent(jsonContent);
+  } else if (type == "setValues") {
+    return new ValueEventContent(jsonContent);
+  } else if (type == "popScene" || type == "stopStory" || type == "refreshScene") {
+  } else if (StoryManager::isFunctionRegistered(type)) {
   } else {
-    CCASSERT(false, ("unsupported type" + type).c_str());
+    CCLOGERROR("undefined story type : %s", type.c_str());
   }
   return new StoryEventContent(jsonContent);
+}
+
+#include "SceneManager.hpp"
+
+void StoryEventContent::runEvent(BaseScene *baseScene, StoryEventCallback callback)
+{
+  if (p_type == "popScene") {
+    SceneManager::getShareInstance()->popScene();
+  } else if (p_type == "stopStory") {
+    StoryManager::getShareInstance()->stopStory();
+  } else if (p_type == "refreshScene") {
+    SceneManager::getShareInstance()->refreshScene();
+  } else if (StoryManager::isFunctionRegistered(p_type)) {
+    StoryManager::runFunction(p_type, p_content);
+  }
+  callback();
 }

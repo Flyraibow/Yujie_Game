@@ -21,6 +21,7 @@ class StoryEventContent
 protected:
   string p_type;
   string p_comment;
+  nlohmann::json p_content;
 public:
   StoryEventContent(const nlohmann::json &componentJson);
   virtual ~StoryEventContent() {};
@@ -30,9 +31,7 @@ public:
   static StoryEventContent* getStoryEventFromJson(const nlohmann::json &jsonContent);
   static vector<StoryEventContent *> getStoryEventsFromJson(const nlohmann::json &jsonContent);
   
-  virtual void runEvent(BaseScene *baseScene, StoryEventCallback callback) const {
-    callback();
-  };
+  virtual void runEvent(BaseScene *baseScene, StoryEventCallback callback);
 };
 
 #endif /* StoryEventContent_hpp */

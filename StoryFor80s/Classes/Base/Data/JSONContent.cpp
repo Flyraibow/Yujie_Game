@@ -18,11 +18,15 @@ nlohmann::json loadContentFromPath(const std::string &jsonFilePath)
   return content;
 }
 
+JSONContent::JSONContent(const nlohmann::json &jsonContent)
+{
+  p_jsonContent = jsonContent;
+}
+
 JSONContent::JSONContent(const std::string &jsonFilePath)
 {
     p_jsonContent = loadContentFromPath(jsonFilePath);
 }
-
 
 const nlohmann::json& JSONContent::getContent() const
 {
