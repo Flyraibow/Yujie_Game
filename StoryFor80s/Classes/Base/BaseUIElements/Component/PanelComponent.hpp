@@ -16,7 +16,7 @@ private:
   BaseComponent *p_component;
 protected:
 public:
-  PanelComponent(nlohmann::json componentJson);
+  PanelComponent(const nlohmann::json &componentJson);
   cocos2d::Node *addComponentToParent(ComponentDict &dict, cocos2d::Node *parent = nullptr);
   virtual void refresh();
 };

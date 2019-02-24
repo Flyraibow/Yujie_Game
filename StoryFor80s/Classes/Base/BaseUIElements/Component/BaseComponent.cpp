@@ -18,21 +18,21 @@ BaseComponent::BaseComponent(const nlohmann::json &componentJson)
 {
   CCASSERT(componentJson.count("type"), ("Component type is required. json : " + componentJson.dump()).c_str());
   p_associateData = nullptr;
-  p_type = SHUtil::getStringFromJson(componentJson, "type");
-  p_id = SHUtil::getStringFromJson(componentJson, "id");
-  p_isAutoScale = SHUtil::getBoolFromJson(componentJson, "auto_scale");
-  p_isParentScale = SHUtil::getBoolFromJson(componentJson, "parent_scale");
-  p_normalizePositionStr = SHUtil::getStringListFromJson(componentJson, "normalized_position_str");
-  p_normalizePosition = SHUtil::getVec2FromJson(componentJson, "normalized_position");
-  p_anchorPointStr = SHUtil::getStringListFromJson(componentJson, "anchor_point_str");
-  p_anchorPoint = SHUtil::getVec2FromJson(componentJson, "anchor_point", cocos2d::Vec2(0.5, 0.5));
+  p_type = Utils::getStringFromJson(componentJson, "type");
+  p_id = Utils::getStringFromJson(componentJson, "id");
+  p_isAutoScale = Utils::getBoolFromJson(componentJson, "auto_scale");
+  p_isParentScale = Utils::getBoolFromJson(componentJson, "parent_scale");
+  p_normalizePositionStr = Utils::getStringListFromJson(componentJson, "normalized_position_str");
+  p_normalizePosition = Utils::getVec2FromJson(componentJson, "normalized_position");
+  p_anchorPointStr = Utils::getStringListFromJson(componentJson, "anchor_point_str");
+  p_anchorPoint = Utils::getVec2FromJson(componentJson, "anchor_point", cocos2d::Vec2(0.5, 0.5));
   p_componentList = BaseComponent::getComponentsFromJson(componentJson);
-  p_shouldHideCondition = SHUtil::getStringFromJson(componentJson, "hide_condition");
+  p_shouldHideCondition = Utils::getStringFromJson(componentJson, "hide_condition");
   if (componentJson.count("size")) {
     p_size = componentJson.at("size");
   }
-  p_scale = SHUtil::getFloatFromJson(componentJson, "scale", 1.0);
-  p_isFullScreen = SHUtil::getBoolFromJson(componentJson, "full_screen");
+  p_scale = Utils::getFloatFromJson(componentJson, "scale", 1.0);
+  p_isFullScreen = Utils::getBoolFromJson(componentJson, "full_screen");
   p_node = nullptr;
 }
 
@@ -111,7 +111,7 @@ Vec2 BaseComponent::getVec2FromStringVec2(const vector<string> &list) const
 
 string BaseComponent::decipherValue(const string &value) const
 {
-  auto arr = SHUtil::split(value, '.');
+  auto arr = Utils::split(value, '.');
   if (arr.size() > 1 && arr.at(0) == "associate") {
     return p_associateData->getFieldValue(arr.at(1));
   }
@@ -166,18 +166,18 @@ vector<BaseComponent *> BaseComponent::getComponentsFromJson(const nlohmann::jso
 
 void BaseComponent::copyAttributesFromJson(const nlohmann::json &componentJson)
 {
-  p_id = SHUtil::getStringFromJson(componentJson, "id");
+  p_id = Utils::getStringFromJson(componentJson, "id");
   
-  p_isAutoScale = SHUtil::getBoolFromJson(componentJson, "auto_scale", p_isAutoScale);
-  p_isParentScale = SHUtil::getBoolFromJson(componentJson, "parent_scale", p_isParentScale);
-  p_normalizePosition = SHUtil::getVec2FromJson(componentJson, "normalized_position", p_normalizePosition);
-  p_anchorPoint = SHUtil::getVec2FromJson(componentJson, "anchor_point", p_anchorPoint);
+  p_isAutoScale = Utils::getBoolFromJson(componentJson, "auto_scale", p_isAutoScale);
+  p_isParentScale = Utils::getBoolFromJson(componentJson, "parent_scale", p_isParentScale);
+  p_normalizePosition = Utils::getVec2FromJson(componentJson, "normalized_position", p_normalizePosition);
+  p_anchorPoint = Utils::getVec2FromJson(componentJson, "anchor_point", p_anchorPoint);
   if (componentJson.count("size")) {
     p_size = componentJson.at("size");
   }
-  p_scale = SHUtil::getFloatFromJson(componentJson, "scale", p_scale);
-  p_isFullScreen = SHUtil::getBoolFromJson(componentJson, "full_screen", p_isFullScreen);
-  p_shouldHideCondition = SHUtil::getStringFromJson(componentJson, "hide_condition", p_shouldHideCondition);
+  p_scale = Utils::getFloatFromJson(componentJson, "scale", p_scale);
+  p_isFullScreen = Utils::getBoolFromJson(componentJson, "full_screen", p_isFullScreen);
+  p_shouldHideCondition = Utils::getStringFromJson(componentJson, "hide_condition", p_shouldHideCondition);
 }
 
 void BaseComponent::refresh()

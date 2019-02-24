@@ -11,9 +11,9 @@
 
 USING_NS_CC;
 
-PanelComponent::PanelComponent(nlohmann::json componentJson) : BaseComponent(componentJson)
+PanelComponent::PanelComponent(const nlohmann::json &componentJson) : BaseComponent(componentJson)
 {
-  p_panelName = SHUtil::getStringFromJson(componentJson, "file_name");
+  p_panelName = Utils::getStringFromJson(componentJson, "file_name");
   if (p_panelName.length() > 0) {
     auto panelContent = new PanelContent(p_panelName);
     p_component = panelContent->getComponent();

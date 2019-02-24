@@ -9,10 +9,10 @@
 #include <unordered_map>
 #include "DataManager.hpp"
 
-EditBoxComponent::EditBoxComponent(nlohmann::json componentJson) : BaseComponent(componentJson)
+EditBoxComponent::EditBoxComponent(const nlohmann::json &componentJson) : BaseComponent(componentJson)
 {
-  p_iconPath = SHUtil::getStringFromJson(componentJson, "path");
-  auto mode = SHUtil::getStringFromJson(componentJson, "input_mode");
+  p_iconPath = Utils::getStringFromJson(componentJson, "path");
+  auto mode = Utils::getStringFromJson(componentJson, "input_mode");
   static const std::unordered_map<std::string, ui::EditBox::InputMode> INPUT_MODE_MAP = {
     {"ANY", ui::EditBox::InputMode::ANY},
     {"EMAIL_ADDRESS", ui::EditBox::InputMode::EMAIL_ADDRESS},
@@ -27,9 +27,9 @@ EditBoxComponent::EditBoxComponent(nlohmann::json componentJson) : BaseComponent
   } else {
     p_mode = ui::EditBox::InputMode::ANY;
   }
-  p_length = SHUtil::getIntFromJson(componentJson, "max_length");
-  p_text = SHUtil::getStringFromJson(componentJson, "text");
-  p_tempString = SHUtil::getStringFromJson(componentJson, "setTemp");
+  p_length = Utils::getIntFromJson(componentJson, "max_length");
+  p_text = Utils::getStringFromJson(componentJson, "text");
+  p_tempString = Utils::getStringFromJson(componentJson, "setTemp");
 }
 
 Node* EditBoxComponent::addComponentToParent(ComponentDict &dict, cocos2d::Node *parent)

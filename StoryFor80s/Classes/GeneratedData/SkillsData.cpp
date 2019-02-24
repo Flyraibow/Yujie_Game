@@ -8,7 +8,7 @@ This file (SkillsData.cpp) is generated
 #include "LocalizationHelper.hpp"
 
 
-using namespace SHUtil;
+using namespace Utils;
 
 map<string, SkillsData*>* SkillsData::p_sharedDictionary = nullptr;
 

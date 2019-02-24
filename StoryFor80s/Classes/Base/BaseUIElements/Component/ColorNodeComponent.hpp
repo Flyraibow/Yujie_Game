@@ -21,7 +21,7 @@ private:
   void setButtonComponentsFromJson(const nlohmann::json &componentJson);
 protected:
 public:
-  ColorNodeComponent(nlohmann::json componentJson);
+  ColorNodeComponent(const nlohmann::json &componentJson);
   cocos2d::Node *addComponentToParent(ComponentDict &dict, cocos2d::Node *parent = nullptr);
 };
 

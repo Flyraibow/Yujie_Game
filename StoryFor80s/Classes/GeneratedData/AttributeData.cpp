@@ -8,7 +8,7 @@ This file (AttributeData.cpp) is generated
 #include "LocalizationHelper.hpp"
 
 
-using namespace SHUtil;
+using namespace Utils;
 
 map<string, AttributeData*>* AttributeData::p_sharedDictionary = nullptr;
 

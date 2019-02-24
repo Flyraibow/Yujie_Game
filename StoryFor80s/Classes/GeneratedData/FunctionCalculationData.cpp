@@ -7,7 +7,7 @@ This file (FunctionCalculationData.cpp) is generated
 #include "Utils.hpp"
 
 
-using namespace SHUtil;
+using namespace Utils;
 
 map<string, FunctionCalculationData*>* FunctionCalculationData::p_sharedDictionary = nullptr;
 

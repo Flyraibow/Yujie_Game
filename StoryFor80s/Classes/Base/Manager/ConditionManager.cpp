@@ -48,10 +48,10 @@ bool compareInteger(int leftValue, int rightValue, const string &compare)
 
 int convertConditionStrToInt(const string &str)
 {
-  auto list = SHUtil::split(str, '.');
+  auto list = Utils::split(str, '.');
   auto type = list.at(0);
   list.erase(list.begin());
-  auto valueStr = DataManager::getShareInstance()->decipherString(SHUtil::join(list, "."));
+  auto valueStr = DataManager::getShareInstance()->decipherString(Utils::join(list, "."));
   int value = 0;
   if (type == "length") {
     value = valueStr.length();
@@ -71,7 +71,7 @@ bool Manager::checkConditionByString(const string &conditionStr)
     auto pos = conditionStr.find(compType);
     auto leftStr = conditionStr.substr(0, pos);
     auto rightStr = conditionStr.substr(pos + compType.length());
-    auto type = SHUtil::split(leftStr, '.').at(0);
+    auto type = Utils::split(leftStr, '.').at(0);
     if (type == "int" || type == "length") {
       auto leftValue = convertConditionStrToInt(leftStr);
       auto rightValue = convertConditionStrToInt(rightStr);

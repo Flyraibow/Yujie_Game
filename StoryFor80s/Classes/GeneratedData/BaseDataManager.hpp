@@ -5,12 +5,19 @@ This file (BaseDataManager.hpp) is generated
 #define BaseDataManager_hpp
 #include "ConditionData.hpp"
 #include "ConditionCalculationData.hpp"
+#include "HobbyData.hpp"
+#include "FatherJobData.hpp"
+#include "StoryData.hpp"
 #include "SkillsData.hpp"
+#include "SocialActionData.hpp"
 #include "ItemData.hpp"
 #include "ItemCategoryData.hpp"
+#include "FriendData.hpp"
+#include "ParentChatData.hpp"
 #include "AttributeData.hpp"
 #include "EventData.hpp"
 #include "FunctionCalculationData.hpp"
+#include "WorkData.hpp"
 #include "ActionData.hpp"
 #include "GameData.hpp"
 
@@ -21,12 +28,19 @@ private:
 public:
 	static ConditionData* getConditionDataById(const string& conditionId);
 	static ConditionCalculationData* getConditionCalculationDataById(const string& conditionCalculationId);
+	static HobbyData* getHobbyDataById(const string& hobbyId);
+	static FatherJobData* getFatherJobDataById(const string& fatherJobId);
+	static StoryData* getStoryDataById(const string& storyId);
 	static SkillsData* getSkillsDataById(const string& skillId);
+	static SocialActionData* getSocialActionDataById(const string& socialActionId);
 	static ItemData* getItemDataById(const string& itemId);
 	static ItemCategoryData* getItemCategoryDataById(const string& itemCategoryId);
+	static FriendData* getFriendDataById(const string& friendId);
+	static ParentChatData* getParentChatDataById(const string& chatId);
 	static AttributeData* getAttributeDataById(const string& attributeId);
 	static EventData* getEventDataById(const string& eventId);
 	static FunctionCalculationData* getFunctionCalculationDataById(const string& functionCalculatonId);
+	static WorkData* getWorkDataById(const string& actionId);
 	static ActionData* getActionDataById(const string& actionId);
 	static GameData* getGameData();
 	static bool saveData(string fileName);

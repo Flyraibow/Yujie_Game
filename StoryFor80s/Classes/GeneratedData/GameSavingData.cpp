@@ -8,7 +8,7 @@ This file (GameSavingData.cpp) is generated
 #include "LocalizationHelper.hpp"
 
 
-using namespace SHUtil;
+using namespace Utils;
 
 map<int, GameSavingData*>* GameSavingData::p_sharedDictionary = nullptr;
 

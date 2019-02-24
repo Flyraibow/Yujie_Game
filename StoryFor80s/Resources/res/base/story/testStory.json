@@ -1,0 +1,22 @@
+{
+	"scene": "storyScene",
+	"events": [
+		{
+			"__comment" : "播放背景音乐",
+			"type" : "music",
+			"action" : "playMusic",
+			"path" : "res/test.mp3"
+		},
+		{
+			"__comment" : "等待五秒",
+			"type" : "wait",
+			"duration" : 5.0
+		},
+		{
+			"__comment" : "播放海鸥音乐",
+			"type" : "music",
+			"action" : "playEffect",
+			"path" : "res/base/SE/seagull.m4v"
+		}
+	]
+}

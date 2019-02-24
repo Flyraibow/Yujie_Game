@@ -7,7 +7,7 @@ This file (EventData.cpp) is generated
 #include "Utils.hpp"
 
 
-using namespace SHUtil;
+using namespace Utils;
 
 map<string, EventData*>* EventData::p_sharedDictionary = nullptr;
 

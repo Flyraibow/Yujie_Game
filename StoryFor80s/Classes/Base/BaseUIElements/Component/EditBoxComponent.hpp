@@ -20,7 +20,7 @@ private:
   std::string p_tempString;
 protected:
 public:
-  EditBoxComponent(nlohmann::json componentJson);
+  EditBoxComponent(const nlohmann::json &componentJson);
   cocos2d::Node *addComponentToParent(ComponentDict &dict, cocos2d::Node *parent = nullptr);
   void editBoxTextChanged(ui::EditBox* editBox, const std::string& text);
   virtual void editBoxReturn(ui::EditBox* editBox);

@@ -18,7 +18,7 @@ private:
   vector<BaseData *> p_dataList;
 protected:
 public:
-  ListComponent(nlohmann::json componentJson);
+  ListComponent(const nlohmann::json &componentJson);
   cocos2d::Node *addComponentToParent(ComponentDict &dict, cocos2d::Node *parent = nullptr);
   virtual void refresh();
 };

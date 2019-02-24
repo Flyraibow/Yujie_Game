@@ -25,18 +25,18 @@ void ColorNodeComponent::setButtonComponentsFromJson(const nlohmann::json &compo
       }
       if (groupButtonJson.count("options")) {
         auto optionsJson = groupButtonJson.at("options");
-        p_buttonComponentOptions = SHUtil::getBoolFromJson(optionsJson, "close", false) ? (GroupButtonOptionWithCloseButton | p_buttonComponentOptions) : p_buttonComponentOptions;
-        p_buttonComponentOptions = SHUtil::getBoolFromJson(optionsJson, "italic", false) ? (GroupButtonOptionItalic | p_buttonComponentOptions) : p_buttonComponentOptions;
-        p_buttonComponentOptions = SHUtil::getBoolFromJson(optionsJson, "align", true) ? (GroupButtonOptionAlignAll | p_buttonComponentOptions) : p_buttonComponentOptions;
+        p_buttonComponentOptions = Utils::getBoolFromJson(optionsJson, "close", false) ? (GroupButtonOptionWithCloseButton | p_buttonComponentOptions) : p_buttonComponentOptions;
+        p_buttonComponentOptions = Utils::getBoolFromJson(optionsJson, "italic", false) ? (GroupButtonOptionItalic | p_buttonComponentOptions) : p_buttonComponentOptions;
+        p_buttonComponentOptions = Utils::getBoolFromJson(optionsJson, "align", true) ? (GroupButtonOptionAlignAll | p_buttonComponentOptions) : p_buttonComponentOptions;
       }
     }
   }
   p_buttonComponentList = result;
 }
 
-ColorNodeComponent::ColorNodeComponent(nlohmann::json componentJson) : BaseComponent(componentJson)
+ColorNodeComponent::ColorNodeComponent(const nlohmann::json &componentJson) : BaseComponent(componentJson)
 {
-  p_color = SHUtil::getColorFromJson(componentJson, "backgroundColor");;
+  p_color = Utils::getColorFromJson(componentJson, "backgroundColor");;
   ColorNodeComponent::setButtonComponentsFromJson(componentJson);
 }
 

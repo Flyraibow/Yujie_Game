@@ -1,0 +1,12 @@
+﻿fatherJobId,name,salary,knowledge
+id,language,int,int
+string,chinese,-,-
+writable,N,Y,Y
+0,工人,600,10
+1,商人,1000,30
+2,医生,900,40
+3,老师,700,50
+4,公务员,1000,40
+5,厨师,600,20
+6,科学家,600,60
+7,作家,500,55

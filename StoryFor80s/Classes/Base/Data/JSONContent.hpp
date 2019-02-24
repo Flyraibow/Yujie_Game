@@ -9,7 +9,6 @@
 
 #include "cocos2d.h"
 #include "json.hpp"
-#include "BaseComponent.hpp"
 #include <vector>
 
 USING_NS_CC;
@@ -21,8 +20,6 @@ protected:
 public:
   JSONContent(const std::string &jsonFilePath);
   const nlohmann::json& getContent() const;
-  
-  std::vector<BaseComponent *> getComponentList() const;
 };
 
 #endif /* JSONContent_hpp */

@@ -7,7 +7,7 @@ This file (ConditionData.cpp) is generated
 #include "Utils.hpp"
 
 
-using namespace SHUtil;
+using namespace Utils;
 
 map<string, ConditionData*>* ConditionData::p_sharedDictionary = nullptr;
 

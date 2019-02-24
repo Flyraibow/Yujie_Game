@@ -23,11 +23,6 @@ JSONContent::JSONContent(const std::string &jsonFilePath)
     p_jsonContent = loadContentFromPath(jsonFilePath);
 }
 
-std::vector<BaseComponent *> JSONContent::getComponentList() const
-{
-  return BaseComponent::getComponentsFromJson(p_jsonContent);
-}
-
 
 const nlohmann::json& JSONContent::getContent() const
 {

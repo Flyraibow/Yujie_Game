@@ -15,7 +15,7 @@
 #include "BaseData.h"
 
 
-namespace SHUtil {
+namespace Utils {
   
   template<typename T>
   ::std::string to_string(T value) {

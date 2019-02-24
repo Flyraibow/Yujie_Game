@@ -17,7 +17,7 @@ private:
   cocos2d::Vec2 p_normalizedDimension;
 protected:
 public:
-  LabelComponent(nlohmann::json componentJson);
+  LabelComponent(const nlohmann::json &componentJson);
   cocos2d::Node *addComponentToParent(ComponentDict &dict, cocos2d::Node *parent = nullptr);
   virtual void refresh();
 };

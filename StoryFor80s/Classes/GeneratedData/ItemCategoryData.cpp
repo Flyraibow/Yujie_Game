@@ -8,7 +8,7 @@ This file (ItemCategoryData.cpp) is generated
 #include "LocalizationHelper.hpp"
 
 
-using namespace SHUtil;
+using namespace Utils;
 
 map<string, ItemCategoryData*>* ItemCategoryData::p_sharedDictionary = nullptr;
 

@@ -10,7 +10,7 @@
 
 using namespace std;
 
-namespace SHUtil {
+namespace Utils {
   
   ::std::string to_string(const ::std::string &str)
   {

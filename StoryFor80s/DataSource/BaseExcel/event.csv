@@ -6,11 +6,12 @@ push_scene,打开新页面,pushScene,sceneName:temp.nextScene
 pop_panel,跳出窗口,popPanel,panelName:temp.nextPanel
 pop_scene,返回上个场景,popScene,;
 refresh_scene,刷新场景,refreshScene,;
+check_story,检查游戏剧情,checkStory,;
 start_game,"开始新游戏, 确保有姓名",condition,condition:length.temp.firstName>int.0;yes:start_game_check_lastname;no:start_game_fail_firstname
 start_game_check_lastname,,condition,condition:length.temp.lastName>int.0;yes:start_game_list;no:start_game_fail_lastname
 start_game_fail_firstname,,popPanel,panelName:errorPanel;setTemp:error=wrong_first_name
 start_game_fail_lastname,,popPanel,panelName:errorPanel;setTemp:error=wrong_last_name
-start_game_list,,eventlist,"event:start_game_set_values,game_scene"
+start_game_list,,eventlist,"event:start_game_set_values,game_scene,check_story"
 start_game_set_values,,setValues,game.firstName:temp.firstName;game.lastName:temp.lastName
 game_scene,,pushScene,sceneName:gameScene
 action_sleep,休息一天,eventlist,"event:game_data_pass_1_day,refresh_scene"

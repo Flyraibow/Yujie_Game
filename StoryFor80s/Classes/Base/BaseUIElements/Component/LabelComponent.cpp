@@ -10,11 +10,11 @@
 
 USING_NS_CC;
 
-LabelComponent::LabelComponent(nlohmann::json componentJson) : BaseComponent(componentJson)
+LabelComponent::LabelComponent(const nlohmann::json &componentJson) : BaseComponent(componentJson)
 {
-  p_textSize = SHUtil::getFloatFromJson(componentJson, "text_size");
-  p_text = SHUtil::getStringFromJson(componentJson, "text");
-  p_normalizedDimension = SHUtil::getVec2FromJson(componentJson, "normalized_dimensions");
+  p_textSize = Utils::getFloatFromJson(componentJson, "text_size");
+  p_text = Utils::getStringFromJson(componentJson, "text");
+  p_normalizedDimension = Utils::getVec2FromJson(componentJson, "normalized_dimensions");
 }
 
 Node* LabelComponent::addComponentToParent(ComponentDict &dict, Node *parent)

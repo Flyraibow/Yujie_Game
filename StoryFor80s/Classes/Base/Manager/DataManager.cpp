@@ -77,7 +77,7 @@ void DataManager::setData(const string &key, const string &tableName, const stri
 void DataManager::setDataList(const string &key, const string &tableName, const string &id)
 {
   vector<BaseData *> dataList;
-  auto strIdList = SHUtil::atovector(decipherString(id));
+  auto strIdList = Utils::atovector(decipherString(id));
   for (auto strId : strIdList) {
     auto data = BaseDataManager::getData(tableName, strId);
     if (data != nullptr) {
@@ -159,7 +159,7 @@ void DataManager::setDataValue(const string &key, const string &field, const str
 
 void DataManager::setValue(const string &key, const string &value)
 {
-  auto keyList = SHUtil::split(key, '.');
+  auto keyList = Utils::split(key, '.');
   CCASSERT(keyList.size() >= 2, "The size of key list should be >= 2");
   auto keyType = keyList.at(0);
   if (keyType == "game") {
@@ -189,7 +189,7 @@ void DataManager::setSortKeyValuePair(const string &key, const string &type, con
     return this->checkCondition(orderConditionId);
   };
   if (type == "map") {
-    auto mapContent = SHUtil::atomap(strContent);
+    auto mapContent = Utils::atomap(strContent);
     set<pair<string, string>, Comparator> setOfPairs(mapContent.begin(), mapContent.end(), compFunctor);
     for (pair<string, string> element : setOfPairs) {
       result.push_back(element);
@@ -202,7 +202,7 @@ void DataManager::setSortKeyValuePair(const string &key, const string &type, con
 
 BaseData* DataManager::decipherData(const string &value) const
 {
-  auto args = SHUtil::split(value, '.');
+  auto args = Utils::split(value, '.');
   if (value == "game") {
     return GameData::getSharedInstance();
   } else if (args.size() > 1) {
@@ -220,7 +220,7 @@ BaseData* DataManager::decipherData(const string &value) const
 vector<BaseData*> DataManager::decipherDataList(const string &value) const
 {
   vector<BaseData*> result;
-  auto args = SHUtil::split(value, '.');
+  auto args = Utils::split(value, '.');
   if (args.size() == 1) {
     if (p_tempDataListMap.count(value)) {
       result = p_tempDataListMap.at(value);
@@ -234,7 +234,7 @@ vector<BaseData*> DataManager::decipherDataList(const string &value) const
 
 string DataManager::decipherString(const string &value) const
 {
-  auto args = SHUtil::split(value, '.');
+  auto args = Utils::split(value, '.');
   string val = value;
   if (args.size() > 1) {
     auto k = args.at(0);
@@ -317,7 +317,7 @@ string DataManager::decipherString(const string &value) const
               res.push_back(p.second);
             }
           }
-          val = SHUtil::to_string(res);
+          val = Utils::to_string(res);
         } else if (args.size() >= 4) {
           auto index = atoi(args.at(2).c_str());
           if (index < list.size()) {
@@ -420,14 +420,14 @@ bool DataManager::checkCondition(const string &conditionId) const
 //    return logicCondition(conditionData->getLeftParameter(), conditionData->getRightParameter(), compareType);
 //  } else if (compareType == "belong") {
 //    auto str = getConditionString(conditionData->getLeftType(), conditionData->getLeftParameter());
-//    auto strList = SHUtil::split(conditionData->getRightParameter(), ';');
+//    auto strList = Utils::split(conditionData->getRightParameter(), ';');
 //    unordered_set<string> container;
 //    for (auto s : strList) {
 //      container.insert(decipherString(s));
 //    }
 //    return container.count(str);
 //  }
-  return false;
+  return true;
 }
 
 

@@ -1,0 +1,5 @@
+﻿hobbyId,name,expense,proficiency
+id,language,int,int
+string,chinese,-,-
+writable,N,N,Y
+0,打篮球,0,0

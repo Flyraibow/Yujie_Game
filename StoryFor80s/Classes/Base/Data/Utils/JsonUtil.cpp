@@ -6,7 +6,7 @@
 
 #include "JsonUtil.hpp"
 
-cocos2d::Vec2 SHUtil::getVec2FromJson(const nlohmann::json &json, const std::string &field, const cocos2d::Vec2 &defaultValue)
+cocos2d::Vec2 Utils::getVec2FromJson(const nlohmann::json &json, const std::string &field, const cocos2d::Vec2 &defaultValue)
 {
   if (json.count(field)) {
     auto vec = json.at(field);
@@ -16,7 +16,7 @@ cocos2d::Vec2 SHUtil::getVec2FromJson(const nlohmann::json &json, const std::str
   return defaultValue;
 }
 
-cocos2d::Size SHUtil::getSizeFromJson(const nlohmann::json &json, const std::string &field, const cocos2d::Size &defaultValue)
+cocos2d::Size Utils::getSizeFromJson(const nlohmann::json &json, const std::string &field, const cocos2d::Size &defaultValue)
 {
   if (json.count(field)) {
     auto vec = json.at(field);
@@ -26,7 +26,7 @@ cocos2d::Size SHUtil::getSizeFromJson(const nlohmann::json &json, const std::str
   return defaultValue;
 }
 
-std::string SHUtil::getStringFromJson(const nlohmann::json &json, const std::string &field, const std::string &defaultValue)
+std::string Utils::getStringFromJson(const nlohmann::json &json, const std::string &field, const std::string &defaultValue)
 {
   if (json.count(field)) {
     return json.at(field).get<std::string>();
@@ -36,7 +36,7 @@ std::string SHUtil::getStringFromJson(const nlohmann::json &json, const std::str
 
 #include <unordered_map>
 
-cocos2d::Color4B SHUtil::getColorFromJson(const nlohmann::json &json, const std::string &field, const cocos2d::Color4B &defaultValue)
+cocos2d::Color4B Utils::getColorFromJson(const nlohmann::json &json, const std::string &field, const cocos2d::Color4B &defaultValue)
 {
   if (json.count(field)) {
     auto j = json.at(field);
@@ -69,7 +69,7 @@ cocos2d::Color4B SHUtil::getColorFromJson(const nlohmann::json &json, const std:
   return defaultValue;
 }
 
-float SHUtil::getFloatFromJson(const nlohmann::json &json, const std::string &field, const float defaultValue)
+float Utils::getFloatFromJson(const nlohmann::json &json, const std::string &field, const float defaultValue)
 {
   if (json.count(field)) {
     return json.at(field).get<float>();
@@ -77,7 +77,15 @@ float SHUtil::getFloatFromJson(const nlohmann::json &json, const std::string &fi
   return defaultValue;
 }
 
-int SHUtil::getIntFromJson(const nlohmann::json &json, const std::string &field, const int defaultValue)
+float Utils::getDoubleFromJson(const nlohmann::json &json, const std::string &field, const float defaultValue)
+{
+  if (json.count(field)) {
+    return json.at(field).get<double>();
+  }
+  return defaultValue;
+}
+
+int Utils::getIntFromJson(const nlohmann::json &json, const std::string &field, const int defaultValue)
 {
   if (json.count(field)) {
     return json.at(field).get<int>();
@@ -85,7 +93,7 @@ int SHUtil::getIntFromJson(const nlohmann::json &json, const std::string &field,
   return defaultValue;
 }
 
-bool SHUtil::getBoolFromJson(const nlohmann::json &json, const std::string &field, bool defaultValue)
+bool Utils::getBoolFromJson(const nlohmann::json &json, const std::string &field, bool defaultValue)
 {
   if (json.count(field)) {
     return json.at(field).get<bool>();
@@ -93,7 +101,7 @@ bool SHUtil::getBoolFromJson(const nlohmann::json &json, const std::string &fiel
   return defaultValue;
 }
 
-std::vector<std::string> SHUtil::getStringListFromJson(const nlohmann::json &json, const std::string &field)
+std::vector<std::string> Utils::getStringListFromJson(const nlohmann::json &json, const std::string &field)
 {
   std::vector<std::string> defaultValue;
   if (json.count(field)) {

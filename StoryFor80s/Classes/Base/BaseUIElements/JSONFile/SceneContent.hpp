@@ -8,6 +8,7 @@
 #define SceneContent_hpp
 
 #include "JSONContent.hpp"
+#include "BaseComponent.hpp"
 
 USING_NS_CC;
 
@@ -22,6 +23,7 @@ public:
   bool isFullScreenCover() const;
   Size getScreenCoverRatio() const;
   
+  std::vector<BaseComponent *> getComponentList() const;
 };
 
 #endif /* BaseScene_hpp */

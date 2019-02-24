@@ -1,0 +1,5 @@
+﻿friendId,lastName,firstName,birthMonth,birthDay,gender,relation
+id,language,language,int,int,int,int
+string,chinese,chinese,-,-,-,-
+writable,N,N,N,N,N,Y
+0,史,绿荫,3,12,1,0

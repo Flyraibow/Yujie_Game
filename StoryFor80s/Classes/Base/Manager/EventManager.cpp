@@ -11,6 +11,7 @@
 #include "DataManager.hpp"
 #include "SceneManager.hpp"
 #include "ConditionManager.hpp"
+#include "StoryManager.hpp"
 #include "Utils.hpp"
 #include "GameData.hpp"
 
@@ -59,6 +60,8 @@ void EventManager::runEvent(std::string eventName)
     SceneManager::getShareInstance()->popScene();
   } else if (eventType == "refreshScene") {
     SceneManager::getShareInstance()->refreshScene();
+  } else if (eventType == "checkStory") {
+    StoryManager::getShareInstance()->checkAndStartStory();
   } else if (eventType == "condition") {
     auto conditionStr = parameters.count("condition") ? parameters.at("condition") : "";
     if (Manager::checkConditionByString(conditionStr)) {
@@ -70,7 +73,7 @@ void EventManager::runEvent(std::string eventName)
     }
   } else if (eventType == "eventlist") {
     auto eventStr = parameters.count("event") ? parameters.at("event") : "";
-    auto events = SHUtil::split(eventStr, ',');
+    auto events = Utils::split(eventStr, ',');
     for (int i = events.size() - 1; i >= 0; --i) {
       p_eventStack.push(events.at(i));
     }

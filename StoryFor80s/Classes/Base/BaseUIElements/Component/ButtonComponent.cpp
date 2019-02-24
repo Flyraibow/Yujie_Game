@@ -13,17 +13,17 @@
 
 USING_NS_CC;
 
-ButtonComponent::ButtonComponent(nlohmann::json componentJson) : BaseComponent(componentJson)
+ButtonComponent::ButtonComponent(const nlohmann::json &componentJson) : BaseComponent(componentJson)
 {
-  p_text = SHUtil::getStringFromJson(componentJson, "text");
-  p_eventId = SHUtil::getStringFromJson(componentJson, "event");
-  p_textSize = SHUtil::getFloatFromJson(componentJson, "font_size", 0);
-  p_imagePath = SHUtil::getStringFromJson(componentJson, "path");
+  p_text = Utils::getStringFromJson(componentJson, "text");
+  p_eventId = Utils::getStringFromJson(componentJson, "event");
+  p_textSize = Utils::getFloatFromJson(componentJson, "font_size", 0);
+  p_imagePath = Utils::getStringFromJson(componentJson, "path");
   if (componentJson.count("setTemp")) {
     auto setTempJson = componentJson.at("setTemp");
     for (auto iter = setTempJson.begin(); iter != setTempJson.end(); ++iter) {
       auto key = iter.key();
-      auto value = SHUtil::getStringFromJson(setTempJson, key);;
+      auto value = Utils::getStringFromJson(setTempJson, key);;
       p_setTempStrDict.insert(make_pair(key, value));
     }
   }

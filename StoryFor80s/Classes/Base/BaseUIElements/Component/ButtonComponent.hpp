@@ -22,7 +22,7 @@ private:
   unordered_map<string, string> p_setTempStrDict;
 protected:
 public:
-  ButtonComponent(nlohmann::json componentJson);
+  ButtonComponent(const nlohmann::json &componentJson);
   Node *addComponentToParent(ComponentDict &dict, Node *parent = nullptr);
   virtual void refresh();
 };

@@ -11,10 +11,10 @@
 
 USING_NS_CC;
 
-ListComponent::ListComponent(nlohmann::json componentJson) : BaseComponent(componentJson)
+ListComponent::ListComponent(const nlohmann::json &componentJson) : BaseComponent(componentJson)
 {
-  p_panelName = SHUtil::getStringFromJson(componentJson, "file_name");
-  auto dataListKey = SHUtil::getStringFromJson(componentJson, "data_list");
+  p_panelName = Utils::getStringFromJson(componentJson, "file_name");
+  auto dataListKey = Utils::getStringFromJson(componentJson, "data_list");
   p_dataList = DataManager::getShareInstance()->decipherDataList(dataListKey);
   if (p_panelName.length() > 0) {
     for (int i = 0; i < p_dataList.size(); ++i) {

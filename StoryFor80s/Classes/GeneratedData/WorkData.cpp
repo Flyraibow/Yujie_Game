@@ -1,0 +1,169 @@
+/*
+This file (WorkData.cpp) is generated
+*/
+#include "WorkData.hpp"
+#include "cocos2d.h"
+#include "ByteBuffer.hpp"
+#include "Utils.hpp"
+#include "LocalizationHelper.hpp"
+
+
+using namespace Utils;
+
+map<string, WorkData*>* WorkData::p_sharedDictionary = nullptr;
+
+string WorkData::getId() const
+{
+	return to_string(p_actionId);
+}
+
+string WorkData::getActionId() const
+{
+	return p_actionId;
+}
+
+string WorkData::getName() const
+{
+	string localId = "work_name_" + to_string(p_actionId);
+	return LocalizationHelper::getLocalization(localId);
+}
+
+int WorkData::getSalary() const
+{
+	return p_salary;
+}
+
+int WorkData::getProficienc() const
+{
+	return p_proficienc;
+}
+
+void WorkData::setProficienc(int proficienc)
+{
+	p_proficienc = proficienc;
+}
+
+string WorkData::description() const
+{
+	string desc = "workData = {\n";
+	desc += "\tactionId : " + to_string(p_actionId) + "\n";
+	desc += "\tname : " + getName() + "\n";
+	desc += "\tsalary : " + to_string(p_salary) + "\n";
+	desc += "\tproficienc : " + to_string(p_proficienc) + "\n";
+	desc += "}\n";
+	return desc;
+}
+
+const map<string, WorkData*>* WorkData::getSharedDictionary()
+{
+	if (!p_sharedDictionary) {
+		p_sharedDictionary = new map<string, WorkData*>();
+		static string resPath = "res/base/data/work.dat";
+		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
+		if (!data.isNull()) {
+			auto bytes = data.getBytes();
+			auto buffer = std::make_unique<bb::ByteBuffer>(bytes, data.getSize());
+			auto count = buffer->getLong();
+			for (int i = 0; i < count; ++i) {
+				WorkData* workData = new WorkData();
+				workData->p_actionId = buffer->getString();
+				workData->p_salary = buffer->getInt();
+				workData->p_proficienc = buffer->getInt();
+				p_sharedDictionary->insert(pair<string, WorkData*>(workData->p_actionId, workData));
+			}
+		}
+	}
+	return p_sharedDictionary;
+}
+
+WorkData* WorkData::getWorkDataById(const string& actionId)
+{
+	if (WorkData::getSharedDictionary()->count(actionId)) {
+		return WorkData::getSharedDictionary()->at(actionId);
+	}
+	return nullptr;
+}
+
+bool WorkData::saveData(const string & path)
+{
+	auto filePath = path + "/WorkData.dat";
+	auto dict = WorkData::getSharedDictionary();
+	auto buffer = std::make_unique<bb::ByteBuffer>();
+	buffer->putLong(dict->size());
+	buffer->putInt(1);
+	for (auto iter = dict->begin(); iter != dict->end(); iter++) {
+		auto dataId = iter->first;
+		auto data = iter->second;
+		buffer->putString(dataId);
+		buffer->putString("p_proficienc");
+		buffer->putString(to_string(data->p_proficienc));
+	}
+	buffer->writeToFile(filePath);
+	return true;
+}
+
+bool WorkData::loadData(const string & path)
+{
+	auto filePath = path + "/WorkData.dat";
+	auto dict = WorkData::getSharedDictionary();
+	auto fileData = cocos2d::FileUtils::getInstance()->getDataFromFile(filePath);
+	if (!fileData.isNull()) {
+		auto bytes = fileData.getBytes();
+		auto buffer = std::make_unique<bb::ByteBuffer>(bytes, fileData.getSize());
+		auto size = buffer->getLong();
+		auto dataSize = buffer->getInt();
+		for (int i = 0; i < size; ++i) {
+			auto dataId = buffer->getString();
+			WorkData *data = nullptr;
+			if (dict->count(dataId)) {
+				data = dict->at(dataId);
+			}
+			for (int j = 0; j < dataSize; ++j) {
+				string key = buffer->getString();
+				string value = buffer->getString();
+				if (data != nullptr) {
+					if (key == "p_proficienc") {
+						data->p_proficienc = atoi(value.c_str());
+					}
+				}
+			}
+		}
+	}
+	return true;
+}
+
+bool WorkData::clearData()
+{
+	if (p_sharedDictionary != nullptr) {
+		for (auto iter = p_sharedDictionary->begin(); iter != p_sharedDictionary->end(); ++iter) {
+			auto data = iter->second;
+			delete data;
+		}
+		delete p_sharedDictionary;
+		p_sharedDictionary = nullptr;
+	}
+	return true;
+}
+
+void WorkData::setFieldValue(const string & fieldName, const string & value)
+{
+	if (fieldName == "proficienc") {
+		this->setProficienc(atoi(value.c_str()));
+	}
+}
+
+string WorkData::getFieldValue(const string & fieldName)
+{
+	if (fieldName == "actionId") {
+		return to_string(this->getActionId());
+	} else if (fieldName == "name") {
+		return to_string(this->getName());
+	} else if (fieldName == "salary") {
+		return to_string(this->getSalary());
+	} else if (fieldName == "proficienc") {
+		return to_string(this->getProficienc());
+	}
+	CCLOGWARN("Couldn't recognize %s in WorkData", fieldName.c_str());
+	return "";
+}
+

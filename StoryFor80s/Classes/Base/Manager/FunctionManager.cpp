@@ -29,14 +29,14 @@ string getFormatStringFromFunction(FunctionCalculationData *functionData)
       case 2:
       {
         auto p1 = dataManager->decipherString(parameters.at(1));
-        val = SHUtil::format(localStr.c_str(), p1.c_str());
+        val = Utils::format(localStr.c_str(), p1.c_str());
         break;
       }
       case 3:
       {
         auto p1 = dataManager->decipherString(parameters.at(1));
         auto p2 = dataManager->decipherString(parameters.at(2));
-        val = SHUtil::format(localStr.c_str(), p1.c_str(), p2.c_str());
+        val = Utils::format(localStr.c_str(), p1.c_str(), p2.c_str());
         break;
       }
       case 4:
@@ -44,7 +44,7 @@ string getFormatStringFromFunction(FunctionCalculationData *functionData)
         auto p1 = dataManager->decipherString(parameters.at(1));
         auto p2 = dataManager->decipherString(parameters.at(2));
         auto p3 = dataManager->decipherString(parameters.at(3));
-        val = SHUtil::format(localStr.c_str(), p1.c_str(), p2.c_str(), p3.c_str());
+        val = Utils::format(localStr.c_str(), p1.c_str(), p2.c_str(), p3.c_str());
         break;
       }
       default:

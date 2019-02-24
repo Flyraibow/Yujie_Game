@@ -10,10 +10,10 @@
 
 USING_NS_CC;
 
-SpriteComponent::SpriteComponent(nlohmann::json componentJson) : BaseComponent(componentJson)
+SpriteComponent::SpriteComponent(const nlohmann::json &componentJson) : BaseComponent(componentJson)
 {
-  p_iconPath = SHUtil::getStringFromJson(componentJson, "path");
-  p_color = SHUtil::getColorFromJson(componentJson, "color");
+  p_iconPath = Utils::getStringFromJson(componentJson, "path");
+  p_color = Utils::getColorFromJson(componentJson, "color");
 }
 
 Node* SpriteComponent::addComponentToParent(ComponentDict &dict, cocos2d::Node *parent)

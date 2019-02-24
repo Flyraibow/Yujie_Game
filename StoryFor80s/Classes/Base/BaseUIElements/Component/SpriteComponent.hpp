@@ -16,7 +16,7 @@ private:
   Color4B p_color;
 protected:
 public:
-  SpriteComponent(nlohmann::json componentJson);
+  SpriteComponent(const nlohmann::json &componentJson);
   cocos2d::Node *addComponentToParent(ComponentDict &dict, cocos2d::Node *parent = nullptr);
   virtual void refresh();
 };
