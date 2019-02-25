@@ -165,25 +165,22 @@
 		      "type": "button",
 		      "text": "gamedata.ActionData.action_social.name",
 		      "normalized_position": [0.7, 0.5],
-		      "event" : "gamedata.ActionData.action_social.event"
+		      "storyId" : "action/social"
 		    },
 		    {
 		      "type": "button",
 		      "text": "gamedata.ActionData.action_play.name",
-		      "normalized_position": [0.5, 0.5],
-		      "event" : "gamedata.ActionData.action_play.event"
+		      "normalized_position": [0.5, 0.5]
 		    },
 		    {
 		      "type": "button",
 		      "text": "gamedata.ActionData.action_study.name",
-		      "normalized_position": [0.3, 0.5],
-		      "event" : "gamedata.ActionData.action_study.event"
+		      "normalized_position": [0.3, 0.5]
 		    },
 		    {
 		      "type": "button",
 		      "text": "gamedata.ActionData.action_work.name",
-		      "normalized_position": [0.1, 0.5],
-		      "event" : "gamedata.ActionData.action_work.event"
+		      "normalized_position": [0.1, 0.5]
 		    }
 	      ]
 	   }

@@ -8,8 +8,12 @@
 #include "InitialSetups.hpp"
 #include "SpecialFunctions.hpp"
 #include "StoryManager.hpp"
+#include "PanelManager.hpp"
+#include "DialogPanel.hpp"
 
 void story::setupForThisGame()
 {
   StoryManager::registerSpecialEventFunction("passDay", &story::passDay);
+  PanelManager::registerPanel<DialogPanel>("dialogPanel");
+  PanelManager::isRegistered("dialogPanel");
 }

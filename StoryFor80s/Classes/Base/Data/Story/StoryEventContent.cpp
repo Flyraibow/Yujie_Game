@@ -45,6 +45,8 @@ string StoryEventContent::getComment() const
 #include "ConditionEventContent.hpp"
 #include "ValueEventContent.hpp"
 #include "StoryManager.hpp"
+#include "PanelEventContent.hpp"
+#include "DialogEventContent.hpp"
 
 StoryEventContent* StoryEventContent::getStoryEventFromJson(const nlohmann::json &jsonContent)
 {
@@ -62,7 +64,11 @@ StoryEventContent* StoryEventContent::getStoryEventFromJson(const nlohmann::json
     return new ConditionEventContent(jsonContent);
   } else if (type == "setValues") {
     return new ValueEventContent(jsonContent);
-  } else if (type == "popScene" || type == "stopStory" || type == "refreshScene") {
+  } else if (type == "panel") {
+    return new PanelEventContent(jsonContent);
+  } else if (type == "dialog") {
+    return new DialogEventContent(jsonContent);
+  } else if (type == "popScene" || type == "stopStory" || type == "refreshScene" || type == "checkStory") {
   } else if (StoryManager::isFunctionRegistered(type)) {
   } else {
     CCLOGERROR("undefined story type : %s", type.c_str());
@@ -80,6 +86,8 @@ void StoryEventContent::runEvent(BaseScene *baseScene, StoryEventCallback callba
     StoryManager::getShareInstance()->stopStory();
   } else if (p_type == "refreshScene") {
     SceneManager::getShareInstance()->refreshScene();
+  } else if (p_type == "checkStory") {
+    StoryManager::getShareInstance()->checkAndStartStory();
   } else if (StoryManager::isFunctionRegistered(p_type)) {
     StoryManager::runFunction(p_type, p_content);
   }

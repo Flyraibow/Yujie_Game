@@ -12,8 +12,8 @@
 
 USING_NS_CC;
 
-/** @class SHColorNode
- * @brief SHColorNode is a subclass of LayerColor that can swallow all touches
+/** @class BaseColorNode
+ * @brief BaseColorNode is a subclass of LayerColor that can swallow all touches
  
  */
 class BaseColorNode : public LayerColor

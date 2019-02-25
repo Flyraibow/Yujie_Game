@@ -15,14 +15,18 @@ typedef BasePanel* (*getPanel)();
 class PanelManager
 {
 private:
-  static PanelManager* p_sharedManager;
-  std::unordered_map<std::string, getPanel> p_panelFuncMap;
+  static PanelManager* s_sharedManager;
+  static std::unordered_map<std::string, getPanel> s_panelFuncMap;
   
-  template <typename T, typename std::enable_if<std::is_base_of<BasePanel, T>::value>::type* = nullptr>
-  void registerPanel(const std::string &panelName);
-  bool isRegistered(const std::string &panelName) const;
 public:
   static PanelManager* getShareInstance();
+  template <typename T, typename std::enable_if<std::is_base_of<BasePanel, T>::value>::type* = nullptr>
+  static void registerPanel(const std::string &panelName) {
+    s_panelFuncMap[panelName] = T::createPanel;
+  }
+
+  static bool isRegistered(const std::string &panelName);
+  
   BasePanel* getPanelById(const std::string &panelName) const;
 };
 

@@ -13,6 +13,11 @@
 #include "DataManager.hpp"
 #include <string>
 
+#define SCREEN_CONTENT_LAYER 1
+#define SCREEN_DIALOG_LAYER 90
+#define SCREEN_COVER_LAYER_HEIGHT 100
+#define SCREEN_FOREGROUND_LAYER_HEIGHT 101
+
 #ifdef COVER_DEBUG
 #define COVER_COLOR Color4B(255, 0, 0, 100)
 #else
@@ -66,7 +71,7 @@ void BaseScene::setScreenCover(Size ratioSize)
   s_window = Node::create();
   s_window->setContentSize(s_screenSize);
   s_window->setPosition(windowOrigin);
-  this->addChild(s_window, 1);
+  this->addChild(s_window, SCREEN_CONTENT_LAYER);
   
   if (nodeSize.width < 1 || nodeSize.height < 1) {
     // there is no need to create a cover
@@ -153,11 +158,15 @@ void BaseScene::setBackgroundMusic(const std::string &path) {
 }
 
 
-void BaseScene::addPanelWithParameters(BasePanel *panel)
+void BaseScene::addPanelWithParameters(BasePanel *panel, bool isDialog)
 {
   auto panelName = panel->getPanelName();
   CCLOG("Add panel %s", panelName.c_str());
-  panel->addToParent(s_window);
+  if (isDialog) {
+    panel->addToParent(getDialogWindow());
+  } else {
+    panel->addToParent(s_window);
+  }
   p_panelStack.push(panel);
 }
 
@@ -168,6 +177,7 @@ void BaseScene::initSceneWithJson(const std::string &jsonFileName)
   setBackgroundMusic(dataManager->decipherString(content->getBackgroundMusic()));
   setBackgroundImage(dataManager->decipherString(content->getBackgroundImage()));
   
+  s_dialogWindow = nullptr;
   if (content->isFullScreenCover()) {
     setFullScreenCover();
   } else {
@@ -184,6 +194,18 @@ void BaseScene::initSceneWithJson(const std::string &jsonFileName)
   }
   
   delete content;
+}
+
+Node* BaseScene::getDialogWindow()
+{
+  if (s_dialogWindow == nullptr) {
+    // copy s_window property to s_dialogWindow
+    s_dialogWindow = Node::create();
+    s_dialogWindow->setContentSize(s_window->getContentSize());
+    s_dialogWindow->setPosition(s_window->getPosition());
+    this->addChild(s_dialogWindow, SCREEN_DIALOG_LAYER);
+  }
+  return s_dialogWindow;
 }
 
 void BaseScene::refreBaseScene()

@@ -21,4 +21,4 @@ public:
   BaseComponent* getComponent() const;
 };
 
-#endif /* SHBasePanel_hpp */
+#endif /* PanelContent_hpp */

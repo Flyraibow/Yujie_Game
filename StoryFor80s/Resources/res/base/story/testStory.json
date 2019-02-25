@@ -56,6 +56,15 @@
 			"type" : "photo",
 			"action" : "remove",
 			"name" : "a"
+		},
+		{
+			"__comment" : "等待2秒",
+			"type" : "wait",
+			"duration" : 6.0
+		},
+		{
+			"__comment" : "pop scene",
+			"type" : "popScene"
 		}
 	]
 }

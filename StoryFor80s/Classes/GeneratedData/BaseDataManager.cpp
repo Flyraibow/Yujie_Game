@@ -75,6 +75,14 @@ SocialActionData* BaseDataManager::getSocialActionDataById(const string& socialA
 	return nullptr;
 }
 
+DialogData* BaseDataManager::getDialogDataById(const string& dialogId)
+{
+	if (DialogData::getSharedDictionary()->count(dialogId)) {
+		return DialogData::getSharedDictionary()->at(dialogId);
+	}
+	return nullptr;
+}
+
 ItemData* BaseDataManager::getItemDataById(const string& itemId)
 {
 	if (ItemData::getSharedDictionary()->count(itemId)) {
@@ -267,6 +275,8 @@ BaseData * BaseDataManager::getData(const string & dataSet, const string & id)
 		return SkillsData::getSkillsDataById(id);
 	} else if (dataSet == "SocialActionData") {
 		return SocialActionData::getSocialActionDataById(id);
+	} else if (dataSet == "DialogData") {
+		return DialogData::getDialogDataById(id);
 	} else if (dataSet == "ItemData") {
 		return ItemData::getItemDataById(id);
 	} else if (dataSet == "ItemCategoryData") {

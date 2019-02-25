@@ -10,6 +10,7 @@ This file (BaseDataManager.hpp) is generated
 #include "StoryData.hpp"
 #include "SkillsData.hpp"
 #include "SocialActionData.hpp"
+#include "DialogData.hpp"
 #include "ItemData.hpp"
 #include "ItemCategoryData.hpp"
 #include "FriendData.hpp"
@@ -32,6 +33,7 @@ public:
 	static StoryData* getStoryDataById(const string& storyId);
 	static SkillsData* getSkillsDataById(const string& skillId);
 	static SocialActionData* getSocialActionDataById(const string& socialActionId);
+	static DialogData* getDialogDataById(const string& dialogId);
 	static ItemData* getItemDataById(const string& itemId);
 	static ItemCategoryData* getItemCategoryDataById(const string& itemCategoryId);
 	static FriendData* getFriendDataById(const string& friendId);

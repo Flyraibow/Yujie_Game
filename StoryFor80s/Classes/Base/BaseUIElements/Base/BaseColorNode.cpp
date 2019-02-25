@@ -71,7 +71,7 @@ void BaseColorNode::commonInit()
     Point touchPoint = pDirector->convertToGL(touch->getLocationInView());
     auto flag = this->getBoundingBox().containsPoint(touchPoint);
     if (flag) {
-      CCLOG("Touch is swallowed by current view SHColorNode : %s", this->getName().c_str());
+      CCLOG("Touch is swallowed by current view ColorNode : %s", this->getName().c_str());
     }
     return flag;
   };

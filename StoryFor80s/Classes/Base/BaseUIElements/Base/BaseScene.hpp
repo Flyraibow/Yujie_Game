@@ -18,11 +18,7 @@
 
 USING_NS_CC;
 
-#define SCREEN_COVER_LAYER_HEIGHT 100
-#define SCREEN_FOREGROUND_LAYER_HEIGHT 101
 #define COVER_DEBUG
-
-class DialogFrame;
 
 class BaseScene : public cocos2d::Scene
 {
@@ -42,7 +38,9 @@ protected:
   void setBackgroundImage(const std::string &imgPath);
   void setForegroundImage(const std::string &imgPath);
   void setBackgroundMusic(const std::string &path);
+  Node* getDialogWindow();
   Node* s_window;
+  Node* s_dialogWindow;
   
   ComponentDict p_componentDict;
   std::stack<BasePanel *> p_panelStack;
@@ -57,7 +55,7 @@ public:
   Size getScreenSize() const;
   Node* getBackground();
   
-  void addPanelWithParameters(BasePanel *panel);
+  void addPanelWithParameters(BasePanel *panel, bool isDialog = false);
   void popPanel();
   BasePanel* topPanel () const;
   

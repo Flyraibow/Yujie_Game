@@ -1,0 +1,13 @@
+{
+	"events": [
+		{
+			"__comment" : "显示对话框",
+			"type" : "dialog",
+			"name" : "dialogPanel",
+			"dialogIds":[
+				"test_dialog_1", 
+				"test_dialog_2"
+			]
+		}
+	]
+}

@@ -105,27 +105,3 @@ BasePanel* SceneManager::topPanel() const
   }
   return nullptr;
 }
-
-//#include "DialogFrame.hpp"
-//
-//void SceneManager::addDialog(const vector<string> &dialogIds)
-//{
-//  auto scene = dynamic_cast<BaseScene *>(Director::getInstance()->getRunningScene());
-//  p_dialogFrame = DialogFrame::createWithDialogIds(dialogIds, [this]() {
-//    p_dialogFrame = nullptr;
-//  });
-//  scene->addDialogFrame(p_dialogFrame);
-//}
-//
-//void SceneManager::removeDialog()
-//{
-//  if (p_dialogFrame != nullptr) {
-//    p_dialogFrame->getSprite()->removeFromParent();
-//    p_dialogFrame = nullptr;
-//  }
-//}
-//
-//bool SceneManager::showDialog() const
-//{
-//  return p_dialogFrame != nullptr;
-//}
