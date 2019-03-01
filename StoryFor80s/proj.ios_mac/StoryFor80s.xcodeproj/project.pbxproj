@@ -157,6 +157,8 @@
 		ECBA50732213DD3600929BBA /* PanelManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBA50702213DD3600929BBA /* PanelManager.cpp */; };
 		ECBA50762213F1A000929BBA /* ConditionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBA50742213F1A000929BBA /* ConditionManager.cpp */; };
 		ECBA50772213F1A000929BBA /* ConditionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBA50742213F1A000929BBA /* ConditionManager.cpp */; };
+		ECC5E94922284D660090F6C5 /* BaseSpriteListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECC5E94822284D660090F6C5 /* BaseSpriteListener.cpp */; };
+		ECC5E94A22284D660090F6C5 /* BaseSpriteListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECC5E94822284D660090F6C5 /* BaseSpriteListener.cpp */; };
 		ECDF38B9222247AA003ED65B /* PhotoEventContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECDF38B7222247AA003ED65B /* PhotoEventContent.cpp */; };
 		ECDF38BA222247AA003ED65B /* PhotoEventContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECDF38B7222247AA003ED65B /* PhotoEventContent.cpp */; };
 		ECDF38C0222265B4003ED65B /* SubStoryEventContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECDF38BE222265B4003ED65B /* SubStoryEventContent.cpp */; };
@@ -365,6 +367,8 @@
 		ECBA50712213DD3600929BBA /* PanelManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PanelManager.hpp; sourceTree = "<group>"; };
 		ECBA50742213F1A000929BBA /* ConditionManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConditionManager.cpp; sourceTree = "<group>"; };
 		ECBA50752213F1A000929BBA /* ConditionManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ConditionManager.hpp; sourceTree = "<group>"; };
+		ECC5E94622284D660090F6C5 /* BaseSpriteListener.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BaseSpriteListener.hpp; sourceTree = "<group>"; };
+		ECC5E94822284D660090F6C5 /* BaseSpriteListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseSpriteListener.cpp; sourceTree = "<group>"; };
 		ECDF38B7222247AA003ED65B /* PhotoEventContent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PhotoEventContent.cpp; sourceTree = "<group>"; };
 		ECDF38B8222247AA003ED65B /* PhotoEventContent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PhotoEventContent.hpp; sourceTree = "<group>"; };
 		ECDF38BE222265B4003ED65B /* SubStoryEventContent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SubStoryEventContent.cpp; sourceTree = "<group>"; };
@@ -691,6 +695,8 @@
 		EC8482A222115FC6001956DE /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				ECC5E94822284D660090F6C5 /* BaseSpriteListener.cpp */,
+				ECC5E94622284D660090F6C5 /* BaseSpriteListener.hpp */,
 				EC8482A32211601D001956DE /* BaseButton.cpp */,
 				EC8482A42211601D001956DE /* BaseButton.hpp */,
 				EC8482A7221161C6001956DE /* BaseButtonGroup.cpp */,
@@ -946,6 +952,7 @@
 				EC8482A52211601D001956DE /* BaseButton.cpp in Sources */,
 				EC8482C9221168F4001956DE /* BaseComponent.cpp in Sources */,
 				EC8482DF22116D39001956DE /* SceneContent.cpp in Sources */,
+				ECC5E94922284D660090F6C5 /* BaseSpriteListener.cpp in Sources */,
 				EC073BC0221A9B67006FDCE0 /* BaseDataManager.cpp in Sources */,
 				EC8483052211726F001956DE /* BasePanel.cpp in Sources */,
 				EC073BCA221A9B67006FDCE0 /* FunctionCalculationData.cpp in Sources */,
@@ -1020,6 +1027,7 @@
 				EC073BBB221A9B67006FDCE0 /* GameData.cpp in Sources */,
 				EC073BCD221A9B67006FDCE0 /* ActionData.cpp in Sources */,
 				EC073BC7221A9B67006FDCE0 /* GameSavingData.cpp in Sources */,
+				ECC5E94A22284D660090F6C5 /* BaseSpriteListener.cpp in Sources */,
 				EC8482CA221168F4001956DE /* BaseComponent.cpp in Sources */,
 				EC073BC3221A9B67006FDCE0 /* ConditionData.cpp in Sources */,
 				ECDF38D522238F66003ED65B /* DialogData.cpp in Sources */,

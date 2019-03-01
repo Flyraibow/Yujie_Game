@@ -17,6 +17,7 @@ namespace Manager
 {
   int calculateIntFromFunction(const string &calString);
   string getFunctionValueById(const string &functionId);
+  string getFunctionValueById(const string &functionId, BaseData *data);
   BaseData* getFunctionDataById(const string &functionId);
 };
 

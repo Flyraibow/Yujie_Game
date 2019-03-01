@@ -21,6 +21,7 @@ class BaseColorNode : public LayerColor
 private:
   void commonInit();
   Color4B p_color;
+  EventListenerTouchOneByOne *p_listener;
 public:
   CREATE_FUNC(BaseColorNode);
   /** Creates a Layer with color, width and height in Points.
@@ -41,6 +42,7 @@ public:
   bool init() override;
   bool initWithColor(const Color4B& color);
   bool initWithColor(const Color4B& color, GLfloat w, GLfloat h);
+  void overrideListener();
 };
 
 #endif /* BaseColorNode_hpp */

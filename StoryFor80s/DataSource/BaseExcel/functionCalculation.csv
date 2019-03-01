@@ -21,3 +21,4 @@ my_charms,string,string_format,my_charms_display;gamedata.AttributeData.charms.v
 my_strength,string,string_format,my_strength_display;gamedata.AttributeData.strength.value,显示我的体力
 my_health,string,string_format,my_health_display;gamedata.AttributeData.health.value,显示我的健康
 my_pressure,string,string_format,my_pressure_display;gamedata.AttributeData.pressure.value,显示我的压力
+friend_name,string,string_connect,data.temp.lastName;data.temp.firstName,显示好友的名字

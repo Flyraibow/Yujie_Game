@@ -22,6 +22,5 @@ void DialogEventContent::runEvent(BaseScene *baseScene, StoryEventCallback callb
 {
   auto dialogPanel = dynamic_cast<DialogPanel *>(PanelManager::getShareInstance()->getPanelById(p_name));
   baseScene->addPanelWithParameters(dialogPanel, true);
-  dialogPanel->showDialogList(p_dialogIds);
-//  callback();
+  dialogPanel->showDialogList(p_dialogIds, callback);
 }

@@ -14,14 +14,15 @@ SubStoryEventContent::SubStoryEventContent(const nlohmann::json &jsonContent) : 
 {
   p_subStoryName = Utils::getStringFromJson(jsonContent, "name");
   p_subStoryData = jsonContent.count("story") ? StoryJsonData::createStoryData(jsonContent.at("story")) : nullptr;
+  if (p_subStoryData == nullptr && p_subStoryName.length() > 0) {
+    p_subStoryData = StoryJsonData::createStoryData(p_subStoryName);
+  }
 }
 
 void SubStoryEventContent::runEvent(BaseScene *baseScene, StoryEventCallback callback)
 {
   if (p_subStoryData != nullptr) {
     StoryManager::getShareInstance()->startStory(p_subStoryData);
-  } else if (p_subStoryName.length() > 0) {
-    StoryManager::getShareInstance()->startStory(p_subStoryName);
   } else {
     CCASSERT(false, "undefined sub story");
   }

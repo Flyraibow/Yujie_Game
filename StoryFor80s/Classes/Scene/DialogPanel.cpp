@@ -10,6 +10,9 @@
 #include "DataManager.hpp"
 #include "Utils.hpp"
 #include "BaseColorNode.hpp"
+#include "BaseSpriteListener.hpp"
+#include "FunctionManager.hpp"
+#include "SceneManager.hpp"
 
 BasePanel* DialogPanel::createPanel()
 {
@@ -20,12 +23,16 @@ DialogPanel::DialogPanel() : BasePanel("dialogPanel")
 {
 }
 
-void DialogPanel::showDialogList(const vector<string> &dialogIds)
+void DialogPanel::showDialogList(const vector<string> &dialogIds, StoryEventCallback callback)
 {
   p_dialogIds = dialogIds;
+  p_callback = callback;
   p_currentIndex = 0;
   
   auto colorNode = getComponentById<BaseColorNode>("color_node");
+  auto listener = BaseSpriteListener::createWithNode(colorNode);
+  colorNode->overrideListener();
+  listener->setTouchEnd(CC_CALLBACK_2(DialogPanel::clickDialogPanel, this), nullptr);
   
   showNextDialog();
 }
@@ -35,7 +42,8 @@ void DialogPanel::showNextDialog()
   if (p_currentIndex < p_dialogIds.size()) {
     showDialogById(p_dialogIds[p_currentIndex++]);
   } else {
-    // TODO: complete
+    SceneManager::getShareInstance()->popPanel();
+    p_callback();
   }
 }
 
@@ -47,6 +55,15 @@ void DialogPanel::showDialogById(const string &dialogId)
   
   if (dialogData->getName().length() > 0) {
     labName->setString(DataManager::getShareInstance()->decipherString(dialogData->getName()));
+  } else if (dialogData->getFriendData() != nullptr) {
+    labName->setString(Manager::getFunctionValueById("friend_name", dialogData->getFriendData()));
   }
-  labDialog->setString(dialogData->getContent());
+  auto content = DataManager::getShareInstance()->formatStringWithParamters(dialogData->getContent(), dialogData->getParameters());
+  labDialog->setString(content);
+}
+
+void DialogPanel::clickDialogPanel(Touch* touch, Event* event)
+{
+  CCLOG("click");
+  showNextDialog();
 }

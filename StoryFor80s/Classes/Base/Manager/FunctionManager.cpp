@@ -16,43 +16,15 @@
 string getFormatStringFromFunction(FunctionCalculationData *functionData)
 {
   auto parameters = functionData->getParameters();
-  string val;
-  auto dataManager = DataManager::getShareInstance();
   if (parameters.size() == 0) {
     CCLOGERROR("string_format should take at list one argument: %s", functionData->getFunctionCalculatonId().c_str());
   } else {
     auto localStr = LocalizationHelper::getLocalization(parameters.at(0));
-    switch (parameters.size()) {
-      case 1:
-        val = localStr;
-        break;
-      case 2:
-      {
-        auto p1 = dataManager->decipherString(parameters.at(1));
-        val = Utils::format(localStr.c_str(), p1.c_str());
-        break;
-      }
-      case 3:
-      {
-        auto p1 = dataManager->decipherString(parameters.at(1));
-        auto p2 = dataManager->decipherString(parameters.at(2));
-        val = Utils::format(localStr.c_str(), p1.c_str(), p2.c_str());
-        break;
-      }
-      case 4:
-      {
-        auto p1 = dataManager->decipherString(parameters.at(1));
-        auto p2 = dataManager->decipherString(parameters.at(2));
-        auto p3 = dataManager->decipherString(parameters.at(3));
-        val = Utils::format(localStr.c_str(), p1.c_str(), p2.c_str(), p3.c_str());
-        break;
-      }
-      default:
-        CCLOGERROR("string_format should take at list one argument : %s", functionData->getFunctionCalculatonId().c_str());
-        break;
-    }
+    auto params = parameters;
+    params.erase(params.begin());
+    return DataManager::getShareInstance()->formatStringWithParamters(localStr, params);
   }
-  return val;
+  return "failed to load " + functionData->getFunctionCalculatonId();
 }
 
 pair<char, int> getNextCalculationFunction(const string &str, int fromIndex = 0)
@@ -129,6 +101,12 @@ string Manager::getFunctionValueById(const string &functionId)
     CCLOGERROR("unrecognized function id: %s", functionId.c_str());
   }
   return val;
+}
+
+string Manager::getFunctionValueById(const string &functionId, BaseData *data)
+{
+  DataManager::getShareInstance()->setTempData("temp", data);
+  return getFunctionValueById(functionId);
 }
 
 BaseData* Manager::getFunctionDataById(const string &functionId)

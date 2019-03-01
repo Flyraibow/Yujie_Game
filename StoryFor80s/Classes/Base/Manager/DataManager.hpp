@@ -53,6 +53,8 @@ public:
   BaseData* getFunctionData(const std::string &functionId) const;
   bool checkCondition(const string &conditionId) const;
   
+  string formatStringWithParamters(const string &str, const vector<string> &parameters) const;
+  
   template <typename T, typename std::enable_if<std::is_base_of<BaseData, T>::value>::type* = nullptr>
   T* getTempData(const string &key) const {
     if (p_tempDataMap.count(key)) {

@@ -451,3 +451,33 @@ string DataManager::calculate(const string &type, const string &a, const string 
   }
   return "";
 }
+
+string DataManager::formatStringWithParamters(const string &str, const vector<string> &parameters) const
+{
+  string result = str;
+  vector<string> decipheredParams;
+  for (auto parameter : parameters) {
+    decipheredParams.push_back(decipherString(parameter));
+  }
+  switch (decipheredParams.size()) {
+    case 1: {
+      result = Utils::format(str.c_str(), decipheredParams.at(0).c_str());
+      break;
+    }
+    case 2: {
+      result = Utils::format(str.c_str(), decipheredParams.at(0).c_str(), decipheredParams.at(1).c_str());
+      break;
+    }
+    case 3: {
+      result = Utils::format(str.c_str(), decipheredParams.at(0).c_str(), decipheredParams.at(1).c_str(), decipheredParams.at(2).c_str());
+      break;
+    }
+    case 4: {
+      result = Utils::format(str.c_str(), decipheredParams.at(0).c_str(), decipheredParams.at(1).c_str(), decipheredParams.at(2).c_str(), decipheredParams.at(3).c_str());
+      break;
+    }
+    default:
+      break;
+  }
+  return result;
+}

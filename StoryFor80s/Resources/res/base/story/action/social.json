@@ -1,7 +1,7 @@
 {
 	"events": [
 		{
-			"__comment" : "显示对话框",
+			"__comment" : "测试剧情, 显示对话框",
 			"type" : "dialog",
 			"name" : "dialogPanel",
 			"dialogIds":[

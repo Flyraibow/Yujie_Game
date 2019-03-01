@@ -1,0 +1,9 @@
+{
+	"events": [
+		{
+			"__comment" : "显示对话框",
+			"type" : "dialog",
+			"name" : "dialogPanel"
+		}
+	]
+}

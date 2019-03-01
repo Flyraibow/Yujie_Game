@@ -64,9 +64,9 @@ bool BaseColorNode::initWithColor(const Color4B& color)
 
 void BaseColorNode::commonInit()
 {
-  auto listener = EventListenerTouchOneByOne::create();
-  listener->setSwallowTouches(true);
-  listener->onTouchBegan = [this](Touch *touch, Event *unused_event) {
+  p_listener = EventListenerTouchOneByOne::create();
+  p_listener->setSwallowTouches(true);
+  p_listener->onTouchBegan = [this](Touch *touch, Event *unused_event) {
     Director *pDirector = Director::getInstance();
     Point touchPoint = pDirector->convertToGL(touch->getLocationInView());
     auto flag = this->getBoundingBox().containsPoint(touchPoint);
@@ -75,5 +75,11 @@ void BaseColorNode::commonInit()
     }
     return flag;
   };
-  this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
+  this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(p_listener, this);
+}
+
+
+void BaseColorNode::overrideListener()
+{
+  this->getEventDispatcher()->removeEventListener(p_listener);
 }
