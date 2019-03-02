@@ -20,6 +20,11 @@ private:
   int p_currentIndex;
   vector<string> p_dialogIds;
   StoryEventCallback p_callback;
+  
+  string p_content;
+  int p_currentContentLength;
+  int p_contentLength;
+  
   void showNextDialog();
   void showDialogById(const string &dialogId);
   void clickDialogPanel(Touch* touch, Event* event);

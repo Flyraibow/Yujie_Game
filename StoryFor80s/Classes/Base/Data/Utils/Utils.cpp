@@ -89,6 +89,48 @@ namespace Utils {
     return ss.str();
   }
   
+  int utf8_strlen(const ::std::string& str)
+  {
+    int c,i,ix,q;
+    for (q=0, i=0, ix=str.length(); i < ix; i++, q++)
+    {
+      c = (unsigned char) str[i];
+      if      (c>=0   && c<=127) i+=0;
+      else if ((c & 0xE0) == 0xC0) i+=1;
+      else if ((c & 0xF0) == 0xE0) i+=2;
+      else if ((c & 0xF8) == 0xF0) i+=3;
+      //else if (($c & 0xFC) == 0xF8) i+=4; // 111110bb //byte 5, unnecessary in 4 byte UTF-8
+      //else if (($c & 0xFE) == 0xFC) i+=5; // 1111110b //byte 6, unnecessary in 4 byte UTF-8
+      else return 0;//invalid utf8
+    }
+    return q;
+  }
+  
+  ::std::string utf8_substr(const ::std::string& str, int start, int len)
+  {
+    int q = 0;
+    int i;
+    ::std::string result;
+    for (i = 0; q < start; ++i, ++q) {
+      char c = (unsigned char) str[i];
+      if      (c>=0   && c<=127) i+=0;
+      else if ((c & 0xE0) == 0xC0) i+=1;
+      else if ((c & 0xF0) == 0xE0) i+=2;
+      else if ((c & 0xF8) == 0xF0) i+=3;
+      else return "";//invalid utf8
+    }
+    int j = i;
+    for (; q < len && j < str.length(); ++j, ++q) {
+      char c = (unsigned char) str[j];
+      if      (c>=0   && c<=127) j+=0;
+      else if ((c & 0xE0) == 0xC0) j+=1;
+      else if ((c & 0xF0) == 0xE0) j+=2;
+      else if ((c & 0xF8) == 0xF0) j+=3;
+      else return "";//invalid utf8
+    }
+    return str.substr(i, j - i);
+  }
+
 #include <cstdio>
 #include <cstdarg>
   

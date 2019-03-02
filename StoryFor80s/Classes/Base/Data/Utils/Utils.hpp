@@ -60,6 +60,9 @@ namespace Utils {
   ::std::vector<::std::string> split(const ::std::string &s, char delim);
   ::std::string join(const ::std::vector<::std::string> &v, const string &jointer);
   
+  int utf8_strlen(const ::std::string& str);
+  ::std::string utf8_substr(const ::std::string& str, int start, int len);
+  
   ::std::string format(const char *fmt, ...)
 #ifdef __GNUC__
   __attribute__ ((format (printf, 1, 2)))
