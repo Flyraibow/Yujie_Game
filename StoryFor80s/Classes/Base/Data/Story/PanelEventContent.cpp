@@ -17,7 +17,7 @@ PanelEventContent::PanelEventContent(const nlohmann::json &jsonContent) : StoryE
   CCASSERT(p_name.length() > 0, "story panel event, name shouldn't be empty");
 }
 
-void PanelEventContent::runEvent(BaseScene *baseScene, StoryEventCallback callback)
+void PanelEventContent::runEvent(StoryEventCallback callback)
 {
   SceneManager::getShareInstance()->addPanel(p_name);
 }

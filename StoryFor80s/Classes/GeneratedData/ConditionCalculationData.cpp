@@ -116,3 +116,12 @@ string ConditionCalculationData::getFieldValue(const string & fieldName)
 	return "";
 }
 
+BaseData* ConditionCalculationData::getDataByField(const string & fieldName)
+{
+	if (fieldName == "condition") {
+		return this->getConditionData();
+	}
+	CCLOGWARN("Couldn't recognize %s in ConditionCalculationData", fieldName.c_str());
+	return nullptr;
+}
+

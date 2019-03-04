@@ -167,3 +167,9 @@ string HobbyData::getFieldValue(const string & fieldName)
 	return "";
 }
 
+BaseData* HobbyData::getDataByField(const string & fieldName)
+{
+	CCLOGWARN("Couldn't recognize %s in HobbyData", fieldName.c_str());
+	return nullptr;
+}
+

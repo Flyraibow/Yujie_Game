@@ -23,7 +23,7 @@ private:
 public:
   ~ConditionEventContent();
   ConditionEventContent(const nlohmann::json &jsonContent);
-  void runEvent(BaseScene *baseScene, StoryEventCallback callback);
+  void runEvent(StoryEventCallback callback);
 };
 
 #endif /* ConditionEventContent_hpp */

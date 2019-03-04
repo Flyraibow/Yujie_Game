@@ -31,7 +31,7 @@ public:
   static StoryEventContent* getStoryEventFromJson(const nlohmann::json &jsonContent);
   static vector<StoryEventContent *> getStoryEventsFromJson(const nlohmann::json &jsonContent);
   
-  virtual void runEvent(BaseScene *baseScene, StoryEventCallback callback);
+  virtual void runEvent(StoryEventCallback callback);
 };
 
 #endif /* StoryEventContent_hpp */

@@ -7,7 +7,8 @@
 
 #include "WaitEventContent.hpp"
 #include "JsonUtil.hpp"
-#include "BaseScene.hpp"
+#include "SceneManager.hpp"
+#include "BaseColorNode.hpp"
 
 
 WaitEventContent::WaitEventContent(const nlohmann::json &jsonContent) : StoryEventContent(jsonContent)
@@ -15,9 +16,13 @@ WaitEventContent::WaitEventContent(const nlohmann::json &jsonContent) : StoryEve
   p_duration = Utils::getFloatFromJson(jsonContent, "duration");
 }
 
-void WaitEventContent::runEvent(BaseScene *baseScene, StoryEventCallback callback)
+void WaitEventContent::runEvent(StoryEventCallback callback)
 {
-  baseScene->schedule([callback] (float delta) {
+  auto baseScene = SceneManager::getShareInstance()->currentScene();
+  auto colorNode = BaseColorNode::create(Color4B(), baseScene->getContentSize().width, baseScene->getContentSize().height);
+  baseScene->addChild(colorNode, SCREEN_FOREGROUND_LAYER_HEIGHT);
+  baseScene->schedule([callback, colorNode] (float delta) {
+    colorNode->removeFromParent();
     callback();
   }, p_duration, 0, 0, "story_wait");
 }

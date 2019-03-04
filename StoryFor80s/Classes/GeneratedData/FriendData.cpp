@@ -194,3 +194,9 @@ string FriendData::getFieldValue(const string & fieldName)
 	return "";
 }
 
+BaseData* FriendData::getDataByField(const string & fieldName)
+{
+	CCLOGWARN("Couldn't recognize %s in FriendData", fieldName.c_str());
+	return nullptr;
+}
+

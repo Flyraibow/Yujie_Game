@@ -46,7 +46,7 @@ private:
   string getMoveKey() const;
 public:
   PhotoEventContent(const nlohmann::json &jsonContent);
-  void runEvent(BaseScene *baseScene, StoryEventCallback callback);
+  void runEvent(StoryEventCallback callback);
 };
 
 

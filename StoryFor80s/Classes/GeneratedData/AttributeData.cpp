@@ -158,3 +158,9 @@ string AttributeData::getFieldValue(const string & fieldName)
 	return "";
 }
 
+BaseData* AttributeData::getDataByField(const string & fieldName)
+{
+	CCLOGWARN("Couldn't recognize %s in AttributeData", fieldName.c_str());
+	return nullptr;
+}
+

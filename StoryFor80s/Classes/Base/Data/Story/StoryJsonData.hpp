@@ -21,7 +21,7 @@ private:
   void initDataWithJsonContent(const nlohmann::json &jsonContent);
   vector<StoryEventContent *> p_storyEventList;
 public:
-  ~StoryJsonData() {};
+  ~StoryJsonData();
   string getSceneName() const;
   vector<StoryEventContent *> getStoryEventsList() const;
   static StoryJsonData* createStoryData(const string &jsonFileName);

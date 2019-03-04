@@ -181,3 +181,12 @@ string ItemData::getFieldValue(const string & fieldName)
 	return "";
 }
 
+BaseData* ItemData::getDataByField(const string & fieldName)
+{
+	if (fieldName == "category") {
+		return this->getCategoryData();
+	}
+	CCLOGWARN("Couldn't recognize %s in ItemData", fieldName.c_str());
+	return nullptr;
+}
+

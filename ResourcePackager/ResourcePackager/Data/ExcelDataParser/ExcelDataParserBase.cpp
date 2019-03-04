@@ -162,6 +162,7 @@ void ExcelDataParserBase::generateCode(const string& folderPath)
     this->setSetFieldFunction();
   }
   this->setGetFieldFunction();
+  this->setGetFieldDataFunction();
   p_file->addClass(p_class);
   p_file->saveFiles(folderPath);
   delete p_class;
@@ -330,6 +331,29 @@ void ExcelDataParserBase::setSetFieldFunction()
   }
   
   p_class->addFunction(p_setFieldFunction, false);
+}
+
+void ExcelDataParserBase::setGetFieldDataFunction()
+{
+  auto fieldVar = new CPPVariable("fieldName", "const string &");
+  p_getFieldDataFunction = new CPPFunction("getDataByField", "BaseData*", {fieldVar}, false, false);
+  int count = 0;
+  for (auto schema : p_dataSchemas) {
+    if (schema->getType() == FRIEND_ID) {
+      auto parser = ExcelParserBase::createWithSchema(schema, "");
+      string prefix = (count > 0) ? "} else " : "";
+      p_getFieldDataFunction->addBodyStatements(prefix + "if (fieldName == \"" + schema->getName() + "\") {");
+      parser->addGetFieldDataValueFuncBody(p_getFieldDataFunction);
+      delete parser;
+      ++count;
+    }
+  }
+  if (count > 0) {
+    p_getFieldDataFunction->addBodyStatements("}");
+  }
+  p_getFieldDataFunction->addBodyStatements("CCLOGWARN(\"Couldn't recognize %s in " + p_class->getClassName() + "\", fieldName.c_str());");
+  p_getFieldDataFunction->addBodyStatements("return nullptr;");
+  p_class->addFunction(p_getFieldDataFunction, false);
 }
 
 void ExcelDataParserBase::setLoadFunction(const CPPVariable* pathVar)

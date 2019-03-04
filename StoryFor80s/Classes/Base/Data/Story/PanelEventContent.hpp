@@ -17,7 +17,7 @@ private:
   string p_name;
 public:
   PanelEventContent(const nlohmann::json &jsonContent);
-  void runEvent(BaseScene *baseScene, StoryEventCallback callback);
+  void runEvent(StoryEventCallback callback);
 };
 
 #endif /* PanelEventContent_hpp */

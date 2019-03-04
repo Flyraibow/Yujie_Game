@@ -33,6 +33,7 @@ protected:
   CPPClass *p_class;
   CPPFunction * p_getFieldFunction;
   CPPFunction * p_setFieldFunction;
+  CPPFunction * p_getFieldDataFunction;
   
   vector<DataSchema *> p_dataSchemas;
   vector<vector<string>> p_values;
@@ -43,6 +44,7 @@ protected:
   virtual void setClearFunction();
   virtual void setGetFieldFunction();
   virtual void setSetFieldFunction();
+  virtual void setGetFieldDataFunction();
   string getSaveLoadPathCode() const;
   int p_needSaveDataNumber;
   

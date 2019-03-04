@@ -47,6 +47,7 @@ string StoryEventContent::getComment() const
 #include "StoryManager.hpp"
 #include "PanelEventContent.hpp"
 #include "DialogEventContent.hpp"
+#include "SelectionEventContent.hpp"
 
 StoryEventContent* StoryEventContent::getStoryEventFromJson(const nlohmann::json &jsonContent)
 {
@@ -68,6 +69,8 @@ StoryEventContent* StoryEventContent::getStoryEventFromJson(const nlohmann::json
     return new PanelEventContent(jsonContent);
   } else if (type == "dialog") {
     return new DialogEventContent(jsonContent);
+  } else if (type == "selection") {
+    return new SelectionEventContent(jsonContent);
   } else if (type == "popScene" || type == "stopStory" || type == "refreshScene" || type == "checkStory") {
   } else if (StoryManager::isFunctionRegistered(type)) {
   } else {
@@ -78,7 +81,7 @@ StoryEventContent* StoryEventContent::getStoryEventFromJson(const nlohmann::json
 
 #include "SceneManager.hpp"
 
-void StoryEventContent::runEvent(BaseScene *baseScene, StoryEventCallback callback)
+void StoryEventContent::runEvent(StoryEventCallback callback)
 {
   if (p_type == "popScene") {
     SceneManager::getShareInstance()->popScene();
@@ -88,6 +91,7 @@ void StoryEventContent::runEvent(BaseScene *baseScene, StoryEventCallback callba
     SceneManager::getShareInstance()->refreshScene();
   } else if (p_type == "checkStory") {
     StoryManager::getShareInstance()->checkAndStartStory();
+    return;
   } else if (StoryManager::isFunctionRegistered(p_type)) {
     StoryManager::runFunction(p_type, p_content);
   }

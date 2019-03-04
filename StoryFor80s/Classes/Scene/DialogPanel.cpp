@@ -6,7 +6,6 @@
 //
 
 #include "DialogPanel.hpp"
-#include "DialogData.hpp"
 #include "DataManager.hpp"
 #include "Utils.hpp"
 #include "BaseColorNode.hpp"
@@ -25,42 +24,45 @@ DialogPanel::DialogPanel() : BasePanel("dialogPanel")
 {
 }
 
-void DialogPanel::showDialogList(const vector<string> &dialogIds, StoryEventCallback callback)
+void DialogPanel::setCallback(StoryEventCallback callback)
 {
-  p_dialogIds = dialogIds;
   p_callback = callback;
-  p_currentIndex = 0;
-  
+}
+
+void DialogPanel::setListener()
+{
   auto colorNode = getComponentById<BaseColorNode>("color_node");
   auto listener = BaseSpriteListener::createWithNode(colorNode);
   colorNode->overrideListener();
   listener->setTouchEnd(CC_CALLBACK_2(DialogPanel::clickDialogPanel, this), nullptr);
+}
+
+void DialogPanel::showDialogList(const vector<DialogElements *> &dialogs)
+{
+  setListener();
+  p_dialogs = dialogs;
+  p_currentIndex = 0;
   
   showNextDialog();
 }
 
 void DialogPanel::showNextDialog()
 {
-  if (p_currentIndex < p_dialogIds.size()) {
-    showDialogById(p_dialogIds[p_currentIndex++]);
+  if (p_currentIndex < p_dialogs.size()) {
+    showDialog(p_dialogs[p_currentIndex++]);
   } else {
     SceneManager::getShareInstance()->popPanel();
     p_callback();
   }
 }
 
-void DialogPanel::showDialogById(const string &dialogId)
+void DialogPanel::showDialog(const DialogElements *dialog)
 {
-  auto dialogData = DialogData::getDialogDataById(dialogId);
   auto labName = getComponentById<Label>("lab_name");
   auto labDialog = getComponentById<Label>("lab_dialog");
   
-  if (dialogData->getName().length() > 0) {
-    labName->setString(DataManager::getShareInstance()->decipherString(dialogData->getName()));
-  } else if (dialogData->getFriendData() != nullptr) {
-    labName->setString(Manager::getFunctionValueById("friend_name", dialogData->getFriendData()));
-  }
-  p_content = DataManager::getShareInstance()->formatStringWithParamters(dialogData->getContent(), dialogData->getParameters());
+  labName->setString(DataManager::getShareInstance()->decipherString(dialog->getName()));
+  p_content = DataManager::getShareInstance()->formatStringWithParamters(dialog->getContent(), dialog->getParameters());
   p_currentContentLength = 0;
   p_contentLength = Utils::utf8_strlen(p_content);
 

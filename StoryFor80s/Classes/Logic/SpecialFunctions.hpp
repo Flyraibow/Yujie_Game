@@ -18,4 +18,10 @@ namespace story {
   void passDay(const nlohmann::json &jsonContent);
 }
 
+namespace game {
+  void homePage(const nlohmann::json &jsonContent);
+  void save(const nlohmann::json &jsonContent);
+  void load(const nlohmann::json &jsonContent);
+}
+
 #endif /* SpecialFunctions_hpp */

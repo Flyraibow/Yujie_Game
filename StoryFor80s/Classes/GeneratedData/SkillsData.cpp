@@ -197,3 +197,9 @@ string SkillsData::getFieldValue(const string & fieldName)
 	return "";
 }
 
+BaseData* SkillsData::getDataByField(const string & fieldName)
+{
+	CCLOGWARN("Couldn't recognize %s in SkillsData", fieldName.c_str());
+	return nullptr;
+}
+

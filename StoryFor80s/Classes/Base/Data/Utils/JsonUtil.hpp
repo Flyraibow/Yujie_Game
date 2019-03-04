@@ -18,7 +18,7 @@ namespace Utils {
   float getFloatFromJson(const nlohmann::json &json, const std::string &field, const float defaultValue = 0);
   float getDoubleFromJson(const nlohmann::json &json, const std::string &field, const float defaultValue = 0);
   bool getBoolFromJson(const nlohmann::json &json, const std::string &field, bool defaultValue = false);
-  cocos2d::Color4B getColorFromJson(const nlohmann::json &json, const std::string &field, const cocos2d::Color4B &defaultValue = cocos2d::Color4B::BLACK);
+  cocos2d::Color4B getColorFromJson(const nlohmann::json &json, const std::string &field, const cocos2d::Color4B &defaultValue = cocos2d::Color4B());
   std::vector<std::string> getStringListFromJson(const nlohmann::json &json, const std::string &field);
 }
 

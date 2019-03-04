@@ -178,3 +178,9 @@ string GameSavingData::getFieldValue(const string & fieldName)
 	return "";
 }
 
+BaseData* GameSavingData::getDataByField(const string & fieldName)
+{
+	CCLOGWARN("Couldn't recognize %s in GameSavingData", fieldName.c_str());
+	return nullptr;
+}
+

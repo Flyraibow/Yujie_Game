@@ -13,10 +13,6 @@
 #include "DataManager.hpp"
 #include <string>
 
-#define SCREEN_CONTENT_LAYER 1
-#define SCREEN_DIALOG_LAYER 90
-#define SCREEN_COVER_LAYER_HEIGHT 100
-#define SCREEN_FOREGROUND_LAYER_HEIGHT 101
 
 #ifdef COVER_DEBUG
 #define COVER_COLOR Color4B(255, 0, 0, 100)

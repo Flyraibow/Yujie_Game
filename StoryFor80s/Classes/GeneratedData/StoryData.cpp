@@ -180,3 +180,12 @@ string StoryData::getFieldValue(const string & fieldName)
 	return "";
 }
 
+BaseData* StoryData::getDataByField(const string & fieldName)
+{
+	if (fieldName == "condition") {
+		return this->getConditionData();
+	}
+	CCLOGWARN("Couldn't recognize %s in StoryData", fieldName.c_str());
+	return nullptr;
+}
+

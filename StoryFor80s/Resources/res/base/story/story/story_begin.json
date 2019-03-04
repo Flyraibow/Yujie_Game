@@ -1,0 +1,66 @@
+{
+	"scene": "storyScene",
+	"events": [
+		{
+			"__comment" : "播放背景音乐",
+			"type" : "music",
+			"action" : "stop"
+		},
+		{
+			"__comment" : "弹出对话框",
+			"type" : "dialog",
+			"name" : "dialogPanel",
+			"dialogs":[
+				{
+					"content" : "嗨！这就是我的故事。—— 80 后的故事，让我们一起来体验吧。"
+				},
+				{
+					"content" : "我叫%s，我出生在%s，我的父母是%s，他们%s",
+					"parameters" : [
+						"function.my_full_name",
+						"function.my_birthday_with_year",
+						"game.parentJob.name",
+						"game.parentJob.description"
+					]
+				},
+				{
+					"content" : "今天是我开学的第一天。"
+				}
+			]
+		},
+		{
+			"__comment" : "popScene",
+			"type" : "popScene"
+		},
+		{
+			"__comment" : "等待3秒",
+			"type" : "wait",
+			"duration" : 3
+		},
+		{
+			"__comment" : "弹出对话框",
+			"type" : "dialog",
+			"name" : "dialogPanel",
+			"dialogs":[
+				{
+					"name": "妈妈",
+					"content" : "%s啊，今天你就要上学了，我吩咐你的事情你都记住了吗？",
+					"parameters" : [
+						"game.firstName"
+					]
+				},
+				{
+					"name": "function.my_full_name",
+					"content" : "嗯，我都记住了，遇到老师要说‘老师好’，不要和同学打闹，身体不舒服要及时和老师说……"
+				},
+				{
+					"name": "妈妈",
+					"content" : "嗯，乖！%s真懂事。",
+					"parameters" : [
+						"game.firstName"
+					]
+				}
+			]
+		}
+	]
+}

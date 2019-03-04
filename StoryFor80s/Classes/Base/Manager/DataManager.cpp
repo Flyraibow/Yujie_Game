@@ -247,20 +247,8 @@ string DataManager::decipherString(const string &value) const
       } else {
         CCLOGWARN("Temp string doesn't contain this value : %s", dataKey.c_str());
       }
-    } else if (k == "game") {
-      val = GameData::getSharedInstance()->getFieldValue(args.at(1));
-    } else if (k == "gamedata") {
-      if (args.size() == 4) {
-        val = BaseDataManager::getDataField(args.at(1), args.at(2), args.at(3));
-      } else {
-        CCLOGWARN("gamedata string doesn't contain this value : %s", value.c_str());
-      }
-    } else if (k == "globaldata") {
-      if (args.size() == 4) {
-        val = BaseGlobalDataManager::getDataField(args.at(1), args.at(2), args.at(3));
-      } else {
-        CCLOGWARN("globaldata string doesn't contain this value : %s", value.c_str());
-      }
+    } else if (k == "game" || k == "gamedata" || k == "globaldata") {
+      val = getStringFromStringList(args);
     } else if (k == "data") {
       auto dataKey = args.at(1);
       if (p_tempDataMap.count(dataKey)) {
@@ -480,4 +468,29 @@ string DataManager::formatStringWithParamters(const string &str, const vector<st
       break;
   }
   return result;
+}
+
+string DataManager::getStringFromStringList(const vector<string> &strList) const
+{
+  CCASSERT(strList.size() >= 2, ("couldn't decipher strList : " + Utils::join(strList, ".")).c_str());
+  auto type = strList.at(0);
+  BaseData *data = nullptr;
+  int i = 1;
+  if (type == "game") {
+    data = GameData::getSharedInstance();
+  } else if (type == "gamedata") {
+    i = 3;
+    data = BaseDataManager::getData(strList.at(1), strList.at(2));
+  } else if (type == "globaldata") {
+    i = 3;
+    data = BaseGlobalDataManager::getData(strList.at(1), strList.at(2));
+  }
+  while (i < strList.size() - 1 && data != nullptr) {
+    data = data->getDataByField(strList[i++]);
+  }
+  if (data != nullptr) {
+    return data->getFieldValue(strList.at(i));
+  }
+  CCLOGWARN("couldn't decipher strList : %s" , Utils::join(strList, ".").c_str());
+  return "";
 }

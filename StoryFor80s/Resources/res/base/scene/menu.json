@@ -25,7 +25,10 @@
 					{
 				      "type": "button",
 				      "id": "load_game",
-				      "text": "读取进度"
+				      "text": "读取进度",
+					  "story" : {
+						"scene" : "loadScene"
+					  }
 					}
 				]
 			}

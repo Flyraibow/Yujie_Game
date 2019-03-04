@@ -8,6 +8,14 @@
 #include "StoryJsonData.hpp"
 #include "StoryJsonContent.hpp"
 
+StoryJsonData::~StoryJsonData()
+{
+  for (auto storyEvent : p_storyEventList) {
+    delete storyEvent;
+  }
+  p_storyEventList.clear();
+}
+
 StoryJsonData* StoryJsonData::createStoryData(const string &jsonFileName)
 {
   auto storyData = new StoryJsonData();

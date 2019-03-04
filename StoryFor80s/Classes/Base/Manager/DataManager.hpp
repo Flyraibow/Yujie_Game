@@ -30,6 +30,7 @@ private:
   string getConditionString(const string &type, const string &parameter) const;
   string getFormatStringFromFunction(FunctionCalculationData *functionData) const;
   string calculate(const string &type, const string &a, const string &b, const string &func);
+  string getStringFromStringList(const vector<string> &strList) const;
 public:
   static DataManager* getShareInstance();
   void setTempData(const string &key, BaseData* value);

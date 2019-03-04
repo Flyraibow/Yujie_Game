@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"__comment" : "读取进度",
+			"type" : "load"
+		},
+		{
+			"__comment" : "游戏界面",
+			"type" : "story",
+			"story" : {
+				"scene" : "gameScene"
+			}
+		}
+	]
+}

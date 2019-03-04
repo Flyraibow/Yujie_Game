@@ -19,7 +19,7 @@ SubStoryEventContent::SubStoryEventContent(const nlohmann::json &jsonContent) : 
   }
 }
 
-void SubStoryEventContent::runEvent(BaseScene *baseScene, StoryEventCallback callback)
+void SubStoryEventContent::runEvent(StoryEventCallback callback)
 {
   if (p_subStoryData != nullptr) {
     StoryManager::getShareInstance()->startStory(p_subStoryData);
@@ -33,5 +33,6 @@ SubStoryEventContent::~SubStoryEventContent()
 {
   if (p_subStoryData != nullptr) {
     delete p_subStoryData;
+    p_subStoryData = nullptr;
   }
 }

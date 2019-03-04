@@ -77,12 +77,18 @@ bool Manager::checkConditionByString(const string &conditionStr)
       auto rightValue = convertConditionStrToInt(rightStr);
       return compareInteger(leftValue, rightValue, compType);
     } else if (type == "string") {
-      
+      // TODO:
     } else {
       CCLOGWARN("Un-recognized condition type: %s", type.c_str());
     }
-  } else {
-    CCLOGWARN("Un-recognized condition string: %s", conditionStr.c_str());
+  } else if (conditionStr.length() > 0 ) {
+    auto type = Utils::split(conditionStr, '.').at(0);
+    if (type == "bool") {
+      auto value = convertConditionStrToInt(conditionStr);
+      return value != 0;
+    } else {
+      CCLOGWARN("Un-recognized condition string: %s", conditionStr.c_str());
+    }
   }
   // default result is true
   return true;

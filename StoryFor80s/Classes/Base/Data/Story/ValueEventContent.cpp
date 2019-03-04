@@ -14,7 +14,7 @@ ValueEventContent::ValueEventContent(const nlohmann::json &jsonContent) : StoryE
   p_values = jsonContent.at("values");
 }
 
-void ValueEventContent::runEvent(BaseScene *baseScene, StoryEventCallback callback)
+void ValueEventContent::runEvent(StoryEventCallback callback)
 {
   for (auto iter = p_values.begin(); iter != p_values.end(); ++iter) {
     auto key = iter.key();

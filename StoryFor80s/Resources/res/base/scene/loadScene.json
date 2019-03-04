@@ -1,0 +1,106 @@
+{
+	"backgroundImage": "res/StoryFor80s_system.png",
+	"fullScreenCover": true,
+	"components":[
+		{
+		 	"type": "color_node",
+		 	"id": "color_node",
+			"backgroundColor" : "alpha_zero",
+			"group_button" : {
+				"options" : {
+					"close":false,
+					"italic":false,
+					"align":true
+				},
+				"components" : [
+					{
+				      "type": "button",
+				      "id": "load_button_1",
+				      "text": "globaldata.GameSavingData.1.saveDescription",
+				      "storyId" : "system/load",
+				      "disable_condition" : "bool.globaldata.GameSavingData.1.saved",
+				      "setTemp" : {
+				      	"index":"1"
+				      }
+					},
+					{
+				      "type": "button",
+				      "id": "load_button_2",
+				      "text": "globaldata.GameSavingData.2.saveDescription",
+				      "disable_condition" : "bool.globaldata.GameSavingData.2.saved",
+				      "storyId" : "system/load",
+				      "setTemp" : {
+				      	"index":"2"
+				      }
+					},
+					{
+				      "type": "button",
+				      "id": "load_button_3",
+				      "text": "globaldata.GameSavingData.3.saveDescription",
+				      "disable_condition" : "bool.globaldata.GameSavingData.3.saved",
+				      "storyId" : "system/load",
+				      "setTemp" : {
+				      	"index":"3"
+				      }
+					},
+					{
+				      "type": "button",
+				      "id": "load_button_4",
+				      "text": "globaldata.GameSavingData.4.saveDescription",
+				      "disable_condition" : "bool.globaldata.GameSavingData.4.saved",
+				      "storyId" : "system/load",
+				      "setTemp" : {
+				      	"index":"4"
+				      }
+					},
+					{
+				      "type": "button",
+				      "id": "load_button_5",
+				      "text": "globaldata.GameSavingData.5.saveDescription",
+				      "disable_condition" : "bool.globaldata.GameSavingData.5.saved",
+				      "storyId" : "system/load",
+				      "setTemp" : {
+				      	"index":"5"
+				      }
+					},
+					{
+				      "type": "button",
+				      "id": "load_button_6",
+				      "text": "globaldata.GameSavingData.6.saveDescription",
+				      "disable_condition" : "bool.globaldata.GameSavingData.6.saved",
+				      "storyId" : "system/load",
+				      "setTemp" : {
+				      	"index":"6"
+				      }
+					},
+					{
+				      "type": "button",
+				      "id": "load_button_7",
+				      "text": "globaldata.GameSavingData.7.saveDescription",
+				      "disable_condition" : "bool.globaldata.GameSavingData.7.saved",
+				      "storyId" : "system/load",
+				      "setTemp" : {
+				      	"index":"7"
+				      }
+					},
+					{
+				      "type": "button",
+				      "id": "load_button_8",
+				      "text": "globaldata.GameSavingData.8.saveDescription",
+				      "disable_condition" : "bool.globaldata.GameSavingData.8.saved",
+				      "storyId" : "system/load",
+				      "setTemp" : {
+				      	"index":"8"
+				      }
+					},
+					{
+				      "type": "button",
+				      "id": "cancel_btn",
+				      "text": "translation.sys_cancel",
+		      		  "storyId": "popScene"
+					}
+				]
+			}
+		}
+	]
+}

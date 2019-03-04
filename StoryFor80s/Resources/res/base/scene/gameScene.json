@@ -148,23 +148,29 @@
 	   {
 	      "type": "sprite",
 	      "size": {
-	      	"width": 1000,
+	      	"width": 1100,
 	      	"height": 100
 	      },
 	      "color": "alpha_red",
 	      "normalized_position": [0.95, 0.05],
 	      "anchor_point": [1, 0],
 	      "components" : [
+		    {
+		      "type": "button",
+		      "text": "gamedata.ActionData.action_system.name",
+		      "normalized_position": [0.95, 0.5],
+		      "storyId" : "action/system"
+		    },
 	      	{
 		      "type": "button",
 		      "text": "gamedata.ActionData.action_sleep.name",
-		      "normalized_position": [0.9, 0.5],
+		      "normalized_position": [0.8, 0.5],
 		      "storyId" : "action/sleep"
 		    },
 		    {
 		      "type": "button",
 		      "text": "gamedata.ActionData.action_social.name",
-		      "normalized_position": [0.7, 0.5],
+		      "normalized_position": [0.65, 0.5],
 		      "storyId" : "action/social"
 		    },
 		    {
@@ -175,12 +181,13 @@
 		    {
 		      "type": "button",
 		      "text": "gamedata.ActionData.action_study.name",
-		      "normalized_position": [0.3, 0.5]
+		      "normalized_position": [0.35, 0.5]
 		    },
 		    {
 		      "type": "button",
 		      "text": "gamedata.ActionData.action_work.name",
-		      "normalized_position": [0.1, 0.5]
+		      "normalized_position": [0.2, 0.5],
+		      "storyId" : "action/system"
 		    }
 	      ]
 	   }

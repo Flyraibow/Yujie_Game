@@ -23,7 +23,7 @@ private:
   MusicEventAction p_action;
 public:
   MusicEventContent(const nlohmann::json &jsonContent);
-  void runEvent(BaseScene *baseScene, StoryEventCallback callback);
+  void runEvent(StoryEventCallback callback);
 };
 
 #endif /* MusicEventContent_hpp */

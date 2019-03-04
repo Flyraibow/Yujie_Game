@@ -36,5 +36,6 @@ public:
 	static bool clearData();
 	void setFieldValue(const string & fieldName, const string & value);
 	string getFieldValue(const string & fieldName);
+	BaseData* getDataByField(const string & fieldName);
 };
 #endif

@@ -28,6 +28,7 @@ public:
   virtual string getId() const {return "";};
   virtual string description() const = 0;
   virtual string getFieldValue(const string & fieldName) = 0;
+  virtual BaseData *getDataByField(const string &fieldName) { return nullptr; };
   virtual void setFieldValue(const string & fieldName, const string & value) {};
 };
 

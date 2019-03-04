@@ -96,3 +96,9 @@ string FunctionCalculationData::getFieldValue(const string & fieldName)
 	return "";
 }
 
+BaseData* FunctionCalculationData::getDataByField(const string & fieldName)
+{
+	CCLOGWARN("Couldn't recognize %s in FunctionCalculationData", fieldName.c_str());
+	return nullptr;
+}
+

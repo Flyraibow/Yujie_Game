@@ -7,6 +7,12 @@
 
 #include "SpecialFunctions.hpp"
 #include "GameData.hpp"
+#include "BaseDataManager.hpp"
+#include "SceneManager.hpp"
+#include "GameSavingData.hpp"
+#include "DataManager.hpp"
+#include "BaseGlobalDataManager.hpp"
+#include "FunctionManager.hpp"
 
 void story::passDay(const nlohmann::json &jsonContent)
 {
@@ -27,4 +33,27 @@ void story::passDay(const nlohmann::json &jsonContent)
   GameData::getSharedInstance()->setDay(day);
   GameData::getSharedInstance()->setMonth(month);
   GameData::getSharedInstance()->setYear(year);
+}
+
+
+void game::homePage(const nlohmann::json &jsonContent)
+{
+  BaseDataManager::clearData();
+  SceneManager::getShareInstance()->setScene("menu");
+}
+
+void game::save(const nlohmann::json &jsonContent)
+{
+  auto index = DataManager::getShareInstance()->getTempString("index");
+  auto gameSaving = GameSavingData::getGameSavingDataById(index);
+  BaseDataManager::saveData(index);
+  gameSaving->setSaveDescription(DataManager::getShareInstance()->getTempString("saveDescription"));
+  gameSaving->setSaved(true);
+  BaseGlobalDataManager::saveData("global");
+}
+
+void game::load(const nlohmann::json &jsonContent)
+{
+  auto index = DataManager::getShareInstance()->getTempString("index");
+  BaseDataManager::loadData(index);
 }

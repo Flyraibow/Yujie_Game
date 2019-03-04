@@ -22,6 +22,7 @@ public:
 	void setSalary(int salary);
 	int getKnowledge() const;
 	void setKnowledge(int knowledge);
+	string getDescription() const;
 	string description() const;
 	static const map<string, FatherJobData*>* getSharedDictionary();
 	static FatherJobData* getFatherJobDataById(const string& fatherJobId);
@@ -30,5 +31,6 @@ public:
 	static bool clearData();
 	void setFieldValue(const string & fieldName, const string & value);
 	string getFieldValue(const string & fieldName);
+	BaseData* getDataByField(const string & fieldName);
 };
 #endif

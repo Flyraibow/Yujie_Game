@@ -48,6 +48,12 @@ void FatherJobData::setKnowledge(int knowledge)
 	p_knowledge = knowledge;
 }
 
+string FatherJobData::getDescription() const
+{
+	string localId = "fatherJob_description_" + to_string(p_fatherJobId);
+	return LocalizationHelper::getLocalization(localId);
+}
+
 string FatherJobData::description() const
 {
 	string desc = "fatherJobData = {\n";
@@ -55,6 +61,7 @@ string FatherJobData::description() const
 	desc += "\tname : " + getName() + "\n";
 	desc += "\tsalary : " + to_string(p_salary) + "\n";
 	desc += "\tknowledge : " + to_string(p_knowledge) + "\n";
+	desc += "\tdescription : " + getDescription() + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -173,8 +180,16 @@ string FatherJobData::getFieldValue(const string & fieldName)
 		return to_string(this->getSalary());
 	} else if (fieldName == "knowledge") {
 		return to_string(this->getKnowledge());
+	} else if (fieldName == "description") {
+		return to_string(this->getDescription());
 	}
 	CCLOGWARN("Couldn't recognize %s in FatherJobData", fieldName.c_str());
 	return "";
+}
+
+BaseData* FatherJobData::getDataByField(const string & fieldName)
+{
+	CCLOGWARN("Couldn't recognize %s in FatherJobData", fieldName.c_str());
+	return nullptr;
 }
 

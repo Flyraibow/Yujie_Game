@@ -10,6 +10,7 @@
 
 #include "BasePanel.hpp"
 #include "StoryEventContent.hpp"
+#include "DialogEventContent.hpp"
 #include <vector>
 
 using namespace std;
@@ -18,21 +19,23 @@ class DialogPanel : public BasePanel
 {
 private:
   int p_currentIndex;
-  vector<string> p_dialogIds;
+  vector<DialogElements *> p_dialogs;
   StoryEventCallback p_callback;
   
   string p_content;
   int p_currentContentLength;
   int p_contentLength;
   
+  void setListener();
   void showNextDialog();
-  void showDialogById(const string &dialogId);
+  void showDialog(const DialogElements *dialog);
   void clickDialogPanel(Touch* touch, Event* event);
 public:
   static BasePanel* createPanel();
   DialogPanel();
   
-  void showDialogList(const vector<string> &dialogIds, StoryEventCallback callback);
+  void setCallback(StoryEventCallback callback);
+  void showDialogList(const vector<DialogElements *> &dialogs);
 };
 
 #endif /* DialogPanel_hpp */

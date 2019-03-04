@@ -1,0 +1,5 @@
+﻿actionId,name,salary,proficienc
+id,language,int,int
+string,chinese,-,-
+writable,N,N,Y
+0,做家务,2,0

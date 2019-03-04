@@ -10,14 +10,31 @@
 
 #include "StoryEventContent.hpp"
 
+class DialogElements
+{
+private:
+  string p_name;
+  string p_content;
+  vector<string> p_parameters;
+public:
+  DialogElements(const nlohmann::json &jsonContent);
+  DialogElements(const string &name, const string &content, const vector<string> parameters);
+  ~DialogElements() {};
+  
+  string getName() const;
+  string getContent() const;
+  vector<string> getParameters() const;
+};
+
 class DialogEventContent : public StoryEventContent
 {
 private:
   string p_name;
-  vector<string> p_dialogIds;
+  vector<DialogElements *> p_dialogs;
 public:
   DialogEventContent(const nlohmann::json &jsonContent);
-  void runEvent(BaseScene *baseScene, StoryEventCallback callback);
+  ~DialogEventContent();
+  void runEvent(StoryEventCallback callback);
 };
 
 #endif /* DialogEventContent_hpp */

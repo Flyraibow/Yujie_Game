@@ -167,3 +167,9 @@ string WorkData::getFieldValue(const string & fieldName)
 	return "";
 }
 
+BaseData* WorkData::getDataByField(const string & fieldName)
+{
+	CCLOGWARN("Couldn't recognize %s in WorkData", fieldName.c_str());
+	return nullptr;
+}
+

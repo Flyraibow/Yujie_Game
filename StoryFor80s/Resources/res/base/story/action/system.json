@@ -1,0 +1,36 @@
+{
+	"events": [
+		{
+			"__comment" : "选择分歧测试",
+			"type" : "selection",
+			"selections":[
+				{
+					"text" : "translation.sys_save",
+					"auto_close" : false,
+					"story" : {
+						"scene" : "saveScene"
+					}
+				},
+				{
+					"text" : "translation.sys_load",
+					"auto_close" : false,
+					"story" : {
+						"scene" : "loadScene"
+					}
+				},
+				{
+					"text" : "translation.sys_home",
+					"events": [
+						{
+							"__comment" : "选择分歧测试",
+							"type" : "home"
+						}
+					]
+				},
+				{
+					"text" : "translation.sys_cancel"
+				}
+			]
+		}
+	]
+}

@@ -7,10 +7,6 @@
 		{
 			"__comment" : "刷新页面",
 			"type" : "refreshScene"
-		},
-		{
-			"__comment" : "检查事件",
-			"type" : "checkStory"
 		}
 	]
 }

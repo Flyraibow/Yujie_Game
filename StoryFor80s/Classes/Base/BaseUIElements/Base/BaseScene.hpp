@@ -20,6 +20,11 @@ USING_NS_CC;
 
 #define COVER_DEBUG
 
+#define SCREEN_CONTENT_LAYER 1
+#define SCREEN_DIALOG_LAYER 90
+#define SCREEN_COVER_LAYER_HEIGHT 100
+#define SCREEN_FOREGROUND_LAYER_HEIGHT 101
+
 class BaseScene : public cocos2d::Scene
 {
 private:

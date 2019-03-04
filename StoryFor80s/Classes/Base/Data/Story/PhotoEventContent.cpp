@@ -70,8 +70,9 @@ PhotoEventContent::PhotoEventContent(const nlohmann::json &jsonContent) : StoryE
   p_order = Utils::getIntFromJson(jsonContent, "order");
 }
 
-void PhotoEventContent::runEvent(BaseScene *baseScene, StoryEventCallback callback)
+void PhotoEventContent::runEvent(StoryEventCallback callback)
 {
+  auto baseScene = SceneManager::getShareInstance()->currentScene();
   switch (p_action) {
     case PhotoEventActionAdd: {
       Node *photo = nullptr;

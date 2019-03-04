@@ -2,4 +2,4 @@ storyId,storyEvent,once,count,condition
 id,string,bool,int,friend_id
 string,-,-,-,Condition
 writable,N,N,Y,N
-story_begin,testStory,1,0,;
+story_begin,story/story_begin,1,0,;

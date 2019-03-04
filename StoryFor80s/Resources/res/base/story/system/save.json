@@ -1,0 +1,19 @@
+{
+	"events": [
+		{
+			"__comment" : "设置玩家姓名",
+			"type" : "setValues",
+			"values" : {
+				"temp.saveDescription" : "function.game_saving_string"
+			}
+		},
+		{
+			"__comment" : "保存进度",
+			"type" : "save"
+		},
+		{
+			"__comment" : "刷新",
+			"type" : "refreshScene"
+		}
+	]
+}

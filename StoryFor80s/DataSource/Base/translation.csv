@@ -7,6 +7,9 @@ sys_cancel,取消
 sys_confirm,决定
 sys_yes,是
 sys_no,否
+sys_save,储存
+sys_load,读取
+sys_home,回到主界面
 date_display,%s月%s日
 date_display_with_year,%s年%s月%s日
 age_display,%s岁

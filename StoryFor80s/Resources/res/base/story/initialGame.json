@@ -21,6 +21,34 @@
 			}
 		},
 		{
+			"__comment" : "测试剧情, 显示对话框",
+			"type" : "dialog",
+			"name" : "dialogPanel",
+			"dialogs":[
+				{
+					"content" : "你的名字是：%s%s 确定吗？",
+					"parameters" : [
+						"temp.lastName",
+						"temp.firstName"
+					]
+				}
+			]
+		},
+		{
+			"__comment" : "弹出确认选项",
+			"type" : "selection",
+			"background_color" : "alpha_black",
+			"selections" : [
+				{
+					"text" : "translation.sys_confirm"
+				},
+				{
+					"text" : "translation.sys_cancel",
+					"story_id" : "stopStory"
+				}
+			]
+		},
+		{
 			"__comment" : "设置玩家姓名",
 			"type" : "setValues",
 			"values" : {
@@ -34,6 +62,10 @@
 			"story" : {
 				"scene" : "gameScene"
 			}
+		},
+		{
+			"__comment" : "检查剧情",
+			"type" : "checkStory"
 		}
 	]
 }

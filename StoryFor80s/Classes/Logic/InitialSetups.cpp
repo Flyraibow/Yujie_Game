@@ -10,10 +10,14 @@
 #include "StoryManager.hpp"
 #include "PanelManager.hpp"
 #include "DialogPanel.hpp"
+#include "BaseGlobalDataManager.hpp"
 
 void story::setupForThisGame()
 {
+  BaseGlobalDataManager::loadData("global");
   StoryManager::registerSpecialEventFunction("passDay", &story::passDay);
+  StoryManager::registerSpecialEventFunction("home", &game::homePage);
+  StoryManager::registerSpecialEventFunction("save", &game::save);
+  StoryManager::registerSpecialEventFunction("load", &game::load);
   PanelManager::registerPanel<DialogPanel>("dialogPanel");
-  PanelManager::isRegistered("dialogPanel");
 }

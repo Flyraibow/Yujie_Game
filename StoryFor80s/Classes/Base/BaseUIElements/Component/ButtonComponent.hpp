@@ -23,6 +23,7 @@ private:
   std::string p_storyId;
   StoryJsonData *p_storyData;
   std::string p_imagePath;
+  std::string p_disableCondition;
   unordered_map<string, string> p_setTempStrDict;
 protected:
 public:

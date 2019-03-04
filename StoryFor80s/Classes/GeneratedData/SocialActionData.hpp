@@ -20,5 +20,6 @@ public:
 	static const map<string, SocialActionData*>* getSharedDictionary();
 	static SocialActionData* getSocialActionDataById(const string& socialActionId);
 	string getFieldValue(const string & fieldName);
+	BaseData* getDataByField(const string & fieldName);
 };
 #endif

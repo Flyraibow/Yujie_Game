@@ -20,6 +20,7 @@ public:
   virtual string getVariableSetterName() const;
   virtual void addFunctionsInclass(CPPClass *cppClass) const;
   virtual void addHeaders(CPPFileComplete *cppFile) const;
+  virtual void addGetFieldDataValueFuncBody(CPPFunction *getFieldFunc) const;
 };
 
 #endif /* ExcelParserFriendId_hpp */

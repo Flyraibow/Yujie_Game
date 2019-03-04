@@ -76,3 +76,9 @@ string SocialActionData::getFieldValue(const string & fieldName)
 	return "";
 }
 
+BaseData* SocialActionData::getDataByField(const string & fieldName)
+{
+	CCLOGWARN("Couldn't recognize %s in SocialActionData", fieldName.c_str());
+	return nullptr;
+}
+

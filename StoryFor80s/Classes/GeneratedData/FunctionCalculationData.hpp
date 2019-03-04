@@ -26,5 +26,6 @@ public:
 	static const map<string, FunctionCalculationData*>* getSharedDictionary();
 	static FunctionCalculationData* getFunctionCalculationDataById(const string& functionCalculatonId);
 	string getFieldValue(const string & fieldName);
+	BaseData* getDataByField(const string & fieldName);
 };
 #endif

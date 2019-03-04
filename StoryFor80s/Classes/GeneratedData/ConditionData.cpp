@@ -111,3 +111,9 @@ string ConditionData::getFieldValue(const string & fieldName)
 	return "";
 }
 
+BaseData* ConditionData::getDataByField(const string & fieldName)
+{
+	CCLOGWARN("Couldn't recognize %s in ConditionData", fieldName.c_str());
+	return nullptr;
+}
+

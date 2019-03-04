@@ -1,6 +1,0 @@
-﻿dialogId,friend,name,content,parameters
-id,friend_id,string,language,vector
-string,Friend,-,chinese,string
-writable,N,N,N,N
-test_dialog_1,,function.my_full_name,今天天气真好呀。,;
-test_dialog_2,0,,%s你说什么？,function.my_full_name

@@ -31,5 +31,6 @@ public:
 	static const map<string, ConditionCalculationData*>* getSharedDictionary();
 	static ConditionCalculationData* getConditionCalculationDataById(const string& conditionCalculationId);
 	string getFieldValue(const string & fieldName);
+	BaseData* getDataByField(const string & fieldName);
 };
 #endif

@@ -16,7 +16,7 @@ private:
   nlohmann::json p_values;
 public:
   ValueEventContent(const nlohmann::json &jsonContent);
-  void runEvent(BaseScene *baseScene, StoryEventCallback callback);
+  void runEvent(StoryEventCallback callback);
 };
 
 #endif /* ValueEventContent_hpp */

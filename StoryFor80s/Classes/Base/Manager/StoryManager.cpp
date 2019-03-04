@@ -102,7 +102,7 @@ void StoryManager::startNextStoryEvent()
 void StoryManager::startStoryEvent(StoryEventContent *storyEventContent)
 {
   CCLOG("start story event: %s, comment : %s", storyEventContent->getType().c_str(), storyEventContent->getComment().c_str());
-  storyEventContent->runEvent(p_storyScene, [this]() {
+  storyEventContent->runEvent([this]() {
     this->startNextStoryEvent();
   });
   p_currentEvent = storyEventContent;
@@ -113,7 +113,6 @@ void StoryManager::startStory(const string &storyName)
   CCLOG("start story: %s", storyName.c_str());
   auto storyJsonData = StoryJsonData::createStoryData(storyName);
   startStory(storyJsonData);
-  delete storyJsonData;
 }
 
 void StoryManager::startStory(const StoryJsonData *storyJsonData)

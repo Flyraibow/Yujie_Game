@@ -76,3 +76,9 @@ string ItemCategoryData::getFieldValue(const string & fieldName)
 	return "";
 }
 
+BaseData* ItemCategoryData::getDataByField(const string & fieldName)
+{
+	CCLOGWARN("Couldn't recognize %s in ItemCategoryData", fieldName.c_str());
+	return nullptr;
+}
+

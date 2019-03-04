@@ -48,3 +48,8 @@ void ExcelParserFriendId::addHeaders(CPPFileComplete *cppFile) const
   }
   cppFile->addHeaders(friendClassName + ".hpp", true, defineInHeader);
 }
+
+void ExcelParserFriendId::addGetFieldDataValueFuncBody(CPPFunction *getFieldFunc) const
+{
+  getFieldFunc->addBodyStatements("\treturn this->" + ExcelParserBase::getVariableGetterName()+ "Data();");
+}

@@ -31,7 +31,7 @@ ConditionEventContent::ConditionEventContent(const nlohmann::json &jsonContent) 
   p_yesEventData = jsonContent.count("yes_story") ? StoryJsonData::createStoryData(jsonContent.at("yes_story")) : nullptr;
 }
 
-void ConditionEventContent::runEvent(BaseScene *baseScene, StoryEventCallback callback)
+void ConditionEventContent::runEvent(StoryEventCallback callback)
 {
   if (Manager::checkConditionByString(p_conditionStr)) {
     if (p_yesEventData != nullptr) {

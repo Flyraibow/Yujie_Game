@@ -97,6 +97,8 @@
 		EC0C564522222FC30000C3E7 /* WaitEventContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC0C564222222FC30000C3E7 /* WaitEventContent.cpp */; };
 		EC1272092212B3080058D7E6 /* title.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EC1272082212B3080058D7E6 /* title.mp3 */; };
 		EC12720A2212B3080058D7E6 /* title.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EC1272082212B3080058D7E6 /* title.mp3 */; };
+		EC3CF0B9222B420F00E9DF38 /* SelectionEventContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3CF0B7222B420F00E9DF38 /* SelectionEventContent.cpp */; };
+		EC3CF0BA222B420F00E9DF38 /* SelectionEventContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3CF0B7222B420F00E9DF38 /* SelectionEventContent.cpp */; };
 		EC4F0265221FE48D0038EFCD /* ParentChatData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4F0257221FE48B0038EFCD /* ParentChatData.cpp */; };
 		EC4F0266221FE48D0038EFCD /* ParentChatData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4F0257221FE48B0038EFCD /* ParentChatData.cpp */; };
 		EC4F0267221FE48D0038EFCD /* FriendData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4F0258221FE48B0038EFCD /* FriendData.cpp */; };
@@ -171,8 +173,6 @@
 		ECDF38CD2222EB21003ED65B /* PanelEventContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECDF38CA2222EB21003ED65B /* PanelEventContent.cpp */; };
 		ECDF38D02223898C003ED65B /* DialogEventContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECDF38CE2223898C003ED65B /* DialogEventContent.cpp */; };
 		ECDF38D12223898C003ED65B /* DialogEventContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECDF38CE2223898C003ED65B /* DialogEventContent.cpp */; };
-		ECDF38D422238F66003ED65B /* DialogData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECDF38D322238F65003ED65B /* DialogData.cpp */; };
-		ECDF38D522238F66003ED65B /* DialogData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECDF38D322238F65003ED65B /* DialogData.cpp */; };
 		ECDF38D8222392DB003ED65B /* DialogPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECDF38D6222392DB003ED65B /* DialogPanel.cpp */; };
 		ECDF38D9222392DB003ED65B /* DialogPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECDF38D6222392DB003ED65B /* DialogPanel.cpp */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
@@ -305,6 +305,8 @@
 		EC0C564222222FC30000C3E7 /* WaitEventContent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = WaitEventContent.cpp; sourceTree = "<group>"; };
 		EC0C564322222FC30000C3E7 /* WaitEventContent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WaitEventContent.hpp; sourceTree = "<group>"; };
 		EC1272082212B3080058D7E6 /* title.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = title.mp3; sourceTree = "<group>"; };
+		EC3CF0B7222B420F00E9DF38 /* SelectionEventContent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SelectionEventContent.cpp; sourceTree = "<group>"; };
+		EC3CF0B8222B420F00E9DF38 /* SelectionEventContent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SelectionEventContent.hpp; sourceTree = "<group>"; };
 		EC4F0254221FE48B0038EFCD /* HobbyData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = HobbyData.hpp; sourceTree = "<group>"; };
 		EC4F0257221FE48B0038EFCD /* ParentChatData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParentChatData.cpp; sourceTree = "<group>"; };
 		EC4F0258221FE48B0038EFCD /* FriendData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FriendData.cpp; sourceTree = "<group>"; };
@@ -381,8 +383,6 @@
 		ECDF38CB2222EB21003ED65B /* PanelEventContent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PanelEventContent.hpp; sourceTree = "<group>"; };
 		ECDF38CE2223898C003ED65B /* DialogEventContent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DialogEventContent.cpp; sourceTree = "<group>"; };
 		ECDF38CF2223898C003ED65B /* DialogEventContent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DialogEventContent.hpp; sourceTree = "<group>"; };
-		ECDF38D222238F65003ED65B /* DialogData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DialogData.hpp; sourceTree = "<group>"; };
-		ECDF38D322238F65003ED65B /* DialogData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DialogData.cpp; sourceTree = "<group>"; };
 		ECDF38D6222392DB003ED65B /* DialogPanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DialogPanel.cpp; sourceTree = "<group>"; };
 		ECDF38D7222392DB003ED65B /* DialogPanel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DialogPanel.hpp; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
@@ -572,8 +572,6 @@
 		EC073B9F221A99BD006FDCE0 /* GeneratedData */ = {
 			isa = PBXGroup;
 			children = (
-				ECDF38D322238F65003ED65B /* DialogData.cpp */,
-				ECDF38D222238F65003ED65B /* DialogData.hpp */,
 				EC4F0259221FE48C0038EFCD /* FatherJobData.cpp */,
 				EC4F025F221FE48C0038EFCD /* FatherJobData.hpp */,
 				EC4F0258221FE48B0038EFCD /* FriendData.cpp */,
@@ -650,6 +648,8 @@
 				ECDF38CB2222EB21003ED65B /* PanelEventContent.hpp */,
 				ECDF38CE2223898C003ED65B /* DialogEventContent.cpp */,
 				ECDF38CF2223898C003ED65B /* DialogEventContent.hpp */,
+				EC3CF0B7222B420F00E9DF38 /* SelectionEventContent.cpp */,
+				EC3CF0B8222B420F00E9DF38 /* SelectionEventContent.hpp */,
 			);
 			path = Story;
 			sourceTree = "<group>";
@@ -919,7 +919,6 @@
 				EC8482C7221168F4001956DE /* EditBoxComponent.cpp in Sources */,
 				ECDF38D02223898C003ED65B /* DialogEventContent.cpp in Sources */,
 				EC4F0267221FE48D0038EFCD /* FriendData.cpp in Sources */,
-				ECDF38D422238F66003ED65B /* DialogData.cpp in Sources */,
 				EC8482C3221168F4001956DE /* ListComponent.cpp in Sources */,
 				EC073B98221927A9006FDCE0 /* FunctionManager.cpp in Sources */,
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
@@ -940,6 +939,7 @@
 				EC073BBE221A9B67006FDCE0 /* BaseGlobalDataManager.cpp in Sources */,
 				EC4F0265221FE48D0038EFCD /* ParentChatData.cpp in Sources */,
 				1AF87B8A1F6F7822007BE51C /* main.m in Sources */,
+				EC3CF0B9222B420F00E9DF38 /* SelectionEventContent.cpp in Sources */,
 				EC0C5638222218C70000C3E7 /* StoryJsonContent.cpp in Sources */,
 				EC073BC6221A9B67006FDCE0 /* GameSavingData.cpp in Sources */,
 				EC4F026D221FE48D0038EFCD /* HobbyData.cpp in Sources */,
@@ -994,6 +994,7 @@
 				EC073BC9221A9B67006FDCE0 /* AttributeData.cpp in Sources */,
 				EC848302221171FC001956DE /* BaseScene.cpp in Sources */,
 				EC073BD3221A9B67006FDCE0 /* ItemCategoryData.cpp in Sources */,
+				EC3CF0BA222B420F00E9DF38 /* SelectionEventContent.cpp in Sources */,
 				EC84828322115812001956DE /* ByteBuffer.cpp in Sources */,
 				EC073BCF221A9B67006FDCE0 /* SkillsData.cpp in Sources */,
 				EC0C564522222FC30000C3E7 /* WaitEventContent.cpp in Sources */,
@@ -1030,7 +1031,6 @@
 				ECC5E94A22284D660090F6C5 /* BaseSpriteListener.cpp in Sources */,
 				EC8482CA221168F4001956DE /* BaseComponent.cpp in Sources */,
 				EC073BC3221A9B67006FDCE0 /* ConditionData.cpp in Sources */,
-				ECDF38D522238F66003ED65B /* DialogData.cpp in Sources */,
 				EC8482DC22116D39001956DE /* PanelContent.cpp in Sources */,
 				ECDF38C1222265B4003ED65B /* SubStoryEventContent.cpp in Sources */,
 				EC84828B22115876001956DE /* LocalizationHelper.cpp in Sources */,

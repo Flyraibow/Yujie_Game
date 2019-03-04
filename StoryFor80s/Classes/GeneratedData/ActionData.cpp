@@ -76,3 +76,9 @@ string ActionData::getFieldValue(const string & fieldName)
 	return "";
 }
 
+BaseData* ActionData::getDataByField(const string & fieldName)
+{
+	CCLOGWARN("Couldn't recognize %s in ActionData", fieldName.c_str());
+	return nullptr;
+}
+
