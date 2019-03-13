@@ -41,8 +41,12 @@ cocos2d::Color4B Utils::getColorFromJson(const nlohmann::json &json, const std::
   if (json.count(field)) {
     auto j = json.at(field);
     if (j.is_array()) {
-      CCASSERT(j.size() == 4, ("Color must be (R G B A) format, it's " + j.dump()).c_str());
-      return cocos2d::Color4B(j.at(0), j.at(1), j.at(2), j.at(3));
+      if (j.size() == 3) {
+        return cocos2d::Color4B(cocos2d::Color3B(j.at(0), j.at(1), j.at(2)));
+      } else {
+        CCASSERT(j.size() == 4, ("Color must be (R G B A) format, it's " + j.dump()).c_str());
+        return cocos2d::Color4B(j.at(0), j.at(1), j.at(2), j.at(3));
+      }
     } else if (j.is_string()) {
       static const std::unordered_map<std::string, cocos2d::Color4B> COLOR_MAP = {
         {"BLACK", cocos2d::Color4B::BLACK},

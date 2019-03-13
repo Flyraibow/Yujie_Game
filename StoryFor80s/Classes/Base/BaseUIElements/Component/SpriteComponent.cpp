@@ -7,6 +7,8 @@
 #include "SpriteComponent.hpp"
 #include "JsonUtil.hpp"
 #include "DataManager.hpp"
+#include "BaseSpriteListener.hpp"
+#include "StoryManager.hpp"
 
 USING_NS_CC;
 
@@ -14,6 +16,7 @@ SpriteComponent::SpriteComponent(const nlohmann::json &componentJson) : BaseComp
 {
   p_iconPath = Utils::getStringFromJson(componentJson, "path");
   p_color = Utils::getColorFromJson(componentJson, "color");
+  p_clickStoryEventId = Utils::getStringFromJson(componentJson, "click_event_id");
 }
 
 Node* SpriteComponent::addComponentToParent(ComponentDict &dict, cocos2d::Node *parent)
@@ -29,6 +32,11 @@ Node* SpriteComponent::addComponentToParent(ComponentDict &dict, cocos2d::Node *
     auto colorLayer = LayerColor::create(p_color, size.width, size.height);
     sprite->addChild(colorLayer);
   }
+  
+  if (p_clickStoryEventId.length() > 0) {
+    auto listener = BaseSpriteListener::createWithNode(sprite);
+    listener->setTouchEnd(CC_CALLBACK_2(SpriteComponent::clickSprite, this), nullptr);
+  }
 
   addNodeToParent(dict, sprite, parent);
   
@@ -38,10 +46,18 @@ Node* SpriteComponent::addComponentToParent(ComponentDict &dict, cocos2d::Node *
 void SpriteComponent::refresh()
 {
   BaseComponent::refresh();
-  auto sprite = dynamic_cast<Sprite *>(p_node);
-  auto path = DataManager::getShareInstance()->decipherString(p_iconPath);
-  sprite->setTexture(path);
+  if (p_iconPath.length() > 0) {
+    auto sprite = dynamic_cast<Sprite *>(p_node);
+    auto path = DataManager::getShareInstance()->decipherString(p_iconPath);
+    sprite->setTexture(path);
+  }
   for (auto component : p_componentList) {
     component->refresh();
   }
+}
+
+void SpriteComponent::clickSprite(Touch* touch, Event* event)
+{
+  CCLOG("start stories");
+  StoryManager::getShareInstance()->startStory(p_clickStoryEventId);
 }

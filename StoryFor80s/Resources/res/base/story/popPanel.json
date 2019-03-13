@@ -1,0 +1,8 @@
+{
+	"events": [
+		{
+			"__comment" : "关闭当前窗口",
+			"type" : "popPanel"
+		}
+	]
+}

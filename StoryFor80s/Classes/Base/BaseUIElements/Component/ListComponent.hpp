@@ -13,9 +13,10 @@
 class ListComponent : public BaseComponent
 {
 private:
-  std::string p_panelName;
+//  std::string p_panelName;
+  nlohmann::json p_panelContent;
+  int p_count;
   vector<BaseComponent*> p_componentList;
-  vector<BaseData *> p_dataList;
 protected:
 public:
   ListComponent(const nlohmann::json &componentJson);

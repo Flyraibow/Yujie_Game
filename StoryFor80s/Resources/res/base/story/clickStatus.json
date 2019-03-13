@@ -1,0 +1,9 @@
+{
+	"events": [
+		{
+			"__comment" : "显示个人档案",
+			"type" : "panel",
+			"name" : "profilePanel"
+		}
+	]
+}

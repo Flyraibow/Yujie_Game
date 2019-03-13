@@ -5,6 +5,7 @@ This file (GameData.hpp) is generated
 #define GameData_hpp
 #include "BaseData.h"
 #include "FatherJobData.hpp"
+#include "SchoolData.hpp"
 
 
 class GameData: public BaseData
@@ -20,6 +21,7 @@ private:
 	int p_birthMonth;
 	int p_birthYear;
 	string p_parentJobId;
+	string p_schoolId;
 public:
 	int getYear() const;
 	void setYear(int year);
@@ -40,6 +42,9 @@ public:
 	FatherJobData* getParentJobData() const;
 	string getParentJobId() const;
 	void setParentJobId(string parentJob);
+	SchoolData* getSchoolData() const;
+	string getSchoolId() const;
+	void setSchoolId(string school);
 	string description() const;
 	static GameData* getSharedInstance();
 	static bool saveData(const string & path);

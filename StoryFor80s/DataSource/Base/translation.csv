@@ -22,3 +22,5 @@ my_charms_display,魅力：%s
 my_strength_display,体力：%s
 my_health_display,健康：%s
 my_pressure_display,压力：%s
+lab_mon,妈妈
+lab_dad,爸爸

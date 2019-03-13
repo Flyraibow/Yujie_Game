@@ -1,0 +1,28 @@
+{
+ 	"type": "color_node",
+ 	"id": "color_node",
+	"backgroundColor" : "alpha_black",
+	"components" : [
+		{
+	      "type": "sprite",
+	      "id": "profile_panel",
+	      "size": {
+	      	"width": 800,
+	      	"height": 800
+	      },
+	      "color": [199,178,153],
+	      "normalized_position": [0.5, 0.5],
+	      "anchor_point": [0.5, 0.5],
+	      "auto_scale": true,
+	      "components" : [
+	      	{
+		      "type": "button",
+		      "text": "translation.sys_close",
+		      "anchor_point": [1, 0],
+		      "normalized_position": [0.95, 0.05],
+		      "storyId" : "popPanel"
+		    }
+	      ]
+	    }
+	]
+}

@@ -26,3 +26,4 @@ void WaitEventContent::runEvent(StoryEventCallback callback)
     callback();
   }, p_duration, 0, 0, "story_wait");
 }
+

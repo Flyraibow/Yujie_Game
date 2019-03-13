@@ -11,6 +11,7 @@
 	      "color": "alpha_red",
 	      "normalized_position": [0.05, 0.95],
 	      "anchor_point": [0, 1],
+	      "click_event_id" : "clickStatus",
 	      "components" : [
 	      	{
 		      "type": "label",
@@ -176,18 +177,20 @@
 		    {
 		      "type": "button",
 		      "text": "gamedata.ActionData.action_play.name",
-		      "normalized_position": [0.5, 0.5]
+		      "normalized_position": [0.5, 0.5],
+		      "storyId" : "action/play"
 		    },
 		    {
 		      "type": "button",
 		      "text": "gamedata.ActionData.action_study.name",
-		      "normalized_position": [0.35, 0.5]
+		      "normalized_position": [0.35, 0.5],
+		      "storyId" : "action/study"
 		    },
 		    {
 		      "type": "button",
 		      "text": "gamedata.ActionData.action_work.name",
 		      "normalized_position": [0.2, 0.5],
-		      "storyId" : "action/system"
+		      "storyId" : "action/work"
 		    }
 	      ]
 	   }

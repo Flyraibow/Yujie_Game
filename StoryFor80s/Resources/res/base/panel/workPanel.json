@@ -1,0 +1,75 @@
+{
+ 	"type": "color_node",
+ 	"id": "color_node",
+	"backgroundColor" : "alpha_black",
+	"components" : [
+		{
+	      "type": "sprite",
+	      "id": "work_panel",
+	      "size": {
+	      	"width": 1200,
+	      	"height": 700
+	      },
+	      "color": [199,178,153],
+	      "normalized_position": [0.5, 0.5],
+	      "anchor_point": [0.5, 0.5],
+	      "components" : [
+	      	{
+		      "type": "label",
+		      "id": "game_date",
+		      "text": "gamedata.ActionData.action_work.name",
+		      "normalized_position": [0.5, 0.95],
+		      "anchor_point": [0.5, 1],
+		      "text_size": 40
+	      	},
+	      	{
+		      "type": "button",
+		      "text": "translation.sys_confirm",
+		      "anchor_point": [1, 0],
+		      "normalized_position": [0.8, 0.03]
+		    },
+	      	{
+		      "type": "button",
+		      "text": "translation.sys_close",
+		      "anchor_point": [1, 0],
+		      "normalized_position": [0.95, 0.03],
+		      "storyId" : "popPanel"
+		    }
+		    ,
+		    {
+		      "type": "scrollView",
+		      "id": "scrollView",
+		      "size": {
+		      	"width": 300,
+		      	"height": 500
+		      },
+		      "color": "alpha_red",
+		      "normalized_position": [0.05, 0.85],
+		      "anchor_point": [0, 1],
+		      "innerContainerSize" : {
+		      	"width": 300,
+		      	"height": 625
+		      },
+		      "components" : [
+		      	{
+		      	  "type": "componentList",
+		      	  "number": 2,
+			      "content" : {
+		      		"type": "sprite",
+		      		"id" : "scroll_view_content",
+				    "size": {
+				      "width": 300,
+				   	  "height": 300
+				    },
+				    "color": "alpha_blue",
+			      	"anchor_point": [0, 0],
+			      	"position" : [0, 0],
+			      	"position_offset" : [0, 325]
+			      }
+		      	}
+		      ]
+		    }
+	      ]
+	    }
+	]
+}

@@ -43,7 +43,7 @@
 			"name" : "dialogPanel",
 			"dialogs":[
 				{
-					"name": "妈妈",
+					"name": "translation.lab_mon",
 					"content" : "%s啊，今天你就要上学了，我吩咐你的事情你都记住了吗？",
 					"parameters" : [
 						"game.firstName"
@@ -54,11 +54,27 @@
 					"content" : "嗯，我都记住了，遇到老师要说‘老师好’，不要和同学打闹，身体不舒服要及时和老师说……"
 				},
 				{
-					"name": "妈妈",
+					"name": "translation.lab_mon",
 					"content" : "嗯，乖！%s真懂事。",
 					"parameters" : [
 						"game.firstName"
 					]
+				}
+			]
+		},
+		{
+			"__comment" : "等待1秒",
+			"type" : "wait",
+			"duration" : 1
+		},
+		{
+			"__comment" : "弹出对话框",
+			"type" : "dialog",
+			"name" : "dialogPanel",
+			"dialogs":[
+				{
+					"name": "function.my_full_name",
+					"content" : "在上学之前，先决定下我这周闲暇时间会要做点什么吧。"
 				}
 			]
 		}

@@ -1,0 +1,46 @@
+{
+ 	"type": "color_node",
+ 	"id": "color_node",
+	"backgroundColor" : "alpha_black",
+	"components" : [
+		{
+	      "type": "sprite",
+	      "id": "interaction_panel",
+	      "size": {
+	      	"width": 1200,
+	      	"height": 600
+	      },
+	      "color": [199,178,153],
+	      "normalized_position": [0.5, 0.5],
+	      "anchor_point": [0.5, 0.5],
+	      "components" : [
+	      	{
+		      "type": "label",
+		      "id": "game_date",
+		      "text": "function.game_date",
+		      "normalized_position": [0.05, 0.95],
+		      "anchor_point": [0, 1],
+	  		  "normalized_dimensions": [0.9, 0],
+		      "text_size": 32
+	      	},
+	      	{
+		      "type": "label",
+		      "id": "description",
+		      "text": "今天上了语文课，你感觉学到了很多。",
+		      "speed" : 2,
+		      "normalized_position": [0.15, 0.3],
+		      "anchor_point": [0, 0.5],
+	  		  "normalized_dimensions": [0.9, 0],
+		      "text_size": 25
+	      	},
+	      	{
+		      "type": "button",
+		      "text": "translation.sys_close",
+		      "anchor_point": [1, 0],
+		      "normalized_position": [0.95, 0.05],
+		      "storyId" : "popPanel"
+		    }
+	      ]
+	    }
+	]
+}

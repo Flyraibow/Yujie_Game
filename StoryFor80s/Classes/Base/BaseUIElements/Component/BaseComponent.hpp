@@ -30,15 +30,17 @@ protected:
   bool p_isAutoScale;
   bool p_isParentScale;
   Vec2 p_normalizePosition;
-  vector<string> p_normalizePositionStr;
+  Vec2 p_normalizePositionOffset;
+  Vec2 p_position;
+  Vec2 p_positionOffset;
   Vec2 p_anchorPoint;
-  vector<string> p_anchorPointStr;
   nlohmann::json p_size;
   Node* p_node;
   float p_scale;
   bool p_isFullScreen;
   BaseData *p_associateData;
   string p_shouldHideCondition;
+  int p_index;
   
   vector<BaseComponent *> p_componentList;
   Size getComponentSize(Node *parent) const;
@@ -52,6 +54,7 @@ public:
   string getId() const;
   virtual void refresh();
   Node* getNode() {return p_node;};
+  void setIndex(int index);
   
   /**
    * It will create real component by type

@@ -106,6 +106,21 @@ void GameData::setParentJobId(string parentJob)
 	p_parentJobId = parentJob;
 }
 
+SchoolData* GameData::getSchoolData() const
+{
+	return SchoolData::getSchoolDataById(p_schoolId);
+}
+
+string GameData::getSchoolId() const
+{
+	return p_schoolId;
+}
+
+void GameData::setSchoolId(string school)
+{
+	p_schoolId = school;
+}
+
 string GameData::description() const
 {
 	string desc = "gameData = {\n";
@@ -118,6 +133,7 @@ string GameData::description() const
 	desc += "\tbirthMonth : " + to_string(p_birthMonth) + "\n";
 	desc += "\tbirthYear : " + to_string(p_birthYear) + "\n";
 	desc += "\tparentJob : " + to_string(p_parentJobId) + "\n";
+	desc += "\tschool : " + to_string(p_schoolId) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -140,6 +156,7 @@ GameData* GameData::getSharedInstance()
 			p_sharedData->p_birthMonth = buffer->getInt();
 			p_sharedData->p_birthYear = buffer->getInt();
 			p_sharedData->p_parentJobId = buffer->getString();
+			p_sharedData->p_schoolId = buffer->getString();
 		}
 	}
 	return p_sharedData;
@@ -150,7 +167,7 @@ bool GameData::saveData(const string & path)
 	auto filePath = path + "/GameData.dat";
 	auto data = GameData::getSharedInstance();
 	auto buffer = std::make_unique<bb::ByteBuffer>();
-	buffer->putInt(9);
+	buffer->putInt(10);
 	buffer->putString("p_year");
 	buffer->putString(to_string(data->p_year));
 	buffer->putString("p_month");
@@ -169,6 +186,8 @@ bool GameData::saveData(const string & path)
 	buffer->putString(to_string(data->p_birthYear));
 	buffer->putString("p_parentJobId");
 	buffer->putString(to_string(data->p_parentJobId));
+	buffer->putString("p_schoolId");
+	buffer->putString(to_string(data->p_schoolId));
 	buffer->writeToFile(filePath);
 	return true;
 }
@@ -204,6 +223,8 @@ bool GameData::loadData(const string & path)
 					data->p_birthYear = atoi(value.c_str());
 				} else if (key == "p_parentJobId") {
 					data->p_parentJobId = value;
+				} else if (key == "p_schoolId") {
+					data->p_schoolId = value;
 				}
 			}
 		}
@@ -240,6 +261,8 @@ void GameData::setFieldValue(const string & fieldName, const string & value)
 		this->setBirthYear(atoi(value.c_str()));
 	} else if (fieldName == "parentJob") {
 		this->setParentJobId(value);
+	} else if (fieldName == "school") {
+		this->setSchoolId(value);
 	}
 }
 
@@ -263,6 +286,8 @@ string GameData::getFieldValue(const string & fieldName)
 		return to_string(this->getBirthYear());
 	} else if (fieldName == "parentJob") {
 		return to_string(this->getParentJobId());
+	} else if (fieldName == "school") {
+		return to_string(this->getSchoolId());
 	}
 	CCLOGWARN("Couldn't recognize %s in GameData", fieldName.c_str());
 	return "";
@@ -272,6 +297,8 @@ BaseData* GameData::getDataByField(const string & fieldName)
 {
 	if (fieldName == "parentJob") {
 		return this->getParentJobData();
+	} else if (fieldName == "school") {
+		return this->getSchoolData();
 	}
 	CCLOGWARN("Couldn't recognize %s in GameData", fieldName.c_str());
 	return nullptr;

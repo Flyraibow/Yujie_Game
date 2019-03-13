@@ -28,6 +28,11 @@ string WorkData::getName() const
 	return LocalizationHelper::getLocalization(localId);
 }
 
+string WorkData::getCondition() const
+{
+	return p_condition;
+}
+
 int WorkData::getSalary() const
 {
 	return p_salary;
@@ -43,13 +48,34 @@ void WorkData::setProficienc(int proficienc)
 	p_proficienc = proficienc;
 }
 
+int WorkData::getMaxProficiency() const
+{
+	return p_maxProficiency;
+}
+
+map<string, int> WorkData::getAttributeChangeMap() const
+{
+	return p_attributeChangeMap;
+}
+
+map<string, int> WorkData::getPersonalityChangeMap() const
+{
+	return p_personalityChangeMap;
+}
+
 string WorkData::description() const
 {
 	string desc = "workData = {\n";
 	desc += "\tactionId : " + to_string(p_actionId) + "\n";
 	desc += "\tname : " + getName() + "\n";
+	desc += "\tcondition : " + to_string(p_condition) + "\n";
 	desc += "\tsalary : " + to_string(p_salary) + "\n";
 	desc += "\tproficienc : " + to_string(p_proficienc) + "\n";
+	desc += "\tmaxProficiency : " + to_string(p_maxProficiency) + "\n";
+	
+	desc += "\tattributeChange : " + to_string(p_attributeChangeMap)+ "\n";
+	
+	desc += "\tpersonalityChange : " + to_string(p_personalityChangeMap)+ "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -67,8 +93,22 @@ const map<string, WorkData*>* WorkData::getSharedDictionary()
 			for (int i = 0; i < count; ++i) {
 				WorkData* workData = new WorkData();
 				workData->p_actionId = buffer->getString();
+				workData->p_condition = buffer->getString();
 				workData->p_salary = buffer->getInt();
 				workData->p_proficienc = buffer->getInt();
+				workData->p_maxProficiency = buffer->getInt();
+				auto attributeChangeCount = buffer->getLong();
+				for (int j = 0; j < attributeChangeCount; ++j) {
+					auto key = buffer->getString();
+					auto val = buffer->getInt();
+					workData->p_attributeChangeMap.insert(make_pair(key, val));
+				}
+				auto personalityChangeCount = buffer->getLong();
+				for (int j = 0; j < personalityChangeCount; ++j) {
+					auto key = buffer->getString();
+					auto val = buffer->getInt();
+					workData->p_personalityChangeMap.insert(make_pair(key, val));
+				}
 				p_sharedDictionary->insert(pair<string, WorkData*>(workData->p_actionId, workData));
 			}
 		}
@@ -158,10 +198,18 @@ string WorkData::getFieldValue(const string & fieldName)
 		return to_string(this->getActionId());
 	} else if (fieldName == "name") {
 		return to_string(this->getName());
+	} else if (fieldName == "condition") {
+		return to_string(this->getCondition());
 	} else if (fieldName == "salary") {
 		return to_string(this->getSalary());
 	} else if (fieldName == "proficienc") {
 		return to_string(this->getProficienc());
+	} else if (fieldName == "maxProficiency") {
+		return to_string(this->getMaxProficiency());
+	} else if (fieldName == "attributeChange") {
+		return to_string(this->getAttributeChangeMap());
+	} else if (fieldName == "personalityChange") {
+		return to_string(this->getPersonalityChangeMap());
 	}
 	CCLOGWARN("Couldn't recognize %s in WorkData", fieldName.c_str());
 	return "";

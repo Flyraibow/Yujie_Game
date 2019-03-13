@@ -1,0 +1,8 @@
+﻿attributeId,name,value
+id,language,int
+string,chinese,-
+writable,N,Y
+extraversion_introversion,外向/内向,0
+sensation_intuition,感觉/直觉,0
+thinking_feeling,思考/情感,0
+judging_perceiving,判断/知觉,0

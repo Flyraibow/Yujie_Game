@@ -22,9 +22,10 @@ BaseComponent::BaseComponent(const nlohmann::json &componentJson)
   p_id = Utils::getStringFromJson(componentJson, "id");
   p_isAutoScale = Utils::getBoolFromJson(componentJson, "auto_scale");
   p_isParentScale = Utils::getBoolFromJson(componentJson, "parent_scale");
-  p_normalizePositionStr = Utils::getStringListFromJson(componentJson, "normalized_position_str");
   p_normalizePosition = Utils::getVec2FromJson(componentJson, "normalized_position");
-  p_anchorPointStr = Utils::getStringListFromJson(componentJson, "anchor_point_str");
+  p_normalizePositionOffset = Utils::getVec2FromJson(componentJson, "normalized_position_offset");
+  p_position = Utils::getVec2FromJson(componentJson, "position");
+  p_positionOffset = Utils::getVec2FromJson(componentJson, "position_offset");
   p_anchorPoint = Utils::getVec2FromJson(componentJson, "anchor_point", cocos2d::Vec2(0.5, 0.5));
   p_componentList = BaseComponent::getComponentsFromJson(componentJson);
   p_shouldHideCondition = Utils::getStringFromJson(componentJson, "hide_condition");
@@ -57,14 +58,20 @@ Size BaseComponent::getComponentSize(Node *parent) const
 void BaseComponent::addNodeToParent(ComponentDict &dict, Node *child, Node *parent)
 {
   CCLOG("adding panel id : %s", p_id.c_str());
-  if (p_anchorPointStr.size() == 2) {
-    p_anchorPoint = getVec2FromStringVec2(p_anchorPointStr);
-  }
   child->setAnchorPoint(p_anchorPoint);
-  if (p_normalizePositionStr.size() == 2) {
-    p_normalizePosition = getVec2FromStringVec2(p_normalizePositionStr);
+  if (p_normalizePosition != Vec2::ZERO || p_normalizePositionOffset != Vec2::ZERO) {
+    auto np = p_normalizePosition;
+    if (p_normalizePositionOffset != Vec2::ZERO) {
+      np = Vec2(p_normalizePosition.x + p_normalizePositionOffset.x * p_index, p_normalizePosition.y + p_normalizePositionOffset.y * p_index);
+    }
+    child->setNormalizedPosition(np);
+  } else if (p_position != Vec2::ZERO || p_positionOffset != Vec2::ZERO) {
+    auto p = p_position;
+    if (p_positionOffset != Vec2::ZERO) {
+      p = Vec2(p_position.x + p_positionOffset.x * p_index, p_position.y + p_positionOffset.y * p_index);
+    }
+    child->setPosition(p);
   }
-  child->setNormalizedPosition(p_normalizePosition);
   child->setName(p_id);
   if (p_id.length() > 0) {
     if (dict.count(p_id)) {
@@ -125,6 +132,7 @@ string BaseComponent::decipherValue(const string &value) const
 #include "EditBoxComponent.hpp"
 #include "PanelComponent.hpp"
 #include "ListComponent.hpp"
+#include "ScrollViewComponent.hpp"
 
 BaseComponent* BaseComponent::getComponentFromJson(const nlohmann::json &componentJson)
 {
@@ -142,7 +150,9 @@ BaseComponent* BaseComponent::getComponentFromJson(const nlohmann::json &compone
     return new EditBoxComponent(componentJson);
   } else if (type == "panel") {
     return new PanelComponent(componentJson);
-  } else if (type == "panelList") {
+  } else if (type == "scrollView") {
+    return new ScrollViewComponent(componentJson);
+  } else if (type == "componentList") {
     return new ListComponent(componentJson);
   } else {
     CCASSERT(false, ("unsupported type" + type).c_str());
@@ -163,6 +173,10 @@ vector<BaseComponent *> BaseComponent::getComponentsFromJson(const nlohmann::jso
   return result;
 }
 
+void BaseComponent::setIndex(int index)
+{
+  p_index = index;
+}
 
 void BaseComponent::copyAttributesFromJson(const nlohmann::json &componentJson)
 {
@@ -170,7 +184,10 @@ void BaseComponent::copyAttributesFromJson(const nlohmann::json &componentJson)
   
   p_isAutoScale = Utils::getBoolFromJson(componentJson, "auto_scale", p_isAutoScale);
   p_isParentScale = Utils::getBoolFromJson(componentJson, "parent_scale", p_isParentScale);
+  p_normalizePositionOffset = Utils::getVec2FromJson(componentJson, "normalized_position_offset", p_normalizePositionOffset);
   p_normalizePosition = Utils::getVec2FromJson(componentJson, "normalized_position", p_normalizePosition);
+  p_positionOffset = Utils::getVec2FromJson(componentJson, "position_offset", p_positionOffset);
+  p_position = Utils::getVec2FromJson(componentJson, "position", p_position);
   p_anchorPoint = Utils::getVec2FromJson(componentJson, "anchor_point", p_anchorPoint);
   if (componentJson.count("size")) {
     p_size = componentJson.at("size");

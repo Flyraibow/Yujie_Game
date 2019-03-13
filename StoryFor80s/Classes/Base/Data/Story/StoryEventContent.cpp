@@ -71,7 +71,7 @@ StoryEventContent* StoryEventContent::getStoryEventFromJson(const nlohmann::json
     return new DialogEventContent(jsonContent);
   } else if (type == "selection") {
     return new SelectionEventContent(jsonContent);
-  } else if (type == "popScene" || type == "stopStory" || type == "refreshScene" || type == "checkStory") {
+  } else if (type == "popScene" || type == "popPanel" || type == "stopStory" || type == "refreshScene" || type == "checkStory") {
   } else if (StoryManager::isFunctionRegistered(type)) {
   } else {
     CCLOGERROR("undefined story type : %s", type.c_str());
@@ -85,6 +85,8 @@ void StoryEventContent::runEvent(StoryEventCallback callback)
 {
   if (p_type == "popScene") {
     SceneManager::getShareInstance()->popScene();
+  } else if (p_type == "popPanel") {
+    SceneManager::getShareInstance()->popPanel();
   } else if (p_type == "stopStory") {
     StoryManager::getShareInstance()->stopStory();
   } else if (p_type == "refreshScene") {

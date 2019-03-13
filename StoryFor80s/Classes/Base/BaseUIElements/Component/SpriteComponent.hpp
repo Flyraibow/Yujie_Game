@@ -14,6 +14,8 @@ class SpriteComponent : public BaseComponent
 private:
   std::string p_iconPath;
   Color4B p_color;
+  std::string p_clickStoryEventId;
+  void clickSprite(Touch* touch, Event* event);
 protected:
 public:
   SpriteComponent(const nlohmann::json &componentJson);

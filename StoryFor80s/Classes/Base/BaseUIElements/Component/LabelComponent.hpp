@@ -14,6 +14,7 @@ class LabelComponent : public BaseComponent
 private:
   float p_textSize;
   std::string p_text;
+  int p_speed;
   cocos2d::Vec2 p_normalizedDimension;
 protected:
 public:

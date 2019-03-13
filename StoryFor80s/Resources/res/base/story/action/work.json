@@ -1,0 +1,25 @@
+{
+	"events": [
+		{
+			"__comment" : "显示对话框",
+			"type" : "dialog",
+			"name" : "dialogPanel",
+			"dialogs":[
+				{
+					"name": "function.my_full_name",
+					"content" : "我要选择打什么样的零工呢？"
+				}
+			]
+		},
+		{
+			"__comment" : "等待0.3秒",
+			"type" : "wait",
+			"duration" : 0.3
+		},
+		{
+			"__comment" : "打工对话框",
+			"type" : "panel",
+			"name" : "workPanel"
+		}
+	]
+}

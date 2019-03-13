@@ -1,5 +1,10 @@
-﻿actionId,name,salary,proficienc
-id,language,int,int
-string,chinese,-,-
-writable,N,N,Y
-0,做家务,2,0
+﻿schoolId,name,studyFactor
+id,language,float
+string,chinese,-
+writable,N,N
+0,普通小学,1
+1,重点小学,1.5
+2,普通初中,1
+3,重点初中,1.5
+4,普通高中,1
+5,重点高中,1.5

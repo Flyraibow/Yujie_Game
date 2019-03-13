@@ -10,8 +10,10 @@ This file (BaseDataManager.hpp) is generated
 #include "StoryData.hpp"
 #include "SkillsData.hpp"
 #include "SocialActionData.hpp"
+#include "PersonalityData.hpp"
 #include "ItemData.hpp"
 #include "ItemCategoryData.hpp"
+#include "ClassScheduleData.hpp"
 #include "FriendData.hpp"
 #include "ParentChatData.hpp"
 #include "AttributeData.hpp"
@@ -19,6 +21,7 @@ This file (BaseDataManager.hpp) is generated
 #include "WorkData.hpp"
 #include "ActionData.hpp"
 #include "GameData.hpp"
+#include "SchoolData.hpp"
 
 
 class BaseDataManager
@@ -32,6 +35,7 @@ public:
 	static StoryData* getStoryDataById(const string& storyId);
 	static SkillsData* getSkillsDataById(const string& skillId);
 	static SocialActionData* getSocialActionDataById(const string& socialActionId);
+	static PersonalityData* getPersonalityDataById(const string& attributeId);
 	static ItemData* getItemDataById(const string& itemId);
 	static ItemCategoryData* getItemCategoryDataById(const string& itemCategoryId);
 	static FriendData* getFriendDataById(const string& friendId);
@@ -41,6 +45,7 @@ public:
 	static WorkData* getWorkDataById(const string& actionId);
 	static ActionData* getActionDataById(const string& actionId);
 	static GameData* getGameData();
+	static SchoolData* getSchoolDataById(const string& schoolId);
 	static bool saveData(string fileName);
 	static bool loadData(string fileName);
 	static bool clearData();

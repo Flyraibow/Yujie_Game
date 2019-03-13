@@ -20,7 +20,10 @@ CPPFileComplete* ExcelData2DBasedParser::getMainCppFile() const
   CPPFileComplete* file = new CPPFileComplete(p_className);
   file->addHeaders("map", false, true);
   file->addHeaders("ByteBuffer.hpp", true, false);
+  file->addHeaders("BaseData.h", true, true);
+  file->addHeaders("Utils.hpp", true, false);
   file->addNamespaces("using namespace std;", true, false);
+  file->addNamespaces("using namespace Utils;", false, true);
   return file;
 }
 
@@ -147,7 +150,7 @@ void ExcelData2DBasedParser::setInitFunction()
     "for (int i = 0; i < rowCount; ++i) {",
     "\tmap<" + colParser->getType() + ", " + p_returnType + "> rowMap;",
     "\tfor (int j = 0; j < colCount; ++j) {",
-    "\t\tint value = buffer->" + colParser->getBufferGetString(p_returnSchema->getType()) + ";",
+    "\t\t"+colParser->getType() +" value = buffer->" + colParser->getBufferGetString(p_returnSchema->getType()) + ";",
     "\t\trowMap.insert(make_pair(colValues[j], value));",
     "\t}",
     "\t" + kStaticMapName + "->insert(make_pair(rowValues[i], rowMap));",

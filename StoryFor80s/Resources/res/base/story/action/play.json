@@ -1,0 +1,49 @@
+{
+	"events": [
+		{
+			"__comment" : "测试剧情, 显示对话框",
+			"type" : "dialog",
+			"name" : "dialogPanel",
+			"dialogIds":[
+				"test_dialog_1", 
+				"test_dialog_2"
+			]
+		},
+		{
+			"__comment" : "选择分歧测试",
+			"type" : "selection",
+			"selections":[
+				{
+					"text" : "哦，没什么!",
+					"events" : [
+						{
+							"__comment" : "测试剧情, 显示对话框",
+							"type" : "dialog",
+							"name" : "dialogPanel",
+							"dialogIds":[
+								"test_dialog_3"
+							]
+						},
+						{
+							"__comment" : "中断对话",
+							"type" : "story",
+							"name" : "stopStory"
+						}
+					]
+				},
+				{
+					"text" : "真的没什么没什么!"
+				}
+			]
+		},
+		{
+			"__comment" : "测试剧情, 显示对话框",
+			"type" : "dialog",
+			"name" : "dialogPanel",
+			"dialogIds":[
+				"test_dialog_1", 
+				"test_dialog_2"
+			]
+		}
+	]
+}
