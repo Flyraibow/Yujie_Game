@@ -62,6 +62,7 @@ public:
   virtual void addDataLoadFunction(CPPClass* dataManager) const;
   virtual void addSetFieldFunction(CPPFunction* setFieldFunc) const;
   virtual void addGetFieldFunction(CPPFunction* getFieldFunc) const;
+  virtual void addGetDataListFunction(CPPFunction* getDataListFunc) const;
   void generateCode(const string& folderPath);
   
   virtual bool containWritableData() const;

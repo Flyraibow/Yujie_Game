@@ -57,13 +57,13 @@ string ClassScheduleData::getClassSchedule(int date, string schooId)
 	return 0;
 }
 
-string ClassScheduleData::getFieldValue(const string & fieldName)
+string ClassScheduleData::getFieldValue(const string & fieldName) const
 {
 	CCLOGWARN("Couldn't recognize %s in ClassScheduleData", fieldName.c_str());
 	return "";
 }
 
-BaseData* ClassScheduleData::getDataByField(const string & fieldName)
+BaseData* ClassScheduleData::getDataByField(const string & fieldName) const
 {
 	CCLOGWARN("Couldn't recognize %s in ClassScheduleData", fieldName.c_str());
 	return nullptr;

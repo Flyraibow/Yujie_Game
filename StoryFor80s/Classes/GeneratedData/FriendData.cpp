@@ -173,7 +173,7 @@ void FriendData::setFieldValue(const string & fieldName, const string & value)
 	}
 }
 
-string FriendData::getFieldValue(const string & fieldName)
+string FriendData::getFieldValue(const string & fieldName) const
 {
 	if (fieldName == "friendId") {
 		return to_string(this->getFriendId());
@@ -194,7 +194,7 @@ string FriendData::getFieldValue(const string & fieldName)
 	return "";
 }
 
-BaseData* FriendData::getDataByField(const string & fieldName)
+BaseData* FriendData::getDataByField(const string & fieldName) const
 {
 	CCLOGWARN("Couldn't recognize %s in FriendData", fieldName.c_str());
 	return nullptr;

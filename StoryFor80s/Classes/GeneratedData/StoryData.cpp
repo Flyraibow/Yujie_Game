@@ -163,7 +163,7 @@ void StoryData::setFieldValue(const string & fieldName, const string & value)
 	}
 }
 
-string StoryData::getFieldValue(const string & fieldName)
+string StoryData::getFieldValue(const string & fieldName) const
 {
 	if (fieldName == "storyId") {
 		return to_string(this->getStoryId());
@@ -180,7 +180,7 @@ string StoryData::getFieldValue(const string & fieldName)
 	return "";
 }
 
-BaseData* StoryData::getDataByField(const string & fieldName)
+BaseData* StoryData::getDataByField(const string & fieldName) const
 {
 	if (fieldName == "condition") {
 		return this->getConditionData();

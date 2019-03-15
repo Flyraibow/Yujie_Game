@@ -65,7 +65,7 @@ SocialActionData* SocialActionData::getSocialActionDataById(const string& social
 	return nullptr;
 }
 
-string SocialActionData::getFieldValue(const string & fieldName)
+string SocialActionData::getFieldValue(const string & fieldName) const
 {
 	if (fieldName == "socialActionId") {
 		return to_string(this->getSocialActionId());
@@ -76,7 +76,7 @@ string SocialActionData::getFieldValue(const string & fieldName)
 	return "";
 }
 
-BaseData* SocialActionData::getDataByField(const string & fieldName)
+BaseData* SocialActionData::getDataByField(const string & fieldName) const
 {
 	CCLOGWARN("Couldn't recognize %s in SocialActionData", fieldName.c_str());
 	return nullptr;

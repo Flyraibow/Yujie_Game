@@ -266,7 +266,7 @@ void GameData::setFieldValue(const string & fieldName, const string & value)
 	}
 }
 
-string GameData::getFieldValue(const string & fieldName)
+string GameData::getFieldValue(const string & fieldName) const
 {
 	if (fieldName == "year") {
 		return to_string(this->getYear());
@@ -293,7 +293,7 @@ string GameData::getFieldValue(const string & fieldName)
 	return "";
 }
 
-BaseData* GameData::getDataByField(const string & fieldName)
+BaseData* GameData::getDataByField(const string & fieldName) const
 {
 	if (fieldName == "parentJob") {
 		return this->getParentJobData();

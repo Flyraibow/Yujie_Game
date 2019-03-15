@@ -29,6 +29,7 @@ protected:
   string p_id;
   bool p_isAutoScale;
   bool p_isParentScale;
+  bool p_shareData;
   Vec2 p_normalizePosition;
   Vec2 p_normalizePositionOffset;
   Vec2 p_position;
@@ -63,7 +64,7 @@ public:
   static vector<BaseComponent *> getComponentsFromJson(const nlohmann::json &componentJson);
 
   virtual void copyAttributesFromJson(const nlohmann::json &componentJson);
-  void setAssociateData(BaseData *baseData) { p_associateData = baseData; };
+  void setAssociateData(BaseData *baseData);
 };
 
 #endif /* BaseComponent_hpp */

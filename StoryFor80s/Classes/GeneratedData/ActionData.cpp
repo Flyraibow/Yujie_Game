@@ -65,7 +65,7 @@ ActionData* ActionData::getActionDataById(const string& actionId)
 	return nullptr;
 }
 
-string ActionData::getFieldValue(const string & fieldName)
+string ActionData::getFieldValue(const string & fieldName) const
 {
 	if (fieldName == "actionId") {
 		return to_string(this->getActionId());
@@ -76,7 +76,7 @@ string ActionData::getFieldValue(const string & fieldName)
 	return "";
 }
 
-BaseData* ActionData::getDataByField(const string & fieldName)
+BaseData* ActionData::getDataByField(const string & fieldName) const
 {
 	CCLOGWARN("Couldn't recognize %s in ActionData", fieldName.c_str());
 	return nullptr;

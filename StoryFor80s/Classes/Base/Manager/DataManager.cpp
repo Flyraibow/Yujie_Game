@@ -225,6 +225,8 @@ vector<BaseData*> DataManager::decipherDataList(const string &value) const
     if (p_tempDataListMap.count(value)) {
       result = p_tempDataListMap.at(value);
     }
+  } else if (args.size() == 2 && args.at(0) == "gamedata") {
+    result = BaseDataManager::getDataList(args.at(1));
   } else {
     CCLOGERROR("not define data list value: %s", value.c_str());
   }
@@ -232,7 +234,7 @@ vector<BaseData*> DataManager::decipherDataList(const string &value) const
   return result;
 }
 
-string DataManager::decipherString(const string &value) const
+string DataManager::decipherString(const string &value, const BaseData* associate) const
 {
   auto args = Utils::split(value, '.');
   string val = value;
@@ -247,8 +249,8 @@ string DataManager::decipherString(const string &value) const
       } else {
         CCLOGWARN("Temp string doesn't contain this value : %s", dataKey.c_str());
       }
-    } else if (k == "game" || k == "gamedata" || k == "globaldata") {
-      val = getStringFromStringList(args);
+    } else if (k == "game" || k == "gamedata" || k == "globaldata" || k == "associate" ) {
+      val = getStringFromStringList(args, associate);
     } else if (k == "data") {
       auto dataKey = args.at(1);
       if (p_tempDataMap.count(dataKey)) {
@@ -470,13 +472,15 @@ string DataManager::formatStringWithParamters(const string &str, const vector<st
   return result;
 }
 
-string DataManager::getStringFromStringList(const vector<string> &strList) const
+string DataManager::getStringFromStringList(const vector<string> &strList, const BaseData* associate) const
 {
   CCASSERT(strList.size() >= 2, ("couldn't decipher strList : " + Utils::join(strList, ".")).c_str());
   auto type = strList.at(0);
-  BaseData *data = nullptr;
+  const BaseData *data = nullptr;
   int i = 1;
-  if (type == "game") {
+  if (type == "associate") {
+    data = associate;
+  } else if (type == "game") {
     data = GameData::getSharedInstance();
   } else if (type == "gamedata") {
     i = 3;

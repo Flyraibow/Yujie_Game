@@ -52,8 +52,8 @@
 		      },
 		      "components" : [
 		      	{
-		      	  "type": "componentList",
-		      	  "number": 2,
+		      	  "type" : "componentList",
+		      	  "data" : "gamedata.WorkData",
 			      "content" : {
 		      		"type": "sprite",
 		      		"id" : "scroll_view_content",
@@ -61,10 +61,21 @@
 				      "width": 300,
 				   	  "height": 300
 				    },
+				    "share_data" : true,
 				    "color": "alpha_blue",
 			      	"anchor_point": [0, 0],
 			      	"position" : [0, 0],
-			      	"position_offset" : [0, 325]
+			      	"position_offset" : [0, 325],
+			      	"components" : [
+			      	  {
+					      "type": "label",
+					      "id": "game_date",
+					      "text": "associate.name",
+					      "normalized_position": [0.5, 0.95],
+					      "anchor_point": [0.5, 1],
+					      "text_size": 30
+			      	  }
+			      	]
 			      }
 		      	}
 		      ]

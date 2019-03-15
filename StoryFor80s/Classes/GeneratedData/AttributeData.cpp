@@ -145,7 +145,7 @@ void AttributeData::setFieldValue(const string & fieldName, const string & value
 	}
 }
 
-string AttributeData::getFieldValue(const string & fieldName)
+string AttributeData::getFieldValue(const string & fieldName) const
 {
 	if (fieldName == "attributeId") {
 		return to_string(this->getAttributeId());
@@ -158,7 +158,7 @@ string AttributeData::getFieldValue(const string & fieldName)
 	return "";
 }
 
-BaseData* AttributeData::getDataByField(const string & fieldName)
+BaseData* AttributeData::getDataByField(const string & fieldName) const
 {
 	CCLOGWARN("Couldn't recognize %s in AttributeData", fieldName.c_str());
 	return nullptr;

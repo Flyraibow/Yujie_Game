@@ -65,7 +65,7 @@ ItemCategoryData* ItemCategoryData::getItemCategoryDataById(const string& itemCa
 	return nullptr;
 }
 
-string ItemCategoryData::getFieldValue(const string & fieldName)
+string ItemCategoryData::getFieldValue(const string & fieldName) const
 {
 	if (fieldName == "itemCategoryId") {
 		return to_string(this->getItemCategoryId());
@@ -76,7 +76,7 @@ string ItemCategoryData::getFieldValue(const string & fieldName)
 	return "";
 }
 
-BaseData* ItemCategoryData::getDataByField(const string & fieldName)
+BaseData* ItemCategoryData::getDataByField(const string & fieldName) const
 {
 	CCLOGWARN("Couldn't recognize %s in ItemCategoryData", fieldName.c_str());
 	return nullptr;

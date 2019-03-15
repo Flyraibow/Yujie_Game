@@ -165,7 +165,7 @@ void GameSavingData::setFieldValue(const string & fieldName, const string & valu
 	}
 }
 
-string GameSavingData::getFieldValue(const string & fieldName)
+string GameSavingData::getFieldValue(const string & fieldName) const
 {
 	if (fieldName == "savingId") {
 		return to_string(this->getSavingId());
@@ -178,7 +178,7 @@ string GameSavingData::getFieldValue(const string & fieldName)
 	return "";
 }
 
-BaseData* GameSavingData::getDataByField(const string & fieldName)
+BaseData* GameSavingData::getDataByField(const string & fieldName) const
 {
 	CCLOGWARN("Couldn't recognize %s in GameSavingData", fieldName.c_str());
 	return nullptr;

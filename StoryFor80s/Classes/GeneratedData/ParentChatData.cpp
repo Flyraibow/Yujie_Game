@@ -65,7 +65,7 @@ ParentChatData* ParentChatData::getParentChatDataById(const string& chatId)
 	return nullptr;
 }
 
-string ParentChatData::getFieldValue(const string & fieldName)
+string ParentChatData::getFieldValue(const string & fieldName) const
 {
 	if (fieldName == "chatId") {
 		return to_string(this->getChatId());
@@ -76,7 +76,7 @@ string ParentChatData::getFieldValue(const string & fieldName)
 	return "";
 }
 
-BaseData* ParentChatData::getDataByField(const string & fieldName)
+BaseData* ParentChatData::getDataByField(const string & fieldName) const
 {
 	CCLOGWARN("Couldn't recognize %s in ParentChatData", fieldName.c_str());
 	return nullptr;

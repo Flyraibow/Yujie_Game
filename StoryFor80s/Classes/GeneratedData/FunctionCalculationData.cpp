@@ -81,7 +81,7 @@ FunctionCalculationData* FunctionCalculationData::getFunctionCalculationDataById
 	return nullptr;
 }
 
-string FunctionCalculationData::getFieldValue(const string & fieldName)
+string FunctionCalculationData::getFieldValue(const string & fieldName) const
 {
 	if (fieldName == "functionCalculatonId") {
 		return to_string(this->getFunctionCalculatonId());
@@ -96,7 +96,7 @@ string FunctionCalculationData::getFieldValue(const string & fieldName)
 	return "";
 }
 
-BaseData* FunctionCalculationData::getDataByField(const string & fieldName)
+BaseData* FunctionCalculationData::getDataByField(const string & fieldName) const
 {
 	CCLOGWARN("Couldn't recognize %s in FunctionCalculationData", fieldName.c_str());
 	return nullptr;

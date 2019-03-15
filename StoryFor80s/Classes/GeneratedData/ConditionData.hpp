@@ -28,7 +28,7 @@ public:
 	string description() const;
 	static const map<string, ConditionData*>* getSharedDictionary();
 	static ConditionData* getConditionDataById(const string& conditionId);
-	string getFieldValue(const string & fieldName);
-	BaseData* getDataByField(const string & fieldName);
+	string getFieldValue(const string & fieldName) const;
+	BaseData* getDataByField(const string & fieldName) const;
 };
 #endif

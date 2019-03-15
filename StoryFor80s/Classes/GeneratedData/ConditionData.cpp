@@ -92,7 +92,7 @@ ConditionData* ConditionData::getConditionDataById(const string& conditionId)
 	return nullptr;
 }
 
-string ConditionData::getFieldValue(const string & fieldName)
+string ConditionData::getFieldValue(const string & fieldName) const
 {
 	if (fieldName == "conditionId") {
 		return to_string(this->getConditionId());
@@ -111,7 +111,7 @@ string ConditionData::getFieldValue(const string & fieldName)
 	return "";
 }
 
-BaseData* ConditionData::getDataByField(const string & fieldName)
+BaseData* ConditionData::getDataByField(const string & fieldName) const
 {
 	CCLOGWARN("Couldn't recognize %s in ConditionData", fieldName.c_str());
 	return nullptr;

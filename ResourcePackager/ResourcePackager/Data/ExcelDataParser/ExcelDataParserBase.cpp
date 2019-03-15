@@ -290,7 +290,7 @@ string ExcelDataParserBase::getInstanceCode() const
 void ExcelDataParserBase::setGetFieldFunction()
 {
   auto fieldVar = new CPPVariable("fieldName", "const string &");
-  p_getFieldFunction = new CPPFunction("getFieldValue", TYPE_STRING, {fieldVar}, false, false);
+  p_getFieldFunction = new CPPFunction("getFieldValue", TYPE_STRING, {fieldVar}, false, true);
   int count = 0;
   for (auto schema : p_dataSchemas) {
     if (schema->getType() != COMMENT && schema->getType() != ENUM) {
@@ -336,7 +336,7 @@ void ExcelDataParserBase::setSetFieldFunction()
 void ExcelDataParserBase::setGetFieldDataFunction()
 {
   auto fieldVar = new CPPVariable("fieldName", "const string &");
-  p_getFieldDataFunction = new CPPFunction("getDataByField", "BaseData*", {fieldVar}, false, false);
+  p_getFieldDataFunction = new CPPFunction("getDataByField", "BaseData*", {fieldVar}, false, true);
   int count = 0;
   for (auto schema : p_dataSchemas) {
     if (schema->getType() == FRIEND_ID) {
@@ -460,4 +460,9 @@ void ExcelDataParserBase::addGetFieldFunction(CPPFunction* getFieldFunc) const
   getFieldFunc->setIsEmpty(false);
   getFieldFunc->addBodyStatements(prefix + "if (dataSet == \"" + p_className + "\") {");
   getFieldFunc->addBodyStatements("return " + p_className + "::getSharedInstance();", 1);
+}
+
+void ExcelDataParserBase::addGetDataListFunction(CPPFunction* getDataListFunc) const
+{
+  
 }

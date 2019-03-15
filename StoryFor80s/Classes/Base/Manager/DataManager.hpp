@@ -30,14 +30,14 @@ private:
   string getConditionString(const string &type, const string &parameter) const;
   string getFormatStringFromFunction(FunctionCalculationData *functionData) const;
   string calculate(const string &type, const string &a, const string &b, const string &func);
-  string getStringFromStringList(const vector<string> &strList) const;
+  string getStringFromStringList(const vector<string> &strList, const BaseData* associate = nullptr) const;
 public:
   static DataManager* getShareInstance();
   void setTempData(const string &key, BaseData* value);
   void setTempDataList(const string &key, const vector<BaseData*> &value);
   void setTempString(const string &key, const string &value);
   void calculateTempString(const string &type, const string &key, const string &func, const string &value);
-  string decipherString(const string &value) const;
+  string decipherString(const string &value, const BaseData* associate = nullptr) const;
   BaseData* decipherData(const string &value) const;
   vector<BaseData*> decipherDataList(const string &value) const;
   string getTempString(const string &key) const;

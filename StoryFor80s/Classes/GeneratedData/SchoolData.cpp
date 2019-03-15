@@ -72,7 +72,7 @@ SchoolData* SchoolData::getSchoolDataById(const string& schoolId)
 	return nullptr;
 }
 
-string SchoolData::getFieldValue(const string & fieldName)
+string SchoolData::getFieldValue(const string & fieldName) const
 {
 	if (fieldName == "schoolId") {
 		return to_string(this->getSchoolId());
@@ -85,7 +85,7 @@ string SchoolData::getFieldValue(const string & fieldName)
 	return "";
 }
 
-BaseData* SchoolData::getDataByField(const string & fieldName)
+BaseData* SchoolData::getDataByField(const string & fieldName) const
 {
 	CCLOGWARN("Couldn't recognize %s in SchoolData", fieldName.c_str());
 	return nullptr;

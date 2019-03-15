@@ -409,3 +409,14 @@ void ExcelDataIdBasedParser::addGetFieldFunction(CPPFunction* getFieldFunc) cons
   getFieldFunc->addBodyStatements(prefix + "if (dataSet == \"" + p_className + "\") {");
   getFieldFunc->addBodyStatements("return " + p_className + "::get" + p_className + "ById(id);", 1);
 }
+
+void ExcelDataIdBasedParser::addGetDataListFunction(CPPFunction* getDataListFunc) const
+{
+  string prefix = getDataListFunc->getIsEmpty() ? "" : "} else ";
+  getDataListFunc->setIsEmpty(false);
+  getDataListFunc->addBodyStatements(prefix + "if (dataSet == \"" + p_className + "\") {");
+  getDataListFunc->addBodyStatements("auto dataMap = " + p_className + "::getSharedDictionary();", 1);
+  getDataListFunc->addBodyStatements("for (auto elem : *dataMap) {", 1);
+  getDataListFunc->addBodyStatements("result.push_back(elem.second);", 2);
+  getDataListFunc->addBodyStatements("}", 1);
+}

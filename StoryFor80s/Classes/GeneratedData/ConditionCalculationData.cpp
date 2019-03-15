@@ -97,7 +97,7 @@ ConditionCalculationData* ConditionCalculationData::getConditionCalculationDataB
 	return nullptr;
 }
 
-string ConditionCalculationData::getFieldValue(const string & fieldName)
+string ConditionCalculationData::getFieldValue(const string & fieldName) const
 {
 	if (fieldName == "conditionCalculationId") {
 		return to_string(this->getConditionCalculationId());
@@ -116,7 +116,7 @@ string ConditionCalculationData::getFieldValue(const string & fieldName)
 	return "";
 }
 
-BaseData* ConditionCalculationData::getDataByField(const string & fieldName)
+BaseData* ConditionCalculationData::getDataByField(const string & fieldName) const
 {
 	if (fieldName == "condition") {
 		return this->getConditionData();

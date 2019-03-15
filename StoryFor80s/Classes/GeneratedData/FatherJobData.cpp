@@ -170,7 +170,7 @@ void FatherJobData::setFieldValue(const string & fieldName, const string & value
 	}
 }
 
-string FatherJobData::getFieldValue(const string & fieldName)
+string FatherJobData::getFieldValue(const string & fieldName) const
 {
 	if (fieldName == "fatherJobId") {
 		return to_string(this->getFatherJobId());
@@ -187,7 +187,7 @@ string FatherJobData::getFieldValue(const string & fieldName)
 	return "";
 }
 
-BaseData* FatherJobData::getDataByField(const string & fieldName)
+BaseData* FatherJobData::getDataByField(const string & fieldName) const
 {
 	CCLOGWARN("Couldn't recognize %s in FatherJobData", fieldName.c_str());
 	return nullptr;

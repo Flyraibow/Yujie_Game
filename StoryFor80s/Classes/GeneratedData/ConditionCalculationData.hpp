@@ -30,7 +30,7 @@ public:
 	string description() const;
 	static const map<string, ConditionCalculationData*>* getSharedDictionary();
 	static ConditionCalculationData* getConditionCalculationDataById(const string& conditionCalculationId);
-	string getFieldValue(const string & fieldName);
-	BaseData* getDataByField(const string & fieldName);
+	string getFieldValue(const string & fieldName) const;
+	BaseData* getDataByField(const string & fieldName) const;
 };
 #endif

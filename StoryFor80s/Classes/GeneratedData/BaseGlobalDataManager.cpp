@@ -87,3 +87,17 @@ void BaseGlobalDataManager::setDataField(const string & dataSet, const string & 
 	CCLOGWARN("Couldn't recognize %s file", dataSet.c_str());
 }
 
+vector<BaseData *> BaseGlobalDataManager::getDataList(const string & dataSet)
+{
+	vector<BaseData *> result;
+	if (dataSet == "GameSavingData") {
+		auto dataMap = GameSavingData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else {
+		CCLOGWARN("Couldn't recognize %s file", dataSet.c_str());
+	}
+	return result;
+}
+

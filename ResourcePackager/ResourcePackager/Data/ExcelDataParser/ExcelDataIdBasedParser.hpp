@@ -36,6 +36,7 @@ public:
   virtual void addDataLoadFunction(CPPClass* dataManager) const;
   virtual void addSetFieldFunction(CPPFunction* setFieldFunc) const;
   virtual void addGetFieldFunction(CPPFunction* getFieldFunc) const;
+  virtual void addGetDataListFunction(CPPFunction* getFieldFunc) const;
 };
 
 #endif /* ExcelData_hpp */

@@ -192,7 +192,7 @@ void WorkData::setFieldValue(const string & fieldName, const string & value)
 	}
 }
 
-string WorkData::getFieldValue(const string & fieldName)
+string WorkData::getFieldValue(const string & fieldName) const
 {
 	if (fieldName == "actionId") {
 		return to_string(this->getActionId());
@@ -215,7 +215,7 @@ string WorkData::getFieldValue(const string & fieldName)
 	return "";
 }
 
-BaseData* WorkData::getDataByField(const string & fieldName)
+BaseData* WorkData::getDataByField(const string & fieldName) const
 {
 	CCLOGWARN("Couldn't recognize %s in WorkData", fieldName.c_str());
 	return nullptr;

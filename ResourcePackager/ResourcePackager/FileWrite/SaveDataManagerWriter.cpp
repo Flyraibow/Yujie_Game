@@ -29,6 +29,8 @@ SaveDataManagerWriter::SaveDataManagerWriter(const string &fileName, const strin
   p_setFieldFunc = new CPPFunction("setDataField", TYPE_VOID, {dataSet, idVariable, fieldName, valueVariable}, true, false);
   p_getFieldFunc = new CPPFunction("getDataField", TYPE_STRING, {dataSet, idVariable, fieldName}, true, false);
   p_getDataFunc = new CPPFunction("getData", "BaseData *", {dataSet, idVariable}, true, false);
+  p_getDataListFunc = new CPPFunction("getDataList", "vector<BaseData *>", {dataSet}, true, false);
+  p_getDataListFunc->addBodyStatements("vector<BaseData *> result;");
   
   p_file->addHeaders("sys/types.h", false, false);
   p_file->addHeaders("sys/stat.h", false, false);
@@ -75,6 +77,7 @@ void SaveDataManagerWriter::addExcel(const ExcelDataParserBase *excel)
     excel->addSetFieldFunction(p_setFieldFunc);
   }
   excel->addGetFieldFunction(p_getDataFunc);
+  excel->addGetDataListFunction(p_getDataListFunc);
 }
 
 void SaveDataManagerWriter::writeToPath(const std::string &path)
@@ -89,6 +92,11 @@ void SaveDataManagerWriter::writeToPath(const std::string &path)
   p_getDataFunc->addBodyStatements("return nullptr;");
   p_setFieldFunc->addBodyStatements("CCLOGWARN(\"Couldn't recognize %s file\", dataSet.c_str());");
   
+  p_getDataListFunc->addBodyStatements("} else {");
+  p_getDataListFunc->addBodyStatements("CCLOGWARN(\"Couldn't recognize %s file\", dataSet.c_str());", 1);
+  p_getDataListFunc->addBodyStatements("}");
+  p_getDataListFunc->addBodyStatements("return result;");
+  
   p_getFieldFunc->addBodyStatements("auto data = getData(dataSet, id);");
   p_getFieldFunc->addBodyStatements("if (data != nullptr) {");
   p_getFieldFunc->addBodyStatements("return data->getFieldValue(fieldName);", 1);
@@ -101,6 +109,7 @@ void SaveDataManagerWriter::writeToPath(const std::string &path)
   p_mainClass->addFunction(p_getDataFunc, false);
   p_mainClass->addFunction(p_getFieldFunc, false);
   p_mainClass->addFunction(p_setFieldFunc, false);
+  p_mainClass->addFunction(p_getDataListFunc, false);
   p_file->addClass(p_mainClass);
   p_file->saveFiles(path);
 }

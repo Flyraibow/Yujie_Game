@@ -66,7 +66,7 @@ Node* ScrollViewComponent::addComponentToParent(ComponentDict &dict, cocos2d::No
   }
 
   scrollView->setInnerContainerSize(getInnerContainerSize(scrollView));
-
+  
   addNodeToParent(dict, scrollView, parent);
   
   return scrollView;

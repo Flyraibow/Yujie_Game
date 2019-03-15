@@ -164,7 +164,7 @@ void ItemData::setFieldValue(const string & fieldName, const string & value)
 	}
 }
 
-string ItemData::getFieldValue(const string & fieldName)
+string ItemData::getFieldValue(const string & fieldName) const
 {
 	if (fieldName == "itemId") {
 		return to_string(this->getItemId());
@@ -181,7 +181,7 @@ string ItemData::getFieldValue(const string & fieldName)
 	return "";
 }
 
-BaseData* ItemData::getDataByField(const string & fieldName)
+BaseData* ItemData::getDataByField(const string & fieldName) const
 {
 	if (fieldName == "category") {
 		return this->getCategoryData();

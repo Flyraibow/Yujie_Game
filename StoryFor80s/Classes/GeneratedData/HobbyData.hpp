@@ -28,7 +28,7 @@ public:
 	static bool loadData(const string & path);
 	static bool clearData();
 	void setFieldValue(const string & fieldName, const string & value);
-	string getFieldValue(const string & fieldName);
-	BaseData* getDataByField(const string & fieldName);
+	string getFieldValue(const string & fieldName) const;
+	BaseData* getDataByField(const string & fieldName) const;
 };
 #endif

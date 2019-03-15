@@ -52,5 +52,6 @@ public:
 	static BaseData * getData(const string & dataSet, const string & id);
 	static string getDataField(const string & dataSet, const string & id, const string & fieldName);
 	static void setDataField(const string & dataSet, const string & id, const string & fieldName, const string & value);
+	static vector<BaseData *> getDataList(const string & dataSet);
 };
 #endif

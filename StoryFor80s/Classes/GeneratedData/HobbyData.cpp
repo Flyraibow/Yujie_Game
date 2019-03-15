@@ -152,7 +152,7 @@ void HobbyData::setFieldValue(const string & fieldName, const string & value)
 	}
 }
 
-string HobbyData::getFieldValue(const string & fieldName)
+string HobbyData::getFieldValue(const string & fieldName) const
 {
 	if (fieldName == "hobbyId") {
 		return to_string(this->getHobbyId());
@@ -167,7 +167,7 @@ string HobbyData::getFieldValue(const string & fieldName)
 	return "";
 }
 
-BaseData* HobbyData::getDataByField(const string & fieldName)
+BaseData* HobbyData::getDataByField(const string & fieldName) const
 {
 	CCLOGWARN("Couldn't recognize %s in HobbyData", fieldName.c_str());
 	return nullptr;

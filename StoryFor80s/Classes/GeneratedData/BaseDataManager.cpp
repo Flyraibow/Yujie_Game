@@ -365,3 +365,97 @@ void BaseDataManager::setDataField(const string & dataSet, const string & id, co
 	CCLOGWARN("Couldn't recognize %s file", dataSet.c_str());
 }
 
+vector<BaseData *> BaseDataManager::getDataList(const string & dataSet)
+{
+	vector<BaseData *> result;
+	if (dataSet == "ConditionData") {
+		auto dataMap = ConditionData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else if (dataSet == "ConditionCalculationData") {
+		auto dataMap = ConditionCalculationData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else if (dataSet == "HobbyData") {
+		auto dataMap = HobbyData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else if (dataSet == "FatherJobData") {
+		auto dataMap = FatherJobData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else if (dataSet == "StoryData") {
+		auto dataMap = StoryData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else if (dataSet == "SkillsData") {
+		auto dataMap = SkillsData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else if (dataSet == "SocialActionData") {
+		auto dataMap = SocialActionData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else if (dataSet == "PersonalityData") {
+		auto dataMap = PersonalityData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else if (dataSet == "ItemData") {
+		auto dataMap = ItemData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else if (dataSet == "ItemCategoryData") {
+		auto dataMap = ItemCategoryData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else if (dataSet == "FriendData") {
+		auto dataMap = FriendData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else if (dataSet == "ParentChatData") {
+		auto dataMap = ParentChatData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else if (dataSet == "AttributeData") {
+		auto dataMap = AttributeData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else if (dataSet == "FunctionCalculationData") {
+		auto dataMap = FunctionCalculationData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else if (dataSet == "WorkData") {
+		auto dataMap = WorkData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else if (dataSet == "ActionData") {
+		auto dataMap = ActionData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else if (dataSet == "SchoolData") {
+		auto dataMap = SchoolData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else {
+		CCLOGWARN("Couldn't recognize %s file", dataSet.c_str());
+	}
+	return result;
+}
+

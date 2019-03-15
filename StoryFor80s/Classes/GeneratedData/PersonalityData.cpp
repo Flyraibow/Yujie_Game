@@ -145,7 +145,7 @@ void PersonalityData::setFieldValue(const string & fieldName, const string & val
 	}
 }
 
-string PersonalityData::getFieldValue(const string & fieldName)
+string PersonalityData::getFieldValue(const string & fieldName) const
 {
 	if (fieldName == "attributeId") {
 		return to_string(this->getAttributeId());
@@ -158,7 +158,7 @@ string PersonalityData::getFieldValue(const string & fieldName)
 	return "";
 }
 
-BaseData* PersonalityData::getDataByField(const string & fieldName)
+BaseData* PersonalityData::getDataByField(const string & fieldName) const
 {
 	CCLOGWARN("Couldn't recognize %s in PersonalityData", fieldName.c_str());
 	return nullptr;

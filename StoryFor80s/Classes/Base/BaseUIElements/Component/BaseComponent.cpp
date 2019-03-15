@@ -22,6 +22,7 @@ BaseComponent::BaseComponent(const nlohmann::json &componentJson)
   p_id = Utils::getStringFromJson(componentJson, "id");
   p_isAutoScale = Utils::getBoolFromJson(componentJson, "auto_scale");
   p_isParentScale = Utils::getBoolFromJson(componentJson, "parent_scale");
+  p_shareData = Utils::getBoolFromJson(componentJson, "share_data");
   p_normalizePosition = Utils::getVec2FromJson(componentJson, "normalized_position");
   p_normalizePositionOffset = Utils::getVec2FromJson(componentJson, "normalized_position_offset");
   p_position = Utils::getVec2FromJson(componentJson, "position");
@@ -201,5 +202,14 @@ void BaseComponent::refresh()
 {
   if (p_shouldHideCondition.length() > 0) {
     p_node->setVisible(!DataManager::getShareInstance()->checkCondition(p_shouldHideCondition));
+  }
+}
+
+void BaseComponent::setAssociateData(BaseData *baseData) {
+  p_associateData = baseData;
+  if (p_shareData) {
+    for (int i = 0; i < p_componentList.size(); ++i) {
+      p_componentList.at(i)->setAssociateData(baseData);
+    }
   }
 }

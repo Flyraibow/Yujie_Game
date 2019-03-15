@@ -30,6 +30,12 @@ ListComponent::ListComponent(const nlohmann::json &componentJson) : BaseComponen
   if (componentJson.count("content")) {
     p_panelContent = componentJson.at("content");
   }
+  if (componentJson.count("data")) {
+    p_dataList = DataManager::getShareInstance()->decipherDataList(Utils::getStringFromJson(componentJson, "data"));
+    if (p_count == 0) {
+      p_count = p_dataList.size();
+    }
+  }
 //  if (p_count > 0 && !p_panelContent.empty()) {
 //    for (int i = 0; i < p_count; ++i) {
 //      auto component = BaseComponent::getComponentFromJson(p_panelContent);
@@ -44,6 +50,9 @@ Node* ListComponent::addComponentToParent(ComponentDict &dict, cocos2d::Node *pa
     for (int i = 0; i < p_count; ++i) {
       auto component = BaseComponent::getComponentFromJson(p_panelContent);
       component->setIndex(i);
+      if (i < p_dataList.size()) {
+        component->setAssociateData(p_dataList.at(i));
+      }
       component->addComponentToParent(dict, parent);
     }
   }

@@ -178,7 +178,7 @@ void SkillsData::setFieldValue(const string & fieldName, const string & value)
 	}
 }
 
-string SkillsData::getFieldValue(const string & fieldName)
+string SkillsData::getFieldValue(const string & fieldName) const
 {
 	if (fieldName == "skillId") {
 		return to_string(this->getSkillId());
@@ -197,7 +197,7 @@ string SkillsData::getFieldValue(const string & fieldName)
 	return "";
 }
 
-BaseData* SkillsData::getDataByField(const string & fieldName)
+BaseData* SkillsData::getDataByField(const string & fieldName) const
 {
 	CCLOGWARN("Couldn't recognize %s in SkillsData", fieldName.c_str());
 	return nullptr;
