@@ -1,5 +1,5 @@
-﻿year,month,day,firstName,lastName,birthDay,birthMonth,birthYear,parentJob,school
-int,int,int,string,string,int,int,int,friend_id,friend_id
--,-,-,-,-,-,-,-,FatherJob,School
-Y,Y,Y,Y,Y,Y,Y,Y,Y,Y
-1994,9,1,firstName,lastName,9,11,1987,0,0
+﻿year,month,day,firstName,lastName,birthDay,birthMonth,birthYear,parentJob,school,weekDay
+int,int,int,string,string,int,int,int,friend_id,friend_id,int
+-,-,-,-,-,-,-,-,FatherJob,School,-
+Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y
+1994,9,1,firstName,lastName,9,11,1987,0,0,4

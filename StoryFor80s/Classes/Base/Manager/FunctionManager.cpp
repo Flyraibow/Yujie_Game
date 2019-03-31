@@ -80,6 +80,8 @@ string Manager::getFunctionValueById(const string &functionId)
     }
   } else if (functionName == "string_format") {
     val = getFormatStringFromFunction(functionData);
+  } else if (functionName == "decipher") {
+    val = DataManager::getShareInstance()->decipherString(paramters.at(0));
   } else if (functionName == "condition") {
     auto conditionString = paramters.at(0);
     string result;

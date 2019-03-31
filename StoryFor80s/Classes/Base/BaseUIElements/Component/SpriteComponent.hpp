@@ -15,6 +15,7 @@ private:
   std::string p_iconPath;
   Color4B p_color;
   std::string p_clickStoryEventId;
+  std::string p_tempDataKey;
   void clickSprite(Touch* touch, Event* event);
 protected:
 public:

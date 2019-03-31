@@ -9,6 +9,7 @@
 #define DataManager_hpp
 
 #include <stdio.h>
+#include <string>
 #include <unordered_map>
 #include <vector>
 #include "BaseData.h"

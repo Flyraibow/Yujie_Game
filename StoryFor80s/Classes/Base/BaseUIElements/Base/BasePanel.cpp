@@ -38,3 +38,17 @@ void BasePanel::removeFromParent()
   p_node->removeFromParent();
   p_node = nullptr;
 }
+
+void BasePanel::referesh()
+{
+  for (auto component : p_componentDict) {
+    component.second->refresh();
+  }
+}
+
+void BasePanel::refreshComponentById(const string &componentId)
+{
+  if (p_componentDict.count(componentId)) {
+    p_componentDict.at(componentId)->refresh();
+  }
+}

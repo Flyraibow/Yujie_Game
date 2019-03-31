@@ -33,9 +33,19 @@ string WorkData::getCondition() const
 	return p_condition;
 }
 
-int WorkData::getSalary() const
+int WorkData::getBaseSalary() const
 {
-	return p_salary;
+	return p_baseSalary;
+}
+
+int WorkData::getRealSalary() const
+{
+	return p_realSalary;
+}
+
+void WorkData::setRealSalary(int realSalary)
+{
+	p_realSalary = realSalary;
 }
 
 int WorkData::getProficienc() const
@@ -63,19 +73,27 @@ map<string, int> WorkData::getPersonalityChangeMap() const
 	return p_personalityChangeMap;
 }
 
+string WorkData::getDescription() const
+{
+	string localId = "work_description_" + to_string(p_actionId);
+	return LocalizationHelper::getLocalization(localId);
+}
+
 string WorkData::description() const
 {
 	string desc = "workData = {\n";
 	desc += "\tactionId : " + to_string(p_actionId) + "\n";
 	desc += "\tname : " + getName() + "\n";
 	desc += "\tcondition : " + to_string(p_condition) + "\n";
-	desc += "\tsalary : " + to_string(p_salary) + "\n";
+	desc += "\tbaseSalary : " + to_string(p_baseSalary) + "\n";
+	desc += "\trealSalary : " + to_string(p_realSalary) + "\n";
 	desc += "\tproficienc : " + to_string(p_proficienc) + "\n";
 	desc += "\tmaxProficiency : " + to_string(p_maxProficiency) + "\n";
 	
 	desc += "\tattributeChange : " + to_string(p_attributeChangeMap)+ "\n";
 	
 	desc += "\tpersonalityChange : " + to_string(p_personalityChangeMap)+ "\n";
+	desc += "\tdescription : " + getDescription() + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -94,7 +112,8 @@ const map<string, WorkData*>* WorkData::getSharedDictionary()
 				WorkData* workData = new WorkData();
 				workData->p_actionId = buffer->getString();
 				workData->p_condition = buffer->getString();
-				workData->p_salary = buffer->getInt();
+				workData->p_baseSalary = buffer->getInt();
+				workData->p_realSalary = buffer->getInt();
 				workData->p_proficienc = buffer->getInt();
 				workData->p_maxProficiency = buffer->getInt();
 				auto attributeChangeCount = buffer->getLong();
@@ -130,11 +149,13 @@ bool WorkData::saveData(const string & path)
 	auto dict = WorkData::getSharedDictionary();
 	auto buffer = std::make_unique<bb::ByteBuffer>();
 	buffer->putLong(dict->size());
-	buffer->putInt(1);
+	buffer->putInt(2);
 	for (auto iter = dict->begin(); iter != dict->end(); iter++) {
 		auto dataId = iter->first;
 		auto data = iter->second;
 		buffer->putString(dataId);
+		buffer->putString("p_realSalary");
+		buffer->putString(to_string(data->p_realSalary));
 		buffer->putString("p_proficienc");
 		buffer->putString(to_string(data->p_proficienc));
 	}
@@ -162,7 +183,9 @@ bool WorkData::loadData(const string & path)
 				string key = buffer->getString();
 				string value = buffer->getString();
 				if (data != nullptr) {
-					if (key == "p_proficienc") {
+					if (key == "p_realSalary") {
+						data->p_realSalary = atoi(value.c_str());
+					} else if (key == "p_proficienc") {
 						data->p_proficienc = atoi(value.c_str());
 					}
 				}
@@ -187,7 +210,9 @@ bool WorkData::clearData()
 
 void WorkData::setFieldValue(const string & fieldName, const string & value)
 {
-	if (fieldName == "proficienc") {
+	if (fieldName == "realSalary") {
+		this->setRealSalary(atoi(value.c_str()));
+	} else if (fieldName == "proficienc") {
 		this->setProficienc(atoi(value.c_str()));
 	}
 }
@@ -200,8 +225,10 @@ string WorkData::getFieldValue(const string & fieldName) const
 		return to_string(this->getName());
 	} else if (fieldName == "condition") {
 		return to_string(this->getCondition());
-	} else if (fieldName == "salary") {
-		return to_string(this->getSalary());
+	} else if (fieldName == "baseSalary") {
+		return to_string(this->getBaseSalary());
+	} else if (fieldName == "realSalary") {
+		return to_string(this->getRealSalary());
 	} else if (fieldName == "proficienc") {
 		return to_string(this->getProficienc());
 	} else if (fieldName == "maxProficiency") {
@@ -210,6 +237,8 @@ string WorkData::getFieldValue(const string & fieldName) const
 		return to_string(this->getAttributeChangeMap());
 	} else if (fieldName == "personalityChange") {
 		return to_string(this->getPersonalityChangeMap());
+	} else if (fieldName == "description") {
+		return to_string(this->getDescription());
 	}
 	CCLOGWARN("Couldn't recognize %s in WorkData", fieldName.c_str());
 	return "";

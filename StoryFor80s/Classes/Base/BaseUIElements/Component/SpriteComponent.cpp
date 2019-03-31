@@ -17,6 +17,7 @@ SpriteComponent::SpriteComponent(const nlohmann::json &componentJson) : BaseComp
   p_iconPath = Utils::getStringFromJson(componentJson, "path");
   p_color = Utils::getColorFromJson(componentJson, "color");
   p_clickStoryEventId = Utils::getStringFromJson(componentJson, "click_event_id");
+  p_tempDataKey = Utils::getStringFromJson(componentJson, "temp_data_key");
 }
 
 Node* SpriteComponent::addComponentToParent(ComponentDict &dict, cocos2d::Node *parent)
@@ -59,5 +60,8 @@ void SpriteComponent::refresh()
 void SpriteComponent::clickSprite(Touch* touch, Event* event)
 {
   CCLOG("start stories");
+  if (p_tempDataKey.length() > 0) {
+    DataManager::getShareInstance()->setTempData(p_tempDataKey, p_associateData);
+  }
   StoryManager::getShareInstance()->startStory(p_clickStoryEventId);
 }

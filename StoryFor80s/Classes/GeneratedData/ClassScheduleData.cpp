@@ -8,21 +8,21 @@ This file (ClassScheduleData.cpp) is generated
 
 using namespace Utils;
 
-map<int, map<string,string>>* ClassScheduleData::p_sharedDictionary = nullptr;
+map<string, map<string,string>>* ClassScheduleData::p_sharedDictionary = nullptr;
 
-const map<int, map<string,string>>* ClassScheduleData::getSharedDictionary()
+const map<string, map<string,string>>* ClassScheduleData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
-		p_sharedDictionary = new map<int, map<string,string>>();
+		p_sharedDictionary = new map<string, map<string,string>>();
 		static string resPath = "res/base/data/classSchedule.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
 			auto bytes = data.getBytes();
 			auto buffer = std::make_unique<bb::ByteBuffer>(bytes, data.getSize());
-			vector<int> rowValues;
+			vector<string> rowValues;
 			auto rowCount = buffer->getLong();
 			for (int i = 0; i < rowCount; ++i) {
-				rowValues.push_back(buffer->getInt());
+				rowValues.push_back(buffer->getString());
 			}
 			vector<string> colValues;
 			auto colCount = buffer->getLong();
@@ -42,7 +42,7 @@ const map<int, map<string,string>>* ClassScheduleData::getSharedDictionary()
 	return p_sharedDictionary;
 }
 
-string ClassScheduleData::getClassSchedule(int date, string schooId)
+string ClassScheduleData::getClassSchedule(string date, string schooId)
 {
 	auto dict = getSharedDictionary();
 	if (dict->count(date)) {

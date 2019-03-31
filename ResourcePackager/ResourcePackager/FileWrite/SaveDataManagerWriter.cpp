@@ -27,7 +27,12 @@ SaveDataManagerWriter::SaveDataManagerWriter(const string &fileName, const strin
   auto fieldName = new CPPVariable("fieldName", "const string &");
   auto valueVariable = new CPPVariable("value", "const string &");
   p_setFieldFunc = new CPPFunction("setDataField", TYPE_VOID, {dataSet, idVariable, fieldName, valueVariable}, true, false);
+  
   p_getFieldFunc = new CPPFunction("getDataField", TYPE_STRING, {dataSet, idVariable, fieldName}, true, false);
+  p_getFieldFunc->addBodyStatements("auto data = getData(dataSet, id);");
+  p_getFieldFunc->addBodyStatements("if (data != nullptr) {");
+  p_getFieldFunc->addBodyStatements("return data->getFieldValue(fieldName);", 1);
+  
   p_getDataFunc = new CPPFunction("getData", "BaseData *", {dataSet, idVariable}, true, false);
   p_getDataListFunc = new CPPFunction("getDataList", "vector<BaseData *>", {dataSet}, true, false);
   p_getDataListFunc->addBodyStatements("vector<BaseData *> result;");
@@ -76,7 +81,11 @@ void SaveDataManagerWriter::addExcel(const ExcelDataParserBase *excel)
     p_clearFunc->addBodyStatements(fileName + "::clearData();");
     excel->addSetFieldFunction(p_setFieldFunc);
   }
-  excel->addGetFieldFunction(p_getDataFunc);
+  if (excel->getType() == EXCEL_TYPE_2D) {
+    excel->addGetFieldFunction(p_getFieldFunc);
+  } else {
+    excel->addGetFieldFunction(p_getDataFunc);
+  }
   excel->addGetDataListFunction(p_getDataListFunc);
 }
 
@@ -97,9 +106,6 @@ void SaveDataManagerWriter::writeToPath(const std::string &path)
   p_getDataListFunc->addBodyStatements("}");
   p_getDataListFunc->addBodyStatements("return result;");
   
-  p_getFieldFunc->addBodyStatements("auto data = getData(dataSet, id);");
-  p_getFieldFunc->addBodyStatements("if (data != nullptr) {");
-  p_getFieldFunc->addBodyStatements("return data->getFieldValue(fieldName);", 1);
   p_getFieldFunc->addBodyStatements("}");
   p_getFieldFunc->addBodyStatements("return \"\";");
   

@@ -48,6 +48,7 @@ string StoryEventContent::getComment() const
 #include "PanelEventContent.hpp"
 #include "DialogEventContent.hpp"
 #include "SelectionEventContent.hpp"
+#include "RefreshEventContent.hpp"
 
 StoryEventContent* StoryEventContent::getStoryEventFromJson(const nlohmann::json &jsonContent)
 {
@@ -71,6 +72,8 @@ StoryEventContent* StoryEventContent::getStoryEventFromJson(const nlohmann::json
     return new DialogEventContent(jsonContent);
   } else if (type == "selection") {
     return new SelectionEventContent(jsonContent);
+  } else if (type == "refresh") {
+    return new RefreshEventContent(jsonContent);
   } else if (type == "popScene" || type == "popPanel" || type == "stopStory" || type == "refreshScene" || type == "checkStory") {
   } else if (StoryManager::isFunctionRegistered(type)) {
   } else {

@@ -34,7 +34,7 @@ CPPClass* ExcelData2DBasedParser::getMainCppClass() const
 }
 
 
-ExcelData2DBasedParser::ExcelData2DBasedParser(const vector<vector<string>> &excelData):ExcelDataParserBase()
+ExcelData2DBasedParser::ExcelData2DBasedParser(const vector<vector<string>> &excelData):ExcelDataParserBase(EXCEL_TYPE_2D)
 {
   assert(excelData.size() >= 3 && excelData.at(0).size() >= 3);
   string rowIdName = excelData.at(1).at(0);
@@ -309,5 +309,8 @@ void ExcelData2DBasedParser::addSetFieldFunction(CPPFunction* setFieldFunc) cons
 
 void ExcelData2DBasedParser::addGetFieldFunction(CPPFunction* getFieldFunc) const
 {
-  
+  string prefix = "} else ";
+  getFieldFunc->setIsEmpty(false);
+  getFieldFunc->addBodyStatements(prefix + "if (dataSet == \"" + p_className + "\") {");
+  getFieldFunc->addBodyStatements("return " + p_className + "::getClassSchedule(id, fieldName);", 1);
 }

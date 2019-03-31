@@ -1,6 +1,6 @@
-﻿actionId,name,condition,salary,proficienc,maxProficiency,attributeChange,personalityChange
-id,language,string,int,int,int,friend_id_map,friend_id_map
-string,chinese,-,-,-,-,Attribute;int,Personality;int
-writable,N,N,N,Y,N,N,N
-wash_bowl,做家务 (洗碗),,2,0,100,"pressure,1;rememberence,1","extraversion_introversion,-1"
-buy_food,做家务 (买菜),int.gamedata.work.wash_bowl.proficiency>int.40,3,0,100,"pressure,1;intelligence,1;strength,1","extraversion_introversion,1"
+﻿actionId,name,condition,baseSalary,realSalary,proficienc,maxProficiency,attributeChange,personalityChange,description
+id,language,string,int,int,int,int,friend_id_map,friend_id_map,language
+string,chinese,-,-,-,-,-,Attribute;int,Personality;int,chinese
+writable,N,N,N,Y,Y,N,N,N,N
+wash_bowl,做家务 (洗碗),,2,2,0,100,"pressure,1;rememberence,1","extraversion_introversion,-1",洗碗的说明
+buy_food,做家务 (买菜),int.gamedata.work.wash_bowl.proficiency>int.40,3,3,0,100,"pressure,1;intelligence,1;strength,1","extraversion_introversion,1",买菜的说明

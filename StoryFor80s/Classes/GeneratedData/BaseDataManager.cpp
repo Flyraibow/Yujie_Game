@@ -325,6 +325,8 @@ string BaseDataManager::getDataField(const string & dataSet, const string & id, 
 	auto data = getData(dataSet, id);
 	if (data != nullptr) {
 		return data->getFieldValue(fieldName);
+	} else if (dataSet == "ClassScheduleData") {
+		return ClassScheduleData::getClassSchedule(id, fieldName);
 	}
 	return "";
 }

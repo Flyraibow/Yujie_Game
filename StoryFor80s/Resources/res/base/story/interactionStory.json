@@ -1,0 +1,56 @@
+{
+	"events": [
+		{
+			"__comment" : "设置上学的科目",
+			"type" : "setValues",
+			"values" : {
+				"temp.classId" : "2d.ClassScheduleData.(function.date_string).(game.school)",
+				"temp.interaction_description" : "",
+				"temp.interaction_close" : "1"
+			}
+		},
+		{
+			"__comment" : "事件框",
+			"type" : "panel",
+			"name" : "interactionPanel"
+		},
+		{
+			"type" : "wait",
+			"duration" : 1
+		},
+		{
+			"type" : "setValues",
+			"values" : {
+				"temp.interaction_description" : "function.lab_study_result"
+			}
+		},
+		{
+			"__comment" : "刷新页面",
+			"type" : "refresh",
+			"refresh_ids" : [
+				"interaction_description"
+			] 
+		},
+		{
+			"__comment" : "如果是星期天就结束循环",
+			"type" : "condition",
+			"condition" : "int.game.weekDay=int.0",
+			"yes_story_id" : "stopStory"
+		},
+		{
+			"type" : "wait",
+			"until_click" : true
+		},
+		{
+			"type" : "story",
+			"name" : "action/sleep"
+		},
+		{
+			"type" : "popPanel"
+		},
+		{
+			"type" : "story",
+			"name" : "interactionStory"
+		}
+	]
+}

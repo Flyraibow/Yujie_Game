@@ -9,8 +9,9 @@
 #include "SpecialFunctions.hpp"
 #include "StoryManager.hpp"
 #include "PanelManager.hpp"
-#include "DialogPanel.hpp"
 #include "BaseGlobalDataManager.hpp"
+#include "DialogPanel.hpp"
+#include "InteractionPanel.hpp"
 
 void story::setupForThisGame()
 {
@@ -20,4 +21,5 @@ void story::setupForThisGame()
   StoryManager::registerSpecialEventFunction("save", &game::save);
   StoryManager::registerSpecialEventFunction("load", &game::load);
   PanelManager::registerPanel<DialogPanel>("dialogPanel");
+  PanelManager::registerPanel<InteractionPanel>("interactionPanel");
 }

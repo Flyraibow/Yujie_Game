@@ -16,6 +16,7 @@ class SubStoryEventContent : public StoryEventContent
 {
 private:
   string p_subStoryName;
+  nlohmann::json p_subStoryJson;
   StoryJsonData *p_subStoryData;
 public:
   ~SubStoryEventContent();

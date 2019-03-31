@@ -236,6 +236,20 @@ vector<BaseData*> DataManager::decipherDataList(const string &value) const
 
 string DataManager::decipherString(const string &value, const BaseData* associate) const
 {
+  // first decipher parentheses (), it's not best solution, but it's ok solution
+  int leftIndex = -1;
+  for (int i = 0; i < value.size(); ++i) {
+    char c = value.at(i);
+    if (c == ')') {
+      CCASSERT(leftIndex >= 0, "there is no left '(' for right ')'");
+      string subStr = decipherString(value.substr(leftIndex + 1, i - 1 - leftIndex));
+      string newValue = value;
+      newValue.replace(leftIndex, i - leftIndex + 1, subStr);
+      return decipherString(newValue);
+    } else if (c == '(') {
+      leftIndex = i;
+    }
+  }
   auto args = Utils::split(value, '.');
   string val = value;
   if (args.size() > 1) {
@@ -249,8 +263,10 @@ string DataManager::decipherString(const string &value, const BaseData* associat
       } else {
         CCLOGWARN("Temp string doesn't contain this value : %s", dataKey.c_str());
       }
-    } else if (k == "game" || k == "gamedata" || k == "globaldata" || k == "associate" ) {
+    } else if (k == "game" || k == "gamedata" || k == "globaldata" || k == "associate" || k == "tempdata") {
       val = getStringFromStringList(args, associate);
+    } else if (k == "2d") {
+      val = BaseDataManager::getDataField(args.at(1), args.at(2), args.at(3));
     } else if (k == "data") {
       auto dataKey = args.at(1);
       if (p_tempDataMap.count(dataKey)) {
@@ -450,6 +466,8 @@ string DataManager::formatStringWithParamters(const string &str, const vector<st
     decipheredParams.push_back(decipherString(parameter));
   }
   switch (decipheredParams.size()) {
+    case 0:
+      break;
     case 1: {
       result = Utils::format(str.c_str(), decipheredParams.at(0).c_str());
       break;
@@ -478,7 +496,12 @@ string DataManager::getStringFromStringList(const vector<string> &strList, const
   auto type = strList.at(0);
   const BaseData *data = nullptr;
   int i = 1;
-  if (type == "associate") {
+  if (type == "tempdata") {
+    if (p_tempDataMap.count(strList.at(1))) {
+      ++i;
+      data = p_tempDataMap.at(strList.at(1));
+    }
+  } else if (type == "associate") {
     data = associate;
   } else if (type == "game") {
     data = GameData::getSharedInstance();

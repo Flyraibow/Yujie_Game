@@ -1,0 +1,38 @@
+{
+	"events": [
+		{
+			"__comment" : "关闭窗口",
+			"type" : "popPanel"
+		},
+		{
+			"type" : "wait",
+			"duration" : 0.5
+		},
+		{
+			"__comment" : "显示对话框",
+			"type" : "dialog",
+			"name" : "dialogPanel",
+			"dialogs":[
+				{
+					"content" : "开始了一周的生活。"
+				}
+			]
+		},
+		{
+			"type" : "wait",
+			"duration" : 0.5
+		},
+		{
+			"__comment" : "设置选择工作",
+			"type" : "setValues",
+			"values" : {
+				"temp.chooseType" : "work"
+			}
+		},
+		{
+			"__comment" : "事件框",
+			"type" : "story",
+			"name" : "interactionStory"
+		}
+	]
+}

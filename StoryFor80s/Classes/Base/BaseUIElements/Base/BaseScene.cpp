@@ -209,6 +209,9 @@ void BaseScene::refreBaseScene()
   for (auto component : p_componentDict) {
     component.second->refresh();
   }
+  if (topPanel() != nullptr) {
+    topPanel()->referesh();
+  }
 }
 
 void BaseScene::refreshMusic() {
@@ -266,4 +269,15 @@ BaseScene* BaseScene::createScene(const string &jsonFile)
   auto scene =  BaseScene::create();
   scene->initSceneWithJson(jsonFile);
   return scene;
+}
+
+void BaseScene::refreshComponentById(const string &componentId)
+{
+  if (p_componentDict.count(componentId)) {
+    p_componentDict.at(componentId)->refresh();
+  }
+
+  if (topPanel() != nullptr) {
+    topPanel()->refreshComponentById(componentId);
+  }
 }

@@ -15,13 +15,21 @@ LabelComponent::LabelComponent(const nlohmann::json &componentJson) : BaseCompon
 {
   p_textSize = Utils::getFloatFromJson(componentJson, "text_size");
   p_text = Utils::getStringFromJson(componentJson, "text");
+  p_textParameters = Utils::getStringListFromJson(componentJson, "text_parameters");
   p_normalizedDimension = Utils::getVec2FromJson(componentJson, "normalized_dimensions");
   p_speed = Utils::getIntFromJson(componentJson, "speed");
 }
 
+std::string LabelComponent::decipherString() const
+{
+  if (p_text.size() == 0) return "";
+  auto content = DataManager::getShareInstance()->decipherString(p_text, p_associateData);
+  return DataManager::getShareInstance()->formatStringWithParamters(content, p_textParameters);
+}
+
 Node* LabelComponent::addComponentToParent(ComponentDict &dict, Node *parent)
 {
-  auto text = p_text.size() > 0 ? DataManager::getShareInstance()->decipherString(p_text, p_associateData) : "";
+  auto text = decipherString();
   BaseLabel *label = BaseLabel::createWithSystemFont(text, "Helvetica", p_textSize, p_speed);
   
   if (parent) {
@@ -37,7 +45,6 @@ Node* LabelComponent::addComponentToParent(ComponentDict &dict, Node *parent)
 void LabelComponent::refresh()
 {
   BaseComponent::refresh();
-  auto text = p_text.size() > 0 ? DataManager::getShareInstance()->decipherString(p_text, p_associateData) : "";
   auto label = dynamic_cast<BaseLabel *>(p_node);
-  label->setString(text);
+  label->setString(decipherString());
 }

@@ -24,7 +24,10 @@
 	      	{
 		      "type": "label",
 		      "id": "my_age",
-		      "text": "function.my_age",
+		      "text": "translation.age_display",
+		      "text_parameters" : [
+		    	"function.my_age_number"
+		      ],
 		      "normalized_position": [0.5, 0.33],
 		      "anchor_point": [0.5, 0.5],
 	  		  "normalized_dimensions": [0.9, 0],
@@ -54,7 +57,10 @@
 	      	{
 		      "type": "label",
 		      "id": "my_money",
-		      "text": "function.my_money",
+		      "text": "translation.my_money_display",
+		      "text_parameters" : [
+		    	"gamedata.AttributeData.money.value"
+		      ],
 		      "normalized_position": [0.5, 0.33],
 		      "anchor_point": [0.5, 0.5],
 	  		  "normalized_dimensions": [0.9, 0],
@@ -75,7 +81,10 @@
 	      	{
 		      "type": "label",
 		      "id": "my_intelligence",
-		      "text": "function.my_intelligence",
+		      "text": "translation.my_intelligence_display",
+		      "text_parameters" : [
+		    	"gamedata.AttributeData.intelligence.value"
+		      ],
 		      "normalized_position": [0.5, 0.9],
 		      "anchor_point": [0.5, 0.5],
 	  		  "normalized_dimensions": [0.9, 0],
@@ -84,7 +93,10 @@
 	      	{
 		      "type": "label",
 		      "id": "my_emotions",
-		      "text": "function.my_emotions",
+		      "text": "translation.my_emotions_display",
+		      "text_parameters" : [
+		    	"gamedata.AttributeData.emotions.value"
+		      ],
 		      "normalized_position": [0.5, 0.8],
 		      "anchor_point": [0.5, 0.5],
 	  		  "normalized_dimensions": [0.9, 0],
@@ -93,7 +105,10 @@
 	      	{
 		      "type": "label",
 		      "id": "my_imaginations",
-		      "text": "function.my_imaginations",
+		      "text": "translation.my_imaginations_display",
+		      "text_parameters" : [
+		    	"gamedata.AttributeData.imaginations.value"
+		      ],
 		      "normalized_position": [0.5, 0.7],
 		      "anchor_point": [0.5, 0.5],
 	  		  "normalized_dimensions": [0.9, 0],
@@ -102,7 +117,10 @@
 	      	{
 		      "type": "label",
 		      "id": "my_rememberence",
-		      "text": "function.my_rememberence",
+		      "text": "translation.my_rememberence_display",
+		      "text_parameters" : [
+		    	"gamedata.AttributeData.rememberence.value"
+		      ],
 		      "normalized_position": [0.5, 0.6],
 		      "anchor_point": [0.5, 0.5],
 	  		  "normalized_dimensions": [0.9, 0],
@@ -111,7 +129,10 @@
 	      	{
 		      "type": "label",
 		      "id": "my_charms",
-		      "text": "function.my_charms",
+		      "text": "translation.my_charms_display",
+		      "text_parameters" : [
+		    	"gamedata.AttributeData.charms.value"
+		      ],
 		      "normalized_position": [0.5, 0.5],
 		      "anchor_point": [0.5, 0.5],
 	  		  "normalized_dimensions": [0.9, 0],
@@ -120,7 +141,10 @@
 	      	{
 		      "type": "label",
 		      "id": "my_strength",
-		      "text": "function.my_strength",
+		      "text": "translation.my_strength_display",
+		      "text_parameters" : [
+		    	"gamedata.AttributeData.strength.value"
+		      ],
 		      "normalized_position": [0.5, 0.4],
 		      "anchor_point": [0.5, 0.5],
 	  		  "normalized_dimensions": [0.9, 0],
@@ -129,7 +153,10 @@
 	      	{
 		      "type": "label",
 		      "id": "my_health",
-		      "text": "function.my_health",
+		      "text": "translation.my_health_display",
+		      "text_parameters" : [
+		    	"gamedata.AttributeData.health.value"
+		      ],
 		      "normalized_position": [0.5, 0.25],
 		      "anchor_point": [0.5, 0.5],
 	  		  "normalized_dimensions": [0.9, 0],
@@ -138,7 +165,10 @@
 	      	{
 		      "type": "label",
 		      "id": "my_pressure",
-		      "text": "function.my_pressure",
+		      "text": "translation.my_pressure_display",
+		      "text_parameters" : [
+		    	"gamedata.AttributeData.pressure.value"
+		      ],
 		      "normalized_position": [0.5, 0.15],
 		      "anchor_point": [0.5, 0.5],
 	  		  "normalized_dimensions": [0.9, 0],

@@ -15,6 +15,28 @@
 
 USING_NS_CC;
 
+Rect calculateInnerSizeForScrollView_helper(Node *node, Rect innerRect, Vec2 offset = Vec2())
+{
+  double minX = fmin(innerRect.getMinX(), node->getPosition().x + offset.x);
+  double minY = fmin(innerRect.getMinY(), node->getPosition().y + offset.y);
+  double maxX = fmax(innerRect.getMaxX(), node->getPosition().x + node->getContentSize().width + offset.x);
+  double maxY = fmax(innerRect.getMaxY(), node->getPosition().y + node->getContentSize().height + offset.y);
+  innerRect = Rect(minX, minY, maxX - minX, maxY - minY);
+  for(int i = 0; i < node->getChildren().size(); ++i) {
+    innerRect = calculateInnerSizeForScrollView_helper(node->getChildren().at(i), innerRect, Vec2(offset.x + node->getPosition().x, offset.y + node->getPosition().y));
+  }
+  return innerRect;
+}
+
+Size calculateInnerSizeForScrollView(ScrollView *scrollView)
+{
+  Rect innerSize;
+  for(int i = 0; i < scrollView->getChildren().size(); ++i) {
+    innerSize = calculateInnerSizeForScrollView_helper(scrollView->getChildren().at(i), innerSize);
+  }
+  return innerSize.size;
+}
+
 ScrollViewComponent::ScrollViewComponent(const nlohmann::json &componentJson) : BaseComponent(componentJson)
 {
   p_backgroundImagePath = Utils::getStringFromJson(componentJson, "path");
@@ -54,8 +76,7 @@ Node* ScrollViewComponent::addComponentToParent(ComponentDict &dict, cocos2d::No
   auto size = getComponentSize(parent);
   scrollView->setContentSize(size);
   scrollView->setDirection(ui::ScrollView::Direction::VERTICAL);
-  
-  
+
   scrollView->setContentSize(size);
   if (p_direction == "both") {
     scrollView->setDirection(ui::ScrollView::Direction::BOTH);
@@ -64,10 +85,23 @@ Node* ScrollViewComponent::addComponentToParent(ComponentDict &dict, cocos2d::No
   } else {
     scrollView->setDirection(ui::ScrollView::Direction::VERTICAL);
   }
-
-  scrollView->setInnerContainerSize(getInnerContainerSize(scrollView));
   
+  if (!p_innerContainerSize.empty()) {
+    scrollView->setInnerContainerSize(getInnerContainerSize(scrollView));
+  }
+
   addNodeToParent(dict, scrollView, parent);
+  
+  if (p_innerContainerSize.empty()) {
+    auto innerSize = calculateInnerSizeForScrollView(scrollView);
+    scrollView->setInnerContainerSize(innerSize);
+    // swap position make it top-left coordinate
+//    auto children = scrollView->getChildren();
+//    for (int i = 0; i < children.size(); ++i) {
+//      auto child = children.at(i);
+//      child->setPosition(Vec2(child->getPosition().x, innerSize.height - child->getPosition().y - child->getContentSize().height));
+//    }
+  }
   
   return scrollView;
 }

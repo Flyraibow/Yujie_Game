@@ -26,7 +26,8 @@
 		      "type": "button",
 		      "text": "translation.sys_confirm",
 		      "anchor_point": [1, 0],
-		      "normalized_position": [0.8, 0.03]
+		      "normalized_position": [0.8, 0.03],
+		      "storyId": "action/workStart"
 		    },
 	      	{
 		      "type": "button",
@@ -34,6 +35,47 @@
 		      "anchor_point": [1, 0],
 		      "normalized_position": [0.95, 0.03],
 		      "storyId" : "popPanel"
+		    },
+		    {
+		    	"type": "sprite",
+		    	"id": "work_detail",
+		    	"size": {
+			      "width": 700,
+			      "height": 500
+			    },
+		      	"color": "alpha_blue",
+			    "anchor_point": [0, 1],
+			    "normalized_position": [0.35, 0.85],
+		      	"components" : [
+			      	{
+				      "type": "label",
+				      "id": "lab_work_name",
+				      "text": "tempdata.work.name",
+				      "normalized_position": [0.5, 0.95],
+				      "anchor_point": [0.5, 1],
+				      "text_size": 30
+			      	},
+			      	{
+				      "type": "label",
+				      "id": "lab_work_description",
+				      "text": "tempdata.work.description",
+				      "normalized_position": [0.5, 0.75],
+					  "normalized_dimensions" : [0.9, 0],
+				      "anchor_point": [0.5, 1],
+				      "text_size": 18
+			      	},
+			      	{
+				      "type": "label",
+				      "id": "lab_work_money",
+				      "text":  "translation.lab_work_money",
+				      "text_parameters" : [
+				    	"tempdata.work.realSalary"
+				      ],
+				      "normalized_position": [0.1, 0.1],
+				      "anchor_point": [0, 0],
+				      "text_size": 18
+			      	}
+		      	]
 		    }
 		    ,
 		    {
@@ -46,10 +88,6 @@
 		      "color": "alpha_red",
 		      "normalized_position": [0.05, 0.85],
 		      "anchor_point": [0, 1],
-		      "innerContainerSize" : {
-		      	"width": 300,
-		      	"height": 625
-		      },
 		      "components" : [
 		      	{
 		      	  "type" : "componentList",
@@ -59,17 +97,19 @@
 		      		"id" : "scroll_view_content",
 				    "size": {
 				      "width": 300,
-				   	  "height": 300
+				   	  "height": 100
 				    },
 				    "share_data" : true,
+				    "click_event_id" : "action/workChoose",
+				    "temp_data_key" : "work",
 				    "color": "alpha_blue",
 			      	"anchor_point": [0, 0],
 			      	"position" : [0, 0],
-			      	"position_offset" : [0, 325],
+			      	"position_offset" : [0, 125],
 			      	"components" : [
 			      	  {
 					      "type": "label",
-					      "id": "game_date",
+					      "id": "lab_work",
 					      "text": "associate.name",
 					      "normalized_position": [0.5, 0.95],
 					      "anchor_point": [0.5, 1],

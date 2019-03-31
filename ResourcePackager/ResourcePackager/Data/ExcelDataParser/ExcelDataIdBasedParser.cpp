@@ -35,7 +35,7 @@ CPPClass* ExcelDataIdBasedParser::getMainCppClass() const
 }
 
 
-ExcelDataIdBasedParser::ExcelDataIdBasedParser(const DataSchema *idSchema):ExcelDataParserBase()
+ExcelDataIdBasedParser::ExcelDataIdBasedParser(const DataSchema *idSchema):ExcelDataParserBase(EXCEL_TYPE_ID)
 {
   assert(idSchema != nullptr);
   p_idSchema = idSchema;

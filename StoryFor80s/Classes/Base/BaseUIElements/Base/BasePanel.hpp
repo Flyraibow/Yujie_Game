@@ -27,7 +27,7 @@ public:
   ~BasePanel();
   std::string getPanelName() const;
   virtual void initialize() {};
-  virtual void referesh() {};
+  virtual void referesh();
   virtual void process() {};
   Node* addToParent(Node *parent);
   void removeFromParent();
@@ -38,6 +38,7 @@ public:
     auto component = p_componentDict.at(componentId);
     return static_cast<T*>(component->getNode());
   }
+  void refreshComponentById(const string &componentId);
 };
 
 #endif /* BasePanel_hpp */

@@ -14,6 +14,7 @@ class WaitEventContent : public StoryEventContent
 {
 private:
   float p_duration;
+  bool p_untilClick;
 public:
   WaitEventContent(const nlohmann::json &jsonContent);
   void runEvent(StoryEventCallback callback);

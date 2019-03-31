@@ -8,14 +8,17 @@
 #define LabelComponent_hpp
 
 #include "BaseComponent.hpp"
+#include <vector>
 
 class LabelComponent : public BaseComponent
 {
 private:
   float p_textSize;
   std::string p_text;
+  std::vector<std::string> p_textParameters;
   int p_speed;
   cocos2d::Vec2 p_normalizedDimension;
+  std::string decipherString() const;
 protected:
 public:
   LabelComponent(const nlohmann::json &componentJson);

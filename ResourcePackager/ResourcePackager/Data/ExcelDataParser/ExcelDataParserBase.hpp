@@ -20,9 +20,16 @@ using namespace std;
 
 bool invalidChar (char c);
 
+enum EXCEL_TYPE {
+  EXCEL_TYPE_NORMAL,
+  EXCEL_TYPE_ID,
+  EXCEL_TYPE_2D,
+};
+
 class ExcelDataParserBase
 {
 protected:
+  EXCEL_TYPE p_type;
   string p_filePath;             // e.g. .../../city.csv
   string p_className;            // e.g. CityData
   string p_variableName;         // e.g. cityData;
@@ -51,6 +58,8 @@ protected:
   virtual string getInstanceCode() const;
   virtual void sanityCheck() const;
 public:
+  ExcelDataParserBase(EXCEL_TYPE type = EXCEL_TYPE_NORMAL) : p_type(type) {};
+  EXCEL_TYPE getType() const {return p_type;};
   string getFilePath() const;
   string getClassName() const;
   vector<DataSchema *> getDataSchemas() const;

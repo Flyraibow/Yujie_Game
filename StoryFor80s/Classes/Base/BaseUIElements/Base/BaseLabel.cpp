@@ -13,6 +13,11 @@ void BaseLabel::setSpeed(int speed)
   p_speed = speed;
 }
 
+void BaseLabel::setWait(float wait)
+{
+  p_wait = wait;
+}
+
 const static string kLabelContentScheduleKey = "label_content_schedule_key";
 
 

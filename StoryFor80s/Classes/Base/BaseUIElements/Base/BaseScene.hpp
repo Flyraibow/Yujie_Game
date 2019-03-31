@@ -73,6 +73,8 @@ public:
     CCASSERT(p_componentDict.count(componentId), ("Coudn't find component id : " + componentId).c_str());
     return static_cast<T*>(p_componentDict.at(componentId));
   }
+  
+  void refreshComponentById(const string &componentId);
 };
 
 #endif /* BaseScene_hpp */

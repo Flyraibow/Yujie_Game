@@ -121,6 +121,16 @@ void GameData::setSchoolId(string school)
 	p_schoolId = school;
 }
 
+int GameData::getWeekDay() const
+{
+	return p_weekDay;
+}
+
+void GameData::setWeekDay(int weekDay)
+{
+	p_weekDay = weekDay;
+}
+
 string GameData::description() const
 {
 	string desc = "gameData = {\n";
@@ -134,6 +144,7 @@ string GameData::description() const
 	desc += "\tbirthYear : " + to_string(p_birthYear) + "\n";
 	desc += "\tparentJob : " + to_string(p_parentJobId) + "\n";
 	desc += "\tschool : " + to_string(p_schoolId) + "\n";
+	desc += "\tweekDay : " + to_string(p_weekDay) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -157,6 +168,7 @@ GameData* GameData::getSharedInstance()
 			p_sharedData->p_birthYear = buffer->getInt();
 			p_sharedData->p_parentJobId = buffer->getString();
 			p_sharedData->p_schoolId = buffer->getString();
+			p_sharedData->p_weekDay = buffer->getInt();
 		}
 	}
 	return p_sharedData;
@@ -167,7 +179,7 @@ bool GameData::saveData(const string & path)
 	auto filePath = path + "/GameData.dat";
 	auto data = GameData::getSharedInstance();
 	auto buffer = std::make_unique<bb::ByteBuffer>();
-	buffer->putInt(10);
+	buffer->putInt(11);
 	buffer->putString("p_year");
 	buffer->putString(to_string(data->p_year));
 	buffer->putString("p_month");
@@ -188,6 +200,8 @@ bool GameData::saveData(const string & path)
 	buffer->putString(to_string(data->p_parentJobId));
 	buffer->putString("p_schoolId");
 	buffer->putString(to_string(data->p_schoolId));
+	buffer->putString("p_weekDay");
+	buffer->putString(to_string(data->p_weekDay));
 	buffer->writeToFile(filePath);
 	return true;
 }
@@ -225,6 +239,8 @@ bool GameData::loadData(const string & path)
 					data->p_parentJobId = value;
 				} else if (key == "p_schoolId") {
 					data->p_schoolId = value;
+				} else if (key == "p_weekDay") {
+					data->p_weekDay = atoi(value.c_str());
 				}
 			}
 		}
@@ -263,6 +279,8 @@ void GameData::setFieldValue(const string & fieldName, const string & value)
 		this->setParentJobId(value);
 	} else if (fieldName == "school") {
 		this->setSchoolId(value);
+	} else if (fieldName == "weekDay") {
+		this->setWeekDay(atoi(value.c_str()));
 	}
 }
 
@@ -288,6 +306,8 @@ string GameData::getFieldValue(const string & fieldName) const
 		return to_string(this->getParentJobId());
 	} else if (fieldName == "school") {
 		return to_string(this->getSchoolId());
+	} else if (fieldName == "weekDay") {
+		return to_string(this->getWeekDay());
 	}
 	CCLOGWARN("Couldn't recognize %s in GameData", fieldName.c_str());
 	return "";

@@ -1,0 +1,9 @@
+{
+	"events": [
+		{
+			"__comment" : "打开过日子的界面",
+			"type" : "story",
+			"name" : "popPanel"
+		}
+	]
+}
