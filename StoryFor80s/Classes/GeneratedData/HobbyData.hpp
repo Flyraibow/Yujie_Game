@@ -21,6 +21,7 @@ public:
 	int getExpense() const;
 	int getProficiency() const;
 	void setProficiency(int proficiency);
+	string getDescription() const;
 	string description() const;
 	static const map<string, HobbyData*>* getSharedDictionary();
 	static HobbyData* getHobbyDataById(const string& hobbyId);

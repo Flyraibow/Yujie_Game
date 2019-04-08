@@ -102,21 +102,24 @@ void StoryManager::startNextStoryEvent()
 void StoryManager::startStoryEvent(StoryEventContent *storyEventContent)
 {
   CCLOG("start story event: %s, comment : %s", storyEventContent->getType().c_str(), storyEventContent->getComment().c_str());
-  storyEventContent->runEvent([this]() {
+  storyEventContent->runEvent([this, storyEventContent]() {
+    
+    CCLOG("======= call back of start story event: %s, comment : %s", storyEventContent->getType().c_str(), storyEventContent->getComment().c_str());
     this->startNextStoryEvent();
   });
   p_currentEvent = storyEventContent;
 }
 
-void StoryManager::startStory(const string &storyName)
+bool StoryManager::startStory(const string &storyName)
 {
-  CCLOG("start story: %s", storyName.c_str());
+  CCLOG("========== start story: %s", storyName.c_str());
   auto storyJsonData = StoryJsonData::createStoryData(storyName);
-  startStory(storyJsonData);
+  return startStory(storyJsonData);
 }
 
-void StoryManager::startStory(const StoryJsonData *storyJsonData)
+bool StoryManager::startStory(const StoryJsonData *storyJsonData)
 {
+  CCLOG("================= start new Story");
   if (storyJsonData != nullptr) {
     auto sceneName = storyJsonData->getSceneName();
     if (sceneName.length() > 0) {
@@ -131,8 +134,10 @@ void StoryManager::startStory(const StoryJsonData *storyJsonData)
     addStoryEventList(storyJsonData->getStoryEventsList());
     if (p_currentEvent == nullptr) {
       startNextStoryEvent();
+      return true;
     }
   }
+  return false;
 }
 
 void StoryManager::stopStory()

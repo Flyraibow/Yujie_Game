@@ -1,5 +1,5 @@
-﻿hobbyId,name,expense,proficiency
-id,language,int,int
-string,chinese,-,-
-writable,N,N,Y
-0,打篮球,0,0
+﻿hobbyId,name,expense,proficiency,description
+id,language,int,int,language
+string,chinese,-,-,chinese
+writable,N,N,Y,N
+0,打篮球,0,0,打篮球的说明

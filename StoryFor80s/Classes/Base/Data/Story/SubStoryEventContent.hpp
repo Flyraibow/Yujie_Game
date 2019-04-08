@@ -18,6 +18,7 @@ private:
   string p_subStoryName;
   nlohmann::json p_subStoryJson;
   StoryJsonData *p_subStoryData;
+  bool p_noCallback;
 public:
   ~SubStoryEventContent();
   SubStoryEventContent(const nlohmann::json &jsonContent);

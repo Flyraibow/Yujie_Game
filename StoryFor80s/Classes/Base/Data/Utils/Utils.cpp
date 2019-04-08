@@ -7,6 +7,7 @@
 #include "Utils.hpp"
 #include <sstream>
 #include <regex>
+#include <cctype>
 
 using namespace std;
 
@@ -15,6 +16,15 @@ namespace Utils {
   ::std::string to_string(const ::std::string &str)
   {
     return str;
+  }
+  
+  ::std::string to_lower_string(const ::std::string &str)
+  {
+    string lowerStr(str);
+    for (int i = 0; i < str.length(); ++i) {
+      lowerStr[i] = tolower(str.at(i));
+    }
+    return lowerStr;
   }
   
   ::std::set<::std::string> atoset(const ::std::string &str) {

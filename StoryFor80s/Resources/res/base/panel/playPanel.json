@@ -5,7 +5,7 @@
 	"components" : [
 		{
 	      "type": "sprite",
-	      "id": "work_panel",
+	      "id": "play_panel",
 	      "size": {
 	      	"width": 1200,
 	      	"height": 700
@@ -17,7 +17,7 @@
 	      	{
 		      "type": "label",
 		      "id": "game_date",
-		      "text": "gamedata.ActionData.action_work.name",
+		      "text": "gamedata.ActionData.action_play.name",
 		      "normalized_position": [0.5, 0.95],
 		      "anchor_point": [0.5, 1],
 		      "text_size": 40
@@ -27,7 +27,7 @@
 		      "text": "translation.sys_confirm",
 		      "anchor_point": [1, 0],
 		      "normalized_position": [0.8, 0.03],
-		      "storyId": "action/workStart"
+		      "storyId": "action/playStart"
 		    },
 	      	{
 		      "type": "button",
@@ -38,41 +38,30 @@
 		    },
 		    {
 		    	"type": "sprite",
-		    	"id": "work_detail",
+		    	"id": "play_detail",
 		    	"size": {
 			      "width": 700,
 			      "height": 500
 			    },
-		      	"color": "alpha_blue",
+          "color": "alpha_blue",
 			    "anchor_point": [0, 1],
 			    "normalized_position": [0.35, 0.85],
 		      	"components" : [
 			      	{
 				      "type": "label",
-				      "id": "lab_work_name",
-				      "text": "tempdata.work.name",
+				      "id": "lab_play_name",
+				      "text": "tempdata.play.name",
 				      "normalized_position": [0.5, 0.95],
 				      "anchor_point": [0.5, 1],
 				      "text_size": 30
 			      	},
 			      	{
 				      "type": "label",
-				      "id": "lab_work_description",
-				      "text": "tempdata.work.description",
+				      "id": "lab_play_description",
+				      "text": "tempdata.play.description",
 				      "normalized_position": [0.5, 0.75],
-					  "normalized_dimensions" : [0.9, 0],
+              "normalized_dimensions" : [0.9, 0],
 				      "anchor_point": [0.5, 1],
-				      "text_size": 18
-			      	},
-			      	{
-				      "type": "label",
-				      "id": "lab_work_money",
-				      "text":  "translation.lab_work_money",
-				      "text_parameters" : [
-				    	"tempdata.work.realSalary"
-				      ],
-				      "normalized_position": [0.1, 0.1],
-				      "anchor_point": [0, 0],
 				      "text_size": 18
 			      	}
 		      	]
@@ -91,17 +80,17 @@
 		      "components" : [
 		      	{
 		      	  "type" : "componentList",
-		      	  "data" : "gamedata.WorkData",
+		      	  "data" : "gamedata.HobbyData",
               "content" : {
                 "type": "sprite",
                 "id" : "scroll_view_content",
-              "size": {
-                "width": 300,
-                "height": 100
-              },
+                "size": {
+                  "width": 300,
+                  "height": 100
+                },
               "share_data" : true,
-              "click_event_id" : "action/workChoose",
-              "temp_data_key" : "work",
+              "click_event_id" : "action/playChoose",
+              "temp_data_key" : "play",
               "color": "alpha_blue",
                 "anchor_point": [0, 0],
                 "position" : [0, 0],
@@ -109,7 +98,7 @@
                 "components" : [
                   {
                   "type": "label",
-                  "id": "lab_work",
+                  "id": "lab_play",
                   "text": "associate.name",
                   "normalized_position": [0.5, 0.95],
                   "anchor_point": [0.5, 1],

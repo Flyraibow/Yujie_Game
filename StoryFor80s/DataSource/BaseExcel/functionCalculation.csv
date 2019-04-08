@@ -16,3 +16,6 @@ friend_name,string,string_connect,data.temp.lastName;data.temp.firstName,显示�
 date_string,string,string_connect,game.year;_;game.month;_;game.day,日期的字符串形式 ex: 19871109
 lab_study_result,string,string_format,lab_study_well;gamedata.SkillsData.(temp.classId).name,学习效果
 lab_week_day,string,decipher,translation.lab_week_(game.weekDay),转化复杂的公式
+lab_work_result,string,string_format,lab_work_well;tempdata.work.name,工作效果
+lab_selfstudy_result,string,string_format,lab_selfstudy_well;tempdata.study.name,自学效果
+lab_play_result,string,string_format,lab_play_well;tempdata.play.name,娱乐效果

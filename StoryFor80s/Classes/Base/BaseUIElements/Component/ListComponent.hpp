@@ -18,6 +18,7 @@ private:
   int p_count;
   vector<BaseComponent*> p_componentList;
   vector<BaseData *> p_dataList;
+  string p_condition;
 protected:
 public:
   ListComponent(const nlohmann::json &componentJson);

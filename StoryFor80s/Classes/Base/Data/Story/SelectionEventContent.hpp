@@ -31,6 +31,7 @@ public:
 class SelectionEventContent : public StoryEventContent
 {
 private:
+  bool p_noCallback;
   cocos2d::Node *p_buttonGroup;
   vector<SelectionElement *> p_selectionElements;
   cocos2d::Color4B p_backgroundColor;

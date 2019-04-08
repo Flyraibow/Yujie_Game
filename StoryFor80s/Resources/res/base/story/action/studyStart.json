@@ -8,9 +8,9 @@
 			"__comment" : "设置选择工作",
 			"type" : "setValues",
 			"values" : {
-				"temp.chooseType" : "work"
+				"temp.chooseType" : "study"
 			}
-		},
+    },
     {
       "__comment" : "事件框",
       "type" : "story",

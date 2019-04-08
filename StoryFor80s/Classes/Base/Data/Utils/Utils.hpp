@@ -24,6 +24,8 @@ namespace Utils {
   
   ::std::string to_string(const ::std::string &str);
   
+  ::std::string to_lower_string(const ::std::string &str);
+  
   template<typename T>
   ::std::string to_string(const ::std::set<T> &pSet) {
     ::std::string st = "{ ";

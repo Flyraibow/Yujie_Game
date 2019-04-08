@@ -1,0 +1,19 @@
+{
+	"scene": "storyScene",
+	"events": [
+    {
+      "__comment" : "弹出确认选项",
+      "type" : "selection",
+      "background_color" : "alpha_black",
+      "selections" : [
+        {
+          "text" : "translation.sys_confirm"
+        },
+        {
+          "text" : "translation.sys_cancel",
+          "story_id" : "stopStory"
+        }
+      ]
+    }
+	]
+}

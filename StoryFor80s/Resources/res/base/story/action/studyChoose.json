@@ -1,0 +1,12 @@
+{
+	"events": [
+		{
+			"__comment" : "刷新学习的名字",
+			"type" : "refresh",
+			"refresh_ids" : [
+				"lab_study_description",
+				"lab_study_name"
+			]
+		}
+	]
+}

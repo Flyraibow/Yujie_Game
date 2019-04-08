@@ -14,6 +14,7 @@ class SkillsData: public BaseData
 private:
 	static map<string, SkillsData*>* p_sharedDictionary;
 	string p_skillId;
+	string p_studyCondition;
 	int p_maxValue;
 	int p_passValue;
 	int p_value;
@@ -22,12 +23,14 @@ public:
 	string getId() const;
 	string getSkillId() const;
 	string getName() const;
+	string getStudyCondition() const;
 	int getMaxValue() const;
 	int getPassValue() const;
 	int getValue() const;
 	void setValue(int value);
 	set<SkillsData*> getRequiresDataSet() const;
 	set<string> getRequiresIdSet() const;
+	string getDescription() const;
 	string description() const;
 	static const map<string, SkillsData*>* getSharedDictionary();
 	static SkillsData* getSkillsDataById(const string& skillId);

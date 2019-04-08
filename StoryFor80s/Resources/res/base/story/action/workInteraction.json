@@ -1,0 +1,22 @@
+{
+	"events": [
+    {
+      "type" : "setValues",
+      "values" : {
+        "temp.interaction_description" : "function.lab_work_result"
+      }
+    },
+    {
+      "__comment" : "刷新页面",
+      "type" : "refresh",
+      "refresh_ids" : [
+        "interaction_description"
+      ]
+    },
+    {
+      "__comment" : "开始执行放学后的工作",
+      "type" : "wait",
+      "until_click" : true
+    }
+	]
+}

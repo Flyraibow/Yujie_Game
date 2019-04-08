@@ -16,21 +16,25 @@ SubStoryEventContent::SubStoryEventContent(const nlohmann::json &jsonContent) : 
   if (jsonContent.count("story")) {
     p_subStoryJson = jsonContent.at("story");
   }
+  p_noCallback = Utils::getBoolFromJson(jsonContent, "no_call_back");
 }
 
 void SubStoryEventContent::runEvent(StoryEventCallback callback)
 {
+  bool startedStory = false;
   if (!p_subStoryJson.empty()) {
     p_subStoryData = StoryJsonData::createStoryData(p_subStoryJson);
   } else if (p_subStoryName.length() > 0) {
     p_subStoryData = StoryJsonData::createStoryData(p_subStoryName);
   }
   if (p_subStoryData != nullptr) {
-    StoryManager::getShareInstance()->startStory(p_subStoryData);
+    startedStory = StoryManager::getShareInstance()->startStory(p_subStoryData);
   } else {
     CCASSERT(false, "undefined sub story");
   }
-  callback();
+  if (!p_noCallback) {
+    callback();
+  }
 }
 
 SubStoryEventContent::~SubStoryEventContent()

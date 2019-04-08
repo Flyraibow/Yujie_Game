@@ -68,6 +68,7 @@ SelectionEventContent::SelectionEventContent(const nlohmann::json &jsonContent) 
     p_selectionElements.push_back(selectionElement);
   }
   p_backgroundColor = Utils::getColorFromJson(jsonContent, "background_color");
+  p_noCallback = Utils::getBoolFromJson(jsonContent, "no_call_back");
 }
 
 SelectionEventContent::~SelectionEventContent()
@@ -91,7 +92,9 @@ void SelectionEventContent::runEvent(StoryEventCallback callback)
         if (selection->getStoryData() != nullptr) {
           StoryManager::getShareInstance()->startStory(selection->getStoryData());
         }
-        callback();
+        if (!this->p_noCallback) {
+          callback();
+        }
       });
       buttons.push_back(button);
     }

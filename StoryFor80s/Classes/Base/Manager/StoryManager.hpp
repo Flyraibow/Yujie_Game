@@ -43,8 +43,8 @@ public:
   static void runFunction(const string &functionId, const nlohmann::json &jsonContent);
   
   void checkAndStartStory();
-  void startStory(const string &storyName);
-  void startStory(const StoryJsonData *storyName);
+  bool startStory(const string &storyName);
+  bool startStory(const StoryJsonData *storyName);
   void stopStory();
 };
 

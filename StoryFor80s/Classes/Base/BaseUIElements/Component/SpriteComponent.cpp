@@ -35,7 +35,7 @@ Node* SpriteComponent::addComponentToParent(ComponentDict &dict, cocos2d::Node *
   }
   
   if (p_clickStoryEventId.length() > 0) {
-    auto listener = BaseSpriteListener::createWithNode(sprite);
+    auto listener = BaseSpriteListener::createWithNode(sprite, false);
     listener->setTouchEnd(CC_CALLBACK_2(SpriteComponent::clickSprite, this), nullptr);
   }
 

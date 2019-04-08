@@ -5,8 +5,7 @@
 			"type" : "setValues",
 			"values" : {
 				"temp.classId" : "2d.ClassScheduleData.(function.date_string).(game.school)",
-				"temp.interaction_description" : "",
-				"temp.interaction_close" : "1"
+				"temp.interaction_description" : ""
 			}
 		},
 		{
@@ -32,18 +31,65 @@
 			] 
 		},
 		{
-			"__comment" : "如果是星期天就结束循环",
-			"type" : "condition",
-			"condition" : "int.game.weekDay=int.0",
-			"yes_story_id" : "stopStory"
-		},
-		{
+			"__comment" : "开始执行放学后的工作",
 			"type" : "wait",
 			"until_click" : true
 		},
+	    {
+	      "__comment" : "是否是业余时间工作",
+	      "type" : "condition",
+	      "condition" : "string.temp.chooseType=string.work",
+	      "yes_story_id" : "action/workInteraction"
+	    },
+	   	{
+	      "__comment" : "是否是业余时间自学",
+	      "type" : "condition",
+	      "condition" : "string.temp.chooseType=string.study",
+	      "yes_story_id" : "action/studyInteraction"
+	    },
+	   	{
+	      "__comment" : "是否是业余时间娱乐",
+	      "type" : "condition",
+	      "condition" : "string.temp.chooseType=string.play",
+	      "yes_story_id" : "action/playInteraction"
+	    },
+      {
+        "__comment" : "是否是业余时间休息",
+        "type" : "condition",
+        "condition" : "string.temp.chooseType=string.sleep",
+        "yes_story_id" : "action/sleepInteraction"
+      },
+		{
+			"__comment" : "如果是星期天就结束循环",
+			"type" : "condition",
+			"condition" : "int.game.weekDay=int.0",
+			"yes_story" : {
+				"events" : [
+					{
+						"type" : "wait",
+						"until_click" : true
+					},
+					{
+						"__comment" : "显示对话框",
+						"type" : "dialog",
+						"name" : "dialogPanel",
+						"dialogs":[
+							{
+								"content" : "一周的生活就这么结束了。"
+							}
+						]
+					},
+					{
+						"__comment" : "停止故事",
+						"type" : "story",
+						"name" : "stopStory"
+					}
+				]
+			}
+		},
 		{
 			"type" : "story",
-			"name" : "action/sleep"
+			"name" : "dayPass"
 		},
 		{
 			"type" : "popPanel"

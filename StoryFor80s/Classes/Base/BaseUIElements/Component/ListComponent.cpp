@@ -8,6 +8,7 @@
 #include "JsonUtil.hpp"
 #include "DataManager.hpp"
 #include "PanelContent.hpp"
+#include "ConditionManager.hpp"
 
 USING_NS_CC;
 
@@ -30,6 +31,7 @@ ListComponent::ListComponent(const nlohmann::json &componentJson) : BaseComponen
   if (componentJson.count("content")) {
     p_panelContent = componentJson.at("content");
   }
+  p_condition = Utils::getStringFromJson(componentJson, "condition");
   if (componentJson.count("data")) {
     p_dataList = DataManager::getShareInstance()->decipherDataList(Utils::getStringFromJson(componentJson, "data"));
     if (p_count == 0) {
@@ -47,13 +49,17 @@ ListComponent::ListComponent(const nlohmann::json &componentJson) : BaseComponen
 Node* ListComponent::addComponentToParent(ComponentDict &dict, cocos2d::Node *parent)
 {
   if (p_count > 0 && !p_panelContent.empty()) {
+    auto index = 0;
     for (int i = 0; i < p_count; ++i) {
-      auto component = BaseComponent::getComponentFromJson(p_panelContent);
-      component->setIndex(i);
       if (i < p_dataList.size()) {
-        component->setAssociateData(p_dataList.at(i));
+        auto associateData = p_dataList.at(i);
+        if (p_condition.length() == 0 || Manager::checkConditionByString(p_condition, associateData)) {
+          auto component = BaseComponent::getComponentFromJson(p_panelContent);
+          component->setIndex(index++);
+          component->setAssociateData(associateData);
+          component->addComponentToParent(dict, parent);
+        }
       }
-      component->addComponentToParent(dict, parent);
     }
   }
 //  for (int i = 0; i < p_dataList.size(); ++i) {

@@ -9,11 +9,14 @@
 #define ConditionManager_hpp
 
 #include <stdio.h>
+
+class BaseData;
+
 using namespace std;
 
 namespace Manager
 {
-  bool checkConditionByString(const string &conditionStr);
+  bool checkConditionByString(const string &conditionStr, const BaseData* associate = nullptr);
 };
 
 #endif /* ConditionManager_hpp */

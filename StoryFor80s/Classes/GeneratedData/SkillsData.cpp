@@ -28,6 +28,11 @@ string SkillsData::getName() const
 	return LocalizationHelper::getLocalization(localId);
 }
 
+string SkillsData::getStudyCondition() const
+{
+	return p_studyCondition;
+}
+
 int SkillsData::getMaxValue() const
 {
 	return p_maxValue;
@@ -62,15 +67,23 @@ set<string> SkillsData::getRequiresIdSet() const
 	return p_requiresIdSet;
 }
 
+string SkillsData::getDescription() const
+{
+	string localId = "skills_description_" + to_string(p_skillId);
+	return LocalizationHelper::getLocalization(localId);
+}
+
 string SkillsData::description() const
 {
 	string desc = "skillsData = {\n";
 	desc += "\tskillId : " + to_string(p_skillId) + "\n";
 	desc += "\tname : " + getName() + "\n";
+	desc += "\tstudyCondition : " + to_string(p_studyCondition) + "\n";
 	desc += "\tmaxValue : " + to_string(p_maxValue) + "\n";
 	desc += "\tpassValue : " + to_string(p_passValue) + "\n";
 	desc += "\tvalue : " + to_string(p_value) + "\n";
 	desc += "\trequires : " + to_string(p_requiresIdSet) + "\n";
+	desc += "\tdescription : " + getDescription() + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -88,6 +101,7 @@ const map<string, SkillsData*>* SkillsData::getSharedDictionary()
 			for (int i = 0; i < count; ++i) {
 				SkillsData* skillsData = new SkillsData();
 				skillsData->p_skillId = buffer->getString();
+				skillsData->p_studyCondition = buffer->getString();
 				skillsData->p_maxValue = buffer->getInt();
 				skillsData->p_passValue = buffer->getInt();
 				skillsData->p_value = buffer->getInt();
@@ -184,6 +198,8 @@ string SkillsData::getFieldValue(const string & fieldName) const
 		return to_string(this->getSkillId());
 	} else if (fieldName == "name") {
 		return to_string(this->getName());
+	} else if (fieldName == "studyCondition") {
+		return to_string(this->getStudyCondition());
 	} else if (fieldName == "maxValue") {
 		return to_string(this->getMaxValue());
 	} else if (fieldName == "passValue") {
@@ -192,6 +208,8 @@ string SkillsData::getFieldValue(const string & fieldName) const
 		return to_string(this->getValue());
 	} else if (fieldName == "requires") {
 		return to_string(this->getRequiresIdSet());
+	} else if (fieldName == "description") {
+		return to_string(this->getDescription());
 	}
 	CCLOGWARN("Couldn't recognize %s in SkillsData", fieldName.c_str());
 	return "";

@@ -7,7 +7,7 @@
 			"dialogs":[
 				{
 					"name": "function.my_full_name",
-					"content" : "我要选择打什么样的零工呢？"
+					"content" : "我要选择在业余时间打什么样的零工呢？"
 				}
 			]
 		},

@@ -43,6 +43,12 @@ void HobbyData::setProficiency(int proficiency)
 	p_proficiency = proficiency;
 }
 
+string HobbyData::getDescription() const
+{
+	string localId = "hobby_description_" + to_string(p_hobbyId);
+	return LocalizationHelper::getLocalization(localId);
+}
+
 string HobbyData::description() const
 {
 	string desc = "hobbyData = {\n";
@@ -50,6 +56,7 @@ string HobbyData::description() const
 	desc += "\tname : " + getName() + "\n";
 	desc += "\texpense : " + to_string(p_expense) + "\n";
 	desc += "\tproficiency : " + to_string(p_proficiency) + "\n";
+	desc += "\tdescription : " + getDescription() + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -162,6 +169,8 @@ string HobbyData::getFieldValue(const string & fieldName) const
 		return to_string(this->getExpense());
 	} else if (fieldName == "proficiency") {
 		return to_string(this->getProficiency());
+	} else if (fieldName == "description") {
+		return to_string(this->getDescription());
 	}
 	CCLOGWARN("Couldn't recognize %s in HobbyData", fieldName.c_str());
 	return "";
