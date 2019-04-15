@@ -38,3 +38,4 @@ lab_work_well,今天利用业余时间顺利的完成了%s的工作。
 lab_selfstudy_well,今天利用业余时间学习了%s，感觉收获不错。
 lab_play_well,今天利用业余时间进行了%s，感觉很开心。
 lab_sleep_well,今天回家就休息了，感觉很放松。
+lab_data_value,%s: %s

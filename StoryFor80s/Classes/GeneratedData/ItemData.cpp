@@ -190,3 +190,9 @@ BaseData* ItemData::getDataByField(const string & fieldName) const
 	return nullptr;
 }
 
+vector<BaseData *> ItemData::getFieldDataList(const string & fieldName) const
+{
+	CCLOGWARN("Couldn't recognize %s in ItemData", fieldName.c_str());
+	return vector<BaseData *>();
+}
+

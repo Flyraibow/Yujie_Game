@@ -1,11 +1,11 @@
-﻿skillId,name,studyCondition,maxValue,passValue,value,requires,description
-id,language,string,int,int,int,friend_id_set,language
-string,chinese,-,-,-,-,Skills,chinese
-writable,N,N,N,N,Y,N,N
-0,放假休息,FALSE,0,0,0,;,说明
-1,加减法,TRUE,100,60,0,;,说明
-2,乘除法,TRUE,100,60,0,1,说明
-3,简单几何,TRUE,100,60,0,;,说明
-4,拼音,TRUE,100,60,0,;,说明
-5,识字认字,TRUE,100,60,0,4,说明
-6,体育课 1,FALSE,100,0,0,;,说明
+﻿skillId,name,studyCondition,maxValue,passValue,value,requires,description,schoolAttributeChange,selfstudyAttributeChange
+id,language,string,int,int,int,friend_id_set,language,friend_id_map,friend_id_map
+string,chinese,-,-,-,-,Skills,chinese,Attribute;int,Attribute;int
+writable,N,N,N,N,Y,N,N,N,N
+0,放假休息,FALSE,0,0,0,;,说明,"pressure,-4",;
+1,加减法,TRUE,100,60,0,;,说明,"pressure,2;intelligence,4","pressure,2;intelligence,2"
+2,乘除法,TRUE,100,60,0,1,说明,"pressure,2;intelligence,5","pressure,2;intelligence,3"
+3,简单几何,TRUE,100,60,0,;,说明,"pressure,2;intelligence,5","pressure,2;intelligence,3"
+4,拼音,TRUE,100,60,0,;,说明,"pressure,2;imaginations,2;rememberence,2","pressure,2;rememberence,2"
+5,识字认字,TRUE,100,60,0,4,说明,"pressure,2;rememberence,4","pressure,2;rememberence,2"
+6,体育课 1,FALSE,100,0,0,;,说明,"pressure,-2;charms,2",;

@@ -63,9 +63,37 @@ int WorkData::getMaxProficiency() const
 	return p_maxProficiency;
 }
 
+vector<BaseData *> WorkData::getAttributeChangeList() const
+{
+	vector<BaseData *> v;
+	for (auto iter : p_attributeChangeMap) {
+		AttributeData *data = AttributeData::getAttributeDataById(iter.first);
+		if (data != nullptr) {
+			v.push_back(data);
+		} else {
+			CCLOGWARN("Couldn't recognize %s as AttributeData in WorkData", iter.first.c_str());
+		}
+	}
+	return v;
+}
+
 map<string, int> WorkData::getAttributeChangeMap() const
 {
 	return p_attributeChangeMap;
+}
+
+vector<BaseData *> WorkData::getPersonalityChangeList() const
+{
+	vector<BaseData *> v;
+	for (auto iter : p_personalityChangeMap) {
+		PersonalityData *data = PersonalityData::getPersonalityDataById(iter.first);
+		if (data != nullptr) {
+			v.push_back(data);
+		} else {
+			CCLOGWARN("Couldn't recognize %s as PersonalityData in WorkData", iter.first.c_str());
+		}
+	}
+	return v;
 }
 
 map<string, int> WorkData::getPersonalityChangeMap() const
@@ -248,5 +276,33 @@ BaseData* WorkData::getDataByField(const string & fieldName) const
 {
 	CCLOGWARN("Couldn't recognize %s in WorkData", fieldName.c_str());
 	return nullptr;
+}
+
+vector<BaseData *> WorkData::getFieldDataList(const string & fieldName) const
+{
+	if (fieldName == "attributeChange") {
+		return this->getAttributeChangeList();
+	} else if (fieldName == "personalityChange") {
+		return this->getPersonalityChangeList();
+	}
+	CCLOGWARN("Couldn't recognize %s in WorkData", fieldName.c_str());
+	return vector<BaseData *>();
+}
+
+string WorkData::getMapFieldValueWithKey(const string & fieldName, const string & key) const
+{
+	if (fieldName == "attributeChange") {
+		auto fieldMap = this->getAttributeChangeMap();
+		if (fieldMap.count(key)) {
+			return to_string(fieldMap.at(key));
+		}
+	} else if (fieldName == "personalityChange") {
+		auto fieldMap = this->getPersonalityChangeMap();
+		if (fieldMap.count(key)) {
+			return to_string(fieldMap.at(key));
+		}
+	}
+	CCLOGWARN("Couldn't recognize field: %s, key: %s in WorkData", fieldName.c_str(), key.c_str());
+	return "";
 }
 

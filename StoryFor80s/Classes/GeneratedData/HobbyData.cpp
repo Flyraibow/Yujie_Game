@@ -49,6 +49,25 @@ string HobbyData::getDescription() const
 	return LocalizationHelper::getLocalization(localId);
 }
 
+vector<BaseData *> HobbyData::getAttributeChangeList() const
+{
+	vector<BaseData *> v;
+	for (auto iter : p_attributeChangeMap) {
+		AttributeData *data = AttributeData::getAttributeDataById(iter.first);
+		if (data != nullptr) {
+			v.push_back(data);
+		} else {
+			CCLOGWARN("Couldn't recognize %s as AttributeData in HobbyData", iter.first.c_str());
+		}
+	}
+	return v;
+}
+
+map<string, int> HobbyData::getAttributeChangeMap() const
+{
+	return p_attributeChangeMap;
+}
+
 string HobbyData::description() const
 {
 	string desc = "hobbyData = {\n";
@@ -57,6 +76,8 @@ string HobbyData::description() const
 	desc += "\texpense : " + to_string(p_expense) + "\n";
 	desc += "\tproficiency : " + to_string(p_proficiency) + "\n";
 	desc += "\tdescription : " + getDescription() + "\n";
+	
+	desc += "\tattributeChange : " + to_string(p_attributeChangeMap)+ "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -76,6 +97,12 @@ const map<string, HobbyData*>* HobbyData::getSharedDictionary()
 				hobbyData->p_hobbyId = buffer->getString();
 				hobbyData->p_expense = buffer->getInt();
 				hobbyData->p_proficiency = buffer->getInt();
+				auto attributeChangeCount = buffer->getLong();
+				for (int j = 0; j < attributeChangeCount; ++j) {
+					auto key = buffer->getString();
+					auto val = buffer->getInt();
+					hobbyData->p_attributeChangeMap.insert(make_pair(key, val));
+				}
 				p_sharedDictionary->insert(pair<string, HobbyData*>(hobbyData->p_hobbyId, hobbyData));
 			}
 		}
@@ -171,6 +198,8 @@ string HobbyData::getFieldValue(const string & fieldName) const
 		return to_string(this->getProficiency());
 	} else if (fieldName == "description") {
 		return to_string(this->getDescription());
+	} else if (fieldName == "attributeChange") {
+		return to_string(this->getAttributeChangeMap());
 	}
 	CCLOGWARN("Couldn't recognize %s in HobbyData", fieldName.c_str());
 	return "";
@@ -180,5 +209,26 @@ BaseData* HobbyData::getDataByField(const string & fieldName) const
 {
 	CCLOGWARN("Couldn't recognize %s in HobbyData", fieldName.c_str());
 	return nullptr;
+}
+
+vector<BaseData *> HobbyData::getFieldDataList(const string & fieldName) const
+{
+	if (fieldName == "attributeChange") {
+		return this->getAttributeChangeList();
+	}
+	CCLOGWARN("Couldn't recognize %s in HobbyData", fieldName.c_str());
+	return vector<BaseData *>();
+}
+
+string HobbyData::getMapFieldValueWithKey(const string & fieldName, const string & key) const
+{
+	if (fieldName == "attributeChange") {
+		auto fieldMap = this->getAttributeChangeMap();
+		if (fieldMap.count(key)) {
+			return to_string(fieldMap.at(key));
+		}
+	}
+	CCLOGWARN("Couldn't recognize field: %s, key: %s in HobbyData", fieldName.c_str(), key.c_str());
+	return "";
 }
 

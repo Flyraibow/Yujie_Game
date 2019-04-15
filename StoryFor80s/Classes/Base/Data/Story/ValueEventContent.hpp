@@ -10,10 +10,15 @@
 
 #include "StoryEventContent.hpp"
 
+class BaseData;
+
 class ValueEventContent : public StoryEventContent
 {
 private:
-  nlohmann::json p_values;
+  vector<nlohmann::json> p_changes;
+  nlohmann::json p_values;  // quick set
+  string p_dataListString;
+  void changeData(BaseData *associate = nullptr);
 public:
   ValueEventContent(const nlohmann::json &jsonContent);
   void runEvent(StoryEventCallback callback);

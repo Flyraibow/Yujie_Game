@@ -5,7 +5,8 @@
 			"type" : "refresh",
 			"refresh_ids" : [
 				"lab_study_description",
-				"lab_study_name"
+				"lab_study_name",
+        "study_detail"
 			]
 		}
 	]

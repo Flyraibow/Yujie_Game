@@ -82,3 +82,9 @@ BaseData* ParentChatData::getDataByField(const string & fieldName) const
 	return nullptr;
 }
 
+vector<BaseData *> ParentChatData::getFieldDataList(const string & fieldName) const
+{
+	CCLOGWARN("Couldn't recognize %s in ParentChatData", fieldName.c_str());
+	return vector<BaseData *>();
+}
+

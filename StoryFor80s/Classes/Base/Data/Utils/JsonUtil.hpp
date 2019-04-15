@@ -20,6 +20,8 @@ namespace Utils {
   bool getBoolFromJson(const nlohmann::json &json, const std::string &field, bool defaultValue = false);
   cocos2d::Color4B getColorFromJson(const nlohmann::json &json, const std::string &field, const cocos2d::Color4B &defaultValue = cocos2d::Color4B());
   std::vector<std::string> getStringListFromJson(const nlohmann::json &json, const std::string &field);
+  std::vector<nlohmann::json> getJsonListFromJson(const nlohmann::json &json, const std::string &field);
+  
 }
 
 #endif /* JsonUtil_hpp */

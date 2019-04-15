@@ -91,3 +91,9 @@ BaseData* SchoolData::getDataByField(const string & fieldName) const
 	return nullptr;
 }
 
+vector<BaseData *> SchoolData::getFieldDataList(const string & fieldName) const
+{
+	CCLOGWARN("Couldn't recognize %s in SchoolData", fieldName.c_str());
+	return vector<BaseData *>();
+}
+

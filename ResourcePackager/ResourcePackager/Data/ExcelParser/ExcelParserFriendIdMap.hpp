@@ -31,6 +31,9 @@ public:
   virtual void addLoadFuncBody(CPPFunction *loadFunc, bool isFirstOne, const string dataName = "data", int level = 4) const;
   virtual void addInitFuncBody(CPPFunction *func, const string &variableName, int level = 3) const;
   virtual void addSetFieldValueFuncBody(CPPFunction *setFieldFunc);
+  virtual void addFunctionsInclass(CPPClass *cppClass) const;
+  virtual void addGetFieldListFuncBody(CPPFunction *getFieldListFunc) const;
+  virtual void addGetMapFieldWithKeyFuncBody(CPPFunction *getFieldListFunc) const;
 };
 
 #endif /* ExcelParserFriendIdMap_hpp */

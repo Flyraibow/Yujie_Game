@@ -213,3 +213,20 @@ void BaseComponent::setAssociateData(BaseData *baseData) {
     }
   }
 }
+
+void BaseComponent::remove(ComponentDict &dict)
+{
+  for (int i = 0; i < p_componentList.size(); ++i) {
+    p_componentList[i]->remove(dict);
+  }
+  
+  if (p_node != nullptr && p_node->getParent() != nullptr) {
+    p_node->removeFromParent();
+  }
+  
+  if (p_id.length() > 0 && dict.count(p_id)) {
+    dict.erase(p_id);
+  }
+
+  p_componentList.clear();
+}

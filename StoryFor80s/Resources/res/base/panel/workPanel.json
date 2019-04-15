@@ -43,38 +43,78 @@
 			      "width": 700,
 			      "height": 500
 			    },
-		      	"color": "alpha_blue",
+          "color": "alpha_blue",
 			    "anchor_point": [0, 1],
 			    "normalized_position": [0.35, 0.85],
 		      	"components" : [
 			      	{
-				      "type": "label",
-				      "id": "lab_work_name",
-				      "text": "tempdata.work.name",
-				      "normalized_position": [0.5, 0.95],
-				      "anchor_point": [0.5, 1],
-				      "text_size": 30
+                "type": "label",
+                "id": "lab_work_name",
+                "text": "tempdata.work.name",
+                "normalized_position": [0.5, 0.95],
+                "anchor_point": [0.5, 1],
+                "text_size": 30
 			      	},
 			      	{
-				      "type": "label",
-				      "id": "lab_work_description",
-				      "text": "tempdata.work.description",
-				      "normalized_position": [0.5, 0.75],
-					  "normalized_dimensions" : [0.9, 0],
-				      "anchor_point": [0.5, 1],
-				      "text_size": 18
+                "type": "label",
+                "id": "lab_work_description",
+                "text": "tempdata.work.description",
+                "normalized_position": [0.5, 0.75],
+                "normalized_dimensions" : [0.9, 0],
+                "anchor_point": [0.5, 1],
+                "text_size": 18
 			      	},
 			      	{
-				      "type": "label",
-				      "id": "lab_work_money",
-				      "text":  "translation.lab_work_money",
-				      "text_parameters" : [
-				    	"tempdata.work.realSalary"
-				      ],
-				      "normalized_position": [0.1, 0.1],
-				      "anchor_point": [0, 0],
-				      "text_size": 18
-			      	}
+                "type": "label",
+                "id": "lab_work_money",
+                "text":  "translation.lab_work_money",
+                "text_parameters" : [
+                  "tempdata.work.realSalary"
+                ],
+                "normalized_position": [0.1, 0.07],
+                "anchor_point": [0, 0],
+                "text_size": 18
+			      	},
+              {
+                "type": "sprite",
+                "id": "work_detail",
+                "size": {
+                  "width": 600,
+                  "height": 150
+                },
+                "color": "alpha_green",
+                "anchor_point": [0, 0],
+                "normalized_position": [0.1, 0.15],
+                "components" : [
+                  {
+                    "type" : "componentList",
+                    "data" : "tempdata.work.attributeChange",
+                    "content" : {
+                      "type": "sprite",
+                      "id" : "scroll_view_content",
+                      "size": {
+                        "width": 200,
+                        "height": 50
+                      },
+                      "share_data" : true,
+                      "color": "alpha_blue",
+                      "anchor_point": [0, 0],
+                      "position" : [0, 100],
+                      "position_offset" : [200, 0],
+                      "components" : [
+                        {
+                          "type": "label",
+                          "id": "lab_attribute",
+                          "text": "function.lab_work_attribute_value",
+                          "normalized_position": [0, 1],
+                          "anchor_point": [0, 1],
+                          "text_size": 30
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
 		      	]
 		    }
 		    ,

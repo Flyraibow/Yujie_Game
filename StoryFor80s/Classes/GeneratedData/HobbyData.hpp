@@ -5,6 +5,7 @@ This file (HobbyData.hpp) is generated
 #define HobbyData_hpp
 #include <map>
 #include "BaseData.h"
+#include "AttributeData.hpp"
 
 
 class HobbyData: public BaseData
@@ -14,6 +15,7 @@ private:
 	string p_hobbyId;
 	int p_expense;
 	int p_proficiency;
+	map<string, int> p_attributeChangeMap;
 public:
 	string getId() const;
 	string getHobbyId() const;
@@ -22,6 +24,8 @@ public:
 	int getProficiency() const;
 	void setProficiency(int proficiency);
 	string getDescription() const;
+	vector<BaseData *> getAttributeChangeList() const;
+	map<string, int> getAttributeChangeMap() const;
 	string description() const;
 	static const map<string, HobbyData*>* getSharedDictionary();
 	static HobbyData* getHobbyDataById(const string& hobbyId);
@@ -31,5 +35,7 @@ public:
 	void setFieldValue(const string & fieldName, const string & value);
 	string getFieldValue(const string & fieldName) const;
 	BaseData* getDataByField(const string & fieldName) const;
+	vector<BaseData *> getFieldDataList(const string & fieldName) const;
+	string getMapFieldValueWithKey(const string & fieldName, const string & key) const;
 };
 #endif

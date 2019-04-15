@@ -14,6 +14,26 @@
       ]
     },
     {
+      "__comment" : "增长value",
+      "type" : "setValues",
+      "dataList" : "tempdata.work.attributeChange",
+      "changes" : [
+        {
+          "type" : "add",
+          "data" : "associate",
+          "field" : "value",
+          "value" : "tempdata.work.map.attributeChange.(associate.attributeId)"
+        }
+      ]
+    },
+    {
+      "__comment" : "刷新页面",
+      "type" : "refresh",
+      "refresh_ids" : [
+        "my_attribute"
+      ]
+    },
+    {
       "__comment" : "开始执行放学后的工作",
       "type" : "wait",
       "until_click" : true

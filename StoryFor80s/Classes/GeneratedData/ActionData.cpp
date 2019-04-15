@@ -82,3 +82,9 @@ BaseData* ActionData::getDataByField(const string & fieldName) const
 	return nullptr;
 }
 
+vector<BaseData *> ActionData::getFieldDataList(const string & fieldName) const
+{
+	CCLOGWARN("Couldn't recognize %s in ActionData", fieldName.c_str());
+	return vector<BaseData *>();
+}
+

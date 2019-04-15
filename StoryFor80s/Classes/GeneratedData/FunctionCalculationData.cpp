@@ -102,3 +102,9 @@ BaseData* FunctionCalculationData::getDataByField(const string & fieldName) cons
 	return nullptr;
 }
 
+vector<BaseData *> FunctionCalculationData::getFieldDataList(const string & fieldName) const
+{
+	CCLOGWARN("Couldn't recognize %s in FunctionCalculationData", fieldName.c_str());
+	return vector<BaseData *>();
+}
+

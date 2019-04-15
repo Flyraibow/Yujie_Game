@@ -15,9 +15,8 @@ using namespace std;
 
 namespace Manager
 {
-  int calculateIntFromFunction(const string &calString);
-  string getFunctionValueById(const string &functionId);
-  string getFunctionValueById(const string &functionId, BaseData *data);
+  int calculateIntFromFunction(const string &calString, const BaseData *associate = nullptr);
+  string getFunctionValueById(const string &functionId, const BaseData *associate = nullptr);
   BaseData* getFunctionDataById(const string &functionId);
 };
 

@@ -32,6 +32,7 @@ private:
   string getFormatStringFromFunction(FunctionCalculationData *functionData) const;
   string calculate(const string &type, const string &a, const string &b, const string &func);
   string getStringFromStringList(const vector<string> &strList, const BaseData* associate = nullptr) const;
+  vector<BaseData *> getDataListFromStringList(const vector<string> &strList, const BaseData* associate = nullptr) const;
 public:
   static DataManager* getShareInstance();
   void setTempData(const string &key, BaseData* value);
@@ -39,7 +40,7 @@ public:
   void setTempString(const string &key, const string &value);
   void calculateTempString(const string &type, const string &key, const string &func, const string &value);
   string decipherString(const string &value, const BaseData* associate = nullptr) const;
-  BaseData* decipherData(const string &value) const;
+  BaseData* decipherData(const string &value, BaseData* associate = nullptr) const;
   vector<BaseData*> decipherDataList(const string &value) const;
   string getTempString(const string &key) const;
   void setData(const string &key, const string &tableName, const string &id);
@@ -49,13 +50,13 @@ public:
   void setDataValue(const string &key, const string &field, const string &value);
   void setDataValue(const string &key, const string &field, const string &type, const string &func, const string &value);
   void setSortKeyValuePair(const string &key, const string &type, const string &content, const string &orderConditionId);
-  void setValue(const string &key, const string &value);
+  void setValue(const string &key, const string &value, BaseData* associate = nullptr);
   
   string getCalculationData(const string &calculationId) const;
   BaseData* getFunctionData(const std::string &functionId) const;
   bool checkCondition(const string &conditionId) const;
   
-  string formatStringWithParamters(const string &str, const vector<string> &parameters) const;
+  string formatStringWithParamters(const string &str, const vector<string> &parameters, const BaseData *associate = nullptr) const;
   
   template <typename T, typename std::enable_if<std::is_base_of<BaseData, T>::value>::type* = nullptr>
   T* getTempData(const string &key) const {

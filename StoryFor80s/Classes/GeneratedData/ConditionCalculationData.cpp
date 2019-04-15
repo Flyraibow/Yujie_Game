@@ -125,3 +125,9 @@ BaseData* ConditionCalculationData::getDataByField(const string & fieldName) con
 	return nullptr;
 }
 
+vector<BaseData *> ConditionCalculationData::getFieldDataList(const string & fieldName) const
+{
+	CCLOGWARN("Couldn't recognize %s in ConditionCalculationData", fieldName.c_str());
+	return vector<BaseData *>();
+}
+

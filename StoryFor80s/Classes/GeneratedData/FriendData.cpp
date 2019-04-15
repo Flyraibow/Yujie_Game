@@ -200,3 +200,9 @@ BaseData* FriendData::getDataByField(const string & fieldName) const
 	return nullptr;
 }
 
+vector<BaseData *> FriendData::getFieldDataList(const string & fieldName) const
+{
+	CCLOGWARN("Couldn't recognize %s in FriendData", fieldName.c_str());
+	return vector<BaseData *>();
+}
+

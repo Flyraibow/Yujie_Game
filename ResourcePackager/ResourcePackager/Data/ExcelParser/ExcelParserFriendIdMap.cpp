@@ -129,3 +129,41 @@ void ExcelParserFriendIdMap::addInitFuncBody(CPPFunction *func,const string &var
     make_pair("}", level),
   });
 }
+
+void ExcelParserFriendIdMap::addFunctionsInclass(CPPClass *cppClass) const
+{
+  string getVectorFuncName = this->ExcelParserBase::getVariableGetterName() + "List"; // getValueList
+  string friendClassName = p_keyType + "Data";
+  string returntType = "vector<BaseData *>"; // ex. vector<BaseData *>
+  auto getVectorFunc = new CPPFunction(getVectorFuncName, returntType);
+  getVectorFunc->addBodyStatementsList({
+    returntType + " v;",
+    "for (auto iter : " + this->getVariableName() +") {",
+    "\t" + friendClassName + " *data = " + friendClassName + "::get" + friendClassName + "ById(iter.first);",
+    "\tif (data != nullptr) {",
+    "\t\tv.push_back(data);",
+    "\t} else {",
+    "\t\tCCLOGWARN(\"Couldn't recognize %s as " + friendClassName + " in " + cppClass->getClassName() + "\", iter.first.c_str());",
+    "\t}",
+    "}",
+    "return v;"
+  }, 0);
+  cppClass->addFunction(getVectorFunc, false);
+  this->ExcelParserBase::addFunctionsInclass(cppClass);
+}
+
+void ExcelParserFriendIdMap::addGetFieldListFuncBody(CPPFunction *getFieldListFunc) const
+{
+  string getVectorFuncName = this->ExcelParserBase::getVariableGetterName() + "List"; // getValueList
+  getFieldListFunc->addBodyStatements("\treturn this->" + getVectorFuncName + "();");
+}
+
+void ExcelParserFriendIdMap::addGetMapFieldWithKeyFuncBody(CPPFunction *getFieldListFunc) const
+{
+  getFieldListFunc->addBodyStatementsList({
+    "auto fieldMap = this->" + this->getVariableGetterName() + "();",
+    "if (fieldMap.count(key)) {",
+    "\treturn to_string(fieldMap.at(key));",
+    "}"
+  }, 1);
+}

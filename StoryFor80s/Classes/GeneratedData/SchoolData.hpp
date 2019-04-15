@@ -23,5 +23,6 @@ public:
 	static SchoolData* getSchoolDataById(const string& schoolId);
 	string getFieldValue(const string & fieldName) const;
 	BaseData* getDataByField(const string & fieldName) const;
+	vector<BaseData *> getFieldDataList(const string & fieldName) const;
 };
 #endif

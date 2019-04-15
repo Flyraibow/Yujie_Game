@@ -31,5 +31,6 @@ public:
 	void setFieldValue(const string & fieldName, const string & value);
 	string getFieldValue(const string & fieldName) const;
 	BaseData* getDataByField(const string & fieldName) const;
+	vector<BaseData *> getFieldDataList(const string & fieldName) const;
 };
 #endif

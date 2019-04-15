@@ -189,3 +189,9 @@ BaseData* StoryData::getDataByField(const string & fieldName) const
 	return nullptr;
 }
 
+vector<BaseData *> StoryData::getFieldDataList(const string & fieldName) const
+{
+	CCLOGWARN("Couldn't recognize %s in StoryData", fieldName.c_str());
+	return vector<BaseData *>();
+}
+

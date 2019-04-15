@@ -173,12 +173,21 @@ void DataSchema::addValueIntoBuffer(std::unique_ptr<bb::ByteBuffer> &buffer, con
     case FRIEND_ID_MAP: {
       auto vals = utils::split(value, ';');
       auto valueType = utils::split(p_subType, ';')[1];
-      buffer->putLong(vals.size());
+      int count = 0;
+      for (int k = 0; k < vals.size(); ++k) {
+        if (vals.at(k).length() > 0) {
+          // Skip all empty values
+          count++;
+        }
+      }
+      buffer->putLong(count);
       for (int k = 0; k < vals.size(); ++k) {
         auto pairStr = vals.at(k);
-        auto pairList = utils::split(pairStr, ',');
-        buffer->putString(pairList[0]);
-        addAutoTypeToBuffer(buffer, s_subtype_map.at(valueType), pairList[1]);
+        if (pairStr.length() > 0) {
+          auto pairList = utils::split(pairStr, ',');
+          buffer->putString(pairList[0]);
+          addAutoTypeToBuffer(buffer, s_subtype_map.at(valueType), pairList[1]);
+        }
       }
       break;
     }

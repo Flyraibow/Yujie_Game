@@ -4,9 +4,9 @@
 			"__comment" : "刷新薪水，名字",
 			"type" : "refresh",
 			"refresh_ids" : [
-				"lab_work_money",
-				"lab_work_description",
-				"lab_work_name"
+        "lab_work_description",
+        "lab_work_name",
+        "work_detail"
 			]
 		}
 	]

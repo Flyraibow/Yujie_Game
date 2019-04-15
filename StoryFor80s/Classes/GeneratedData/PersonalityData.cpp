@@ -164,3 +164,9 @@ BaseData* PersonalityData::getDataByField(const string & fieldName) const
 	return nullptr;
 }
 
+vector<BaseData *> PersonalityData::getFieldDataList(const string & fieldName) const
+{
+	CCLOGWARN("Couldn't recognize %s in PersonalityData", fieldName.c_str());
+	return vector<BaseData *>();
+}
+

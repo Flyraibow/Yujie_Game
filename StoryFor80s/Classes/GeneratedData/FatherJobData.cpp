@@ -193,3 +193,9 @@ BaseData* FatherJobData::getDataByField(const string & fieldName) const
 	return nullptr;
 }
 
+vector<BaseData *> FatherJobData::getFieldDataList(const string & fieldName) const
+{
+	CCLOGWARN("Couldn't recognize %s in FatherJobData", fieldName.c_str());
+	return vector<BaseData *>();
+}
+

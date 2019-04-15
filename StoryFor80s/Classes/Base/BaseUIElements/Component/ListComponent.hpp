@@ -17,8 +17,10 @@ private:
   nlohmann::json p_panelContent;
   int p_count;
   vector<BaseComponent*> p_componentList;
-  vector<BaseData *> p_dataList;
+  string p_dataListStr;
   string p_condition;
+  ComponentDict p_dict;
+  cocos2d::Node *p_parent;
 protected:
 public:
   ListComponent(const nlohmann::json &componentJson);

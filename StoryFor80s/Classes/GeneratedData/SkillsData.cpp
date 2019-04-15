@@ -73,6 +73,44 @@ string SkillsData::getDescription() const
 	return LocalizationHelper::getLocalization(localId);
 }
 
+vector<BaseData *> SkillsData::getSchoolAttributeChangeList() const
+{
+	vector<BaseData *> v;
+	for (auto iter : p_schoolAttributeChangeMap) {
+		AttributeData *data = AttributeData::getAttributeDataById(iter.first);
+		if (data != nullptr) {
+			v.push_back(data);
+		} else {
+			CCLOGWARN("Couldn't recognize %s as AttributeData in SkillsData", iter.first.c_str());
+		}
+	}
+	return v;
+}
+
+map<string, int> SkillsData::getSchoolAttributeChangeMap() const
+{
+	return p_schoolAttributeChangeMap;
+}
+
+vector<BaseData *> SkillsData::getSelfstudyAttributeChangeList() const
+{
+	vector<BaseData *> v;
+	for (auto iter : p_selfstudyAttributeChangeMap) {
+		AttributeData *data = AttributeData::getAttributeDataById(iter.first);
+		if (data != nullptr) {
+			v.push_back(data);
+		} else {
+			CCLOGWARN("Couldn't recognize %s as AttributeData in SkillsData", iter.first.c_str());
+		}
+	}
+	return v;
+}
+
+map<string, int> SkillsData::getSelfstudyAttributeChangeMap() const
+{
+	return p_selfstudyAttributeChangeMap;
+}
+
 string SkillsData::description() const
 {
 	string desc = "skillsData = {\n";
@@ -84,6 +122,10 @@ string SkillsData::description() const
 	desc += "\tvalue : " + to_string(p_value) + "\n";
 	desc += "\trequires : " + to_string(p_requiresIdSet) + "\n";
 	desc += "\tdescription : " + getDescription() + "\n";
+	
+	desc += "\tschoolAttributeChange : " + to_string(p_schoolAttributeChangeMap)+ "\n";
+	
+	desc += "\tselfstudyAttributeChange : " + to_string(p_selfstudyAttributeChangeMap)+ "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -108,6 +150,18 @@ const map<string, SkillsData*>* SkillsData::getSharedDictionary()
 				auto requiresCount = buffer->getLong();
 				for (int j = 0; j < requiresCount; ++j) {
 					skillsData->p_requiresIdSet.insert(buffer->getString());
+				}
+				auto schoolAttributeChangeCount = buffer->getLong();
+				for (int j = 0; j < schoolAttributeChangeCount; ++j) {
+					auto key = buffer->getString();
+					auto val = buffer->getInt();
+					skillsData->p_schoolAttributeChangeMap.insert(make_pair(key, val));
+				}
+				auto selfstudyAttributeChangeCount = buffer->getLong();
+				for (int j = 0; j < selfstudyAttributeChangeCount; ++j) {
+					auto key = buffer->getString();
+					auto val = buffer->getInt();
+					skillsData->p_selfstudyAttributeChangeMap.insert(make_pair(key, val));
 				}
 				p_sharedDictionary->insert(pair<string, SkillsData*>(skillsData->p_skillId, skillsData));
 			}
@@ -210,6 +264,10 @@ string SkillsData::getFieldValue(const string & fieldName) const
 		return to_string(this->getRequiresIdSet());
 	} else if (fieldName == "description") {
 		return to_string(this->getDescription());
+	} else if (fieldName == "schoolAttributeChange") {
+		return to_string(this->getSchoolAttributeChangeMap());
+	} else if (fieldName == "selfstudyAttributeChange") {
+		return to_string(this->getSelfstudyAttributeChangeMap());
 	}
 	CCLOGWARN("Couldn't recognize %s in SkillsData", fieldName.c_str());
 	return "";
@@ -219,5 +277,33 @@ BaseData* SkillsData::getDataByField(const string & fieldName) const
 {
 	CCLOGWARN("Couldn't recognize %s in SkillsData", fieldName.c_str());
 	return nullptr;
+}
+
+vector<BaseData *> SkillsData::getFieldDataList(const string & fieldName) const
+{
+	if (fieldName == "schoolAttributeChange") {
+		return this->getSchoolAttributeChangeList();
+	} else if (fieldName == "selfstudyAttributeChange") {
+		return this->getSelfstudyAttributeChangeList();
+	}
+	CCLOGWARN("Couldn't recognize %s in SkillsData", fieldName.c_str());
+	return vector<BaseData *>();
+}
+
+string SkillsData::getMapFieldValueWithKey(const string & fieldName, const string & key) const
+{
+	if (fieldName == "schoolAttributeChange") {
+		auto fieldMap = this->getSchoolAttributeChangeMap();
+		if (fieldMap.count(key)) {
+			return to_string(fieldMap.at(key));
+		}
+	} else if (fieldName == "selfstudyAttributeChange") {
+		auto fieldMap = this->getSelfstudyAttributeChangeMap();
+		if (fieldMap.count(key)) {
+			return to_string(fieldMap.at(key));
+		}
+	}
+	CCLOGWARN("Couldn't recognize field: %s, key: %s in SkillsData", fieldName.c_str(), key.c_str());
+	return "";
 }
 

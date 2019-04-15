@@ -5,7 +5,8 @@
 			"type" : "refresh",
 			"refresh_ids" : [
 				"lab_play_description",
-				"lab_play_name"
+				"lab_play_name",
+        "play_detail"
 			]
 		}
 	]

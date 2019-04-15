@@ -184,3 +184,9 @@ BaseData* GameSavingData::getDataByField(const string & fieldName) const
 	return nullptr;
 }
 
+vector<BaseData *> GameSavingData::getFieldDataList(const string & fieldName) const
+{
+	CCLOGWARN("Couldn't recognize %s in GameSavingData", fieldName.c_str());
+	return vector<BaseData *>();
+}
+

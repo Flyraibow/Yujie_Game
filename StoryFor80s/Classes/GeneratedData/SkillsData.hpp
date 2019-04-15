@@ -7,6 +7,8 @@ This file (SkillsData.hpp) is generated
 #include "BaseData.h"
 #include <set>
 #include "SkillsData.hpp"
+#include "AttributeData.hpp"
+#include "AttributeData.hpp"
 
 
 class SkillsData: public BaseData
@@ -19,6 +21,8 @@ private:
 	int p_passValue;
 	int p_value;
 	set<string> p_requiresIdSet;
+	map<string, int> p_schoolAttributeChangeMap;
+	map<string, int> p_selfstudyAttributeChangeMap;
 public:
 	string getId() const;
 	string getSkillId() const;
@@ -31,6 +35,10 @@ public:
 	set<SkillsData*> getRequiresDataSet() const;
 	set<string> getRequiresIdSet() const;
 	string getDescription() const;
+	vector<BaseData *> getSchoolAttributeChangeList() const;
+	map<string, int> getSchoolAttributeChangeMap() const;
+	vector<BaseData *> getSelfstudyAttributeChangeList() const;
+	map<string, int> getSelfstudyAttributeChangeMap() const;
 	string description() const;
 	static const map<string, SkillsData*>* getSharedDictionary();
 	static SkillsData* getSkillsDataById(const string& skillId);
@@ -40,5 +48,7 @@ public:
 	void setFieldValue(const string & fieldName, const string & value);
 	string getFieldValue(const string & fieldName) const;
 	BaseData* getDataByField(const string & fieldName) const;
+	vector<BaseData *> getFieldDataList(const string & fieldName) const;
+	string getMapFieldValueWithKey(const string & fieldName, const string & key) const;
 };
 #endif

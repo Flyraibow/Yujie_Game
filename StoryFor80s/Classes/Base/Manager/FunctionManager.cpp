@@ -13,7 +13,7 @@
 #include "Utils.hpp"
 #include <unordered_set>
 
-string getFormatStringFromFunction(FunctionCalculationData *functionData)
+string getFormatStringFromFunction(FunctionCalculationData *functionData, const BaseData *associate)
 {
   auto parameters = functionData->getParameters();
   if (parameters.size() == 0) {
@@ -22,7 +22,7 @@ string getFormatStringFromFunction(FunctionCalculationData *functionData)
     auto localStr = LocalizationHelper::getLocalization(parameters.at(0));
     auto params = parameters;
     params.erase(params.begin());
-    return DataManager::getShareInstance()->formatStringWithParamters(localStr, params);
+    return DataManager::getShareInstance()->formatStringWithParamters(localStr, params, associate);
   }
   return "failed to load " + functionData->getFunctionCalculatonId();
 }
@@ -39,7 +39,7 @@ pair<char, int> getNextCalculationFunction(const string &str, int fromIndex = 0)
   return make_pair(' ', -1);
 }
 
-int Manager::calculateIntFromFunction(const string &calString)
+int Manager::calculateIntFromFunction(const string &calString, const BaseData *associate)
 {
   int index = 0;
   int result = 0;
@@ -52,7 +52,7 @@ int Manager::calculateIntFromFunction(const string &calString)
     } else {
       subStr = calString.substr(index);
     }
-    int subStrValue = subStr.length() > 0 ? atoi(DataManager::getShareInstance()->decipherString(subStr).c_str()) : 0;
+    int subStrValue = subStr.length() > 0 ? atoi(DataManager::getShareInstance()->decipherString(subStr, associate).c_str()) : 0;
     if (lastCalFunc == '+') {
       result += subStrValue;
     } else if (lastCalFunc == '-') {
@@ -68,7 +68,7 @@ int Manager::calculateIntFromFunction(const string &calString)
   return result;
 }
 
-string Manager::getFunctionValueById(const string &functionId)
+string Manager::getFunctionValueById(const string &functionId, const BaseData *associate)
 {
   auto functionData = FunctionCalculationData::getFunctionCalculationDataById(functionId);
   auto functionName = functionData->getFunctionName();
@@ -79,16 +79,16 @@ string Manager::getFunctionValueById(const string &functionId)
       val += DataManager::getShareInstance()->decipherString(str);
     }
   } else if (functionName == "string_format") {
-    val = getFormatStringFromFunction(functionData);
+    val = getFormatStringFromFunction(functionData, associate);
   } else if (functionName == "decipher") {
-    val = DataManager::getShareInstance()->decipherString(paramters.at(0));
+    val = DataManager::getShareInstance()->decipherString(paramters.at(0), associate);
   } else if (functionName == "condition") {
     auto conditionString = paramters.at(0);
     string result;
     if (checkConditionByString(conditionString)) {
-      result = DataManager::getShareInstance()->decipherString(paramters.at(1));
+      result = DataManager::getShareInstance()->decipherString(paramters.at(1), associate);
     } else {
-      result = DataManager::getShareInstance()->decipherString(paramters.at(2));
+      result = DataManager::getShareInstance()->decipherString(paramters.at(2), associate);
     }
     return result;
   } else if (functionName == "calculation") {
@@ -103,12 +103,6 @@ string Manager::getFunctionValueById(const string &functionId)
     CCLOGERROR("unrecognized function id: %s", functionId.c_str());
   }
   return val;
-}
-
-string Manager::getFunctionValueById(const string &functionId, BaseData *data)
-{
-  DataManager::getShareInstance()->setTempData("temp", data);
-  return getFunctionValueById(functionId);
 }
 
 BaseData* Manager::getFunctionDataById(const string &functionId)

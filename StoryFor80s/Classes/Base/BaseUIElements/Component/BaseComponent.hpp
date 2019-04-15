@@ -51,6 +51,7 @@ public:
   BaseComponent(const nlohmann::json &componentJson);
   virtual ~BaseComponent() {};
   void addNodeToParent(ComponentDict &dict, Node *child, Node *parent);
+  void remove(ComponentDict &dict);
   virtual Node *addComponentToParent(ComponentDict &dict, Node *parent = nullptr) = 0;
   string getId() const;
   virtual void refresh();

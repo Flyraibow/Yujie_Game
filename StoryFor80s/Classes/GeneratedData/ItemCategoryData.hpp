@@ -21,5 +21,6 @@ public:
 	static ItemCategoryData* getItemCategoryDataById(const string& itemCategoryId);
 	string getFieldValue(const string & fieldName) const;
 	BaseData* getDataByField(const string & fieldName) const;
+	vector<BaseData *> getFieldDataList(const string & fieldName) const;
 };
 #endif

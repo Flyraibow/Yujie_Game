@@ -63,7 +63,47 @@
               "normalized_dimensions" : [0.9, 0],
 				      "anchor_point": [0.5, 1],
 				      "text_size": 18
-			      	}
+			      	},
+              {
+                "type": "sprite",
+                "id": "play_detail",
+                "size": {
+                  "width": 600,
+                  "height": 150
+                },
+                "color": "alpha_green",
+                "anchor_point": [0, 0],
+                "normalized_position": [0.1, 0.15],
+                "components" : [
+                  {
+                    "type" : "componentList",
+                    "data" : "tempdata.play.attributeChange",
+                    "content" : {
+                      "type": "sprite",
+                      "id" : "scroll_view_content",
+                      "size": {
+                        "width": 200,
+                        "height": 50
+                      },
+                      "share_data" : true,
+                      "color": "alpha_blue",
+                      "anchor_point": [0, 0],
+                      "position" : [0, 100],
+                      "position_offset" : [200, 0],
+                      "components" : [
+                        {
+                          "type": "label",
+                          "id": "lab_attribute",
+                          "text": "function.lab_play_attribute_value",
+                          "normalized_position": [0, 1],
+                          "anchor_point": [0, 1],
+                          "text_size": 30
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
 		      	]
 		    }
 		    ,

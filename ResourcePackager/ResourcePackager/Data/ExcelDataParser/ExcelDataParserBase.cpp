@@ -163,6 +163,8 @@ void ExcelDataParserBase::generateCode(const string& folderPath)
   }
   this->setGetFieldFunction();
   this->setGetFieldDataFunction();
+  this->setGetFieldDataListFunction();
+  this->setGetMapFieldWithKeyFunction();
   p_file->addClass(p_class);
   p_file->saveFiles(folderPath);
   delete p_class;
@@ -287,6 +289,30 @@ string ExcelDataParserBase::getInstanceCode() const
   return "auto data = " + getClassName() + "::getSharedInstance();";
 }
 
+void ExcelDataParserBase::setGetMapFieldWithKeyFunction()
+{
+  auto fieldVar = new CPPVariable("fieldName", "const string &");
+  auto keyVar = new CPPVariable("key", "const string &");
+  p_getMapFieldWithKeyFunction = new CPPFunction("getMapFieldValueWithKey", TYPE_STRING, {fieldVar, keyVar}, false, true);
+  int count = 0;
+  for (auto schema : p_dataSchemas) {
+    if (schema->getType() == FRIEND_ID_MAP) {
+      auto parser = ExcelParserBase::createWithSchema(schema, "");
+      string prefix = (count > 0) ? "} else " : "";
+      p_getMapFieldWithKeyFunction->addBodyStatements(prefix + "if (fieldName == \"" + schema->getName() + "\") {");
+      parser->addGetMapFieldWithKeyFuncBody(p_getMapFieldWithKeyFunction);
+      delete parser;
+      ++count;
+    }
+  }
+  if (count > 0) {
+    p_getMapFieldWithKeyFunction->addBodyStatements("}");
+    p_getMapFieldWithKeyFunction->addBodyStatements("CCLOGWARN(\"Couldn't recognize field: %s, key: %s in " + p_class->getClassName() + "\", fieldName.c_str(), key.c_str());");
+    p_getMapFieldWithKeyFunction->addBodyStatements("return \"\";");
+    p_class->addFunction(p_getMapFieldWithKeyFunction, false);
+  }
+}
+
 void ExcelDataParserBase::setGetFieldFunction()
 {
   auto fieldVar = new CPPVariable("fieldName", "const string &");
@@ -308,6 +334,29 @@ void ExcelDataParserBase::setGetFieldFunction()
   p_getFieldFunction->addBodyStatements("CCLOGWARN(\"Couldn't recognize %s in " + p_class->getClassName() + "\", fieldName.c_str());");
   p_getFieldFunction->addBodyStatements("return \"\";");
   p_class->addFunction(p_getFieldFunction, false);
+}
+
+void ExcelDataParserBase::setGetFieldDataListFunction()
+{
+  auto fieldVar = new CPPVariable("fieldName", "const string &");
+  p_getFieldListFunction = new CPPFunction("getFieldDataList", "vector<BaseData *>", {fieldVar}, false, true);
+  int count = 0;
+  for (auto schema : p_dataSchemas) {
+    if (schema->getType() == FRIEND_ID_MAP) {
+      auto parser = ExcelParserBase::createWithSchema(schema, "");
+      string prefix = (count > 0) ? "} else " : "";
+      p_getFieldListFunction->addBodyStatements(prefix + "if (fieldName == \"" + schema->getName() + "\") {");
+      parser->addGetFieldListFuncBody(p_getFieldListFunction);
+      delete parser;
+      ++count;
+    }
+  }
+  if (count > 0) {
+    p_getFieldListFunction->addBodyStatements("}");
+  }
+  p_getFieldListFunction->addBodyStatements("CCLOGWARN(\"Couldn't recognize %s in " + p_class->getClassName() + "\", fieldName.c_str());");
+  p_getFieldListFunction->addBodyStatements("return vector<BaseData *>();");
+  p_class->addFunction(p_getFieldListFunction, false);
 }
 
 void ExcelDataParserBase::setSetFieldFunction()

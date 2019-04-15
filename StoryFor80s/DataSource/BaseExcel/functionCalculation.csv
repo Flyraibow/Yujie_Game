@@ -19,3 +19,6 @@ lab_week_day,string,decipher,translation.lab_week_(game.weekDay),转化复杂的
 lab_work_result,string,string_format,lab_work_well;tempdata.work.name,工作效果
 lab_selfstudy_result,string,string_format,lab_selfstudy_well;tempdata.study.name,自学效果
 lab_play_result,string,string_format,lab_play_well;tempdata.play.name,娱乐效果
+lab_work_attribute_value,string,string_format,lab_data_value;associate.name;tempdata.work.map.attributeChange.(associate.attributeId),ex: 压力 5
+lab_selfstudy_attribute_value,string,string_format,lab_data_value;associate.name;tempdata.study.map.selfstudyAttributeChange.(associate.attributeId),ex: 压力 5
+lab_play_attribute_value,string,string_format,lab_data_value;associate.name;tempdata.play.map.attributeChange.(associate.attributeId),ex: 压力 5

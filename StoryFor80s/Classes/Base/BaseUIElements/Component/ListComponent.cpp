@@ -33,10 +33,8 @@ ListComponent::ListComponent(const nlohmann::json &componentJson) : BaseComponen
   }
   p_condition = Utils::getStringFromJson(componentJson, "condition");
   if (componentJson.count("data")) {
-    p_dataList = DataManager::getShareInstance()->decipherDataList(Utils::getStringFromJson(componentJson, "data"));
-    if (p_count == 0) {
-      p_count = p_dataList.size();
-    }
+    
+    p_dataListStr = Utils::getStringFromJson(componentJson, "data");
   }
 //  if (p_count > 0 && !p_panelContent.empty()) {
 //    for (int i = 0; i < p_count; ++i) {
@@ -48,31 +46,38 @@ ListComponent::ListComponent(const nlohmann::json &componentJson) : BaseComponen
 
 Node* ListComponent::addComponentToParent(ComponentDict &dict, cocos2d::Node *parent)
 {
-  if (p_count > 0 && !p_panelContent.empty()) {
-    auto index = 0;
-    for (int i = 0; i < p_count; ++i) {
-      if (i < p_dataList.size()) {
-        auto associateData = p_dataList.at(i);
-        if (p_condition.length() == 0 || Manager::checkConditionByString(p_condition, associateData)) {
-          auto component = BaseComponent::getComponentFromJson(p_panelContent);
-          component->setIndex(index++);
-          component->setAssociateData(associateData);
-          component->addComponentToParent(dict, parent);
-        }
-      }
-    }
-  }
-//  for (int i = 0; i < p_dataList.size(); ++i) {
-//    auto component = p_componentList.at(i);
-//    component->addComponentToParent(dict, parent);
-//  }
+  p_dict = dict;
+  p_parent = parent;
+  
+  refresh();
+
   return nullptr;
 }
 
 void ListComponent::refresh()
 {
-//  for (int i = 0; i < p_dataList.size(); ++i) {
-//    auto component = p_componentList.at(i);
-//    component->refresh();
-//  }
+  // if p_componentList is not empty, we need probably remove current view first
+  if (p_componentList.size() > 0) {
+    for (auto component : p_componentList) {
+      component->remove(p_dict);
+    }
+  }
+  p_componentList.clear();
+  auto dataList = DataManager::getShareInstance()->decipherDataList(p_dataListStr);
+  p_count = p_count == 0 ? dataList.size() : p_count;
+  if (p_count > 0 && !p_panelContent.empty()) {
+    auto index = 0;
+    for (int i = 0; i < p_count; ++i) {
+      if (i < dataList.size()) {
+        auto associateData = dataList.at(i);
+        if (p_condition.length() == 0 || Manager::checkConditionByString(p_condition, associateData)) {
+          auto component = BaseComponent::getComponentFromJson(p_panelContent);
+          component->setIndex(index++);
+          component->setAssociateData(associateData);
+          component->addComponentToParent(p_dict, p_parent);
+          p_componentList.push_back(component);
+        }
+      }
+    }
+  }
 }

@@ -51,10 +51,20 @@
 		{
 			"__comment" : "设置玩家姓名",
 			"type" : "setValues",
-			"values" : {
-				"game.firstName" : "temp.firstName",
-				"game.lastName" : "temp.lastName"
-			}
+      "changes" : [
+        {
+          "type" : "set",
+          "data" : "game",
+          "field" : "firstName",
+          "value" : "temp.firstName"
+        },
+        {
+          "type" : "set",
+          "data" : "game",
+          "field" : "lastName",
+          "value" : "temp.lastName"
+        }
+      ]
 		},
 		{
 			"__comment" : "游戏界面",

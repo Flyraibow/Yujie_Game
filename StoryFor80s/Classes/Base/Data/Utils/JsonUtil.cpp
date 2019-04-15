@@ -116,3 +116,15 @@ std::vector<std::string> Utils::getStringListFromJson(const nlohmann::json &json
   }
   return defaultValue;
 }
+
+std::vector<nlohmann::json> Utils::getJsonListFromJson(const nlohmann::json &json, const std::string &field)
+{
+  std::vector<nlohmann::json> defaultValue;
+  if (json.count(field)) {
+    auto vec = json.at(field);
+    for (auto content : vec) {
+      defaultValue.push_back(content.get<nlohmann::json>());
+    }
+  }
+  return defaultValue;
+}

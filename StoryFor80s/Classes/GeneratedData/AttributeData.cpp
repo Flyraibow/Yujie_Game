@@ -164,3 +164,9 @@ BaseData* AttributeData::getDataByField(const string & fieldName) const
 	return nullptr;
 }
 
+vector<BaseData *> AttributeData::getFieldDataList(const string & fieldName) const
+{
+	CCLOGWARN("Couldn't recognize %s in AttributeData", fieldName.c_str());
+	return vector<BaseData *>();
+}
+

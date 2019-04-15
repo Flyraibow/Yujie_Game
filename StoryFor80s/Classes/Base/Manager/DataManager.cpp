@@ -157,7 +157,7 @@ void DataManager::setDataValue(const string &key, const string &field, const str
   }
 }
 
-void DataManager::setValue(const string &key, const string &value)
+void DataManager::setValue(const string &key, const string &value, BaseData* associate)
 {
   auto keyList = Utils::split(key, '.');
   CCASSERT(keyList.size() >= 2, "The size of key list should be >= 2");
@@ -200,10 +200,12 @@ void DataManager::setSortKeyValuePair(const string &key, const string &type, con
   p_tempKeyValueMap[key] = result;
 }
 
-BaseData* DataManager::decipherData(const string &value) const
+BaseData* DataManager::decipherData(const string &value, BaseData* associate) const
 {
   auto args = Utils::split(value, '.');
-  if (value == "game") {
+  if (value == "associate") {
+    return associate;
+  } else if (value == "game") {
     return GameData::getSharedInstance();
   } else if (args.size() > 1) {
     auto k = args.at(0);
@@ -225,8 +227,12 @@ vector<BaseData*> DataManager::decipherDataList(const string &value) const
     if (p_tempDataListMap.count(value)) {
       result = p_tempDataListMap.at(value);
     }
-  } else if (args.size() == 2 && args.at(0) == "gamedata") {
-    result = BaseDataManager::getDataList(args.at(1));
+  } else if (args.size() >= 2) {
+    auto k = args.at(0);
+    if (k == "game" || k == "gamedata" || k == "globaldata" || k == "associate" || k == "tempdata") {
+      return getDataListFromStringList(args);
+    }
+    
   } else {
     CCLOGERROR("not define data list value: %s", value.c_str());
   }
@@ -242,10 +248,10 @@ string DataManager::decipherString(const string &value, const BaseData* associat
     char c = value.at(i);
     if (c == ')') {
       CCASSERT(leftIndex >= 0, "there is no left '(' for right ')'");
-      string subStr = decipherString(value.substr(leftIndex + 1, i - 1 - leftIndex));
+      string subStr = decipherString(value.substr(leftIndex + 1, i - 1 - leftIndex), associate);
       string newValue = value;
       newValue.replace(leftIndex, i - leftIndex + 1, subStr);
-      return decipherString(newValue);
+      return decipherString(newValue, associate);
     } else if (c == '(') {
       leftIndex = i;
     }
@@ -282,7 +288,7 @@ string DataManager::decipherString(const string &value, const BaseData* associat
     } else if (k == "function") {
       auto functionId = args.at(1);
       if (args.size() == 2) {
-        val = Manager::getFunctionValueById(functionId);
+        val = Manager::getFunctionValueById(functionId, associate);
       } else if (args.size() == 3) {
         auto data = Manager::getFunctionDataById(functionId);
         val = data->getFieldValue(args.at(2));
@@ -458,12 +464,12 @@ string DataManager::calculate(const string &type, const string &a, const string 
   return "";
 }
 
-string DataManager::formatStringWithParamters(const string &str, const vector<string> &parameters) const
+string DataManager::formatStringWithParamters(const string &str, const vector<string> &parameters, const BaseData *associate) const
 {
   string result = str;
   vector<string> decipheredParams;
   for (auto parameter : parameters) {
-    decipheredParams.push_back(decipherString(parameter));
+    decipheredParams.push_back(decipherString(parameter, associate));
   }
   switch (decipheredParams.size()) {
     case 0:
@@ -513,11 +519,54 @@ string DataManager::getStringFromStringList(const vector<string> &strList, const
     data = BaseGlobalDataManager::getData(strList.at(1), strList.at(2));
   }
   while (i < strList.size() - 1 && data != nullptr) {
-    data = data->getDataByField(strList[i++]);
+    auto field = strList[i++];
+    if (field == "map") {
+      return data->getMapFieldValueWithKey(strList.at(i), strList.at(i+1));
+    } else {
+      data = data->getDataByField(field);
+    }
   }
   if (data != nullptr) {
     return data->getFieldValue(strList.at(i));
   }
   CCLOGWARN("couldn't decipher strList : %s" , Utils::join(strList, ".").c_str());
   return "";
+}
+
+vector<BaseData *> DataManager::getDataListFromStringList(const vector<string> &strList, const BaseData* associate) const
+{
+  CCASSERT(strList.size() >= 2, ("couldn't decipher strList : " + Utils::join(strList, ".")).c_str());
+  auto type = strList.at(0);
+  const BaseData *data = nullptr;
+  int i = 1;
+  if (type == "tempdata") {
+    if (p_tempDataMap.count(strList.at(1))) {
+      ++i;
+      data = p_tempDataMap.at(strList.at(1));
+    }
+  } else if (type == "associate") {
+    data = associate;
+  } else if (type == "game") {
+    data = GameData::getSharedInstance();
+  } else if (type == "gamedata") {
+    if (strList.size() == 2) {
+      return BaseDataManager::getDataList(strList.at(1));
+    }
+    i = 3;
+    data = BaseDataManager::getData(strList.at(1), strList.at(2));
+  } else if (type == "globaldata") {
+    if (strList.size() == 2) {
+      return BaseGlobalDataManager::getDataList(strList.at(1));
+    }
+    i = 3;
+    data = BaseGlobalDataManager::getData(strList.at(1), strList.at(2));
+  }
+  while (i < strList.size() - 1 && data != nullptr) {
+    data = data->getDataByField(strList[i++]);
+  }
+  if (data != nullptr) {
+    return data->getFieldDataList(strList.at(i));
+  }
+  CCLOGWARN("couldn't decipher strList : %s" , Utils::join(strList, ".").c_str());
+  return vector<BaseData *>();
 }

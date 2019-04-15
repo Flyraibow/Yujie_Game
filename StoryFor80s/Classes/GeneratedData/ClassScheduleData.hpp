@@ -17,5 +17,6 @@ public:
 	static string getClassSchedule(string date, string schooId);
 	string getFieldValue(const string & fieldName) const;
 	BaseData* getDataByField(const string & fieldName) const;
+	vector<BaseData *> getFieldDataList(const string & fieldName) const;
 };
 #endif

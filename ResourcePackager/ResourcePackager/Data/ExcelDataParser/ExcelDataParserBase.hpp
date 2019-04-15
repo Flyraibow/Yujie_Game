@@ -41,6 +41,8 @@ protected:
   CPPFunction * p_getFieldFunction;
   CPPFunction * p_setFieldFunction;
   CPPFunction * p_getFieldDataFunction;
+  CPPFunction * p_getFieldListFunction;
+  CPPFunction * p_getMapFieldWithKeyFunction;
   
   vector<DataSchema *> p_dataSchemas;
   vector<vector<string>> p_values;
@@ -52,6 +54,8 @@ protected:
   virtual void setGetFieldFunction();
   virtual void setSetFieldFunction();
   virtual void setGetFieldDataFunction();
+  virtual void setGetFieldDataListFunction();
+  virtual void setGetMapFieldWithKeyFunction();
   string getSaveLoadPathCode() const;
   int p_needSaveDataNumber;
   
