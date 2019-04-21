@@ -1,0 +1,53 @@
+{
+	"events": [
+		{
+			"__comment" : "闲逛的事件",
+			"type" : "selection",
+			"selections":[
+				{
+					"text" : "商店",
+					"events" : [
+						{
+							"__comment" : "测试剧情, 显示对话框",
+							"type" : "story",
+							"name" : "social/shopping"
+						}
+					]
+				},
+        {
+          "text" : "电影院",
+          "events" : [
+            {
+              "__comment" : "== 开始互动 TODO ===",
+              "type" : "dialog",
+              "name" : "dialogPanel",
+              "dialogs":[
+                {
+                  "name": "function.my_full_name",
+                  "content" : "我去了电影院"
+                }
+              ]
+            },
+            {
+              "type" : "setValues",
+              "__comment" : "== 设置 ===",
+              "values" : {
+                "game.hasWalked" : "1"
+              }
+            }
+          ]
+        },
+				{
+					"text" : "算了，下次吧。",
+          "events" : [
+            {
+              "__comment" : "中断对话",
+              "type" : "story",
+              "name" : "stopStory"
+            }
+          ]
+				}
+			]
+		}
+	]
+}

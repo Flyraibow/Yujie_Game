@@ -14,6 +14,27 @@
       ]
     },
     {
+      "__comment" : "增长value",
+      "type" : "setValues",
+      "dataList" : "tempdata.play.attributeChange",
+      "changes" : [
+        {
+          "type" : "add",
+          "min" : "0",
+          "data" : "associate",
+          "field" : "value",
+          "value" : "tempdata.play.map.attributeChange.(associate.attributeId)"
+        }
+      ]
+    },
+    {
+      "__comment" : "刷新页面",
+      "type" : "refresh",
+      "refresh_ids" : [
+        "my_attribute"
+      ]
+    },
+    {
       "__comment" : "开始执行放学后的娱乐",
       "type" : "wait",
       "until_click" : true

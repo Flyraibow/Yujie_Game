@@ -64,10 +64,10 @@ void ListComponent::refresh()
   }
   p_componentList.clear();
   auto dataList = DataManager::getShareInstance()->decipherDataList(p_dataListStr);
-  p_count = p_count == 0 ? dataList.size() : p_count;
-  if (p_count > 0 && !p_panelContent.empty()) {
+  auto count = p_count == 0 ? dataList.size() : p_count;
+  if (count > 0 && !p_panelContent.empty()) {
     auto index = 0;
-    for (int i = 0; i < p_count; ++i) {
+    for (int i = 0; i < count; ++i) {
       if (i < dataList.size()) {
         auto associateData = dataList.at(i);
         if (p_condition.length() == 0 || Manager::checkConditionByString(p_condition, associateData)) {

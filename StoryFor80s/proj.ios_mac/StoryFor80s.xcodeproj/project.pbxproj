@@ -73,8 +73,6 @@
 		EC073BCB221A9B67006FDCE0 /* FunctionCalculationData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC073BB2221A9B67006FDCE0 /* FunctionCalculationData.cpp */; };
 		EC073BCC221A9B67006FDCE0 /* ActionData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC073BB3221A9B67006FDCE0 /* ActionData.cpp */; };
 		EC073BCD221A9B67006FDCE0 /* ActionData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC073BB3221A9B67006FDCE0 /* ActionData.cpp */; };
-		EC073BCE221A9B67006FDCE0 /* SkillsData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC073BB6221A9B67006FDCE0 /* SkillsData.cpp */; };
-		EC073BCF221A9B67006FDCE0 /* SkillsData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC073BB6221A9B67006FDCE0 /* SkillsData.cpp */; };
 		EC073BD0221A9B67006FDCE0 /* ConditionCalculationData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC073BB8221A9B67006FDCE0 /* ConditionCalculationData.cpp */; };
 		EC073BD1221A9B67006FDCE0 /* ConditionCalculationData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC073BB8221A9B67006FDCE0 /* ConditionCalculationData.cpp */; };
 		EC073BD2221A9B67006FDCE0 /* ItemCategoryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC073BB9221A9B67006FDCE0 /* ItemCategoryData.cpp */; };
@@ -111,10 +109,6 @@
 		EC4F0268221FE48D0038EFCD /* FriendData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4F0258221FE48B0038EFCD /* FriendData.cpp */; };
 		EC4F0269221FE48D0038EFCD /* FatherJobData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4F0259221FE48C0038EFCD /* FatherJobData.cpp */; };
 		EC4F026A221FE48D0038EFCD /* FatherJobData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4F0259221FE48C0038EFCD /* FatherJobData.cpp */; };
-		EC4F026B221FE48D0038EFCD /* SocialActionData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4F025A221FE48C0038EFCD /* SocialActionData.cpp */; };
-		EC4F026C221FE48D0038EFCD /* SocialActionData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4F025A221FE48C0038EFCD /* SocialActionData.cpp */; };
-		EC4F026D221FE48D0038EFCD /* HobbyData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4F0260221FE48C0038EFCD /* HobbyData.cpp */; };
-		EC4F026E221FE48D0038EFCD /* HobbyData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4F0260221FE48C0038EFCD /* HobbyData.cpp */; };
 		EC4F026F221FE48D0038EFCD /* StoryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4F0261221FE48C0038EFCD /* StoryData.cpp */; };
 		EC4F0270221FE48D0038EFCD /* StoryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4F0261221FE48C0038EFCD /* StoryData.cpp */; };
 		EC4F0273221FE48D0038EFCD /* WorkData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4F0263221FE48C0038EFCD /* WorkData.cpp */; };
@@ -167,6 +161,12 @@
 		ECBA50772213F1A000929BBA /* ConditionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBA50742213F1A000929BBA /* ConditionManager.cpp */; };
 		ECC5E94922284D660090F6C5 /* BaseSpriteListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECC5E94822284D660090F6C5 /* BaseSpriteListener.cpp */; };
 		ECC5E94A22284D660090F6C5 /* BaseSpriteListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECC5E94822284D660090F6C5 /* BaseSpriteListener.cpp */; };
+		ECCFE600226BF5A3008F47D4 /* ProficiencyData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCFE5FA226BF5A2008F47D4 /* ProficiencyData.cpp */; };
+		ECCFE601226BF5A3008F47D4 /* ProficiencyData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCFE5FA226BF5A2008F47D4 /* ProficiencyData.cpp */; };
+		ECCFE602226BF5A3008F47D4 /* StudyData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCFE5FC226BF5A2008F47D4 /* StudyData.cpp */; };
+		ECCFE603226BF5A3008F47D4 /* StudyData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCFE5FC226BF5A2008F47D4 /* StudyData.cpp */; };
+		ECCFE606226BF61F008F47D4 /* PlayData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCFE605226BF61F008F47D4 /* PlayData.cpp */; };
+		ECCFE607226BF61F008F47D4 /* PlayData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCFE605226BF61F008F47D4 /* PlayData.cpp */; };
 		ECDE87222235FD0F0048EEF5 /* BaseLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECDE87202235FD0F0048EEF5 /* BaseLabel.cpp */; };
 		ECDE87232235FD0F0048EEF5 /* BaseLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECDE87202235FD0F0048EEF5 /* BaseLabel.cpp */; };
 		ECDE872D223609980048EEF5 /* ClassScheduleData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECDE8728223609970048EEF5 /* ClassScheduleData.cpp */; };
@@ -288,7 +288,6 @@
 		EC073BA9221A9B66006FDCE0 /* ConditionData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ConditionData.hpp; sourceTree = "<group>"; };
 		EC073BAA221A9B66006FDCE0 /* ConditionData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConditionData.cpp; sourceTree = "<group>"; };
 		EC073BAB221A9B67006FDCE0 /* ConditionCalculationData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ConditionCalculationData.hpp; sourceTree = "<group>"; };
-		EC073BAC221A9B67006FDCE0 /* SkillsData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SkillsData.hpp; sourceTree = "<group>"; };
 		EC073BAD221A9B67006FDCE0 /* ItemData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ItemData.cpp; sourceTree = "<group>"; };
 		EC073BAE221A9B67006FDCE0 /* ActionData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ActionData.hpp; sourceTree = "<group>"; };
 		EC073BAF221A9B67006FDCE0 /* GameData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameData.hpp; sourceTree = "<group>"; };
@@ -298,7 +297,6 @@
 		EC073BB3221A9B67006FDCE0 /* ActionData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ActionData.cpp; sourceTree = "<group>"; };
 		EC073BB4221A9B67006FDCE0 /* ItemData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ItemData.hpp; sourceTree = "<group>"; };
 		EC073BB5221A9B67006FDCE0 /* GameSavingData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameSavingData.hpp; sourceTree = "<group>"; };
-		EC073BB6221A9B67006FDCE0 /* SkillsData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillsData.cpp; sourceTree = "<group>"; };
 		EC073BB7221A9B67006FDCE0 /* BaseDataManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BaseDataManager.hpp; sourceTree = "<group>"; };
 		EC073BB8221A9B67006FDCE0 /* ConditionCalculationData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConditionCalculationData.cpp; sourceTree = "<group>"; };
 		EC073BB9221A9B67006FDCE0 /* ItemCategoryData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ItemCategoryData.cpp; sourceTree = "<group>"; };
@@ -327,17 +325,13 @@
 		EC3CF0B8222B420F00E9DF38 /* SelectionEventContent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SelectionEventContent.hpp; sourceTree = "<group>"; };
 		EC4065A522375CBC0089E82A /* ScrollViewComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ScrollViewComponent.cpp; sourceTree = "<group>"; };
 		EC4065A622375CBC0089E82A /* ScrollViewComponent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ScrollViewComponent.hpp; sourceTree = "<group>"; };
-		EC4F0254221FE48B0038EFCD /* HobbyData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = HobbyData.hpp; sourceTree = "<group>"; };
 		EC4F0257221FE48B0038EFCD /* ParentChatData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParentChatData.cpp; sourceTree = "<group>"; };
 		EC4F0258221FE48B0038EFCD /* FriendData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FriendData.cpp; sourceTree = "<group>"; };
 		EC4F0259221FE48C0038EFCD /* FatherJobData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FatherJobData.cpp; sourceTree = "<group>"; };
-		EC4F025A221FE48C0038EFCD /* SocialActionData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SocialActionData.cpp; sourceTree = "<group>"; };
 		EC4F025B221FE48C0038EFCD /* WorkData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WorkData.hpp; sourceTree = "<group>"; };
 		EC4F025C221FE48C0038EFCD /* ParentChatData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ParentChatData.hpp; sourceTree = "<group>"; };
-		EC4F025D221FE48C0038EFCD /* SocialActionData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SocialActionData.hpp; sourceTree = "<group>"; };
 		EC4F025E221FE48C0038EFCD /* FriendData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FriendData.hpp; sourceTree = "<group>"; };
 		EC4F025F221FE48C0038EFCD /* FatherJobData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FatherJobData.hpp; sourceTree = "<group>"; };
-		EC4F0260221FE48C0038EFCD /* HobbyData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HobbyData.cpp; sourceTree = "<group>"; };
 		EC4F0261221FE48C0038EFCD /* StoryData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoryData.cpp; sourceTree = "<group>"; };
 		EC4F0263221FE48C0038EFCD /* WorkData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorkData.cpp; sourceTree = "<group>"; };
 		EC4F0264221FE48D0038EFCD /* StoryData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StoryData.hpp; sourceTree = "<group>"; };
@@ -391,6 +385,12 @@
 		ECBA50752213F1A000929BBA /* ConditionManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ConditionManager.hpp; sourceTree = "<group>"; };
 		ECC5E94622284D660090F6C5 /* BaseSpriteListener.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BaseSpriteListener.hpp; sourceTree = "<group>"; };
 		ECC5E94822284D660090F6C5 /* BaseSpriteListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseSpriteListener.cpp; sourceTree = "<group>"; };
+		ECCFE5FA226BF5A2008F47D4 /* ProficiencyData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProficiencyData.cpp; sourceTree = "<group>"; };
+		ECCFE5FB226BF5A2008F47D4 /* StudyData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StudyData.hpp; sourceTree = "<group>"; };
+		ECCFE5FC226BF5A2008F47D4 /* StudyData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StudyData.cpp; sourceTree = "<group>"; };
+		ECCFE5FD226BF5A2008F47D4 /* ProficiencyData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ProficiencyData.hpp; sourceTree = "<group>"; };
+		ECCFE604226BF61F008F47D4 /* PlayData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PlayData.hpp; sourceTree = "<group>"; };
+		ECCFE605226BF61F008F47D4 /* PlayData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayData.cpp; sourceTree = "<group>"; };
 		ECDE87202235FD0F0048EEF5 /* BaseLabel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BaseLabel.cpp; sourceTree = "<group>"; };
 		ECDE87212235FD0F0048EEF5 /* BaseLabel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BaseLabel.hpp; sourceTree = "<group>"; };
 		ECDE8726223609970048EEF5 /* ClassScheduleData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ClassScheduleData.hpp; sourceTree = "<group>"; };
@@ -600,6 +600,12 @@
 		EC073B9F221A99BD006FDCE0 /* GeneratedData */ = {
 			isa = PBXGroup;
 			children = (
+				ECCFE605226BF61F008F47D4 /* PlayData.cpp */,
+				ECCFE604226BF61F008F47D4 /* PlayData.hpp */,
+				ECCFE5FA226BF5A2008F47D4 /* ProficiencyData.cpp */,
+				ECCFE5FD226BF5A2008F47D4 /* ProficiencyData.hpp */,
+				ECCFE5FC226BF5A2008F47D4 /* StudyData.cpp */,
+				ECCFE5FB226BF5A2008F47D4 /* StudyData.hpp */,
 				ECDE8728223609970048EEF5 /* ClassScheduleData.cpp */,
 				ECDE8726223609970048EEF5 /* ClassScheduleData.hpp */,
 				ECDE8729223609970048EEF5 /* PersonalityData.cpp */,
@@ -610,12 +616,8 @@
 				EC4F025F221FE48C0038EFCD /* FatherJobData.hpp */,
 				EC4F0258221FE48B0038EFCD /* FriendData.cpp */,
 				EC4F025E221FE48C0038EFCD /* FriendData.hpp */,
-				EC4F0260221FE48C0038EFCD /* HobbyData.cpp */,
-				EC4F0254221FE48B0038EFCD /* HobbyData.hpp */,
 				EC4F0257221FE48B0038EFCD /* ParentChatData.cpp */,
 				EC4F025C221FE48C0038EFCD /* ParentChatData.hpp */,
-				EC4F025A221FE48C0038EFCD /* SocialActionData.cpp */,
-				EC4F025D221FE48C0038EFCD /* SocialActionData.hpp */,
 				EC4F0261221FE48C0038EFCD /* StoryData.cpp */,
 				EC4F0264221FE48D0038EFCD /* StoryData.hpp */,
 				EC4F0263221FE48C0038EFCD /* WorkData.cpp */,
@@ -642,8 +644,6 @@
 				EC073BA6221A9B66006FDCE0 /* ItemCategoryData.hpp */,
 				EC073BAD221A9B67006FDCE0 /* ItemData.cpp */,
 				EC073BB4221A9B67006FDCE0 /* ItemData.hpp */,
-				EC073BB6221A9B67006FDCE0 /* SkillsData.cpp */,
-				EC073BAC221A9B67006FDCE0 /* SkillsData.hpp */,
 			);
 			path = GeneratedData;
 			sourceTree = "<group>";
@@ -977,21 +977,22 @@
 				EC848301221171FC001956DE /* BaseScene.cpp in Sources */,
 				ECDE872D223609980048EEF5 /* ClassScheduleData.cpp in Sources */,
 				ECDF38C0222265B4003ED65B /* SubStoryEventContent.cpp in Sources */,
+				ECCFE600226BF5A3008F47D4 /* ProficiencyData.cpp in Sources */,
 				EC8482862211584C001956DE /* Utils.cpp in Sources */,
 				EC8482CF221168F4001956DE /* PanelComponent.cpp in Sources */,
 				EC4F0273221FE48D0038EFCD /* WorkData.cpp in Sources */,
 				EC073BD2221A9B67006FDCE0 /* ItemCategoryData.cpp in Sources */,
 				EC0C56402222278E0000C3E7 /* MusicEventContent.cpp in Sources */,
-				EC073BCE221A9B67006FDCE0 /* SkillsData.cpp in Sources */,
 				EC073BBE221A9B67006FDCE0 /* BaseGlobalDataManager.cpp in Sources */,
 				EC4F0265221FE48D0038EFCD /* ParentChatData.cpp in Sources */,
 				1AF87B8A1F6F7822007BE51C /* main.m in Sources */,
 				ECDE872F223609980048EEF5 /* PersonalityData.cpp in Sources */,
 				EC3CF0B9222B420F00E9DF38 /* SelectionEventContent.cpp in Sources */,
+				ECCFE606226BF61F008F47D4 /* PlayData.cpp in Sources */,
 				EC0C5638222218C70000C3E7 /* StoryJsonContent.cpp in Sources */,
 				EC073BC6221A9B67006FDCE0 /* GameSavingData.cpp in Sources */,
-				EC4F026D221FE48D0038EFCD /* HobbyData.cpp in Sources */,
 				EC0C564422222FC30000C3E7 /* WaitEventContent.cpp in Sources */,
+				ECCFE602226BF5A3008F47D4 /* StudyData.cpp in Sources */,
 				EC8482DB22116D39001956DE /* PanelContent.cpp in Sources */,
 				EC073BBA221A9B67006FDCE0 /* GameData.cpp in Sources */,
 				EC8482C5221168F4001956DE /* SpriteComponent.cpp in Sources */,
@@ -1005,7 +1006,6 @@
 				EC8483052211726F001956DE /* BasePanel.cpp in Sources */,
 				EC073BCA221A9B67006FDCE0 /* FunctionCalculationData.cpp in Sources */,
 				EC0C56252221FBA80000C3E7 /* StoryManager.cpp in Sources */,
-				EC4F026B221FE48D0038EFCD /* SocialActionData.cpp in Sources */,
 				EC8482CD221168F4001956DE /* ButtonComponent.cpp in Sources */,
 				ECBA50722213DD3600929BBA /* PanelManager.cpp in Sources */,
 				EC073BC8221A9B67006FDCE0 /* AttributeData.cpp in Sources */,
@@ -1038,6 +1038,7 @@
 				EC8482C6221168F4001956DE /* SpriteComponent.cpp in Sources */,
 				EC0C56412222278E0000C3E7 /* MusicEventContent.cpp in Sources */,
 				ECBA50772213F1A000929BBA /* ConditionManager.cpp in Sources */,
+				ECCFE601226BF5A3008F47D4 /* ProficiencyData.cpp in Sources */,
 				EC073BC5221A9B67006FDCE0 /* ItemData.cpp in Sources */,
 				EC8482A62211601D001956DE /* BaseButton.cpp in Sources */,
 				EC073BC9221A9B67006FDCE0 /* AttributeData.cpp in Sources */,
@@ -1046,7 +1047,6 @@
 				EC3CF0BA222B420F00E9DF38 /* SelectionEventContent.cpp in Sources */,
 				EC0748D92246D3A6003CFCBD /* InteractionPanel.cpp in Sources */,
 				EC84828322115812001956DE /* ByteBuffer.cpp in Sources */,
-				EC073BCF221A9B67006FDCE0 /* SkillsData.cpp in Sources */,
 				EC0C564522222FC30000C3E7 /* WaitEventContent.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				EC8482CC221168F4001956DE /* LabelComponent.cpp in Sources */,
@@ -1067,6 +1067,7 @@
 				EC4F0268221FE48D0038EFCD /* FriendData.cpp in Sources */,
 				EC8482D0221168F4001956DE /* PanelComponent.cpp in Sources */,
 				EC0C5631222212E20000C3E7 /* StoryJsonData.cpp in Sources */,
+				ECCFE607226BF61F008F47D4 /* PlayData.cpp in Sources */,
 				EC073BCB221A9B67006FDCE0 /* FunctionCalculationData.cpp in Sources */,
 				ECDF38C52222CE2E003ED65B /* ConditionEventContent.cpp in Sources */,
 				EC073BC1221A9B67006FDCE0 /* BaseDataManager.cpp in Sources */,
@@ -1076,7 +1077,6 @@
 				ECDE8732223609980048EEF5 /* SchoolData.cpp in Sources */,
 				ECDE8730223609980048EEF5 /* PersonalityData.cpp in Sources */,
 				EC4F026A221FE48D0038EFCD /* FatherJobData.cpp in Sources */,
-				EC4F026C221FE48D0038EFCD /* SocialActionData.cpp in Sources */,
 				EC0C563D22221AB80000C3E7 /* StoryEventContent.cpp in Sources */,
 				EC8482D422116995001956DE /* JsonUtil.cpp in Sources */,
 				EC073BBB221A9B67006FDCE0 /* GameData.cpp in Sources */,
@@ -1090,12 +1090,12 @@
 				ECDF38C1222265B4003ED65B /* SubStoryEventContent.cpp in Sources */,
 				EC84828B22115876001956DE /* LocalizationHelper.cpp in Sources */,
 				EC8482C8221168F4001956DE /* EditBoxComponent.cpp in Sources */,
+				ECCFE603226BF5A3008F47D4 /* StudyData.cpp in Sources */,
 				ECBA50732213DD3600929BBA /* PanelManager.cpp in Sources */,
 				EC8483062211726F001956DE /* BasePanel.cpp in Sources */,
 				EC4F0270221FE48D0038EFCD /* StoryData.cpp in Sources */,
 				EC8482C2221168F4001956DE /* ColorNodeComponent.cpp in Sources */,
 				ECDF38CD2222EB21003ED65B /* PanelEventContent.cpp in Sources */,
-				EC4F026E221FE48D0038EFCD /* HobbyData.cpp in Sources */,
 				EC8482C4221168F4001956DE /* ListComponent.cpp in Sources */,
 				EC073B99221927A9006FDCE0 /* FunctionManager.cpp in Sources */,
 				EC0748DE22470008003CFCBD /* RefreshEventContent.cpp in Sources */,

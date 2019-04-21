@@ -1,7 +1,7 @@
 /*
-This file (SkillsData.cpp) is generated
+This file (StudyData.cpp) is generated
 */
-#include "SkillsData.hpp"
+#include "StudyData.hpp"
 #include "cocos2d.h"
 #include "ByteBuffer.hpp"
 #include "Utils.hpp"
@@ -10,70 +10,70 @@ This file (SkillsData.cpp) is generated
 
 using namespace Utils;
 
-map<string, SkillsData*>* SkillsData::p_sharedDictionary = nullptr;
+map<string, StudyData*>* StudyData::p_sharedDictionary = nullptr;
 
-string SkillsData::getId() const
+string StudyData::getId() const
 {
-	return to_string(p_skillId);
+	return to_string(p_studyId);
 }
 
-string SkillsData::getSkillId() const
+string StudyData::getStudyId() const
 {
-	return p_skillId;
+	return p_studyId;
 }
 
-string SkillsData::getName() const
+string StudyData::getName() const
 {
-	string localId = "skills_name_" + to_string(p_skillId);
+	string localId = "study_name_" + to_string(p_studyId);
 	return LocalizationHelper::getLocalization(localId);
 }
 
-string SkillsData::getStudyCondition() const
+string StudyData::getStudyCondition() const
 {
 	return p_studyCondition;
 }
 
-int SkillsData::getMaxValue() const
+int StudyData::getMaxValue() const
 {
 	return p_maxValue;
 }
 
-int SkillsData::getPassValue() const
+int StudyData::getPassValue() const
 {
 	return p_passValue;
 }
 
-int SkillsData::getValue() const
+int StudyData::getValue() const
 {
 	return p_value;
 }
 
-void SkillsData::setValue(int value)
+void StudyData::setValue(int value)
 {
 	p_value = value;
 }
 
-set<SkillsData*> SkillsData::getRequiresDataSet() const
+set<StudyData*> StudyData::getRequiresDataSet() const
 {
-	set<SkillsData*> resultSet;
+	set<StudyData*> resultSet;
 	for (auto objId : p_requiresIdSet) {
-		resultSet.insert(SkillsData::getSkillsDataById(objId));
+		resultSet.insert(StudyData::getStudyDataById(objId));
 	}
 	return resultSet;
 }
 
-set<string> SkillsData::getRequiresIdSet() const
+set<string> StudyData::getRequiresIdSet() const
 {
 	return p_requiresIdSet;
 }
 
-string SkillsData::getDescription() const
+string StudyData::getDescription() const
 {
-	string localId = "skills_description_" + to_string(p_skillId);
+	string localId = "study_description_" + to_string(p_studyId);
 	return LocalizationHelper::getLocalization(localId);
 }
 
-vector<BaseData *> SkillsData::getSchoolAttributeChangeList() const
+vector<BaseData *> StudyData::getSchoolAttributeChangeList() const
 {
 	vector<BaseData *> v;
 	for (auto iter : p_schoolAttributeChangeMap) {
@@ -81,18 +81,18 @@ vector<BaseData *> SkillsData::getSchoolAttributeChangeList() const
 		if (data != nullptr) {
 			v.push_back(data);
 		} else {
-			CCLOGWARN("Couldn't recognize %s as AttributeData in SkillsData", iter.first.c_str());
+			CCLOGWARN("Couldn't recognize %s as AttributeData in StudyData", iter.first.c_str());
 		}
 	}
 	return v;
 }
 
-map<string, int> SkillsData::getSchoolAttributeChangeMap() const
+map<string, int> StudyData::getSchoolAttributeChangeMap() const
 {
 	return p_schoolAttributeChangeMap;
 }
 
-vector<BaseData *> SkillsData::getSelfstudyAttributeChangeList() const
+vector<BaseData *> StudyData::getSelfstudyAttributeChangeList() const
 {
 	vector<BaseData *> v;
 	for (auto iter : p_selfstudyAttributeChangeMap) {
@@ -100,21 +100,21 @@ vector<BaseData *> SkillsData::getSelfstudyAttributeChangeList() const
 		if (data != nullptr) {
 			v.push_back(data);
 		} else {
-			CCLOGWARN("Couldn't recognize %s as AttributeData in SkillsData", iter.first.c_str());
+			CCLOGWARN("Couldn't recognize %s as AttributeData in StudyData", iter.first.c_str());
 		}
 	}
 	return v;
 }
 
-map<string, int> SkillsData::getSelfstudyAttributeChangeMap() const
+map<string, int> StudyData::getSelfstudyAttributeChangeMap() const
 {
 	return p_selfstudyAttributeChangeMap;
 }
 
-string SkillsData::description() const
+string StudyData::description() const
 {
-	string desc = "skillsData = {\n";
-	desc += "\tskillId : " + to_string(p_skillId) + "\n";
+	string desc = "studyData = {\n";
+	desc += "\tstudyId : " + to_string(p_studyId) + "\n";
 	desc += "\tname : " + getName() + "\n";
 	desc += "\tstudyCondition : " + to_string(p_studyCondition) + "\n";
 	desc += "\tmaxValue : " + to_string(p_maxValue) + "\n";
@@ -130,58 +130,58 @@ string SkillsData::description() const
 	return desc;
 }
 
-const map<string, SkillsData*>* SkillsData::getSharedDictionary()
+const map<string, StudyData*>* StudyData::getSharedDictionary()
 {
 	if (!p_sharedDictionary) {
-		p_sharedDictionary = new map<string, SkillsData*>();
-		static string resPath = "res/base/data/skills.dat";
+		p_sharedDictionary = new map<string, StudyData*>();
+		static string resPath = "res/base/data/study.dat";
 		auto data = cocos2d::FileUtils::getInstance()->getDataFromFile(resPath);
 		if (!data.isNull()) {
 			auto bytes = data.getBytes();
 			auto buffer = std::make_unique<bb::ByteBuffer>(bytes, data.getSize());
 			auto count = buffer->getLong();
 			for (int i = 0; i < count; ++i) {
-				SkillsData* skillsData = new SkillsData();
-				skillsData->p_skillId = buffer->getString();
-				skillsData->p_studyCondition = buffer->getString();
-				skillsData->p_maxValue = buffer->getInt();
-				skillsData->p_passValue = buffer->getInt();
-				skillsData->p_value = buffer->getInt();
+				StudyData* studyData = new StudyData();
+				studyData->p_studyId = buffer->getString();
+				studyData->p_studyCondition = buffer->getString();
+				studyData->p_maxValue = buffer->getInt();
+				studyData->p_passValue = buffer->getInt();
+				studyData->p_value = buffer->getInt();
 				auto requiresCount = buffer->getLong();
 				for (int j = 0; j < requiresCount; ++j) {
-					skillsData->p_requiresIdSet.insert(buffer->getString());
+					studyData->p_requiresIdSet.insert(buffer->getString());
 				}
 				auto schoolAttributeChangeCount = buffer->getLong();
 				for (int j = 0; j < schoolAttributeChangeCount; ++j) {
 					auto key = buffer->getString();
 					auto val = buffer->getInt();
-					skillsData->p_schoolAttributeChangeMap.insert(make_pair(key, val));
+					studyData->p_schoolAttributeChangeMap.insert(make_pair(key, val));
 				}
 				auto selfstudyAttributeChangeCount = buffer->getLong();
 				for (int j = 0; j < selfstudyAttributeChangeCount; ++j) {
 					auto key = buffer->getString();
 					auto val = buffer->getInt();
-					skillsData->p_selfstudyAttributeChangeMap.insert(make_pair(key, val));
+					studyData->p_selfstudyAttributeChangeMap.insert(make_pair(key, val));
 				}
-				p_sharedDictionary->insert(pair<string, SkillsData*>(skillsData->p_skillId, skillsData));
+				p_sharedDictionary->insert(pair<string, StudyData*>(studyData->p_studyId, studyData));
 			}
 		}
 	}
 	return p_sharedDictionary;
 }
 
-SkillsData* SkillsData::getSkillsDataById(const string& skillId)
+StudyData* StudyData::getStudyDataById(const string& studyId)
 {
-	if (SkillsData::getSharedDictionary()->count(skillId)) {
-		return SkillsData::getSharedDictionary()->at(skillId);
+	if (StudyData::getSharedDictionary()->count(studyId)) {
+		return StudyData::getSharedDictionary()->at(studyId);
 	}
 	return nullptr;
 }
 
-bool SkillsData::saveData(const string & path)
+bool StudyData::saveData(const string & path)
 {
-	auto filePath = path + "/SkillsData.dat";
-	auto dict = SkillsData::getSharedDictionary();
+	auto filePath = path + "/StudyData.dat";
+	auto dict = StudyData::getSharedDictionary();
 	auto buffer = std::make_unique<bb::ByteBuffer>();
 	buffer->putLong(dict->size());
 	buffer->putInt(1);
@@ -196,10 +196,10 @@ bool SkillsData::saveData(const string & path)
 	return true;
 }
 
-bool SkillsData::loadData(const string & path)
+bool StudyData::loadData(const string & path)
 {
-	auto filePath = path + "/SkillsData.dat";
-	auto dict = SkillsData::getSharedDictionary();
+	auto filePath = path + "/StudyData.dat";
+	auto dict = StudyData::getSharedDictionary();
 	auto fileData = cocos2d::FileUtils::getInstance()->getDataFromFile(filePath);
 	if (!fileData.isNull()) {
 		auto bytes = fileData.getBytes();
@@ -208,7 +208,7 @@ bool SkillsData::loadData(const string & path)
 		auto dataSize = buffer->getInt();
 		for (int i = 0; i < size; ++i) {
 			auto dataId = buffer->getString();
-			SkillsData *data = nullptr;
+			StudyData *data = nullptr;
 			if (dict->count(dataId)) {
 				data = dict->at(dataId);
 			}
@@ -226,7 +226,7 @@ bool SkillsData::loadData(const string & path)
 	return true;
 }
 
-bool SkillsData::clearData()
+bool StudyData::clearData()
 {
 	if (p_sharedDictionary != nullptr) {
 		for (auto iter = p_sharedDictionary->begin(); iter != p_sharedDictionary->end(); ++iter) {
@@ -239,17 +239,17 @@ bool SkillsData::clearData()
 	return true;
 }
 
-void SkillsData::setFieldValue(const string & fieldName, const string & value)
+void StudyData::setFieldValue(const string & fieldName, const string & value)
 {
 	if (fieldName == "value") {
 		this->setValue(atoi(value.c_str()));
 	}
 }
 
-string SkillsData::getFieldValue(const string & fieldName) const
+string StudyData::getFieldValue(const string & fieldName) const
 {
-	if (fieldName == "skillId") {
-		return to_string(this->getSkillId());
+	if (fieldName == "studyId") {
+		return to_string(this->getStudyId());
 	} else if (fieldName == "name") {
 		return to_string(this->getName());
 	} else if (fieldName == "studyCondition") {
@@ -269,28 +269,28 @@ string SkillsData::getFieldValue(const string & fieldName) const
 	} else if (fieldName == "selfstudyAttributeChange") {
 		return to_string(this->getSelfstudyAttributeChangeMap());
 	}
-	CCLOGWARN("Couldn't recognize %s in SkillsData", fieldName.c_str());
+	CCLOGWARN("Couldn't recognize %s in StudyData", fieldName.c_str());
 	return "";
 }
 
-BaseData* SkillsData::getDataByField(const string & fieldName) const
+BaseData* StudyData::getDataByField(const string & fieldName) const
 {
-	CCLOGWARN("Couldn't recognize %s in SkillsData", fieldName.c_str());
+	CCLOGWARN("Couldn't recognize %s in StudyData", fieldName.c_str());
 	return nullptr;
 }
 
-vector<BaseData *> SkillsData::getFieldDataList(const string & fieldName) const
+vector<BaseData *> StudyData::getFieldDataList(const string & fieldName) const
 {
 	if (fieldName == "schoolAttributeChange") {
 		return this->getSchoolAttributeChangeList();
 	} else if (fieldName == "selfstudyAttributeChange") {
 		return this->getSelfstudyAttributeChangeList();
 	}
-	CCLOGWARN("Couldn't recognize %s in SkillsData", fieldName.c_str());
+	CCLOGWARN("Couldn't recognize %s in StudyData", fieldName.c_str());
 	return vector<BaseData *>();
 }
 
-string SkillsData::getMapFieldValueWithKey(const string & fieldName, const string & key) const
+string StudyData::getMapFieldValueWithKey(const string & fieldName, const string & key) const
 {
 	if (fieldName == "schoolAttributeChange") {
 		auto fieldMap = this->getSchoolAttributeChangeMap();
@@ -303,7 +303,7 @@ string SkillsData::getMapFieldValueWithKey(const string & fieldName, const strin
 			return to_string(fieldMap.at(key));
 		}
 	}
-	CCLOGWARN("Couldn't recognize field: %s, key: %s in SkillsData", fieldName.c_str(), key.c_str());
+	CCLOGWARN("Couldn't recognize field: %s, key: %s in StudyData", fieldName.c_str(), key.c_str());
 	return "";
 }
 

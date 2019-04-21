@@ -120,7 +120,7 @@
           "components" : [
             {
               "type" : "componentList",
-              "data" : "gamedata.SkillsData",
+              "data" : "gamedata.StudyData",
               "condition" : "data.associate.studyCondition",
               "content" : {
                 "type" : "sprite",

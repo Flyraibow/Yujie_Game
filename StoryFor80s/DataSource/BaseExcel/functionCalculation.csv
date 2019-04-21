@@ -14,11 +14,16 @@ game_date,string,string_format,date_display_with_year;game.year;game.month;game.
 game_saving_string,string,string_connect,temp.index;  ;function.my_full_name;  ;function.game_date,存储的格式，编号 姓名 日期
 friend_name,string,string_connect,data.temp.lastName;data.temp.firstName,显示好友的名字
 date_string,string,string_connect,game.year;_;game.month;_;game.day,日期的字符串形式 ex: 19871109
-lab_study_result,string,string_format,lab_study_well;gamedata.SkillsData.(temp.classId).name,学习效果
+lab_study_result,string,string_format,lab_study_well;gamedata.StudyData.(temp.classId).name;function.lab_schoolstudy_attribute_value_list,学习效果
 lab_week_day,string,decipher,translation.lab_week_(game.weekDay),转化复杂的公式
-lab_work_result,string,string_format,lab_work_well;tempdata.work.name,工作效果
-lab_selfstudy_result,string,string_format,lab_selfstudy_well;tempdata.study.name,自学效果
-lab_play_result,string,string_format,lab_play_well;tempdata.play.name,娱乐效果
+lab_work_result,string,string_format,lab_work_well;tempdata.work.name;function.lab_work_attribute_value_list,工作效果
+lab_selfstudy_result,string,string_format,lab_selfstudy_well;tempdata.study.name;function.lab_selfstudy_attribute_value_list,自学效果
+lab_play_result,string,string_format,lab_play_well;tempdata.play.name;function.lab_play_attribute_value_list,娱乐效果
 lab_work_attribute_value,string,string_format,lab_data_value;associate.name;tempdata.work.map.attributeChange.(associate.attributeId),ex: 压力 5
 lab_selfstudy_attribute_value,string,string_format,lab_data_value;associate.name;tempdata.study.map.selfstudyAttributeChange.(associate.attributeId),ex: 压力 5
 lab_play_attribute_value,string,string_format,lab_data_value;associate.name;tempdata.play.map.attributeChange.(associate.attributeId),ex: 压力 5
+lab_work_attribute_value_list,string,string_join_data,"tempdata.work.attributeChange;function.lab_work_attribute_value;, ","ex: 压力: 5, 智力: 2 (0: datalist, 1: translations, 2: join)"
+lab_play_attribute_value_list,string,string_join_data,"tempdata.play.attributeChange;function.lab_play_attribute_value;, ","ex: 压力: 5, 智力: 3"
+lab_selfstudy_attribute_value_list,string,string_join_data,"tempdata.study.selfstudyAttributeChange;function.lab_selfstudy_attribute_value;, ","ex: 压力: 5, 智力: 4"
+lab_schoolstudy_attribute_value,string,string_format,lab_data_value;associate.name;gamedata.StudyData.(temp.classId).map.schoolAttributeChange.(associate.attributeId),ex: 压力 5
+lab_schoolstudy_attribute_value_list,string,string_join_data,"gamedata.StudyData.(temp.classId).schoolAttributeChange;function.lab_schoolstudy_attribute_value;, ","ex: 压力: 5, 智力: 4"

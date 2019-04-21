@@ -18,6 +18,7 @@ private:
 	int p_baseSalary;
 	int p_realSalary;
 	int p_proficienc;
+	int p_addProficiency;
 	int p_maxProficiency;
 	map<string, int> p_attributeChangeMap;
 	map<string, int> p_personalityChangeMap;
@@ -31,6 +32,7 @@ public:
 	void setRealSalary(int realSalary);
 	int getProficienc() const;
 	void setProficienc(int proficienc);
+	int getAddProficiency() const;
 	int getMaxProficiency() const;
 	vector<BaseData *> getAttributeChangeList() const;
 	map<string, int> getAttributeChangeMap() const;

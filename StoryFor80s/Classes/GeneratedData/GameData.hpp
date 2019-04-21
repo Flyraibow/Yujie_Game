@@ -23,6 +23,7 @@ private:
 	string p_parentJobId;
 	string p_schoolId;
 	int p_weekDay;
+	bool p_hasWalked;
 public:
 	int getYear() const;
 	void setYear(int year);
@@ -48,6 +49,8 @@ public:
 	void setSchoolId(string school);
 	int getWeekDay() const;
 	void setWeekDay(int weekDay);
+	bool getHasWalked() const;
+	void setHasWalked(bool hasWalked);
 	string description() const;
 	static GameData* getSharedInstance();
 	static bool saveData(const string & path);

@@ -28,13 +28,23 @@ void ValueEventContent::changeData(BaseData *associate)
     auto type = Utils::getStringFromJson(changeJson, "type");
     auto field = Utils::getStringFromJson(changeJson, "field");
     auto valueStr = Utils::getStringFromJson(changeJson, "value");
-    
+    auto minStr = Utils::getStringFromJson(changeJson, "min");
+    auto maxStr = Utils::getStringFromJson(changeJson, "max");
     auto data = DataManager::getShareInstance()->decipherData(dataStr, associate);
     auto value = DataManager::getShareInstance()->decipherString(valueStr, associate);
     if (type == "add") {
       auto intValue = atoi(data->getFieldValue(field).c_str()) + atoi(value.c_str());
       value = to_string(intValue);
     }
+    if (minStr.size() > 0) {
+      auto min = atoi(DataManager::getShareInstance()->decipherString(minStr).c_str());
+      value = to_string(max(min, atoi(value.c_str())));
+    }
+    if (maxStr.size() > 0) {
+      auto max = atoi(DataManager::getShareInstance()->decipherString(maxStr).c_str());
+      value = to_string(min(max, atoi(value.c_str())));
+    }
+    
     data->setFieldValue(field, value);
   }
 }

@@ -6,16 +6,16 @@ This file (BaseDataManager.cpp) is generated
 #include <sys/stat.h>
 #include <unistd.h>
 #include "cocos2d.h"
-#include "HobbyData.hpp"
 #include "FatherJobData.hpp"
 #include "StoryData.hpp"
-#include "SkillsData.hpp"
 #include "PersonalityData.hpp"
 #include "ItemData.hpp"
+#include "StudyData.hpp"
 #include "FriendData.hpp"
 #include "AttributeData.hpp"
 #include "WorkData.hpp"
 #include "GameData.hpp"
+#include "ProficiencyData.hpp"
 
 
 
@@ -36,14 +36,6 @@ ConditionCalculationData* BaseDataManager::getConditionCalculationDataById(const
 	return nullptr;
 }
 
-HobbyData* BaseDataManager::getHobbyDataById(const string& hobbyId)
-{
-	if (HobbyData::getSharedDictionary()->count(hobbyId)) {
-		return HobbyData::getSharedDictionary()->at(hobbyId);
-	}
-	return nullptr;
-}
-
 FatherJobData* BaseDataManager::getFatherJobDataById(const string& fatherJobId)
 {
 	if (FatherJobData::getSharedDictionary()->count(fatherJobId)) {
@@ -52,26 +44,18 @@ FatherJobData* BaseDataManager::getFatherJobDataById(const string& fatherJobId)
 	return nullptr;
 }
 
+PlayData* BaseDataManager::getPlayDataById(const string& playId)
+{
+	if (PlayData::getSharedDictionary()->count(playId)) {
+		return PlayData::getSharedDictionary()->at(playId);
+	}
+	return nullptr;
+}
+
 StoryData* BaseDataManager::getStoryDataById(const string& storyId)
 {
 	if (StoryData::getSharedDictionary()->count(storyId)) {
 		return StoryData::getSharedDictionary()->at(storyId);
-	}
-	return nullptr;
-}
-
-SkillsData* BaseDataManager::getSkillsDataById(const string& skillId)
-{
-	if (SkillsData::getSharedDictionary()->count(skillId)) {
-		return SkillsData::getSharedDictionary()->at(skillId);
-	}
-	return nullptr;
-}
-
-SocialActionData* BaseDataManager::getSocialActionDataById(const string& socialActionId)
-{
-	if (SocialActionData::getSharedDictionary()->count(socialActionId)) {
-		return SocialActionData::getSharedDictionary()->at(socialActionId);
 	}
 	return nullptr;
 }
@@ -96,6 +80,14 @@ ItemCategoryData* BaseDataManager::getItemCategoryDataById(const string& itemCat
 {
 	if (ItemCategoryData::getSharedDictionary()->count(itemCategoryId)) {
 		return ItemCategoryData::getSharedDictionary()->at(itemCategoryId);
+	}
+	return nullptr;
+}
+
+StudyData* BaseDataManager::getStudyDataById(const string& studyId)
+{
+	if (StudyData::getSharedDictionary()->count(studyId)) {
+		return StudyData::getSharedDictionary()->at(studyId);
 	}
 	return nullptr;
 }
@@ -161,16 +153,20 @@ SchoolData* BaseDataManager::getSchoolDataById(const string& schoolId)
 	return nullptr;
 }
 
+ProficiencyData* BaseDataManager::getProficiencyDataById(const string& proficiencyId)
+{
+	if (ProficiencyData::getSharedDictionary()->count(proficiencyId)) {
+		return ProficiencyData::getSharedDictionary()->at(proficiencyId);
+	}
+	return nullptr;
+}
+
 bool BaseDataManager::saveData(string fileName)
 {
 	string path = cocos2d::FileUtils::getInstance()->getWritablePath() + "/gameData_" + fileName;
 	struct stat st = {0};
 	if (stat(path.c_str(), &st) == -1) {
 		mkdir(path.c_str(), 0700);
-	}
-	if (!HobbyData::saveData(path)) {
-		CCLOG("Failed to save HobbyData, %s", path.c_str());
-		return false;
 	}
 	if (!FatherJobData::saveData(path)) {
 		CCLOG("Failed to save FatherJobData, %s", path.c_str());
@@ -180,16 +176,16 @@ bool BaseDataManager::saveData(string fileName)
 		CCLOG("Failed to save StoryData, %s", path.c_str());
 		return false;
 	}
-	if (!SkillsData::saveData(path)) {
-		CCLOG("Failed to save SkillsData, %s", path.c_str());
-		return false;
-	}
 	if (!PersonalityData::saveData(path)) {
 		CCLOG("Failed to save PersonalityData, %s", path.c_str());
 		return false;
 	}
 	if (!ItemData::saveData(path)) {
 		CCLOG("Failed to save ItemData, %s", path.c_str());
+		return false;
+	}
+	if (!StudyData::saveData(path)) {
+		CCLOG("Failed to save StudyData, %s", path.c_str());
 		return false;
 	}
 	if (!FriendData::saveData(path)) {
@@ -208,6 +204,10 @@ bool BaseDataManager::saveData(string fileName)
 		CCLOG("Failed to save GameData, %s", path.c_str());
 		return false;
 	}
+	if (!ProficiencyData::saveData(path)) {
+		CCLOG("Failed to save ProficiencyData, %s", path.c_str());
+		return false;
+	}
 	return true;
 }
 
@@ -219,10 +219,6 @@ bool BaseDataManager::loadData(string fileName)
 		CCLOG("Failed to load data, there is no folder %s", path.c_str());
 		return false;
 	}
-	if (!HobbyData::loadData(path)) {
-		CCLOG("Failed to load HobbyData, %s", path.c_str());
-		return false;
-	}
 	if (!FatherJobData::loadData(path)) {
 		CCLOG("Failed to load FatherJobData, %s", path.c_str());
 		return false;
@@ -231,16 +227,16 @@ bool BaseDataManager::loadData(string fileName)
 		CCLOG("Failed to load StoryData, %s", path.c_str());
 		return false;
 	}
-	if (!SkillsData::loadData(path)) {
-		CCLOG("Failed to load SkillsData, %s", path.c_str());
-		return false;
-	}
 	if (!PersonalityData::loadData(path)) {
 		CCLOG("Failed to load PersonalityData, %s", path.c_str());
 		return false;
 	}
 	if (!ItemData::loadData(path)) {
 		CCLOG("Failed to load ItemData, %s", path.c_str());
+		return false;
+	}
+	if (!StudyData::loadData(path)) {
+		CCLOG("Failed to load StudyData, %s", path.c_str());
 		return false;
 	}
 	if (!FriendData::loadData(path)) {
@@ -259,21 +255,25 @@ bool BaseDataManager::loadData(string fileName)
 		CCLOG("Failed to load GameData, %s", path.c_str());
 		return false;
 	}
+	if (!ProficiencyData::loadData(path)) {
+		CCLOG("Failed to load ProficiencyData, %s", path.c_str());
+		return false;
+	}
 	return true;
 }
 
 bool BaseDataManager::clearData()
 {
-	HobbyData::clearData();
 	FatherJobData::clearData();
 	StoryData::clearData();
-	SkillsData::clearData();
 	PersonalityData::clearData();
 	ItemData::clearData();
+	StudyData::clearData();
 	FriendData::clearData();
 	AttributeData::clearData();
 	WorkData::clearData();
 	GameData::clearData();
+	ProficiencyData::clearData();
 	return true;
 }
 
@@ -283,22 +283,20 @@ BaseData * BaseDataManager::getData(const string & dataSet, const string & id)
 		return ConditionData::getConditionDataById(id);
 	} else if (dataSet == "ConditionCalculationData") {
 		return ConditionCalculationData::getConditionCalculationDataById(id);
-	} else if (dataSet == "HobbyData") {
-		return HobbyData::getHobbyDataById(id);
 	} else if (dataSet == "FatherJobData") {
 		return FatherJobData::getFatherJobDataById(id);
+	} else if (dataSet == "PlayData") {
+		return PlayData::getPlayDataById(id);
 	} else if (dataSet == "StoryData") {
 		return StoryData::getStoryDataById(id);
-	} else if (dataSet == "SkillsData") {
-		return SkillsData::getSkillsDataById(id);
-	} else if (dataSet == "SocialActionData") {
-		return SocialActionData::getSocialActionDataById(id);
 	} else if (dataSet == "PersonalityData") {
 		return PersonalityData::getPersonalityDataById(id);
 	} else if (dataSet == "ItemData") {
 		return ItemData::getItemDataById(id);
 	} else if (dataSet == "ItemCategoryData") {
 		return ItemCategoryData::getItemCategoryDataById(id);
+	} else if (dataSet == "StudyData") {
+		return StudyData::getStudyDataById(id);
 	} else if (dataSet == "FriendData") {
 		return FriendData::getFriendDataById(id);
 	} else if (dataSet == "ParentChatData") {
@@ -315,6 +313,8 @@ BaseData * BaseDataManager::getData(const string & dataSet, const string & id)
 		return GameData::getSharedInstance();
 	} else if (dataSet == "SchoolData") {
 		return SchoolData::getSchoolDataById(id);
+	} else if (dataSet == "ProficiencyData") {
+		return ProficiencyData::getProficiencyDataById(id);
 	}
 	CCLOGWARN("Couldn't recognize %s file", dataSet.c_str());
 	return nullptr;
@@ -333,23 +333,20 @@ string BaseDataManager::getDataField(const string & dataSet, const string & id, 
 
 void BaseDataManager::setDataField(const string & dataSet, const string & id, const string & fieldName, const string & value)
 {
-	if (dataSet == "HobbyData") {
-		auto data = HobbyData::getHobbyDataById(id);
-		data->setFieldValue(fieldName, value);
-	} else if (dataSet == "FatherJobData") {
+	if (dataSet == "FatherJobData") {
 		auto data = FatherJobData::getFatherJobDataById(id);
 		data->setFieldValue(fieldName, value);
 	} else if (dataSet == "StoryData") {
 		auto data = StoryData::getStoryDataById(id);
-		data->setFieldValue(fieldName, value);
-	} else if (dataSet == "SkillsData") {
-		auto data = SkillsData::getSkillsDataById(id);
 		data->setFieldValue(fieldName, value);
 	} else if (dataSet == "PersonalityData") {
 		auto data = PersonalityData::getPersonalityDataById(id);
 		data->setFieldValue(fieldName, value);
 	} else if (dataSet == "ItemData") {
 		auto data = ItemData::getItemDataById(id);
+		data->setFieldValue(fieldName, value);
+	} else if (dataSet == "StudyData") {
+		auto data = StudyData::getStudyDataById(id);
 		data->setFieldValue(fieldName, value);
 	} else if (dataSet == "FriendData") {
 		auto data = FriendData::getFriendDataById(id);
@@ -362,6 +359,9 @@ void BaseDataManager::setDataField(const string & dataSet, const string & id, co
 		data->setFieldValue(fieldName, value);
 	} else if (dataSet == "GameData") {
 		auto data = GameData::getSharedInstance();
+		data->setFieldValue(fieldName, value);
+	} else if (dataSet == "ProficiencyData") {
+		auto data = ProficiencyData::getProficiencyDataById(id);
 		data->setFieldValue(fieldName, value);
 	}
 	CCLOGWARN("Couldn't recognize %s file", dataSet.c_str());
@@ -380,28 +380,18 @@ vector<BaseData *> BaseDataManager::getDataList(const string & dataSet)
 		for (auto elem : *dataMap) {
 			result.push_back(elem.second);
 		}
-	} else if (dataSet == "HobbyData") {
-		auto dataMap = HobbyData::getSharedDictionary();
-		for (auto elem : *dataMap) {
-			result.push_back(elem.second);
-		}
 	} else if (dataSet == "FatherJobData") {
 		auto dataMap = FatherJobData::getSharedDictionary();
 		for (auto elem : *dataMap) {
 			result.push_back(elem.second);
 		}
+	} else if (dataSet == "PlayData") {
+		auto dataMap = PlayData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
 	} else if (dataSet == "StoryData") {
 		auto dataMap = StoryData::getSharedDictionary();
-		for (auto elem : *dataMap) {
-			result.push_back(elem.second);
-		}
-	} else if (dataSet == "SkillsData") {
-		auto dataMap = SkillsData::getSharedDictionary();
-		for (auto elem : *dataMap) {
-			result.push_back(elem.second);
-		}
-	} else if (dataSet == "SocialActionData") {
-		auto dataMap = SocialActionData::getSharedDictionary();
 		for (auto elem : *dataMap) {
 			result.push_back(elem.second);
 		}
@@ -417,6 +407,11 @@ vector<BaseData *> BaseDataManager::getDataList(const string & dataSet)
 		}
 	} else if (dataSet == "ItemCategoryData") {
 		auto dataMap = ItemCategoryData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else if (dataSet == "StudyData") {
+		auto dataMap = StudyData::getSharedDictionary();
 		for (auto elem : *dataMap) {
 			result.push_back(elem.second);
 		}
@@ -452,6 +447,11 @@ vector<BaseData *> BaseDataManager::getDataList(const string & dataSet)
 		}
 	} else if (dataSet == "SchoolData") {
 		auto dataMap = SchoolData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else if (dataSet == "ProficiencyData") {
+		auto dataMap = ProficiencyData::getSharedDictionary();
 		for (auto elem : *dataMap) {
 			result.push_back(elem.second);
 		}

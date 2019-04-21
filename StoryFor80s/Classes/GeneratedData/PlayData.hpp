@@ -1,38 +1,39 @@
 /*
-This file (HobbyData.hpp) is generated
+This file (PlayData.hpp) is generated
 */
-#ifndef HobbyData_hpp
-#define HobbyData_hpp
+#ifndef PlayData_hpp
+#define PlayData_hpp
 #include <map>
 #include "BaseData.h"
+#include "ProficiencyData.hpp"
 #include "AttributeData.hpp"
 
 
-class HobbyData: public BaseData
+class PlayData: public BaseData
 {
 private:
-	static map<string, HobbyData*>* p_sharedDictionary;
-	string p_hobbyId;
+	static map<string, PlayData*>* p_sharedDictionary;
+	string p_playId;
+	string p_condition;
 	int p_expense;
-	int p_proficiency;
+	string p_proficienceIdId;
+	int p_addProficiency;
 	map<string, int> p_attributeChangeMap;
 public:
 	string getId() const;
-	string getHobbyId() const;
+	string getPlayId() const;
 	string getName() const;
+	string getCondition() const;
 	int getExpense() const;
-	int getProficiency() const;
-	void setProficiency(int proficiency);
+	ProficiencyData* getProficienceIdData() const;
+	string getProficienceIdId() const;
+	int getAddProficiency() const;
 	string getDescription() const;
 	vector<BaseData *> getAttributeChangeList() const;
 	map<string, int> getAttributeChangeMap() const;
 	string description() const;
-	static const map<string, HobbyData*>* getSharedDictionary();
-	static HobbyData* getHobbyDataById(const string& hobbyId);
-	static bool saveData(const string & path);
-	static bool loadData(const string & path);
-	static bool clearData();
-	void setFieldValue(const string & fieldName, const string & value);
+	static const map<string, PlayData*>* getSharedDictionary();
+	static PlayData* getPlayDataById(const string& playId);
 	string getFieldValue(const string & fieldName) const;
 	BaseData* getDataByField(const string & fieldName) const;
 	vector<BaseData *> getFieldDataList(const string & fieldName) const;

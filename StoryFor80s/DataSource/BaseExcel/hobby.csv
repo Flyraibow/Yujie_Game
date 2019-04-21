@@ -1,5 +1,0 @@
-﻿hobbyId,name,expense,proficiency,description,attributeChange
-id,language,int,int,language,friend_id_map
-string,chinese,-,-,chinese,Attribute;int
-writable,N,N,Y,N,N
-0,打篮球,0,0,打篮球的说明,"pressure,-2;strength,2;charms,1"

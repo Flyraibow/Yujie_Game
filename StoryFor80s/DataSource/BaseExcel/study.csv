@@ -1,6 +1,6 @@
-﻿skillId,name,studyCondition,maxValue,passValue,value,requires,description,schoolAttributeChange,selfstudyAttributeChange
+﻿studyId,name,studyCondition,maxValue,passValue,value,requires,description,schoolAttributeChange,selfstudyAttributeChange
 id,language,string,int,int,int,friend_id_set,language,friend_id_map,friend_id_map
-string,chinese,-,-,-,-,Skills,chinese,Attribute;int,Attribute;int
+string,chinese,-,-,-,-,Study,chinese,Attribute;int,Attribute;int
 writable,N,N,N,N,Y,N,N,N,N
 0,放假休息,FALSE,0,0,0,;,说明,"pressure,-4",;
 1,加减法,TRUE,100,60,0,;,说明,"pressure,2;intelligence,4","pressure,2;intelligence,2"

@@ -91,7 +91,7 @@ bool Manager::checkConditionByString(const string &conditionStr, const BaseData*
     auto leftStr = conditionStr.substr(0, pos);
     auto rightStr = conditionStr.substr(pos + compType.length());
     auto type = Utils::split(leftStr, '.').at(0);
-    if (type == "int" || type == "length") {
+    if (type == "int" || type == "length" || type == "bool") {
       auto leftValue = convertConditionStrToInt(leftStr, associate);
       auto rightValue = convertConditionStrToInt(rightStr, associate);
       return compareInteger(leftValue, rightValue, compType);

@@ -58,6 +58,11 @@ void WorkData::setProficienc(int proficienc)
 	p_proficienc = proficienc;
 }
 
+int WorkData::getAddProficiency() const
+{
+	return p_addProficiency;
+}
+
 int WorkData::getMaxProficiency() const
 {
 	return p_maxProficiency;
@@ -116,6 +121,7 @@ string WorkData::description() const
 	desc += "\tbaseSalary : " + to_string(p_baseSalary) + "\n";
 	desc += "\trealSalary : " + to_string(p_realSalary) + "\n";
 	desc += "\tproficienc : " + to_string(p_proficienc) + "\n";
+	desc += "\taddProficiency : " + to_string(p_addProficiency) + "\n";
 	desc += "\tmaxProficiency : " + to_string(p_maxProficiency) + "\n";
 	
 	desc += "\tattributeChange : " + to_string(p_attributeChangeMap)+ "\n";
@@ -143,6 +149,7 @@ const map<string, WorkData*>* WorkData::getSharedDictionary()
 				workData->p_baseSalary = buffer->getInt();
 				workData->p_realSalary = buffer->getInt();
 				workData->p_proficienc = buffer->getInt();
+				workData->p_addProficiency = buffer->getInt();
 				workData->p_maxProficiency = buffer->getInt();
 				auto attributeChangeCount = buffer->getLong();
 				for (int j = 0; j < attributeChangeCount; ++j) {
@@ -259,6 +266,8 @@ string WorkData::getFieldValue(const string & fieldName) const
 		return to_string(this->getRealSalary());
 	} else if (fieldName == "proficienc") {
 		return to_string(this->getProficienc());
+	} else if (fieldName == "addProficiency") {
+		return to_string(this->getAddProficiency());
 	} else if (fieldName == "maxProficiency") {
 		return to_string(this->getMaxProficiency());
 	} else if (fieldName == "attributeChange") {

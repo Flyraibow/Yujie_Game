@@ -20,6 +20,7 @@
       "changes" : [
         {
           "type" : "add",
+          "min" : "0",
           "data" : "associate",
           "field" : "value",
           "value" : "tempdata.work.map.attributeChange.(associate.attributeId)"

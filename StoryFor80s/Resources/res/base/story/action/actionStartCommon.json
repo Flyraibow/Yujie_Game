@@ -14,6 +14,13 @@
 				}
 			]
 		},
+    {
+      "type" : "setValues",
+      "__comment" : "== 设置 ===",
+      "values" : {
+        "game.hasWalked" : "0"
+      }
+    },
 		{
 			"type" : "wait",
 			"duration" : 0.5

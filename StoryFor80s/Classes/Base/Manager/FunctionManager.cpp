@@ -99,6 +99,14 @@ string Manager::getFunctionValueById(const string &functionId, const BaseData *a
     } else {
       CCLOGERROR("function id: %s, unrecognized return type:%s", functionId.c_str(), functionData->getReturnType().c_str());
     }
+  } else if (functionName == "string_join_data") {
+    CCASSERT(paramters.size() >= 3, "string_join_data need 3 parameters, datalist, translation and jointer");
+    auto dataList = DataManager::getShareInstance()->decipherDataList(paramters.at(0));
+    auto jointerStr = paramters.at(2);
+    for (auto data : dataList) {
+      auto strValue = DataManager::getShareInstance()->decipherString(paramters.at(1), data);
+      val += strValue + jointerStr;
+    }
   } else {
     CCLOGERROR("unrecognized function id: %s", functionId.c_str());
   }

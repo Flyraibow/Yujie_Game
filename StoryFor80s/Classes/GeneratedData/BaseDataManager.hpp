@@ -5,15 +5,14 @@ This file (BaseDataManager.hpp) is generated
 #define BaseDataManager_hpp
 #include "ConditionData.hpp"
 #include "ConditionCalculationData.hpp"
-#include "HobbyData.hpp"
 #include "FatherJobData.hpp"
+#include "PlayData.hpp"
 #include "StoryData.hpp"
-#include "SkillsData.hpp"
-#include "SocialActionData.hpp"
 #include "PersonalityData.hpp"
 #include "ItemData.hpp"
 #include "ItemCategoryData.hpp"
 #include "ClassScheduleData.hpp"
+#include "StudyData.hpp"
 #include "FriendData.hpp"
 #include "ParentChatData.hpp"
 #include "AttributeData.hpp"
@@ -22,6 +21,7 @@ This file (BaseDataManager.hpp) is generated
 #include "ActionData.hpp"
 #include "GameData.hpp"
 #include "SchoolData.hpp"
+#include "ProficiencyData.hpp"
 
 
 class BaseDataManager
@@ -30,14 +30,13 @@ private:
 public:
 	static ConditionData* getConditionDataById(const string& conditionId);
 	static ConditionCalculationData* getConditionCalculationDataById(const string& conditionCalculationId);
-	static HobbyData* getHobbyDataById(const string& hobbyId);
 	static FatherJobData* getFatherJobDataById(const string& fatherJobId);
+	static PlayData* getPlayDataById(const string& playId);
 	static StoryData* getStoryDataById(const string& storyId);
-	static SkillsData* getSkillsDataById(const string& skillId);
-	static SocialActionData* getSocialActionDataById(const string& socialActionId);
 	static PersonalityData* getPersonalityDataById(const string& attributeId);
 	static ItemData* getItemDataById(const string& itemId);
 	static ItemCategoryData* getItemCategoryDataById(const string& itemCategoryId);
+	static StudyData* getStudyDataById(const string& studyId);
 	static FriendData* getFriendDataById(const string& friendId);
 	static ParentChatData* getParentChatDataById(const string& chatId);
 	static AttributeData* getAttributeDataById(const string& attributeId);
@@ -46,6 +45,7 @@ public:
 	static ActionData* getActionDataById(const string& actionId);
 	static GameData* getGameData();
 	static SchoolData* getSchoolDataById(const string& schoolId);
+	static ProficiencyData* getProficiencyDataById(const string& proficiencyId);
 	static bool saveData(string fileName);
 	static bool loadData(string fileName);
 	static bool clearData();

@@ -1,0 +1,6 @@
+﻿playId,name,condition,expense,proficienceId,addProficiency,description,attributeChange
+id,language,string,int,friend_id,int,language,friend_id_map
+string,chinese,-,-,Proficiency,-,chinese,Attribute;int
+writable,N,N,N,N,N,N,N
+0,睡觉休息,TRUE,0,0,0,在家里睡觉,"pressure,-3"
+1,打篮球,TRUE,0,basketball,6,打篮球的说明,"pressure,-2;strength,2;charms,1"

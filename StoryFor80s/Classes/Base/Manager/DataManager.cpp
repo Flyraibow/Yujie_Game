@@ -221,6 +221,21 @@ BaseData* DataManager::decipherData(const string &value, BaseData* associate) co
 
 vector<BaseData*> DataManager::decipherDataList(const string &value) const
 {
+  // first decipher parentheses (), it's not best solution, but it's ok solution
+  int leftIndex = -1;
+  for (int i = 0; i < value.size(); ++i) {
+    char c = value.at(i);
+    if (c == ')') {
+      CCASSERT(leftIndex >= 0, "there is no left '(' for right ')'");
+      string subStr = decipherString(value.substr(leftIndex + 1, i - 1 - leftIndex));
+      string newValue = value;
+      newValue.replace(leftIndex, i - leftIndex + 1, subStr);
+      return decipherDataList(newValue);
+    } else if (c == '(') {
+      leftIndex = i;
+    }
+  }
+  /////
   vector<BaseData*> result;
   auto args = Utils::split(value, '.');
   if (args.size() == 1) {

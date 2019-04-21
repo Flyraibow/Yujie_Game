@@ -1,0 +1,5 @@
+﻿proficiencyId,name,proficiency,maxProficiency
+id,language,int,int
+string,chinese,-,-
+writable,N,Y,N
+1,打篮球,0,1000

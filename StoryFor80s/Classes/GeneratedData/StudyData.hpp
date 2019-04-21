@@ -1,21 +1,21 @@
 /*
-This file (SkillsData.hpp) is generated
+This file (StudyData.hpp) is generated
 */
-#ifndef SkillsData_hpp
-#define SkillsData_hpp
+#ifndef StudyData_hpp
+#define StudyData_hpp
 #include <map>
 #include "BaseData.h"
 #include <set>
-#include "SkillsData.hpp"
+#include "StudyData.hpp"
 #include "AttributeData.hpp"
 #include "AttributeData.hpp"
 
 
-class SkillsData: public BaseData
+class StudyData: public BaseData
 {
 private:
-	static map<string, SkillsData*>* p_sharedDictionary;
-	string p_skillId;
+	static map<string, StudyData*>* p_sharedDictionary;
+	string p_studyId;
 	string p_studyCondition;
 	int p_maxValue;
 	int p_passValue;
@@ -25,14 +25,14 @@ private:
 	map<string, int> p_selfstudyAttributeChangeMap;
 public:
 	string getId() const;
-	string getSkillId() const;
+	string getStudyId() const;
 	string getName() const;
 	string getStudyCondition() const;
 	int getMaxValue() const;
 	int getPassValue() const;
 	int getValue() const;
 	void setValue(int value);
-	set<SkillsData*> getRequiresDataSet() const;
+	set<StudyData*> getRequiresDataSet() const;
 	set<string> getRequiresIdSet() const;
 	string getDescription() const;
 	vector<BaseData *> getSchoolAttributeChangeList() const;
@@ -40,8 +40,8 @@ public:
 	vector<BaseData *> getSelfstudyAttributeChangeList() const;
 	map<string, int> getSelfstudyAttributeChangeMap() const;
 	string description() const;
-	static const map<string, SkillsData*>* getSharedDictionary();
-	static SkillsData* getSkillsDataById(const string& skillId);
+	static const map<string, StudyData*>* getSharedDictionary();
+	static StudyData* getStudyDataById(const string& studyId);
 	static bool saveData(const string & path);
 	static bool loadData(const string & path);
 	static bool clearData();

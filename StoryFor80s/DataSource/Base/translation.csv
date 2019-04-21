@@ -26,7 +26,7 @@ lab_mon,妈妈
 lab_dad,爸爸
 lab_work_money,薪水: %s 元
 lab_attribute_affect,影响到的属性有：%s
-lab_study_well,今天学习了%s，感觉很有收获。
+lab_study_well,今天学习了%s，感觉很有收获。(%s)
 lab_week_0,星期日
 lab_week_1,星期一
 lab_week_2,星期二
@@ -34,8 +34,8 @@ lab_week_3,星期三
 lab_week_4,星期四
 lab_week_5,星期五
 lab_week_6,星期六
-lab_work_well,今天利用业余时间顺利的完成了%s的工作。
-lab_selfstudy_well,今天利用业余时间学习了%s，感觉收获不错。
-lab_play_well,今天利用业余时间进行了%s，感觉很开心。
-lab_sleep_well,今天回家就休息了，感觉很放松。
+lab_work_well,今天利用业余时间顺利的完成了%s的工作。(%s)
+lab_selfstudy_well,今天利用业余时间学习了%s，感觉收获不错。(%s)
+lab_play_well,今天利用业余时间进行了%s，感觉很开心。(%s)
 lab_data_value,%s: %s
+lab_attribute_change,%s:%s

@@ -120,7 +120,8 @@
 		      "components" : [
 		      	{
 		      	  "type" : "componentList",
-		      	  "data" : "gamedata.HobbyData",
+		      	  "data" : "gamedata.PlayData",
+              "condition" : "data.associate.condition",
               "content" : {
                 "type": "sprite",
                 "id" : "scroll_view_content",
