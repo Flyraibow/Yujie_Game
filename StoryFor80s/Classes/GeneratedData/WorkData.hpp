@@ -5,6 +5,7 @@ This file (WorkData.hpp) is generated
 #define WorkData_hpp
 #include <map>
 #include "BaseData.h"
+#include "ProficiencyData.hpp"
 #include "AttributeData.hpp"
 #include "PersonalityData.hpp"
 
@@ -17,9 +18,8 @@ private:
 	string p_condition;
 	int p_baseSalary;
 	int p_realSalary;
-	int p_proficienc;
+	string p_proficiencyIdId;
 	int p_addProficiency;
-	int p_maxProficiency;
 	map<string, int> p_attributeChangeMap;
 	map<string, int> p_personalityChangeMap;
 public:
@@ -30,10 +30,9 @@ public:
 	int getBaseSalary() const;
 	int getRealSalary() const;
 	void setRealSalary(int realSalary);
-	int getProficienc() const;
-	void setProficienc(int proficienc);
+	ProficiencyData* getProficiencyIdData() const;
+	string getProficiencyIdId() const;
 	int getAddProficiency() const;
-	int getMaxProficiency() const;
 	vector<BaseData *> getAttributeChangeList() const;
 	map<string, int> getAttributeChangeMap() const;
 	vector<BaseData *> getPersonalityChangeList() const;

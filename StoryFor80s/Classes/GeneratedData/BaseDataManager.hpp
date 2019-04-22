@@ -12,12 +12,13 @@ This file (BaseDataManager.hpp) is generated
 #include "ItemData.hpp"
 #include "ItemCategoryData.hpp"
 #include "ClassScheduleData.hpp"
-#include "StudyData.hpp"
 #include "FriendData.hpp"
 #include "ParentChatData.hpp"
+#include "SelfStudyData.hpp"
 #include "AttributeData.hpp"
 #include "FunctionCalculationData.hpp"
 #include "WorkData.hpp"
+#include "SchoolStudyData.hpp"
 #include "ActionData.hpp"
 #include "GameData.hpp"
 #include "SchoolData.hpp"
@@ -36,12 +37,13 @@ public:
 	static PersonalityData* getPersonalityDataById(const string& attributeId);
 	static ItemData* getItemDataById(const string& itemId);
 	static ItemCategoryData* getItemCategoryDataById(const string& itemCategoryId);
-	static StudyData* getStudyDataById(const string& studyId);
 	static FriendData* getFriendDataById(const string& friendId);
 	static ParentChatData* getParentChatDataById(const string& chatId);
+	static SelfStudyData* getSelfStudyDataById(const string& selfStudyId);
 	static AttributeData* getAttributeDataById(const string& attributeId);
 	static FunctionCalculationData* getFunctionCalculationDataById(const string& functionCalculatonId);
 	static WorkData* getWorkDataById(const string& actionId);
+	static SchoolStudyData* getSchoolStudyDataById(const string& schoolStudyId);
 	static ActionData* getActionDataById(const string& actionId);
 	static GameData* getGameData();
 	static SchoolData* getSchoolDataById(const string& schoolId);

@@ -1,0 +1,11 @@
+﻿schoolStudyId,name,proficiencyId,addProficiency,description,attributeChange
+id,language,friend_id,int,language,friend_id_map
+string,chinese,Proficiency,-,chinese,Attribute;int
+writable,N,N,N,N,N
+no_class,放假休息,0,0,放假休息说明,"pressure,-4"
+math_add_minus,加减法,math_add_minus,10,加减法说明,"pressure,2;intelligence,4"
+math_mutiple_divide,乘除法,math_mutiple_divide,10,乘除法说明,"pressure,2;intelligence,5"
+math_simple_geo,简单几何,math_simple_geo,10,简单几何说明,"pressure,2;intelligence,5"
+chinese_pinyin,拼音,chinese_pinyin,10,拼音说明,"pressure,2;imaginations,2;rememberence,2"
+chinese_characters,识字认字,chinese_characters,10,识字认字说明,"pressure,2;rememberence,4"
+physical_class_1,体育课 1,0,0,体育课 1说明,"pressure,-2;charms,2"

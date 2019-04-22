@@ -12,15 +12,15 @@ class ProficiencyData: public BaseData
 private:
 	static map<string, ProficiencyData*>* p_sharedDictionary;
 	string p_proficiencyId;
-	int p_proficiency;
-	int p_maxProficiency;
+	int p_value;
+	int p_maxValue;
 public:
 	string getId() const;
 	string getProficiencyId() const;
 	string getName() const;
-	int getProficiency() const;
-	void setProficiency(int proficiency);
-	int getMaxProficiency() const;
+	int getValue() const;
+	void setValue(int value);
+	int getMaxValue() const;
 	string description() const;
 	static const map<string, ProficiencyData*>* getSharedDictionary();
 	static ProficiencyData* getProficiencyDataById(const string& proficiencyId);

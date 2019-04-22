@@ -28,19 +28,19 @@ string ProficiencyData::getName() const
 	return LocalizationHelper::getLocalization(localId);
 }
 
-int ProficiencyData::getProficiency() const
+int ProficiencyData::getValue() const
 {
-	return p_proficiency;
+	return p_value;
 }
 
-void ProficiencyData::setProficiency(int proficiency)
+void ProficiencyData::setValue(int value)
 {
-	p_proficiency = proficiency;
+	p_value = value;
 }
 
-int ProficiencyData::getMaxProficiency() const
+int ProficiencyData::getMaxValue() const
 {
-	return p_maxProficiency;
+	return p_maxValue;
 }
 
 string ProficiencyData::description() const
@@ -48,8 +48,8 @@ string ProficiencyData::description() const
 	string desc = "proficiencyData = {\n";
 	desc += "\tproficiencyId : " + to_string(p_proficiencyId) + "\n";
 	desc += "\tname : " + getName() + "\n";
-	desc += "\tproficiency : " + to_string(p_proficiency) + "\n";
-	desc += "\tmaxProficiency : " + to_string(p_maxProficiency) + "\n";
+	desc += "\tvalue : " + to_string(p_value) + "\n";
+	desc += "\tmaxValue : " + to_string(p_maxValue) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -67,8 +67,8 @@ const map<string, ProficiencyData*>* ProficiencyData::getSharedDictionary()
 			for (int i = 0; i < count; ++i) {
 				ProficiencyData* proficiencyData = new ProficiencyData();
 				proficiencyData->p_proficiencyId = buffer->getString();
-				proficiencyData->p_proficiency = buffer->getInt();
-				proficiencyData->p_maxProficiency = buffer->getInt();
+				proficiencyData->p_value = buffer->getInt();
+				proficiencyData->p_maxValue = buffer->getInt();
 				p_sharedDictionary->insert(pair<string, ProficiencyData*>(proficiencyData->p_proficiencyId, proficiencyData));
 			}
 		}
@@ -95,8 +95,8 @@ bool ProficiencyData::saveData(const string & path)
 		auto dataId = iter->first;
 		auto data = iter->second;
 		buffer->putString(dataId);
-		buffer->putString("p_proficiency");
-		buffer->putString(to_string(data->p_proficiency));
+		buffer->putString("p_value");
+		buffer->putString(to_string(data->p_value));
 	}
 	buffer->writeToFile(filePath);
 	return true;
@@ -122,8 +122,8 @@ bool ProficiencyData::loadData(const string & path)
 				string key = buffer->getString();
 				string value = buffer->getString();
 				if (data != nullptr) {
-					if (key == "p_proficiency") {
-						data->p_proficiency = atoi(value.c_str());
+					if (key == "p_value") {
+						data->p_value = atoi(value.c_str());
 					}
 				}
 			}
@@ -147,8 +147,8 @@ bool ProficiencyData::clearData()
 
 void ProficiencyData::setFieldValue(const string & fieldName, const string & value)
 {
-	if (fieldName == "proficiency") {
-		this->setProficiency(atoi(value.c_str()));
+	if (fieldName == "value") {
+		this->setValue(atoi(value.c_str()));
 	}
 }
 
@@ -158,10 +158,10 @@ string ProficiencyData::getFieldValue(const string & fieldName) const
 		return to_string(this->getProficiencyId());
 	} else if (fieldName == "name") {
 		return to_string(this->getName());
-	} else if (fieldName == "proficiency") {
-		return to_string(this->getProficiency());
-	} else if (fieldName == "maxProficiency") {
-		return to_string(this->getMaxProficiency());
+	} else if (fieldName == "value") {
+		return to_string(this->getValue());
+	} else if (fieldName == "maxValue") {
+		return to_string(this->getMaxValue());
 	}
 	CCLOGWARN("Couldn't recognize %s in ProficiencyData", fieldName.c_str());
 	return "";

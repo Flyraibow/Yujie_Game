@@ -6,7 +6,10 @@
 			"values" : {
 				"temp.classId" : "2d.ClassScheduleData.(function.date_string).(game.school)",
 				"temp.interaction_description" : ""
-			}
+			},
+      "setTempData" : {
+        "schoolStudy" : "gamedata.SchoolStudyData.(temp.classId)"
+      }
 		},
 		{
 			"__comment" : "事件框",
@@ -33,14 +36,28 @@
     {
       "__comment" : "增长value",
       "type" : "setValues",
-      "dataList" : "gamedata.StudyData.(temp.classId).schoolAttributeChange",
+      "dataList" : "gamedata.SchoolStudyData.(temp.classId).attributeChange",
       "changes" : [
         {
           "type" : "add",
           "min" : "0",
           "data" : "associate",
           "field" : "value",
-          "value" : "gamedata.StudyData.(temp.classId).map.schoolAttributeChange.(associate.attributeId)"
+          "value" : "gamedata.SchoolStudyData.(temp.classId).map.attributeChange.(associate.attributeId)"
+        }
+      ]
+    },
+    {
+      "__comment" : "增长Proficiency",
+      "type" : "setValues",
+      "changes" : [
+        {
+          "type" : "add",
+          "min" : "0",
+          "max" : "gamedata.ProficiencyData.(tempdata.schoolStudy.proficiencyId).maxValue",
+          "data" : "tempdata.schoolStudy.proficiencyId",
+          "field" : "value",
+          "value" : "tempdata.schoolStudy.addProficiency"
         }
       ]
     },

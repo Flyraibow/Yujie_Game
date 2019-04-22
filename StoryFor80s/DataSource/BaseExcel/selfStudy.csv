@@ -1,0 +1,9 @@
+﻿selfStudyId,name,condition,proficiencyId,addProficiency,description,attributeChange
+id,language,string,friend_id,int,language,friend_id_map
+string,chinese,-,Proficiency,-,chinese,Attribute;int
+writable,N,N,N,N,N,N
+math_add_minus,加减法,TRUE,math_add_minus,6,自学加减法说明,"pressure,2;intelligence,2"
+math_mutiple_divide,乘除法,int.gamedata.ProficiencyData.math_add_minus.value>=int.60,math_mutiple_divide,6,自学乘除法说明,"pressure,2;intelligence,3"
+math_simple_geo,简单几何,TRUE,math_simple_geo,6,自学简单几何说明,"pressure,2;intelligence,3"
+chinese_pinyin,拼音,TRUE,chinese_pinyin,6,自学拼音说明,"pressure,2;rememberence,2"
+chinese_characters,识字认字,int.gamedata.ProficiencyData.chinese_pinyin.value>=int.60,chinese_characters,6,自学识字认字说明,"pressure,2;rememberence,2"

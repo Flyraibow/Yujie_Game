@@ -1,5 +1,10 @@
-﻿proficiencyId,name,proficiency,maxProficiency
+﻿proficiencyId,name,value,maxValue
 id,language,int,int
 string,chinese,-,-
 writable,N,Y,N
-1,打篮球,0,1000
+basketball,打篮球,0,1000
+math_add_minus,,0,100
+math_mutiple_divide,,0,100
+math_simple_geo,,0,100
+chinese_pinyin,,0,100
+chinese_characters,,0,100

@@ -48,24 +48,19 @@ void WorkData::setRealSalary(int realSalary)
 	p_realSalary = realSalary;
 }
 
-int WorkData::getProficienc() const
+ProficiencyData* WorkData::getProficiencyIdData() const
 {
-	return p_proficienc;
+	return ProficiencyData::getProficiencyDataById(p_proficiencyIdId);
 }
 
-void WorkData::setProficienc(int proficienc)
+string WorkData::getProficiencyIdId() const
 {
-	p_proficienc = proficienc;
+	return p_proficiencyIdId;
 }
 
 int WorkData::getAddProficiency() const
 {
 	return p_addProficiency;
-}
-
-int WorkData::getMaxProficiency() const
-{
-	return p_maxProficiency;
 }
 
 vector<BaseData *> WorkData::getAttributeChangeList() const
@@ -120,9 +115,8 @@ string WorkData::description() const
 	desc += "\tcondition : " + to_string(p_condition) + "\n";
 	desc += "\tbaseSalary : " + to_string(p_baseSalary) + "\n";
 	desc += "\trealSalary : " + to_string(p_realSalary) + "\n";
-	desc += "\tproficienc : " + to_string(p_proficienc) + "\n";
+	desc += "\tproficiencyId : " + to_string(p_proficiencyIdId) + "\n";
 	desc += "\taddProficiency : " + to_string(p_addProficiency) + "\n";
-	desc += "\tmaxProficiency : " + to_string(p_maxProficiency) + "\n";
 	
 	desc += "\tattributeChange : " + to_string(p_attributeChangeMap)+ "\n";
 	
@@ -148,9 +142,8 @@ const map<string, WorkData*>* WorkData::getSharedDictionary()
 				workData->p_condition = buffer->getString();
 				workData->p_baseSalary = buffer->getInt();
 				workData->p_realSalary = buffer->getInt();
-				workData->p_proficienc = buffer->getInt();
+				workData->p_proficiencyIdId = buffer->getString();
 				workData->p_addProficiency = buffer->getInt();
-				workData->p_maxProficiency = buffer->getInt();
 				auto attributeChangeCount = buffer->getLong();
 				for (int j = 0; j < attributeChangeCount; ++j) {
 					auto key = buffer->getString();
@@ -184,15 +177,13 @@ bool WorkData::saveData(const string & path)
 	auto dict = WorkData::getSharedDictionary();
 	auto buffer = std::make_unique<bb::ByteBuffer>();
 	buffer->putLong(dict->size());
-	buffer->putInt(2);
+	buffer->putInt(1);
 	for (auto iter = dict->begin(); iter != dict->end(); iter++) {
 		auto dataId = iter->first;
 		auto data = iter->second;
 		buffer->putString(dataId);
 		buffer->putString("p_realSalary");
 		buffer->putString(to_string(data->p_realSalary));
-		buffer->putString("p_proficienc");
-		buffer->putString(to_string(data->p_proficienc));
 	}
 	buffer->writeToFile(filePath);
 	return true;
@@ -220,8 +211,6 @@ bool WorkData::loadData(const string & path)
 				if (data != nullptr) {
 					if (key == "p_realSalary") {
 						data->p_realSalary = atoi(value.c_str());
-					} else if (key == "p_proficienc") {
-						data->p_proficienc = atoi(value.c_str());
 					}
 				}
 			}
@@ -247,8 +236,6 @@ void WorkData::setFieldValue(const string & fieldName, const string & value)
 {
 	if (fieldName == "realSalary") {
 		this->setRealSalary(atoi(value.c_str()));
-	} else if (fieldName == "proficienc") {
-		this->setProficienc(atoi(value.c_str()));
 	}
 }
 
@@ -264,12 +251,10 @@ string WorkData::getFieldValue(const string & fieldName) const
 		return to_string(this->getBaseSalary());
 	} else if (fieldName == "realSalary") {
 		return to_string(this->getRealSalary());
-	} else if (fieldName == "proficienc") {
-		return to_string(this->getProficienc());
+	} else if (fieldName == "proficiencyId") {
+		return to_string(this->getProficiencyIdId());
 	} else if (fieldName == "addProficiency") {
 		return to_string(this->getAddProficiency());
-	} else if (fieldName == "maxProficiency") {
-		return to_string(this->getMaxProficiency());
 	} else if (fieldName == "attributeChange") {
 		return to_string(this->getAttributeChangeMap());
 	} else if (fieldName == "personalityChange") {
@@ -283,6 +268,9 @@ string WorkData::getFieldValue(const string & fieldName) const
 
 BaseData* WorkData::getDataByField(const string & fieldName) const
 {
+	if (fieldName == "proficiencyId") {
+		return this->getProficiencyIdData();
+	}
 	CCLOGWARN("Couldn't recognize %s in WorkData", fieldName.c_str());
 	return nullptr;
 }

@@ -202,11 +202,43 @@ void DataManager::setSortKeyValuePair(const string &key, const string &type, con
 
 BaseData* DataManager::decipherData(const string &value, BaseData* associate) const
 {
+  // first decipher parentheses (), it's not best solution, but it's ok solution
+  int leftIndex = -1;
+  for (int i = 0; i < value.size(); ++i) {
+    char c = value.at(i);
+    if (c == ')') {
+      CCASSERT(leftIndex >= 0, "there is no left '(' for right ')'");
+      string subStr = decipherString(value.substr(leftIndex + 1, i - 1 - leftIndex), associate);
+      string newValue = value;
+      newValue.replace(leftIndex, i - leftIndex + 1, subStr);
+      return decipherData(newValue, associate);
+    } else if (c == '(') {
+      leftIndex = i;
+    }
+  }
+  ///
   auto args = Utils::split(value, '.');
-  if (value == "associate") {
+  auto key = args.at(0);
+  if (key == "associate") {
     return associate;
-  } else if (value == "game") {
+  } else if (key == "game") {
     return GameData::getSharedInstance();
+  } else if (key == "gamedata") {
+    CCASSERT(args.size() >= 3, "must have 3 key to get game data");
+    auto data = BaseDataManager::getData(args.at(1), args.at(2));
+    int i = 3;
+    while (data != nullptr && args.size() > i) {
+      data = data->getDataByField(args.at(i++));
+    }
+    return data;
+  } else if (key == "tempdata") {
+    CCASSERT(args.size() >= 2 && p_tempDataMap.count(args.at(1)), "must have tempdata key");
+    auto data = p_tempDataMap.at(args.at(1));
+    int i = 2;
+    while (data != nullptr && args.size() > i) {
+      data = data->getDataByField(args.at(i++));
+    }
+    return data;
   } else if (args.size() > 1) {
     auto k = args.at(0);
     auto v = args.at(1);

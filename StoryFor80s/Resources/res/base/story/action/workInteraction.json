@@ -28,6 +28,20 @@
       ]
     },
     {
+      "__comment" : "增长Proficiency",
+      "type" : "setValues",
+      "changes" : [
+        {
+          "type" : "add",
+          "min" : "0",
+          "max" : "gamedata.ProficiencyData.(tempdata.work.proficiencyId).maxValue",
+          "data" : "tempdata.work.proficiencyId",
+          "field" : "value",
+          "value" : "tempdata.work.addProficiency"
+        }
+      ]
+    },
+    {
       "__comment" : "刷新页面",
       "type" : "refresh",
       "refresh_ids" : [

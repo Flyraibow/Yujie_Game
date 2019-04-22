@@ -17,6 +17,9 @@ ValueEventContent::ValueEventContent(const nlohmann::json &jsonContent) : StoryE
   if (jsonContent.count("values")) {
     p_values = jsonContent.at("values");
   }
+  if (jsonContent.count("setTempData")) {
+    p_tempDataValues = jsonContent.at("setTempData");
+  }
   p_dataListString = Utils::getStringFromJson(jsonContent, "dataList");
 }
 
@@ -25,12 +28,15 @@ void ValueEventContent::changeData(BaseData *associate)
   for (auto changeJson : p_changes) {
     auto dataStr = Utils::getStringFromJson(changeJson, "data");
     CCASSERT(dataStr.length() > 0, "Value must have data");
+    auto data = DataManager::getShareInstance()->decipherData(dataStr, associate);
+    if (data == nullptr) {
+      continue;
+    }
     auto type = Utils::getStringFromJson(changeJson, "type");
     auto field = Utils::getStringFromJson(changeJson, "field");
     auto valueStr = Utils::getStringFromJson(changeJson, "value");
     auto minStr = Utils::getStringFromJson(changeJson, "min");
     auto maxStr = Utils::getStringFromJson(changeJson, "max");
-    auto data = DataManager::getShareInstance()->decipherData(dataStr, associate);
     auto value = DataManager::getShareInstance()->decipherString(valueStr, associate);
     if (type == "add") {
       auto intValue = atoi(data->getFieldValue(field).c_str()) + atoi(value.c_str());
@@ -58,6 +64,14 @@ void ValueEventContent::runEvent(StoryEventCallback callback)
       auto key = iter.key();
       auto value = Utils::getStringFromJson(p_values, key);
       DataManager::getShareInstance()->setValue(key, value);
+    }
+  }
+  if (!p_tempDataValues.empty()) {
+    for (auto iter = p_tempDataValues.begin(); iter != p_tempDataValues.end(); ++iter) {
+      auto key = iter.key();
+      auto value = Utils::getStringFromJson(p_tempDataValues, key);
+      auto data = DataManager::getShareInstance()->decipherData(value);
+      DataManager::getShareInstance()->setTempData(key, data);
     }
   }
   if (p_dataListString.size() > 0) {

@@ -17,6 +17,7 @@ class ValueEventContent : public StoryEventContent
 private:
   vector<nlohmann::json> p_changes;
   nlohmann::json p_values;  // quick set
+  nlohmann::json p_tempDataValues; //quick set tempdata
   string p_dataListString;
   void changeData(BaseData *associate = nullptr);
 public:

@@ -10,7 +10,6 @@ This file (BaseDataManager.cpp) is generated
 #include "StoryData.hpp"
 #include "PersonalityData.hpp"
 #include "ItemData.hpp"
-#include "StudyData.hpp"
 #include "FriendData.hpp"
 #include "AttributeData.hpp"
 #include "WorkData.hpp"
@@ -84,14 +83,6 @@ ItemCategoryData* BaseDataManager::getItemCategoryDataById(const string& itemCat
 	return nullptr;
 }
 
-StudyData* BaseDataManager::getStudyDataById(const string& studyId)
-{
-	if (StudyData::getSharedDictionary()->count(studyId)) {
-		return StudyData::getSharedDictionary()->at(studyId);
-	}
-	return nullptr;
-}
-
 FriendData* BaseDataManager::getFriendDataById(const string& friendId)
 {
 	if (FriendData::getSharedDictionary()->count(friendId)) {
@@ -104,6 +95,14 @@ ParentChatData* BaseDataManager::getParentChatDataById(const string& chatId)
 {
 	if (ParentChatData::getSharedDictionary()->count(chatId)) {
 		return ParentChatData::getSharedDictionary()->at(chatId);
+	}
+	return nullptr;
+}
+
+SelfStudyData* BaseDataManager::getSelfStudyDataById(const string& selfStudyId)
+{
+	if (SelfStudyData::getSharedDictionary()->count(selfStudyId)) {
+		return SelfStudyData::getSharedDictionary()->at(selfStudyId);
 	}
 	return nullptr;
 }
@@ -128,6 +127,14 @@ WorkData* BaseDataManager::getWorkDataById(const string& actionId)
 {
 	if (WorkData::getSharedDictionary()->count(actionId)) {
 		return WorkData::getSharedDictionary()->at(actionId);
+	}
+	return nullptr;
+}
+
+SchoolStudyData* BaseDataManager::getSchoolStudyDataById(const string& schoolStudyId)
+{
+	if (SchoolStudyData::getSharedDictionary()->count(schoolStudyId)) {
+		return SchoolStudyData::getSharedDictionary()->at(schoolStudyId);
 	}
 	return nullptr;
 }
@@ -184,10 +191,6 @@ bool BaseDataManager::saveData(string fileName)
 		CCLOG("Failed to save ItemData, %s", path.c_str());
 		return false;
 	}
-	if (!StudyData::saveData(path)) {
-		CCLOG("Failed to save StudyData, %s", path.c_str());
-		return false;
-	}
 	if (!FriendData::saveData(path)) {
 		CCLOG("Failed to save FriendData, %s", path.c_str());
 		return false;
@@ -235,10 +238,6 @@ bool BaseDataManager::loadData(string fileName)
 		CCLOG("Failed to load ItemData, %s", path.c_str());
 		return false;
 	}
-	if (!StudyData::loadData(path)) {
-		CCLOG("Failed to load StudyData, %s", path.c_str());
-		return false;
-	}
 	if (!FriendData::loadData(path)) {
 		CCLOG("Failed to load FriendData, %s", path.c_str());
 		return false;
@@ -268,7 +267,6 @@ bool BaseDataManager::clearData()
 	StoryData::clearData();
 	PersonalityData::clearData();
 	ItemData::clearData();
-	StudyData::clearData();
 	FriendData::clearData();
 	AttributeData::clearData();
 	WorkData::clearData();
@@ -295,18 +293,20 @@ BaseData * BaseDataManager::getData(const string & dataSet, const string & id)
 		return ItemData::getItemDataById(id);
 	} else if (dataSet == "ItemCategoryData") {
 		return ItemCategoryData::getItemCategoryDataById(id);
-	} else if (dataSet == "StudyData") {
-		return StudyData::getStudyDataById(id);
 	} else if (dataSet == "FriendData") {
 		return FriendData::getFriendDataById(id);
 	} else if (dataSet == "ParentChatData") {
 		return ParentChatData::getParentChatDataById(id);
+	} else if (dataSet == "SelfStudyData") {
+		return SelfStudyData::getSelfStudyDataById(id);
 	} else if (dataSet == "AttributeData") {
 		return AttributeData::getAttributeDataById(id);
 	} else if (dataSet == "FunctionCalculationData") {
 		return FunctionCalculationData::getFunctionCalculationDataById(id);
 	} else if (dataSet == "WorkData") {
 		return WorkData::getWorkDataById(id);
+	} else if (dataSet == "SchoolStudyData") {
+		return SchoolStudyData::getSchoolStudyDataById(id);
 	} else if (dataSet == "ActionData") {
 		return ActionData::getActionDataById(id);
 	} else if (dataSet == "GameData") {
@@ -344,9 +344,6 @@ void BaseDataManager::setDataField(const string & dataSet, const string & id, co
 		data->setFieldValue(fieldName, value);
 	} else if (dataSet == "ItemData") {
 		auto data = ItemData::getItemDataById(id);
-		data->setFieldValue(fieldName, value);
-	} else if (dataSet == "StudyData") {
-		auto data = StudyData::getStudyDataById(id);
 		data->setFieldValue(fieldName, value);
 	} else if (dataSet == "FriendData") {
 		auto data = FriendData::getFriendDataById(id);
@@ -410,11 +407,6 @@ vector<BaseData *> BaseDataManager::getDataList(const string & dataSet)
 		for (auto elem : *dataMap) {
 			result.push_back(elem.second);
 		}
-	} else if (dataSet == "StudyData") {
-		auto dataMap = StudyData::getSharedDictionary();
-		for (auto elem : *dataMap) {
-			result.push_back(elem.second);
-		}
 	} else if (dataSet == "FriendData") {
 		auto dataMap = FriendData::getSharedDictionary();
 		for (auto elem : *dataMap) {
@@ -422,6 +414,11 @@ vector<BaseData *> BaseDataManager::getDataList(const string & dataSet)
 		}
 	} else if (dataSet == "ParentChatData") {
 		auto dataMap = ParentChatData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else if (dataSet == "SelfStudyData") {
+		auto dataMap = SelfStudyData::getSharedDictionary();
 		for (auto elem : *dataMap) {
 			result.push_back(elem.second);
 		}
@@ -437,6 +434,11 @@ vector<BaseData *> BaseDataManager::getDataList(const string & dataSet)
 		}
 	} else if (dataSet == "WorkData") {
 		auto dataMap = WorkData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else if (dataSet == "SchoolStudyData") {
+		auto dataMap = SchoolStudyData::getSharedDictionary();
 		for (auto elem : *dataMap) {
 			result.push_back(elem.second);
 		}
