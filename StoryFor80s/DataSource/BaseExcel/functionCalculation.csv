@@ -26,4 +26,4 @@ lab_work_attribute_value_list,string,string_join_data,"tempdata.work.attributeCh
 lab_play_attribute_value_list,string,string_join_data,"tempdata.play.attributeChange;function.lab_play_attribute_value;, ","ex: 压力: 5, 智力: 3"
 lab_selfstudy_attribute_value_list,string,string_join_data,"tempdata.study.attributeChange;function.lab_selfstudy_attribute_value;, ","ex: 压力: 5, 智力: 4"
 lab_schoolstudy_attribute_value,string,string_format,lab_data_value;associate.name;gamedata.SchoolStudyData.(temp.classId).map.attributeChange.(associate.attributeId),ex: 压力 5
-lab_schoolstudy_attribute_value_list,string,string_join_data,"gamedata.SchoolStudyData.(temp.classId).attributeChange;function.lab_schoolstudy_attribute_value;, ","ex: 压力: 5, 智力: 4"
+lab_schoolstudy_attribute_value_list,string,string_join_data,lab_data_value;associate.name;gamedata.SchoolStudyData.(temp.classId).map.attributeChange.(associate.attributeId),"ex: 压力: 5, 智力: 4"
