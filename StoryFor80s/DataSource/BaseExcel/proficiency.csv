@@ -2,8 +2,6 @@
 id,language,int,int
 string,chinese,-,-
 writable,N,Y,N
-work_wash_bowl,做家务 (洗碗),0,100
-work_buy_food,做家务 (买菜),0,100
 chinese_pinyin,拼音,0,100
 chinese_characters,识字认字,0,100
 chinese_story,讲故事,0,500
@@ -177,12 +175,26 @@ swimming,游泳,0,1000
 swimming_contest,游泳比赛,0,3000
 track_and_field,田径,0,1000
 track_and_field_contest,田径比赛,0,3000
+pingpong,乒乓球,0,1000
+pingpong_contest,乒乓球比赛,0,3000
 badminton,羽毛球,0,1000
 badminton_contest,羽毛球比赛,0,3000
-basketball,篮球,0,1000
+play_basketball,篮球,0,1000
 basketball_contest,篮球比赛,0,3000
 music_singing,唱歌,0,1000
-,溜溜球,0,300
+play_yoyos,溜溜球,0,300
+play_marbles,弹珠,0,100
+play_paper_plane,折纸飞机,0,100
+poke_run,扑克牌《斗地主》,0,100
+poke_80,扑克牌 《拖拉机》,0,100
+poke_24,扑克牌 《24点》,0,100
+poke_run_2,扑克牌《掼蛋》,0,100
+play_majiang,麻将,0,1000
+play_go,围棋,0,3000
+play_5_in_a_row,五子棋,0,1000
+play_chinese_chess,中国象棋,0,1000
+play_chess,国际象棋,0,1000
+play_military_chess,军棋,0,1000
 cartoon_shuke_beita,动画片《舒克贝塔》,0,30
 cartoon_huluwa,动画片《葫芦娃》,0,30
 cartoon_dragon_ball,动画片《龙珠》,0,100
@@ -226,6 +238,11 @@ album_mayday,五月天专辑,0,300
 album_beethoven,贝多芬交响乐,0,300
 album_chopin,肖邦钢琴曲,0,300
 album_mozart,莫扎特钢琴曲,0,300
+game_contra,小霸王游戏《魂斗罗》,0,300
+game_super_mario,小霸王游戏《超级玛丽》,0,300
+game_adventure,小霸王游戏《冒险岛》,0,300
+game_tetris,小霸王游戏《俄罗斯方块》,0,300
+game_pokemon,GBA游戏《口袋妖怪》,0,300
 game_chinese_paladin,游戏《仙剑奇侠传》,0,300
 game_xuanyuan_sword,游戏《轩辕剑》,0,300
 game_legend_hero,游戏《英雄传说》,0,300
@@ -243,9 +260,10 @@ game_diablo,游戏《暗黑破坏神》,0,800
 game_civilization,游戏《文明》,0,300
 game_princess_maker,游戏《美少女梦工厂》,0,300
 game_rich_man,游戏《大富翁》,0,300
-game_three_kindom,桌游《三国杀》,0,100
-game_dungeons_dragons,桌游《龙与地下城》,0,800
-game_close_eyes,桌游《天黑请闭眼》,0,300
+game_three_kindom,游戏《三国志》,0,800
+boardgame_three_kindom,桌游《三国杀》,0,100
+boardgame_dungeons_dragons,桌游《龙与地下城》,0,800
+boardgame_close_eyes,桌游《天黑请闭眼》,0,300
 book_three_kindom,名著《三国演义》,0,300
 book_red_house,名著《红楼梦》,0,300
 book_shui_hu,名著《水浒》,0,300
@@ -258,3 +276,26 @@ book_zhu_xian,小说《诛仙》,0,300
 book_bible,《圣经》,0,3000
 magazine_sci_fi_world,杂志《科幻世界》,0,300
 magazine_reader,杂志《读者》,0,300
+cook,烹饪,0,300
+work_wash_bowl,做家务 (洗碗),0,100
+work_buy_food,做家务 (买菜),0,100
+cook_rice,做家务（煮饭）,0,100
+cook_food,做家务（烧菜）,0,100
+clean,做家务（大扫除）,0,100
+typing,帮忙打字,0,100
+copy_homework,代写作业,0,100
+nanny,带小孩,0,100
+post_design,设计海报,0,100
+programming,程序编写,0,100
+basketball_pal,篮球陪练,0,100
+pingpong_pal,乒乓球陪练,0,100
+badmitton_pal,羽毛球陪练,0,100
+math_teaching,数学家教,0,100
+chinese_teaching,语文家教,0,100
+english_teaching,英语家教,0,100
+physics_teaching,物理家教,0,100
+chemistry_teaching,化学家教,0,100
+biology_teaching,生物家教,0,100
+postage_sending,快递员,0,100
+carrying,搬运工,0,100
+ppt_design,PPT 设计,0,100

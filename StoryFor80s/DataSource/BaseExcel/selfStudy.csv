@@ -23,8 +23,6 @@ chinese_exam_2,初中应试语文,TRUE,chinese_exam_2,10,初中应试语文,"pre
 chinese_exam_3,高中应试语文,TRUE,chinese_exam_3,10,高中应试语文,"pressure,15"
 chinese_speech,演讲,TRUE,chinese_speech,10,演讲,"pressure,16"
 chinese_debate,辩论,TRUE,chinese_debate,10,辩论,"pressure,17"
-math_add_minus,加减法,TRUE,math_add_minus,10,加减法,"pressure,18"
-math_mutiple_divide,乘除法,TRUE,math_mutiple_divide,10,乘除法,"pressure,19"
 math_geo_1,小学几何,TRUE,math_geo_1,10,小学几何,"pressure,20"
 math_geo_2,初中几何,TRUE,math_geo_2,10,初中几何,"pressure,21"
 math_geo_3,高中几何,TRUE,math_geo_3,10,高中几何,"pressure,22"
