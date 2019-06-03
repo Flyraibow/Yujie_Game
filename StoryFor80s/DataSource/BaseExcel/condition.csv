@@ -10,3 +10,5 @@ is_input_day_in_feb,int,data.hero.birthMonth,=,int,2
 is_input_day_<,int,temp.input,<=,calculation,days_of_input_month
 is_input_day_valid,,is_input_number_>0,and,,is_input_day_<
 decreasing_order,int,temp.leftValue,>=,int,temp.rightValue
+NO,int,0,=,int,1
+YES,int,0,=,int,0

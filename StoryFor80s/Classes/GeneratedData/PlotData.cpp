@@ -22,14 +22,14 @@ string PlotData::getPlotId() const
 	return p_plotId;
 }
 
-ConditionData* PlotData::getConditionData() const
+int PlotData::getPriority() const
 {
-	return ConditionData::getConditionDataById(p_conditionId);
+	return p_priority;
 }
 
-string PlotData::getConditionId() const
+string PlotData::getCondition() const
 {
-	return p_conditionId;
+	return p_condition;
 }
 
 DateData* PlotData::getDateData() const
@@ -62,6 +62,30 @@ string PlotData::getPlotStory() const
 	return p_plotStory;
 }
 
+vector<string> PlotData::getSelection_event() const
+{
+	return p_selection_event;
+}
+
+vector<PlotData*> PlotData::getSelection_plotDataVector() const
+{
+	vector<PlotData*> resultVector;
+	for (auto objId : p_selection_plotIdVector) {
+		resultVector.push_back(PlotData::getPlotDataById(objId));
+	}
+	return resultVector;
+}
+
+vector<string> PlotData::getSelection_plotIdVector() const
+{
+	return p_selection_plotIdVector;
+}
+
+vector<string> PlotData::getSelection_text() const
+{
+	return p_selection_text;
+}
+
 string PlotData::getText() const
 {
 	string localId = "plot_text_" + to_string(p_plotId);
@@ -72,11 +96,15 @@ string PlotData::description() const
 {
 	string desc = "plotData = {\n";
 	desc += "\tplotId : " + to_string(p_plotId) + "\n";
-	desc += "\tcondition : " + to_string(p_conditionId) + "\n";
+	desc += "\tpriority : " + to_string(p_priority) + "\n";
+	desc += "\tcondition : " + to_string(p_condition) + "\n";
 	desc += "\tdate : " + to_string(p_dateId) + "\n";
 	desc += "\trepeatable : " + to_string(p_repeatable) + "\n";
 	desc += "\texperienced : " + to_string(p_experienced) + "\n";
 	desc += "\tplotStory : " + to_string(p_plotStory) + "\n";
+	desc += "\tselection_event : " + to_string(p_selection_event) + "\n";
+	desc += "\tselection_plot : " + to_string(p_selection_plotIdVector) + "\n";
+	desc += "\tselection_text : " + to_string(p_selection_text) + "\n";
 	desc += "\ttext : " + getText() + "\n";
 	desc += "}\n";
 	return desc;
@@ -95,11 +123,24 @@ const map<string, PlotData*>* PlotData::getSharedDictionary()
 			for (int i = 0; i < count; ++i) {
 				PlotData* plotData = new PlotData();
 				plotData->p_plotId = buffer->getString();
-				plotData->p_conditionId = buffer->getString();
+				plotData->p_priority = buffer->getInt();
+				plotData->p_condition = buffer->getString();
 				plotData->p_dateId = buffer->getString();
 				plotData->p_repeatable = buffer->getChar();
 				plotData->p_experienced = buffer->getChar();
 				plotData->p_plotStory = buffer->getString();
+				auto selection_eventCount = buffer->getLong();
+				for (int j = 0; j < selection_eventCount; ++j) {
+					plotData->p_selection_event.push_back(buffer->getString());
+				}
+				auto selection_plotCount = buffer->getLong();
+				for (int j = 0; j < selection_plotCount; ++j) {
+					plotData->p_selection_plotIdVector.push_back(buffer->getString());
+				}
+				auto selection_textCount = buffer->getLong();
+				for (int j = 0; j < selection_textCount; ++j) {
+					plotData->p_selection_text.push_back(buffer->getString());
+				}
 				p_sharedDictionary->insert(pair<string, PlotData*>(plotData->p_plotId, plotData));
 			}
 		}
@@ -187,8 +228,10 @@ string PlotData::getFieldValue(const string & fieldName) const
 {
 	if (fieldName == "plotId") {
 		return to_string(this->getPlotId());
+	} else if (fieldName == "priority") {
+		return to_string(this->getPriority());
 	} else if (fieldName == "condition") {
-		return to_string(this->getConditionId());
+		return to_string(this->getCondition());
 	} else if (fieldName == "date") {
 		return to_string(this->getDateId());
 	} else if (fieldName == "repeatable") {
@@ -197,6 +240,12 @@ string PlotData::getFieldValue(const string & fieldName) const
 		return to_string(this->getExperienced());
 	} else if (fieldName == "plotStory") {
 		return to_string(this->getPlotStory());
+	} else if (fieldName == "selection_event") {
+		return to_string(this->getSelection_event());
+	} else if (fieldName == "selection_plot") {
+		return to_string(this->getSelection_plotIdVector());
+	} else if (fieldName == "selection_text") {
+		return to_string(this->getSelection_text());
 	} else if (fieldName == "text") {
 		return to_string(this->getText());
 	}
@@ -206,9 +255,7 @@ string PlotData::getFieldValue(const string & fieldName) const
 
 BaseData* PlotData::getDataByField(const string & fieldName) const
 {
-	if (fieldName == "condition") {
-		return this->getConditionData();
-	} else if (fieldName == "date") {
+	if (fieldName == "date") {
 		return this->getDateData();
 	}
 	CCLOGWARN("Couldn't recognize %s in PlotData", fieldName.c_str());

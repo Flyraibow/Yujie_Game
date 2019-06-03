@@ -11,11 +11,21 @@
 #include "BasePanel.hpp"
 #include <vector>
 
+class PlotData;
+class BaseButton;
+
 using namespace std;
 
 class StoryPanel : public BasePanel
 {
 private:
+  vector<PlotData *> p_plots;
+  vector<BaseButton *> p_tempButtons;
+  int p_currentPlotIndex = 0;
+  void nextPlot();
+  void startPlot(PlotData* plot);
+  void completePlotText(PlotData* plot);
+  void clearTempButtons();
 public:
   static BasePanel* createPanel();
   StoryPanel();

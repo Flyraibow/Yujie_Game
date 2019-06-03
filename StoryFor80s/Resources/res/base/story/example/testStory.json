@@ -35,7 +35,7 @@
 		{
 			"__comment" : "测试子任务",
 			"type" : "story",
-			"name" : "testSubStory"
+			"name" : "example/testSubStory"
 		},
 		{
 			"__comment" : "移动图片",

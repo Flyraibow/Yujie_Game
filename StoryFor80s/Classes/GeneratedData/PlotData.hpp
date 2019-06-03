@@ -5,8 +5,9 @@ This file (PlotData.hpp) is generated
 #define PlotData_hpp
 #include <map>
 #include "BaseData.h"
-#include "ConditionData.hpp"
+#include <vector>
 #include "DateData.hpp"
+#include "PlotData.hpp"
 
 
 class PlotData: public BaseData
@@ -14,22 +15,30 @@ class PlotData: public BaseData
 private:
 	static map<string, PlotData*>* p_sharedDictionary;
 	string p_plotId;
-	string p_conditionId;
+	int p_priority;
+	string p_condition;
 	string p_dateId;
 	bool p_repeatable;
 	bool p_experienced;
 	string p_plotStory;
+	vector<string> p_selection_event;
+	vector<string> p_selection_plotIdVector;
+	vector<string> p_selection_text;
 public:
 	string getId() const;
 	string getPlotId() const;
-	ConditionData* getConditionData() const;
-	string getConditionId() const;
+	int getPriority() const;
+	string getCondition() const;
 	DateData* getDateData() const;
 	string getDateId() const;
 	bool getRepeatable() const;
 	bool getExperienced() const;
 	void setExperienced(bool experienced);
 	string getPlotStory() const;
+	vector<string> getSelection_event() const;
+	vector<PlotData*> getSelection_plotDataVector() const;
+	vector<string> getSelection_plotIdVector() const;
+	vector<string> getSelection_text() const;
 	string getText() const;
 	string description() const;
 	static const map<string, PlotData*>* getSharedDictionary();

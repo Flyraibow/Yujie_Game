@@ -21,6 +21,12 @@ void BaseButton::pushClickEventListener(const Widget::ccWidgetClickCallback &cal
   });
 }
 
+void BaseButton::setClickEventListener(const Widget::ccWidgetClickCallback &callback)
+{
+  _callbackList.clear();
+  pushClickEventListener(callback);
+}
+
 BaseButton* BaseButton::create(const std::string &normalImage,
                            const std::string& selectedImage,
                            const std::string& disableImage,

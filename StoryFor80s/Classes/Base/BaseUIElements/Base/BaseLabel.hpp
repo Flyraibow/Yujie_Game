@@ -13,6 +13,9 @@
 USING_NS_CC;
 using namespace std;
 
+
+typedef std::function<void()> LabelTextCompleteCallback;
+
 /**
  * allow user to set speed of the text
  */
@@ -24,6 +27,8 @@ private:
   int p_currentIndex = 0;
   int p_contentLength = 0;
   string p_text;
+  LabelTextCompleteCallback p_callback;
+  void textCompleteCallback();
 public:
   CREATE_FUNC(BaseLabel);
   virtual void setSpeed(int speed);
@@ -35,6 +40,9 @@ public:
   
   BaseLabel(TextHAlignment hAlignment = TextHAlignment::LEFT,
             TextVAlignment vAlignment = TextVAlignment::TOP) : Label(hAlignment, vAlignment) {};
+  
+  void setCallback(LabelTextCompleteCallback callback);
+  void showTextImmediately();
 };
 
 

@@ -27,6 +27,7 @@ void BaseLabel::setString(const std::string& text)
   p_currentIndex = 0;
   if (p_speed <= 0) {
     Label::setString(text);
+    textCompleteCallback();
   } else {
     p_contentLength = Utils::utf8_strlen(text);
     Label::setString("");
@@ -37,6 +38,7 @@ void BaseLabel::setString(const std::string& text)
       } else {
         Label::setString(p_text);
         Label::unschedule(kLabelContentScheduleKey);
+        this->textCompleteCallback();
       }
     }, 0.2f / p_speed, kLabelContentScheduleKey);
   }
@@ -54,6 +56,7 @@ BaseLabel* BaseLabel::createWithSystemFont(const std::string& text, const std::s
     ret->setSystemFontSize(fontSize);
     ret->setDimensions(dimensions.width, dimensions.height);
     ret->setString(text);
+    ret->setCallback(nullptr);
     
     ret->autorelease();
     
@@ -61,4 +64,25 @@ BaseLabel* BaseLabel::createWithSystemFont(const std::string& text, const std::s
   }
   
   return nullptr;
+}
+
+void BaseLabel::textCompleteCallback()
+{
+  if (p_callback != nullptr) {
+    p_callback();
+  }
+}
+
+void BaseLabel::setCallback(LabelTextCompleteCallback callback)
+{
+  p_callback = callback;
+}
+
+void BaseLabel::showTextImmediately()
+{
+  if (p_text != Label::getString()) {
+    this->unschedule(kLabelContentScheduleKey);
+    Label::setString(p_text);
+    textCompleteCallback();
+  }
 }

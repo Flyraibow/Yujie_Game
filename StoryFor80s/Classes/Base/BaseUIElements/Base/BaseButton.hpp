@@ -28,6 +28,7 @@ public:
                             const string& disableImage = "",
                             TextureResType texType = TextureResType::LOCAL);
   void pushClickEventListener(const Widget::ccWidgetClickCallback &callback);
+  void setClickEventListener(const Widget::ccWidgetClickCallback &callback);
   static BaseButton* defaultButtonWithText(std::string text);
   static BaseButton* defaultButtonWithText(std::string text, const Widget::ccWidgetClickCallback &callback);
 };
