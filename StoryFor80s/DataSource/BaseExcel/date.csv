@@ -1,0 +1,6 @@
+﻿dateId,year,month,day
+id,int,int,int
+string,-,-,-
+writable,Y,Y,Y
+game_date,1994,9,1
+my_birthday,1987,11,9

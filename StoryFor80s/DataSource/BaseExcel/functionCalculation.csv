@@ -3,19 +3,17 @@ id,string,string,vector,comment
 string,-,-,string,-
 writable,N,N,N,N
 my_full_name,string,string_connect,game.lastName;game.firstName,function 包含 连接字符串， format字符串和自定义的function
-my_age_number,int,calculation,game.year-game.birthYear-1+function.my_age_pass_birthday,"计算年龄, 目前只支持加减法"
-my_age_pass_birthday,int,condition,int.game.month>int.game.birthMonth;1;function.my_age_pass_birthday_1,计算年龄，看看月份过了没
-my_age_pass_birthday_1,int,condition,int.game.month=int.game.birthMonth;function.my_age_pass_birthday_2;0,计算年龄看月份是否相同
-my_age_pass_birthday_2,int,condition,int.game.day>=int.game.birthDay;1;0,月份形同的话比较日子
+my_age_number,int,calculation,game.gameDate.year-game.myBirthDay.year-1+function.my_age_pass_birthday,"计算年龄, 目前只支持加减法"
+my_age_pass_birthday,int,condition,int.game.gameDate.month>int.game.myBirthDay.month;1;function.my_age_pass_birthday_1,计算年龄，看看月份过了没
+my_age_pass_birthday_1,int,condition,int.game.gameDate.month=int.game.myBirthDay.month;function.my_age_pass_birthday_2;0,计算年龄看月份是否相同
+my_age_pass_birthday_2,int,condition,int.game.gameDate.day>=int.game.myBirthDay.day;1;0,月份形同的话比较日子
 my_birthday_with_year,string,string_format,date_display_with_year;game.birthYear;game.birthMonth;game.birthDay,生日日期， e.g. 1987年3月4日
-my_birthday,string,string_format,birth_display;game.birthMonth;game.birthDay,生日日期， e.g. 3月4日
-hero_zodiac_data,data,zodiac_from_hero,data.hero,从hero得到他的星座
-game_date,string,string_format,date_display_with_year;game.year;game.month;game.day,游戏日期， e.g. 1997年3月4日
+my_birthday,string,string_format,birth_display;game.myBirthDay.month;game.myBirthDay.day,生日日期， e.g. 3月4日
+game_date,string,string_format,date_display_with_year;game.gameDate.year;game.gameDate.month;game.gameDate.day,游戏日期， e.g. 1997年3月4日
 game_saving_string,string,string_connect,temp.index;  ;function.my_full_name;  ;function.game_date,存储的格式，编号 姓名 日期
 friend_name,string,string_connect,data.temp.lastName;data.temp.firstName,显示好友的名字
-date_string,string,string_connect,game.year;_;game.month;_;game.day,日期的字符串形式 ex: 19871109
+date_string,string,string_connect,game.gameDate.year;_;game.gameDate.month;_;game.gameDate.day,日期的字符串形式 ex: 19871109
 lab_study_result,string,string_format,lab_study_well;gamedata.SchoolStudyData.(temp.classId).name;function.lab_schoolstudy_attribute_value_list,学习效果
-lab_week_day,string,decipher,translation.lab_week_(game.weekDay),转化复杂的公式
 lab_work_result,string,string_format,lab_work_well;tempdata.work.name;function.lab_work_attribute_value_list,工作效果
 lab_selfstudy_result,string,string_format,lab_selfstudy_well;tempdata.study.name;function.lab_selfstudy_attribute_value_list,自学效果
 lab_play_result,string,string_format,lab_play_well;tempdata.play.name;function.lab_play_attribute_value_list,娱乐效果

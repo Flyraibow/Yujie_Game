@@ -16,12 +16,11 @@
 
 void story::passDay(const nlohmann::json &jsonContent)
 {
-  auto day = GameData::getSharedInstance()->getDay();
-  auto month = GameData::getSharedInstance()->getMonth();
-  auto year = GameData::getSharedInstance()->getYear();
-  auto weekDay = GameData::getSharedInstance()->getWeekDay();
+  auto gameDate = GameData::getSharedInstance()->getGameDateData();
+  auto day = gameDate->getDay();
+  auto month = gameDate->getMonth();
+  auto year = gameDate->getYear();
   day++;
-  weekDay = (weekDay + 1) % 7;
   if ((day == 29 && month == 2 && year % 4 != 0) ||
       (day == 30 && month == 2) || day == 32 ||
       (day == 31 && (month == 4 || month == 6 || month == 9 || month == 11))) {
@@ -32,10 +31,9 @@ void story::passDay(const nlohmann::json &jsonContent)
     year++;
     month = 1;
   }
-  GameData::getSharedInstance()->setDay(day);
-  GameData::getSharedInstance()->setMonth(month);
-  GameData::getSharedInstance()->setYear(year);
-  GameData::getSharedInstance()->setWeekDay(weekDay);
+  gameDate->setDay(day);
+  gameDate->setMonth(month);
+  gameDate->setYear(year);
 }
 
 

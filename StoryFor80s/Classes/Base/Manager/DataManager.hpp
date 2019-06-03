@@ -58,22 +58,22 @@ public:
   
   string formatStringWithParamters(const string &str, const vector<string> &parameters, const BaseData *associate = nullptr) const;
   
-  template <typename T, typename std::enable_if<std::is_base_of<BaseData, T>::value>::type* = nullptr>
-  T* getTempData(const string &key) const {
-    if (p_tempDataMap.count(key)) {
-      return dynamic_cast<T*>(p_tempDataMap.at(key));
-    }
-    return nullptr;
-  }
-  
-  template <typename T, typename std::enable_if<std::is_base_of<BaseData, T>::value>::type* = nullptr>
-  T* decipherData(const string &value) const {
-    auto data = decipherData(value);
-    if (data != nullptr) {
-      return dynamic_cast<T*>(data);
-    }
-    return nullptr;
-  }
+//  template <typename T, typename std::enable_if<std::is_base_of<BaseData, T>::value>::type* = nullptr>
+//  T* getTempData(const string &key) const {
+//    if (p_tempDataMap.count(key)) {
+//      return dynamic_cast<T*>(p_tempDataMap.at(key));
+//    }
+//    return nullptr;
+//  }
+//  
+//  template <typename T, typename std::enable_if<std::is_base_of<BaseData, T>::value>::type* = nullptr>
+//  T* decipherData(const string &value) const {
+//    auto data = decipherData(value);
+//    if (data != nullptr) {
+//      return dynamic_cast<T*>(data);
+//    }
+//    return nullptr;
+//  }
 };
 
 #endif /* DataManager_hpp */

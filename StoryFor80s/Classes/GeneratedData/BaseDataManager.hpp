@@ -4,14 +4,14 @@ This file (BaseDataManager.hpp) is generated
 #ifndef BaseDataManager_hpp
 #define BaseDataManager_hpp
 #include "ConditionData.hpp"
+#include "PlotData.hpp"
 #include "ConditionCalculationData.hpp"
 #include "FatherJobData.hpp"
 #include "PlayData.hpp"
 #include "StoryData.hpp"
-#include "PersonalityData.hpp"
+#include "DateData.hpp"
 #include "ItemData.hpp"
 #include "ItemCategoryData.hpp"
-#include "ClassScheduleData.hpp"
 #include "FriendData.hpp"
 #include "ParentChatData.hpp"
 #include "SelfStudyData.hpp"
@@ -30,11 +30,12 @@ class BaseDataManager
 private:
 public:
 	static ConditionData* getConditionDataById(const string& conditionId);
+	static PlotData* getPlotDataById(const string& plotId);
 	static ConditionCalculationData* getConditionCalculationDataById(const string& conditionCalculationId);
 	static FatherJobData* getFatherJobDataById(const string& fatherJobId);
 	static PlayData* getPlayDataById(const string& playId);
 	static StoryData* getStoryDataById(const string& storyId);
-	static PersonalityData* getPersonalityDataById(const string& attributeId);
+	static DateData* getDateDataById(const string& dateId);
 	static ItemData* getItemDataById(const string& itemId);
 	static ItemCategoryData* getItemCategoryDataById(const string& itemCategoryId);
 	static FriendData* getFriendDataById(const string& friendId);

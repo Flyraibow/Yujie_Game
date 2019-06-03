@@ -1,0 +1,6 @@
+﻿plotId,condition,date,repeatable,experienced,plotStory,text
+id,friend_id,friend_id,bool,bool,string,language
+string,Condition,Date,-,-,-,chinese
+writable,N,N,N,Y,N,N
+first_school,;,first_school,0,0,,今天是上学第一天，你很兴奋
+first_school_class,;,first_school,0,0,,你在学校里学了好多有意思的知识。

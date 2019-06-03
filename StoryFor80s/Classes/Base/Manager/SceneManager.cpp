@@ -80,6 +80,7 @@ void SceneManager::addPanel(const std::string &panelName)
   if (scene != nullptr) {
     BasePanel *panel = PanelManager::getShareInstance()->getPanelById(panelName);
     scene->addPanelWithParameters(panel);
+    panel->initialize();
   }
 }
 

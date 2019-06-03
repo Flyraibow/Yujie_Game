@@ -99,6 +99,16 @@
 		EC0C564522222FC30000C3E7 /* WaitEventContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC0C564222222FC30000C3E7 /* WaitEventContent.cpp */; };
 		EC1272092212B3080058D7E6 /* title.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EC1272082212B3080058D7E6 /* title.mp3 */; };
 		EC12720A2212B3080058D7E6 /* title.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EC1272082212B3080058D7E6 /* title.mp3 */; };
+		EC16303E22A48EAC0010C010 /* StoryPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC16303C22A48EAC0010C010 /* StoryPanel.cpp */; };
+		EC16303F22A48EAC0010C010 /* StoryPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC16303C22A48EAC0010C010 /* StoryPanel.cpp */; };
+		EC16304222A48EBB0010C010 /* DiaryPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC16304022A48EBB0010C010 /* DiaryPanel.cpp */; };
+		EC16304322A48EBB0010C010 /* DiaryPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC16304022A48EBB0010C010 /* DiaryPanel.cpp */; };
+		EC16304622A4978D0010C010 /* DateData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC16304522A4978D0010C010 /* DateData.cpp */; };
+		EC16304722A4978D0010C010 /* DateData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC16304522A4978D0010C010 /* DateData.cpp */; };
+		EC16304A22A4A1C40010C010 /* PlotData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC16304922A4A1C40010C010 /* PlotData.cpp */; };
+		EC16304B22A4A1C40010C010 /* PlotData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC16304922A4A1C40010C010 /* PlotData.cpp */; };
+		EC298548227969C3007ECECD /* NewDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC298546227969C3007ECECD /* NewDataManager.cpp */; };
+		EC298549227969C3007ECECD /* NewDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC298546227969C3007ECECD /* NewDataManager.cpp */; };
 		EC3CF0B9222B420F00E9DF38 /* SelectionEventContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3CF0B7222B420F00E9DF38 /* SelectionEventContent.cpp */; };
 		EC3CF0BA222B420F00E9DF38 /* SelectionEventContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3CF0B7222B420F00E9DF38 /* SelectionEventContent.cpp */; };
 		EC4065A722375CBC0089E82A /* ScrollViewComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4065A522375CBC0089E82A /* ScrollViewComponent.cpp */; };
@@ -171,8 +181,6 @@
 		ECCFE60F226D34A2008F47D4 /* SelfStudyData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCFE609226D34A1008F47D4 /* SelfStudyData.cpp */; };
 		ECDE87222235FD0F0048EEF5 /* BaseLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECDE87202235FD0F0048EEF5 /* BaseLabel.cpp */; };
 		ECDE87232235FD0F0048EEF5 /* BaseLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECDE87202235FD0F0048EEF5 /* BaseLabel.cpp */; };
-		ECDE872D223609980048EEF5 /* ClassScheduleData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECDE8728223609970048EEF5 /* ClassScheduleData.cpp */; };
-		ECDE872E223609980048EEF5 /* ClassScheduleData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECDE8728223609970048EEF5 /* ClassScheduleData.cpp */; };
 		ECDE872F223609980048EEF5 /* PersonalityData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECDE8729223609970048EEF5 /* PersonalityData.cpp */; };
 		ECDE8730223609980048EEF5 /* PersonalityData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECDE8729223609970048EEF5 /* PersonalityData.cpp */; };
 		ECDE8731223609980048EEF5 /* SchoolData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECDE872B223609980048EEF5 /* SchoolData.cpp */; };
@@ -323,6 +331,16 @@
 		EC0C564222222FC30000C3E7 /* WaitEventContent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = WaitEventContent.cpp; sourceTree = "<group>"; };
 		EC0C564322222FC30000C3E7 /* WaitEventContent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WaitEventContent.hpp; sourceTree = "<group>"; };
 		EC1272082212B3080058D7E6 /* title.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = title.mp3; sourceTree = "<group>"; };
+		EC16303C22A48EAC0010C010 /* StoryPanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StoryPanel.cpp; sourceTree = "<group>"; };
+		EC16303D22A48EAC0010C010 /* StoryPanel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StoryPanel.hpp; sourceTree = "<group>"; };
+		EC16304022A48EBB0010C010 /* DiaryPanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DiaryPanel.cpp; sourceTree = "<group>"; };
+		EC16304122A48EBB0010C010 /* DiaryPanel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DiaryPanel.hpp; sourceTree = "<group>"; };
+		EC16304422A4978D0010C010 /* DateData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DateData.hpp; sourceTree = "<group>"; };
+		EC16304522A4978D0010C010 /* DateData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DateData.cpp; sourceTree = "<group>"; };
+		EC16304822A4A1C40010C010 /* PlotData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PlotData.hpp; sourceTree = "<group>"; };
+		EC16304922A4A1C40010C010 /* PlotData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlotData.cpp; sourceTree = "<group>"; };
+		EC298546227969C3007ECECD /* NewDataManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NewDataManager.cpp; sourceTree = "<group>"; };
+		EC298547227969C3007ECECD /* NewDataManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NewDataManager.hpp; sourceTree = "<group>"; };
 		EC3CF0B7222B420F00E9DF38 /* SelectionEventContent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SelectionEventContent.cpp; sourceTree = "<group>"; };
 		EC3CF0B8222B420F00E9DF38 /* SelectionEventContent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SelectionEventContent.hpp; sourceTree = "<group>"; };
 		EC4065A522375CBC0089E82A /* ScrollViewComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ScrollViewComponent.cpp; sourceTree = "<group>"; };
@@ -397,8 +415,6 @@
 		ECCFE60B226D34A2008F47D4 /* SchoolStudyData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SchoolStudyData.hpp; sourceTree = "<group>"; };
 		ECDE87202235FD0F0048EEF5 /* BaseLabel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BaseLabel.cpp; sourceTree = "<group>"; };
 		ECDE87212235FD0F0048EEF5 /* BaseLabel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BaseLabel.hpp; sourceTree = "<group>"; };
-		ECDE8726223609970048EEF5 /* ClassScheduleData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ClassScheduleData.hpp; sourceTree = "<group>"; };
-		ECDE8728223609970048EEF5 /* ClassScheduleData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClassScheduleData.cpp; sourceTree = "<group>"; };
 		ECDE8729223609970048EEF5 /* PersonalityData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PersonalityData.cpp; sourceTree = "<group>"; };
 		ECDE872A223609970048EEF5 /* PersonalityData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PersonalityData.hpp; sourceTree = "<group>"; };
 		ECDE872B223609980048EEF5 /* SchoolData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SchoolData.cpp; sourceTree = "<group>"; };
@@ -559,7 +575,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				EC0C5628222200440000C3E7 /* Scene */,
+				EC0C5628222200440000C3E7 /* Panel */,
 				EC073B9F221A99BD006FDCE0 /* GeneratedData */,
 				EC073B9A221A9955006FDCE0 /* Logic */,
 				EC8482E222116E80001956DE /* Base */,
@@ -604,6 +620,10 @@
 		EC073B9F221A99BD006FDCE0 /* GeneratedData */ = {
 			isa = PBXGroup;
 			children = (
+				EC16304922A4A1C40010C010 /* PlotData.cpp */,
+				EC16304822A4A1C40010C010 /* PlotData.hpp */,
+				EC16304522A4978D0010C010 /* DateData.cpp */,
+				EC16304422A4978D0010C010 /* DateData.hpp */,
 				ECCFE608226D34A1008F47D4 /* SchoolStudyData.cpp */,
 				ECCFE60B226D34A2008F47D4 /* SchoolStudyData.hpp */,
 				ECCFE609226D34A1008F47D4 /* SelfStudyData.cpp */,
@@ -612,8 +632,6 @@
 				ECCFE604226BF61F008F47D4 /* PlayData.hpp */,
 				ECCFE5FA226BF5A2008F47D4 /* ProficiencyData.cpp */,
 				ECCFE5FD226BF5A2008F47D4 /* ProficiencyData.hpp */,
-				ECDE8728223609970048EEF5 /* ClassScheduleData.cpp */,
-				ECDE8726223609970048EEF5 /* ClassScheduleData.hpp */,
 				ECDE8729223609970048EEF5 /* PersonalityData.cpp */,
 				ECDE872A223609970048EEF5 /* PersonalityData.hpp */,
 				ECDE872B223609980048EEF5 /* SchoolData.cpp */,
@@ -654,15 +672,19 @@
 			path = GeneratedData;
 			sourceTree = "<group>";
 		};
-		EC0C5628222200440000C3E7 /* Scene */ = {
+		EC0C5628222200440000C3E7 /* Panel */ = {
 			isa = PBXGroup;
 			children = (
 				ECDF38D6222392DB003ED65B /* DialogPanel.cpp */,
 				ECDF38D7222392DB003ED65B /* DialogPanel.hpp */,
 				EC0748D62246D3A6003CFCBD /* InteractionPanel.cpp */,
 				EC0748D72246D3A6003CFCBD /* InteractionPanel.hpp */,
+				EC16303C22A48EAC0010C010 /* StoryPanel.cpp */,
+				EC16303D22A48EAC0010C010 /* StoryPanel.hpp */,
+				EC16304022A48EBB0010C010 /* DiaryPanel.cpp */,
+				EC16304122A48EBB0010C010 /* DiaryPanel.hpp */,
 			);
-			path = Scene;
+			path = Panel;
 			sourceTree = "<group>";
 		};
 		EC0C562D222212BC0000C3E7 /* Story */ = {
@@ -808,6 +830,8 @@
 				ECBA50752213F1A000929BBA /* ConditionManager.hpp */,
 				EC073B96221927A9006FDCE0 /* FunctionManager.cpp */,
 				EC073B97221927A9006FDCE0 /* FunctionManager.hpp */,
+				EC298546227969C3007ECECD /* NewDataManager.cpp */,
+				EC298547227969C3007ECECD /* NewDataManager.hpp */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -868,6 +892,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
+				TargetAttributes = {
+					1D6058900D05DD3D006BFB54 = {
+						DevelopmentTeam = J6B37H3SRB;
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "StoryFor80s" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -976,13 +1005,13 @@
 				EC073B98221927A9006FDCE0 /* FunctionManager.cpp in Sources */,
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
 				EC8482E522116ECE001956DE /* DataManager.cpp in Sources */,
+				EC16304A22A4A1C40010C010 /* PlotData.cpp in Sources */,
 				EC8482CB221168F4001956DE /* LabelComponent.cpp in Sources */,
 				ECDF38C82222CE49003ED65B /* ValueEventContent.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				ECDF38B9222247AA003ED65B /* PhotoEventContent.cpp in Sources */,
 				EC84828222115812001956DE /* ByteBuffer.cpp in Sources */,
 				EC848301221171FC001956DE /* BaseScene.cpp in Sources */,
-				ECDE872D223609980048EEF5 /* ClassScheduleData.cpp in Sources */,
 				ECDF38C0222265B4003ED65B /* SubStoryEventContent.cpp in Sources */,
 				ECCFE600226BF5A3008F47D4 /* ProficiencyData.cpp in Sources */,
 				EC8482862211584C001956DE /* Utils.cpp in Sources */,
@@ -997,10 +1026,13 @@
 				ECDE872F223609980048EEF5 /* PersonalityData.cpp in Sources */,
 				EC3CF0B9222B420F00E9DF38 /* SelectionEventContent.cpp in Sources */,
 				ECCFE606226BF61F008F47D4 /* PlayData.cpp in Sources */,
+				EC16303E22A48EAC0010C010 /* StoryPanel.cpp in Sources */,
 				EC0C5638222218C70000C3E7 /* StoryJsonContent.cpp in Sources */,
 				EC073BC6221A9B67006FDCE0 /* GameSavingData.cpp in Sources */,
+				EC16304222A48EBB0010C010 /* DiaryPanel.cpp in Sources */,
 				EC0C564422222FC30000C3E7 /* WaitEventContent.cpp in Sources */,
 				EC8482DB22116D39001956DE /* PanelContent.cpp in Sources */,
+				EC16304622A4978D0010C010 /* DateData.cpp in Sources */,
 				EC073BBA221A9B67006FDCE0 /* GameData.cpp in Sources */,
 				EC8482C5221168F4001956DE /* SpriteComponent.cpp in Sources */,
 				EC0C5634222214B80000C3E7 /* JSONContent.cpp in Sources */,
@@ -1029,6 +1061,7 @@
 				EC0748D82246D3A6003CFCBD /* InteractionPanel.cpp in Sources */,
 				EC4F026F221FE48D0038EFCD /* StoryData.cpp in Sources */,
 				EC073BD6221A9C05006FDCE0 /* InitialSetups.cpp in Sources */,
+				EC298548227969C3007ECECD /* NewDataManager.cpp in Sources */,
 				EC073BC4221A9B67006FDCE0 /* ItemData.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1039,6 +1072,7 @@
 			files = (
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				EC8482E622116ECE001956DE /* DataManager.cpp in Sources */,
+				EC298549227969C3007ECECD /* NewDataManager.cpp in Sources */,
 				ECDF38C92222CE49003ED65B /* ValueEventContent.cpp in Sources */,
 				EC8482872211584C001956DE /* Utils.cpp in Sources */,
 				ECDF38BA222247AA003ED65B /* PhotoEventContent.cpp in Sources */,
@@ -1049,6 +1083,7 @@
 				EC073BC5221A9B67006FDCE0 /* ItemData.cpp in Sources */,
 				EC8482A62211601D001956DE /* BaseButton.cpp in Sources */,
 				EC073BC9221A9B67006FDCE0 /* AttributeData.cpp in Sources */,
+				EC16304722A4978D0010C010 /* DateData.cpp in Sources */,
 				EC848302221171FC001956DE /* BaseScene.cpp in Sources */,
 				EC073BD3221A9B67006FDCE0 /* ItemCategoryData.cpp in Sources */,
 				EC3CF0BA222B420F00E9DF38 /* SelectionEventContent.cpp in Sources */,
@@ -1077,10 +1112,11 @@
 				EC0C5631222212E20000C3E7 /* StoryJsonData.cpp in Sources */,
 				ECCFE607226BF61F008F47D4 /* PlayData.cpp in Sources */,
 				EC073BCB221A9B67006FDCE0 /* FunctionCalculationData.cpp in Sources */,
+				EC16303F22A48EAC0010C010 /* StoryPanel.cpp in Sources */,
 				ECDF38C52222CE2E003ED65B /* ConditionEventContent.cpp in Sources */,
 				EC073BC1221A9B67006FDCE0 /* BaseDataManager.cpp in Sources */,
-				ECDE872E223609980048EEF5 /* ClassScheduleData.cpp in Sources */,
 				EC4F0266221FE48D0038EFCD /* ParentChatData.cpp in Sources */,
+				EC16304B22A4A1C40010C010 /* PlotData.cpp in Sources */,
 				ECDF38D12223898C003ED65B /* DialogEventContent.cpp in Sources */,
 				ECDE8732223609980048EEF5 /* SchoolData.cpp in Sources */,
 				ECDE8730223609980048EEF5 /* PersonalityData.cpp in Sources */,
@@ -1104,6 +1140,7 @@
 				EC8482C2221168F4001956DE /* ColorNodeComponent.cpp in Sources */,
 				ECDF38CD2222EB21003ED65B /* PanelEventContent.cpp in Sources */,
 				EC8482C4221168F4001956DE /* ListComponent.cpp in Sources */,
+				EC16304322A48EBB0010C010 /* DiaryPanel.cpp in Sources */,
 				EC073B99221927A9006FDCE0 /* FunctionManager.cpp in Sources */,
 				EC0748DE22470008003CFCBD /* RefreshEventContent.cpp in Sources */,
 				EC8482CE221168F4001956DE /* ButtonComponent.cpp in Sources */,
@@ -1136,6 +1173,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				DEVELOPMENT_TEAM = J6B37H3SRB;
 				ENABLE_BITCODE = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -1172,6 +1210,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				DEVELOPMENT_TEAM = J6B37H3SRB;
 				ENABLE_BITCODE = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

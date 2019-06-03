@@ -6,9 +6,10 @@ This file (BaseDataManager.cpp) is generated
 #include <sys/stat.h>
 #include <unistd.h>
 #include "cocos2d.h"
+#include "PlotData.hpp"
 #include "FatherJobData.hpp"
 #include "StoryData.hpp"
-#include "PersonalityData.hpp"
+#include "DateData.hpp"
 #include "ItemData.hpp"
 #include "FriendData.hpp"
 #include "AttributeData.hpp"
@@ -23,6 +24,14 @@ ConditionData* BaseDataManager::getConditionDataById(const string& conditionId)
 {
 	if (ConditionData::getSharedDictionary()->count(conditionId)) {
 		return ConditionData::getSharedDictionary()->at(conditionId);
+	}
+	return nullptr;
+}
+
+PlotData* BaseDataManager::getPlotDataById(const string& plotId)
+{
+	if (PlotData::getSharedDictionary()->count(plotId)) {
+		return PlotData::getSharedDictionary()->at(plotId);
 	}
 	return nullptr;
 }
@@ -59,10 +68,10 @@ StoryData* BaseDataManager::getStoryDataById(const string& storyId)
 	return nullptr;
 }
 
-PersonalityData* BaseDataManager::getPersonalityDataById(const string& attributeId)
+DateData* BaseDataManager::getDateDataById(const string& dateId)
 {
-	if (PersonalityData::getSharedDictionary()->count(attributeId)) {
-		return PersonalityData::getSharedDictionary()->at(attributeId);
+	if (DateData::getSharedDictionary()->count(dateId)) {
+		return DateData::getSharedDictionary()->at(dateId);
 	}
 	return nullptr;
 }
@@ -175,6 +184,10 @@ bool BaseDataManager::saveData(string fileName)
 	if (stat(path.c_str(), &st) == -1) {
 		mkdir(path.c_str(), 0700);
 	}
+	if (!PlotData::saveData(path)) {
+		CCLOG("Failed to save PlotData, %s", path.c_str());
+		return false;
+	}
 	if (!FatherJobData::saveData(path)) {
 		CCLOG("Failed to save FatherJobData, %s", path.c_str());
 		return false;
@@ -183,8 +196,8 @@ bool BaseDataManager::saveData(string fileName)
 		CCLOG("Failed to save StoryData, %s", path.c_str());
 		return false;
 	}
-	if (!PersonalityData::saveData(path)) {
-		CCLOG("Failed to save PersonalityData, %s", path.c_str());
+	if (!DateData::saveData(path)) {
+		CCLOG("Failed to save DateData, %s", path.c_str());
 		return false;
 	}
 	if (!ItemData::saveData(path)) {
@@ -222,6 +235,10 @@ bool BaseDataManager::loadData(string fileName)
 		CCLOG("Failed to load data, there is no folder %s", path.c_str());
 		return false;
 	}
+	if (!PlotData::loadData(path)) {
+		CCLOG("Failed to load PlotData, %s", path.c_str());
+		return false;
+	}
 	if (!FatherJobData::loadData(path)) {
 		CCLOG("Failed to load FatherJobData, %s", path.c_str());
 		return false;
@@ -230,8 +247,8 @@ bool BaseDataManager::loadData(string fileName)
 		CCLOG("Failed to load StoryData, %s", path.c_str());
 		return false;
 	}
-	if (!PersonalityData::loadData(path)) {
-		CCLOG("Failed to load PersonalityData, %s", path.c_str());
+	if (!DateData::loadData(path)) {
+		CCLOG("Failed to load DateData, %s", path.c_str());
 		return false;
 	}
 	if (!ItemData::loadData(path)) {
@@ -263,9 +280,10 @@ bool BaseDataManager::loadData(string fileName)
 
 bool BaseDataManager::clearData()
 {
+	PlotData::clearData();
 	FatherJobData::clearData();
 	StoryData::clearData();
-	PersonalityData::clearData();
+	DateData::clearData();
 	ItemData::clearData();
 	FriendData::clearData();
 	AttributeData::clearData();
@@ -279,6 +297,8 @@ BaseData * BaseDataManager::getData(const string & dataSet, const string & id)
 {
 	if (dataSet == "ConditionData") {
 		return ConditionData::getConditionDataById(id);
+	} else if (dataSet == "PlotData") {
+		return PlotData::getPlotDataById(id);
 	} else if (dataSet == "ConditionCalculationData") {
 		return ConditionCalculationData::getConditionCalculationDataById(id);
 	} else if (dataSet == "FatherJobData") {
@@ -287,8 +307,8 @@ BaseData * BaseDataManager::getData(const string & dataSet, const string & id)
 		return PlayData::getPlayDataById(id);
 	} else if (dataSet == "StoryData") {
 		return StoryData::getStoryDataById(id);
-	} else if (dataSet == "PersonalityData") {
-		return PersonalityData::getPersonalityDataById(id);
+	} else if (dataSet == "DateData") {
+		return DateData::getDateDataById(id);
 	} else if (dataSet == "ItemData") {
 		return ItemData::getItemDataById(id);
 	} else if (dataSet == "ItemCategoryData") {
@@ -325,22 +345,23 @@ string BaseDataManager::getDataField(const string & dataSet, const string & id, 
 	auto data = getData(dataSet, id);
 	if (data != nullptr) {
 		return data->getFieldValue(fieldName);
-	} else if (dataSet == "ClassScheduleData") {
-		return ClassScheduleData::getClassSchedule(id, fieldName);
 	}
 	return "";
 }
 
 void BaseDataManager::setDataField(const string & dataSet, const string & id, const string & fieldName, const string & value)
 {
-	if (dataSet == "FatherJobData") {
+	if (dataSet == "PlotData") {
+		auto data = PlotData::getPlotDataById(id);
+		data->setFieldValue(fieldName, value);
+	} else if (dataSet == "FatherJobData") {
 		auto data = FatherJobData::getFatherJobDataById(id);
 		data->setFieldValue(fieldName, value);
 	} else if (dataSet == "StoryData") {
 		auto data = StoryData::getStoryDataById(id);
 		data->setFieldValue(fieldName, value);
-	} else if (dataSet == "PersonalityData") {
-		auto data = PersonalityData::getPersonalityDataById(id);
+	} else if (dataSet == "DateData") {
+		auto data = DateData::getDateDataById(id);
 		data->setFieldValue(fieldName, value);
 	} else if (dataSet == "ItemData") {
 		auto data = ItemData::getItemDataById(id);
@@ -372,6 +393,11 @@ vector<BaseData *> BaseDataManager::getDataList(const string & dataSet)
 		for (auto elem : *dataMap) {
 			result.push_back(elem.second);
 		}
+	} else if (dataSet == "PlotData") {
+		auto dataMap = PlotData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
 	} else if (dataSet == "ConditionCalculationData") {
 		auto dataMap = ConditionCalculationData::getSharedDictionary();
 		for (auto elem : *dataMap) {
@@ -392,8 +418,8 @@ vector<BaseData *> BaseDataManager::getDataList(const string & dataSet)
 		for (auto elem : *dataMap) {
 			result.push_back(elem.second);
 		}
-	} else if (dataSet == "PersonalityData") {
-		auto dataMap = PersonalityData::getSharedDictionary();
+	} else if (dataSet == "DateData") {
+		auto dataMap = DateData::getSharedDictionary();
 		for (auto elem : *dataMap) {
 			result.push_back(elem.second);
 		}

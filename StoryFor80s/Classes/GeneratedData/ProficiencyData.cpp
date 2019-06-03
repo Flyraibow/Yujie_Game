@@ -43,6 +43,44 @@ int ProficiencyData::getMaxValue() const
 	return p_maxValue;
 }
 
+vector<BaseData *> ProficiencyData::getAttributeDependOnList() const
+{
+	vector<BaseData *> v;
+	for (auto iter : p_attributeDependOnMap) {
+		AttributeData *data = AttributeData::getAttributeDataById(iter.first);
+		if (data != nullptr) {
+			v.push_back(data);
+		} else {
+			CCLOGWARN("Couldn't recognize %s as AttributeData in ProficiencyData", iter.first.c_str());
+		}
+	}
+	return v;
+}
+
+map<string, int> ProficiencyData::getAttributeDependOnMap() const
+{
+	return p_attributeDependOnMap;
+}
+
+vector<BaseData *> ProficiencyData::getProficiencyDependOnList() const
+{
+	vector<BaseData *> v;
+	for (auto iter : p_proficiencyDependOnMap) {
+		ProficiencyData *data = ProficiencyData::getProficiencyDataById(iter.first);
+		if (data != nullptr) {
+			v.push_back(data);
+		} else {
+			CCLOGWARN("Couldn't recognize %s as ProficiencyData in ProficiencyData", iter.first.c_str());
+		}
+	}
+	return v;
+}
+
+map<string, int> ProficiencyData::getProficiencyDependOnMap() const
+{
+	return p_proficiencyDependOnMap;
+}
+
 string ProficiencyData::description() const
 {
 	string desc = "proficiencyData = {\n";
@@ -50,6 +88,10 @@ string ProficiencyData::description() const
 	desc += "\tname : " + getName() + "\n";
 	desc += "\tvalue : " + to_string(p_value) + "\n";
 	desc += "\tmaxValue : " + to_string(p_maxValue) + "\n";
+	
+	desc += "\tattributeDependOn : " + to_string(p_attributeDependOnMap)+ "\n";
+	
+	desc += "\tproficiencyDependOn : " + to_string(p_proficiencyDependOnMap)+ "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -69,6 +111,18 @@ const map<string, ProficiencyData*>* ProficiencyData::getSharedDictionary()
 				proficiencyData->p_proficiencyId = buffer->getString();
 				proficiencyData->p_value = buffer->getInt();
 				proficiencyData->p_maxValue = buffer->getInt();
+				auto attributeDependOnCount = buffer->getLong();
+				for (int j = 0; j < attributeDependOnCount; ++j) {
+					auto key = buffer->getString();
+					auto val = buffer->getInt();
+					proficiencyData->p_attributeDependOnMap.insert(make_pair(key, val));
+				}
+				auto proficiencyDependOnCount = buffer->getLong();
+				for (int j = 0; j < proficiencyDependOnCount; ++j) {
+					auto key = buffer->getString();
+					auto val = buffer->getInt();
+					proficiencyData->p_proficiencyDependOnMap.insert(make_pair(key, val));
+				}
 				p_sharedDictionary->insert(pair<string, ProficiencyData*>(proficiencyData->p_proficiencyId, proficiencyData));
 			}
 		}
@@ -162,6 +216,10 @@ string ProficiencyData::getFieldValue(const string & fieldName) const
 		return to_string(this->getValue());
 	} else if (fieldName == "maxValue") {
 		return to_string(this->getMaxValue());
+	} else if (fieldName == "attributeDependOn") {
+		return to_string(this->getAttributeDependOnMap());
+	} else if (fieldName == "proficiencyDependOn") {
+		return to_string(this->getProficiencyDependOnMap());
 	}
 	CCLOGWARN("Couldn't recognize %s in ProficiencyData", fieldName.c_str());
 	return "";
@@ -175,7 +233,29 @@ BaseData* ProficiencyData::getDataByField(const string & fieldName) const
 
 vector<BaseData *> ProficiencyData::getFieldDataList(const string & fieldName) const
 {
+	if (fieldName == "attributeDependOn") {
+		return this->getAttributeDependOnList();
+	} else if (fieldName == "proficiencyDependOn") {
+		return this->getProficiencyDependOnList();
+	}
 	CCLOGWARN("Couldn't recognize %s in ProficiencyData", fieldName.c_str());
 	return vector<BaseData *>();
+}
+
+string ProficiencyData::getMapFieldValueWithKey(const string & fieldName, const string & key) const
+{
+	if (fieldName == "attributeDependOn") {
+		auto fieldMap = this->getAttributeDependOnMap();
+		if (fieldMap.count(key)) {
+			return to_string(fieldMap.at(key));
+		}
+	} else if (fieldName == "proficiencyDependOn") {
+		auto fieldMap = this->getProficiencyDependOnMap();
+		if (fieldMap.count(key)) {
+			return to_string(fieldMap.at(key));
+		}
+	}
+	CCLOGWARN("Couldn't recognize field: %s, key: %s in ProficiencyData", fieldName.c_str(), key.c_str());
+	return "";
 }
 

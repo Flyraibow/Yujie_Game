@@ -1,0 +1,9 @@
+{
+	"events": [
+		{
+			"__comment" : "打开剧情对话框",
+			"type" : "panel",
+			"name" : "storyPanel"
+		}
+	]
+}

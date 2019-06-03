@@ -11,34 +11,14 @@ using namespace Utils;
 
 GameData* GameData::p_sharedData = nullptr;
 
-int GameData::getYear() const
+DateData* GameData::getGameDateData() const
 {
-	return p_year;
+	return DateData::getDateDataById(p_gameDateId);
 }
 
-void GameData::setYear(int year)
+string GameData::getGameDateId() const
 {
-	p_year = year;
-}
-
-int GameData::getMonth() const
-{
-	return p_month;
-}
-
-void GameData::setMonth(int month)
-{
-	p_month = month;
-}
-
-int GameData::getDay() const
-{
-	return p_day;
-}
-
-void GameData::setDay(int day)
-{
-	p_day = day;
+	return p_gameDateId;
 }
 
 string GameData::getFirstName() const
@@ -61,34 +41,14 @@ void GameData::setLastName(string lastName)
 	p_lastName = lastName;
 }
 
-int GameData::getBirthDay() const
+DateData* GameData::getMyBirthDayData() const
 {
-	return p_birthDay;
+	return DateData::getDateDataById(p_myBirthDayId);
 }
 
-void GameData::setBirthDay(int birthDay)
+string GameData::getMyBirthDayId() const
 {
-	p_birthDay = birthDay;
-}
-
-int GameData::getBirthMonth() const
-{
-	return p_birthMonth;
-}
-
-void GameData::setBirthMonth(int birthMonth)
-{
-	p_birthMonth = birthMonth;
-}
-
-int GameData::getBirthYear() const
-{
-	return p_birthYear;
-}
-
-void GameData::setBirthYear(int birthYear)
-{
-	p_birthYear = birthYear;
+	return p_myBirthDayId;
 }
 
 FatherJobData* GameData::getParentJobData() const
@@ -121,16 +81,6 @@ void GameData::setSchoolId(string school)
 	p_schoolId = school;
 }
 
-int GameData::getWeekDay() const
-{
-	return p_weekDay;
-}
-
-void GameData::setWeekDay(int weekDay)
-{
-	p_weekDay = weekDay;
-}
-
 bool GameData::getHasWalked() const
 {
 	return p_hasWalked;
@@ -144,17 +94,12 @@ void GameData::setHasWalked(bool hasWalked)
 string GameData::description() const
 {
 	string desc = "gameData = {\n";
-	desc += "\tyear : " + to_string(p_year) + "\n";
-	desc += "\tmonth : " + to_string(p_month) + "\n";
-	desc += "\tday : " + to_string(p_day) + "\n";
+	desc += "\tgameDate : " + to_string(p_gameDateId) + "\n";
 	desc += "\tfirstName : " + to_string(p_firstName) + "\n";
 	desc += "\tlastName : " + to_string(p_lastName) + "\n";
-	desc += "\tbirthDay : " + to_string(p_birthDay) + "\n";
-	desc += "\tbirthMonth : " + to_string(p_birthMonth) + "\n";
-	desc += "\tbirthYear : " + to_string(p_birthYear) + "\n";
+	desc += "\tmyBirthDay : " + to_string(p_myBirthDayId) + "\n";
 	desc += "\tparentJob : " + to_string(p_parentJobId) + "\n";
 	desc += "\tschool : " + to_string(p_schoolId) + "\n";
-	desc += "\tweekDay : " + to_string(p_weekDay) + "\n";
 	desc += "\thasWalked : " + to_string(p_hasWalked) + "\n";
 	desc += "}\n";
 	return desc;
@@ -169,17 +114,12 @@ GameData* GameData::getSharedInstance()
 		if (!data.isNull()) {
 			auto bytes = data.getBytes();
 			auto buffer = std::make_unique<bb::ByteBuffer>(bytes, data.getSize());
-			p_sharedData->p_year = buffer->getInt();
-			p_sharedData->p_month = buffer->getInt();
-			p_sharedData->p_day = buffer->getInt();
+			p_sharedData->p_gameDateId = buffer->getString();
 			p_sharedData->p_firstName = buffer->getString();
 			p_sharedData->p_lastName = buffer->getString();
-			p_sharedData->p_birthDay = buffer->getInt();
-			p_sharedData->p_birthMonth = buffer->getInt();
-			p_sharedData->p_birthYear = buffer->getInt();
+			p_sharedData->p_myBirthDayId = buffer->getString();
 			p_sharedData->p_parentJobId = buffer->getString();
 			p_sharedData->p_schoolId = buffer->getString();
-			p_sharedData->p_weekDay = buffer->getInt();
 			p_sharedData->p_hasWalked = buffer->getChar();
 		}
 	}
@@ -191,29 +131,15 @@ bool GameData::saveData(const string & path)
 	auto filePath = path + "/GameData.dat";
 	auto data = GameData::getSharedInstance();
 	auto buffer = std::make_unique<bb::ByteBuffer>();
-	buffer->putInt(12);
-	buffer->putString("p_year");
-	buffer->putString(to_string(data->p_year));
-	buffer->putString("p_month");
-	buffer->putString(to_string(data->p_month));
-	buffer->putString("p_day");
-	buffer->putString(to_string(data->p_day));
+	buffer->putInt(5);
 	buffer->putString("p_firstName");
 	buffer->putString(to_string(data->p_firstName));
 	buffer->putString("p_lastName");
 	buffer->putString(to_string(data->p_lastName));
-	buffer->putString("p_birthDay");
-	buffer->putString(to_string(data->p_birthDay));
-	buffer->putString("p_birthMonth");
-	buffer->putString(to_string(data->p_birthMonth));
-	buffer->putString("p_birthYear");
-	buffer->putString(to_string(data->p_birthYear));
 	buffer->putString("p_parentJobId");
 	buffer->putString(to_string(data->p_parentJobId));
 	buffer->putString("p_schoolId");
 	buffer->putString(to_string(data->p_schoolId));
-	buffer->putString("p_weekDay");
-	buffer->putString(to_string(data->p_weekDay));
 	buffer->putString("p_hasWalked");
 	buffer->putString(to_string(data->p_hasWalked));
 	buffer->writeToFile(filePath);
@@ -233,28 +159,14 @@ bool GameData::loadData(const string & path)
 			string key = buffer->getString();
 			string value = buffer->getString();
 			if (data != nullptr) {
-				if (key == "p_year") {
-					data->p_year = atoi(value.c_str());
-				} else if (key == "p_month") {
-					data->p_month = atoi(value.c_str());
-				} else if (key == "p_day") {
-					data->p_day = atoi(value.c_str());
-				} else if (key == "p_firstName") {
+				if (key == "p_firstName") {
 					data->p_firstName = value;
 				} else if (key == "p_lastName") {
 					data->p_lastName = value;
-				} else if (key == "p_birthDay") {
-					data->p_birthDay = atoi(value.c_str());
-				} else if (key == "p_birthMonth") {
-					data->p_birthMonth = atoi(value.c_str());
-				} else if (key == "p_birthYear") {
-					data->p_birthYear = atoi(value.c_str());
 				} else if (key == "p_parentJobId") {
 					data->p_parentJobId = value;
 				} else if (key == "p_schoolId") {
 					data->p_schoolId = value;
-				} else if (key == "p_weekDay") {
-					data->p_weekDay = atoi(value.c_str());
 				} else if (key == "p_hasWalked") {
 					data->p_hasWalked = (atoi(value.c_str()) != 0);
 				}
@@ -275,28 +187,14 @@ bool GameData::clearData()
 
 void GameData::setFieldValue(const string & fieldName, const string & value)
 {
-	if (fieldName == "year") {
-		this->setYear(atoi(value.c_str()));
-	} else if (fieldName == "month") {
-		this->setMonth(atoi(value.c_str()));
-	} else if (fieldName == "day") {
-		this->setDay(atoi(value.c_str()));
-	} else if (fieldName == "firstName") {
+	if (fieldName == "firstName") {
 		this->setFirstName(value);
 	} else if (fieldName == "lastName") {
 		this->setLastName(value);
-	} else if (fieldName == "birthDay") {
-		this->setBirthDay(atoi(value.c_str()));
-	} else if (fieldName == "birthMonth") {
-		this->setBirthMonth(atoi(value.c_str()));
-	} else if (fieldName == "birthYear") {
-		this->setBirthYear(atoi(value.c_str()));
 	} else if (fieldName == "parentJob") {
 		this->setParentJobId(value);
 	} else if (fieldName == "school") {
 		this->setSchoolId(value);
-	} else if (fieldName == "weekDay") {
-		this->setWeekDay(atoi(value.c_str()));
 	} else if (fieldName == "hasWalked") {
 		this->setHasWalked((atoi(value.c_str()) != 0));
 	}
@@ -304,28 +202,18 @@ void GameData::setFieldValue(const string & fieldName, const string & value)
 
 string GameData::getFieldValue(const string & fieldName) const
 {
-	if (fieldName == "year") {
-		return to_string(this->getYear());
-	} else if (fieldName == "month") {
-		return to_string(this->getMonth());
-	} else if (fieldName == "day") {
-		return to_string(this->getDay());
+	if (fieldName == "gameDate") {
+		return to_string(this->getGameDateId());
 	} else if (fieldName == "firstName") {
 		return to_string(this->getFirstName());
 	} else if (fieldName == "lastName") {
 		return to_string(this->getLastName());
-	} else if (fieldName == "birthDay") {
-		return to_string(this->getBirthDay());
-	} else if (fieldName == "birthMonth") {
-		return to_string(this->getBirthMonth());
-	} else if (fieldName == "birthYear") {
-		return to_string(this->getBirthYear());
+	} else if (fieldName == "myBirthDay") {
+		return to_string(this->getMyBirthDayId());
 	} else if (fieldName == "parentJob") {
 		return to_string(this->getParentJobId());
 	} else if (fieldName == "school") {
 		return to_string(this->getSchoolId());
-	} else if (fieldName == "weekDay") {
-		return to_string(this->getWeekDay());
 	} else if (fieldName == "hasWalked") {
 		return to_string(this->getHasWalked());
 	}
@@ -335,7 +223,11 @@ string GameData::getFieldValue(const string & fieldName) const
 
 BaseData* GameData::getDataByField(const string & fieldName) const
 {
-	if (fieldName == "parentJob") {
+	if (fieldName == "gameDate") {
+		return this->getGameDateData();
+	} else if (fieldName == "myBirthDay") {
+		return this->getMyBirthDayData();
+	} else if (fieldName == "parentJob") {
 		return this->getParentJobData();
 	} else if (fieldName == "school") {
 		return this->getSchoolData();
