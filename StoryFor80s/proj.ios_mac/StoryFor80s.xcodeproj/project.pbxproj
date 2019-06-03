@@ -79,8 +79,6 @@
 		EC073BD3221A9B67006FDCE0 /* ItemCategoryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC073BB9221A9B67006FDCE0 /* ItemCategoryData.cpp */; };
 		EC073BD6221A9C05006FDCE0 /* InitialSetups.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC073BD4221A9C05006FDCE0 /* InitialSetups.cpp */; };
 		EC073BD7221A9C05006FDCE0 /* InitialSetups.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC073BD4221A9C05006FDCE0 /* InitialSetups.cpp */; };
-		EC0748D82246D3A6003CFCBD /* InteractionPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC0748D62246D3A6003CFCBD /* InteractionPanel.cpp */; };
-		EC0748D92246D3A6003CFCBD /* InteractionPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC0748D62246D3A6003CFCBD /* InteractionPanel.cpp */; };
 		EC0748DD22470008003CFCBD /* RefreshEventContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC0748DB22470008003CFCBD /* RefreshEventContent.cpp */; };
 		EC0748DE22470008003CFCBD /* RefreshEventContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC0748DB22470008003CFCBD /* RefreshEventContent.cpp */; };
 		EC0C56252221FBA80000C3E7 /* StoryManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC0C56232221FBA80000C3E7 /* StoryManager.cpp */; };
@@ -312,8 +310,6 @@
 		EC073BB9221A9B67006FDCE0 /* ItemCategoryData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ItemCategoryData.cpp; sourceTree = "<group>"; };
 		EC073BD4221A9C05006FDCE0 /* InitialSetups.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InitialSetups.cpp; sourceTree = "<group>"; };
 		EC073BD5221A9C05006FDCE0 /* InitialSetups.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InitialSetups.hpp; sourceTree = "<group>"; };
-		EC0748D62246D3A6003CFCBD /* InteractionPanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InteractionPanel.cpp; sourceTree = "<group>"; };
-		EC0748D72246D3A6003CFCBD /* InteractionPanel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InteractionPanel.hpp; sourceTree = "<group>"; };
 		EC0748DB22470008003CFCBD /* RefreshEventContent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RefreshEventContent.cpp; sourceTree = "<group>"; };
 		EC0748DC22470008003CFCBD /* RefreshEventContent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RefreshEventContent.hpp; sourceTree = "<group>"; };
 		EC0C56232221FBA80000C3E7 /* StoryManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoryManager.cpp; sourceTree = "<group>"; };
@@ -677,8 +673,6 @@
 			children = (
 				ECDF38D6222392DB003ED65B /* DialogPanel.cpp */,
 				ECDF38D7222392DB003ED65B /* DialogPanel.hpp */,
-				EC0748D62246D3A6003CFCBD /* InteractionPanel.cpp */,
-				EC0748D72246D3A6003CFCBD /* InteractionPanel.hpp */,
 				EC16303C22A48EAC0010C010 /* StoryPanel.cpp */,
 				EC16303D22A48EAC0010C010 /* StoryPanel.hpp */,
 				EC16304022A48EBB0010C010 /* DiaryPanel.cpp */,
@@ -1058,7 +1052,6 @@
 				ECBA50762213F1A000929BBA /* ConditionManager.cpp in Sources */,
 				EC073B9D221A9972006FDCE0 /* SpecialFunctions.cpp in Sources */,
 				EC073BC2221A9B67006FDCE0 /* ConditionData.cpp in Sources */,
-				EC0748D82246D3A6003CFCBD /* InteractionPanel.cpp in Sources */,
 				EC4F026F221FE48D0038EFCD /* StoryData.cpp in Sources */,
 				EC073BD6221A9C05006FDCE0 /* InitialSetups.cpp in Sources */,
 				EC298548227969C3007ECECD /* NewDataManager.cpp in Sources */,
@@ -1087,7 +1080,6 @@
 				EC848302221171FC001956DE /* BaseScene.cpp in Sources */,
 				EC073BD3221A9B67006FDCE0 /* ItemCategoryData.cpp in Sources */,
 				EC3CF0BA222B420F00E9DF38 /* SelectionEventContent.cpp in Sources */,
-				EC0748D92246D3A6003CFCBD /* InteractionPanel.cpp in Sources */,
 				EC84828322115812001956DE /* ByteBuffer.cpp in Sources */,
 				EC0C564522222FC30000C3E7 /* WaitEventContent.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
