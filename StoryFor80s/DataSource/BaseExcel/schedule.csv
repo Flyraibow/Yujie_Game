@@ -1,0 +1,6 @@
+﻿scheduleId,priority,condition,year,month,type,schoolStudy
+id,int,string,int,int,friend_id,friend_id
+string,-,-,-,-,ScheduleType,SchoolStudy
+writable,N,N,N,N,N,N
+test_first_school,1,TRUE,1994,9,SchoolStudy,chinese_pinyin
+test_first_school_1,2,TRUE,1994,9,SchoolStudy,math_add_minus

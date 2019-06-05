@@ -28,6 +28,11 @@ string ItemData::getName() const
 	return LocalizationHelper::getLocalization(localId);
 }
 
+string ItemData::getCondition() const
+{
+	return p_condition;
+}
+
 ItemCategoryData* ItemData::getCategoryData() const
 {
 	return ItemCategoryData::getItemCategoryDataById(p_categoryId);
@@ -43,14 +48,14 @@ int ItemData::getPrice() const
 	return p_price;
 }
 
-int ItemData::getNumber() const
+bool ItemData::getHaveIt() const
 {
-	return p_number;
+	return p_haveIt;
 }
 
-void ItemData::setNumber(int number)
+void ItemData::setHaveIt(bool haveIt)
 {
-	p_number = number;
+	p_haveIt = haveIt;
 }
 
 string ItemData::description() const
@@ -58,9 +63,10 @@ string ItemData::description() const
 	string desc = "itemData = {\n";
 	desc += "\titemId : " + to_string(p_itemId) + "\n";
 	desc += "\tname : " + getName() + "\n";
+	desc += "\tcondition : " + to_string(p_condition) + "\n";
 	desc += "\tcategory : " + to_string(p_categoryId) + "\n";
 	desc += "\tprice : " + to_string(p_price) + "\n";
-	desc += "\tnumber : " + to_string(p_number) + "\n";
+	desc += "\thaveIt : " + to_string(p_haveIt) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -78,9 +84,10 @@ const map<string, ItemData*>* ItemData::getSharedDictionary()
 			for (int i = 0; i < count; ++i) {
 				ItemData* itemData = new ItemData();
 				itemData->p_itemId = buffer->getString();
+				itemData->p_condition = buffer->getString();
 				itemData->p_categoryId = buffer->getString();
 				itemData->p_price = buffer->getInt();
-				itemData->p_number = buffer->getInt();
+				itemData->p_haveIt = buffer->getChar();
 				p_sharedDictionary->insert(pair<string, ItemData*>(itemData->p_itemId, itemData));
 			}
 		}
@@ -107,8 +114,8 @@ bool ItemData::saveData(const string & path)
 		auto dataId = iter->first;
 		auto data = iter->second;
 		buffer->putString(dataId);
-		buffer->putString("p_number");
-		buffer->putString(to_string(data->p_number));
+		buffer->putString("p_haveIt");
+		buffer->putString(to_string(data->p_haveIt));
 	}
 	buffer->writeToFile(filePath);
 	return true;
@@ -134,8 +141,8 @@ bool ItemData::loadData(const string & path)
 				string key = buffer->getString();
 				string value = buffer->getString();
 				if (data != nullptr) {
-					if (key == "p_number") {
-						data->p_number = atoi(value.c_str());
+					if (key == "p_haveIt") {
+						data->p_haveIt = (atoi(value.c_str()) != 0);
 					}
 				}
 			}
@@ -159,8 +166,8 @@ bool ItemData::clearData()
 
 void ItemData::setFieldValue(const string & fieldName, const string & value)
 {
-	if (fieldName == "number") {
-		this->setNumber(atoi(value.c_str()));
+	if (fieldName == "haveIt") {
+		this->setHaveIt((atoi(value.c_str()) != 0));
 	}
 }
 
@@ -170,12 +177,14 @@ string ItemData::getFieldValue(const string & fieldName) const
 		return to_string(this->getItemId());
 	} else if (fieldName == "name") {
 		return to_string(this->getName());
+	} else if (fieldName == "condition") {
+		return to_string(this->getCondition());
 	} else if (fieldName == "category") {
 		return to_string(this->getCategoryId());
 	} else if (fieldName == "price") {
 		return to_string(this->getPrice());
-	} else if (fieldName == "number") {
-		return to_string(this->getNumber());
+	} else if (fieldName == "haveIt") {
+		return to_string(this->getHaveIt());
 	}
 	CCLOGWARN("Couldn't recognize %s in ItemData", fieldName.c_str());
 	return "";

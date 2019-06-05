@@ -11,6 +11,7 @@ This file (BaseDataManager.cpp) is generated
 #include "StoryData.hpp"
 #include "DateData.hpp"
 #include "ItemData.hpp"
+#include "MyScheduleData.hpp"
 #include "FriendData.hpp"
 #include "AttributeData.hpp"
 #include "WorkData.hpp"
@@ -76,10 +77,34 @@ DateData* BaseDataManager::getDateDataById(const string& dateId)
 	return nullptr;
 }
 
+ScheduleTypeData* BaseDataManager::getScheduleTypeDataById(const string& scheduleTypeId)
+{
+	if (ScheduleTypeData::getSharedDictionary()->count(scheduleTypeId)) {
+		return ScheduleTypeData::getSharedDictionary()->at(scheduleTypeId);
+	}
+	return nullptr;
+}
+
 ItemData* BaseDataManager::getItemDataById(const string& itemId)
 {
 	if (ItemData::getSharedDictionary()->count(itemId)) {
 		return ItemData::getSharedDictionary()->at(itemId);
+	}
+	return nullptr;
+}
+
+MyScheduleData* BaseDataManager::getMyScheduleDataById(const string& myScheduleId)
+{
+	if (MyScheduleData::getSharedDictionary()->count(myScheduleId)) {
+		return MyScheduleData::getSharedDictionary()->at(myScheduleId);
+	}
+	return nullptr;
+}
+
+ScheduleData* BaseDataManager::getScheduleDataById(const string& scheduleId)
+{
+	if (ScheduleData::getSharedDictionary()->count(scheduleId)) {
+		return ScheduleData::getSharedDictionary()->at(scheduleId);
 	}
 	return nullptr;
 }
@@ -204,6 +229,10 @@ bool BaseDataManager::saveData(string fileName)
 		CCLOG("Failed to save ItemData, %s", path.c_str());
 		return false;
 	}
+	if (!MyScheduleData::saveData(path)) {
+		CCLOG("Failed to save MyScheduleData, %s", path.c_str());
+		return false;
+	}
 	if (!FriendData::saveData(path)) {
 		CCLOG("Failed to save FriendData, %s", path.c_str());
 		return false;
@@ -255,6 +284,10 @@ bool BaseDataManager::loadData(string fileName)
 		CCLOG("Failed to load ItemData, %s", path.c_str());
 		return false;
 	}
+	if (!MyScheduleData::loadData(path)) {
+		CCLOG("Failed to load MyScheduleData, %s", path.c_str());
+		return false;
+	}
 	if (!FriendData::loadData(path)) {
 		CCLOG("Failed to load FriendData, %s", path.c_str());
 		return false;
@@ -285,6 +318,7 @@ bool BaseDataManager::clearData()
 	StoryData::clearData();
 	DateData::clearData();
 	ItemData::clearData();
+	MyScheduleData::clearData();
 	FriendData::clearData();
 	AttributeData::clearData();
 	WorkData::clearData();
@@ -309,8 +343,14 @@ BaseData * BaseDataManager::getData(const string & dataSet, const string & id)
 		return StoryData::getStoryDataById(id);
 	} else if (dataSet == "DateData") {
 		return DateData::getDateDataById(id);
+	} else if (dataSet == "ScheduleTypeData") {
+		return ScheduleTypeData::getScheduleTypeDataById(id);
 	} else if (dataSet == "ItemData") {
 		return ItemData::getItemDataById(id);
+	} else if (dataSet == "MyScheduleData") {
+		return MyScheduleData::getMyScheduleDataById(id);
+	} else if (dataSet == "ScheduleData") {
+		return ScheduleData::getScheduleDataById(id);
 	} else if (dataSet == "ItemCategoryData") {
 		return ItemCategoryData::getItemCategoryDataById(id);
 	} else if (dataSet == "FriendData") {
@@ -365,6 +405,9 @@ void BaseDataManager::setDataField(const string & dataSet, const string & id, co
 		data->setFieldValue(fieldName, value);
 	} else if (dataSet == "ItemData") {
 		auto data = ItemData::getItemDataById(id);
+		data->setFieldValue(fieldName, value);
+	} else if (dataSet == "MyScheduleData") {
+		auto data = MyScheduleData::getMyScheduleDataById(id);
 		data->setFieldValue(fieldName, value);
 	} else if (dataSet == "FriendData") {
 		auto data = FriendData::getFriendDataById(id);
@@ -423,8 +466,23 @@ vector<BaseData *> BaseDataManager::getDataList(const string & dataSet)
 		for (auto elem : *dataMap) {
 			result.push_back(elem.second);
 		}
+	} else if (dataSet == "ScheduleTypeData") {
+		auto dataMap = ScheduleTypeData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
 	} else if (dataSet == "ItemData") {
 		auto dataMap = ItemData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else if (dataSet == "MyScheduleData") {
+		auto dataMap = MyScheduleData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else if (dataSet == "ScheduleData") {
+		auto dataMap = ScheduleData::getSharedDictionary();
 		for (auto elem : *dataMap) {
 			result.push_back(elem.second);
 		}

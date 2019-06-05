@@ -6,7 +6,6 @@ This file (PlotData.hpp) is generated
 #include <map>
 #include "BaseData.h"
 #include <vector>
-#include "DateData.hpp"
 #include "PlotData.hpp"
 
 
@@ -17,7 +16,8 @@ private:
 	string p_plotId;
 	int p_priority;
 	string p_condition;
-	string p_dateId;
+	int p_year;
+	int p_month;
 	bool p_repeatable;
 	bool p_experienced;
 	string p_plotStory;
@@ -29,8 +29,8 @@ public:
 	string getPlotId() const;
 	int getPriority() const;
 	string getCondition() const;
-	DateData* getDateData() const;
-	string getDateId() const;
+	int getYear() const;
+	int getMonth() const;
 	bool getRepeatable() const;
 	bool getExperienced() const;
 	void setExperienced(bool experienced);

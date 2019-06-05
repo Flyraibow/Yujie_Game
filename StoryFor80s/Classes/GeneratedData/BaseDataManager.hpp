@@ -10,7 +10,10 @@ This file (BaseDataManager.hpp) is generated
 #include "PlayData.hpp"
 #include "StoryData.hpp"
 #include "DateData.hpp"
+#include "ScheduleTypeData.hpp"
 #include "ItemData.hpp"
+#include "MyScheduleData.hpp"
+#include "ScheduleData.hpp"
 #include "ItemCategoryData.hpp"
 #include "FriendData.hpp"
 #include "ParentChatData.hpp"
@@ -36,7 +39,10 @@ public:
 	static PlayData* getPlayDataById(const string& playId);
 	static StoryData* getStoryDataById(const string& storyId);
 	static DateData* getDateDataById(const string& dateId);
+	static ScheduleTypeData* getScheduleTypeDataById(const string& scheduleTypeId);
 	static ItemData* getItemDataById(const string& itemId);
+	static MyScheduleData* getMyScheduleDataById(const string& myScheduleId);
+	static ScheduleData* getScheduleDataById(const string& scheduleId);
 	static ItemCategoryData* getItemCategoryDataById(const string& itemCategoryId);
 	static FriendData* getFriendDataById(const string& friendId);
 	static ParentChatData* getParentChatDataById(const string& chatId);

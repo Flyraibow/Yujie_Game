@@ -1,0 +1,9 @@
+﻿scheduleTypeId,name,selectable
+id,language,bool
+string,chinese,-
+writable,N,N
+sleep,休息,1
+schoolStudy,学校学习,0
+selfStudy,自学,1
+play,娱乐,1
+work,打工,1

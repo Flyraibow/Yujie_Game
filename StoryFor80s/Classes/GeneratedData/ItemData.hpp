@@ -13,18 +13,20 @@ class ItemData: public BaseData
 private:
 	static map<string, ItemData*>* p_sharedDictionary;
 	string p_itemId;
+	string p_condition;
 	string p_categoryId;
 	int p_price;
-	int p_number;
+	bool p_haveIt;
 public:
 	string getId() const;
 	string getItemId() const;
 	string getName() const;
+	string getCondition() const;
 	ItemCategoryData* getCategoryData() const;
 	string getCategoryId() const;
 	int getPrice() const;
-	int getNumber() const;
-	void setNumber(int number);
+	bool getHaveIt() const;
+	void setHaveIt(bool haveIt);
 	string description() const;
 	static const map<string, ItemData*>* getSharedDictionary();
 	static ItemData* getItemDataById(const string& itemId);

@@ -25,8 +25,6 @@ struct sort_plot_by_priority
 vector<PlotData *> findPlotsInThisMonth()
 {
   auto currentDate = GameData::getSharedInstance()->getGameDateData();
-  auto currentDateValue = currentDate->getYear() * 10000+currentDate->getMonth() * 100 + currentDate->getDay();
-  auto nextDateValue = currentDateValue + 100;
   auto allPlots = PlotData::getSharedDictionary();
   vector<PlotData *> results;
   for(auto it = allPlots->begin(); it != allPlots->end(); ++it) {
@@ -37,12 +35,11 @@ vector<PlotData *> findPlotsInThisMonth()
     if (!Manager::checkConditionByString(plot->getCondition())) {
       continue;
     }
-    auto plotDate = plot->getDateData();
-    if (plotDate == nullptr) {
+    auto plotYear = plot->getYear();
+    if (plotYear == 0) {
       results.push_back(plot);
     } else {
-      auto dateValue = plotDate->getYear() * 10000+plotDate->getMonth() * 100 + plotDate->getDay();
-      if (dateValue >= currentDateValue && dateValue < nextDateValue) {
+      if (currentDate->getYear() == plotYear && currentDate->getMonth() == plot->getMonth()) {
         results.push_back(plot);
       }
     }

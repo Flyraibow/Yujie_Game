@@ -32,14 +32,14 @@ string PlotData::getCondition() const
 	return p_condition;
 }
 
-DateData* PlotData::getDateData() const
+int PlotData::getYear() const
 {
-	return DateData::getDateDataById(p_dateId);
+	return p_year;
 }
 
-string PlotData::getDateId() const
+int PlotData::getMonth() const
 {
-	return p_dateId;
+	return p_month;
 }
 
 bool PlotData::getRepeatable() const
@@ -98,7 +98,8 @@ string PlotData::description() const
 	desc += "\tplotId : " + to_string(p_plotId) + "\n";
 	desc += "\tpriority : " + to_string(p_priority) + "\n";
 	desc += "\tcondition : " + to_string(p_condition) + "\n";
-	desc += "\tdate : " + to_string(p_dateId) + "\n";
+	desc += "\tyear : " + to_string(p_year) + "\n";
+	desc += "\tmonth : " + to_string(p_month) + "\n";
 	desc += "\trepeatable : " + to_string(p_repeatable) + "\n";
 	desc += "\texperienced : " + to_string(p_experienced) + "\n";
 	desc += "\tplotStory : " + to_string(p_plotStory) + "\n";
@@ -125,7 +126,8 @@ const map<string, PlotData*>* PlotData::getSharedDictionary()
 				plotData->p_plotId = buffer->getString();
 				plotData->p_priority = buffer->getInt();
 				plotData->p_condition = buffer->getString();
-				plotData->p_dateId = buffer->getString();
+				plotData->p_year = buffer->getInt();
+				plotData->p_month = buffer->getInt();
 				plotData->p_repeatable = buffer->getChar();
 				plotData->p_experienced = buffer->getChar();
 				plotData->p_plotStory = buffer->getString();
@@ -232,8 +234,10 @@ string PlotData::getFieldValue(const string & fieldName) const
 		return to_string(this->getPriority());
 	} else if (fieldName == "condition") {
 		return to_string(this->getCondition());
-	} else if (fieldName == "date") {
-		return to_string(this->getDateId());
+	} else if (fieldName == "year") {
+		return to_string(this->getYear());
+	} else if (fieldName == "month") {
+		return to_string(this->getMonth());
 	} else if (fieldName == "repeatable") {
 		return to_string(this->getRepeatable());
 	} else if (fieldName == "experienced") {
@@ -255,9 +259,6 @@ string PlotData::getFieldValue(const string & fieldName) const
 
 BaseData* PlotData::getDataByField(const string & fieldName) const
 {
-	if (fieldName == "date") {
-		return this->getDateData();
-	}
 	CCLOGWARN("Couldn't recognize %s in PlotData", fieldName.c_str());
 	return nullptr;
 }
