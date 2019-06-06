@@ -38,14 +38,14 @@ int PlayData::getExpense() const
 	return p_expense;
 }
 
-ProficiencyData* PlayData::getProficienceIdData() const
+ProficiencyData* PlayData::getProficienceData() const
 {
-	return ProficiencyData::getProficiencyDataById(p_proficienceIdId);
+	return ProficiencyData::getProficiencyDataById(p_proficienceId);
 }
 
-string PlayData::getProficienceIdId() const
+string PlayData::getProficienceId() const
 {
-	return p_proficienceIdId;
+	return p_proficienceId;
 }
 
 int PlayData::getAddProficiency() const
@@ -85,7 +85,7 @@ string PlayData::description() const
 	desc += "\tname : " + getName() + "\n";
 	desc += "\tcondition : " + to_string(p_condition) + "\n";
 	desc += "\texpense : " + to_string(p_expense) + "\n";
-	desc += "\tproficienceId : " + to_string(p_proficienceIdId) + "\n";
+	desc += "\tproficience : " + to_string(p_proficienceId) + "\n";
 	desc += "\taddProficiency : " + to_string(p_addProficiency) + "\n";
 	desc += "\tdescription : " + getDescription() + "\n";
 	
@@ -109,7 +109,7 @@ const map<string, PlayData*>* PlayData::getSharedDictionary()
 				playData->p_playId = buffer->getString();
 				playData->p_condition = buffer->getString();
 				playData->p_expense = buffer->getInt();
-				playData->p_proficienceIdId = buffer->getString();
+				playData->p_proficienceId = buffer->getString();
 				playData->p_addProficiency = buffer->getInt();
 				auto attributeChangeCount = buffer->getLong();
 				for (int j = 0; j < attributeChangeCount; ++j) {
@@ -142,8 +142,8 @@ string PlayData::getFieldValue(const string & fieldName) const
 		return to_string(this->getCondition());
 	} else if (fieldName == "expense") {
 		return to_string(this->getExpense());
-	} else if (fieldName == "proficienceId") {
-		return to_string(this->getProficienceIdId());
+	} else if (fieldName == "proficience") {
+		return to_string(this->getProficienceId());
 	} else if (fieldName == "addProficiency") {
 		return to_string(this->getAddProficiency());
 	} else if (fieldName == "description") {
@@ -157,8 +157,8 @@ string PlayData::getFieldValue(const string & fieldName) const
 
 BaseData* PlayData::getDataByField(const string & fieldName) const
 {
-	if (fieldName == "proficienceId") {
-		return this->getProficienceIdData();
+	if (fieldName == "proficience") {
+		return this->getProficienceData();
 	}
 	CCLOGWARN("Couldn't recognize %s in PlayData", fieldName.c_str());
 	return nullptr;

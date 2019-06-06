@@ -1,4 +1,4 @@
-﻿playId,name,condition,expense,proficienceId,addProficiency,description,attributeChange
+﻿playId,name,condition,expense,proficience,addProficiency,description,attributeChange
 id,language,string,int,friend_id,int,language,friend_id_map
 string,chinese,-,-,Proficiency,-,chinese,Attribute;int
 writable,N,N,N,N,N,N,N

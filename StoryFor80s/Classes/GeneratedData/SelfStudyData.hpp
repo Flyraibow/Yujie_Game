@@ -15,7 +15,7 @@ private:
 	static map<string, SelfStudyData*>* p_sharedDictionary;
 	string p_selfStudyId;
 	string p_condition;
-	string p_proficiencyIdId;
+	string p_proficiencyId;
 	int p_addProficiency;
 	map<string, int> p_attributeChangeMap;
 public:
@@ -23,8 +23,8 @@ public:
 	string getSelfStudyId() const;
 	string getName() const;
 	string getCondition() const;
-	ProficiencyData* getProficiencyIdData() const;
-	string getProficiencyIdId() const;
+	ProficiencyData* getProficiencyData() const;
+	string getProficiencyId() const;
 	int getAddProficiency() const;
 	string getDescription() const;
 	vector<BaseData *> getAttributeChangeList() const;

@@ -1,4 +1,4 @@
-﻿actionId,name,condition,baseSalary,realSalary,proficiencyId,addProficiency,attributeChange,personalityChange,description
+﻿actionId,name,condition,baseSalary,realSalary,proficiency,addProficiency,attributeChange,personalityChange,description
 id,language,string,int,int,friend_id,int,friend_id_map,friend_id_map,language
 string,chinese,-,-,-,Proficiency,-,Attribute;int,Personality;int,chinese
 writable,N,N,N,Y,N,N,N,N,N

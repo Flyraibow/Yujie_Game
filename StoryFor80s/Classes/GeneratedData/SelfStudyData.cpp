@@ -33,14 +33,14 @@ string SelfStudyData::getCondition() const
 	return p_condition;
 }
 
-ProficiencyData* SelfStudyData::getProficiencyIdData() const
+ProficiencyData* SelfStudyData::getProficiencyData() const
 {
-	return ProficiencyData::getProficiencyDataById(p_proficiencyIdId);
+	return ProficiencyData::getProficiencyDataById(p_proficiencyId);
 }
 
-string SelfStudyData::getProficiencyIdId() const
+string SelfStudyData::getProficiencyId() const
 {
-	return p_proficiencyIdId;
+	return p_proficiencyId;
 }
 
 int SelfStudyData::getAddProficiency() const
@@ -79,7 +79,7 @@ string SelfStudyData::description() const
 	desc += "\tselfStudyId : " + to_string(p_selfStudyId) + "\n";
 	desc += "\tname : " + getName() + "\n";
 	desc += "\tcondition : " + to_string(p_condition) + "\n";
-	desc += "\tproficiencyId : " + to_string(p_proficiencyIdId) + "\n";
+	desc += "\tproficiency : " + to_string(p_proficiencyId) + "\n";
 	desc += "\taddProficiency : " + to_string(p_addProficiency) + "\n";
 	desc += "\tdescription : " + getDescription() + "\n";
 	
@@ -102,7 +102,7 @@ const map<string, SelfStudyData*>* SelfStudyData::getSharedDictionary()
 				SelfStudyData* selfStudyData = new SelfStudyData();
 				selfStudyData->p_selfStudyId = buffer->getString();
 				selfStudyData->p_condition = buffer->getString();
-				selfStudyData->p_proficiencyIdId = buffer->getString();
+				selfStudyData->p_proficiencyId = buffer->getString();
 				selfStudyData->p_addProficiency = buffer->getInt();
 				auto attributeChangeCount = buffer->getLong();
 				for (int j = 0; j < attributeChangeCount; ++j) {
@@ -133,8 +133,8 @@ string SelfStudyData::getFieldValue(const string & fieldName) const
 		return to_string(this->getName());
 	} else if (fieldName == "condition") {
 		return to_string(this->getCondition());
-	} else if (fieldName == "proficiencyId") {
-		return to_string(this->getProficiencyIdId());
+	} else if (fieldName == "proficiency") {
+		return to_string(this->getProficiencyId());
 	} else if (fieldName == "addProficiency") {
 		return to_string(this->getAddProficiency());
 	} else if (fieldName == "description") {
@@ -148,8 +148,8 @@ string SelfStudyData::getFieldValue(const string & fieldName) const
 
 BaseData* SelfStudyData::getDataByField(const string & fieldName) const
 {
-	if (fieldName == "proficiencyId") {
-		return this->getProficiencyIdData();
+	if (fieldName == "proficiency") {
+		return this->getProficiencyData();
 	}
 	CCLOGWARN("Couldn't recognize %s in SelfStudyData", fieldName.c_str());
 	return nullptr;

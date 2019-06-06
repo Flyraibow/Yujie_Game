@@ -1,0 +1,201 @@
+{
+ 	"type": "color_node",
+ 	"id": "color_node",
+	"backgroundColor" : "alpha_black",
+  "comment" : "logic is inside the cpp files",
+	"components" : [
+		{
+	      "type": "sprite",
+	      "id": "story_panel",
+	      "size": {
+	      	"width": 1500,
+	      	"height": 800
+	      },
+	      "color": [199,178,153],
+	      "normalized_position": [0.5, 0.5],
+	      "anchor_point": [0.5, 0.5],
+        "components" : [
+          {
+            "type": "button",
+            "id": "button_close",
+            "text": "translation.sys_close",
+            "normalized_position": [0.5, 0.05],
+            "storyId" : "popPanel"
+          },
+          {
+            "type": "sprite",
+            "id": "story_panel",
+            "size": {
+              "width": 540,
+              "height": 600
+            },
+            "color": [129,178,50],
+            "normalized_position": [0.2, 0.5],
+            "anchor_point": [0.5, 0.5],
+            "components" : [
+              {
+                "type": "label",
+                "text": "本月安排事项",
+                "normalized_position": [0.5, 0.95],
+                "anchor_point": [0.5, 1],
+                "text_size": 40
+              },
+              {
+                "type": "sprite",
+                "id": "practice_selected_1",
+                "size": {
+                  "width": 480,
+                  "height": 60
+                },
+                "color": [199,178,50],
+                "normalized_position": [0.5, 0.78],
+                "anchor_point": [0.5, 0.5],
+                "components" : [
+                  {
+                    "type": "label",
+                    "id": "practice_selected_lab_1",
+                    "text": "学习 数学知识 熟练度 4/1000",
+                    "normalized_position": [0.01, 0.5],
+                    "anchor_point": [0, 0.5],
+                    "text_size": 30
+                  }
+                ]
+              },
+              {
+                "type": "sprite",
+                "id": "practice_selected_2",
+                "size": {
+                  "width": 480,
+                  "height": 60
+                },
+                "color": [199,178,50],
+                "normalized_position": [0.5, 0.61],
+                "anchor_point": [0.5, 0.5],
+                "components" : [
+                  {
+                    "type": "label",
+                    "id": "practice_selected_lab_2",
+                    "text": "打工 做家务 熟练度 4/1000",
+                    "normalized_position": [0.01, 0.5],
+                    "anchor_point": [0, 0.5],
+                    "text_size": 30
+                  }
+                ]
+              },
+              {
+                "type": "sprite",
+                "id": "practice_selected_3",
+                "size": {
+                  "width": 480,
+                  "height": 60
+                },
+                "color": [199,178,50],
+                "normalized_position": [0.5, 0.44],
+                "anchor_point": [0.5, 0.5],
+                "components" : [
+                  {
+                    "type": "label",
+                    "id": "practice_selected_lab_3",
+                    "text": "玩 大航海时代 熟练度 4/1000",
+                    "normalized_position": [0.01, 0.5],
+                    "anchor_point": [0, 0.5],
+                    "text_size": 30
+                  }
+                ]
+              },
+              {
+                "type": "sprite",
+                "id": "practice_selected_4",
+                "size": {
+                  "width": 480,
+                  "height": 60
+                },
+                "color": [199,178,50],
+                "normalized_position": [0.5, 0.27],
+                "anchor_point": [0.5, 0.5],
+                "components" : [
+                  {
+                    "type": "label",
+                    "id": "practice_selected_lab_4",
+                    "text": "作品 钢琴曲 完成度 345/1000",
+                    "normalized_position": [0.01, 0.5],
+                    "anchor_point": [0, 0.5],
+                    "text_size": 30
+                  }
+                ]
+              },
+              {
+                "type": "sprite",
+                "id": "practice_selected_5",
+                "size": {
+                  "width": 480,
+                  "height": 60
+                },
+                "color": [199,178,50],
+                "normalized_position": [0.5, 0.1],
+                "anchor_point": [0.5, 0.5],
+                "components" : [
+                  {
+                    "type": "label",
+                    "id": "practice_selected_lab_5",
+                    "text": "休息",
+                    "normalized_position": [0.01, 0.5],
+                    "anchor_point": [0, 0.5],
+                    "text_size": 30
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "sprite",
+            "id": "story_panel",
+            "size": {
+              "width": 800,
+              "height": 600
+            },
+            "color": [199,178,50],
+            "normalized_position": [0.7, 0.5],
+            "anchor_point": [0.5, 0.5],
+            "components" : [
+              {
+                "type": "button",
+                "id": "button_study",
+                "text": "学习",
+                "normalized_position": [0.2, 0.95]
+              },
+              {
+                "type": "button",
+                "id": "button_work",
+                "text": "打工",
+                "normalized_position": [0.4, 0.95]
+              },
+              {
+                "type": "button",
+                "id": "button_play",
+                "text": "娱乐",
+                "normalized_position": [0.6, 0.95]
+              },
+              {
+                "type": "button",
+                "id": "button_creation",
+                "text": "作品",
+                "normalized_position": [0.8, 0.95]
+              },
+              {
+                "type": "sprite",
+                "id": "story_panel",
+                "size": {
+                  "width": 750,
+                  "height": 500
+                },
+                "color": [199,20,50],
+                "normalized_position": [0.5, 0.45],
+                "anchor_point": [0.5, 0.5]
+              }
+            ]
+          }
+        ]
+	    }
+	]
+}

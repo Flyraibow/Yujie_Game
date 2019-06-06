@@ -12,6 +12,7 @@
 #include "BaseGlobalDataManager.hpp"
 #include "DialogPanel.hpp"
 #include "StoryPanel.hpp"
+#include "DiaryPanel.hpp"
 
 void story::setupForThisGame()
 {
@@ -22,4 +23,5 @@ void story::setupForThisGame()
   StoryManager::registerSpecialEventFunction("load", &game::load);
   PanelManager::registerPanel<DialogPanel>("dialogPanel");
   PanelManager::registerPanel<StoryPanel>("storyPanel");
+  PanelManager::registerPanel<DiaryPanel>("diaryPanel");
 }

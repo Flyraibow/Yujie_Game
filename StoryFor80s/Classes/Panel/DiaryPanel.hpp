@@ -8,6 +8,15 @@
 #ifndef DiaryPanel_hpp
 #define DiaryPanel_hpp
 
-#include <stdio.h>
+#include "BasePanel.hpp"
+
+class DiaryPanel : public BasePanel
+{
+private:
+public:
+  static BasePanel* createPanel();
+  DiaryPanel();
+  void initialize();
+};
 
 #endif /* DiaryPanel_hpp */

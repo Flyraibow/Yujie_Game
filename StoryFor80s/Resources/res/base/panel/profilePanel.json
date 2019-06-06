@@ -8,7 +8,7 @@
 	      "id": "profile_panel",
 	      "size": {
 	      	"width": 800,
-	      	"height": 800
+	      	"height": 600
 	      },
 	      "color": [199,178,153],
 	      "normalized_position": [0.5, 0.5],

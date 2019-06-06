@@ -48,14 +48,14 @@ void WorkData::setRealSalary(int realSalary)
 	p_realSalary = realSalary;
 }
 
-ProficiencyData* WorkData::getProficiencyIdData() const
+ProficiencyData* WorkData::getProficiencyData() const
 {
-	return ProficiencyData::getProficiencyDataById(p_proficiencyIdId);
+	return ProficiencyData::getProficiencyDataById(p_proficiencyId);
 }
 
-string WorkData::getProficiencyIdId() const
+string WorkData::getProficiencyId() const
 {
-	return p_proficiencyIdId;
+	return p_proficiencyId;
 }
 
 int WorkData::getAddProficiency() const
@@ -115,7 +115,7 @@ string WorkData::description() const
 	desc += "\tcondition : " + to_string(p_condition) + "\n";
 	desc += "\tbaseSalary : " + to_string(p_baseSalary) + "\n";
 	desc += "\trealSalary : " + to_string(p_realSalary) + "\n";
-	desc += "\tproficiencyId : " + to_string(p_proficiencyIdId) + "\n";
+	desc += "\tproficiency : " + to_string(p_proficiencyId) + "\n";
 	desc += "\taddProficiency : " + to_string(p_addProficiency) + "\n";
 	
 	desc += "\tattributeChange : " + to_string(p_attributeChangeMap)+ "\n";
@@ -142,7 +142,7 @@ const map<string, WorkData*>* WorkData::getSharedDictionary()
 				workData->p_condition = buffer->getString();
 				workData->p_baseSalary = buffer->getInt();
 				workData->p_realSalary = buffer->getInt();
-				workData->p_proficiencyIdId = buffer->getString();
+				workData->p_proficiencyId = buffer->getString();
 				workData->p_addProficiency = buffer->getInt();
 				auto attributeChangeCount = buffer->getLong();
 				for (int j = 0; j < attributeChangeCount; ++j) {
@@ -251,8 +251,8 @@ string WorkData::getFieldValue(const string & fieldName) const
 		return to_string(this->getBaseSalary());
 	} else if (fieldName == "realSalary") {
 		return to_string(this->getRealSalary());
-	} else if (fieldName == "proficiencyId") {
-		return to_string(this->getProficiencyIdId());
+	} else if (fieldName == "proficiency") {
+		return to_string(this->getProficiencyId());
 	} else if (fieldName == "addProficiency") {
 		return to_string(this->getAddProficiency());
 	} else if (fieldName == "attributeChange") {
@@ -268,8 +268,8 @@ string WorkData::getFieldValue(const string & fieldName) const
 
 BaseData* WorkData::getDataByField(const string & fieldName) const
 {
-	if (fieldName == "proficiencyId") {
-		return this->getProficiencyIdData();
+	if (fieldName == "proficiency") {
+		return this->getProficiencyData();
 	}
 	CCLOGWARN("Couldn't recognize %s in WorkData", fieldName.c_str());
 	return nullptr;

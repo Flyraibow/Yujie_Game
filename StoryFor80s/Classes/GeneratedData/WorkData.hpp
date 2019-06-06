@@ -18,7 +18,7 @@ private:
 	string p_condition;
 	int p_baseSalary;
 	int p_realSalary;
-	string p_proficiencyIdId;
+	string p_proficiencyId;
 	int p_addProficiency;
 	map<string, int> p_attributeChangeMap;
 	map<string, int> p_personalityChangeMap;
@@ -30,8 +30,8 @@ public:
 	int getBaseSalary() const;
 	int getRealSalary() const;
 	void setRealSalary(int realSalary);
-	ProficiencyData* getProficiencyIdData() const;
-	string getProficiencyIdId() const;
+	ProficiencyData* getProficiencyData() const;
+	string getProficiencyId() const;
 	int getAddProficiency() const;
 	vector<BaseData *> getAttributeChangeList() const;
 	map<string, int> getAttributeChangeMap() const;

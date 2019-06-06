@@ -16,7 +16,7 @@ private:
 	string p_playId;
 	string p_condition;
 	int p_expense;
-	string p_proficienceIdId;
+	string p_proficienceId;
 	int p_addProficiency;
 	map<string, int> p_attributeChangeMap;
 public:
@@ -25,8 +25,8 @@ public:
 	string getName() const;
 	string getCondition() const;
 	int getExpense() const;
-	ProficiencyData* getProficienceIdData() const;
-	string getProficienceIdId() const;
+	ProficiencyData* getProficienceData() const;
+	string getProficienceId() const;
 	int getAddProficiency() const;
 	string getDescription() const;
 	vector<BaseData *> getAttributeChangeList() const;

@@ -75,9 +75,15 @@
      },
      {
        "type": "button",
-       "text": "开始安排",
+       "text": "出发",
        "normalized_position": [0.45, 0.05],
        "storyId" : "action/startStory"
+     },
+     {
+       "type": "button",
+       "text": "安排",
+       "normalized_position": [0.55, 0.05],
+       "storyId" : "action/arrange"
      }
 	]
 }

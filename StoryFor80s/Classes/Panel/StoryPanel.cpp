@@ -13,6 +13,7 @@
 #include "SceneManager.hpp"
 #include "ConditionManager.hpp"
 #include "StoryManager.hpp"
+#include "DiaryPanel.hpp"
 
 struct sort_plot_by_priority
 {
@@ -59,7 +60,7 @@ StoryPanel::StoryPanel() : BasePanel("storyPanel")
 
 void StoryPanel::initialize()
 {
-  // TODO: 1. collect what will happen during this period of time
+  // 1. collect what will happen during this period of time
   // 2. start to deal with the scenario 1 by 1
   p_plots = findPlotsInThisMonth();
   p_currentPlotIndex = 0;
@@ -74,6 +75,8 @@ void StoryPanel::nextPlot()
     startPlot(plot);
   } else {
     SceneManager::getShareInstance()->popPanel();
+    // 打开diarypanel
+    SceneManager::getShareInstance()->addPanel("diaryPanel");
   }
 }
 

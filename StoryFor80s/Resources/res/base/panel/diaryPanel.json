@@ -1,0 +1,38 @@
+{
+ 	"type": "color_node",
+ 	"id": "color_node",
+	"backgroundColor" : "alpha_black",
+  "comment" : "logic is inside the cpp files",
+	"components" : [
+		{
+	      "type": "sprite",
+	      "id": "story_panel",
+	      "size": {
+	      	"width": 1000,
+	      	"height": 800
+	      },
+	      "color": [199,178,153],
+	      "normalized_position": [0.5, 0.5],
+	      "anchor_point": [0.5, 0.5],
+        "components" : [
+          {
+            "type": "label",
+            "id": "lab_text",
+            "text": "",
+            "normalized_position": [0.05, 0.80],
+            "anchor_point": [0, 1],
+            "normalized_dimensions": [0.93, 0],
+            "text_size": 32,
+            "speed": 5
+          },
+          {
+            "type": "button",
+            "id": "button_next",
+            "text": "translation.sys_close",
+            "normalized_position": [0.5, 0.05],
+            "storyId" : "popPanel"
+          }
+        ]
+	    }
+	]
+}
