@@ -49,7 +49,8 @@ protected:
   Vec2 getVec2FromStringVec2(const vector<string> &list) const;
 public:
   BaseComponent(const nlohmann::json &componentJson);
-  virtual ~BaseComponent() {};
+  virtual ~BaseComponent();
+  void setId(const string &id) {p_id = id;};
   void addNodeToParent(ComponentDict &dict, Node *child, Node *parent);
   void remove(ComponentDict &dict);
   virtual Node *addComponentToParent(ComponentDict &dict, Node *parent = nullptr) = 0;
@@ -62,10 +63,13 @@ public:
    * It will create real component by type
    */
   static BaseComponent* getComponentFromJson(const nlohmann::json &componentJson);
+  static BaseComponent* getComponentFromJsonFile(const std::string &jsonFileName);
   static vector<BaseComponent *> getComponentsFromJson(const nlohmann::json &componentJson);
 
   virtual void copyAttributesFromJson(const nlohmann::json &componentJson);
   void setAssociateData(BaseData *baseData);
+  BaseData * getAssociateData() {return p_associateData;};
+  BaseComponent* getChildComponentById(const string &childComponentId);
 };
 
 #endif /* BaseComponent_hpp */

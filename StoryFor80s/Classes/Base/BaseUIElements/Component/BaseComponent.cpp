@@ -8,6 +8,7 @@
 #include "JsonUtil.hpp"
 #include "DataManager.hpp"
 #include "Utils.hpp"
+#include "JSONContent.hpp"
 
 std::string BaseComponent::getId() const
 {
@@ -36,6 +37,15 @@ BaseComponent::BaseComponent(const nlohmann::json &componentJson)
   p_scale = Utils::getFloatFromJson(componentJson, "scale", 1.0);
   p_isFullScreen = Utils::getBoolFromJson(componentJson, "full_screen");
   p_node = nullptr;
+}
+
+BaseComponent::~BaseComponent()
+{
+  if (p_node != nullptr && p_node->getParent() != nullptr) {
+    p_node->removeFromParent();
+    p_node = nullptr;
+  }
+  p_associateData = nullptr;
 }
 
 Size BaseComponent::getComponentSize(Node *parent) const
@@ -161,6 +171,14 @@ BaseComponent* BaseComponent::getComponentFromJson(const nlohmann::json &compone
   return nullptr;
 }
 
+BaseComponent* BaseComponent::getComponentFromJsonFile(const std::string &jsonFileName)
+{
+  auto jsonContent = new JSONContent("res/base/panel/" + jsonFileName + ".json");
+  auto component = BaseComponent::getComponentFromJson(jsonContent->getContent());
+  delete jsonContent;
+  return component;
+}
+
 vector<BaseComponent *> BaseComponent::getComponentsFromJson(const nlohmann::json &componentJson)
 {
   vector<BaseComponent *> result;
@@ -229,4 +247,19 @@ void BaseComponent::remove(ComponentDict &dict)
   }
 
   p_componentList.clear();
+}
+
+BaseComponent* BaseComponent::getChildComponentById(const string &childComponentId)
+{
+  for (auto component : p_componentList) {
+    if (component->getId() == childComponentId) {
+      return component;
+    } else {
+      auto c = component->getChildComponentById(childComponentId);
+      if (c != nullptr) {
+        return c;
+      }
+    }
+  }
+  return nullptr;
 }

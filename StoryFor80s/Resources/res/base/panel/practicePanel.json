@@ -26,11 +26,11 @@
             "type": "sprite",
             "id": "story_panel",
             "size": {
-              "width": 540,
+              "width": 700,
               "height": 600
             },
             "color": [129,178,50],
-            "normalized_position": [0.2, 0.5],
+            "normalized_position": [0.25, 0.5],
             "anchor_point": [0.5, 0.5],
             "components" : [
               {
@@ -44,7 +44,7 @@
                 "type": "sprite",
                 "id": "practice_selected_1",
                 "size": {
-                  "width": 480,
+                  "width": 600,
                   "height": 60
                 },
                 "color": [199,178,50],
@@ -65,7 +65,7 @@
                 "type": "sprite",
                 "id": "practice_selected_2",
                 "size": {
-                  "width": 480,
+                  "width": 600,
                   "height": 60
                 },
                 "color": [199,178,50],
@@ -86,7 +86,7 @@
                 "type": "sprite",
                 "id": "practice_selected_3",
                 "size": {
-                  "width": 480,
+                  "width": 600,
                   "height": 60
                 },
                 "color": [199,178,50],
@@ -107,7 +107,7 @@
                 "type": "sprite",
                 "id": "practice_selected_4",
                 "size": {
-                  "width": 480,
+                  "width": 600,
                   "height": 60
                 },
                 "color": [199,178,50],
@@ -128,7 +128,7 @@
                 "type": "sprite",
                 "id": "practice_selected_5",
                 "size": {
-                  "width": 480,
+                  "width": 600,
                   "height": 60
                 },
                 "color": [199,178,50],
@@ -151,45 +151,45 @@
             "type": "sprite",
             "id": "story_panel",
             "size": {
-              "width": 800,
+              "width": 700,
               "height": 600
             },
             "color": [199,178,50],
-            "normalized_position": [0.7, 0.5],
+            "normalized_position": [0.75, 0.5],
             "anchor_point": [0.5, 0.5],
             "components" : [
               {
                 "type": "button",
-                "id": "button_study",
+                "id": "selfStudy",
                 "text": "学习",
                 "normalized_position": [0.2, 0.95]
               },
               {
                 "type": "button",
-                "id": "button_work",
+                "id": "work",
                 "text": "打工",
                 "normalized_position": [0.4, 0.95]
               },
               {
                 "type": "button",
-                "id": "button_play",
+                "id": "play",
                 "text": "娱乐",
                 "normalized_position": [0.6, 0.95]
               },
               {
                 "type": "button",
-                "id": "button_creation",
+                "id": "masterPiece",
                 "text": "作品",
                 "normalized_position": [0.8, 0.95]
               },
               {
-                "type": "sprite",
-                "id": "story_panel",
+                "type": "scrollView",
+                "id": "scrollView",
                 "size": {
-                  "width": 750,
+                  "width": 600,
                   "height": 500
                 },
-                "color": [199,20,50],
+                "color": "alpha_red",
                 "normalized_position": [0.5, 0.45],
                 "anchor_point": [0.5, 0.5]
               }

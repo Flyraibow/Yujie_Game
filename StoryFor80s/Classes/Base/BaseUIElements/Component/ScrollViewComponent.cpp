@@ -77,7 +77,6 @@ Node* ScrollViewComponent::addComponentToParent(ComponentDict &dict, cocos2d::No
   scrollView->setContentSize(size);
   scrollView->setDirection(ui::ScrollView::Direction::VERTICAL);
 
-  scrollView->setContentSize(size);
   if (p_direction == "both") {
     scrollView->setDirection(ui::ScrollView::Direction::BOTH);
   } else if (p_direction == "horizontal") {

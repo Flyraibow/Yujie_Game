@@ -113,6 +113,8 @@ bool Manager::checkConditionByString(const string &conditionStr, const BaseData*
       return checkConditionByString(str);
     } else if (type == "false") {
       return false;
+    } else if (type == "true") {
+      return true;
     } else {
       CCLOGWARN("Un-recognized condition string: %s", conditionStr.c_str());
     }

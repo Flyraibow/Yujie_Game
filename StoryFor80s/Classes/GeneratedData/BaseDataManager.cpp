@@ -14,7 +14,6 @@ This file (BaseDataManager.cpp) is generated
 #include "MyScheduleData.hpp"
 #include "FriendData.hpp"
 #include "AttributeData.hpp"
-#include "WorkData.hpp"
 #include "GameData.hpp"
 #include "ProficiencyData.hpp"
 
@@ -53,10 +52,10 @@ FatherJobData* BaseDataManager::getFatherJobDataById(const string& fatherJobId)
 	return nullptr;
 }
 
-PlayData* BaseDataManager::getPlayDataById(const string& playId)
+ScheduleSubTypeData* BaseDataManager::getScheduleSubTypeDataById(const string& scheduleSubTypeId)
 {
-	if (PlayData::getSharedDictionary()->count(playId)) {
-		return PlayData::getSharedDictionary()->at(playId);
+	if (ScheduleSubTypeData::getSharedDictionary()->count(scheduleSubTypeId)) {
+		return ScheduleSubTypeData::getSharedDictionary()->at(scheduleSubTypeId);
 	}
 	return nullptr;
 }
@@ -133,14 +132,6 @@ ParentChatData* BaseDataManager::getParentChatDataById(const string& chatId)
 	return nullptr;
 }
 
-SelfStudyData* BaseDataManager::getSelfStudyDataById(const string& selfStudyId)
-{
-	if (SelfStudyData::getSharedDictionary()->count(selfStudyId)) {
-		return SelfStudyData::getSharedDictionary()->at(selfStudyId);
-	}
-	return nullptr;
-}
-
 AttributeData* BaseDataManager::getAttributeDataById(const string& attributeId)
 {
 	if (AttributeData::getSharedDictionary()->count(attributeId)) {
@@ -149,18 +140,18 @@ AttributeData* BaseDataManager::getAttributeDataById(const string& attributeId)
 	return nullptr;
 }
 
-FunctionCalculationData* BaseDataManager::getFunctionCalculationDataById(const string& functionCalculatonId)
+SelectableScheduleData* BaseDataManager::getSelectableScheduleDataById(const string& scheduleId)
 {
-	if (FunctionCalculationData::getSharedDictionary()->count(functionCalculatonId)) {
-		return FunctionCalculationData::getSharedDictionary()->at(functionCalculatonId);
+	if (SelectableScheduleData::getSharedDictionary()->count(scheduleId)) {
+		return SelectableScheduleData::getSharedDictionary()->at(scheduleId);
 	}
 	return nullptr;
 }
 
-WorkData* BaseDataManager::getWorkDataById(const string& actionId)
+FunctionCalculationData* BaseDataManager::getFunctionCalculationDataById(const string& functionCalculatonId)
 {
-	if (WorkData::getSharedDictionary()->count(actionId)) {
-		return WorkData::getSharedDictionary()->at(actionId);
+	if (FunctionCalculationData::getSharedDictionary()->count(functionCalculatonId)) {
+		return FunctionCalculationData::getSharedDictionary()->at(functionCalculatonId);
 	}
 	return nullptr;
 }
@@ -241,10 +232,6 @@ bool BaseDataManager::saveData(string fileName)
 		CCLOG("Failed to save AttributeData, %s", path.c_str());
 		return false;
 	}
-	if (!WorkData::saveData(path)) {
-		CCLOG("Failed to save WorkData, %s", path.c_str());
-		return false;
-	}
 	if (!GameData::saveData(path)) {
 		CCLOG("Failed to save GameData, %s", path.c_str());
 		return false;
@@ -296,10 +283,6 @@ bool BaseDataManager::loadData(string fileName)
 		CCLOG("Failed to load AttributeData, %s", path.c_str());
 		return false;
 	}
-	if (!WorkData::loadData(path)) {
-		CCLOG("Failed to load WorkData, %s", path.c_str());
-		return false;
-	}
 	if (!GameData::loadData(path)) {
 		CCLOG("Failed to load GameData, %s", path.c_str());
 		return false;
@@ -321,7 +304,6 @@ bool BaseDataManager::clearData()
 	MyScheduleData::clearData();
 	FriendData::clearData();
 	AttributeData::clearData();
-	WorkData::clearData();
 	GameData::clearData();
 	ProficiencyData::clearData();
 	return true;
@@ -337,8 +319,8 @@ BaseData * BaseDataManager::getData(const string & dataSet, const string & id)
 		return ConditionCalculationData::getConditionCalculationDataById(id);
 	} else if (dataSet == "FatherJobData") {
 		return FatherJobData::getFatherJobDataById(id);
-	} else if (dataSet == "PlayData") {
-		return PlayData::getPlayDataById(id);
+	} else if (dataSet == "ScheduleSubTypeData") {
+		return ScheduleSubTypeData::getScheduleSubTypeDataById(id);
 	} else if (dataSet == "StoryData") {
 		return StoryData::getStoryDataById(id);
 	} else if (dataSet == "DateData") {
@@ -357,14 +339,12 @@ BaseData * BaseDataManager::getData(const string & dataSet, const string & id)
 		return FriendData::getFriendDataById(id);
 	} else if (dataSet == "ParentChatData") {
 		return ParentChatData::getParentChatDataById(id);
-	} else if (dataSet == "SelfStudyData") {
-		return SelfStudyData::getSelfStudyDataById(id);
 	} else if (dataSet == "AttributeData") {
 		return AttributeData::getAttributeDataById(id);
+	} else if (dataSet == "SelectableScheduleData") {
+		return SelectableScheduleData::getSelectableScheduleDataById(id);
 	} else if (dataSet == "FunctionCalculationData") {
 		return FunctionCalculationData::getFunctionCalculationDataById(id);
-	} else if (dataSet == "WorkData") {
-		return WorkData::getWorkDataById(id);
 	} else if (dataSet == "SchoolStudyData") {
 		return SchoolStudyData::getSchoolStudyDataById(id);
 	} else if (dataSet == "ActionData") {
@@ -415,9 +395,6 @@ void BaseDataManager::setDataField(const string & dataSet, const string & id, co
 	} else if (dataSet == "AttributeData") {
 		auto data = AttributeData::getAttributeDataById(id);
 		data->setFieldValue(fieldName, value);
-	} else if (dataSet == "WorkData") {
-		auto data = WorkData::getWorkDataById(id);
-		data->setFieldValue(fieldName, value);
 	} else if (dataSet == "GameData") {
 		auto data = GameData::getSharedInstance();
 		data->setFieldValue(fieldName, value);
@@ -451,8 +428,8 @@ vector<BaseData *> BaseDataManager::getDataList(const string & dataSet)
 		for (auto elem : *dataMap) {
 			result.push_back(elem.second);
 		}
-	} else if (dataSet == "PlayData") {
-		auto dataMap = PlayData::getSharedDictionary();
+	} else if (dataSet == "ScheduleSubTypeData") {
+		auto dataMap = ScheduleSubTypeData::getSharedDictionary();
 		for (auto elem : *dataMap) {
 			result.push_back(elem.second);
 		}
@@ -501,23 +478,18 @@ vector<BaseData *> BaseDataManager::getDataList(const string & dataSet)
 		for (auto elem : *dataMap) {
 			result.push_back(elem.second);
 		}
-	} else if (dataSet == "SelfStudyData") {
-		auto dataMap = SelfStudyData::getSharedDictionary();
-		for (auto elem : *dataMap) {
-			result.push_back(elem.second);
-		}
 	} else if (dataSet == "AttributeData") {
 		auto dataMap = AttributeData::getSharedDictionary();
 		for (auto elem : *dataMap) {
 			result.push_back(elem.second);
 		}
-	} else if (dataSet == "FunctionCalculationData") {
-		auto dataMap = FunctionCalculationData::getSharedDictionary();
+	} else if (dataSet == "SelectableScheduleData") {
+		auto dataMap = SelectableScheduleData::getSharedDictionary();
 		for (auto elem : *dataMap) {
 			result.push_back(elem.second);
 		}
-	} else if (dataSet == "WorkData") {
-		auto dataMap = WorkData::getSharedDictionary();
+	} else if (dataSet == "FunctionCalculationData") {
+		auto dataMap = FunctionCalculationData::getSharedDictionary();
 		for (auto elem : *dataMap) {
 			result.push_back(elem.second);
 		}

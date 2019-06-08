@@ -90,4 +90,5 @@ ButtonComponent::~ButtonComponent()
   if (p_storyData != nullptr) {
     delete p_storyData;
   }
+  BaseComponent::~BaseComponent();
 }

@@ -6,9 +6,7 @@ This file (MyScheduleData.hpp) is generated
 #include <map>
 #include "BaseData.h"
 #include "ScheduleTypeData.hpp"
-#include "SelfStudyData.hpp"
-#include "PlayData.hpp"
-#include "WorkData.hpp"
+#include "SelectableScheduleData.hpp"
 
 
 class MyScheduleData: public BaseData
@@ -18,9 +16,7 @@ private:
 	string p_myScheduleId;
 	string p_condition;
 	string p_typeId;
-	string p_selfStudyId;
-	string p_playId;
-	string p_workId;
+	string p_scheduleId;
 public:
 	string getId() const;
 	string getMyScheduleId() const;
@@ -28,15 +24,9 @@ public:
 	ScheduleTypeData* getTypeData() const;
 	string getTypeId() const;
 	void setTypeId(string type);
-	SelfStudyData* getSelfStudyData() const;
-	string getSelfStudyId() const;
-	void setSelfStudyId(string selfStudy);
-	PlayData* getPlayData() const;
-	string getPlayId() const;
-	void setPlayId(string play);
-	WorkData* getWorkData() const;
-	string getWorkId() const;
-	void setWorkId(string work);
+	SelectableScheduleData* getScheduleData() const;
+	string getScheduleId() const;
+	void setScheduleId(string schedule);
 	string description() const;
 	static const map<string, MyScheduleData*>* getSharedDictionary();
 	static MyScheduleData* getMyScheduleDataById(const string& myScheduleId);

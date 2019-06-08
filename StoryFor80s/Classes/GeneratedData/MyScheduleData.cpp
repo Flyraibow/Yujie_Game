@@ -41,49 +41,19 @@ void MyScheduleData::setTypeId(string type)
 	p_typeId = type;
 }
 
-SelfStudyData* MyScheduleData::getSelfStudyData() const
+SelectableScheduleData* MyScheduleData::getScheduleData() const
 {
-	return SelfStudyData::getSelfStudyDataById(p_selfStudyId);
+	return SelectableScheduleData::getSelectableScheduleDataById(p_scheduleId);
 }
 
-string MyScheduleData::getSelfStudyId() const
+string MyScheduleData::getScheduleId() const
 {
-	return p_selfStudyId;
+	return p_scheduleId;
 }
 
-void MyScheduleData::setSelfStudyId(string selfStudy)
+void MyScheduleData::setScheduleId(string schedule)
 {
-	p_selfStudyId = selfStudy;
-}
-
-PlayData* MyScheduleData::getPlayData() const
-{
-	return PlayData::getPlayDataById(p_playId);
-}
-
-string MyScheduleData::getPlayId() const
-{
-	return p_playId;
-}
-
-void MyScheduleData::setPlayId(string play)
-{
-	p_playId = play;
-}
-
-WorkData* MyScheduleData::getWorkData() const
-{
-	return WorkData::getWorkDataById(p_workId);
-}
-
-string MyScheduleData::getWorkId() const
-{
-	return p_workId;
-}
-
-void MyScheduleData::setWorkId(string work)
-{
-	p_workId = work;
+	p_scheduleId = schedule;
 }
 
 string MyScheduleData::description() const
@@ -92,9 +62,7 @@ string MyScheduleData::description() const
 	desc += "\tmyScheduleId : " + to_string(p_myScheduleId) + "\n";
 	desc += "\tcondition : " + to_string(p_condition) + "\n";
 	desc += "\ttype : " + to_string(p_typeId) + "\n";
-	desc += "\tselfStudy : " + to_string(p_selfStudyId) + "\n";
-	desc += "\tplay : " + to_string(p_playId) + "\n";
-	desc += "\twork : " + to_string(p_workId) + "\n";
+	desc += "\tschedule : " + to_string(p_scheduleId) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -114,9 +82,7 @@ const map<string, MyScheduleData*>* MyScheduleData::getSharedDictionary()
 				myScheduleData->p_myScheduleId = buffer->getString();
 				myScheduleData->p_condition = buffer->getString();
 				myScheduleData->p_typeId = buffer->getString();
-				myScheduleData->p_selfStudyId = buffer->getString();
-				myScheduleData->p_playId = buffer->getString();
-				myScheduleData->p_workId = buffer->getString();
+				myScheduleData->p_scheduleId = buffer->getString();
 				p_sharedDictionary->insert(pair<string, MyScheduleData*>(myScheduleData->p_myScheduleId, myScheduleData));
 			}
 		}
@@ -138,19 +104,15 @@ bool MyScheduleData::saveData(const string & path)
 	auto dict = MyScheduleData::getSharedDictionary();
 	auto buffer = std::make_unique<bb::ByteBuffer>();
 	buffer->putLong(dict->size());
-	buffer->putInt(4);
+	buffer->putInt(2);
 	for (auto iter = dict->begin(); iter != dict->end(); iter++) {
 		auto dataId = iter->first;
 		auto data = iter->second;
 		buffer->putString(dataId);
 		buffer->putString("p_typeId");
 		buffer->putString(to_string(data->p_typeId));
-		buffer->putString("p_selfStudyId");
-		buffer->putString(to_string(data->p_selfStudyId));
-		buffer->putString("p_playId");
-		buffer->putString(to_string(data->p_playId));
-		buffer->putString("p_workId");
-		buffer->putString(to_string(data->p_workId));
+		buffer->putString("p_scheduleId");
+		buffer->putString(to_string(data->p_scheduleId));
 	}
 	buffer->writeToFile(filePath);
 	return true;
@@ -178,12 +140,8 @@ bool MyScheduleData::loadData(const string & path)
 				if (data != nullptr) {
 					if (key == "p_typeId") {
 						data->p_typeId = value;
-					} else if (key == "p_selfStudyId") {
-						data->p_selfStudyId = value;
-					} else if (key == "p_playId") {
-						data->p_playId = value;
-					} else if (key == "p_workId") {
-						data->p_workId = value;
+					} else if (key == "p_scheduleId") {
+						data->p_scheduleId = value;
 					}
 				}
 			}
@@ -209,12 +167,8 @@ void MyScheduleData::setFieldValue(const string & fieldName, const string & valu
 {
 	if (fieldName == "type") {
 		this->setTypeId(value);
-	} else if (fieldName == "selfStudy") {
-		this->setSelfStudyId(value);
-	} else if (fieldName == "play") {
-		this->setPlayId(value);
-	} else if (fieldName == "work") {
-		this->setWorkId(value);
+	} else if (fieldName == "schedule") {
+		this->setScheduleId(value);
 	}
 }
 
@@ -226,12 +180,8 @@ string MyScheduleData::getFieldValue(const string & fieldName) const
 		return to_string(this->getCondition());
 	} else if (fieldName == "type") {
 		return to_string(this->getTypeId());
-	} else if (fieldName == "selfStudy") {
-		return to_string(this->getSelfStudyId());
-	} else if (fieldName == "play") {
-		return to_string(this->getPlayId());
-	} else if (fieldName == "work") {
-		return to_string(this->getWorkId());
+	} else if (fieldName == "schedule") {
+		return to_string(this->getScheduleId());
 	}
 	CCLOGWARN("Couldn't recognize %s in MyScheduleData", fieldName.c_str());
 	return "";
@@ -241,12 +191,8 @@ BaseData* MyScheduleData::getDataByField(const string & fieldName) const
 {
 	if (fieldName == "type") {
 		return this->getTypeData();
-	} else if (fieldName == "selfStudy") {
-		return this->getSelfStudyData();
-	} else if (fieldName == "play") {
-		return this->getPlayData();
-	} else if (fieldName == "work") {
-		return this->getWorkData();
+	} else if (fieldName == "schedule") {
+		return this->getScheduleData();
 	}
 	CCLOGWARN("Couldn't recognize %s in MyScheduleData", fieldName.c_str());
 	return nullptr;

@@ -13,6 +13,7 @@
 #include "DialogPanel.hpp"
 #include "StoryPanel.hpp"
 #include "DiaryPanel.hpp"
+#include "PracticePanel.hpp"
 
 void story::setupForThisGame()
 {
@@ -24,4 +25,5 @@ void story::setupForThisGame()
   PanelManager::registerPanel<DialogPanel>("dialogPanel");
   PanelManager::registerPanel<StoryPanel>("storyPanel");
   PanelManager::registerPanel<DiaryPanel>("diaryPanel");
+  PanelManager::registerPanel<PracticePanel>("practicePanel");
 }

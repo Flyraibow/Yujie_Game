@@ -1,0 +1,19 @@
+{
+  "type": "sprite",
+  "id": "selectable_sprite",
+  "size": {
+    "width": 600,
+    "height": 60
+  },
+  "color": [199,178,50],
+  "anchor_point": [0, 0],
+  "components" : [
+    {
+      "type": "label",
+      "id": "selectable_lab",
+      "text": "associate.name",
+      "anchor_point": [0, 0],
+      "text_size": 30
+    }
+  ]
+}

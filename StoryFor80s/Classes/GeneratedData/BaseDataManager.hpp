@@ -7,7 +7,7 @@ This file (BaseDataManager.hpp) is generated
 #include "PlotData.hpp"
 #include "ConditionCalculationData.hpp"
 #include "FatherJobData.hpp"
-#include "PlayData.hpp"
+#include "ScheduleSubTypeData.hpp"
 #include "StoryData.hpp"
 #include "DateData.hpp"
 #include "ScheduleTypeData.hpp"
@@ -17,10 +17,9 @@ This file (BaseDataManager.hpp) is generated
 #include "ItemCategoryData.hpp"
 #include "FriendData.hpp"
 #include "ParentChatData.hpp"
-#include "SelfStudyData.hpp"
 #include "AttributeData.hpp"
+#include "SelectableScheduleData.hpp"
 #include "FunctionCalculationData.hpp"
-#include "WorkData.hpp"
 #include "SchoolStudyData.hpp"
 #include "ActionData.hpp"
 #include "GameData.hpp"
@@ -36,7 +35,7 @@ public:
 	static PlotData* getPlotDataById(const string& plotId);
 	static ConditionCalculationData* getConditionCalculationDataById(const string& conditionCalculationId);
 	static FatherJobData* getFatherJobDataById(const string& fatherJobId);
-	static PlayData* getPlayDataById(const string& playId);
+	static ScheduleSubTypeData* getScheduleSubTypeDataById(const string& scheduleSubTypeId);
 	static StoryData* getStoryDataById(const string& storyId);
 	static DateData* getDateDataById(const string& dateId);
 	static ScheduleTypeData* getScheduleTypeDataById(const string& scheduleTypeId);
@@ -46,10 +45,9 @@ public:
 	static ItemCategoryData* getItemCategoryDataById(const string& itemCategoryId);
 	static FriendData* getFriendDataById(const string& friendId);
 	static ParentChatData* getParentChatDataById(const string& chatId);
-	static SelfStudyData* getSelfStudyDataById(const string& selfStudyId);
 	static AttributeData* getAttributeDataById(const string& attributeId);
+	static SelectableScheduleData* getSelectableScheduleDataById(const string& scheduleId);
 	static FunctionCalculationData* getFunctionCalculationDataById(const string& functionCalculatonId);
-	static WorkData* getWorkDataById(const string& actionId);
 	static SchoolStudyData* getSchoolStudyDataById(const string& schoolStudyId);
 	static ActionData* getActionDataById(const string& actionId);
 	static GameData* getGameData();
