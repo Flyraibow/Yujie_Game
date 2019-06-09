@@ -16,7 +16,7 @@ using namespace std;
 
 namespace Manager
 {
-  bool checkConditionByString(const string &conditionStr, const BaseData* associate = nullptr);
+  bool checkConditionByString(const string &conditionStr, BaseData* associate = nullptr);
 };
 
 #endif /* ConditionManager_hpp */

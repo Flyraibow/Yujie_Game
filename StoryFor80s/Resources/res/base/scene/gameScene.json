@@ -84,6 +84,12 @@
        "text": "安排",
        "normalized_position": [0.55, 0.05],
        "storyId" : "action/arrange"
+     },
+     {
+       "type": "button",
+       "text": "商店",
+       "normalized_position": [0.65, 0.05],
+       "storyId" : "action/shop"
      }
 	]
 }

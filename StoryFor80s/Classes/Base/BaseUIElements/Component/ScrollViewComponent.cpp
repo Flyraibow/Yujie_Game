@@ -40,6 +40,7 @@ Size calculateInnerSizeForScrollView(ScrollView *scrollView)
 ScrollViewComponent::ScrollViewComponent(const nlohmann::json &componentJson) : BaseComponent(componentJson)
 {
   p_backgroundImagePath = Utils::getStringFromJson(componentJson, "path");
+  p_direction = Utils::getStringFromJson(componentJson, "direction", "vertical");
   p_color = Utils::getColorFromJson(componentJson, "color");
   if (componentJson.count("innerContainerSize")) {
     p_innerContainerSize = componentJson.at("innerContainerSize");
@@ -72,6 +73,7 @@ Node* ScrollViewComponent::addComponentToParent(ComponentDict &dict, cocos2d::No
   } else {
     scrollView->setBackGroundColorType(ui::Layout::BackGroundColorType::SOLID);
     scrollView->setBackGroundColor(Color3B(p_color));
+    scrollView->setBackGroundColorOpacity(p_color.a);
   }
   auto size = getComponentSize(parent);
   scrollView->setContentSize(size);

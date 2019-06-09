@@ -1,0 +1,31 @@
+{
+  "type": "sprite",
+  "id": "selectable_sprite",
+  "size": {
+    "width": 160,
+    "height": 160
+  },
+  "share_data": true,
+  "color": [199,178,50],
+  "anchor_point": [0, 1],
+  "components" : [
+    {
+      "type": "label",
+      "id": "price_lab",
+      "text": "",
+      "normalized_position": [0.5, 0.01],
+      "anchor_point": [0.5, 0],
+      "text": "associate.price",
+      "text_size": 20
+    },
+    {
+      "type": "label",
+      "id": "item_name_lab",
+      "text": "",
+      "normalized_position": [0.5, 0.15],
+      "anchor_point": [0.5, 0],
+      "text": "associate.name",
+      "text_size": 20
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+ 	"type": "color_node",
+ 	"id": "color_node",
+	"backgroundColor" : "alpha_black",
+  "comment" : "logic is inside the cpp files",
+	"components" : [
+		{
+	      "type": "sprite",
+	      "id": "story_panel",
+	      "size": {
+	      	"width": 1200,
+	      	"height": 700
+	      },
+	      "color": [199,178,153],
+	      "normalized_position": [0.5, 0.5],
+	      "anchor_point": [0.5, 0.5],
+        "components" : [
+          {
+            "type": "label",
+            "id": "lab_text",
+            "text": "商店",
+            "normalized_position": [0.5, 0.98],
+            "anchor_point": [0.5, 1],
+            "text_size": 32
+          },
+          {
+            "type": "button",
+            "id": "button_next",
+            "text": "离开",
+            "normalized_position": [0.5, 0.05],
+            "hide_condition" : "true",
+            "storyId" : "popPanel"
+          },
+          {
+            "type": "scrollView",
+            "id": "scrollView",
+            "size": {
+              "width": 1000,
+              "height": 550
+            },
+            "color": "alpha_zero",
+            "direction": "horizontal",
+            "normalized_position": [0.5, 0.5],
+            "anchor_point": [0.5, 0.5]
+          }
+        ]
+	    }
+	]
+}

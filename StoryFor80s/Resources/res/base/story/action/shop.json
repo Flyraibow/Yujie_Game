@@ -1,0 +1,9 @@
+{
+	"events": [
+		{
+			"__comment" : "打开修炼页面",
+			"type" : "panel",
+			"name" : "shopPanel"
+		}
+	]
+}

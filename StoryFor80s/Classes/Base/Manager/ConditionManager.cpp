@@ -71,8 +71,16 @@ int convertConditionStrToInt(const string &str, const BaseData* associate)
   return value;
 }
 
+BaseData* convertConditionStrToData(const string &str, BaseData* associate)
+{
+  auto list = Utils::split(str, '.');
+  auto type = list.at(0);
+  list.erase(list.begin());
+  auto value = DataManager::getShareInstance()->decipherData(Utils::join(list, "."), associate);
+  return value;
+}
 
-bool Manager::checkConditionByString(const string &conditionStr, const BaseData* associate)
+bool Manager::checkConditionByString(const string &conditionStr, BaseData* associate)
 {
   // find the compare function
   auto compType = findCompareType(conditionStr);
@@ -107,6 +115,9 @@ bool Manager::checkConditionByString(const string &conditionStr, const BaseData*
     type = Utils::to_lower_string(type);
     if (type == "bool") {
       auto value = convertConditionStrToInt(conditionStr, associate);
+      return value != 0;
+    } if (type == "dataexist") {
+      BaseData* value = convertConditionStrToData(conditionStr, associate);
       return value != 0;
     } else if (type == "data") {
       auto str = convertConditionStr(conditionStr, associate);

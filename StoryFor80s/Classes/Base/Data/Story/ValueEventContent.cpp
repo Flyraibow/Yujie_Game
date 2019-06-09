@@ -41,6 +41,9 @@ void ValueEventContent::changeData(BaseData *associate)
     if (type == "add") {
       auto intValue = atoi(data->getFieldValue(field).c_str()) + atoi(value.c_str());
       value = to_string(intValue);
+    } else if (type == "minus") {
+      auto intValue = atoi(data->getFieldValue(field).c_str()) - atoi(value.c_str());
+      value = to_string(intValue);
     }
     if (minStr.size() > 0) {
       auto min = atoi(DataManager::getShareInstance()->decipherString(minStr).c_str());

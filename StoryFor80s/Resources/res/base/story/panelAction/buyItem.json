@@ -1,0 +1,108 @@
+{
+  "__comment" : "购买物品",
+	"events": [
+    {
+      "__comment" : "检查物品已经放入缓存",
+      "type" : "condition",
+      "condition" : "dataexist.tempdata.buyItem",
+      "no_story" : {
+        "events" : [
+          {
+            "__comment" : "提示物品不存在",
+            "type" : "dialog",
+            "name" : "dialogPanel",
+            "dialogs":[
+              {
+                "content" : "物品不存在。"
+              }
+            ]
+          },
+          {
+            "__comment" : "跳过",
+            "type" : "story",
+            "name" : "stopStory"
+          }
+        ]
+      }
+    },{
+      "__comment" : "已经买过了",
+      "type" : "condition",
+      "condition" : "bool.tempdata.buyItem.haveIt",
+      "yes_story" : {
+        "events" : [
+          {
+            "__comment" : "我已经有这个物品了",
+            "type" : "dialog",
+            "name" : "dialogPanel",
+            "dialogs":[
+              {
+                "content" : "我已经有这个物品了."
+              }
+            ]
+          },
+          {
+            "__comment" : "跳过",
+            "type" : "story",
+            "name" : "stopStory"
+          }
+        ]
+      }
+    },
+    {
+      "__comment" : "检查钱足够",
+      "type" : "condition",
+      "condition" : "int.tempdata.buyItem.price>int.gamedata.AttributeData.money.value",
+      "yes_story" : {
+        "events" : [
+          {
+            "__comment" : "提示钱不够",
+            "type" : "dialog",
+            "name" : "dialogPanel",
+            "dialogs":[
+              {
+                "content" : "钱不够。"
+              }
+            ]
+          },
+          {
+            "__comment" : "跳过",
+            "type" : "story",
+            "name" : "stopStory"
+          }
+        ]
+      }
+    },
+    {
+      "__comment" : "提示已经购买该物品",
+      "type" : "dialog",
+      "name" : "dialogPanel",
+      "dialogs":[
+        {
+          "content" : "买下了。"
+        }
+      ]
+    },
+    {
+      "__comment" : "购买物品运算",
+      "type" : "setValues",
+      "changes" : [
+        {
+          "type" : "minus",
+          "data" : "gamedata.AttributeData.money",
+          "field" : "value",
+          "value" : "tempdata.buyItem.price"
+        },
+        {
+          "type" : "set",
+          "data" : "tempdata.buyItem",
+          "field" : "haveIt",
+          "value" : "1"
+        }
+      ]
+    },
+    {
+      "__comment" : "刷新",
+      "type" : "refreshScene"
+    }
+	]
+}
