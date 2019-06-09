@@ -2,8 +2,8 @@
 id,string,friend_id,friend_id
 string,-,ScheduleType,SelectableSchedule
 writable,N,Y,Y
-1,TRUE,sleep,;
-2,TRUE,sleep,;
-3,TRUE,sleep,;
-4,TRUE,sleep,;
-5,TRUE,sleep,;
+1,TRUE,sleep,sleep
+2,TRUE,sleep,sleep
+3,TRUE,sleep,sleep
+4,TRUE,sleep,sleep
+5,TRUE,sleep,sleep

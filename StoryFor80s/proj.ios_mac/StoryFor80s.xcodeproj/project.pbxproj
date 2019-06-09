@@ -177,6 +177,8 @@
 		ECBA50732213DD3600929BBA /* PanelManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBA50702213DD3600929BBA /* PanelManager.cpp */; };
 		ECBA50762213F1A000929BBA /* ConditionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBA50742213F1A000929BBA /* ConditionManager.cpp */; };
 		ECBA50772213F1A000929BBA /* ConditionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBA50742213F1A000929BBA /* ConditionManager.cpp */; };
+		ECBD4F4622AC6D2B00B183E2 /* BaseDropDownMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBD4F4422AC6D2B00B183E2 /* BaseDropDownMenu.cpp */; };
+		ECBD4F4722AC6D2B00B183E2 /* BaseDropDownMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBD4F4422AC6D2B00B183E2 /* BaseDropDownMenu.cpp */; };
 		ECC3AA7922AAB38F005A106F /* ScheduleSubTypeData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECC3AA7622AAB38E005A106F /* ScheduleSubTypeData.cpp */; };
 		ECC3AA7A22AAB38F005A106F /* ScheduleSubTypeData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECC3AA7622AAB38E005A106F /* ScheduleSubTypeData.cpp */; };
 		ECC5E94922284D660090F6C5 /* BaseSpriteListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECC5E94822284D660090F6C5 /* BaseSpriteListener.cpp */; };
@@ -419,6 +421,8 @@
 		ECBA50712213DD3600929BBA /* PanelManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PanelManager.hpp; sourceTree = "<group>"; };
 		ECBA50742213F1A000929BBA /* ConditionManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConditionManager.cpp; sourceTree = "<group>"; };
 		ECBA50752213F1A000929BBA /* ConditionManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ConditionManager.hpp; sourceTree = "<group>"; };
+		ECBD4F4422AC6D2B00B183E2 /* BaseDropDownMenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BaseDropDownMenu.cpp; sourceTree = "<group>"; };
+		ECBD4F4522AC6D2B00B183E2 /* BaseDropDownMenu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BaseDropDownMenu.hpp; sourceTree = "<group>"; };
 		ECC3AA7622AAB38E005A106F /* ScheduleSubTypeData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScheduleSubTypeData.cpp; sourceTree = "<group>"; };
 		ECC3AA7822AAB38E005A106F /* ScheduleSubTypeData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ScheduleSubTypeData.hpp; sourceTree = "<group>"; };
 		ECC5E94622284D660090F6C5 /* BaseSpriteListener.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BaseSpriteListener.hpp; sourceTree = "<group>"; };
@@ -791,6 +795,9 @@
 				EC8482A42211601D001956DE /* BaseButton.hpp */,
 				EC8482A7221161C6001956DE /* BaseButtonGroup.cpp */,
 				EC8482A8221161C6001956DE /* BaseButtonGroup.hpp */,
+				ECBD4F4422AC6D2B00B183E2 /* BaseDropDownMenu.cpp */,
+				ECBD4F4522AC6D2B00B183E2 /* BaseDropDownMenu.hpp */,
+				ECDE87212235FD0F0048EEF5 /* BaseLabel.hpp */,
 				EC8482AB2211624C001956DE /* BaseColorNode.cpp */,
 				EC8482AC2211624C001956DE /* BaseColorNode.hpp */,
 				EC8482FF221171FC001956DE /* BaseScene.cpp */,
@@ -798,7 +805,6 @@
 				EC8483032211726F001956DE /* BasePanel.cpp */,
 				EC8483042211726F001956DE /* BasePanel.hpp */,
 				ECDE87202235FD0F0048EEF5 /* BaseLabel.cpp */,
-				ECDE87212235FD0F0048EEF5 /* BaseLabel.hpp */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1012,6 +1018,7 @@
 			files = (
 				ECDF38D8222392DB003ED65B /* DialogPanel.cpp in Sources */,
 				ECDE8731223609980048EEF5 /* SchoolData.cpp in Sources */,
+				ECBD4F4622AC6D2B00B183E2 /* BaseDropDownMenu.cpp in Sources */,
 				ECDE87222235FD0F0048EEF5 /* BaseLabel.cpp in Sources */,
 				EC073BD0221A9B67006FDCE0 /* ConditionCalculationData.cpp in Sources */,
 				EC4F0269221FE48D0038EFCD /* FatherJobData.cpp in Sources */,
@@ -1148,6 +1155,7 @@
 				EC16304B22A4A1C40010C010 /* PlotData.cpp in Sources */,
 				ECDF38D12223898C003ED65B /* DialogEventContent.cpp in Sources */,
 				ECDE8732223609980048EEF5 /* SchoolData.cpp in Sources */,
+				ECBD4F4722AC6D2B00B183E2 /* BaseDropDownMenu.cpp in Sources */,
 				ECDE8730223609980048EEF5 /* PersonalityData.cpp in Sources */,
 				EC4F026A221FE48D0038EFCD /* FatherJobData.cpp in Sources */,
 				EC73FA6122A7699500EA4125 /* MyScheduleData.cpp in Sources */,

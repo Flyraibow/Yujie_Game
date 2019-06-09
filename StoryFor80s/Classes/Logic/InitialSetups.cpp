@@ -19,6 +19,7 @@ void story::setupForThisGame()
 {
   BaseGlobalDataManager::loadData("global");
   StoryManager::registerSpecialEventFunction("passDay", &story::passDay);
+  StoryManager::registerSpecialEventFunction("passMonth", &story::passMonth);
   StoryManager::registerSpecialEventFunction("home", &game::homePage);
   StoryManager::registerSpecialEventFunction("save", &game::save);
   StoryManager::registerSpecialEventFunction("load", &game::load);

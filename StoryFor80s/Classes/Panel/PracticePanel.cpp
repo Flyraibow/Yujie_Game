@@ -13,6 +13,10 @@
 #include "SelectableScheduleData.hpp"
 #include "SpriteComponent.hpp"
 #include "BaseSpriteListener.hpp"
+#include "ScheduleSubTypeData.hpp"
+#include "BaseDropDownMenu.hpp"
+#include "SceneManager.hpp"
+#include "LocalizationHelper.hpp"
 
 #include "ui/UIScrollView.h"
 
@@ -27,7 +31,14 @@ void showMyScheduleOnLabel(const MyScheduleData *mySchedule, Label *label)
   if (typeId == "sleep") {
     label->setString(mySchedule->getTypeData()->getName());
   } else {
-    label->setString(mySchedule->getTypeData()->getName() + " " + mySchedule->getScheduleData()->getName());
+    auto scheduleData = mySchedule->getScheduleData();
+    auto text = mySchedule->getTypeData()->getName() + " " + scheduleData->getName() + " ";
+    auto proficiencyData = scheduleData->getProficiencyData();
+    if (proficiencyData != nullptr) {
+      text += scheduleData->getTypeData()->getProficienceWord() + ": ";
+      text += to_string(proficiencyData->getValue()) + "/" + to_string(proficiencyData->getMaxValue());
+    }
+    label->setString(text);
   }
 }
 
@@ -60,9 +71,6 @@ const vector<SelectableScheduleData *> getFullBaseScheduleList(const string &typ
   return baseDataList;
 }
 
-
-// TODO: think about how to combine all these function into one
-// 1. Add an abstract class for it.
 vector<SelectableScheduleData *> getScheduleDataList(const string &type, const string &subtypeFilter = "")
 {
   vector<SelectableScheduleData *> baseDataList = getFullBaseScheduleList(type);
@@ -116,44 +124,94 @@ void PracticePanel::initialize()
       }
     }
   }
+  // initial filterBar
+  auto filterSprite = getComponentById<Sprite>("filter");
+  auto listener = BaseSpriteListener::createWithNode(filterSprite, false);
+  listener->setTouchEnd(CC_CALLBACK_2(PracticePanel::clickFilterBar, this), nullptr);
   selectScheduleType("selfStudy");
 }
 
-void PracticePanel::selectScheduleType(const string &type)
+void PracticePanel::clickFilterBar(Touch* touch, Event* event)
+{
+  auto subtypeMap = *ScheduleSubTypeData::getSharedDictionary();
+  vector<string> results;
+  vector<string> labels;
+  results.push_back("");
+  labels.push_back(LocalizationHelper::getLocalization("empty"));
+  for (auto subtypePair : subtypeMap) {
+    if (subtypePair.second->getScheduleTypeId() == p_selectedType) {
+      results.push_back(subtypePair.first);
+      labels.push_back(subtypePair.second->getName());
+    }
+  }
+  auto dropDown = BaseDropDownMenu::create([this, results](int index){
+    if (index >= 0) {
+      CCLOG("select sub type : %s", results.at(index).c_str());
+      selectScheduleType(p_selectedType, results.at(index));
+    } else {
+      CCLOG("canceled");
+    }
+  });
+  dropDown->setSelections(labels);
+  dropDown->setMaxHeight(200);
+  dropDown->setDropDownMenuItem(Size(200, 22), Color4B(100, 100, 100, 100), Color4B(200, 100, 100, 100));
+  dropDown->render();
+  auto baseScene = SceneManager::getShareInstance()->currentScene();
+  baseScene->addChild(dropDown, SCREEN_DIALOG_LAYER);
+}
+
+void PracticePanel::selectScheduleType(const string &type, const string &subtype)
 {
   auto btn = getComponentById<BaseButton>(type);
   auto previous =  getComponentById<BaseButton>(p_selectedType);
+  auto filterSubType = subtype;
   if (previous == btn) {
     btn->setHighlighted(true);
-    return;
+    if (p_selectedSubType == subtype) {
+      return;
+    }
+  } else if (previous != nullptr) {
+    previous->setHighlighted(false);
+    if (subtype == "" && p_lastSubTypeFilter.count(type) && p_lastSubTypeFilter.at(type).length() > 0) {
+      filterSubType = p_lastSubTypeFilter.at(type);
+    }
   }
   p_selectedType = type;
-  if (previous != nullptr) {
-    previous->setHighlighted(false);
-  }
   btn->setHighlighted(true);
-  auto scheduleList = getScheduleDataList(type, "");
-  for (int i = (int)p_selectableComponents.size() - 1; i > 0; --i) {
+  p_selectedSubType = filterSubType;
+  p_lastSubTypeFilter[type] = filterSubType;
+  auto filterLab = getComponentById<Label>("filter_lib");
+  if (filterSubType.length() > 0) {
+    filterLab->setString(ScheduleSubTypeData::getScheduleSubTypeDataById(filterSubType)->getName());
+  } else {
+    filterLab->setString(LocalizationHelper::getLocalization("lab_filter"));
+  }
+  auto scheduleList = getScheduleDataList(type, filterSubType);
+  for (int i = (int)p_selectableComponents.size() - 1; i >= 0; --i) {
     delete p_selectableComponents[i];
   }
   p_selectableComponents.clear();
   p_selectableSpriteComponents.clear();
   int i = 0;
   auto scrollView = getComponentById<ui::ScrollView>("scrollView");
+  
+  float height = 61 * scheduleList.size();
+  if (height < scrollView->getContentSize().height) {
+    height = scrollView->getContentSize().height;
+  }
+  
   for (auto schedule : scheduleList) {
     CCLOG("selectable: %s", schedule->getName().c_str());
     auto component = generateSelecatableSpriteComponent(schedule);
     p_selectableComponents.push_back(component);
     auto sprite = component->getNode();
     auto listener = BaseSpriteListener::createWithNode(sprite, false);
-    listener->setTouchEnd(CC_CALLBACK_2(PracticePanel::selectSchedule, this), nullptr);
-    sprite->setPosition(Vec2(0, i * 61));
-    component->refresh();
+    listener->setTouchClicked(CC_CALLBACK_2(PracticePanel::selectSchedule, this), nullptr);
+    sprite->setPosition(Vec2(0, height - i * 61));
     scrollView->addChild(sprite);
     ++i;
   }
-  
-  scrollView->setInnerContainerSize(Size(600, 61 * p_selectableSpriteComponents.size()));
+  scrollView->setInnerContainerSize(Size(scrollView->getContentSize().width, height));
 }
 
 SpriteComponent* PracticePanel::generateSelecatableSpriteComponent(SelectableScheduleData *selectableData)
@@ -164,6 +222,14 @@ SpriteComponent* PracticePanel::generateSelecatableSpriteComponent(SelectableSch
   component->setAssociateData(selectableData);
   auto labelComponent = component->getChildComponentById("selectable_lab");
   labelComponent->setAssociateData(selectableData);
+  auto label = dynamic_cast<Label *>(labelComponent->getNode());
+  auto text = selectableData->getName() + " ";
+  auto proficiencyData = selectableData->getProficiencyData();
+  if (proficiencyData != nullptr) {
+    text += selectableData->getTypeData()->getProficienceWord() + ": ";
+    text += to_string(proficiencyData->getValue()) + "/" + to_string(proficiencyData->getMaxValue());
+  }
+  label->setString(text);
   return component;
 }
 
@@ -171,6 +237,11 @@ void PracticePanel::selectSchedule(Touch* touch, Event* event)
 {
   auto sprite = event->getCurrentTarget();
   CCLOG("click : %s", sprite->getName().c_str());
+  auto scrollView = getComponentById<ui::ScrollView>("scrollView");
+  if (!BaseSpriteListener::isTouchInsideNode(touch, scrollView)) {
+    CCLOG("touch is out side the view, it doesn't count");
+    return;
+  }
   if (p_selectableSpriteComponents.count(sprite->getName())) {
     auto mySchedule = findNextEmptyMySchedule();
     if (mySchedule != nullptr) {
@@ -196,7 +267,7 @@ void PracticePanel::unSelectSchedule(Touch* touch, Event* event)
   auto mySchedule = MyScheduleData::getMyScheduleDataById(unselectIndex);
   if (mySchedule->getId() != "sleep") {
     mySchedule->setTypeId("sleep");
-    mySchedule->setScheduleId("");
+    mySchedule->setScheduleId("sleep");
     auto label = getComponentById<Label>("practice_selected_lab_" + mySchedule->getId());
     showMyScheduleOnLabel(mySchedule, label);
   }

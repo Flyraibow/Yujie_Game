@@ -12,6 +12,9 @@
 #include "BaseLabel.hpp"
 #include "AttributeData.hpp"
 #include "GameLogicFunction.hpp"
+#include "MyScheduleData.hpp"
+#include "GameData.hpp"
+#include "BaseButton.hpp"
 
 struct sort_schedule_by_priority
 {
@@ -55,8 +58,6 @@ DiaryPanel::DiaryPanel() : BasePanel("diaryPanel")
 
 void DiaryPanel::initialize()
 {
-  // TODO:
-  // 1. get all schedule events during this month
   auto schedules = findSchedulesInThisMonth();
   string text = "";
   for (auto schedule : schedules) {
@@ -66,8 +67,9 @@ void DiaryPanel::initialize()
       auto profiencyData = schoolStudyData->getProficiencyData();
       // 技能改变
       if (profiencyData != nullptr) {
-        int addValue = game::changeProficiency(schoolStudyData->getProficiencyId(), schoolStudyData->getAddProficiency());
-        text += profiencyData->getName() + "+" + to_string(addValue) + " ";
+        auto studyFactor = GameData::getSharedInstance()->getSchoolData()->getStudyFactor();
+        int addValue = game::changeProficiency(schoolStudyData->getProficiencyId(), schoolStudyData->getAddProficiency() * studyFactor);
+        text += schoolStudyData->getTypeData()->getProficienceWord() + "+" + to_string(addValue) + " ";
       }
       // 属性改变
       for (auto attributePair : schoolStudyData->getAttributeChangeMap()) {
@@ -78,12 +80,37 @@ void DiaryPanel::initialize()
           finalValue = 0;
         }
         attribute->setValue(finalValue);
-        text += attribute->getName() + (addValue > 0 ? "+" : "-") + to_string(addValue) + " ";
+        text += attribute->getName() + (addValue > 0 ? "+" : "") + to_string(addValue) + " ";
       }
       text += "\n";
     }
   }
   // 2. get all other events during this month
+  auto myScheduleMap = *MyScheduleData::getSharedDictionary();
+  for (auto schedulePair : myScheduleMap) {
+    if (Manager::checkConditionByString(schedulePair.second->getCondition())) {
+      auto scheduleData = schedulePair.second->getScheduleData();
+      text += scheduleData->getDescription() + " ";
+      auto profiencyData = scheduleData->getProficiencyData();
+      // 技能改变
+      if (profiencyData != nullptr) {
+        int addValue = game::changeProficiency(scheduleData->getProficiencyId(), scheduleData->getAddProficiency());
+        text += scheduleData->getTypeData()->getProficienceWord() + "+" + to_string(addValue) + " ";
+      }
+      // 属性改变
+      for (auto attributePair : scheduleData->getAttributeChangeMap()) {
+        auto attribute = AttributeData::getAttributeDataById(attributePair.first);
+        auto addValue = attributePair.second;
+        auto finalValue = attribute->getValue() + addValue;
+        if (finalValue < 0) {
+          finalValue = 0;
+        }
+        attribute->setValue(finalValue);
+        text += attribute->getName() + (addValue > 0 ? "+" : "") + to_string(addValue) + " ";
+      }
+      text += "\n";
+    }
+  }
   
   auto labDescriptionText = getComponentById<BaseLabel>("lab_text");
   labDescriptionText->setString(text);

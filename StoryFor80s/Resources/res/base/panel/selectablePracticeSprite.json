@@ -6,7 +6,7 @@
     "height": 60
   },
   "color": [199,178,50],
-  "anchor_point": [0, 0],
+  "anchor_point": [0, 1],
   "components" : [
     {
       "type": "label",

@@ -154,7 +154,7 @@
               "width": 700,
               "height": 600
             },
-            "color": [199,178,50],
+            "color": [129,178,50],
             "normalized_position": [0.75, 0.5],
             "anchor_point": [0.5, 0.5],
             "components" : [
@@ -187,11 +187,32 @@
                 "id": "scrollView",
                 "size": {
                   "width": 600,
-                  "height": 500
+                  "height": 460
                 },
                 "color": "alpha_red",
-                "normalized_position": [0.5, 0.45],
+                "normalized_position": [0.5, 0.42],
                 "anchor_point": [0.5, 0.5]
+              },
+              {
+                "type": "sprite",
+                "id": "filter",
+                "size": {
+                  "width": 200,
+                  "height": 30
+                },
+                "color": "alpha_red",
+                "normalized_position": [0.5, 0.88],
+                "anchor_point": [0.5, 1],
+                "components": [
+                  {
+                    "type": "label",
+                    "id": "filter_lib",
+                    "text": "过滤",
+                    "normalized_position": [0.5, 0.5],
+                    "anchor_point": [0.5, 0.5],
+                    "text_size": 20
+                  }
+                ]
               }
             ]
           }

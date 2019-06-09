@@ -28,6 +28,12 @@ string ScheduleTypeData::getName() const
 	return LocalizationHelper::getLocalization(localId);
 }
 
+string ScheduleTypeData::getProficienceWord() const
+{
+	string localId = "scheduleType_proficienceWord_" + to_string(p_scheduleTypeId);
+	return LocalizationHelper::getLocalization(localId);
+}
+
 bool ScheduleTypeData::getSelectable() const
 {
 	return p_selectable;
@@ -38,6 +44,7 @@ string ScheduleTypeData::description() const
 	string desc = "scheduleTypeData = {\n";
 	desc += "\tscheduleTypeId : " + to_string(p_scheduleTypeId) + "\n";
 	desc += "\tname : " + getName() + "\n";
+	desc += "\tproficienceWord : " + getProficienceWord() + "\n";
 	desc += "\tselectable : " + to_string(p_selectable) + "\n";
 	desc += "}\n";
 	return desc;
@@ -78,6 +85,8 @@ string ScheduleTypeData::getFieldValue(const string & fieldName) const
 		return to_string(this->getScheduleTypeId());
 	} else if (fieldName == "name") {
 		return to_string(this->getName());
+	} else if (fieldName == "proficienceWord") {
+		return to_string(this->getProficienceWord());
 	} else if (fieldName == "selectable") {
 		return to_string(this->getSelectable());
 	}

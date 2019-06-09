@@ -37,6 +37,21 @@ void story::passDay(const nlohmann::json &jsonContent)
 }
 
 
+void story::passMonth(const nlohmann::json &jsonContent)
+{
+  auto gameDate = GameData::getSharedInstance()->getGameDateData();
+  auto month = gameDate->getMonth();
+  auto year = gameDate->getYear();
+  month++;
+  if (month == 13) {
+    year++;
+    month = 1;
+  }
+  gameDate->setMonth(month);
+  gameDate->setYear(year);
+}
+
+
 void game::homePage(const nlohmann::json &jsonContent)
 {
   BaseDataManager::clearData();

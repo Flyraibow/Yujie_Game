@@ -28,6 +28,16 @@ string SchoolStudyData::getName() const
 	return LocalizationHelper::getLocalization(localId);
 }
 
+ScheduleTypeData* SchoolStudyData::getTypeData() const
+{
+	return ScheduleTypeData::getScheduleTypeDataById(p_typeId);
+}
+
+string SchoolStudyData::getTypeId() const
+{
+	return p_typeId;
+}
+
 ProficiencyData* SchoolStudyData::getProficiencyData() const
 {
 	return ProficiencyData::getProficiencyDataById(p_proficiencyId);
@@ -73,6 +83,7 @@ string SchoolStudyData::description() const
 	string desc = "schoolStudyData = {\n";
 	desc += "\tschoolStudyId : " + to_string(p_schoolStudyId) + "\n";
 	desc += "\tname : " + getName() + "\n";
+	desc += "\ttype : " + to_string(p_typeId) + "\n";
 	desc += "\tproficiency : " + to_string(p_proficiencyId) + "\n";
 	desc += "\taddProficiency : " + to_string(p_addProficiency) + "\n";
 	desc += "\tdescription : " + getDescription() + "\n";
@@ -95,6 +106,7 @@ const map<string, SchoolStudyData*>* SchoolStudyData::getSharedDictionary()
 			for (int i = 0; i < count; ++i) {
 				SchoolStudyData* schoolStudyData = new SchoolStudyData();
 				schoolStudyData->p_schoolStudyId = buffer->getString();
+				schoolStudyData->p_typeId = buffer->getString();
 				schoolStudyData->p_proficiencyId = buffer->getString();
 				schoolStudyData->p_addProficiency = buffer->getInt();
 				auto attributeChangeCount = buffer->getLong();
@@ -124,6 +136,8 @@ string SchoolStudyData::getFieldValue(const string & fieldName) const
 		return to_string(this->getSchoolStudyId());
 	} else if (fieldName == "name") {
 		return to_string(this->getName());
+	} else if (fieldName == "type") {
+		return to_string(this->getTypeId());
 	} else if (fieldName == "proficiency") {
 		return to_string(this->getProficiencyId());
 	} else if (fieldName == "addProficiency") {
@@ -139,7 +153,9 @@ string SchoolStudyData::getFieldValue(const string & fieldName) const
 
 BaseData* SchoolStudyData::getDataByField(const string & fieldName) const
 {
-	if (fieldName == "proficiency") {
+	if (fieldName == "type") {
+		return this->getTypeData();
+	} else if (fieldName == "proficiency") {
 		return this->getProficiencyData();
 	}
 	CCLOGWARN("Couldn't recognize %s in SchoolStudyData", fieldName.c_str());

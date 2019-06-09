@@ -39,3 +39,5 @@ lab_selfstudy_well,今天利用业余时间学习了%s，感觉收获不错。(%
 lab_play_well,今天利用业余时间进行了%s，感觉很开心。(%s)
 lab_data_value,%s: %s
 lab_attribute_change,%s:%s
+empty,空
+lab_filter,过滤

@@ -156,7 +156,7 @@ void DataSchema::addValueIntoBuffer(std::unique_ptr<bb::ByteBuffer> &buffer, con
       buffer->putDouble(atof(value.c_str()));
       break;
     case FLOAT:
-      buffer->putLong(atof(value.c_str()));
+      buffer->putFloat(atof(value.c_str()));
       break;
     case FRIEND_ID_SET:
     case FRIEND_ID_VECTOR: {

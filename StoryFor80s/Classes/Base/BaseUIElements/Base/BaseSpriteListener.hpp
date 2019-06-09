@@ -22,6 +22,10 @@ public:
   void setTouchBegin(ccTouchBeganCallback touchBegin);
   void setTouchOver(ccTouchCallback touchOver, ccTouchCallback touchOverOut);
   void setTouchEnd(ccTouchCallback touchEnd, ccTouchCallback touchCanceled);
+  // won't trigger if mouth moved too much
+  void setTouchClicked(ccTouchCallback touchEnd, ccTouchCallback touchCanceled);
+  
+  static bool isTouchInsideNode(Touch *touch, Node *node);
 };
 
 #endif /* BaseSpriteListener_hpp */

@@ -17,6 +17,7 @@ public:
 	string getId() const;
 	string getScheduleTypeId() const;
 	string getName() const;
+	string getProficienceWord() const;
 	bool getSelectable() const;
 	string description() const;
 	static const map<string, ScheduleTypeData*>* getSharedDictionary();

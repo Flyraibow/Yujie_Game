@@ -24,6 +24,7 @@ public:
   LabelComponent(const nlohmann::json &componentJson);
   cocos2d::Node *addComponentToParent(ComponentDict &dict, cocos2d::Node *parent = nullptr);
   virtual void refresh();
+  Label* getLabel() {return dynamic_cast<Label *>(p_node);};
 };
 
 

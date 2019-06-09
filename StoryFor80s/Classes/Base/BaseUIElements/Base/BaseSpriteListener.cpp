@@ -7,7 +7,7 @@
 
 #include "BaseSpriteListener.hpp"
 
-static bool isTouchInsideNode(Touch *touch, Node *node)
+bool BaseSpriteListener::isTouchInsideNode(Touch *touch, Node *node)
 {
   
   auto worldPoint = touch->getLocation();//node->getParent()->convertToWorldSpace(touch->getLocation());
@@ -38,7 +38,7 @@ BaseSpriteListener* BaseSpriteListener::createWithNode(Node *node, bool swallowT
 void BaseSpriteListener::setTouchBegin(ccTouchBeganCallback touchBegin)
 {
   auto node = s_node;
-  this->onTouchBegan = [node, touchBegin](Touch* touch, Event* event){
+  this->onTouchBegan = [node, touchBegin](Touch* touch, Event* event) {
     if (isTouchInsideNode(touch, node)) {
       if (touchBegin == nullptr) {
         return true;
@@ -70,6 +70,22 @@ void BaseSpriteListener::setTouchEnd(ccTouchCallback touchEnd, ccTouchCallback t
   auto node = s_node;
   this->onTouchEnded = [node, touchEnd, touchCanceled](Touch* touch, Event* event){
     if (isTouchInsideNode(touch, node)) {
+      if (touchEnd != nullptr) {
+        touchEnd(touch, event);
+      }
+    } else {
+      if (touchCanceled != nullptr) {
+        touchCanceled(touch, event);
+      }
+    }
+  };
+}
+
+void BaseSpriteListener::setTouchClicked(ccTouchCallback touchEnd, ccTouchCallback touchCanceled)
+{
+  auto node = s_node;
+  this->onTouchEnded = [node, touchEnd, touchCanceled](Touch* touch, Event* event) {
+    if (isTouchInsideNode(touch, node) && touch->getLocation().getDistance(touch->getStartLocation()) <= 2) {
       if (touchEnd != nullptr) {
         touchEnd(touch, event);
       }
