@@ -47,6 +47,7 @@ protected:
   Size getComponentSize(Node *parent) const;
   string decipherValue(const string &value) const;
   Vec2 getVec2FromStringVec2(const vector<string> &list) const;
+  void checkHideCondition();
 public:
   BaseComponent(const nlohmann::json &componentJson);
   virtual ~BaseComponent();

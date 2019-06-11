@@ -61,28 +61,30 @@ void DiaryPanel::initialize()
   auto schedules = findSchedulesInThisMonth();
   string text = "";
   for (auto schedule : schedules) {
-    if (schedule->getTypeId() == "SchoolStudy") {
-      auto schoolStudyData = schedule->getSchoolStudyData();
-      text += schoolStudyData->getDescription() + " ";
-      auto profiencyData = schoolStudyData->getProficiencyData();
-      // 技能改变
-      if (profiencyData != nullptr) {
-        auto studyFactor = GameData::getSharedInstance()->getSchoolData()->getStudyFactor();
-        int addValue = game::changeProficiency(schoolStudyData->getProficiencyId(), schoolStudyData->getAddProficiency() * studyFactor);
-        text += schoolStudyData->getTypeData()->getProficienceWord() + "+" + to_string(addValue) + " ";
-      }
-      // 属性改变
-      for (auto attributePair : schoolStudyData->getAttributeChangeMap()) {
-        auto attribute = AttributeData::getAttributeDataById(attributePair.first);
-        auto addValue = attributePair.second;
-        auto finalValue = attribute->getValue() + addValue;
-        if (finalValue < 0) {
-          finalValue = 0;
+    if (schedule->getTypeId() == "SchoolStudy" && GameData::getSharedInstance()->getSchoolId() == schedule->getSchoolId()) {
+      auto schoolStudyDataList = schedule->getSchoolStudyDataVector();
+      for (auto schoolStudyData : schoolStudyDataList) {
+        text += schoolStudyData->getDescription() + " ";
+        auto profiencyData = schoolStudyData->getProficiencyData();
+        // 技能改变
+        if (profiencyData != nullptr) {
+          auto studyFactor = GameData::getSharedInstance()->getSchoolData()->getStudyFactor();
+          int addValue = game::changeProficiency(schoolStudyData->getProficiencyId(), schoolStudyData->getAddProficiency() * studyFactor);
+          text += schoolStudyData->getTypeData()->getProficienceWord() + "+" + to_string(addValue) + " ";
         }
-        attribute->setValue(finalValue);
-        text += attribute->getName() + (addValue > 0 ? "+" : "") + to_string(addValue) + " ";
+        // 属性改变
+        for (auto attributePair : schoolStudyData->getAttributeChangeMap()) {
+          auto attribute = AttributeData::getAttributeDataById(attributePair.first);
+          auto addValue = attributePair.second;
+          auto finalValue = attribute->getValue() + addValue;
+          if (finalValue < 0) {
+            finalValue = 0;
+          }
+          attribute->setValue(finalValue);
+          text += attribute->getName() + (addValue > 0 ? "+" : "") + to_string(addValue) + " ";
+        }
+        text += "\n";
       }
-      text += "\n";
     }
   }
   // 2. get all other events during this month

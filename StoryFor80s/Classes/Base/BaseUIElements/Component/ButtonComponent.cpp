@@ -74,9 +74,7 @@ Node* ButtonComponent::addComponentToParent(ComponentDict &dict, cocos2d::Node *
 
 void ButtonComponent::refresh()
 {
-  if (p_shouldHideCondition.length() > 0) {
-    p_node->setVisible(!Manager::checkConditionByString(p_shouldHideCondition));
-  }
+  checkHideCondition();
   auto button = dynamic_cast<ui::Button *>(p_node);
   if (p_disableCondition.length() > 0) {
     button->setEnabled(Manager::checkConditionByString(p_disableCondition));

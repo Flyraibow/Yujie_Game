@@ -115,6 +115,8 @@ void BaseComponent::addNodeToParent(ComponentDict &dict, Node *child, Node *pare
     parent->addChild(child);
   }
   p_node = child;
+  
+  checkHideCondition();
 }
 
 Vec2 BaseComponent::getVec2FromStringVec2(const vector<string> &list) const
@@ -216,11 +218,16 @@ void BaseComponent::copyAttributesFromJson(const nlohmann::json &componentJson)
   p_shouldHideCondition = Utils::getStringFromJson(componentJson, "hide_condition", p_shouldHideCondition);
 }
 
-void BaseComponent::refresh()
+void BaseComponent::checkHideCondition()
 {
   if (p_shouldHideCondition.length() > 0) {
     p_node->setVisible(!DataManager::getShareInstance()->checkCondition(p_shouldHideCondition));
   }
+}
+
+void BaseComponent::refresh()
+{
+  checkHideCondition();
 }
 
 void BaseComponent::setAssociateData(BaseData *baseData) {

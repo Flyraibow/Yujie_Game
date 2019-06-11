@@ -179,6 +179,12 @@
 		ECBA50772213F1A000929BBA /* ConditionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBA50742213F1A000929BBA /* ConditionManager.cpp */; };
 		ECBD4F4622AC6D2B00B183E2 /* BaseDropDownMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBD4F4422AC6D2B00B183E2 /* BaseDropDownMenu.cpp */; };
 		ECBD4F4722AC6D2B00B183E2 /* BaseDropDownMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBD4F4422AC6D2B00B183E2 /* BaseDropDownMenu.cpp */; };
+		ECBD4F4C22AF56FC00B183E2 /* ExamListData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBD4F4822AF56FB00B183E2 /* ExamListData.cpp */; };
+		ECBD4F4D22AF56FC00B183E2 /* ExamListData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBD4F4822AF56FB00B183E2 /* ExamListData.cpp */; };
+		ECBD4F4E22AF56FC00B183E2 /* ExamData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBD4F4922AF56FC00B183E2 /* ExamData.cpp */; };
+		ECBD4F4F22AF56FC00B183E2 /* ExamData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBD4F4922AF56FC00B183E2 /* ExamData.cpp */; };
+		ECBD4F5222AF649500B183E2 /* ExamFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBD4F5022AF649500B183E2 /* ExamFunctions.cpp */; };
+		ECBD4F5322AF649500B183E2 /* ExamFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBD4F5022AF649500B183E2 /* ExamFunctions.cpp */; };
 		ECC3AA7922AAB38F005A106F /* ScheduleSubTypeData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECC3AA7622AAB38E005A106F /* ScheduleSubTypeData.cpp */; };
 		ECC3AA7A22AAB38F005A106F /* ScheduleSubTypeData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECC3AA7622AAB38E005A106F /* ScheduleSubTypeData.cpp */; };
 		ECC5E94922284D660090F6C5 /* BaseSpriteListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECC5E94822284D660090F6C5 /* BaseSpriteListener.cpp */; };
@@ -423,6 +429,12 @@
 		ECBA50752213F1A000929BBA /* ConditionManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ConditionManager.hpp; sourceTree = "<group>"; };
 		ECBD4F4422AC6D2B00B183E2 /* BaseDropDownMenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BaseDropDownMenu.cpp; sourceTree = "<group>"; };
 		ECBD4F4522AC6D2B00B183E2 /* BaseDropDownMenu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BaseDropDownMenu.hpp; sourceTree = "<group>"; };
+		ECBD4F4822AF56FB00B183E2 /* ExamListData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExamListData.cpp; sourceTree = "<group>"; };
+		ECBD4F4922AF56FC00B183E2 /* ExamData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExamData.cpp; sourceTree = "<group>"; };
+		ECBD4F4A22AF56FC00B183E2 /* ExamData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ExamData.hpp; sourceTree = "<group>"; };
+		ECBD4F4B22AF56FC00B183E2 /* ExamListData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ExamListData.hpp; sourceTree = "<group>"; };
+		ECBD4F5022AF649500B183E2 /* ExamFunctions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExamFunctions.cpp; sourceTree = "<group>"; };
+		ECBD4F5122AF649500B183E2 /* ExamFunctions.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ExamFunctions.hpp; sourceTree = "<group>"; };
 		ECC3AA7622AAB38E005A106F /* ScheduleSubTypeData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScheduleSubTypeData.cpp; sourceTree = "<group>"; };
 		ECC3AA7822AAB38E005A106F /* ScheduleSubTypeData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ScheduleSubTypeData.hpp; sourceTree = "<group>"; };
 		ECC5E94622284D660090F6C5 /* BaseSpriteListener.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BaseSpriteListener.hpp; sourceTree = "<group>"; };
@@ -635,6 +647,8 @@
 				EC073BD5221A9C05006FDCE0 /* InitialSetups.hpp */,
 				EC73FA6422A8249B00EA4125 /* GameLogicFunction.cpp */,
 				EC73FA6522A8249B00EA4125 /* GameLogicFunction.hpp */,
+				ECBD4F5022AF649500B183E2 /* ExamFunctions.cpp */,
+				ECBD4F5122AF649500B183E2 /* ExamFunctions.hpp */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -642,6 +656,10 @@
 		EC073B9F221A99BD006FDCE0 /* GeneratedData */ = {
 			isa = PBXGroup;
 			children = (
+				ECBD4F4922AF56FC00B183E2 /* ExamData.cpp */,
+				ECBD4F4A22AF56FC00B183E2 /* ExamData.hpp */,
+				ECBD4F4822AF56FB00B183E2 /* ExamListData.cpp */,
+				ECBD4F4B22AF56FC00B183E2 /* ExamListData.hpp */,
 				ECC8DB1022AB801700900E8E /* SelectableScheduleData.cpp */,
 				ECC8DB1222AB801700900E8E /* SelectableScheduleData.hpp */,
 				ECC3AA7622AAB38E005A106F /* ScheduleSubTypeData.cpp */,
@@ -1019,6 +1037,7 @@
 				ECDF38D8222392DB003ED65B /* DialogPanel.cpp in Sources */,
 				ECDE8731223609980048EEF5 /* SchoolData.cpp in Sources */,
 				ECBD4F4622AC6D2B00B183E2 /* BaseDropDownMenu.cpp in Sources */,
+				ECBD4F5222AF649500B183E2 /* ExamFunctions.cpp in Sources */,
 				ECDE87222235FD0F0048EEF5 /* BaseLabel.cpp in Sources */,
 				EC073BD0221A9B67006FDCE0 /* ConditionCalculationData.cpp in Sources */,
 				EC4F0269221FE48D0038EFCD /* FatherJobData.cpp in Sources */,
@@ -1066,6 +1085,7 @@
 				EC73FA6022A7699500EA4125 /* MyScheduleData.cpp in Sources */,
 				EC8482C5221168F4001956DE /* SpriteComponent.cpp in Sources */,
 				ECC3AA7922AAB38F005A106F /* ScheduleSubTypeData.cpp in Sources */,
+				ECBD4F4C22AF56FC00B183E2 /* ExamListData.cpp in Sources */,
 				EC0C5634222214B80000C3E7 /* JSONContent.cpp in Sources */,
 				EC073BCC221A9B67006FDCE0 /* ActionData.cpp in Sources */,
 				EC8482A52211601D001956DE /* BaseButton.cpp in Sources */,
@@ -1081,6 +1101,7 @@
 				ECBA50722213DD3600929BBA /* PanelManager.cpp in Sources */,
 				EC073BC8221A9B67006FDCE0 /* AttributeData.cpp in Sources */,
 				ECBA506E2213DCC500929BBA /* SceneManager.cpp in Sources */,
+				ECBD4F4E22AF56FC00B183E2 /* ExamData.cpp in Sources */,
 				EC8482D322116995001956DE /* JsonUtil.cpp in Sources */,
 				EC84828A22115876001956DE /* LocalizationHelper.cpp in Sources */,
 				EC0C563C22221AB80000C3E7 /* StoryEventContent.cpp in Sources */,
@@ -1113,9 +1134,11 @@
 				ECDF38BA222247AA003ED65B /* PhotoEventContent.cpp in Sources */,
 				EC8482C6221168F4001956DE /* SpriteComponent.cpp in Sources */,
 				EC0C56412222278E0000C3E7 /* MusicEventContent.cpp in Sources */,
+				ECBD4F4F22AF56FC00B183E2 /* ExamData.cpp in Sources */,
 				ECBA50772213F1A000929BBA /* ConditionManager.cpp in Sources */,
 				ECCFE601226BF5A3008F47D4 /* ProficiencyData.cpp in Sources */,
 				ECC3AA7A22AAB38F005A106F /* ScheduleSubTypeData.cpp in Sources */,
+				ECBD4F4D22AF56FC00B183E2 /* ExamListData.cpp in Sources */,
 				EC16304F22A588340010C010 /* ShopPanel.cpp in Sources */,
 				ECC8DB1422AB801700900E8E /* SelectableScheduleData.cpp in Sources */,
 				EC073BC5221A9B67006FDCE0 /* ItemData.cpp in Sources */,
@@ -1173,6 +1196,7 @@
 				ECDF38C1222265B4003ED65B /* SubStoryEventContent.cpp in Sources */,
 				EC84828B22115876001956DE /* LocalizationHelper.cpp in Sources */,
 				EC8482C8221168F4001956DE /* EditBoxComponent.cpp in Sources */,
+				ECBD4F5322AF649500B183E2 /* ExamFunctions.cpp in Sources */,
 				ECBA50732213DD3600929BBA /* PanelManager.cpp in Sources */,
 				EC8483062211726F001956DE /* BasePanel.cpp in Sources */,
 				EC4F0270221FE48D0038EFCD /* StoryData.cpp in Sources */,

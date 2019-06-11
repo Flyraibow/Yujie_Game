@@ -29,6 +29,7 @@ public:
                             TextureResType texType = TextureResType::LOCAL);
   void pushClickEventListener(const Widget::ccWidgetClickCallback &callback);
   void setClickEventListener(const Widget::ccWidgetClickCallback &callback);
+  void setText(const std::string& text);
   static BaseButton* defaultButtonWithText(std::string text);
   static BaseButton* defaultButtonWithText(std::string text, const Widget::ccWidgetClickCallback &callback);
 };

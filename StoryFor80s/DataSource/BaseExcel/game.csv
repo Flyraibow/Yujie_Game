@@ -2,4 +2,4 @@
 friend_id,string,string,friend_id,friend_id,friend_id,bool
 Date,-,-,Date,FatherJob,School,-
 N,Y,Y,N,Y,Y,Y
-game_date,firstName,lastName,my_birthday,0,0,0
+game_date,firstName,lastName,my_birthday,0,primary_school,0

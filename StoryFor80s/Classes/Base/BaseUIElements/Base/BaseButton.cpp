@@ -50,14 +50,7 @@ BaseButton* BaseButton::defaultButtonWithText(std::string text)
   button->setScale9Enabled(true);
   button->setTitleFontSize(18 * f);
   button->setTitleAlignment(TextHAlignment::CENTER);
-  button->setTitleText(text);
-  auto lbl_size = button->getTitleRenderer()->getContentSize();
-  button->setContentSize(
-                         Size(
-                              lbl_size.width + 35,
-                              lbl_size.height + 16
-                              )
-                         );
+  button->setText(text);
   return button;
 }
 
@@ -67,4 +60,17 @@ BaseButton* BaseButton::defaultButtonWithText(std::string text, const Widget::cc
   auto button = BaseButton::defaultButtonWithText(text);
   button->pushClickEventListener(callback);
   return button;
+}
+
+
+void BaseButton::setText(const std::string& text)
+{
+  this->setTitleText(text);
+  auto lbl_size = this->getTitleRenderer()->getContentSize();
+  this->setContentSize(
+                         Size(
+                              lbl_size.width + 35,
+                              lbl_size.height + 16
+                              )
+                         );
 }

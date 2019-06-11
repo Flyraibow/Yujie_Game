@@ -28,6 +28,14 @@ ConditionData* BaseDataManager::getConditionDataById(const string& conditionId)
 	return nullptr;
 }
 
+ExamData* BaseDataManager::getExamDataById(const string& examId)
+{
+	if (ExamData::getSharedDictionary()->count(examId)) {
+		return ExamData::getSharedDictionary()->at(examId);
+	}
+	return nullptr;
+}
+
 PlotData* BaseDataManager::getPlotDataById(const string& plotId)
 {
 	if (PlotData::getSharedDictionary()->count(plotId)) {
@@ -104,6 +112,14 @@ ScheduleData* BaseDataManager::getScheduleDataById(const string& scheduleId)
 {
 	if (ScheduleData::getSharedDictionary()->count(scheduleId)) {
 		return ScheduleData::getSharedDictionary()->at(scheduleId);
+	}
+	return nullptr;
+}
+
+ExamListData* BaseDataManager::getExamListDataById(const string& examListId)
+{
+	if (ExamListData::getSharedDictionary()->count(examListId)) {
+		return ExamListData::getSharedDictionary()->at(examListId);
 	}
 	return nullptr;
 }
@@ -313,6 +329,8 @@ BaseData * BaseDataManager::getData(const string & dataSet, const string & id)
 {
 	if (dataSet == "ConditionData") {
 		return ConditionData::getConditionDataById(id);
+	} else if (dataSet == "ExamData") {
+		return ExamData::getExamDataById(id);
 	} else if (dataSet == "PlotData") {
 		return PlotData::getPlotDataById(id);
 	} else if (dataSet == "ConditionCalculationData") {
@@ -333,6 +351,8 @@ BaseData * BaseDataManager::getData(const string & dataSet, const string & id)
 		return MyScheduleData::getMyScheduleDataById(id);
 	} else if (dataSet == "ScheduleData") {
 		return ScheduleData::getScheduleDataById(id);
+	} else if (dataSet == "ExamListData") {
+		return ExamListData::getExamListDataById(id);
 	} else if (dataSet == "ItemCategoryData") {
 		return ItemCategoryData::getItemCategoryDataById(id);
 	} else if (dataSet == "FriendData") {
@@ -413,6 +433,11 @@ vector<BaseData *> BaseDataManager::getDataList(const string & dataSet)
 		for (auto elem : *dataMap) {
 			result.push_back(elem.second);
 		}
+	} else if (dataSet == "ExamData") {
+		auto dataMap = ExamData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
 	} else if (dataSet == "PlotData") {
 		auto dataMap = PlotData::getSharedDictionary();
 		for (auto elem : *dataMap) {
@@ -460,6 +485,11 @@ vector<BaseData *> BaseDataManager::getDataList(const string & dataSet)
 		}
 	} else if (dataSet == "ScheduleData") {
 		auto dataMap = ScheduleData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else if (dataSet == "ExamListData") {
+		auto dataMap = ExamListData::getSharedDictionary();
 		for (auto elem : *dataMap) {
 			result.push_back(elem.second);
 		}

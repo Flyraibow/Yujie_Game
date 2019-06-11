@@ -1,0 +1,6 @@
+﻿examListId,comment,name,priority,condition,school,year,month,classes,population
+id,comment,language,int,string,friend_id,int,int,friend_id_vector,int
+string,-,chinese,-,-,School,-,-,Exam,-
+writable,N,N,N,N,N,N,N,N,N
+1_fall_mid_exam,第一学期期中考试，考点为语文数学,一年级上期中考试,10,TRUE,primary_school,1994,11,1_fall_mid_chinese;1_fall_mid_math,60
+1_fall_mid_exam_ad,重点学校第一学期期中考试，考点为语文数学英语,一年级上期中考试,10,TRUE,primary_school_ad,1994,11,1_fall_mid_chinese_ad;1_fall_mid_math_ad;1_fall_mid_english_ad,40

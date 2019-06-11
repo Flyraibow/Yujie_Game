@@ -19,6 +19,7 @@ private:
 	string p_typeId;
 	string p_subTypeId;
 	string p_condition;
+	int p_addictions;
 	string p_proficiencyId;
 	int p_addProficiency;
 	map<string, int> p_attributeChangeMap;
@@ -31,6 +32,7 @@ public:
 	ScheduleSubTypeData* getSubTypeData() const;
 	string getSubTypeId() const;
 	string getCondition() const;
+	int getAddictions() const;
 	ProficiencyData* getProficiencyData() const;
 	string getProficiencyId() const;
 	int getAddProficiency() const;

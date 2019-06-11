@@ -53,6 +53,11 @@ string SelectableScheduleData::getCondition() const
 	return p_condition;
 }
 
+int SelectableScheduleData::getAddictions() const
+{
+	return p_addictions;
+}
+
 ProficiencyData* SelectableScheduleData::getProficiencyData() const
 {
 	return ProficiencyData::getProficiencyDataById(p_proficiencyId);
@@ -101,6 +106,7 @@ string SelectableScheduleData::description() const
 	desc += "\ttype : " + to_string(p_typeId) + "\n";
 	desc += "\tsubType : " + to_string(p_subTypeId) + "\n";
 	desc += "\tcondition : " + to_string(p_condition) + "\n";
+	desc += "\taddictions : " + to_string(p_addictions) + "\n";
 	desc += "\tproficiency : " + to_string(p_proficiencyId) + "\n";
 	desc += "\taddProficiency : " + to_string(p_addProficiency) + "\n";
 	desc += "\tdescription : " + getDescription() + "\n";
@@ -126,6 +132,7 @@ const map<string, SelectableScheduleData*>* SelectableScheduleData::getSharedDic
 				selectableScheduleData->p_typeId = buffer->getString();
 				selectableScheduleData->p_subTypeId = buffer->getString();
 				selectableScheduleData->p_condition = buffer->getString();
+				selectableScheduleData->p_addictions = buffer->getInt();
 				selectableScheduleData->p_proficiencyId = buffer->getString();
 				selectableScheduleData->p_addProficiency = buffer->getInt();
 				auto attributeChangeCount = buffer->getLong();
@@ -161,6 +168,8 @@ string SelectableScheduleData::getFieldValue(const string & fieldName) const
 		return to_string(this->getSubTypeId());
 	} else if (fieldName == "condition") {
 		return to_string(this->getCondition());
+	} else if (fieldName == "addictions") {
+		return to_string(this->getAddictions());
 	} else if (fieldName == "proficiency") {
 		return to_string(this->getProficiencyId());
 	} else if (fieldName == "addProficiency") {

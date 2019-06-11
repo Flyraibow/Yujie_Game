@@ -4,6 +4,7 @@ This file (BaseDataManager.hpp) is generated
 #ifndef BaseDataManager_hpp
 #define BaseDataManager_hpp
 #include "ConditionData.hpp"
+#include "ExamData.hpp"
 #include "PlotData.hpp"
 #include "ConditionCalculationData.hpp"
 #include "FatherJobData.hpp"
@@ -14,6 +15,7 @@ This file (BaseDataManager.hpp) is generated
 #include "ItemData.hpp"
 #include "MyScheduleData.hpp"
 #include "ScheduleData.hpp"
+#include "ExamListData.hpp"
 #include "ItemCategoryData.hpp"
 #include "FriendData.hpp"
 #include "ParentChatData.hpp"
@@ -32,6 +34,7 @@ class BaseDataManager
 private:
 public:
 	static ConditionData* getConditionDataById(const string& conditionId);
+	static ExamData* getExamDataById(const string& examId);
 	static PlotData* getPlotDataById(const string& plotId);
 	static ConditionCalculationData* getConditionCalculationDataById(const string& conditionCalculationId);
 	static FatherJobData* getFatherJobDataById(const string& fatherJobId);
@@ -42,6 +45,7 @@ public:
 	static ItemData* getItemDataById(const string& itemId);
 	static MyScheduleData* getMyScheduleDataById(const string& myScheduleId);
 	static ScheduleData* getScheduleDataById(const string& scheduleId);
+	static ExamListData* getExamListDataById(const string& examListId);
 	static ItemCategoryData* getItemCategoryDataById(const string& itemCategoryId);
 	static FriendData* getFriendDataById(const string& friendId);
 	static ParentChatData* getParentChatDataById(const string& chatId);

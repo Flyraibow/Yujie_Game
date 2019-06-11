@@ -41,6 +41,16 @@ int ScheduleData::getMonth() const
 	return p_month;
 }
 
+SchoolData* ScheduleData::getSchoolData() const
+{
+	return SchoolData::getSchoolDataById(p_schoolId);
+}
+
+string ScheduleData::getSchoolId() const
+{
+	return p_schoolId;
+}
+
 ScheduleTypeData* ScheduleData::getTypeData() const
 {
 	return ScheduleTypeData::getScheduleTypeDataById(p_typeId);
@@ -51,14 +61,18 @@ string ScheduleData::getTypeId() const
 	return p_typeId;
 }
 
-SchoolStudyData* ScheduleData::getSchoolStudyData() const
+vector<SchoolStudyData*> ScheduleData::getSchoolStudyDataVector() const
 {
-	return SchoolStudyData::getSchoolStudyDataById(p_schoolStudyId);
+	vector<SchoolStudyData*> resultVector;
+	for (auto objId : p_schoolStudyIdVector) {
+		resultVector.push_back(SchoolStudyData::getSchoolStudyDataById(objId));
+	}
+	return resultVector;
 }
 
-string ScheduleData::getSchoolStudyId() const
+vector<string> ScheduleData::getSchoolStudyIdVector() const
 {
-	return p_schoolStudyId;
+	return p_schoolStudyIdVector;
 }
 
 string ScheduleData::description() const
@@ -69,8 +83,9 @@ string ScheduleData::description() const
 	desc += "\tcondition : " + to_string(p_condition) + "\n";
 	desc += "\tyear : " + to_string(p_year) + "\n";
 	desc += "\tmonth : " + to_string(p_month) + "\n";
+	desc += "\tschool : " + to_string(p_schoolId) + "\n";
 	desc += "\ttype : " + to_string(p_typeId) + "\n";
-	desc += "\tschoolStudy : " + to_string(p_schoolStudyId) + "\n";
+	desc += "\tschoolStudy : " + to_string(p_schoolStudyIdVector) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -92,8 +107,12 @@ const map<string, ScheduleData*>* ScheduleData::getSharedDictionary()
 				scheduleData->p_condition = buffer->getString();
 				scheduleData->p_year = buffer->getInt();
 				scheduleData->p_month = buffer->getInt();
+				scheduleData->p_schoolId = buffer->getString();
 				scheduleData->p_typeId = buffer->getString();
-				scheduleData->p_schoolStudyId = buffer->getString();
+				auto schoolStudyCount = buffer->getLong();
+				for (int j = 0; j < schoolStudyCount; ++j) {
+					scheduleData->p_schoolStudyIdVector.push_back(buffer->getString());
+				}
 				p_sharedDictionary->insert(pair<string, ScheduleData*>(scheduleData->p_scheduleId, scheduleData));
 			}
 		}
@@ -121,10 +140,12 @@ string ScheduleData::getFieldValue(const string & fieldName) const
 		return to_string(this->getYear());
 	} else if (fieldName == "month") {
 		return to_string(this->getMonth());
+	} else if (fieldName == "school") {
+		return to_string(this->getSchoolId());
 	} else if (fieldName == "type") {
 		return to_string(this->getTypeId());
 	} else if (fieldName == "schoolStudy") {
-		return to_string(this->getSchoolStudyId());
+		return to_string(this->getSchoolStudyIdVector());
 	}
 	CCLOGWARN("Couldn't recognize %s in ScheduleData", fieldName.c_str());
 	return "";
@@ -132,10 +153,10 @@ string ScheduleData::getFieldValue(const string & fieldName) const
 
 BaseData* ScheduleData::getDataByField(const string & fieldName) const
 {
-	if (fieldName == "type") {
+	if (fieldName == "school") {
+		return this->getSchoolData();
+	} else if (fieldName == "type") {
 		return this->getTypeData();
-	} else if (fieldName == "schoolStudy") {
-		return this->getSchoolStudyData();
 	}
 	CCLOGWARN("Couldn't recognize %s in ScheduleData", fieldName.c_str());
 	return nullptr;

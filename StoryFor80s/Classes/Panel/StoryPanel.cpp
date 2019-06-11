@@ -14,12 +14,22 @@
 #include "ConditionManager.hpp"
 #include "StoryManager.hpp"
 #include "DiaryPanel.hpp"
+#include "ExamListData.hpp"
+#include "ExamFunctions.hpp"
 
 struct sort_plot_by_priority
 {
   inline bool operator() (const PlotData *plot1, const PlotData *plot2)
   {
     return (plot1->getPriority() < plot2->getPriority());
+  }
+};
+
+struct sort_exam_by_priority
+{
+  inline bool operator() (const ExamListData *examList1, const ExamListData *examList2)
+  {
+    return (examList1->getPriority() < examList2->getPriority());
   }
 };
 
@@ -49,6 +59,32 @@ vector<PlotData *> findPlotsInThisMonth()
   return results;
 }
 
+vector<ExamListData *> findExamListInThisMonth()
+{
+  auto currentDate = GameData::getSharedInstance()->getGameDateData();
+  auto allExamLists = ExamListData::getSharedDictionary();
+  vector<ExamListData *> results;
+  for(auto it = allExamLists->begin(); it != allExamLists->end(); ++it) {
+    auto examList = it->second;
+    if (!Manager::checkConditionByString(examList->getCondition())) {
+      continue;
+    }
+    if (examList->getSchoolId() != GameData::getSharedInstance()->getSchoolId()) {
+      continue;
+    }
+    auto plotYear = examList->getYear();
+    if (plotYear == 0) {
+      results.push_back(examList);
+    } else {
+      if (currentDate->getYear() == plotYear && currentDate->getMonth() == examList->getMonth()) {
+        results.push_back(examList);
+      }
+    }
+  }
+  sort(results.begin(), results.end(), sort_exam_by_priority());
+  return results;
+}
+
 BasePanel* StoryPanel::createPanel()
 {
   return new StoryPanel();
@@ -74,9 +110,7 @@ void StoryPanel::nextPlot()
     p_currentPlotIndex++;
     startPlot(plot);
   } else {
-    SceneManager::getShareInstance()->popPanel();
-    // 打开diarypanel
-    SceneManager::getShareInstance()->addPanel("diaryPanel");
+    initializeExam();
   }
 }
 
@@ -100,11 +134,7 @@ void StoryPanel::completePlotText(PlotData *plot)
     // 简单事件
     button->setVisible(true);
     button->setClickEventListener([this](cocos2d::Ref *pSender) {
-      if (p_currentPlotIndex < p_plots.size()) {
-        this->nextPlot();
-      } else {
-        SceneManager::getShareInstance()->popPanel();
-      }
+      this->nextPlot();
     });
   } else {
     // 多选事件
@@ -144,4 +174,45 @@ void StoryPanel::clearTempButtons()
     button->removeFromParent();
   }
   p_tempButtons.clear();
+}
+
+
+void StoryPanel::initializeExam()
+{
+  p_examLists = findExamListInThisMonth();
+  p_currentExamIndex = 0;
+  nextExam();
+}
+
+void StoryPanel::nextExam()
+{
+  if (p_examLists.size() > p_currentExamIndex) {
+    auto examList = p_examLists.at(p_currentExamIndex);
+    p_currentExamIndex++;
+    startExam(examList);
+  } else {
+    SceneManager::getShareInstance()->popPanel();
+    // 打开diarypanel
+    SceneManager::getShareInstance()->addPanel("diaryPanel");
+  }
+}
+
+void StoryPanel::startExam(ExamListData* examList)
+{
+  auto labDescriptionText = getComponentById<BaseLabel>("lab_text");
+  auto button = this->getComponentById<BaseButton>("button_next");
+  button->setVisible(false);
+  labDescriptionText->setString(game::startExam(examList));
+  labDescriptionText->setCallback([this, examList](){
+    this->completeExamText(examList);
+  });
+}
+
+void StoryPanel::completeExamText(ExamListData* examList)
+{
+  auto button = this->getComponentById<BaseButton>("button_next");
+  button->setVisible(true);
+  button->setClickEventListener([this](cocos2d::Ref *pSender) {
+    this->nextExam();
+  });
 }

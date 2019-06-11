@@ -45,14 +45,13 @@ void ShopPanel::referesh()
     if (!Manager::checkConditionByString(itemPair.second->getCondition())) {
       continue;
     }
+    if (itemPair.second->getHaveIt()) {
+      continue;
+    }
     auto component = generateItemComponent(itemPair.second);
     auto sprite = component->getNode();
-    if (itemPair.second->getHaveIt()) {
-      sprite->setVisible(false);
-    } else {
-      auto listener = BaseSpriteListener::createWithNode(sprite, false);
-      listener->setTouchClicked(CC_CALLBACK_2(ShopPanel::selectItem, this), nullptr);
-    }
+    auto listener = BaseSpriteListener::createWithNode(sprite, false);
+    listener->setTouchClicked(CC_CALLBACK_2(ShopPanel::selectItem, this), nullptr);
     int row = index % 3;
     int col = index / 3;
     sprite->setPosition(col * 180, height - row * 180);
