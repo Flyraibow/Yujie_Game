@@ -12,6 +12,7 @@
 #include "BaseSpriteListener.hpp"
 #include "FunctionManager.hpp"
 #include "SceneManager.hpp"
+#include "BaseLabel.hpp"
 
 const static string kDialogContentScheduleKey = "dialog_content";
 
@@ -66,25 +67,14 @@ void DialogPanel::showDialog(const DialogElements *dialog)
   p_currentContentLength = 0;
   p_contentLength = Utils::utf8_strlen(p_content);
 
-  labDialog->setString("");
-  labDialog->schedule([this, labDialog](float delta) {
-    if (p_currentContentLength++ < p_contentLength) {
-      auto str = Utils::utf8_substr(p_content, 0, p_currentContentLength);
-      labDialog->setString(str);
-    } else {
-      labDialog->setString(p_content);
-      labDialog->unschedule(kDialogContentScheduleKey);
-    }
-  }, 0.2f, kDialogContentScheduleKey);
+  labDialog->setString(p_content);
 }
 
 void DialogPanel::clickDialogPanel(Touch* touch, Event* event)
 {
-  auto labDialog = getComponentById<Label>("lab_dialog");
-  if (p_currentContentLength + 1 < p_contentLength) {
-    labDialog->setString(p_content);
-    p_currentContentLength = p_contentLength;
-    labDialog->unschedule(kDialogContentScheduleKey);
+  auto labDialog = getComponentById<BaseLabel>("lab_dialog");
+  if (labDialog->getString() != p_content) {
+    labDialog->showTextImmediately();
   } else {
     showNextDialog();
   }

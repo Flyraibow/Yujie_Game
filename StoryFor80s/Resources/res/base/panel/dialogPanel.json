@@ -23,6 +23,7 @@
 	      	{
 		      "type": "label",
 		      "id": "lab_dialog",
+          "speed" : 5,
 		      "text": "一大堆的文字，测试下哈哈哈哈哈哈哈大佛好评地方好皮肤好皮肤哈破地方好评度撒谎djgf oajfajfsdg热加工IOP奇偶平时的架构os; jfoiasnjasnf;as nfdon;aofo 佛号阿道夫",
 		      "normalized_position": [0.05, 0.70],
 		      "anchor_point": [0, 1],

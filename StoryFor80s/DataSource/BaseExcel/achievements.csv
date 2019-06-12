@@ -1,0 +1,5 @@
+﻿achievementId,name,category,value,validUntilYear,validUntilMonth,haveIt
+id,language,friend_id,int,int,int,bool
+string,chinese,AchievementCategory,-,-,-,-
+writable,N,N,N,N,N,Y
+chinese_1_mid_3,一年级语文上期中考试前三名,chinese,10,1995,1,0

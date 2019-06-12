@@ -9,6 +9,7 @@ This file (ExamData.hpp) is generated
 #include "ProficiencyData.hpp"
 #include "ProficiencyData.hpp"
 #include "AttributeData.hpp"
+#include "AchievementsData.hpp"
 
 
 class ExamData: public BaseData
@@ -26,6 +27,7 @@ private:
 	int p_lowestScore;
 	int p_midScore;
 	int p_highestScore;
+	map<string, int> p_rankAchievementsMap;
 public:
 	string getId() const;
 	string getExamId() const;
@@ -44,6 +46,8 @@ public:
 	int getLowestScore() const;
 	int getMidScore() const;
 	int getHighestScore() const;
+	vector<BaseData *> getRankAchievementsList() const;
+	map<string, int> getRankAchievementsMap() const;
 	string description() const;
 	static const map<string, ExamData*>* getSharedDictionary();
 	static ExamData* getExamDataById(const string& examId);

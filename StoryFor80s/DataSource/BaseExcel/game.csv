@@ -1,4 +1,4 @@
-﻿gameDate,firstName,lastName,myBirthDay,parentJob,school,hasWalked
+﻿gameDate,firstName,lastName,myBirthDay,parentJob,school,hasTalkedToParent
 friend_id,string,string,friend_id,friend_id,friend_id,bool
 Date,-,-,Date,FatherJob,School,-
 N,Y,Y,N,Y,Y,Y

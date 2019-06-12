@@ -7,6 +7,7 @@ This file (BaseDataManager.hpp) is generated
 #include "ExamData.hpp"
 #include "PlotData.hpp"
 #include "ConditionCalculationData.hpp"
+#include "AchievementCategoryData.hpp"
 #include "FatherJobData.hpp"
 #include "ScheduleSubTypeData.hpp"
 #include "StoryData.hpp"
@@ -19,8 +20,10 @@ This file (BaseDataManager.hpp) is generated
 #include "ItemCategoryData.hpp"
 #include "FriendData.hpp"
 #include "ParentChatData.hpp"
+#include "SkillData.hpp"
 #include "AttributeData.hpp"
 #include "SelectableScheduleData.hpp"
+#include "AchievementsData.hpp"
 #include "FunctionCalculationData.hpp"
 #include "SchoolStudyData.hpp"
 #include "ActionData.hpp"
@@ -37,6 +40,7 @@ public:
 	static ExamData* getExamDataById(const string& examId);
 	static PlotData* getPlotDataById(const string& plotId);
 	static ConditionCalculationData* getConditionCalculationDataById(const string& conditionCalculationId);
+	static AchievementCategoryData* getAchievementCategoryDataById(const string& categoryId);
 	static FatherJobData* getFatherJobDataById(const string& fatherJobId);
 	static ScheduleSubTypeData* getScheduleSubTypeDataById(const string& scheduleSubTypeId);
 	static StoryData* getStoryDataById(const string& storyId);
@@ -49,8 +53,10 @@ public:
 	static ItemCategoryData* getItemCategoryDataById(const string& itemCategoryId);
 	static FriendData* getFriendDataById(const string& friendId);
 	static ParentChatData* getParentChatDataById(const string& chatId);
+	static SkillData* getSkillDataById(const string& skillId);
 	static AttributeData* getAttributeDataById(const string& attributeId);
 	static SelectableScheduleData* getSelectableScheduleDataById(const string& scheduleId);
+	static AchievementsData* getAchievementsDataById(const string& achievementId);
 	static FunctionCalculationData* getFunctionCalculationDataById(const string& functionCalculatonId);
 	static SchoolStudyData* getSchoolStudyDataById(const string& schoolStudyId);
 	static ActionData* getActionDataById(const string& actionId);

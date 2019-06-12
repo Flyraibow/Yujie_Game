@@ -9,6 +9,7 @@
 #include "DataManager.hpp"
 #include "Utils.hpp"
 #include "JSONContent.hpp"
+#include "ConditionManager.hpp"
 
 std::string BaseComponent::getId() const
 {
@@ -221,7 +222,7 @@ void BaseComponent::copyAttributesFromJson(const nlohmann::json &componentJson)
 void BaseComponent::checkHideCondition()
 {
   if (p_shouldHideCondition.length() > 0) {
-    p_node->setVisible(!DataManager::getShareInstance()->checkCondition(p_shouldHideCondition));
+    p_node->setVisible(!Manager::checkConditionByString(p_shouldHideCondition));
   }
 }
 

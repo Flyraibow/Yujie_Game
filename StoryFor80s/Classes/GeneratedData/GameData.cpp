@@ -81,14 +81,14 @@ void GameData::setSchoolId(string school)
 	p_schoolId = school;
 }
 
-bool GameData::getHasWalked() const
+bool GameData::getHasTalkedToParent() const
 {
-	return p_hasWalked;
+	return p_hasTalkedToParent;
 }
 
-void GameData::setHasWalked(bool hasWalked)
+void GameData::setHasTalkedToParent(bool hasTalkedToParent)
 {
-	p_hasWalked = hasWalked;
+	p_hasTalkedToParent = hasTalkedToParent;
 }
 
 string GameData::description() const
@@ -100,7 +100,7 @@ string GameData::description() const
 	desc += "\tmyBirthDay : " + to_string(p_myBirthDayId) + "\n";
 	desc += "\tparentJob : " + to_string(p_parentJobId) + "\n";
 	desc += "\tschool : " + to_string(p_schoolId) + "\n";
-	desc += "\thasWalked : " + to_string(p_hasWalked) + "\n";
+	desc += "\thasTalkedToParent : " + to_string(p_hasTalkedToParent) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -120,7 +120,7 @@ GameData* GameData::getSharedInstance()
 			p_sharedData->p_myBirthDayId = buffer->getString();
 			p_sharedData->p_parentJobId = buffer->getString();
 			p_sharedData->p_schoolId = buffer->getString();
-			p_sharedData->p_hasWalked = buffer->getChar();
+			p_sharedData->p_hasTalkedToParent = buffer->getChar();
 		}
 	}
 	return p_sharedData;
@@ -140,8 +140,8 @@ bool GameData::saveData(const string & path)
 	buffer->putString(to_string(data->p_parentJobId));
 	buffer->putString("p_schoolId");
 	buffer->putString(to_string(data->p_schoolId));
-	buffer->putString("p_hasWalked");
-	buffer->putString(to_string(data->p_hasWalked));
+	buffer->putString("p_hasTalkedToParent");
+	buffer->putString(to_string(data->p_hasTalkedToParent));
 	buffer->writeToFile(filePath);
 	return true;
 }
@@ -167,8 +167,8 @@ bool GameData::loadData(const string & path)
 					data->p_parentJobId = value;
 				} else if (key == "p_schoolId") {
 					data->p_schoolId = value;
-				} else if (key == "p_hasWalked") {
-					data->p_hasWalked = (atoi(value.c_str()) != 0);
+				} else if (key == "p_hasTalkedToParent") {
+					data->p_hasTalkedToParent = (atoi(value.c_str()) != 0);
 				}
 			}
 		}
@@ -195,8 +195,8 @@ void GameData::setFieldValue(const string & fieldName, const string & value)
 		this->setParentJobId(value);
 	} else if (fieldName == "school") {
 		this->setSchoolId(value);
-	} else if (fieldName == "hasWalked") {
-		this->setHasWalked((atoi(value.c_str()) != 0));
+	} else if (fieldName == "hasTalkedToParent") {
+		this->setHasTalkedToParent((atoi(value.c_str()) != 0));
 	}
 }
 
@@ -214,8 +214,8 @@ string GameData::getFieldValue(const string & fieldName) const
 		return to_string(this->getParentJobId());
 	} else if (fieldName == "school") {
 		return to_string(this->getSchoolId());
-	} else if (fieldName == "hasWalked") {
-		return to_string(this->getHasWalked());
+	} else if (fieldName == "hasTalkedToParent") {
+		return to_string(this->getHasTalkedToParent());
 	}
 	CCLOGWARN("Couldn't recognize %s in GameData", fieldName.c_str());
 	return "";

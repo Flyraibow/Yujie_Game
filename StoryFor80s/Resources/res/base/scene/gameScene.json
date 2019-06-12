@@ -76,9 +76,10 @@
      {
        "type": "button",
        "text": "安排",
+       "id": "btn_arrange",
        "normalized_position": [0.4, 0.05],
        "storyId" : "action/arrange",
-       "hide_condition" : "FALSE"
+       "hide_condition" : "bool.gamedata.SkillData.allow_arrange.haveIt=0"
      },
      {
        "type": "button",
@@ -88,10 +89,18 @@
      },
      {
        "type": "button",
-       "text": "商店",
+       "text": "和父母聊天",
+       "id": "btn_chat",
        "normalized_position": [0.6, 0.05],
+       "storyId" : "action/chatWithParents",
+       "hide_condition" : "int.gamedata.StoryData.first_month.count=0"
+     },
+     {
+       "type": "button",
+       "text": "商店",
+       "normalized_position": [0.7, 0.05],
        "storyId" : "action/shop",
-       "hide_condition" : "FALSE"
+       "hide_condition" : "TRUE"
      }
 	]
 }

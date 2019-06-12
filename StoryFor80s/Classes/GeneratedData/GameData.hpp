@@ -20,7 +20,7 @@ private:
 	string p_myBirthDayId;
 	string p_parentJobId;
 	string p_schoolId;
-	bool p_hasWalked;
+	bool p_hasTalkedToParent;
 public:
 	DateData* getGameDateData() const;
 	string getGameDateId() const;
@@ -36,8 +36,8 @@ public:
 	SchoolData* getSchoolData() const;
 	string getSchoolId() const;
 	void setSchoolId(string school);
-	bool getHasWalked() const;
-	void setHasWalked(bool hasWalked);
+	bool getHasTalkedToParent() const;
+	void setHasTalkedToParent(bool hasTalkedToParent);
 	string description() const;
 	static GameData* getSharedInstance();
 	static bool saveData(const string & path);

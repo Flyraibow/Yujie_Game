@@ -21,6 +21,7 @@ class StoryEventContent
 protected:
   string p_type;
   string p_comment;
+  bool p_noCallback;
   nlohmann::json p_content;
 public:
   StoryEventContent(const nlohmann::json &componentJson);

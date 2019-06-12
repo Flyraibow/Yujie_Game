@@ -49,6 +49,7 @@ void story::passMonth(const nlohmann::json &jsonContent)
   }
   gameDate->setMonth(month);
   gameDate->setYear(year);
+  GameData::getSharedInstance()->setHasTalkedToParent(false);
 }
 
 
@@ -71,5 +72,6 @@ void game::save(const nlohmann::json &jsonContent)
 void game::load(const nlohmann::json &jsonContent)
 {
   auto index = DataManager::getShareInstance()->getTempString("index");
+  BaseDataManager::clearData();
   BaseDataManager::loadData(index);
 }

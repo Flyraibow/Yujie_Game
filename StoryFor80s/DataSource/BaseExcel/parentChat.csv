@@ -1,5 +1,5 @@
-﻿chatId,name
-id,language
-string,chinese
-writable,N
-1,聊学校
+﻿chatId,comment,condition,repeat,experienced,story
+id,comment,string,bool,bool,string
+string,-,-,-,-,-
+writable,N,N,N,Y,N
+1,触发允许安排,TRUE,FALSE,FALSE,chatWithParent/arrange

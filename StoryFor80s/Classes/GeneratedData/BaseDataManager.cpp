@@ -13,7 +13,10 @@ This file (BaseDataManager.cpp) is generated
 #include "ItemData.hpp"
 #include "MyScheduleData.hpp"
 #include "FriendData.hpp"
+#include "ParentChatData.hpp"
+#include "SkillData.hpp"
 #include "AttributeData.hpp"
+#include "AchievementsData.hpp"
 #include "GameData.hpp"
 #include "ProficiencyData.hpp"
 
@@ -48,6 +51,14 @@ ConditionCalculationData* BaseDataManager::getConditionCalculationDataById(const
 {
 	if (ConditionCalculationData::getSharedDictionary()->count(conditionCalculationId)) {
 		return ConditionCalculationData::getSharedDictionary()->at(conditionCalculationId);
+	}
+	return nullptr;
+}
+
+AchievementCategoryData* BaseDataManager::getAchievementCategoryDataById(const string& categoryId)
+{
+	if (AchievementCategoryData::getSharedDictionary()->count(categoryId)) {
+		return AchievementCategoryData::getSharedDictionary()->at(categoryId);
 	}
 	return nullptr;
 }
@@ -148,6 +159,14 @@ ParentChatData* BaseDataManager::getParentChatDataById(const string& chatId)
 	return nullptr;
 }
 
+SkillData* BaseDataManager::getSkillDataById(const string& skillId)
+{
+	if (SkillData::getSharedDictionary()->count(skillId)) {
+		return SkillData::getSharedDictionary()->at(skillId);
+	}
+	return nullptr;
+}
+
 AttributeData* BaseDataManager::getAttributeDataById(const string& attributeId)
 {
 	if (AttributeData::getSharedDictionary()->count(attributeId)) {
@@ -160,6 +179,14 @@ SelectableScheduleData* BaseDataManager::getSelectableScheduleDataById(const str
 {
 	if (SelectableScheduleData::getSharedDictionary()->count(scheduleId)) {
 		return SelectableScheduleData::getSharedDictionary()->at(scheduleId);
+	}
+	return nullptr;
+}
+
+AchievementsData* BaseDataManager::getAchievementsDataById(const string& achievementId)
+{
+	if (AchievementsData::getSharedDictionary()->count(achievementId)) {
+		return AchievementsData::getSharedDictionary()->at(achievementId);
 	}
 	return nullptr;
 }
@@ -244,8 +271,20 @@ bool BaseDataManager::saveData(string fileName)
 		CCLOG("Failed to save FriendData, %s", path.c_str());
 		return false;
 	}
+	if (!ParentChatData::saveData(path)) {
+		CCLOG("Failed to save ParentChatData, %s", path.c_str());
+		return false;
+	}
+	if (!SkillData::saveData(path)) {
+		CCLOG("Failed to save SkillData, %s", path.c_str());
+		return false;
+	}
 	if (!AttributeData::saveData(path)) {
 		CCLOG("Failed to save AttributeData, %s", path.c_str());
+		return false;
+	}
+	if (!AchievementsData::saveData(path)) {
+		CCLOG("Failed to save AchievementsData, %s", path.c_str());
 		return false;
 	}
 	if (!GameData::saveData(path)) {
@@ -295,8 +334,20 @@ bool BaseDataManager::loadData(string fileName)
 		CCLOG("Failed to load FriendData, %s", path.c_str());
 		return false;
 	}
+	if (!ParentChatData::loadData(path)) {
+		CCLOG("Failed to load ParentChatData, %s", path.c_str());
+		return false;
+	}
+	if (!SkillData::loadData(path)) {
+		CCLOG("Failed to load SkillData, %s", path.c_str());
+		return false;
+	}
 	if (!AttributeData::loadData(path)) {
 		CCLOG("Failed to load AttributeData, %s", path.c_str());
+		return false;
+	}
+	if (!AchievementsData::loadData(path)) {
+		CCLOG("Failed to load AchievementsData, %s", path.c_str());
 		return false;
 	}
 	if (!GameData::loadData(path)) {
@@ -319,7 +370,10 @@ bool BaseDataManager::clearData()
 	ItemData::clearData();
 	MyScheduleData::clearData();
 	FriendData::clearData();
+	ParentChatData::clearData();
+	SkillData::clearData();
 	AttributeData::clearData();
+	AchievementsData::clearData();
 	GameData::clearData();
 	ProficiencyData::clearData();
 	return true;
@@ -335,6 +389,8 @@ BaseData * BaseDataManager::getData(const string & dataSet, const string & id)
 		return PlotData::getPlotDataById(id);
 	} else if (dataSet == "ConditionCalculationData") {
 		return ConditionCalculationData::getConditionCalculationDataById(id);
+	} else if (dataSet == "AchievementCategoryData") {
+		return AchievementCategoryData::getAchievementCategoryDataById(id);
 	} else if (dataSet == "FatherJobData") {
 		return FatherJobData::getFatherJobDataById(id);
 	} else if (dataSet == "ScheduleSubTypeData") {
@@ -359,10 +415,14 @@ BaseData * BaseDataManager::getData(const string & dataSet, const string & id)
 		return FriendData::getFriendDataById(id);
 	} else if (dataSet == "ParentChatData") {
 		return ParentChatData::getParentChatDataById(id);
+	} else if (dataSet == "SkillData") {
+		return SkillData::getSkillDataById(id);
 	} else if (dataSet == "AttributeData") {
 		return AttributeData::getAttributeDataById(id);
 	} else if (dataSet == "SelectableScheduleData") {
 		return SelectableScheduleData::getSelectableScheduleDataById(id);
+	} else if (dataSet == "AchievementsData") {
+		return AchievementsData::getAchievementsDataById(id);
 	} else if (dataSet == "FunctionCalculationData") {
 		return FunctionCalculationData::getFunctionCalculationDataById(id);
 	} else if (dataSet == "SchoolStudyData") {
@@ -412,8 +472,17 @@ void BaseDataManager::setDataField(const string & dataSet, const string & id, co
 	} else if (dataSet == "FriendData") {
 		auto data = FriendData::getFriendDataById(id);
 		data->setFieldValue(fieldName, value);
+	} else if (dataSet == "ParentChatData") {
+		auto data = ParentChatData::getParentChatDataById(id);
+		data->setFieldValue(fieldName, value);
+	} else if (dataSet == "SkillData") {
+		auto data = SkillData::getSkillDataById(id);
+		data->setFieldValue(fieldName, value);
 	} else if (dataSet == "AttributeData") {
 		auto data = AttributeData::getAttributeDataById(id);
+		data->setFieldValue(fieldName, value);
+	} else if (dataSet == "AchievementsData") {
+		auto data = AchievementsData::getAchievementsDataById(id);
 		data->setFieldValue(fieldName, value);
 	} else if (dataSet == "GameData") {
 		auto data = GameData::getSharedInstance();
@@ -445,6 +514,11 @@ vector<BaseData *> BaseDataManager::getDataList(const string & dataSet)
 		}
 	} else if (dataSet == "ConditionCalculationData") {
 		auto dataMap = ConditionCalculationData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else if (dataSet == "AchievementCategoryData") {
+		auto dataMap = AchievementCategoryData::getSharedDictionary();
 		for (auto elem : *dataMap) {
 			result.push_back(elem.second);
 		}
@@ -508,6 +582,11 @@ vector<BaseData *> BaseDataManager::getDataList(const string & dataSet)
 		for (auto elem : *dataMap) {
 			result.push_back(elem.second);
 		}
+	} else if (dataSet == "SkillData") {
+		auto dataMap = SkillData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
 	} else if (dataSet == "AttributeData") {
 		auto dataMap = AttributeData::getSharedDictionary();
 		for (auto elem : *dataMap) {
@@ -515,6 +594,11 @@ vector<BaseData *> BaseDataManager::getDataList(const string & dataSet)
 		}
 	} else if (dataSet == "SelectableScheduleData") {
 		auto dataMap = SelectableScheduleData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else if (dataSet == "AchievementsData") {
+		auto dataMap = AchievementsData::getSharedDictionary();
 		for (auto elem : *dataMap) {
 			result.push_back(elem.second);
 		}

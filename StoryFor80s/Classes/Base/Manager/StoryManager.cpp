@@ -63,11 +63,18 @@ void StoryManager::checkAndStartStory()
   for (auto iter = storyList->begin(); iter != storyList->end(); iter++) {
     auto storyData = iter->second;
     if (storyData != nullptr) {
+      if (storyData->getOnce() && storyData->getCount() > 0) {
+        continue;
+      }
+      if (storyData->getYear() > 0 && storyData->getYear() != GameData::getSharedInstance()->getGameDateData()->getYear()) {
+        continue;
+      }
+      if (storyData->getMonth() > 0 && storyData->getMonth() != GameData::getSharedInstance()->getGameDateData()->getMonth()) {
+        continue;
+      }
       if (!storyData->getOnce() || storyData->getCount() == 0) {
-        if (DataManager::getShareInstance()->checkCondition(storyData->getConditionId())) {
-          storyData->setCount(storyData->getCount() + 1);
-          startStory(storyData);
-        }
+        storyData->setCount(storyData->getCount() + 1);
+        startStory(storyData);
       }
       return;
     }

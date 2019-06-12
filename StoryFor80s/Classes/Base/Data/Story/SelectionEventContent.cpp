@@ -68,7 +68,6 @@ SelectionEventContent::SelectionEventContent(const nlohmann::json &jsonContent) 
     p_selectionElements.push_back(selectionElement);
   }
   p_backgroundColor = Utils::getColorFromJson(jsonContent, "background_color");
-  p_noCallback = Utils::getBoolFromJson(jsonContent, "no_call_back");
 }
 
 SelectionEventContent::~SelectionEventContent()
@@ -104,6 +103,8 @@ void SelectionEventContent::runEvent(StoryEventCallback callback)
     auto baseScene = SceneManager::getShareInstance()->currentScene();
     baseScene->addChild(p_buttonGroup, SCREEN_DIALOG_LAYER);
   } else {
-    callback();
+    if (!p_noCallback) {
+      callback();
+    }
   }
 }

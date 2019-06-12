@@ -1,0 +1,35 @@
+{
+	"events": [
+		{
+			"__comment" : "弹出对话框",
+			"type" : "dialog",
+			"name" : "dialogPanel",
+			"dialogs":[
+				{
+					"name": "妈妈",
+					"content" : "你现在大了，记得要合理安排自己的时间。多学点知识。"
+				},
+        {
+          "name": "我",
+          "content" : "知道了，妈妈！"
+        }
+			]
+		},
+    {
+      "__comment" : "打开安排界面",
+      "type" : "setValues",
+      "changes" : [
+        {
+          "type" : "set",
+          "data" : "gamedata.SkillData.allow_arrange",
+          "field" : "haveIt",
+          "value" : "1"
+        }
+      ]
+    },
+    {
+      "__comment" : "刷新",
+      "type" : "refreshScene"
+    }
+	]
+}

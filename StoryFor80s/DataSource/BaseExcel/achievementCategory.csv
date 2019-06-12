@@ -1,0 +1,7 @@
+﻿categoryId,name,subCategory
+id,language,friend_id_vector
+string,chinese,AchievementCategory
+writable,N,N
+chinese,语文,;
+math,数学,;
+chinese_math,语文+数学,chinese;math

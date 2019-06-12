@@ -1,5 +1,6 @@
-storyId,storyEvent,once,count,condition
-id,string,bool,int,friend_id
-string,-,-,-,Condition
-writable,N,N,Y,N
-story_begin,story/story_begin,1,0,;
+storyId,storyEvent,year,month,comment,once,count
+id,string,int,int,comment,bool,int
+string,-,-,-,-,-,-
+writable,N,N,N,N,N,Y
+story_begin,story/story_begin,0,0,____,1,0
+first_month,story/first_month,1994,10,_____,1,0

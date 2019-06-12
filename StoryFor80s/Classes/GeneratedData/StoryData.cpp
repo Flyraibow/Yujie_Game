@@ -26,6 +26,16 @@ string StoryData::getStoryEvent() const
 	return p_storyEvent;
 }
 
+int StoryData::getYear() const
+{
+	return p_year;
+}
+
+int StoryData::getMonth() const
+{
+	return p_month;
+}
+
 bool StoryData::getOnce() const
 {
 	return p_once;
@@ -41,24 +51,15 @@ void StoryData::setCount(int count)
 	p_count = count;
 }
 
-ConditionData* StoryData::getConditionData() const
-{
-	return ConditionData::getConditionDataById(p_conditionId);
-}
-
-string StoryData::getConditionId() const
-{
-	return p_conditionId;
-}
-
 string StoryData::description() const
 {
 	string desc = "storyData = {\n";
 	desc += "\tstoryId : " + to_string(p_storyId) + "\n";
 	desc += "\tstoryEvent : " + to_string(p_storyEvent) + "\n";
+	desc += "\tyear : " + to_string(p_year) + "\n";
+	desc += "\tmonth : " + to_string(p_month) + "\n";
 	desc += "\tonce : " + to_string(p_once) + "\n";
 	desc += "\tcount : " + to_string(p_count) + "\n";
-	desc += "\tcondition : " + to_string(p_conditionId) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -77,9 +78,10 @@ const map<string, StoryData*>* StoryData::getSharedDictionary()
 				StoryData* storyData = new StoryData();
 				storyData->p_storyId = buffer->getString();
 				storyData->p_storyEvent = buffer->getString();
+				storyData->p_year = buffer->getInt();
+				storyData->p_month = buffer->getInt();
 				storyData->p_once = buffer->getChar();
 				storyData->p_count = buffer->getInt();
-				storyData->p_conditionId = buffer->getString();
 				p_sharedDictionary->insert(pair<string, StoryData*>(storyData->p_storyId, storyData));
 			}
 		}
@@ -169,12 +171,14 @@ string StoryData::getFieldValue(const string & fieldName) const
 		return to_string(this->getStoryId());
 	} else if (fieldName == "storyEvent") {
 		return to_string(this->getStoryEvent());
+	} else if (fieldName == "year") {
+		return to_string(this->getYear());
+	} else if (fieldName == "month") {
+		return to_string(this->getMonth());
 	} else if (fieldName == "once") {
 		return to_string(this->getOnce());
 	} else if (fieldName == "count") {
 		return to_string(this->getCount());
-	} else if (fieldName == "condition") {
-		return to_string(this->getConditionId());
 	}
 	CCLOGWARN("Couldn't recognize %s in StoryData", fieldName.c_str());
 	return "";
@@ -182,9 +186,6 @@ string StoryData::getFieldValue(const string & fieldName) const
 
 BaseData* StoryData::getDataByField(const string & fieldName) const
 {
-	if (fieldName == "condition") {
-		return this->getConditionData();
-	}
 	CCLOGWARN("Couldn't recognize %s in StoryData", fieldName.c_str());
 	return nullptr;
 }

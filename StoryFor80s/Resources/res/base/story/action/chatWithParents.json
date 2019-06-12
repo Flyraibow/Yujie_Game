@@ -1,0 +1,34 @@
+{
+	"events": [
+    {
+      "text" : "每回合只能和父母聊一次",
+      "type" : "condition",
+      "condition" : "bool.game.hasTalkedToParent",
+      "yes_story" : {
+        "events" : [
+          {
+            "__comment" : "弹出对话框",
+            "type" : "dialog",
+            "name" : "dialogPanel",
+            "dialogs":[
+              {
+                "name": "function.my_full_name",
+                "content" : "已经和父母聊过了，下次再聊吧。"
+              }
+            ]
+          },
+          {
+            "__comment" : "跳过",
+            "type" : "story",
+            "name" : "stopStory"
+          }
+        ]
+      }
+    },
+		{
+			"__comment" : "和父母的对话",
+			"type" : "chatWithParents",
+      "no_call_back" : true
+		}
+	]
+}

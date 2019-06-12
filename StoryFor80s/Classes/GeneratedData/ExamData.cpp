@@ -134,6 +134,25 @@ int ExamData::getHighestScore() const
 	return p_highestScore;
 }
 
+vector<BaseData *> ExamData::getRankAchievementsList() const
+{
+	vector<BaseData *> v;
+	for (auto iter : p_rankAchievementsMap) {
+		AchievementsData *data = AchievementsData::getAchievementsDataById(iter.first);
+		if (data != nullptr) {
+			v.push_back(data);
+		} else {
+			CCLOGWARN("Couldn't recognize %s as AchievementsData in ExamData", iter.first.c_str());
+		}
+	}
+	return v;
+}
+
+map<string, int> ExamData::getRankAchievementsMap() const
+{
+	return p_rankAchievementsMap;
+}
+
 string ExamData::description() const
 {
 	string desc = "examData = {\n";
@@ -153,6 +172,8 @@ string ExamData::description() const
 	desc += "\tlowestScore : " + to_string(p_lowestScore) + "\n";
 	desc += "\tmidScore : " + to_string(p_midScore) + "\n";
 	desc += "\thighestScore : " + to_string(p_highestScore) + "\n";
+	
+	desc += "\trankAchievements : " + to_string(p_rankAchievementsMap)+ "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -200,6 +221,12 @@ const map<string, ExamData*>* ExamData::getSharedDictionary()
 				examData->p_lowestScore = buffer->getInt();
 				examData->p_midScore = buffer->getInt();
 				examData->p_highestScore = buffer->getInt();
+				auto rankAchievementsCount = buffer->getLong();
+				for (int j = 0; j < rankAchievementsCount; ++j) {
+					auto key = buffer->getString();
+					auto val = buffer->getInt();
+					examData->p_rankAchievementsMap.insert(make_pair(key, val));
+				}
 				p_sharedDictionary->insert(pair<string, ExamData*>(examData->p_examId, examData));
 			}
 		}
@@ -241,6 +268,8 @@ string ExamData::getFieldValue(const string & fieldName) const
 		return to_string(this->getMidScore());
 	} else if (fieldName == "highestScore") {
 		return to_string(this->getHighestScore());
+	} else if (fieldName == "rankAchievements") {
+		return to_string(this->getRankAchievementsMap());
 	}
 	CCLOGWARN("Couldn't recognize %s in ExamData", fieldName.c_str());
 	return "";
@@ -262,6 +291,8 @@ vector<BaseData *> ExamData::getFieldDataList(const string & fieldName) const
 		return this->getHighProficiencyRequirementsList();
 	} else if (fieldName == "highAttributeRequirements") {
 		return this->getHighAttributeRequirementsList();
+	} else if (fieldName == "rankAchievements") {
+		return this->getRankAchievementsList();
 	}
 	CCLOGWARN("Couldn't recognize %s in ExamData", fieldName.c_str());
 	return vector<BaseData *>();
@@ -286,6 +317,11 @@ string ExamData::getMapFieldValueWithKey(const string & fieldName, const string 
 		}
 	} else if (fieldName == "highAttributeRequirements") {
 		auto fieldMap = this->getHighAttributeRequirementsMap();
+		if (fieldMap.count(key)) {
+			return to_string(fieldMap.at(key));
+		}
+	} else if (fieldName == "rankAchievements") {
+		auto fieldMap = this->getRankAchievementsMap();
 		if (fieldMap.count(key)) {
 			return to_string(fieldMap.at(key));
 		}

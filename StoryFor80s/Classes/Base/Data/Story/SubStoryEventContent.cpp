@@ -16,7 +16,6 @@ SubStoryEventContent::SubStoryEventContent(const nlohmann::json &jsonContent) : 
   if (jsonContent.count("story")) {
     p_subStoryJson = jsonContent.at("story");
   }
-  p_noCallback = Utils::getBoolFromJson(jsonContent, "no_call_back");
 }
 
 void SubStoryEventContent::runEvent(StoryEventCallback callback)

@@ -26,6 +26,7 @@ StoryEventContent::StoryEventContent(const nlohmann::json &jsonContent)
   p_content = jsonContent;
   p_type = Utils::getStringFromJson(jsonContent, "type");
   p_comment = Utils::getStringFromJson(jsonContent, "__comment");
+  p_noCallback = Utils::getBoolFromJson(jsonContent, "no_call_back");
 }
 
 string StoryEventContent::getType() const
@@ -100,5 +101,7 @@ void StoryEventContent::runEvent(StoryEventCallback callback)
   } else if (StoryManager::isFunctionRegistered(p_type)) {
     StoryManager::runFunction(p_type, p_content);
   }
-  callback();
+  if (!p_noCallback) {
+    callback();
+  }
 }

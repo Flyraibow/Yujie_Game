@@ -185,6 +185,14 @@
 		ECBD4F4F22AF56FC00B183E2 /* ExamData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBD4F4922AF56FC00B183E2 /* ExamData.cpp */; };
 		ECBD4F5222AF649500B183E2 /* ExamFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBD4F5022AF649500B183E2 /* ExamFunctions.cpp */; };
 		ECBD4F5322AF649500B183E2 /* ExamFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBD4F5022AF649500B183E2 /* ExamFunctions.cpp */; };
+		ECBD4F5A22B07EA700B183E2 /* AchievementCategoryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBD4F5422B07EA600B183E2 /* AchievementCategoryData.cpp */; };
+		ECBD4F5B22B07EA700B183E2 /* AchievementCategoryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBD4F5422B07EA600B183E2 /* AchievementCategoryData.cpp */; };
+		ECBD4F5C22B07EA700B183E2 /* SkillData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBD4F5522B07EA600B183E2 /* SkillData.cpp */; };
+		ECBD4F5D22B07EA700B183E2 /* SkillData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBD4F5522B07EA600B183E2 /* SkillData.cpp */; };
+		ECBD4F5E22B07EA700B183E2 /* AchievementsData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBD4F5722B07EA700B183E2 /* AchievementsData.cpp */; };
+		ECBD4F5F22B07EA700B183E2 /* AchievementsData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBD4F5722B07EA700B183E2 /* AchievementsData.cpp */; };
+		ECBD4F6222B0970F00B183E2 /* ChatWithParentsFunction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBD4F6022B0970F00B183E2 /* ChatWithParentsFunction.cpp */; };
+		ECBD4F6322B0970F00B183E2 /* ChatWithParentsFunction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBD4F6022B0970F00B183E2 /* ChatWithParentsFunction.cpp */; };
 		ECC3AA7922AAB38F005A106F /* ScheduleSubTypeData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECC3AA7622AAB38E005A106F /* ScheduleSubTypeData.cpp */; };
 		ECC3AA7A22AAB38F005A106F /* ScheduleSubTypeData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECC3AA7622AAB38E005A106F /* ScheduleSubTypeData.cpp */; };
 		ECC5E94922284D660090F6C5 /* BaseSpriteListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECC5E94822284D660090F6C5 /* BaseSpriteListener.cpp */; };
@@ -435,6 +443,14 @@
 		ECBD4F4B22AF56FC00B183E2 /* ExamListData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ExamListData.hpp; sourceTree = "<group>"; };
 		ECBD4F5022AF649500B183E2 /* ExamFunctions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExamFunctions.cpp; sourceTree = "<group>"; };
 		ECBD4F5122AF649500B183E2 /* ExamFunctions.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ExamFunctions.hpp; sourceTree = "<group>"; };
+		ECBD4F5422B07EA600B183E2 /* AchievementCategoryData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AchievementCategoryData.cpp; sourceTree = "<group>"; };
+		ECBD4F5522B07EA600B183E2 /* SkillData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillData.cpp; sourceTree = "<group>"; };
+		ECBD4F5622B07EA700B183E2 /* AchievementsData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AchievementsData.hpp; sourceTree = "<group>"; };
+		ECBD4F5722B07EA700B183E2 /* AchievementsData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AchievementsData.cpp; sourceTree = "<group>"; };
+		ECBD4F5822B07EA700B183E2 /* AchievementCategoryData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AchievementCategoryData.hpp; sourceTree = "<group>"; };
+		ECBD4F5922B07EA700B183E2 /* SkillData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SkillData.hpp; sourceTree = "<group>"; };
+		ECBD4F6022B0970F00B183E2 /* ChatWithParentsFunction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ChatWithParentsFunction.cpp; sourceTree = "<group>"; };
+		ECBD4F6122B0970F00B183E2 /* ChatWithParentsFunction.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ChatWithParentsFunction.hpp; sourceTree = "<group>"; };
 		ECC3AA7622AAB38E005A106F /* ScheduleSubTypeData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScheduleSubTypeData.cpp; sourceTree = "<group>"; };
 		ECC3AA7822AAB38E005A106F /* ScheduleSubTypeData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ScheduleSubTypeData.hpp; sourceTree = "<group>"; };
 		ECC5E94622284D660090F6C5 /* BaseSpriteListener.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BaseSpriteListener.hpp; sourceTree = "<group>"; };
@@ -649,6 +665,8 @@
 				EC73FA6522A8249B00EA4125 /* GameLogicFunction.hpp */,
 				ECBD4F5022AF649500B183E2 /* ExamFunctions.cpp */,
 				ECBD4F5122AF649500B183E2 /* ExamFunctions.hpp */,
+				ECBD4F6022B0970F00B183E2 /* ChatWithParentsFunction.cpp */,
+				ECBD4F6122B0970F00B183E2 /* ChatWithParentsFunction.hpp */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -656,6 +674,12 @@
 		EC073B9F221A99BD006FDCE0 /* GeneratedData */ = {
 			isa = PBXGroup;
 			children = (
+				ECBD4F5422B07EA600B183E2 /* AchievementCategoryData.cpp */,
+				ECBD4F5822B07EA700B183E2 /* AchievementCategoryData.hpp */,
+				ECBD4F5722B07EA700B183E2 /* AchievementsData.cpp */,
+				ECBD4F5622B07EA700B183E2 /* AchievementsData.hpp */,
+				ECBD4F5522B07EA600B183E2 /* SkillData.cpp */,
+				ECBD4F5922B07EA700B183E2 /* SkillData.hpp */,
 				ECBD4F4922AF56FC00B183E2 /* ExamData.cpp */,
 				ECBD4F4A22AF56FC00B183E2 /* ExamData.hpp */,
 				ECBD4F4822AF56FB00B183E2 /* ExamListData.cpp */,
@@ -1055,11 +1079,14 @@
 				EC073B98221927A9006FDCE0 /* FunctionManager.cpp in Sources */,
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
 				EC8482E522116ECE001956DE /* DataManager.cpp in Sources */,
+				ECBD4F5A22B07EA700B183E2 /* AchievementCategoryData.cpp in Sources */,
 				EC16304A22A4A1C40010C010 /* PlotData.cpp in Sources */,
 				EC8482CB221168F4001956DE /* LabelComponent.cpp in Sources */,
 				ECDF38C82222CE49003ED65B /* ValueEventContent.cpp in Sources */,
+				ECBD4F6222B0970F00B183E2 /* ChatWithParentsFunction.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				ECDF38B9222247AA003ED65B /* PhotoEventContent.cpp in Sources */,
+				ECBD4F5E22B07EA700B183E2 /* AchievementsData.cpp in Sources */,
 				EC84828222115812001956DE /* ByteBuffer.cpp in Sources */,
 				EC848301221171FC001956DE /* BaseScene.cpp in Sources */,
 				ECDF38C0222265B4003ED65B /* SubStoryEventContent.cpp in Sources */,
@@ -1097,6 +1124,7 @@
 				EC8483052211726F001956DE /* BasePanel.cpp in Sources */,
 				EC073BCA221A9B67006FDCE0 /* FunctionCalculationData.cpp in Sources */,
 				EC0C56252221FBA80000C3E7 /* StoryManager.cpp in Sources */,
+				ECBD4F5C22B07EA700B183E2 /* SkillData.cpp in Sources */,
 				EC8482CD221168F4001956DE /* ButtonComponent.cpp in Sources */,
 				ECBA50722213DD3600929BBA /* PanelManager.cpp in Sources */,
 				EC073BC8221A9B67006FDCE0 /* AttributeData.cpp in Sources */,
@@ -1127,6 +1155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				ECBD4F6322B0970F00B183E2 /* ChatWithParentsFunction.cpp in Sources */,
 				EC8482E622116ECE001956DE /* DataManager.cpp in Sources */,
 				EC298549227969C3007ECECD /* NewDataManager.cpp in Sources */,
 				ECDF38C92222CE49003ED65B /* ValueEventContent.cpp in Sources */,
@@ -1151,6 +1180,7 @@
 				EC3CF0BA222B420F00E9DF38 /* SelectionEventContent.cpp in Sources */,
 				EC84828322115812001956DE /* ByteBuffer.cpp in Sources */,
 				EC0C564522222FC30000C3E7 /* WaitEventContent.cpp in Sources */,
+				ECBD4F5F22B07EA700B183E2 /* AchievementsData.cpp in Sources */,
 				EC73FA6722A8249B00EA4125 /* GameLogicFunction.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				EC8482CC221168F4001956DE /* LabelComponent.cpp in Sources */,
@@ -1171,6 +1201,7 @@
 				EC8482D0221168F4001956DE /* PanelComponent.cpp in Sources */,
 				EC0C5631222212E20000C3E7 /* StoryJsonData.cpp in Sources */,
 				EC073BCB221A9B67006FDCE0 /* FunctionCalculationData.cpp in Sources */,
+				ECBD4F5B22B07EA700B183E2 /* AchievementCategoryData.cpp in Sources */,
 				EC16303F22A48EAC0010C010 /* StoryPanel.cpp in Sources */,
 				ECDF38C52222CE2E003ED65B /* ConditionEventContent.cpp in Sources */,
 				EC073BC1221A9B67006FDCE0 /* BaseDataManager.cpp in Sources */,
@@ -1197,6 +1228,7 @@
 				EC84828B22115876001956DE /* LocalizationHelper.cpp in Sources */,
 				EC8482C8221168F4001956DE /* EditBoxComponent.cpp in Sources */,
 				ECBD4F5322AF649500B183E2 /* ExamFunctions.cpp in Sources */,
+				ECBD4F5D22B07EA700B183E2 /* SkillData.cpp in Sources */,
 				ECBA50732213DD3600929BBA /* PanelManager.cpp in Sources */,
 				EC8483062211726F001956DE /* BasePanel.cpp in Sources */,
 				EC4F0270221FE48D0038EFCD /* StoryData.cpp in Sources */,

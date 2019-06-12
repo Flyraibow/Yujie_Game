@@ -1,0 +1,5 @@
+﻿skillId,comment,haveIt
+id,comment,bool
+string,-,-
+writable,N,Y
+allow_arrange,允许安排,0

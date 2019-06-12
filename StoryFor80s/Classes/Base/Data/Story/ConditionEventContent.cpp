@@ -46,5 +46,7 @@ void ConditionEventContent::runEvent(StoryEventCallback callback)
       StoryManager::getShareInstance()->startStory(p_noEventId);
     }
   }
-  callback();
+  if (!p_noCallback){
+    callback();
+  }
 }

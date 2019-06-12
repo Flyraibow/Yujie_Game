@@ -32,7 +32,7 @@ public:
 	string getSchoolId() const;
 	int getYear() const;
 	int getMonth() const;
-	virtual vector<ExamData*> getClassesDataVector() const;
+	vector<ExamData*> getClassesDataVector() const;
 	vector<string> getClassesIdVector() const;
 	int getPopulation() const;
 	string description() const;
