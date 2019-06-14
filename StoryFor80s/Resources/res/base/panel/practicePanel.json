@@ -54,7 +54,7 @@
                   {
                     "type": "label",
                     "id": "practice_selected_lab_1",
-                    "text": "学习 数学知识 熟练度 4/1000",
+                    "text": "",
                     "normalized_position": [0.01, 0.5],
                     "anchor_point": [0, 0.5],
                     "text_size": 30
@@ -75,7 +75,7 @@
                   {
                     "type": "label",
                     "id": "practice_selected_lab_2",
-                    "text": "打工 做家务 熟练度 4/1000",
+                    "text": "",
                     "normalized_position": [0.01, 0.5],
                     "anchor_point": [0, 0.5],
                     "text_size": 30
@@ -96,7 +96,7 @@
                   {
                     "type": "label",
                     "id": "practice_selected_lab_3",
-                    "text": "玩 大航海时代 熟练度 4/1000",
+                    "text": "",
                     "normalized_position": [0.01, 0.5],
                     "anchor_point": [0, 0.5],
                     "text_size": 30
@@ -117,7 +117,7 @@
                   {
                     "type": "label",
                     "id": "practice_selected_lab_4",
-                    "text": "作品 钢琴曲 完成度 345/1000",
+                    "text": "",
                     "normalized_position": [0.01, 0.5],
                     "anchor_point": [0, 0.5],
                     "text_size": 30

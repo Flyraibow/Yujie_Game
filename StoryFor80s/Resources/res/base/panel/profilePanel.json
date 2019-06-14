@@ -7,21 +7,208 @@
 	      "type": "sprite",
 	      "id": "profile_panel",
 	      "size": {
-	      	"width": 800,
-	      	"height": 600
+	      	"width": 1000,
+	      	"height": 800
 	      },
 	      "color": [199,178,153],
 	      "normalized_position": [0.5, 0.5],
 	      "anchor_point": [0.5, 0.5],
-	      "auto_scale": true,
 	      "components" : [
+          {
+            "type": "label",
+            "text": "translation.lab_profile_title",
+            "normalized_position": [0.5, 0.95],
+            "anchor_point": [0.5, 1],
+            "text_size": 40
+          },
 	      	{
-		      "type": "button",
-		      "text": "translation.sys_close",
-		      "anchor_point": [1, 0],
-		      "normalized_position": [0.95, 0.05],
-		      "storyId" : "popPanel"
-		    }
+            "type": "button",
+            "text": "translation.sys_close",
+            "anchor_point": [1, 1],
+            "normalized_position": [1, 1],
+            "storyId" : "popPanel"
+          },
+          {
+            "type": "label",
+            "text": "translation.lab_fullname",
+            "text_parameters" : [
+              "function.my_full_name"
+            ],
+            "normalized_position": [0.05, 0.85],
+            "anchor_point": [0, 1],
+            "text_size": 25
+          },
+          {
+            "type": "label",
+            "text": "translation.age_display",
+            "text_parameters" : [
+              "function.my_age_number"
+            ],
+            "normalized_position": [0.05, 0.80],
+            "anchor_point": [0, 1],
+            "text_size": 25
+          },
+          {
+            "type": "label",
+            "text": "translation.lab_parents_job",
+            "text_parameters" : [
+              "game.parentJob.name"
+            ],
+            "normalized_position": [0.05, 0.75],
+            "anchor_point": [0, 1],
+            "text_size": 25
+          },
+          {
+            "type": "label",
+            "text": "translation.lab_school",
+            "text_parameters" : [
+              "game.school.name"
+            ],
+            "normalized_position": [0.05, 0.7],
+            "anchor_point": [0, 1],
+            "text_size": 25
+          },
+          {
+            "type": "label",
+            "text": "translation.lab_data_value",
+            "text_parameters" : [
+              "gamedata.AttributeData.money.name",
+              "gamedata.AttributeData.money.value"
+            ],
+            "normalized_position": [0.05, 0.65],
+            "anchor_point": [0, 1],
+            "text_size": 25
+          },
+          {
+            "type": "label",
+            "text": "translation.lab_data_value",
+            "text_parameters" : [
+              "gamedata.AttributeData.pressure.name",
+              "gamedata.AttributeData.pressure.value"
+            ],
+            "normalized_position": [0.05, 0.6],
+            "anchor_point": [0, 1],
+            "text_size": 25
+          },
+          {
+            "type": "label",
+            "text": "translation.lab_data_value",
+            "text_parameters" : [
+              "gamedata.AttributeData.intelligence.name",
+              "gamedata.AttributeData.intelligence.value"
+            ],
+            "normalized_position": [0.55, 0.85],
+            "anchor_point": [0, 1],
+            "text_size": 25
+          },
+          {
+            "type": "label",
+            "text": "translation.lab_data_value",
+            "text_parameters" : [
+              "gamedata.AttributeData.emotions.name",
+              "gamedata.AttributeData.emotions.value"
+            ],
+            "normalized_position": [0.55, 0.8],
+            "anchor_point": [0, 1],
+            "text_size": 25
+          },
+          {
+            "type": "label",
+            "text": "translation.lab_data_value",
+            "text_parameters" : [
+              "gamedata.AttributeData.imaginations.name",
+              "gamedata.AttributeData.imaginations.value"
+            ],
+            "normalized_position": [0.55, 0.75],
+            "anchor_point": [0, 1],
+            "text_size": 25
+          },
+          {
+            "type": "label",
+            "text": "translation.lab_data_value",
+            "text_parameters" : [
+              "gamedata.AttributeData.rememberence.name",
+              "gamedata.AttributeData.rememberence.value"
+            ],
+            "normalized_position": [0.55, 0.7],
+            "anchor_point": [0, 1],
+            "text_size": 25
+          },
+          {
+            "type": "label",
+            "text": "translation.lab_data_value",
+            "text_parameters" : [
+              "gamedata.AttributeData.charms.name",
+              "gamedata.AttributeData.charms.value"
+            ],
+            "normalized_position": [0.55, 0.65],
+            "anchor_point": [0, 1],
+            "text_size": 25
+          },
+          {
+            "type": "label",
+            "text": "translation.lab_data_value",
+            "text_parameters" : [
+              "gamedata.AttributeData.selfRegulation.name",
+              "gamedata.AttributeData.selfRegulation.value"
+            ],
+            "normalized_position": [0.55, 0.6],
+            "anchor_point": [0, 1],
+            "text_size": 25
+          },
+          {
+            "type": "button",
+            "text": "技能",
+            "id": "btn_proficiency",
+            "anchor_point": [0, 1],
+            "normalized_position": [0.05, 0.5]
+          },
+          {
+            "type": "button",
+            "text": "成就",
+            "id": "btn_achievements",
+            "anchor_point": [0, 1],
+            "normalized_position": [0.05, 0.4]
+          },
+          {
+            "type": "button",
+            "text": "道具",
+            "id": "btn_items",
+            "anchor_point": [0, 1],
+            "normalized_position": [0.05, 0.3]
+          },
+          {
+            "type": "sprite",
+            "id": "filter",
+            "size": {
+              "width": 200,
+              "height": 30
+            },
+            "color": "alpha_red",
+            "normalized_position": [0.55, 0.55],
+            "anchor_point": [0.5, 1],
+            "components": [
+              {
+                "type": "label",
+                "id": "filter_lib",
+                "text": "过滤",
+                "normalized_position": [0.5, 0.5],
+                "anchor_point": [0.5, 0.5],
+                "text_size": 20
+              }
+            ]
+          },
+          {
+            "type": "scrollView",
+            "id": "scrollView",
+            "size": {
+              "width": 800,
+              "height": 400
+            },
+            "color": [199,78,253],
+            "normalized_position": [0.18, 0.51],
+            "anchor_point": [0, 1]
+          }
 	      ]
 	    }
 	]

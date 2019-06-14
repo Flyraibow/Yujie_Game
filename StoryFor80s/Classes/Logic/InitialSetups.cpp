@@ -16,6 +16,7 @@
 #include "PracticePanel.hpp"
 #include "ShopPanel.hpp"
 #include "ChatWithParentsFunction.hpp"
+#include "ProfilePanel.hpp"
 
 void story::setupForThisGame()
 {
@@ -31,4 +32,5 @@ void story::setupForThisGame()
   PanelManager::registerPanel<DiaryPanel>("diaryPanel");
   PanelManager::registerPanel<PracticePanel>("practicePanel");
   PanelManager::registerPanel<ShopPanel>("shopPanel");
+  PanelManager::registerPanel<ProfilePanel>("profilePanel");
 }

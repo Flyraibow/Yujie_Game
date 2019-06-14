@@ -24,7 +24,7 @@ std::string LabelComponent::decipherString() const
 {
   if (p_text.size() == 0) return "";
   auto content = DataManager::getShareInstance()->decipherString(p_text, p_associateData);
-  return DataManager::getShareInstance()->formatStringWithParamters(content, p_textParameters);
+  return DataManager::getShareInstance()->formatStringWithParamters(content, p_textParameters, p_associateData);
 }
 
 Node* LabelComponent::addComponentToParent(ComponentDict &dict, Node *parent)

@@ -100,7 +100,7 @@
        "text": "商店",
        "normalized_position": [0.7, 0.05],
        "storyId" : "action/shop",
-       "hide_condition" : "TRUE"
+       "hide_condition" : "FALSE"
      }
 	]
 }

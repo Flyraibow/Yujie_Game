@@ -90,8 +90,21 @@ void DiaryPanel::initialize()
   // 2. get all other events during this month
   auto myScheduleMap = *MyScheduleData::getSharedDictionary();
   for (auto schedulePair : myScheduleMap) {
+    // 跳过还没有开放的安排
     if (Manager::checkConditionByString(schedulePair.second->getCondition())) {
-      auto scheduleData = schedulePair.second->getScheduleData();
+      auto pressure = AttributeData::getAttributeDataById("pressure")->getValue();
+      auto selfRegulation = AttributeData::getAttributeDataById("selfRegulation")->getValue();
+      SelectableScheduleData* scheduleData = nullptr;
+      bool relax = false;
+      if (pressure > selfRegulation) {
+        // 如果当前压力高于自律，那么就会偷懒
+        relax = true;
+        scheduleData = game::getRandomSelectableRelaxSchedule();
+        text += "你感觉太累了。";
+      }
+      if (scheduleData == nullptr) {
+        scheduleData = schedulePair.second->getScheduleData();
+      }
       text += scheduleData->getDescription() + " ";
       auto profiencyData = scheduleData->getProficiencyData();
       // 技能改变
@@ -102,6 +115,10 @@ void DiaryPanel::initialize()
       // 属性改变
       for (auto attributePair : scheduleData->getAttributeChangeMap()) {
         auto attribute = AttributeData::getAttributeDataById(attributePair.first);
+        if (attribute == nullptr) {
+          text += "Undefined attribute: " + attributePair.first;
+          continue;
+        }
         auto addValue = attributePair.second;
         auto finalValue = attribute->getValue() + addValue;
         if (finalValue < 0) {

@@ -113,6 +113,8 @@
 		EC3CF0BA222B420F00E9DF38 /* SelectionEventContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC3CF0B7222B420F00E9DF38 /* SelectionEventContent.cpp */; };
 		EC4065A722375CBC0089E82A /* ScrollViewComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4065A522375CBC0089E82A /* ScrollViewComponent.cpp */; };
 		EC4065A822375CBC0089E82A /* ScrollViewComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4065A522375CBC0089E82A /* ScrollViewComponent.cpp */; };
+		EC45969522B345E3005D97D7 /* ProfilePanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC45969322B345E3005D97D7 /* ProfilePanel.cpp */; };
+		EC45969622B345E3005D97D7 /* ProfilePanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC45969322B345E3005D97D7 /* ProfilePanel.cpp */; };
 		EC4F0265221FE48D0038EFCD /* ParentChatData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4F0257221FE48B0038EFCD /* ParentChatData.cpp */; };
 		EC4F0266221FE48D0038EFCD /* ParentChatData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4F0257221FE48B0038EFCD /* ParentChatData.cpp */; };
 		EC4F0267221FE48D0038EFCD /* FriendData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4F0258221FE48B0038EFCD /* FriendData.cpp */; };
@@ -369,6 +371,8 @@
 		EC3CF0B8222B420F00E9DF38 /* SelectionEventContent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SelectionEventContent.hpp; sourceTree = "<group>"; };
 		EC4065A522375CBC0089E82A /* ScrollViewComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ScrollViewComponent.cpp; sourceTree = "<group>"; };
 		EC4065A622375CBC0089E82A /* ScrollViewComponent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ScrollViewComponent.hpp; sourceTree = "<group>"; };
+		EC45969322B345E3005D97D7 /* ProfilePanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ProfilePanel.cpp; sourceTree = "<group>"; };
+		EC45969422B345E3005D97D7 /* ProfilePanel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ProfilePanel.hpp; sourceTree = "<group>"; };
 		EC4F0257221FE48B0038EFCD /* ParentChatData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParentChatData.cpp; sourceTree = "<group>"; };
 		EC4F0258221FE48B0038EFCD /* FriendData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FriendData.cpp; sourceTree = "<group>"; };
 		EC4F0259221FE48C0038EFCD /* FatherJobData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FatherJobData.cpp; sourceTree = "<group>"; };
@@ -753,6 +757,8 @@
 				EC16304D22A588340010C010 /* ShopPanel.hpp */,
 				EC73FA6822A82A8300EA4125 /* PracticePanel.cpp */,
 				EC73FA6922A82A8300EA4125 /* PracticePanel.hpp */,
+				EC45969322B345E3005D97D7 /* ProfilePanel.cpp */,
+				EC45969422B345E3005D97D7 /* ProfilePanel.hpp */,
 			);
 			path = Panel;
 			sourceTree = "<group>";
@@ -1138,6 +1144,7 @@
 				EC16304E22A588340010C010 /* ShopPanel.cpp in Sources */,
 				ECDF38CC2222EB21003ED65B /* PanelEventContent.cpp in Sources */,
 				EC8482C1221168F4001956DE /* ColorNodeComponent.cpp in Sources */,
+				EC45969522B345E3005D97D7 /* ProfilePanel.cpp in Sources */,
 				ECBA50762213F1A000929BBA /* ConditionManager.cpp in Sources */,
 				EC073B9D221A9972006FDCE0 /* SpecialFunctions.cpp in Sources */,
 				EC073BC2221A9B67006FDCE0 /* ConditionData.cpp in Sources */,
@@ -1188,6 +1195,7 @@
 				EC073BBF221A9B67006FDCE0 /* BaseGlobalDataManager.cpp in Sources */,
 				EC073BD7221A9C05006FDCE0 /* InitialSetups.cpp in Sources */,
 				EC8482AA221161C6001956DE /* BaseButtonGroup.cpp in Sources */,
+				EC45969622B345E3005D97D7 /* ProfilePanel.cpp in Sources */,
 				EC8482AE2211624C001956DE /* BaseColorNode.cpp in Sources */,
 				ECDE87232235FD0F0048EEF5 /* BaseLabel.cpp in Sources */,
 				ECDF38D9222392DB003ED65B /* DialogPanel.cpp in Sources */,

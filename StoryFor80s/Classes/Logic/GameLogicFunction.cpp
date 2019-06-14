@@ -7,6 +7,8 @@
 
 #include "GameLogicFunction.hpp"
 #include "ProficiencyData.hpp"
+#include "SelectableScheduleData.hpp"
+#include "ConditionManager.hpp"
 
 int game::changeProficiency(string proficiencyId, int baseAddValue)
 {
@@ -58,4 +60,30 @@ int game::changeProficiency(string proficiencyId, int baseAddValue)
   }
   
   return 0;
+}
+
+
+SelectableScheduleData* game::getRandomSelectableRelaxSchedule()
+{
+  int totalAddiction = 0;
+  vector<pair<SelectableScheduleData *, int>> list;
+  auto selectableDataMap = *SelectableScheduleData::getSharedDictionary();
+  for (auto selectableDataPair : selectableDataMap) {
+    auto selecableData = selectableDataPair.second;
+    if (!Manager::checkConditionByString(selecableData->getCondition())) {
+      continue;
+    }
+    if (selecableData->getAddictions()) {
+      totalAddiction += selecableData->getAddictions();
+      list.push_back(make_pair(selecableData, totalAddiction));
+    }
+  }
+  auto randomAddiction = arc4random() % totalAddiction;
+  for (auto selectablePair : list) {
+    if (randomAddiction < selectablePair.second) {
+      return selectablePair.first;
+    }
+  }
+  CCLOGERROR("Couldn't get random addiction relax schedule");
+  return nullptr;
 }

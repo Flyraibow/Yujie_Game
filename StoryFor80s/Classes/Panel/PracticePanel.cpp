@@ -26,6 +26,7 @@ void showMyScheduleOnLabel(const MyScheduleData *mySchedule, Label *label)
     // TODO: FIND somewhere else to define the
     auto lockedScheduleType = ScheduleTypeData::getScheduleTypeDataById("locked");
     label->setString(lockedScheduleType->getName());
+    return;
   }
   string typeId = mySchedule->getTypeData()->getId();
   if (typeId == "sleep") {
@@ -265,6 +266,9 @@ void PracticePanel::unSelectSchedule(Touch* touch, Event* event)
   char c = spriteName.at(spriteName.length() - 1);;
   string unselectIndex(1, c);
   auto mySchedule = MyScheduleData::getMyScheduleDataById(unselectIndex);
+  if (mySchedule->getLocked() || !Manager::checkConditionByString(mySchedule->getCondition())) {
+    return;
+  }
   if (mySchedule->getId() != "sleep") {
     mySchedule->setTypeId("sleep");
     mySchedule->setScheduleId("sleep");

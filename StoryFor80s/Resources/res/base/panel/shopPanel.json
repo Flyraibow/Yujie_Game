@@ -28,7 +28,6 @@
             "id": "button_next",
             "text": "离开",
             "normalized_position": [0.5, 0.05],
-            "hide_condition" : "true",
             "storyId" : "popPanel"
           },
           {

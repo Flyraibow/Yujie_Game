@@ -15,12 +15,15 @@ private:
 	static map<string, MyScheduleData*>* p_sharedDictionary;
 	string p_myScheduleId;
 	string p_condition;
+	bool p_locked;
 	string p_typeId;
 	string p_scheduleId;
 public:
 	string getId() const;
 	string getMyScheduleId() const;
 	string getCondition() const;
+	bool getLocked() const;
+	void setLocked(bool locked);
 	ScheduleTypeData* getTypeData() const;
 	string getTypeId() const;
 	void setTypeId(string type);
