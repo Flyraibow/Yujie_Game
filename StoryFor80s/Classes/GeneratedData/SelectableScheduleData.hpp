@@ -9,6 +9,7 @@ This file (SelectableScheduleData.hpp) is generated
 #include "ScheduleSubTypeData.hpp"
 #include "ProficiencyData.hpp"
 #include "AttributeData.hpp"
+#include "ProficiencyData.hpp"
 
 
 class SelectableScheduleData: public BaseData
@@ -23,6 +24,8 @@ private:
 	string p_proficiencyId;
 	int p_addProficiency;
 	map<string, int> p_attributeChangeMap;
+	map<string, int> p_proficiencyDependOnMap;
+	int p_stopGrowAt;
 public:
 	string getId() const;
 	string getScheduleId() const;
@@ -39,6 +42,9 @@ public:
 	string getDescription() const;
 	vector<BaseData *> getAttributeChangeList() const;
 	map<string, int> getAttributeChangeMap() const;
+	vector<BaseData *> getProficiencyDependOnList() const;
+	map<string, int> getProficiencyDependOnMap() const;
+	int getStopGrowAt() const;
 	string description() const;
 	static const map<string, SelectableScheduleData*>* getSharedDictionary();
 	static SelectableScheduleData* getSelectableScheduleDataById(const string& scheduleId);

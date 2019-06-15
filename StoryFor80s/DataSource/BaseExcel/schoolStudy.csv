@@ -1,7 +1,7 @@
-﻿schoolStudyId,name,type,proficiency,addProficiency,description,attributeChange
-id,language,friend_id,friend_id,int,language,friend_id_map
-string,chinese,ScheduleType,Proficiency,-,chinese,Attribute;int
-writable,N,N,N,N,N,N
-chinese_pinyin,拼音,schoolStudy,chinese_pinyin,10,拼音说明,"pressure,2;rememberence,2"
-math_add_minus,加减法,schoolStudy,math_add_minus,10,加减法,"pressure,2;intelligence,3"
-english_letter,英语字母,schoolStudy,english_letter,10,英语字母,"pressure,2;rememberence,2"
+﻿schoolStudyId,name,type,proficiency,addProficiency,description,attributeChange,proficiencyDependOn,stopGrowAt
+id,language,friend_id,friend_id,int,language,friend_id_map,friend_id_map,int
+string,chinese,ScheduleType,Proficiency,-,chinese,Attribute;int,Proficiency;int,-
+writable,N,N,N,N,N,N,N,N
+chinese_1,拼音,schoolStudy,chinese_1,10,拼音说明,"pressure,2;rememberence,1",;,0
+math_1,加减法,schoolStudy,math_1,10,加减法,"pressure,2;intelligence,1",;,100
+english_1,英语字母,schoolStudy,english_1,10,英语字母,"pressure,2;rememberence,1",;,0

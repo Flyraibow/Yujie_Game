@@ -78,6 +78,30 @@ map<string, int> SchoolStudyData::getAttributeChangeMap() const
 	return p_attributeChangeMap;
 }
 
+vector<BaseData *> SchoolStudyData::getProficiencyDependOnList() const
+{
+	vector<BaseData *> v;
+	for (auto iter : p_proficiencyDependOnMap) {
+		ProficiencyData *data = ProficiencyData::getProficiencyDataById(iter.first);
+		if (data != nullptr) {
+			v.push_back(data);
+		} else {
+			CCLOGWARN("Couldn't recognize %s as ProficiencyData in SchoolStudyData", iter.first.c_str());
+		}
+	}
+	return v;
+}
+
+map<string, int> SchoolStudyData::getProficiencyDependOnMap() const
+{
+	return p_proficiencyDependOnMap;
+}
+
+int SchoolStudyData::getStopGrowAt() const
+{
+	return p_stopGrowAt;
+}
+
 string SchoolStudyData::description() const
 {
 	string desc = "schoolStudyData = {\n";
@@ -89,6 +113,9 @@ string SchoolStudyData::description() const
 	desc += "\tdescription : " + getDescription() + "\n";
 	
 	desc += "\tattributeChange : " + to_string(p_attributeChangeMap)+ "\n";
+	
+	desc += "\tproficiencyDependOn : " + to_string(p_proficiencyDependOnMap)+ "\n";
+	desc += "\tstopGrowAt : " + to_string(p_stopGrowAt) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -115,6 +142,13 @@ const map<string, SchoolStudyData*>* SchoolStudyData::getSharedDictionary()
 					auto val = buffer->getInt();
 					schoolStudyData->p_attributeChangeMap.insert(make_pair(key, val));
 				}
+				auto proficiencyDependOnCount = buffer->getLong();
+				for (int j = 0; j < proficiencyDependOnCount; ++j) {
+					auto key = buffer->getString();
+					auto val = buffer->getInt();
+					schoolStudyData->p_proficiencyDependOnMap.insert(make_pair(key, val));
+				}
+				schoolStudyData->p_stopGrowAt = buffer->getInt();
 				p_sharedDictionary->insert(pair<string, SchoolStudyData*>(schoolStudyData->p_schoolStudyId, schoolStudyData));
 			}
 		}
@@ -146,6 +180,10 @@ string SchoolStudyData::getFieldValue(const string & fieldName) const
 		return to_string(this->getDescription());
 	} else if (fieldName == "attributeChange") {
 		return to_string(this->getAttributeChangeMap());
+	} else if (fieldName == "proficiencyDependOn") {
+		return to_string(this->getProficiencyDependOnMap());
+	} else if (fieldName == "stopGrowAt") {
+		return to_string(this->getStopGrowAt());
 	}
 	CCLOGWARN("Couldn't recognize %s in SchoolStudyData", fieldName.c_str());
 	return "";
@@ -166,6 +204,8 @@ vector<BaseData *> SchoolStudyData::getFieldDataList(const string & fieldName) c
 {
 	if (fieldName == "attributeChange") {
 		return this->getAttributeChangeList();
+	} else if (fieldName == "proficiencyDependOn") {
+		return this->getProficiencyDependOnList();
 	}
 	CCLOGWARN("Couldn't recognize %s in SchoolStudyData", fieldName.c_str());
 	return vector<BaseData *>();
@@ -175,6 +215,11 @@ string SchoolStudyData::getMapFieldValueWithKey(const string & fieldName, const 
 {
 	if (fieldName == "attributeChange") {
 		auto fieldMap = this->getAttributeChangeMap();
+		if (fieldMap.count(key)) {
+			return to_string(fieldMap.at(key));
+		}
+	} else if (fieldName == "proficiencyDependOn") {
+		auto fieldMap = this->getProficiencyDependOnMap();
 		if (fieldMap.count(key)) {
 			return to_string(fieldMap.at(key));
 		}

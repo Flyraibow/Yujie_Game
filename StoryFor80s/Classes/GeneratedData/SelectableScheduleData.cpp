@@ -98,6 +98,30 @@ map<string, int> SelectableScheduleData::getAttributeChangeMap() const
 	return p_attributeChangeMap;
 }
 
+vector<BaseData *> SelectableScheduleData::getProficiencyDependOnList() const
+{
+	vector<BaseData *> v;
+	for (auto iter : p_proficiencyDependOnMap) {
+		ProficiencyData *data = ProficiencyData::getProficiencyDataById(iter.first);
+		if (data != nullptr) {
+			v.push_back(data);
+		} else {
+			CCLOGWARN("Couldn't recognize %s as ProficiencyData in SelectableScheduleData", iter.first.c_str());
+		}
+	}
+	return v;
+}
+
+map<string, int> SelectableScheduleData::getProficiencyDependOnMap() const
+{
+	return p_proficiencyDependOnMap;
+}
+
+int SelectableScheduleData::getStopGrowAt() const
+{
+	return p_stopGrowAt;
+}
+
 string SelectableScheduleData::description() const
 {
 	string desc = "selectableScheduleData = {\n";
@@ -112,6 +136,9 @@ string SelectableScheduleData::description() const
 	desc += "\tdescription : " + getDescription() + "\n";
 	
 	desc += "\tattributeChange : " + to_string(p_attributeChangeMap)+ "\n";
+	
+	desc += "\tproficiencyDependOn : " + to_string(p_proficiencyDependOnMap)+ "\n";
+	desc += "\tstopGrowAt : " + to_string(p_stopGrowAt) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -141,6 +168,13 @@ const map<string, SelectableScheduleData*>* SelectableScheduleData::getSharedDic
 					auto val = buffer->getInt();
 					selectableScheduleData->p_attributeChangeMap.insert(make_pair(key, val));
 				}
+				auto proficiencyDependOnCount = buffer->getLong();
+				for (int j = 0; j < proficiencyDependOnCount; ++j) {
+					auto key = buffer->getString();
+					auto val = buffer->getInt();
+					selectableScheduleData->p_proficiencyDependOnMap.insert(make_pair(key, val));
+				}
+				selectableScheduleData->p_stopGrowAt = buffer->getInt();
 				p_sharedDictionary->insert(pair<string, SelectableScheduleData*>(selectableScheduleData->p_scheduleId, selectableScheduleData));
 			}
 		}
@@ -178,6 +212,10 @@ string SelectableScheduleData::getFieldValue(const string & fieldName) const
 		return to_string(this->getDescription());
 	} else if (fieldName == "attributeChange") {
 		return to_string(this->getAttributeChangeMap());
+	} else if (fieldName == "proficiencyDependOn") {
+		return to_string(this->getProficiencyDependOnMap());
+	} else if (fieldName == "stopGrowAt") {
+		return to_string(this->getStopGrowAt());
 	}
 	CCLOGWARN("Couldn't recognize %s in SelectableScheduleData", fieldName.c_str());
 	return "";
@@ -200,6 +238,8 @@ vector<BaseData *> SelectableScheduleData::getFieldDataList(const string & field
 {
 	if (fieldName == "attributeChange") {
 		return this->getAttributeChangeList();
+	} else if (fieldName == "proficiencyDependOn") {
+		return this->getProficiencyDependOnList();
 	}
 	CCLOGWARN("Couldn't recognize %s in SelectableScheduleData", fieldName.c_str());
 	return vector<BaseData *>();
@@ -209,6 +249,11 @@ string SelectableScheduleData::getMapFieldValueWithKey(const string & fieldName,
 {
 	if (fieldName == "attributeChange") {
 		auto fieldMap = this->getAttributeChangeMap();
+		if (fieldMap.count(key)) {
+			return to_string(fieldMap.at(key));
+		}
+	} else if (fieldName == "proficiencyDependOn") {
+		auto fieldMap = this->getProficiencyDependOnMap();
 		if (fieldMap.count(key)) {
 			return to_string(fieldMap.at(key));
 		}

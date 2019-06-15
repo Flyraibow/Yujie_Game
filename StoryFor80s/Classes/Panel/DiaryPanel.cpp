@@ -69,7 +69,7 @@ void DiaryPanel::initialize()
         // 技能改变
         if (profiencyData != nullptr) {
           auto studyFactor = GameData::getSharedInstance()->getSchoolData()->getStudyFactor();
-          int addValue = game::changeProficiency(schoolStudyData->getProficiencyId(), schoolStudyData->getAddProficiency() * studyFactor);
+          int addValue = game::changeProficiency(schoolStudyData) * studyFactor;
           text += schoolStudyData->getTypeData()->getProficienceWord() + "+" + to_string(addValue) + " ";
         }
         // 属性改变
@@ -109,8 +109,12 @@ void DiaryPanel::initialize()
       auto profiencyData = scheduleData->getProficiencyData();
       // 技能改变
       if (profiencyData != nullptr) {
-        int addValue = game::changeProficiency(scheduleData->getProficiencyId(), scheduleData->getAddProficiency());
-        text += scheduleData->getTypeData()->getProficienceWord() + "+" + to_string(addValue) + " ";
+        int addValue = game::changeProficiency(scheduleData);
+        if (addValue > 0) {
+          text += profiencyData->getName() + scheduleData->getTypeData()->getProficienceWord() + "+" + to_string(addValue) + " ";
+        } else {
+          text += "无法通过学习继续提升" + scheduleData->getTypeData()->getProficienceWord() + "了。 ";
+        }
       }
       // 属性改变
       for (auto attributePair : scheduleData->getAttributeChangeMap()) {

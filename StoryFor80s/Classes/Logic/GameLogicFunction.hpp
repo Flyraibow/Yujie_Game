@@ -12,11 +12,15 @@
 
 using namespace std;
 
+class SchoolStudyData;
 class SelectableScheduleData;
+class ProficiencyData;
+
 
 namespace game {
   // return how much value is gained.
-  int changeProficiency(string proficiencyId, int baseAddValue);
+  int changeProficiency(const SelectableScheduleData* selectableData);
+  int changeProficiency(const SchoolStudyData* schoolData);
   SelectableScheduleData *getRandomSelectableRelaxSchedule();
 }
 

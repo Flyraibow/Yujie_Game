@@ -6,7 +6,6 @@ This file (ProficiencyData.hpp) is generated
 #include <map>
 #include "BaseData.h"
 #include "AttributeData.hpp"
-#include "ProficiencyData.hpp"
 
 
 class ProficiencyData: public BaseData
@@ -17,7 +16,6 @@ private:
 	int p_value;
 	int p_maxValue;
 	map<string, int> p_attributeDependOnMap;
-	map<string, int> p_proficiencyDependOnMap;
 public:
 	string getId() const;
 	string getProficiencyId() const;
@@ -27,8 +25,6 @@ public:
 	int getMaxValue() const;
 	vector<BaseData *> getAttributeDependOnList() const;
 	map<string, int> getAttributeDependOnMap() const;
-	vector<BaseData *> getProficiencyDependOnList() const;
-	map<string, int> getProficiencyDependOnMap() const;
 	string description() const;
 	static const map<string, ProficiencyData*>* getSharedDictionary();
 	static ProficiencyData* getProficiencyDataById(const string& proficiencyId);

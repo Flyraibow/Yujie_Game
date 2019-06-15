@@ -8,6 +8,7 @@ This file (SchoolStudyData.hpp) is generated
 #include "ScheduleTypeData.hpp"
 #include "ProficiencyData.hpp"
 #include "AttributeData.hpp"
+#include "ProficiencyData.hpp"
 
 
 class SchoolStudyData: public BaseData
@@ -19,6 +20,8 @@ private:
 	string p_proficiencyId;
 	int p_addProficiency;
 	map<string, int> p_attributeChangeMap;
+	map<string, int> p_proficiencyDependOnMap;
+	int p_stopGrowAt;
 public:
 	string getId() const;
 	string getSchoolStudyId() const;
@@ -31,6 +34,9 @@ public:
 	string getDescription() const;
 	vector<BaseData *> getAttributeChangeList() const;
 	map<string, int> getAttributeChangeMap() const;
+	vector<BaseData *> getProficiencyDependOnList() const;
+	map<string, int> getProficiencyDependOnMap() const;
+	int getStopGrowAt() const;
 	string description() const;
 	static const map<string, SchoolStudyData*>* getSharedDictionary();
 	static SchoolStudyData* getSchoolStudyDataById(const string& schoolStudyId);
