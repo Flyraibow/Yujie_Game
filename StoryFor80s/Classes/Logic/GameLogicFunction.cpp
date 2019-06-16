@@ -121,12 +121,15 @@ SelectableScheduleData* game::getRandomSelectableRelaxSchedule()
 }
 
 
-vector<AchievementsData *> game::getMyAchievements()
+vector<AchievementsData *> game::getMyAchievements(const string &filter)
 {
   vector<AchievementsData *> list;
   auto allAchievementsMaps = *AchievementsData::getSharedDictionary();
   for (auto achievementPair : allAchievementsMaps) {
-    if (achievementPair.second->getValue() == 0) {
+    if (!achievementPair.second->getHaveIt()) {
+      continue;
+    }
+    if (filter.length() > 0 && achievementPair.second->getCategoryId() != filter) {
       continue;
     }
     list.push_back(achievementPair.second);
@@ -134,12 +137,15 @@ vector<AchievementsData *> game::getMyAchievements()
   return list;
 }
 
-vector<ProficiencyData *> game::getMyProficiencies()
+vector<ProficiencyData *> game::getMyProficiencies(const string &filter)
 {
   vector<ProficiencyData *> list;
   auto allProficienciesMaps = *ProficiencyData::getSharedDictionary();
   for (auto proficiencyPair : allProficienciesMaps) {
     if (proficiencyPair.second->getValue() == 0) {
+      continue;
+    }
+    if (filter.length() > 0 && proficiencyPair.second->getCategoryId() != filter) {
       continue;
     }
     list.push_back(proficiencyPair.second);
@@ -157,6 +163,28 @@ vector<ItemData *> game::getMyItems()
       continue;
     }
     list.push_back(itemPair.second);
+  }
+  return list;
+}
+
+vector<ProficiencyCategoryData *> game::getAllProficiencyCategories()
+{
+  vector<ProficiencyCategoryData *> list;
+  auto proficiencyCategoryMap =  *ProficiencyCategoryData::getSharedDictionary();
+  for (auto categoryPair : proficiencyCategoryMap) {
+    // TODO: filter those didn't get
+    list.push_back(categoryPair.second);
+  }
+  return list;
+}
+
+vector<AchievementCategoryData *> game::getAllAchievementCategories()
+{
+  vector<AchievementCategoryData *> list;
+  auto achievementCategoryMap =  *AchievementCategoryData::getSharedDictionary();
+  for (auto categoryPair : achievementCategoryMap) {
+    // TODO: filter those didn't get
+    list.push_back(categoryPair.second);
   }
   return list;
 }

@@ -3,8 +3,8 @@ id,int,string,int,int,friend_id,friend_id,friend_id_vector
 string,-,-,-,-,School,ScheduleType,SchoolStudy
 writable,N,N,N,N,N,N,N
 1994_class_9,1,TRUE,1994,9,primary_school,SchoolStudy,chinese_1;math_1
-1994_class_9_ad,1,TRUE,1994,9,primary_school_ad,SchoolStudy,chinese_1;math_1;english_1
 1994_class_10,1,TRUE,1994,10,primary_school,SchoolStudy,chinese_1;math_1
-1994_class_10_ad,1,TRUE,1994,10,primary_school_ad,SchoolStudy,chinese_1;math_1;english_1
 1994_class_11,1,TRUE,1994,11,primary_school,SchoolStudy,chinese_1;math_1
+1994_class_9_ad,1,TRUE,1994,9,primary_school_ad,SchoolStudy,chinese_1;math_1;english_1
+1994_class_10_ad,1,TRUE,1994,10,primary_school_ad,SchoolStudy,chinese_1;math_1;english_1
 1994_class_11_ad,1,TRUE,1994,11,primary_school_ad,SchoolStudy,chinese_1;math_1;english_1

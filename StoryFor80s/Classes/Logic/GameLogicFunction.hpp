@@ -16,7 +16,9 @@ using namespace std;
 class SchoolStudyData;
 class SelectableScheduleData;
 class ProficiencyData;
+class ProficiencyCategoryData;
 class AchievementsData;
+class AchievementCategoryData;
 class ItemData;
 
 namespace game {
@@ -24,9 +26,11 @@ namespace game {
   int changeProficiency(const SelectableScheduleData* selectableData);
   int changeProficiency(const SchoolStudyData* schoolData);
   SelectableScheduleData *getRandomSelectableRelaxSchedule();
-  vector<AchievementsData *> getMyAchievements();
-  vector<ProficiencyData *> getMyProficiencies();
+  vector<AchievementsData *> getMyAchievements(const string &filter = "");
+  vector<ProficiencyData *> getMyProficiencies(const string &filter = "");
   vector<ItemData *> getMyItems();
+  vector<ProficiencyCategoryData *> getAllProficiencyCategories();
+  vector<AchievementCategoryData *> getAllAchievementCategories();
 }
 
 #endif /* GameLogicFunction_hpp */

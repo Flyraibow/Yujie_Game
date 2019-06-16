@@ -30,6 +30,7 @@ private:
 	int p_highestScore;
 	string p_rankAchievementId;
 	string p_scoreAchievementId;
+	int p_achievementNeedScore;
 public:
 	string getId() const;
 	string getExamId() const;
@@ -52,6 +53,7 @@ public:
 	string getRankAchievementId() const;
 	AchievementsData* getScoreAchievementData() const;
 	string getScoreAchievementId() const;
+	int getAchievementNeedScore() const;
 	string description() const;
 	static const map<string, ExamData*>* getSharedDictionary();
 	static ExamData* getExamDataById(const string& examId);

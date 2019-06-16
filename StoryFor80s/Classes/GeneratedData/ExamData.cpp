@@ -154,6 +154,11 @@ string ExamData::getScoreAchievementId() const
 	return p_scoreAchievementId;
 }
 
+int ExamData::getAchievementNeedScore() const
+{
+	return p_achievementNeedScore;
+}
+
 string ExamData::description() const
 {
 	string desc = "examData = {\n";
@@ -175,6 +180,7 @@ string ExamData::description() const
 	desc += "\thighestScore : " + to_string(p_highestScore) + "\n";
 	desc += "\trankAchievement : " + to_string(p_rankAchievementId) + "\n";
 	desc += "\tscoreAchievement : " + to_string(p_scoreAchievementId) + "\n";
+	desc += "\tachievementNeedScore : " + to_string(p_achievementNeedScore) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -224,6 +230,7 @@ const map<string, ExamData*>* ExamData::getSharedDictionary()
 				examData->p_highestScore = buffer->getInt();
 				examData->p_rankAchievementId = buffer->getString();
 				examData->p_scoreAchievementId = buffer->getString();
+				examData->p_achievementNeedScore = buffer->getInt();
 				p_sharedDictionary->insert(pair<string, ExamData*>(examData->p_examId, examData));
 			}
 		}
@@ -269,6 +276,8 @@ string ExamData::getFieldValue(const string & fieldName) const
 		return to_string(this->getRankAchievementId());
 	} else if (fieldName == "scoreAchievement") {
 		return to_string(this->getScoreAchievementId());
+	} else if (fieldName == "achievementNeedScore") {
+		return to_string(this->getAchievementNeedScore());
 	}
 	CCLOGWARN("Couldn't recognize %s in ExamData", fieldName.c_str());
 	return "";

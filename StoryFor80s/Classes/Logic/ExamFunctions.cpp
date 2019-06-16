@@ -95,9 +95,35 @@ string game::startExam(ExamListData* examList)
     auto score = getScoreOfExam(exam);
     totalScore += score;
     auto rank = getRankOfExam(exam, score, examList->getPopulation());
+    if (rank == 1) {
+      auto achievement = exam->getRankAchievementData();
+      if (achievement != nullptr) {
+        achievement->setHaveIt(true);
+      }
+    }
+    if (score >= exam->getAchievementNeedScore()) {
+      auto achievement = exam->getScoreAchievementData();
+      if (achievement != nullptr) {
+        achievement->setHaveIt(true);
+      }
+    }
     text += exam->getName() + " 得分:" + to_string(score) + " 排名: " + to_string(rank) + "\n";
   }
-  text += "总分:" + to_string(totalScore) + " 排名: " + to_string(getRankOfExamList(examList, totalScore)) + "\n";
+  int totalRank = getRankOfExamList(examList, totalScore);
+  text += "总分:" + to_string(totalScore) + " 排名: " + to_string(totalRank) + "\n";
   
+  // TODO: show the honor
+  if (totalRank == 1) {
+    auto achievement = examList->getRankAchievementData();
+    if (achievement != nullptr) {
+      achievement->setHaveIt(true);
+    }
+  }
+  if (totalScore >= examList->getAchievementNeedScore()) {
+    auto achievement = examList->getScoreAchievementData();
+    if (achievement != nullptr) {
+      achievement->setHaveIt(true);
+    }
+  }
   return text;
 }
