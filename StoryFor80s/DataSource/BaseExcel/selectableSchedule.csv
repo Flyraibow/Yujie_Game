@@ -3,5 +3,5 @@ id,language,friend_id,friend_id,string,int,friend_id,int,language,friend_id_map,
 string,chinese,ScheduleType,ScheduleSubType,-,-,Proficiency,-,chinese,Attribute;int,Proficiency;int,-
 writable,N,N,N,N,N,N,N,N,N,N,N
 sleep,休息,sleep,sleep,TRUE,5,;,0,你进行了休息。,"pressure,-5",;,0
-study_math_1,自学加减法,selfStudy,math,TRUE,0,math_1,5,你自学了加减法。,"pressure,2;intelligence,1",;,100
-study_chinese_1,自学拼音,selfStudy,chinese,TRUE,0,chinese_1,5,你自学了拼音。,"pressure,2;rememberence,1",;,0
+study_math_1,自学加减法,selfStudy,math,TRUE,0,math_1,15,你自学了加减法。,"pressure,2;intelligence,1",;,100
+study_chinese_1,自学拼音,selfStudy,chinese,TRUE,0,chinese_1,15,你自学了拼音。,"pressure,2;rememberence,1",;,0

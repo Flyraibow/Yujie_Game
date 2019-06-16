@@ -17,12 +17,14 @@
 #include "ShopPanel.hpp"
 #include "ChatWithParentsFunction.hpp"
 #include "ProfilePanel.hpp"
+#include "TaskPanel.hpp"
 
 void story::setupForThisGame()
 {
   BaseGlobalDataManager::loadData("global");
   StoryManager::registerSpecialEventFunction("passDay", &story::passDay);
   StoryManager::registerSpecialEventFunction("passMonth", &story::passMonth);
+  StoryManager::registerSpecialEventFunction("getTask", &story::getTask);
   StoryManager::registerSpecialEventFunction("home", &game::homePage);
   StoryManager::registerSpecialEventFunction("save", &game::save);
   StoryManager::registerSpecialEventFunction("load", &game::load);
@@ -33,4 +35,5 @@ void story::setupForThisGame()
   PanelManager::registerPanel<PracticePanel>("practicePanel");
   PanelManager::registerPanel<ShopPanel>("shopPanel");
   PanelManager::registerPanel<ProfilePanel>("profilePanel");
+  PanelManager::registerPanel<TaskPanel>("taskPanel");
 }

@@ -28,6 +28,16 @@ string ProficiencyData::getName() const
 	return LocalizationHelper::getLocalization(localId);
 }
 
+ProficiencyCategoryData* ProficiencyData::getCategoryData() const
+{
+	return ProficiencyCategoryData::getProficiencyCategoryDataById(p_categoryId);
+}
+
+string ProficiencyData::getCategoryId() const
+{
+	return p_categoryId;
+}
+
 int ProficiencyData::getValue() const
 {
 	return p_value;
@@ -62,15 +72,27 @@ map<string, int> ProficiencyData::getAttributeDependOnMap() const
 	return p_attributeDependOnMap;
 }
 
+AchievementsData* ProficiencyData::getAchievementData() const
+{
+	return AchievementsData::getAchievementsDataById(p_achievementId);
+}
+
+string ProficiencyData::getAchievementId() const
+{
+	return p_achievementId;
+}
+
 string ProficiencyData::description() const
 {
 	string desc = "proficiencyData = {\n";
 	desc += "\tproficiencyId : " + to_string(p_proficiencyId) + "\n";
 	desc += "\tname : " + getName() + "\n";
+	desc += "\tcategory : " + to_string(p_categoryId) + "\n";
 	desc += "\tvalue : " + to_string(p_value) + "\n";
 	desc += "\tmaxValue : " + to_string(p_maxValue) + "\n";
 	
 	desc += "\tattributeDependOn : " + to_string(p_attributeDependOnMap)+ "\n";
+	desc += "\tachievement : " + to_string(p_achievementId) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -88,6 +110,7 @@ const map<string, ProficiencyData*>* ProficiencyData::getSharedDictionary()
 			for (int i = 0; i < count; ++i) {
 				ProficiencyData* proficiencyData = new ProficiencyData();
 				proficiencyData->p_proficiencyId = buffer->getString();
+				proficiencyData->p_categoryId = buffer->getString();
 				proficiencyData->p_value = buffer->getInt();
 				proficiencyData->p_maxValue = buffer->getInt();
 				auto attributeDependOnCount = buffer->getLong();
@@ -96,6 +119,7 @@ const map<string, ProficiencyData*>* ProficiencyData::getSharedDictionary()
 					auto val = buffer->getInt();
 					proficiencyData->p_attributeDependOnMap.insert(make_pair(key, val));
 				}
+				proficiencyData->p_achievementId = buffer->getString();
 				p_sharedDictionary->insert(pair<string, ProficiencyData*>(proficiencyData->p_proficiencyId, proficiencyData));
 			}
 		}
@@ -185,12 +209,16 @@ string ProficiencyData::getFieldValue(const string & fieldName) const
 		return to_string(this->getProficiencyId());
 	} else if (fieldName == "name") {
 		return to_string(this->getName());
+	} else if (fieldName == "category") {
+		return to_string(this->getCategoryId());
 	} else if (fieldName == "value") {
 		return to_string(this->getValue());
 	} else if (fieldName == "maxValue") {
 		return to_string(this->getMaxValue());
 	} else if (fieldName == "attributeDependOn") {
 		return to_string(this->getAttributeDependOnMap());
+	} else if (fieldName == "achievement") {
+		return to_string(this->getAchievementId());
 	}
 	CCLOGWARN("Couldn't recognize %s in ProficiencyData", fieldName.c_str());
 	return "";
@@ -198,6 +226,11 @@ string ProficiencyData::getFieldValue(const string & fieldName) const
 
 BaseData* ProficiencyData::getDataByField(const string & fieldName) const
 {
+	if (fieldName == "category") {
+		return this->getCategoryData();
+	} else if (fieldName == "achievement") {
+		return this->getAchievementData();
+	}
 	CCLOGWARN("Couldn't recognize %s in ProficiencyData", fieldName.c_str());
 	return nullptr;
 }

@@ -1,5 +1,7 @@
-﻿chatId,comment,condition,repeat,experienced,story
-id,comment,string,bool,bool,string
-string,-,-,-,-,-
-writable,N,N,N,Y,N
-1,触发允许安排,TRUE,FALSE,FALSE,chatWithParent/arrange
+﻿chatId,comment,priority,startYear,startMonth,endYear,endMonth,condition,repeat,experienced,story
+id,comment,int,int,int,int,int,string,bool,bool,string
+string,-,-,-,-,-,-,-,-,-,-
+writable,N,N,N,N,N,N,N,N,Y,N
+1,"触发允许安排, 1000的优先级表示，强制触发",1000,0,0,0,0,TRUE,0,0,chatWithParent/arrange
+2,"测试剧情 领取任务，有限值<1000, 按优先级计算，可能触发。",10,0,0,1995,1,TRUE,1,0,chatWithParent/test
+3,"测试剧情2， 领取任务2，有限值<1000, 按优先级计算，可能触发。",20,0,0,1995,1,TRUE,0,0,chatWithParent/test1

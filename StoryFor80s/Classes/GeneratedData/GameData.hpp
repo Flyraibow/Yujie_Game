@@ -4,10 +4,12 @@ This file (GameData.hpp) is generated
 #ifndef GameData_hpp
 #define GameData_hpp
 #include "BaseData.h"
+#include <vector>
 #include "DateData.hpp"
 #include "DateData.hpp"
 #include "FatherJobData.hpp"
 #include "SchoolData.hpp"
+#include "SelectableScheduleData.hpp"
 
 
 class GameData: public BaseData
@@ -21,6 +23,7 @@ private:
 	string p_parentJobId;
 	string p_schoolId;
 	bool p_hasTalkedToParent;
+	vector<string> p_lastMonthScheduleIdVector;
 public:
 	DateData* getGameDateData() const;
 	string getGameDateId() const;
@@ -38,6 +41,9 @@ public:
 	void setSchoolId(string school);
 	bool getHasTalkedToParent() const;
 	void setHasTalkedToParent(bool hasTalkedToParent);
+	vector<SelectableScheduleData*> getLastMonthScheduleDataVector() const;
+	vector<string> getLastMonthScheduleIdVector() const;
+	void setLastMonthScheduleIdVector(vector<string> lastMonthSchedule);
 	string description() const;
 	static GameData* getSharedInstance();
 	static bool saveData(const string & path);

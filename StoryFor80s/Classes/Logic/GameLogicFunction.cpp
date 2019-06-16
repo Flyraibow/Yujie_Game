@@ -10,6 +10,7 @@
 #include "SelectableScheduleData.hpp"
 #include "ConditionManager.hpp"
 #include "SchoolStudyData.hpp"
+#include "ItemData.hpp"
 
 namespace game {
   int changeProficiency(const string &proficiencyId, int baseAddValue, const map<string, int> &proficiencDependency, int stopGrowAt)
@@ -58,6 +59,14 @@ namespace game {
       }
       auto realAddValue = finalValue - proficiency->getValue();
       proficiency->setValue(finalValue);
+      if (proficiency->getValue() >= proficiency->getMaxValue()) {
+        // 技能达到最大时可以拿到成就
+        // TODO: reminde users about the new achievements
+        auto achievement = proficiency->getAchievementData();
+        if (achievement != nullptr) {
+          achievement->setHaveIt(true);
+        }
+      }
       return realAddValue;
     } else {
       
@@ -109,4 +118,45 @@ SelectableScheduleData* game::getRandomSelectableRelaxSchedule()
   }
   CCLOGERROR("Couldn't get random addiction relax schedule");
   return nullptr;
+}
+
+
+vector<AchievementsData *> game::getMyAchievements()
+{
+  vector<AchievementsData *> list;
+  auto allAchievementsMaps = *AchievementsData::getSharedDictionary();
+  for (auto achievementPair : allAchievementsMaps) {
+    if (achievementPair.second->getValue() == 0) {
+      continue;
+    }
+    list.push_back(achievementPair.second);
+  }
+  return list;
+}
+
+vector<ProficiencyData *> game::getMyProficiencies()
+{
+  vector<ProficiencyData *> list;
+  auto allProficienciesMaps = *ProficiencyData::getSharedDictionary();
+  for (auto proficiencyPair : allProficienciesMaps) {
+    if (proficiencyPair.second->getValue() == 0) {
+      continue;
+    }
+    list.push_back(proficiencyPair.second);
+  }
+  return list;
+}
+
+
+vector<ItemData *> game::getMyItems()
+{
+  vector<ItemData *> list;
+  auto allItemMaps = *ItemData::getSharedDictionary();
+  for (auto itemPair : allItemMaps) {
+    if (!itemPair.second->getHaveIt()) {
+      continue;
+    }
+    list.push_back(itemPair.second);
+  }
+  return list;
 }

@@ -17,6 +17,7 @@ using namespace std;
 namespace story {
   void passDay(const nlohmann::json &jsonContent);
   void passMonth(const nlohmann::json &jsonContent);
+  void getTask(const nlohmann::json &jsonContent);
 }
 
 namespace game {

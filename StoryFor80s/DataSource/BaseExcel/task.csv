@@ -1,0 +1,7 @@
+﻿itemId,name,description,isOnGoing,failed,startedYear,startedMonth,isTimeLimited,limitedMonth,leftMonth,failCondition,forbiddenSchedule,successCondition,failedEvent,successEvent
+id,language,language,bool,bool,int,int,bool,int,int,string,friend_id,string,string,string
+string,chinese,chinese,-,-,-,-,-,-,-,-,SelectableSchedule,-,-,-
+writable,N,N,Y,Y,Y,Y,N,N,Y,N,N,N,N,N
+task_1,测试任务,不限期把算数提高到100,0,0,0,0,1,0,0,,,int.gamedata.ProficiencyData.math_1.value>=int.100,task/task_fail,task/task_success_1
+task_2,测试任务2,3个月内把算数提高到100,0,0,0,0,1,3,2,,,int.gamedata.ProficiencyData.math_1.value>=int.100,task/task_fail_2,task/task_success_2
+task_3,测试任务3,3个月内不学语文， 测试一下名字非常长的情况是什么样子的。,0,0,0,0,1,3,0,,study_chinese_1,,task/task_fail_3,task/task_success_3

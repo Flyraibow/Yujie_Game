@@ -1,0 +1,14 @@
+﻿proficiencyCategoryId,name
+id,language
+string,chinese
+writable,N
+chinese,语文
+math,数学
+art,文科
+science,理科
+english,英语
+computer,计算机
+artist,艺术
+sport,体育
+book,书本
+game,游戏

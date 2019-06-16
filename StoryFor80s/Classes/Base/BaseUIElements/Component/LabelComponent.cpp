@@ -45,6 +45,9 @@ Node* LabelComponent::addComponentToParent(ComponentDict &dict, Node *parent)
 void LabelComponent::refresh()
 {
   BaseComponent::refresh();
+  if (p_skipAutoRefresh) {
+    return;
+  }
   auto label = dynamic_cast<BaseLabel *>(p_node);
   label->setString(decipherString());
 }

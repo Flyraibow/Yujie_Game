@@ -13,6 +13,10 @@
 #include "DataManager.hpp"
 #include "BaseGlobalDataManager.hpp"
 #include "FunctionManager.hpp"
+#include "TaskLogicFunction.hpp"
+#include "JsonUtil.hpp"
+#include "TaskData.hpp"
+#include "TaskLogicFunction.hpp"
 
 void story::passDay(const nlohmann::json &jsonContent)
 {
@@ -50,6 +54,21 @@ void story::passMonth(const nlohmann::json &jsonContent)
   gameDate->setMonth(month);
   gameDate->setYear(year);
   GameData::getSharedInstance()->setHasTalkedToParent(false);
+  // Update all task Information
+  game::updateAllTasks();
+}
+
+void story::getTask(const nlohmann::json &jsonContent)
+{
+  auto taskName = Utils::getStringFromJson(jsonContent, "name");
+  if (taskName.length() > 0) {
+    auto task = TaskData::getTaskDataById(taskName);
+    if (task != nullptr) {
+      game::startTask(task);
+      return;
+    }
+  }
+  CCLOGERROR("un-recognize task %s", jsonContent.dump().c_str());
 }
 
 

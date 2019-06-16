@@ -12,6 +12,7 @@
 
 class SpriteComponent;
 class ProficiencyData;
+class AchievementsData;
 class ItemData;
 
 class ProfilePanel : public BasePanel
@@ -21,6 +22,7 @@ private:
   vector<BaseComponent *> p_components;
   SpriteComponent* generateProficientComponent(ProficiencyData *proficiencyData);
   SpriteComponent* generateItemComponent(ItemData *itemData);
+  SpriteComponent* generateAchievementComponent(AchievementsData *achivementData);
   string p_selectedType;
   // return true if it changed, return no it remains previous type
   bool tryChangeSelections(const string &newType);

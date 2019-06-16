@@ -1,0 +1,9 @@
+{
+	"events": [
+		{
+			"__comment" : "打开任务页面",
+			"type" : "panel",
+			"name" : "taskPanel"
+		}
+	]
+}

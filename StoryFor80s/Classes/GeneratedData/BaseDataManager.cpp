@@ -14,6 +14,7 @@ This file (BaseDataManager.cpp) is generated
 #include "MyScheduleData.hpp"
 #include "FriendData.hpp"
 #include "ParentChatData.hpp"
+#include "TaskData.hpp"
 #include "SkillData.hpp"
 #include "AttributeData.hpp"
 #include "AchievementsData.hpp"
@@ -135,6 +136,14 @@ ExamListData* BaseDataManager::getExamListDataById(const string& examListId)
 	return nullptr;
 }
 
+ProficiencyCategoryData* BaseDataManager::getProficiencyCategoryDataById(const string& proficiencyCategoryId)
+{
+	if (ProficiencyCategoryData::getSharedDictionary()->count(proficiencyCategoryId)) {
+		return ProficiencyCategoryData::getSharedDictionary()->at(proficiencyCategoryId);
+	}
+	return nullptr;
+}
+
 ItemCategoryData* BaseDataManager::getItemCategoryDataById(const string& itemCategoryId)
 {
 	if (ItemCategoryData::getSharedDictionary()->count(itemCategoryId)) {
@@ -155,6 +164,14 @@ ParentChatData* BaseDataManager::getParentChatDataById(const string& chatId)
 {
 	if (ParentChatData::getSharedDictionary()->count(chatId)) {
 		return ParentChatData::getSharedDictionary()->at(chatId);
+	}
+	return nullptr;
+}
+
+TaskData* BaseDataManager::getTaskDataById(const string& itemId)
+{
+	if (TaskData::getSharedDictionary()->count(itemId)) {
+		return TaskData::getSharedDictionary()->at(itemId);
 	}
 	return nullptr;
 }
@@ -275,6 +292,10 @@ bool BaseDataManager::saveData(string fileName)
 		CCLOG("Failed to save ParentChatData, %s", path.c_str());
 		return false;
 	}
+	if (!TaskData::saveData(path)) {
+		CCLOG("Failed to save TaskData, %s", path.c_str());
+		return false;
+	}
 	if (!SkillData::saveData(path)) {
 		CCLOG("Failed to save SkillData, %s", path.c_str());
 		return false;
@@ -338,6 +359,10 @@ bool BaseDataManager::loadData(string fileName)
 		CCLOG("Failed to load ParentChatData, %s", path.c_str());
 		return false;
 	}
+	if (!TaskData::loadData(path)) {
+		CCLOG("Failed to load TaskData, %s", path.c_str());
+		return false;
+	}
 	if (!SkillData::loadData(path)) {
 		CCLOG("Failed to load SkillData, %s", path.c_str());
 		return false;
@@ -371,6 +396,7 @@ bool BaseDataManager::clearData()
 	MyScheduleData::clearData();
 	FriendData::clearData();
 	ParentChatData::clearData();
+	TaskData::clearData();
 	SkillData::clearData();
 	AttributeData::clearData();
 	AchievementsData::clearData();
@@ -409,12 +435,16 @@ BaseData * BaseDataManager::getData(const string & dataSet, const string & id)
 		return ScheduleData::getScheduleDataById(id);
 	} else if (dataSet == "ExamListData") {
 		return ExamListData::getExamListDataById(id);
+	} else if (dataSet == "ProficiencyCategoryData") {
+		return ProficiencyCategoryData::getProficiencyCategoryDataById(id);
 	} else if (dataSet == "ItemCategoryData") {
 		return ItemCategoryData::getItemCategoryDataById(id);
 	} else if (dataSet == "FriendData") {
 		return FriendData::getFriendDataById(id);
 	} else if (dataSet == "ParentChatData") {
 		return ParentChatData::getParentChatDataById(id);
+	} else if (dataSet == "TaskData") {
+		return TaskData::getTaskDataById(id);
 	} else if (dataSet == "SkillData") {
 		return SkillData::getSkillDataById(id);
 	} else if (dataSet == "AttributeData") {
@@ -474,6 +504,9 @@ void BaseDataManager::setDataField(const string & dataSet, const string & id, co
 		data->setFieldValue(fieldName, value);
 	} else if (dataSet == "ParentChatData") {
 		auto data = ParentChatData::getParentChatDataById(id);
+		data->setFieldValue(fieldName, value);
+	} else if (dataSet == "TaskData") {
+		auto data = TaskData::getTaskDataById(id);
 		data->setFieldValue(fieldName, value);
 	} else if (dataSet == "SkillData") {
 		auto data = SkillData::getSkillDataById(id);
@@ -567,6 +600,11 @@ vector<BaseData *> BaseDataManager::getDataList(const string & dataSet)
 		for (auto elem : *dataMap) {
 			result.push_back(elem.second);
 		}
+	} else if (dataSet == "ProficiencyCategoryData") {
+		auto dataMap = ProficiencyCategoryData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
 	} else if (dataSet == "ItemCategoryData") {
 		auto dataMap = ItemCategoryData::getSharedDictionary();
 		for (auto elem : *dataMap) {
@@ -579,6 +617,11 @@ vector<BaseData *> BaseDataManager::getDataList(const string & dataSet)
 		}
 	} else if (dataSet == "ParentChatData") {
 		auto dataMap = ParentChatData::getSharedDictionary();
+		for (auto elem : *dataMap) {
+			result.push_back(elem.second);
+		}
+	} else if (dataSet == "TaskData") {
+		auto dataMap = TaskData::getSharedDictionary();
 		for (auto elem : *dataMap) {
 			result.push_back(elem.second);
 		}

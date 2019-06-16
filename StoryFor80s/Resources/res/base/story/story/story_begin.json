@@ -15,10 +15,9 @@
 					"content" : "嗨！这就是我的故事。—— 80 后的故事，让我们一起来体验吧。"
 				},
 				{
-					"content" : "我叫%s，我出生在%s，我的父母是%s，他们%s",
+					"content" : "我叫%s，我的父母是%s，他们%s",
 					"parameters" : [
 						"function.my_full_name",
-						"function.my_birthday_with_year",
 						"game.parentJob.name",
 						"game.parentJob.description"
 					]

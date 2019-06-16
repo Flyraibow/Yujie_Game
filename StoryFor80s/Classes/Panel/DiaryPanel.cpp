@@ -88,6 +88,8 @@ void DiaryPanel::initialize()
     }
   }
   // 2. get all other events during this month
+  auto gameData = GameData::getSharedInstance();
+  vector<string> lastMonthSchedule;
   auto myScheduleMap = *MyScheduleData::getSharedDictionary();
   for (auto schedulePair : myScheduleMap) {
     // 跳过还没有开放的安排
@@ -105,6 +107,7 @@ void DiaryPanel::initialize()
       if (scheduleData == nullptr) {
         scheduleData = schedulePair.second->getScheduleData();
       }
+      lastMonthSchedule.push_back(scheduleData->getScheduleId());
       text += scheduleData->getDescription() + " ";
       auto profiencyData = scheduleData->getProficiencyData();
       // 技能改变
@@ -134,6 +137,7 @@ void DiaryPanel::initialize()
       text += "\n";
     }
   }
+  gameData->setLastMonthScheduleIdVector(lastMonthSchedule);
   
   auto labDescriptionText = getComponentById<BaseLabel>("lab_text");
   labDescriptionText->setString(text);

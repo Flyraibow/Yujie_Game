@@ -1,0 +1,18 @@
+{
+  "__comment" : "任务失败模板",
+	"events": [
+    {
+      "__comment" : "弹出对话框",
+      "type" : "dialog",
+      "name" : "dialogPanel",
+      "dialogs":[
+        {
+          "content" : "%s 失败了。",
+          "parameters" : [
+            "temp.task.name"
+          ]
+        }
+      ]
+    }
+	]
+}

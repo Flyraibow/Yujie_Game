@@ -91,6 +91,25 @@ void GameData::setHasTalkedToParent(bool hasTalkedToParent)
 	p_hasTalkedToParent = hasTalkedToParent;
 }
 
+vector<SelectableScheduleData*> GameData::getLastMonthScheduleDataVector() const
+{
+	vector<SelectableScheduleData*> resultVector;
+	for (auto objId : p_lastMonthScheduleIdVector) {
+		resultVector.push_back(SelectableScheduleData::getSelectableScheduleDataById(objId));
+	}
+	return resultVector;
+}
+
+vector<string> GameData::getLastMonthScheduleIdVector() const
+{
+	return p_lastMonthScheduleIdVector;
+}
+
+void GameData::setLastMonthScheduleIdVector(vector<string> lastMonthSchedule)
+{
+	p_lastMonthScheduleIdVector = lastMonthSchedule;
+}
+
 string GameData::description() const
 {
 	string desc = "gameData = {\n";
@@ -101,6 +120,7 @@ string GameData::description() const
 	desc += "\tparentJob : " + to_string(p_parentJobId) + "\n";
 	desc += "\tschool : " + to_string(p_schoolId) + "\n";
 	desc += "\thasTalkedToParent : " + to_string(p_hasTalkedToParent) + "\n";
+	desc += "\tlastMonthSchedule : " + to_string(p_lastMonthScheduleIdVector) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -121,6 +141,10 @@ GameData* GameData::getSharedInstance()
 			p_sharedData->p_parentJobId = buffer->getString();
 			p_sharedData->p_schoolId = buffer->getString();
 			p_sharedData->p_hasTalkedToParent = buffer->getChar();
+			auto lastMonthScheduleCount = buffer->getLong();
+			for (int j = 0; j < lastMonthScheduleCount; ++j) {
+				p_sharedData->p_lastMonthScheduleIdVector.push_back(buffer->getString());
+			}
 		}
 	}
 	return p_sharedData;
@@ -131,7 +155,7 @@ bool GameData::saveData(const string & path)
 	auto filePath = path + "/GameData.dat";
 	auto data = GameData::getSharedInstance();
 	auto buffer = std::make_unique<bb::ByteBuffer>();
-	buffer->putInt(5);
+	buffer->putInt(6);
 	buffer->putString("p_firstName");
 	buffer->putString(to_string(data->p_firstName));
 	buffer->putString("p_lastName");
@@ -142,6 +166,8 @@ bool GameData::saveData(const string & path)
 	buffer->putString(to_string(data->p_schoolId));
 	buffer->putString("p_hasTalkedToParent");
 	buffer->putString(to_string(data->p_hasTalkedToParent));
+	buffer->putString("p_lastMonthScheduleIdVector");
+	buffer->putString(to_string(data->p_lastMonthScheduleIdVector));
 	buffer->writeToFile(filePath);
 	return true;
 }
@@ -169,6 +195,8 @@ bool GameData::loadData(const string & path)
 					data->p_schoolId = value;
 				} else if (key == "p_hasTalkedToParent") {
 					data->p_hasTalkedToParent = (atoi(value.c_str()) != 0);
+				} else if (key == "p_lastMonthScheduleIdVector") {
+					data->p_lastMonthScheduleIdVector = atovector(value);
 				}
 			}
 		}
@@ -197,6 +225,8 @@ void GameData::setFieldValue(const string & fieldName, const string & value)
 		this->setSchoolId(value);
 	} else if (fieldName == "hasTalkedToParent") {
 		this->setHasTalkedToParent((atoi(value.c_str()) != 0));
+	} else if (fieldName == "lastMonthSchedule") {
+		this->setLastMonthScheduleIdVector(atovector(value));
 	}
 }
 
@@ -216,6 +246,8 @@ string GameData::getFieldValue(const string & fieldName) const
 		return to_string(this->getSchoolId());
 	} else if (fieldName == "hasTalkedToParent") {
 		return to_string(this->getHasTalkedToParent());
+	} else if (fieldName == "lastMonthSchedule") {
+		return to_string(this->getLastMonthScheduleIdVector());
 	}
 	CCLOGWARN("Couldn't recognize %s in GameData", fieldName.c_str());
 	return "";

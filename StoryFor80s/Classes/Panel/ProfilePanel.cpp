@@ -13,6 +13,8 @@
 #include "BaseSpriteListener.hpp"
 #include "SpriteComponent.hpp"
 #include "ProficiencyData.hpp"
+#include "ScrollViewComponent.hpp"
+#include "GameLogicFunction.hpp"
 
 BasePanel* ProfilePanel::createPanel()
 {
@@ -66,16 +68,16 @@ void ProfilePanel::selectProficiency(cocos2d::Ref *pSender)
   if (!tryChangeSelections("btn_proficiency")) {
     return;
   }
-  
   auto scrollView = getComponentById<ui::ScrollView>("scrollView");
   int index = 0;
-  auto allProficiencyMaps = *ProficiencyData::getSharedDictionary();
-  auto height = scrollView->getContentSize().height;
-  for (auto proficiencyPair : allProficiencyMaps) {
-    if (proficiencyPair.second->getValue() == 0) {
-      continue;
-    }
-    auto component = generateProficientComponent(proficiencyPair.second);
+  auto allMyProficiencies = game::getMyProficiencies();
+  int rows = allMyProficiencies.size() / 3;
+  float height = 35 * rows;
+  if (height < scrollView->getContentSize().height) {
+    height = scrollView->getContentSize().height;
+  }
+  for (auto proficiency : allMyProficiencies) {
+    auto component = generateProficientComponent(proficiency);
     auto sprite = component->getNode();
     int row = index / 3;
     int col = index % 3;
@@ -85,6 +87,7 @@ void ProfilePanel::selectProficiency(cocos2d::Ref *pSender)
     index++;
     p_components.push_back(component);
   }
+  scrollView->setInnerContainerSize(Size(scrollView->getContentSize().width, height));
 }
 
 void ProfilePanel::selectAchievements(cocos2d::Ref *pSender)
@@ -92,6 +95,27 @@ void ProfilePanel::selectAchievements(cocos2d::Ref *pSender)
   if (!tryChangeSelections("btn_achievements")) {
     return;
   }
+  
+  auto scrollView = getComponentById<ui::ScrollView>("scrollView");
+  int index = 0;
+  auto allMyAchievements = game::getMyAchievements();
+  int rows = allMyAchievements.size() / 3;
+  float height = 35 * rows;
+  if (height < scrollView->getContentSize().height) {
+    height = scrollView->getContentSize().height;
+  }
+  for (auto achievement : allMyAchievements) {
+    auto component = generateAchievementComponent(achievement);
+    auto sprite = component->getNode();
+    int row = index / 3;
+    int col = index % 3;
+    sprite->setPosition(col * 265, height - row * 35);
+    scrollView->addChild(sprite);
+    component->refresh();
+    index++;
+    p_components.push_back(component);
+  }
+  scrollView->setInnerContainerSize(Size(scrollView->getContentSize().width, height));
 }
 
 void ProfilePanel::selectItems(cocos2d::Ref *pSender)
@@ -101,13 +125,16 @@ void ProfilePanel::selectItems(cocos2d::Ref *pSender)
   }
   auto scrollView = getComponentById<ui::ScrollView>("scrollView");
   int index = 0;
-  auto allItemMaps = *ItemData::getSharedDictionary();
-  auto height = scrollView->getContentSize().height;
-  for (auto itemPair : allItemMaps) {
-    if (!itemPair.second->getHaveIt()) {
-      continue;
-    }
-    auto component = generateItemComponent(itemPair.second);
+  
+  
+  auto allMyItems = game::getMyItems();
+  int rows = allMyItems.size() / 3;
+  float height = 180 * rows;
+  if (height < scrollView->getContentSize().height) {
+    height = scrollView->getContentSize().height;
+  }
+  for (auto item : allMyItems) {
+    auto component = generateItemComponent(item);
     auto sprite = component->getNode();
     int row = index / 3;
     int col = index % 3;
@@ -117,6 +144,7 @@ void ProfilePanel::selectItems(cocos2d::Ref *pSender)
     index++;
     p_components.push_back(component);
   }
+  scrollView->setInnerContainerSize(Size(scrollView->getContentSize().width, height));
 }
 
 SpriteComponent* ProfilePanel::generateItemComponent(ItemData *itemData)
@@ -134,5 +162,14 @@ SpriteComponent* ProfilePanel::generateProficientComponent(ProficiencyData *prof
   component->setId(proficiencyData->getId());
   component->addComponentToParent(p_spriteComponents);
   component->setAssociateData(proficiencyData);
+  return component;
+}
+
+SpriteComponent* ProfilePanel::generateAchievementComponent(AchievementsData *achivementData)
+{
+  auto component = dynamic_cast<SpriteComponent *>(BaseComponent::getComponentFromJsonFile("achievementSprite"));
+  component->setId(achivementData->getId());
+  component->addComponentToParent(p_spriteComponents);
+  component->setAssociateData(achivementData);
   return component;
 }

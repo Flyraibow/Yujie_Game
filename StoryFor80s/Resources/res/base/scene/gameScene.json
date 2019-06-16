@@ -101,6 +101,13 @@
        "normalized_position": [0.7, 0.05],
        "storyId" : "action/shop",
        "hide_condition" : "FALSE"
+     },
+     {
+       "type": "button",
+       "text": "任务",
+       "normalized_position": [0.8, 0.05],
+       "storyId" : "action/task",
+       "hide_condition" : "FALSE"
      }
 	]
 }

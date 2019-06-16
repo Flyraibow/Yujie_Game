@@ -12,6 +12,11 @@ class ParentChatData: public BaseData
 private:
 	static map<string, ParentChatData*>* p_sharedDictionary;
 	string p_chatId;
+	int p_priority;
+	int p_startYear;
+	int p_startMonth;
+	int p_endYear;
+	int p_endMonth;
 	string p_condition;
 	bool p_repeat;
 	bool p_experienced;
@@ -19,6 +24,11 @@ private:
 public:
 	string getId() const;
 	string getChatId() const;
+	int getPriority() const;
+	int getStartYear() const;
+	int getStartMonth() const;
+	int getEndYear() const;
+	int getEndMonth() const;
 	string getCondition() const;
 	bool getRepeat() const;
 	bool getExperienced() const;

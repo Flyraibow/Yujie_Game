@@ -32,6 +32,7 @@ BaseComponent::BaseComponent(const nlohmann::json &componentJson)
   p_anchorPoint = Utils::getVec2FromJson(componentJson, "anchor_point", cocos2d::Vec2(0.5, 0.5));
   p_componentList = BaseComponent::getComponentsFromJson(componentJson);
   p_shouldHideCondition = Utils::getStringFromJson(componentJson, "hide_condition");
+  p_skipAutoRefresh = Utils::getBoolFromJson(componentJson, "skip_refresh");
   if (componentJson.count("size")) {
     p_size = componentJson.at("size");
   }
@@ -217,12 +218,14 @@ void BaseComponent::copyAttributesFromJson(const nlohmann::json &componentJson)
   p_scale = Utils::getFloatFromJson(componentJson, "scale", p_scale);
   p_isFullScreen = Utils::getBoolFromJson(componentJson, "full_screen", p_isFullScreen);
   p_shouldHideCondition = Utils::getStringFromJson(componentJson, "hide_condition", p_shouldHideCondition);
+  p_skipAutoRefresh = Utils::getBoolFromJson(componentJson, "skipp_refresh", p_skipAutoRefresh);
+  p_shareData = Utils::getBoolFromJson(componentJson, "share_data", p_shareData);
 }
 
 void BaseComponent::checkHideCondition()
 {
   if (p_shouldHideCondition.length() > 0) {
-    p_node->setVisible(!Manager::checkConditionByString(p_shouldHideCondition));
+    p_node->setVisible(!Manager::checkConditionByString(p_shouldHideCondition, p_associateData));
   }
 }
 

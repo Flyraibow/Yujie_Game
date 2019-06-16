@@ -1,0 +1,19 @@
+{
+  "events": [
+    {
+      "__comment" : "弹出对话框",
+      "type" : "dialog",
+      "name" : "dialogPanel",
+      "dialogs":[
+        {
+          "content" : "测试执行对话2"
+        }
+      ]
+    },
+    {
+      "__comment" : "接受任务1",
+      "type" : "getTask",
+      "name" : "task_3"
+    }
+  ]
+}

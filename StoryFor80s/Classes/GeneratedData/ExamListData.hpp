@@ -8,6 +8,8 @@ This file (ExamListData.hpp) is generated
 #include <vector>
 #include "SchoolData.hpp"
 #include "ExamData.hpp"
+#include "AchievementsData.hpp"
+#include "AchievementsData.hpp"
 
 
 class ExamListData: public BaseData
@@ -22,6 +24,9 @@ private:
 	int p_month;
 	vector<string> p_classesIdVector;
 	int p_population;
+	string p_rankAchievementId;
+	string p_scoreAchievementId;
+	int p_achievementNeedScore;
 public:
 	string getId() const;
 	string getExamListId() const;
@@ -35,6 +40,11 @@ public:
 	vector<ExamData*> getClassesDataVector() const;
 	vector<string> getClassesIdVector() const;
 	int getPopulation() const;
+	AchievementsData* getRankAchievementData() const;
+	string getRankAchievementId() const;
+	AchievementsData* getScoreAchievementData() const;
+	string getScoreAchievementId() const;
+	int getAchievementNeedScore() const;
 	string description() const;
 	static const map<string, ExamListData*>* getSharedDictionary();
 	static ExamListData* getExamListDataById(const string& examListId);

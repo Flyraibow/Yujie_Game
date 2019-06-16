@@ -77,6 +77,31 @@ int ExamListData::getPopulation() const
 	return p_population;
 }
 
+AchievementsData* ExamListData::getRankAchievementData() const
+{
+	return AchievementsData::getAchievementsDataById(p_rankAchievementId);
+}
+
+string ExamListData::getRankAchievementId() const
+{
+	return p_rankAchievementId;
+}
+
+AchievementsData* ExamListData::getScoreAchievementData() const
+{
+	return AchievementsData::getAchievementsDataById(p_scoreAchievementId);
+}
+
+string ExamListData::getScoreAchievementId() const
+{
+	return p_scoreAchievementId;
+}
+
+int ExamListData::getAchievementNeedScore() const
+{
+	return p_achievementNeedScore;
+}
+
 string ExamListData::description() const
 {
 	string desc = "examListData = {\n";
@@ -89,6 +114,9 @@ string ExamListData::description() const
 	desc += "\tmonth : " + to_string(p_month) + "\n";
 	desc += "\tclasses : " + to_string(p_classesIdVector) + "\n";
 	desc += "\tpopulation : " + to_string(p_population) + "\n";
+	desc += "\trankAchievement : " + to_string(p_rankAchievementId) + "\n";
+	desc += "\tscoreAchievement : " + to_string(p_scoreAchievementId) + "\n";
+	desc += "\tachievementNeedScore : " + to_string(p_achievementNeedScore) + "\n";
 	desc += "}\n";
 	return desc;
 }
@@ -116,6 +144,9 @@ const map<string, ExamListData*>* ExamListData::getSharedDictionary()
 					examListData->p_classesIdVector.push_back(buffer->getString());
 				}
 				examListData->p_population = buffer->getInt();
+				examListData->p_rankAchievementId = buffer->getString();
+				examListData->p_scoreAchievementId = buffer->getString();
+				examListData->p_achievementNeedScore = buffer->getInt();
 				p_sharedDictionary->insert(pair<string, ExamListData*>(examListData->p_examListId, examListData));
 			}
 		}
@@ -151,6 +182,12 @@ string ExamListData::getFieldValue(const string & fieldName) const
 		return to_string(this->getClassesIdVector());
 	} else if (fieldName == "population") {
 		return to_string(this->getPopulation());
+	} else if (fieldName == "rankAchievement") {
+		return to_string(this->getRankAchievementId());
+	} else if (fieldName == "scoreAchievement") {
+		return to_string(this->getScoreAchievementId());
+	} else if (fieldName == "achievementNeedScore") {
+		return to_string(this->getAchievementNeedScore());
 	}
 	CCLOGWARN("Couldn't recognize %s in ExamListData", fieldName.c_str());
 	return "";
@@ -160,6 +197,10 @@ BaseData* ExamListData::getDataByField(const string & fieldName) const
 {
 	if (fieldName == "school") {
 		return this->getSchoolData();
+	} else if (fieldName == "rankAchievement") {
+		return this->getRankAchievementData();
+	} else if (fieldName == "scoreAchievement") {
+		return this->getScoreAchievementData();
 	}
 	CCLOGWARN("Couldn't recognize %s in ExamListData", fieldName.c_str());
 	return nullptr;

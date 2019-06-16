@@ -30,6 +30,7 @@ protected:
   bool p_isAutoScale;
   bool p_isParentScale;
   bool p_shareData;
+  bool p_skipAutoRefresh;
   Vec2 p_normalizePosition;
   Vec2 p_normalizePositionOffset;
   Vec2 p_position;

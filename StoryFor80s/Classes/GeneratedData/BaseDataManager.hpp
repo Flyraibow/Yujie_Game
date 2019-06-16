@@ -17,9 +17,11 @@ This file (BaseDataManager.hpp) is generated
 #include "MyScheduleData.hpp"
 #include "ScheduleData.hpp"
 #include "ExamListData.hpp"
+#include "ProficiencyCategoryData.hpp"
 #include "ItemCategoryData.hpp"
 #include "FriendData.hpp"
 #include "ParentChatData.hpp"
+#include "TaskData.hpp"
 #include "SkillData.hpp"
 #include "AttributeData.hpp"
 #include "SelectableScheduleData.hpp"
@@ -50,9 +52,11 @@ public:
 	static MyScheduleData* getMyScheduleDataById(const string& myScheduleId);
 	static ScheduleData* getScheduleDataById(const string& scheduleId);
 	static ExamListData* getExamListDataById(const string& examListId);
+	static ProficiencyCategoryData* getProficiencyCategoryDataById(const string& proficiencyCategoryId);
 	static ItemCategoryData* getItemCategoryDataById(const string& itemCategoryId);
 	static FriendData* getFriendDataById(const string& friendId);
 	static ParentChatData* getParentChatDataById(const string& chatId);
+	static TaskData* getTaskDataById(const string& itemId);
 	static SkillData* getSkillDataById(const string& skillId);
 	static AttributeData* getAttributeDataById(const string& attributeId);
 	static SelectableScheduleData* getSelectableScheduleDataById(const string& scheduleId);

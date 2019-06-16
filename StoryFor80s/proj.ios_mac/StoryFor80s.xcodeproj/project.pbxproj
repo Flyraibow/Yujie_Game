@@ -179,6 +179,14 @@
 		ECBA50732213DD3600929BBA /* PanelManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBA50702213DD3600929BBA /* PanelManager.cpp */; };
 		ECBA50762213F1A000929BBA /* ConditionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBA50742213F1A000929BBA /* ConditionManager.cpp */; };
 		ECBA50772213F1A000929BBA /* ConditionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBA50742213F1A000929BBA /* ConditionManager.cpp */; };
+		ECBC3A4E22B55DC7002E12F2 /* TaskData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBC3A4B22B55DC6002E12F2 /* TaskData.cpp */; };
+		ECBC3A4F22B55DC7002E12F2 /* TaskData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBC3A4B22B55DC6002E12F2 /* TaskData.cpp */; };
+		ECBC3A5222B55E94002E12F2 /* TaskPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBC3A5022B55E94002E12F2 /* TaskPanel.cpp */; };
+		ECBC3A5322B55E94002E12F2 /* TaskPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBC3A5022B55E94002E12F2 /* TaskPanel.cpp */; };
+		ECBC3A5622B58566002E12F2 /* TaskLogicFunction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBC3A5422B58566002E12F2 /* TaskLogicFunction.cpp */; };
+		ECBC3A5722B58566002E12F2 /* TaskLogicFunction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBC3A5422B58566002E12F2 /* TaskLogicFunction.cpp */; };
+		ECBC3A5A22B5A9F8002E12F2 /* ProficiencyCategoryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBC3A5922B5A9F8002E12F2 /* ProficiencyCategoryData.cpp */; };
+		ECBC3A5B22B5A9F8002E12F2 /* ProficiencyCategoryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBC3A5922B5A9F8002E12F2 /* ProficiencyCategoryData.cpp */; };
 		ECBD4F4622AC6D2B00B183E2 /* BaseDropDownMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBD4F4422AC6D2B00B183E2 /* BaseDropDownMenu.cpp */; };
 		ECBD4F4722AC6D2B00B183E2 /* BaseDropDownMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBD4F4422AC6D2B00B183E2 /* BaseDropDownMenu.cpp */; };
 		ECBD4F4C22AF56FC00B183E2 /* ExamListData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECBD4F4822AF56FB00B183E2 /* ExamListData.cpp */; };
@@ -439,6 +447,14 @@
 		ECBA50712213DD3600929BBA /* PanelManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PanelManager.hpp; sourceTree = "<group>"; };
 		ECBA50742213F1A000929BBA /* ConditionManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConditionManager.cpp; sourceTree = "<group>"; };
 		ECBA50752213F1A000929BBA /* ConditionManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ConditionManager.hpp; sourceTree = "<group>"; };
+		ECBC3A4B22B55DC6002E12F2 /* TaskData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TaskData.cpp; sourceTree = "<group>"; };
+		ECBC3A4D22B55DC7002E12F2 /* TaskData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TaskData.hpp; sourceTree = "<group>"; };
+		ECBC3A5022B55E94002E12F2 /* TaskPanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TaskPanel.cpp; sourceTree = "<group>"; };
+		ECBC3A5122B55E94002E12F2 /* TaskPanel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TaskPanel.hpp; sourceTree = "<group>"; };
+		ECBC3A5422B58566002E12F2 /* TaskLogicFunction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TaskLogicFunction.cpp; sourceTree = "<group>"; };
+		ECBC3A5522B58566002E12F2 /* TaskLogicFunction.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TaskLogicFunction.hpp; sourceTree = "<group>"; };
+		ECBC3A5822B5A9F8002E12F2 /* ProficiencyCategoryData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ProficiencyCategoryData.hpp; sourceTree = "<group>"; };
+		ECBC3A5922B5A9F8002E12F2 /* ProficiencyCategoryData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProficiencyCategoryData.cpp; sourceTree = "<group>"; };
 		ECBD4F4422AC6D2B00B183E2 /* BaseDropDownMenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BaseDropDownMenu.cpp; sourceTree = "<group>"; };
 		ECBD4F4522AC6D2B00B183E2 /* BaseDropDownMenu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BaseDropDownMenu.hpp; sourceTree = "<group>"; };
 		ECBD4F4822AF56FB00B183E2 /* ExamListData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExamListData.cpp; sourceTree = "<group>"; };
@@ -671,6 +687,8 @@
 				ECBD4F5122AF649500B183E2 /* ExamFunctions.hpp */,
 				ECBD4F6022B0970F00B183E2 /* ChatWithParentsFunction.cpp */,
 				ECBD4F6122B0970F00B183E2 /* ChatWithParentsFunction.hpp */,
+				ECBC3A5422B58566002E12F2 /* TaskLogicFunction.cpp */,
+				ECBC3A5522B58566002E12F2 /* TaskLogicFunction.hpp */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -678,6 +696,10 @@
 		EC073B9F221A99BD006FDCE0 /* GeneratedData */ = {
 			isa = PBXGroup;
 			children = (
+				ECBC3A5922B5A9F8002E12F2 /* ProficiencyCategoryData.cpp */,
+				ECBC3A5822B5A9F8002E12F2 /* ProficiencyCategoryData.hpp */,
+				ECBC3A4B22B55DC6002E12F2 /* TaskData.cpp */,
+				ECBC3A4D22B55DC7002E12F2 /* TaskData.hpp */,
 				ECBD4F5422B07EA600B183E2 /* AchievementCategoryData.cpp */,
 				ECBD4F5822B07EA700B183E2 /* AchievementCategoryData.hpp */,
 				ECBD4F5722B07EA700B183E2 /* AchievementsData.cpp */,
@@ -759,6 +781,8 @@
 				EC73FA6922A82A8300EA4125 /* PracticePanel.hpp */,
 				EC45969322B345E3005D97D7 /* ProfilePanel.cpp */,
 				EC45969422B345E3005D97D7 /* ProfilePanel.hpp */,
+				ECBC3A5022B55E94002E12F2 /* TaskPanel.cpp */,
+				ECBC3A5122B55E94002E12F2 /* TaskPanel.hpp */,
 			);
 			path = Panel;
 			sourceTree = "<group>";
@@ -1069,6 +1093,7 @@
 				ECBD4F4622AC6D2B00B183E2 /* BaseDropDownMenu.cpp in Sources */,
 				ECBD4F5222AF649500B183E2 /* ExamFunctions.cpp in Sources */,
 				ECDE87222235FD0F0048EEF5 /* BaseLabel.cpp in Sources */,
+				ECBC3A5A22B5A9F8002E12F2 /* ProficiencyCategoryData.cpp in Sources */,
 				EC073BD0221A9B67006FDCE0 /* ConditionCalculationData.cpp in Sources */,
 				EC4F0269221FE48D0038EFCD /* FatherJobData.cpp in Sources */,
 				EC4065A722375CBC0089E82A /* ScrollViewComponent.cpp in Sources */,
@@ -1133,14 +1158,17 @@
 				ECBD4F5C22B07EA700B183E2 /* SkillData.cpp in Sources */,
 				EC8482CD221168F4001956DE /* ButtonComponent.cpp in Sources */,
 				ECBA50722213DD3600929BBA /* PanelManager.cpp in Sources */,
+				ECBC3A5222B55E94002E12F2 /* TaskPanel.cpp in Sources */,
 				EC073BC8221A9B67006FDCE0 /* AttributeData.cpp in Sources */,
 				ECBA506E2213DCC500929BBA /* SceneManager.cpp in Sources */,
 				ECBD4F4E22AF56FC00B183E2 /* ExamData.cpp in Sources */,
 				EC8482D322116995001956DE /* JsonUtil.cpp in Sources */,
+				ECBC3A4E22B55DC7002E12F2 /* TaskData.cpp in Sources */,
 				EC84828A22115876001956DE /* LocalizationHelper.cpp in Sources */,
 				EC0C563C22221AB80000C3E7 /* StoryEventContent.cpp in Sources */,
 				ECC8DB1322AB801700900E8E /* SelectableScheduleData.cpp in Sources */,
 				EC0C5630222212E20000C3E7 /* StoryJsonData.cpp in Sources */,
+				ECBC3A5622B58566002E12F2 /* TaskLogicFunction.cpp in Sources */,
 				EC16304E22A588340010C010 /* ShopPanel.cpp in Sources */,
 				ECDF38CC2222EB21003ED65B /* PanelEventContent.cpp in Sources */,
 				EC8482C1221168F4001956DE /* ColorNodeComponent.cpp in Sources */,
@@ -1192,6 +1220,7 @@
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				EC8482CC221168F4001956DE /* LabelComponent.cpp in Sources */,
 				EC0C5635222214B80000C3E7 /* JSONContent.cpp in Sources */,
+				ECBC3A5B22B5A9F8002E12F2 /* ProficiencyCategoryData.cpp in Sources */,
 				EC073BBF221A9B67006FDCE0 /* BaseGlobalDataManager.cpp in Sources */,
 				EC073BD7221A9C05006FDCE0 /* InitialSetups.cpp in Sources */,
 				EC8482AA221161C6001956DE /* BaseButtonGroup.cpp in Sources */,
@@ -1205,8 +1234,11 @@
 				EC8482E022116D39001956DE /* SceneContent.cpp in Sources */,
 				EC073B9E221A9972006FDCE0 /* SpecialFunctions.cpp in Sources */,
 				EC073BD1221A9B67006FDCE0 /* ConditionCalculationData.cpp in Sources */,
+				ECBC3A4F22B55DC7002E12F2 /* TaskData.cpp in Sources */,
+				ECBC3A5722B58566002E12F2 /* TaskLogicFunction.cpp in Sources */,
 				EC4F0268221FE48D0038EFCD /* FriendData.cpp in Sources */,
 				EC8482D0221168F4001956DE /* PanelComponent.cpp in Sources */,
+				ECBC3A5322B55E94002E12F2 /* TaskPanel.cpp in Sources */,
 				EC0C5631222212E20000C3E7 /* StoryJsonData.cpp in Sources */,
 				EC073BCB221A9B67006FDCE0 /* FunctionCalculationData.cpp in Sources */,
 				ECBD4F5B22B07EA700B183E2 /* AchievementCategoryData.cpp in Sources */,

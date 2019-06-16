@@ -1,0 +1,24 @@
+{
+	"events": [
+		{
+			"__comment" : "等待1秒",
+			"type" : "wait",
+			"duration" : 1
+		},
+		{
+			"__comment" : "弹出对话框",
+			"type" : "dialog",
+			"name" : "dialogPanel",
+			"dialogs":[
+				{
+					"name": "function.my_full_name",
+					"content" : "一个月过去了，和父母聊点什么吧"
+				}
+			]
+		},
+    {
+      "__comment" : "刷新",
+      "type" : "refreshScene"
+    }
+	]
+}

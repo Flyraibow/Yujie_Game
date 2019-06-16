@@ -1,0 +1,14 @@
+{
+	"events": [
+		{
+			"__comment" : "弹出对话框",
+			"type" : "dialog",
+			"name" : "dialogPanel",
+			"dialogs":[
+				{
+					"content" : "测试执行对话1"
+				}
+			]
+		}
+	]
+}

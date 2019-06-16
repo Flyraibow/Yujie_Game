@@ -1,0 +1,50 @@
+{
+  "type": "sprite",
+  "id": "selectable_sprite",
+  "size": {
+    "width": 300,
+    "height": 200
+  },
+  "share_data": true,
+  "color": [199,178,50],
+  "anchor_point": [0, 1],
+  "components" : [
+    {
+      "type": "label",
+      "id": "task_name_lab",
+      "normalized_position": [0.5, 0.95],
+      "anchor_point": [0.5, 1],
+      "text": "associate.name",
+      "text_size": 30
+    },
+    {
+      "type": "label",
+      "id": "task_desc_lab",
+      "normalized_position": [0.1, 0.75],
+      "anchor_point": [0, 1],
+      "normalized_dimensions": [0.8, 0],
+      "text": "associate.description",
+      "text_size": 20
+    },
+    {
+      "type": "label",
+      "id": "item_time_lab",
+      "text": "剩余时间:%s个月",
+      "text_parameters" : [
+        "associate.leftMonth"
+      ],
+      "normalized_position": [0.5, 0.3],
+      "hide_condition" : "int.associate.leftMonth=int.0",
+      "anchor_point": [0.5, 1],
+      "text_size": 20
+    },
+    {
+      "type": "label",
+      "id": "task_result_lab",
+      "normalized_position": [0.5, 0.15],
+      "anchor_point": [0.5, 1],
+      "text_size": 20,
+      "skip_refresh": true
+    }
+  ]
+}
