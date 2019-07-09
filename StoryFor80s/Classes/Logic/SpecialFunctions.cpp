@@ -18,6 +18,14 @@
 #include "TaskData.hpp"
 #include "TaskLogicFunction.hpp"
 
+
+namespace game {
+  void saveGlobal()
+  {
+    BaseGlobalDataManager::saveData("global");
+  }
+}
+
 void story::passDay(const nlohmann::json &jsonContent)
 {
   auto gameDate = GameData::getSharedInstance()->getGameDateData();
@@ -85,7 +93,7 @@ void game::save(const nlohmann::json &jsonContent)
   BaseDataManager::saveData(index);
   gameSaving->setSaveDescription(DataManager::getShareInstance()->getTempString("saveDescription"));
   gameSaving->setSaved(true);
-  BaseGlobalDataManager::saveData("global");
+  saveGlobal();
 }
 
 void game::load(const nlohmann::json &jsonContent)
@@ -93,4 +101,21 @@ void game::load(const nlohmann::json &jsonContent)
   auto index = DataManager::getShareInstance()->getTempString("index");
   BaseDataManager::clearData();
   BaseDataManager::loadData(index);
+}
+
+void game::saveGlobal(const nlohmann::json &jsonContent)
+{
+  saveGlobal();
+}
+
+#include "audio/include/SimpleAudioEngine.h"
+
+void game::updateSoundVolume(const nlohmann::json &jsonContent)
+{
+  // initial Music/Effect volume
+  auto gameSetting = GameSettingData::getSharedInstance();
+  CocosDenshion::SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(gameSetting->getSoundVolume() / 100.0);
+  CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(gameSetting->getEffectVolume() / 100.0);
+  
+  saveGlobal();
 }

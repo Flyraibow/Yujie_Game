@@ -20,11 +20,13 @@ namespace game {
       // 增加熟练度
       // depend on 的 attribute 和 value
       double ratio = 1.0;
+      double maxRatio = 1.0; // used for normalize results;
       for (auto attributePair : proficiency->getAttributeDependOnMap()) {
         auto attribute = AttributeData::getAttributeDataById(attributePair.first);
         if (attribute != nullptr) {
           auto myValue = attribute->getValue();
           auto requireValue = attributePair.second;
+          maxRatio *= 2;
           if (myValue > requireValue) {
             ratio *= 1 + 1.0 * (myValue - requireValue) / myValue;
           } else {
@@ -39,6 +41,7 @@ namespace game {
         if (proficiencyData != nullptr) {
           auto myValue = proficiencyData->getValue();
           auto requireValue = profiencyPair.second;
+          maxRatio *= 2;
           if (myValue > requireValue) {
             ratio *= 1 + 1.0 * (myValue - requireValue) / myValue;
           } else {
@@ -47,6 +50,10 @@ namespace game {
         } else {
           CCLOGERROR("couldn't find the depend profiency: %s in proficiency : %s", profiencyPair.first.c_str(), proficiency->getName().c_str());
         }
+      }
+      // normalize ration
+      if (ratio > 1.0) {
+        ratio = (ratio - 1.0) / (maxRatio - 1.0) + 1.0;
       }
       int addValue = int (baseAddValue * ratio + 0.5);
       CCLOG("base profienciency : %d, ratio : %f, result : %d", baseAddValue, ratio, addValue);

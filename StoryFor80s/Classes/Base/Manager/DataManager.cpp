@@ -231,6 +231,14 @@ BaseData* DataManager::decipherData(const string &value, BaseData* associate) co
       data = data->getDataByField(args.at(i++));
     }
     return data;
+  } else if (key == "globaldata") {
+    CCASSERT(args.size() >= 3, "must have at least 2 key to get game data");
+    auto data = BaseGlobalDataManager::getData(args.at(1), args.at(2));
+    int i = 3;
+    while (data != nullptr && args.size() > i) {
+      data = data->getDataByField(args.at(i++));
+    }
+    return data;
   } else if (key == "tempdata") {
     CCASSERT(args.size() >= 2 && p_tempDataMap.count(args.at(1)), "must have tempdata key");
     auto data = p_tempDataMap.at(args.at(1));

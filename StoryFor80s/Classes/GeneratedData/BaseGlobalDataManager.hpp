@@ -4,6 +4,7 @@ This file (BaseGlobalDataManager.hpp) is generated
 #ifndef BaseGlobalDataManager_hpp
 #define BaseGlobalDataManager_hpp
 #include "GameSavingData.hpp"
+#include "GameSettingData.hpp"
 
 
 class BaseGlobalDataManager
@@ -12,6 +13,7 @@ private:
 public:
 	static GameSavingData* getGameSavingDataById(int savingId);
 	static GameSavingData* getGameSavingDataById(const string& savingId);
+	static GameSettingData* getGameSettingData();
 	static bool saveData(string fileName);
 	static bool loadData(string fileName);
 	static bool clearData();

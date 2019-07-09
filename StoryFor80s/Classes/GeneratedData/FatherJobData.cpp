@@ -28,24 +28,19 @@ string FatherJobData::getName() const
 	return LocalizationHelper::getLocalization(localId);
 }
 
+bool FatherJobData::getSelecatable() const
+{
+	return p_selecatable;
+}
+
+int FatherJobData::getPoint() const
+{
+	return p_point;
+}
+
 int FatherJobData::getSalary() const
 {
 	return p_salary;
-}
-
-void FatherJobData::setSalary(int salary)
-{
-	p_salary = salary;
-}
-
-int FatherJobData::getKnowledge() const
-{
-	return p_knowledge;
-}
-
-void FatherJobData::setKnowledge(int knowledge)
-{
-	p_knowledge = knowledge;
 }
 
 string FatherJobData::getDescription() const
@@ -59,8 +54,9 @@ string FatherJobData::description() const
 	string desc = "fatherJobData = {\n";
 	desc += "\tfatherJobId : " + to_string(p_fatherJobId) + "\n";
 	desc += "\tname : " + getName() + "\n";
+	desc += "\tselecatable : " + to_string(p_selecatable) + "\n";
+	desc += "\tpoint : " + to_string(p_point) + "\n";
 	desc += "\tsalary : " + to_string(p_salary) + "\n";
-	desc += "\tknowledge : " + to_string(p_knowledge) + "\n";
 	desc += "\tdescription : " + getDescription() + "\n";
 	desc += "}\n";
 	return desc;
@@ -79,8 +75,9 @@ const map<string, FatherJobData*>* FatherJobData::getSharedDictionary()
 			for (int i = 0; i < count; ++i) {
 				FatherJobData* fatherJobData = new FatherJobData();
 				fatherJobData->p_fatherJobId = buffer->getString();
+				fatherJobData->p_selecatable = buffer->getChar();
+				fatherJobData->p_point = buffer->getInt();
 				fatherJobData->p_salary = buffer->getInt();
-				fatherJobData->p_knowledge = buffer->getInt();
 				p_sharedDictionary->insert(pair<string, FatherJobData*>(fatherJobData->p_fatherJobId, fatherJobData));
 			}
 		}
@@ -96,90 +93,18 @@ FatherJobData* FatherJobData::getFatherJobDataById(const string& fatherJobId)
 	return nullptr;
 }
 
-bool FatherJobData::saveData(const string & path)
-{
-	auto filePath = path + "/FatherJobData.dat";
-	auto dict = FatherJobData::getSharedDictionary();
-	auto buffer = std::make_unique<bb::ByteBuffer>();
-	buffer->putLong(dict->size());
-	buffer->putInt(2);
-	for (auto iter = dict->begin(); iter != dict->end(); iter++) {
-		auto dataId = iter->first;
-		auto data = iter->second;
-		buffer->putString(dataId);
-		buffer->putString("p_salary");
-		buffer->putString(to_string(data->p_salary));
-		buffer->putString("p_knowledge");
-		buffer->putString(to_string(data->p_knowledge));
-	}
-	buffer->writeToFile(filePath);
-	return true;
-}
-
-bool FatherJobData::loadData(const string & path)
-{
-	auto filePath = path + "/FatherJobData.dat";
-	auto dict = FatherJobData::getSharedDictionary();
-	auto fileData = cocos2d::FileUtils::getInstance()->getDataFromFile(filePath);
-	if (!fileData.isNull()) {
-		auto bytes = fileData.getBytes();
-		auto buffer = std::make_unique<bb::ByteBuffer>(bytes, fileData.getSize());
-		auto size = buffer->getLong();
-		auto dataSize = buffer->getInt();
-		for (int i = 0; i < size; ++i) {
-			auto dataId = buffer->getString();
-			FatherJobData *data = nullptr;
-			if (dict->count(dataId)) {
-				data = dict->at(dataId);
-			}
-			for (int j = 0; j < dataSize; ++j) {
-				string key = buffer->getString();
-				string value = buffer->getString();
-				if (data != nullptr) {
-					if (key == "p_salary") {
-						data->p_salary = atoi(value.c_str());
-					} else if (key == "p_knowledge") {
-						data->p_knowledge = atoi(value.c_str());
-					}
-				}
-			}
-		}
-	}
-	return true;
-}
-
-bool FatherJobData::clearData()
-{
-	if (p_sharedDictionary != nullptr) {
-		for (auto iter = p_sharedDictionary->begin(); iter != p_sharedDictionary->end(); ++iter) {
-			auto data = iter->second;
-			delete data;
-		}
-		delete p_sharedDictionary;
-		p_sharedDictionary = nullptr;
-	}
-	return true;
-}
-
-void FatherJobData::setFieldValue(const string & fieldName, const string & value)
-{
-	if (fieldName == "salary") {
-		this->setSalary(atoi(value.c_str()));
-	} else if (fieldName == "knowledge") {
-		this->setKnowledge(atoi(value.c_str()));
-	}
-}
-
 string FatherJobData::getFieldValue(const string & fieldName) const
 {
 	if (fieldName == "fatherJobId") {
 		return to_string(this->getFatherJobId());
 	} else if (fieldName == "name") {
 		return to_string(this->getName());
+	} else if (fieldName == "selecatable") {
+		return to_string(this->getSelecatable());
+	} else if (fieldName == "point") {
+		return to_string(this->getPoint());
 	} else if (fieldName == "salary") {
 		return to_string(this->getSalary());
-	} else if (fieldName == "knowledge") {
-		return to_string(this->getKnowledge());
 	} else if (fieldName == "description") {
 		return to_string(this->getDescription());
 	}

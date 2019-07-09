@@ -1,0 +1,96 @@
+{
+	"backgroundImage": "res/StoryFor80s_system.png",
+	"fullScreenCover": true,
+	"components":[
+    {
+      "type": "sprite",
+      "id": "info_box",
+      "size": {
+        "width": 800,
+        "height": 500
+      },
+      "color": [129,120,50],
+      "normalized_position": [0.5, 0.5],
+      "anchor_point": [0.5, 0.5],
+      "components" : [
+        {
+          "type": "label",
+          "text": "环境设置",
+          "normalized_position": [0.5, 0.95],
+          "anchor_point": [0.5, 1],
+          "text_size": 40
+        },
+        {
+          "type": "label",
+          "text": "音乐音量",
+          "normalized_position": [0.15, 0.83],
+          "anchor_point": [0, 1],
+          "normalized_dimensions": [0.9, 0],
+          "text_size": 32
+        },
+        {
+          "type": "label",
+          "text": "音效音量",
+          "normalized_position": [0.15, 0.7],
+          "anchor_point": [0, 1],
+          "normalized_dimensions": [0.9, 0],
+          "text_size": 32
+        },
+        {
+          "type": "label",
+          "text": "globaldata.GameSettingData..soundVolume",
+          "normalized_position": [0.65, 0.83],
+          "anchor_point": [1, 1],
+          "text_size": 32
+        },
+        {
+          "type": "label",
+          "text": "globaldata.GameSettingData..effectVolume",
+          "normalized_position": [0.65, 0.7],
+          "anchor_point": [1, 1],
+          "text_size": 32
+        },
+        {
+          "type": "button",
+          "id": "left_sound_btn",
+          "text": "<",
+          "normalized_position": [0.52, 0.83],
+          "anchor_point": [0.5, 1],
+          "storyId": "system/reduceSound"
+        },
+        {
+          "type": "button",
+          "id": "right_sound_btn",
+          "text": ">",
+          "normalized_position": [0.72, 0.83],
+          "anchor_point": [0.5, 1],
+          "storyId": "system/increaseSound"
+        },
+        {
+          "type": "button",
+          "id": "left_effect_btn",
+          "text": "<",
+          "normalized_position": [0.52, 0.7],
+          "anchor_point": [0.5, 1],
+          "storyId": "system/reduceEffect"
+        },
+        {
+          "type": "button",
+          "id": "right_effect_btn",
+          "text": ">",
+          "normalized_position": [0.72, 0.7],
+          "anchor_point": [0.5, 1],
+          "storyId": "system/increaseEffect"
+        },
+        {
+          "type": "button",
+          "id": "cancel_btn",
+          "text": "translation.sys_cancel",
+          "normalized_position": [0.5, 0.03],
+          "anchor_point": [0.5, 0],
+          "storyId": "popScene"
+        }
+      ]
+    }
+	]
+}

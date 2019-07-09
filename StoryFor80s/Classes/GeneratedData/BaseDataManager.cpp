@@ -7,7 +7,6 @@ This file (BaseDataManager.cpp) is generated
 #include <unistd.h>
 #include "cocos2d.h"
 #include "PlotData.hpp"
-#include "FatherJobData.hpp"
 #include "StoryData.hpp"
 #include "DateData.hpp"
 #include "ItemData.hpp"
@@ -264,10 +263,6 @@ bool BaseDataManager::saveData(string fileName)
 		CCLOG("Failed to save PlotData, %s", path.c_str());
 		return false;
 	}
-	if (!FatherJobData::saveData(path)) {
-		CCLOG("Failed to save FatherJobData, %s", path.c_str());
-		return false;
-	}
 	if (!StoryData::saveData(path)) {
 		CCLOG("Failed to save StoryData, %s", path.c_str());
 		return false;
@@ -331,10 +326,6 @@ bool BaseDataManager::loadData(string fileName)
 		CCLOG("Failed to load PlotData, %s", path.c_str());
 		return false;
 	}
-	if (!FatherJobData::loadData(path)) {
-		CCLOG("Failed to load FatherJobData, %s", path.c_str());
-		return false;
-	}
 	if (!StoryData::loadData(path)) {
 		CCLOG("Failed to load StoryData, %s", path.c_str());
 		return false;
@@ -389,7 +380,6 @@ bool BaseDataManager::loadData(string fileName)
 bool BaseDataManager::clearData()
 {
 	PlotData::clearData();
-	FatherJobData::clearData();
 	StoryData::clearData();
 	DateData::clearData();
 	ItemData::clearData();
@@ -483,9 +473,6 @@ void BaseDataManager::setDataField(const string & dataSet, const string & id, co
 {
 	if (dataSet == "PlotData") {
 		auto data = PlotData::getPlotDataById(id);
-		data->setFieldValue(fieldName, value);
-	} else if (dataSet == "FatherJobData") {
-		auto data = FatherJobData::getFatherJobDataById(id);
 		data->setFieldValue(fieldName, value);
 	} else if (dataSet == "StoryData") {
 		auto data = StoryData::getStoryDataById(id);

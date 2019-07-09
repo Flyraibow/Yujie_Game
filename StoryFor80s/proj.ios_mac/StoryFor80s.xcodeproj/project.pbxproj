@@ -233,6 +233,8 @@
 		ECDF38D12223898C003ED65B /* DialogEventContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECDF38CE2223898C003ED65B /* DialogEventContent.cpp */; };
 		ECDF38D8222392DB003ED65B /* DialogPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECDF38D6222392DB003ED65B /* DialogPanel.cpp */; };
 		ECDF38D9222392DB003ED65B /* DialogPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECDF38D6222392DB003ED65B /* DialogPanel.cpp */; };
+		ECECF56722D4167100A8AF6A /* GameSettingData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECECF56422D4167100A8AF6A /* GameSettingData.cpp */; };
+		ECECF56822D4167100A8AF6A /* GameSettingData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECECF56422D4167100A8AF6A /* GameSettingData.cpp */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 /* End PBXBuildFile section */
@@ -501,6 +503,8 @@
 		ECDF38CF2223898C003ED65B /* DialogEventContent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DialogEventContent.hpp; sourceTree = "<group>"; };
 		ECDF38D6222392DB003ED65B /* DialogPanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DialogPanel.cpp; sourceTree = "<group>"; };
 		ECDF38D7222392DB003ED65B /* DialogPanel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DialogPanel.hpp; sourceTree = "<group>"; };
+		ECECF56422D4167100A8AF6A /* GameSettingData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameSettingData.cpp; sourceTree = "<group>"; };
+		ECECF56622D4167100A8AF6A /* GameSettingData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameSettingData.hpp; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -696,6 +700,8 @@
 		EC073B9F221A99BD006FDCE0 /* GeneratedData */ = {
 			isa = PBXGroup;
 			children = (
+				ECECF56422D4167100A8AF6A /* GameSettingData.cpp */,
+				ECECF56622D4167100A8AF6A /* GameSettingData.hpp */,
 				ECBC3A5922B5A9F8002E12F2 /* ProficiencyCategoryData.cpp */,
 				ECBC3A5822B5A9F8002E12F2 /* ProficiencyCategoryData.hpp */,
 				ECBC3A4B22B55DC6002E12F2 /* TaskData.cpp */,
@@ -1110,6 +1116,7 @@
 				EC073B98221927A9006FDCE0 /* FunctionManager.cpp in Sources */,
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
 				EC8482E522116ECE001956DE /* DataManager.cpp in Sources */,
+				ECECF56722D4167100A8AF6A /* GameSettingData.cpp in Sources */,
 				ECBD4F5A22B07EA700B183E2 /* AchievementCategoryData.cpp in Sources */,
 				EC16304A22A4A1C40010C010 /* PlotData.cpp in Sources */,
 				EC8482CB221168F4001956DE /* LabelComponent.cpp in Sources */,
@@ -1262,6 +1269,7 @@
 				EC073BC7221A9B67006FDCE0 /* GameSavingData.cpp in Sources */,
 				ECC5E94A22284D660090F6C5 /* BaseSpriteListener.cpp in Sources */,
 				EC8482CA221168F4001956DE /* BaseComponent.cpp in Sources */,
+				ECECF56822D4167100A8AF6A /* GameSettingData.cpp in Sources */,
 				EC073BC3221A9B67006FDCE0 /* ConditionData.cpp in Sources */,
 				EC8482DC22116D39001956DE /* PanelContent.cpp in Sources */,
 				ECDF38C1222265B4003ED65B /* SubStoryEventContent.cpp in Sources */,

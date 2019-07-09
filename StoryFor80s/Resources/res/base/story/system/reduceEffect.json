@@ -1,0 +1,25 @@
+{
+	"events": [
+		{
+			"__comment" : "减少音效音量",
+      "type" : "setValues",
+      "changes" : [
+        {
+          "type" : "minus",
+          "data" : "globaldata.GameSettingData..",
+          "field" : "effectVolume",
+          "value" : "20",
+          "min": "0"
+        }
+      ]
+    },
+    {
+      "__comment" : "刷新",
+      "type" : "refreshScene"
+    },
+		{
+			"__comment" : "更新音量",
+			"type" : "updateSoundVolume"
+		}
+	]
+}

@@ -24,6 +24,8 @@ namespace game {
   void homePage(const nlohmann::json &jsonContent);
   void save(const nlohmann::json &jsonContent);
   void load(const nlohmann::json &jsonContent);
+  void saveGlobal(const nlohmann::json &jsonContent);
+  void updateSoundVolume(const nlohmann::json &jsonContent);
 }
 
 #endif /* SpecialFunctions_hpp */

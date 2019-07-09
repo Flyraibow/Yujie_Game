@@ -29,7 +29,15 @@
 					  "story" : {
 						"scene" : "loadScene"
 					  }
-					}
+          },
+          {
+            "type": "button",
+            "id": "game_setting",
+            "text": "环境设置",
+            "story" : {
+              "scene" : "gameSettingScene"
+            }
+          }
 				]
 			}
 		}

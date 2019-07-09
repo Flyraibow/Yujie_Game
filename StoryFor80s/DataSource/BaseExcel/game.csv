@@ -2,4 +2,4 @@
 friend_id,string,string,friend_id,friend_id,friend_id,bool,friend_id_vector
 Date,-,-,Date,FatherJob,School,-,SelectableSchedule
 N,Y,Y,N,Y,Y,Y,Y
-game_date,firstName,lastName,my_birthday,0,primary_school,0,;
+game_date,firstName,lastName,my_birthday,worker,primary_school,0,;

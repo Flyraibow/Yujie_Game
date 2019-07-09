@@ -7,6 +7,7 @@ This file (BaseGlobalDataManager.cpp) is generated
 #include <unistd.h>
 #include "cocos2d.h"
 #include "GameSavingData.hpp"
+#include "GameSettingData.hpp"
 
 
 
@@ -25,6 +26,11 @@ GameSavingData* BaseGlobalDataManager::getGameSavingDataById(const string& savin
 	return GameSavingData::getGameSavingDataById(atoi(savingId.c_str()));
 }
 
+GameSettingData* BaseGlobalDataManager::getGameSettingData()
+{
+	return GameSettingData::getSharedInstance();
+}
+
 bool BaseGlobalDataManager::saveData(string fileName)
 {
 	string path = cocos2d::FileUtils::getInstance()->getWritablePath() + "/globalData" + fileName;
@@ -34,6 +40,10 @@ bool BaseGlobalDataManager::saveData(string fileName)
 	}
 	if (!GameSavingData::saveData(path)) {
 		CCLOG("Failed to save GameSavingData, %s", path.c_str());
+		return false;
+	}
+	if (!GameSettingData::saveData(path)) {
+		CCLOG("Failed to save GameSettingData, %s", path.c_str());
 		return false;
 	}
 	return true;
@@ -51,12 +61,17 @@ bool BaseGlobalDataManager::loadData(string fileName)
 		CCLOG("Failed to load GameSavingData, %s", path.c_str());
 		return false;
 	}
+	if (!GameSettingData::loadData(path)) {
+		CCLOG("Failed to load GameSettingData, %s", path.c_str());
+		return false;
+	}
 	return true;
 }
 
 bool BaseGlobalDataManager::clearData()
 {
 	GameSavingData::clearData();
+	GameSettingData::clearData();
 	return true;
 }
 
@@ -64,6 +79,8 @@ BaseData * BaseGlobalDataManager::getData(const string & dataSet, const string &
 {
 	if (dataSet == "GameSavingData") {
 		return GameSavingData::getGameSavingDataById(id);
+	} else if (dataSet == "GameSettingData") {
+		return GameSettingData::getSharedInstance();
 	}
 	CCLOGWARN("Couldn't recognize %s file", dataSet.c_str());
 	return nullptr;
@@ -82,6 +99,9 @@ void BaseGlobalDataManager::setDataField(const string & dataSet, const string & 
 {
 	if (dataSet == "GameSavingData") {
 		auto data = GameSavingData::getGameSavingDataById(id);
+		data->setFieldValue(fieldName, value);
+	} else if (dataSet == "GameSettingData") {
+		auto data = GameSettingData::getSharedInstance();
 		data->setFieldValue(fieldName, value);
 	}
 	CCLOGWARN("Couldn't recognize %s file", dataSet.c_str());
