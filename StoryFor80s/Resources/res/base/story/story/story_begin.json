@@ -5,7 +5,12 @@
 			"__comment" : "播放背景音乐",
 			"type" : "music",
 			"action" : "stop"
-		},
+    },
+    {
+      "__comment" : "等待2秒",
+      "type" : "wait",
+      "duration" : 2
+    },
 		{
 			"__comment" : "弹出对话框",
 			"type" : "dialog",

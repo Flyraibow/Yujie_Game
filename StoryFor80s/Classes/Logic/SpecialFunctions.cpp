@@ -116,6 +116,5 @@ void game::updateSoundVolume(const nlohmann::json &jsonContent)
   auto gameSetting = GameSettingData::getSharedInstance();
   CocosDenshion::SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(gameSetting->getSoundVolume() / 100.0);
   CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(gameSetting->getEffectVolume() / 100.0);
-  
   saveGlobal();
 }
