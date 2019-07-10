@@ -235,8 +235,6 @@
 		ECDF38D9222392DB003ED65B /* DialogPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECDF38D6222392DB003ED65B /* DialogPanel.cpp */; };
 		ECECF56722D4167100A8AF6A /* GameSettingData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECECF56422D4167100A8AF6A /* GameSettingData.cpp */; };
 		ECECF56822D4167100A8AF6A /* GameSettingData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECECF56422D4167100A8AF6A /* GameSettingData.cpp */; };
-		ECECF56B22D4EFEA00A8AF6A /* TextEventContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECECF56922D4EFEA00A8AF6A /* TextEventContent.cpp */; };
-		ECECF56C22D4EFEA00A8AF6A /* TextEventContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECECF56922D4EFEA00A8AF6A /* TextEventContent.cpp */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 /* End PBXBuildFile section */
@@ -367,6 +365,7 @@
 		EC0C564222222FC30000C3E7 /* WaitEventContent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = WaitEventContent.cpp; sourceTree = "<group>"; };
 		EC0C564322222FC30000C3E7 /* WaitEventContent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WaitEventContent.hpp; sourceTree = "<group>"; };
 		EC1272082212B3080058D7E6 /* title.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = title.mp3; sourceTree = "<group>"; };
+		EC137C7722D642A7004A4049 /* TextJsonInfo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextJsonInfo.hpp; sourceTree = "<group>"; };
 		EC16303C22A48EAC0010C010 /* StoryPanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StoryPanel.cpp; sourceTree = "<group>"; };
 		EC16303D22A48EAC0010C010 /* StoryPanel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StoryPanel.hpp; sourceTree = "<group>"; };
 		EC16304022A48EBB0010C010 /* DiaryPanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DiaryPanel.cpp; sourceTree = "<group>"; };
@@ -507,8 +506,6 @@
 		ECDF38D7222392DB003ED65B /* DialogPanel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DialogPanel.hpp; sourceTree = "<group>"; };
 		ECECF56422D4167100A8AF6A /* GameSettingData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameSettingData.cpp; sourceTree = "<group>"; };
 		ECECF56622D4167100A8AF6A /* GameSettingData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameSettingData.hpp; sourceTree = "<group>"; };
-		ECECF56922D4EFEA00A8AF6A /* TextEventContent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TextEventContent.cpp; sourceTree = "<group>"; };
-		ECECF56A22D4EFEA00A8AF6A /* TextEventContent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextEventContent.hpp; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -826,15 +823,22 @@
 				EC3CF0B8222B420F00E9DF38 /* SelectionEventContent.hpp */,
 				EC0748DB22470008003CFCBD /* RefreshEventContent.cpp */,
 				EC0748DC22470008003CFCBD /* RefreshEventContent.hpp */,
-				ECECF56922D4EFEA00A8AF6A /* TextEventContent.cpp */,
-				ECECF56A22D4EFEA00A8AF6A /* TextEventContent.hpp */,
 			);
 			path = Story;
+			sourceTree = "<group>";
+		};
+		EC137C7522D6428F004A4049 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				EC137C7722D642A7004A4049 /* TextJsonInfo.hpp */,
+			);
+			path = Info;
 			sourceTree = "<group>";
 		};
 		EC84826D22115661001956DE /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				EC137C7522D6428F004A4049 /* Info */,
 				EC0C5632222214B80000C3E7 /* JSONContent.cpp */,
 				EC0C5633222214B80000C3E7 /* JSONContent.hpp */,
 				EC0C562D222212BC0000C3E7 /* Story */,
@@ -881,13 +885,13 @@
 				EC8482A8221161C6001956DE /* BaseButtonGroup.hpp */,
 				ECBD4F4422AC6D2B00B183E2 /* BaseDropDownMenu.cpp */,
 				ECBD4F4522AC6D2B00B183E2 /* BaseDropDownMenu.hpp */,
-				ECDE87212235FD0F0048EEF5 /* BaseLabel.hpp */,
 				EC8482AB2211624C001956DE /* BaseColorNode.cpp */,
 				EC8482AC2211624C001956DE /* BaseColorNode.hpp */,
 				EC8482FF221171FC001956DE /* BaseScene.cpp */,
 				EC848300221171FC001956DE /* BaseScene.hpp */,
 				EC8483032211726F001956DE /* BasePanel.cpp */,
 				EC8483042211726F001956DE /* BasePanel.hpp */,
+				ECDE87212235FD0F0048EEF5 /* BaseLabel.hpp */,
 				ECDE87202235FD0F0048EEF5 /* BaseLabel.cpp */,
 			);
 			path = Base;
@@ -1139,7 +1143,6 @@
 				EC8482CF221168F4001956DE /* PanelComponent.cpp in Sources */,
 				EC073BD2221A9B67006FDCE0 /* ItemCategoryData.cpp in Sources */,
 				EC0C56402222278E0000C3E7 /* MusicEventContent.cpp in Sources */,
-				ECECF56B22D4EFEA00A8AF6A /* TextEventContent.cpp in Sources */,
 				EC073BBE221A9B67006FDCE0 /* BaseGlobalDataManager.cpp in Sources */,
 				EC4F0265221FE48D0038EFCD /* ParentChatData.cpp in Sources */,
 				1AF87B8A1F6F7822007BE51C /* main.m in Sources */,
@@ -1214,7 +1217,6 @@
 				EC0C56412222278E0000C3E7 /* MusicEventContent.cpp in Sources */,
 				ECBD4F4F22AF56FC00B183E2 /* ExamData.cpp in Sources */,
 				ECBA50772213F1A000929BBA /* ConditionManager.cpp in Sources */,
-				ECECF56C22D4EFEA00A8AF6A /* TextEventContent.cpp in Sources */,
 				ECCFE601226BF5A3008F47D4 /* ProficiencyData.cpp in Sources */,
 				ECC3AA7A22AAB38F005A106F /* ScheduleSubTypeData.cpp in Sources */,
 				ECBD4F4D22AF56FC00B183E2 /* ExamListData.cpp in Sources */,

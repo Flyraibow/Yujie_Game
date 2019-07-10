@@ -9,6 +9,7 @@
 
 #include "json.hpp"
 #include "cocos2d.h"
+#include "TextJsonInfo.hpp"
 
 namespace Utils {
   cocos2d::Vec2 getVec2FromJson(const nlohmann::json &json, const std::string &field, const cocos2d::Vec2 &defaultValue = cocos2d::Vec2());
@@ -21,7 +22,7 @@ namespace Utils {
   cocos2d::Color4B getColorFromJson(const nlohmann::json &json, const std::string &field, const cocos2d::Color4B &defaultValue = cocos2d::Color4B());
   std::vector<std::string> getStringListFromJson(const nlohmann::json &json, const std::string &field);
   std::vector<nlohmann::json> getJsonListFromJson(const nlohmann::json &json, const std::string &field);
-  
+  TextJsonInfo getTextInfoFromJson(const nlohmann::json &json, const std::string &field);
 }
 
 #endif /* JsonUtil_hpp */

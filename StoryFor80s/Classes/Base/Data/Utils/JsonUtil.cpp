@@ -128,3 +128,16 @@ std::vector<nlohmann::json> Utils::getJsonListFromJson(const nlohmann::json &jso
   }
   return defaultValue;
 }
+
+
+TextJsonInfo Utils::getTextInfoFromJson(const nlohmann::json &json, const std::string &field)
+{
+  TextJsonInfo textInfo;
+  auto jsonContent = json.at(field);
+  textInfo.text = getStringFromJson(jsonContent, "text");
+  textInfo.size = getFloatFromJson(jsonContent, "size", 20);
+  textInfo.typingSpeed = getIntFromJson(jsonContent, "speed");
+  textInfo.textColor = getColorFromJson(jsonContent, "color");
+  textInfo.typingEffect = getStringFromJson(jsonContent, "typingEffect");
+  return textInfo;
+}

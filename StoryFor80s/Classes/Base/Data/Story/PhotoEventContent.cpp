@@ -9,6 +9,8 @@
 #include "JsonUtil.hpp"
 #include "BaseScene.hpp"
 #include "SceneManager.hpp"
+#include "BaseLabel.hpp"
+#include "DataManager.hpp"
 
 #include <unordered_map>
 
@@ -47,6 +49,9 @@ PhotoEventContent::PhotoEventContent(const nlohmann::json &jsonContent) : StoryE
 {
   p_path = Utils::getStringFromJson(jsonContent, "path");
   p_name = Utils::getStringFromJson(jsonContent, "name");
+  if (jsonContent.count("text")) {
+    p_textInfo = Utils::getTextInfoFromJson(jsonContent, "text");
+  }
   auto action = Utils::getStringFromJson(jsonContent, "action");
   static const unordered_map<string, PhotoEventAction> actionMap = {
     {"add", PhotoEventActionAdd},
@@ -78,6 +83,11 @@ void PhotoEventContent::runEvent(StoryEventCallback callback)
       Node *photo = nullptr;
       if (p_path.length() > 0) {
         photo = Sprite::create(p_path);
+      } else if (p_textInfo.text.length() > 0) {
+        auto text = DataManager::getShareInstance()->decipherString(p_textInfo.text);
+        auto label = BaseLabel::createWithSystemFont(text, "Helvetica", p_textInfo.size , p_textInfo.typingSpeed);
+        label->setTypingEffect(p_textInfo.typingEffect);
+        photo = label;
       }
       if (photo != nullptr) {
         photo->setName(p_name);

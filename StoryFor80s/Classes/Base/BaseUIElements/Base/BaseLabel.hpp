@@ -27,8 +27,11 @@ private:
   int p_currentIndex = 0;
   int p_contentLength = 0;
   string p_text;
+  string p_typingEffect;
+  int p_typingEffectIndex;
   LabelTextCompleteCallback p_callback;
   void textCompleteCallback();
+  void stopTypingEffect();
 public:
   CREATE_FUNC(BaseLabel);
   virtual void setSpeed(int speed);
@@ -43,6 +46,7 @@ public:
   
   void setCallback(LabelTextCompleteCallback callback);
   void showTextImmediately();
+  void setTypingEffect(const std::string &typingEffect);
 };
 
 

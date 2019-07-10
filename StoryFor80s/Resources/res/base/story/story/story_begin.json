@@ -7,9 +7,35 @@
 			"action" : "stop"
     },
     {
-      "__comment" : "等待2秒",
+      "__comment" : "等待0.5秒",
       "type" : "wait",
-      "duration" : 2
+      "duration" : 0.5
+    },
+    {
+      "__comment" : "添加文字",
+      "type" : "photo",
+      "action" : "add",
+      "text" : {
+        "text" : "如果你的人生可以重头再来一次，你会怎样去过呢？",
+        "speed" : 2,
+        "size" : 30,
+        "color" : "WHITE",
+        "typingEffect" : "res/base/SE/typing.wav"
+      },
+      "name" : "text",
+      "normalized_position" : [0.5, 0.5],
+      "anchor_point" : [0.5, 0.5]
+    },
+    {
+      "__comment" : "等待点击",
+      "type" : "wait",
+      "until_click" : true
+    },
+    {
+      "__comment" : "移除图片",
+      "type" : "photo",
+      "action" : "remove",
+      "name" : "text"
     },
 		{
 			"__comment" : "弹出对话框",

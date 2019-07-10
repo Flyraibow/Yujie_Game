@@ -7,6 +7,7 @@
 
 #include "BaseLabel.hpp"
 #include "Utils.hpp"
+#include "audio/include/SimpleAudioEngine.h"
 
 void BaseLabel::setSpeed(int speed)
 {
@@ -29,6 +30,7 @@ void BaseLabel::setString(const std::string& text)
     Label::setString(text);
     textCompleteCallback();
   } else {
+    p_typingEffectIndex = CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(p_typingEffect.c_str(), true);
     p_contentLength = Utils::utf8_strlen(text);
     Label::setString("");
     this->schedule([this](float delta) {
@@ -57,6 +59,7 @@ BaseLabel* BaseLabel::createWithSystemFont(const std::string& text, const std::s
     ret->setDimensions(dimensions.width, dimensions.height);
     ret->setString(text);
     ret->setCallback(nullptr);
+    ret->p_typingEffectIndex = -1;
     
     ret->autorelease();
     
@@ -68,8 +71,17 @@ BaseLabel* BaseLabel::createWithSystemFont(const std::string& text, const std::s
 
 void BaseLabel::textCompleteCallback()
 {
+  stopTypingEffect();
   if (p_callback != nullptr) {
     p_callback();
+  }
+}
+
+void BaseLabel::stopTypingEffect()
+{
+  if (p_typingEffectIndex >= 0) {
+    CocosDenshion::SimpleAudioEngine::getInstance()->stopEffect(p_typingEffectIndex);
+    p_typingEffectIndex = -1;
   }
 }
 
@@ -84,5 +96,17 @@ void BaseLabel::showTextImmediately()
     this->unschedule(kLabelContentScheduleKey);
     Label::setString(p_text);
     textCompleteCallback();
+  }
+}
+
+void BaseLabel::setTypingEffect(const std::string &typingEffect)
+{
+  p_typingEffect = typingEffect;
+  if (typingEffect.length() > 0) {
+    if (p_text != Label::getString()) {
+      p_typingEffectIndex = CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(p_typingEffect.c_str(), true);
+    }
+  } else {
+    stopTypingEffect();
   }
 }

@@ -10,6 +10,7 @@
 
 #include "StoryEventContent.hpp"
 #include "cocos2d.h"
+#include "TextJsonInfo.hpp"
 
 enum PhotoEventAction {
   PhotoEventActionAdd,
@@ -29,6 +30,7 @@ class PhotoEventContent : public StoryEventContent, public cocos2d::Ref
 private:
   string p_path;
   string p_name;
+  TextJsonInfo p_textInfo;
   PhotoEventAction p_action;
   float p_duration;
   cocos2d::Vec2 p_normalizePosition;
