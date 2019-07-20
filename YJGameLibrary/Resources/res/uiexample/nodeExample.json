@@ -1,0 +1,8 @@
+{
+  "type": "sprite",
+  "id": "selectable_sprite",
+  "size": {
+    "width": 300,
+    "height": 200
+  }
+}

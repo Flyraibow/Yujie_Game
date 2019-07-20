@@ -1,0 +1,9 @@
+{
+  "music": "res/music/test.mp3",
+  "components": [
+    {
+      "type" : "ColorLayer",
+      "color" : "ORANGE"
+    }
+  ]
+}
