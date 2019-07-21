@@ -6,8 +6,9 @@
 //
 
 #include "ColorLayerJsonStruct.hpp"
+#include "JsonUtils+cocos2d.hpp"
 
 ColorLayerJsonStruct::ColorLayerJsonStruct(const nlohmann::json &json) : NodeJsonStruct(json) {
   type = NodeTypeColorLayer;
-  color = JsonUtils::getColorFromJson(json, "color");
+//  color = JsonUtils::getColorFromJson(json, "color");
 }

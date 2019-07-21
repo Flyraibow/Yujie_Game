@@ -11,7 +11,7 @@
 #include "cocos2d.h"
 #include "NodeJsonStruct.hpp"
 #include <vector>
-#include "JsonUtil.hpp"
+#include "JsonUtils.hpp"
 
 struct SceneJsonStruct {
   std::string backgroundMusic;

@@ -55,22 +55,24 @@
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
 		EC4030E022DEC5030026EDE5 /* ByteBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4030DF22DEC5030026EDE5 /* ByteBuffer.cpp */; };
 		EC4030E122DEC5030026EDE5 /* ByteBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4030DF22DEC5030026EDE5 /* ByteBuffer.cpp */; };
-		EC4030E422DEC5250026EDE5 /* JsonUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4030E222DEC5240026EDE5 /* JsonUtil.cpp */; };
-		EC4030E522DEC5250026EDE5 /* JsonUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4030E222DEC5240026EDE5 /* JsonUtil.cpp */; };
+		EC4030E422DEC5250026EDE5 /* JsonUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4030E222DEC5240026EDE5 /* JsonUtils.cpp */; };
+		EC4030E522DEC5250026EDE5 /* JsonUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4030E222DEC5240026EDE5 /* JsonUtils.cpp */; };
 		EC4030EB22DEC7260026EDE5 /* JSONContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4030EA22DEC7260026EDE5 /* JSONContent.cpp */; };
 		EC4030EC22DEC7260026EDE5 /* JSONContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4030EA22DEC7260026EDE5 /* JSONContent.cpp */; };
 		EC4030F022DECE660026EDE5 /* BaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4030EE22DECE660026EDE5 /* BaseScene.cpp */; };
 		EC4030F122DECE660026EDE5 /* BaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4030EE22DECE660026EDE5 /* BaseScene.cpp */; };
 		EC4030FD22DEE1160026EDE5 /* NodeJsonStruct.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4030FB22DEE1160026EDE5 /* NodeJsonStruct.cpp */; };
 		EC4030FE22DEE1160026EDE5 /* NodeJsonStruct.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4030FB22DEE1160026EDE5 /* NodeJsonStruct.cpp */; };
-		EC40310122DEE2330026EDE5 /* ColorLayerJsonStruct.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4030FF22DEE2330026EDE5 /* ColorLayerJsonStruct.cpp */; };
-		EC40310222DEE2330026EDE5 /* ColorLayerJsonStruct.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC4030FF22DEE2330026EDE5 /* ColorLayerJsonStruct.cpp */; };
 		EC40310522DEE2400026EDE5 /* PictureJsonStruct.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC40310322DEE2400026EDE5 /* PictureJsonStruct.cpp */; };
 		EC40310622DEE2400026EDE5 /* PictureJsonStruct.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC40310322DEE2400026EDE5 /* PictureJsonStruct.cpp */; };
 		EC40310A22DEE5A10026EDE5 /* ComponentGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC40310822DEE5A10026EDE5 /* ComponentGenerator.cpp */; };
 		EC40310B22DEE5A10026EDE5 /* ComponentGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC40310822DEE5A10026EDE5 /* ComponentGenerator.cpp */; };
 		EC40310E22DEE8140026EDE5 /* ColorLayerComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC40310C22DEE8140026EDE5 /* ColorLayerComponent.cpp */; };
 		EC40310F22DEE8140026EDE5 /* ColorLayerComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC40310C22DEE8140026EDE5 /* ColorLayerComponent.cpp */; };
+		ECA448E622E4062E00EA41FC /* ColorLayerJsonStruct.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448E522E4062E00EA41FC /* ColorLayerJsonStruct.cpp */; };
+		ECA448E722E4062E00EA41FC /* ColorLayerJsonStruct.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448E522E4062E00EA41FC /* ColorLayerJsonStruct.cpp */; };
+		ECA448EA22E4063A00EA41FC /* JsonUtils+cocos2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448E822E4063A00EA41FC /* JsonUtils+cocos2d.cpp */; };
+		ECA448EB22E4063A00EA41FC /* JsonUtils+cocos2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448E822E4063A00EA41FC /* JsonUtils+cocos2d.cpp */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 /* End PBXBuildFile section */
@@ -161,8 +163,8 @@
 		EC4030DC22DEC4CA0026EDE5 /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
 		EC4030DE22DEC5030026EDE5 /* ByteBuffer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ByteBuffer.hpp; sourceTree = "<group>"; };
 		EC4030DF22DEC5030026EDE5 /* ByteBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ByteBuffer.cpp; sourceTree = "<group>"; };
-		EC4030E222DEC5240026EDE5 /* JsonUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JsonUtil.cpp; sourceTree = "<group>"; };
-		EC4030E322DEC5240026EDE5 /* JsonUtil.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JsonUtil.hpp; sourceTree = "<group>"; };
+		EC4030E222DEC5240026EDE5 /* JsonUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JsonUtils.cpp; sourceTree = "<group>"; };
+		EC4030E322DEC5240026EDE5 /* JsonUtils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JsonUtils.hpp; sourceTree = "<group>"; };
 		EC4030E922DEC7260026EDE5 /* JSONContent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JSONContent.hpp; sourceTree = "<group>"; };
 		EC4030EA22DEC7260026EDE5 /* JSONContent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSONContent.cpp; sourceTree = "<group>"; };
 		EC4030EE22DECE660026EDE5 /* BaseScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BaseScene.cpp; sourceTree = "<group>"; };
@@ -170,14 +172,16 @@
 		EC4030F222DED2A80026EDE5 /* SceneJsonStruct.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneJsonStruct.h; sourceTree = "<group>"; };
 		EC4030FB22DEE1160026EDE5 /* NodeJsonStruct.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NodeJsonStruct.cpp; sourceTree = "<group>"; };
 		EC4030FC22DEE1160026EDE5 /* NodeJsonStruct.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NodeJsonStruct.hpp; sourceTree = "<group>"; };
-		EC4030FF22DEE2330026EDE5 /* ColorLayerJsonStruct.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ColorLayerJsonStruct.cpp; sourceTree = "<group>"; };
-		EC40310022DEE2330026EDE5 /* ColorLayerJsonStruct.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ColorLayerJsonStruct.hpp; sourceTree = "<group>"; };
 		EC40310322DEE2400026EDE5 /* PictureJsonStruct.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PictureJsonStruct.cpp; sourceTree = "<group>"; };
 		EC40310422DEE2400026EDE5 /* PictureJsonStruct.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PictureJsonStruct.hpp; sourceTree = "<group>"; };
 		EC40310822DEE5A10026EDE5 /* ComponentGenerator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentGenerator.cpp; sourceTree = "<group>"; };
 		EC40310922DEE5A10026EDE5 /* ComponentGenerator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ComponentGenerator.hpp; sourceTree = "<group>"; };
 		EC40310C22DEE8140026EDE5 /* ColorLayerComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ColorLayerComponent.cpp; sourceTree = "<group>"; };
 		EC40310D22DEE8140026EDE5 /* ColorLayerComponent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ColorLayerComponent.hpp; sourceTree = "<group>"; };
+		ECA448E422E4062E00EA41FC /* ColorLayerJsonStruct.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ColorLayerJsonStruct.hpp; sourceTree = "<group>"; };
+		ECA448E522E4062E00EA41FC /* ColorLayerJsonStruct.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ColorLayerJsonStruct.cpp; sourceTree = "<group>"; };
+		ECA448E822E4063A00EA41FC /* JsonUtils+cocos2d.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "JsonUtils+cocos2d.cpp"; sourceTree = "<group>"; };
+		ECA448E922E4063A00EA41FC /* JsonUtils+cocos2d.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "JsonUtils+cocos2d.hpp"; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -364,10 +368,12 @@
 			children = (
 				EC4030E822DEC5910026EDE5 /* ComponentStructure */,
 				EC4030DC22DEC4CA0026EDE5 /* json.hpp */,
-				EC4030E222DEC5240026EDE5 /* JsonUtil.cpp */,
-				EC4030E322DEC5240026EDE5 /* JsonUtil.hpp */,
+				EC4030E222DEC5240026EDE5 /* JsonUtils.cpp */,
+				EC4030E322DEC5240026EDE5 /* JsonUtils.hpp */,
 				EC4030EA22DEC7260026EDE5 /* JSONContent.cpp */,
 				EC4030E922DEC7260026EDE5 /* JSONContent.hpp */,
+				ECA448E822E4063A00EA41FC /* JsonUtils+cocos2d.cpp */,
+				ECA448E922E4063A00EA41FC /* JsonUtils+cocos2d.hpp */,
 			);
 			path = JSONData;
 			sourceTree = "<group>";
@@ -394,11 +400,11 @@
 		EC4030E822DEC5910026EDE5 /* ComponentStructure */ = {
 			isa = PBXGroup;
 			children = (
+				ECA448E522E4062E00EA41FC /* ColorLayerJsonStruct.cpp */,
+				ECA448E422E4062E00EA41FC /* ColorLayerJsonStruct.hpp */,
 				EC4030F222DED2A80026EDE5 /* SceneJsonStruct.h */,
 				EC4030FB22DEE1160026EDE5 /* NodeJsonStruct.cpp */,
 				EC4030FC22DEE1160026EDE5 /* NodeJsonStruct.hpp */,
-				EC4030FF22DEE2330026EDE5 /* ColorLayerJsonStruct.cpp */,
-				EC40310022DEE2330026EDE5 /* ColorLayerJsonStruct.hpp */,
 				EC40310322DEE2400026EDE5 /* PictureJsonStruct.cpp */,
 				EC40310422DEE2400026EDE5 /* PictureJsonStruct.hpp */,
 			);
@@ -553,12 +559,13 @@
 				EC40310E22DEE8140026EDE5 /* ColorLayerComponent.cpp in Sources */,
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
-				EC4030E422DEC5250026EDE5 /* JsonUtil.cpp in Sources */,
-				EC40310122DEE2330026EDE5 /* ColorLayerJsonStruct.cpp in Sources */,
+				EC4030E422DEC5250026EDE5 /* JsonUtils.cpp in Sources */,
+				ECA448EA22E4063A00EA41FC /* JsonUtils+cocos2d.cpp in Sources */,
 				EC40310522DEE2400026EDE5 /* PictureJsonStruct.cpp in Sources */,
 				EC40310A22DEE5A10026EDE5 /* ComponentGenerator.cpp in Sources */,
 				1AF87B8A1F6F7822007BE51C /* main.m in Sources */,
 				EC4030EB22DEC7260026EDE5 /* JSONContent.cpp in Sources */,
+				ECA448E622E4062E00EA41FC /* ColorLayerJsonStruct.cpp in Sources */,
 				EC4030F022DECE660026EDE5 /* BaseScene.cpp in Sources */,
 				EC4030FD22DEE1160026EDE5 /* NodeJsonStruct.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
@@ -570,17 +577,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC40310222DEE2330026EDE5 /* ColorLayerJsonStruct.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				EC4030FE22DEE1160026EDE5 /* NodeJsonStruct.cpp in Sources */,
-				EC4030E522DEC5250026EDE5 /* JsonUtil.cpp in Sources */,
+				EC4030E522DEC5250026EDE5 /* JsonUtils.cpp in Sources */,
 				EC4030F122DECE660026EDE5 /* BaseScene.cpp in Sources */,
+				ECA448E722E4062E00EA41FC /* ColorLayerJsonStruct.cpp in Sources */,
 				EC4030E122DEC5030026EDE5 /* ByteBuffer.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				EC40310622DEE2400026EDE5 /* PictureJsonStruct.cpp in Sources */,
 				EC4030EC22DEC7260026EDE5 /* JSONContent.cpp in Sources */,
 				EC40310B22DEE5A10026EDE5 /* ComponentGenerator.cpp in Sources */,
+				ECA448EB22E4063A00EA41FC /* JsonUtils+cocos2d.cpp in Sources */,
 				EC40310F22DEE8140026EDE5 /* ColorLayerComponent.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

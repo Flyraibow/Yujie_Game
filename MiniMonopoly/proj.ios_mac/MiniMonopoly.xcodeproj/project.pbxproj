@@ -61,8 +61,24 @@
 		ECA448A422E3CDEF00EA41FC /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448A122E3CDEF00EA41FC /* GameScene.cpp */; };
 		ECA448B122E3EA1F00EA41FC /* JSONContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448AC22E3EA1E00EA41FC /* JSONContent.cpp */; };
 		ECA448B222E3EA1F00EA41FC /* JSONContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448AC22E3EA1E00EA41FC /* JSONContent.cpp */; };
-		ECA448B322E3EA1F00EA41FC /* JsonUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448AE22E3EA1E00EA41FC /* JsonUtil.cpp */; };
-		ECA448B422E3EA1F00EA41FC /* JsonUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448AE22E3EA1E00EA41FC /* JsonUtil.cpp */; };
+		ECA448B322E3EA1F00EA41FC /* JsonUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448AE22E3EA1E00EA41FC /* JsonUtils.cpp */; };
+		ECA448B422E3EA1F00EA41FC /* JsonUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448AE22E3EA1E00EA41FC /* JsonUtils.cpp */; };
+		ECA448BC22E3FB6100EA41FC /* PlayerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448BA22E3FB6100EA41FC /* PlayerManager.cpp */; };
+		ECA448BD22E3FB6100EA41FC /* PlayerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448BA22E3FB6100EA41FC /* PlayerManager.cpp */; };
+		ECA448C122E3FBE400EA41FC /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448BF22E3FBE400EA41FC /* GameManager.cpp */; };
+		ECA448C222E3FBE400EA41FC /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448BF22E3FBE400EA41FC /* GameManager.cpp */; };
+		ECA448C522E3FC1700EA41FC /* CityData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448C322E3FC1700EA41FC /* CityData.cpp */; };
+		ECA448C622E3FC1700EA41FC /* CityData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448C322E3FC1700EA41FC /* CityData.cpp */; };
+		ECA448C922E3FC2B00EA41FC /* GoodsData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448C722E3FC2B00EA41FC /* GoodsData.cpp */; };
+		ECA448CA22E3FC2B00EA41FC /* GoodsData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448C722E3FC2B00EA41FC /* GoodsData.cpp */; };
+		ECA448CD22E3FC3900EA41FC /* GuildData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448CB22E3FC3900EA41FC /* GuildData.cpp */; };
+		ECA448CE22E3FC3900EA41FC /* GuildData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448CB22E3FC3900EA41FC /* GuildData.cpp */; };
+		ECA448D522E3FC6400EA41FC /* LevelData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448D322E3FC6400EA41FC /* LevelData.cpp */; };
+		ECA448D622E3FC6400EA41FC /* LevelData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448D322E3FC6400EA41FC /* LevelData.cpp */; };
+		ECA448D922E3FEE100EA41FC /* TeamData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448D722E3FEE100EA41FC /* TeamData.cpp */; };
+		ECA448DA22E3FEE100EA41FC /* TeamData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448D722E3FEE100EA41FC /* TeamData.cpp */; };
+		ECA448DF22E4042300EA41FC /* JsonUtils+cocos2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448DD22E4042300EA41FC /* JsonUtils+cocos2d.cpp */; };
+		ECA448E022E4042300EA41FC /* JsonUtils+cocos2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA448DD22E4042300EA41FC /* JsonUtils+cocos2d.cpp */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 /* End PBXBuildFile section */
@@ -158,9 +174,25 @@
 		ECA448A222E3CDEF00EA41FC /* GameScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameScene.hpp; sourceTree = "<group>"; };
 		ECA448AC22E3EA1E00EA41FC /* JSONContent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSONContent.cpp; sourceTree = "<group>"; };
 		ECA448AD22E3EA1E00EA41FC /* JSONContent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JSONContent.hpp; sourceTree = "<group>"; };
-		ECA448AE22E3EA1E00EA41FC /* JsonUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JsonUtil.cpp; sourceTree = "<group>"; };
+		ECA448AE22E3EA1E00EA41FC /* JsonUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JsonUtils.cpp; sourceTree = "<group>"; };
 		ECA448AF22E3EA1E00EA41FC /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
-		ECA448B022E3EA1F00EA41FC /* JsonUtil.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JsonUtil.hpp; sourceTree = "<group>"; };
+		ECA448B022E3EA1F00EA41FC /* JsonUtils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JsonUtils.hpp; sourceTree = "<group>"; };
+		ECA448BA22E3FB6100EA41FC /* PlayerManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerManager.cpp; sourceTree = "<group>"; };
+		ECA448BB22E3FB6100EA41FC /* PlayerManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PlayerManager.hpp; sourceTree = "<group>"; };
+		ECA448BF22E3FBE400EA41FC /* GameManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameManager.cpp; sourceTree = "<group>"; };
+		ECA448C022E3FBE400EA41FC /* GameManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameManager.hpp; sourceTree = "<group>"; };
+		ECA448C322E3FC1700EA41FC /* CityData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CityData.cpp; sourceTree = "<group>"; };
+		ECA448C422E3FC1700EA41FC /* CityData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CityData.hpp; sourceTree = "<group>"; };
+		ECA448C722E3FC2B00EA41FC /* GoodsData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GoodsData.cpp; sourceTree = "<group>"; };
+		ECA448C822E3FC2B00EA41FC /* GoodsData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GoodsData.hpp; sourceTree = "<group>"; };
+		ECA448CB22E3FC3900EA41FC /* GuildData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GuildData.cpp; sourceTree = "<group>"; };
+		ECA448CC22E3FC3900EA41FC /* GuildData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GuildData.hpp; sourceTree = "<group>"; };
+		ECA448D322E3FC6400EA41FC /* LevelData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LevelData.cpp; sourceTree = "<group>"; };
+		ECA448D422E3FC6400EA41FC /* LevelData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LevelData.hpp; sourceTree = "<group>"; };
+		ECA448D722E3FEE100EA41FC /* TeamData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TeamData.cpp; sourceTree = "<group>"; };
+		ECA448D822E3FEE100EA41FC /* TeamData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TeamData.hpp; sourceTree = "<group>"; };
+		ECA448DD22E4042300EA41FC /* JsonUtils+cocos2d.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "JsonUtils+cocos2d.cpp"; sourceTree = "<group>"; };
+		ECA448DE22E4042300EA41FC /* JsonUtils+cocos2d.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "JsonUtils+cocos2d.hpp"; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -337,6 +369,8 @@
 		ECA4489622E3CC8300EA41FC /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				ECA448DB22E3FF1500EA41FC /* Panel */,
+				ECA448BE22E3FBB500EA41FC /* Manager */,
 				ECA448A522E3CE6300EA41FC /* Data */,
 				ECA4489822E3CC8D00EA41FC /* Scene */,
 			);
@@ -359,6 +393,16 @@
 		ECA448A522E3CE6300EA41FC /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				ECA448C322E3FC1700EA41FC /* CityData.cpp */,
+				ECA448C422E3FC1700EA41FC /* CityData.hpp */,
+				ECA448C722E3FC2B00EA41FC /* GoodsData.cpp */,
+				ECA448C822E3FC2B00EA41FC /* GoodsData.hpp */,
+				ECA448CB22E3FC3900EA41FC /* GuildData.cpp */,
+				ECA448CC22E3FC3900EA41FC /* GuildData.hpp */,
+				ECA448D322E3FC6400EA41FC /* LevelData.cpp */,
+				ECA448D422E3FC6400EA41FC /* LevelData.hpp */,
+				ECA448D722E3FEE100EA41FC /* TeamData.cpp */,
+				ECA448D822E3FEE100EA41FC /* TeamData.hpp */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -377,8 +421,10 @@
 				ECA448AF22E3EA1E00EA41FC /* json.hpp */,
 				ECA448AC22E3EA1E00EA41FC /* JSONContent.cpp */,
 				ECA448AD22E3EA1E00EA41FC /* JSONContent.hpp */,
-				ECA448AE22E3EA1E00EA41FC /* JsonUtil.cpp */,
-				ECA448B022E3EA1F00EA41FC /* JsonUtil.hpp */,
+				ECA448AE22E3EA1E00EA41FC /* JsonUtils.cpp */,
+				ECA448B022E3EA1F00EA41FC /* JsonUtils.hpp */,
+				ECA448DD22E4042300EA41FC /* JsonUtils+cocos2d.cpp */,
+				ECA448DE22E4042300EA41FC /* JsonUtils+cocos2d.hpp */,
 			);
 			path = JSONData;
 			sourceTree = "<group>";
@@ -388,6 +434,24 @@
 			children = (
 			);
 			path = Test;
+			sourceTree = "<group>";
+		};
+		ECA448BE22E3FBB500EA41FC /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				ECA448BA22E3FB6100EA41FC /* PlayerManager.cpp */,
+				ECA448BB22E3FB6100EA41FC /* PlayerManager.hpp */,
+				ECA448BF22E3FBE400EA41FC /* GameManager.cpp */,
+				ECA448C022E3FBE400EA41FC /* GameManager.hpp */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		ECA448DB22E3FF1500EA41FC /* Panel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Panel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -523,16 +587,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECA448D522E3FC6400EA41FC /* LevelData.cpp in Sources */,
+				ECA448C522E3FC1700EA41FC /* CityData.cpp in Sources */,
 				1AF87B781F6F77F7007BE51C /* AppController.mm in Sources */,
-				ECA448B322E3EA1F00EA41FC /* JsonUtil.cpp in Sources */,
+				ECA448C122E3FBE400EA41FC /* GameManager.cpp in Sources */,
+				ECA448B322E3EA1F00EA41FC /* JsonUtils.cpp in Sources */,
 				ECA4489F22E3CD1200EA41FC /* MapChosenScene.cpp in Sources */,
 				ECA4489B22E3CCEB00EA41FC /* MenuScene.cpp in Sources */,
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				ECA448CD22E3FC3900EA41FC /* GuildData.cpp in Sources */,
 				1AF87B8A1F6F7822007BE51C /* main.m in Sources */,
+				ECA448D922E3FEE100EA41FC /* TeamData.cpp in Sources */,
 				ECA448A322E3CDEF00EA41FC /* GameScene.cpp in Sources */,
+				ECA448BC22E3FB6100EA41FC /* PlayerManager.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
+				ECA448C922E3FC2B00EA41FC /* GoodsData.cpp in Sources */,
 				ECA448B122E3EA1F00EA41FC /* JSONContent.cpp in Sources */,
+				ECA448DF22E4042300EA41FC /* JsonUtils+cocos2d.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,13 +613,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				ECA448C622E3FC1700EA41FC /* CityData.cpp in Sources */,
+				ECA448D622E3FC6400EA41FC /* LevelData.cpp in Sources */,
+				ECA448C222E3FBE400EA41FC /* GameManager.cpp in Sources */,
+				ECA448BD22E3FB6100EA41FC /* PlayerManager.cpp in Sources */,
+				ECA448CA22E3FC2B00EA41FC /* GoodsData.cpp in Sources */,
 				ECA448B222E3EA1F00EA41FC /* JSONContent.cpp in Sources */,
 				ECA4489C22E3CCEB00EA41FC /* MenuScene.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
+				ECA448E022E4042300EA41FC /* JsonUtils+cocos2d.cpp in Sources */,
+				ECA448DA22E3FEE100EA41FC /* TeamData.cpp in Sources */,
 				ECA448A022E3CD1200EA41FC /* MapChosenScene.cpp in Sources */,
-				ECA448B422E3EA1F00EA41FC /* JsonUtil.cpp in Sources */,
+				ECA448B422E3EA1F00EA41FC /* JsonUtils.cpp in Sources */,
 				ECA448A422E3CDEF00EA41FC /* GameScene.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
+				ECA448CE22E3FC3900EA41FC /* GuildData.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,10 +1,11 @@
 //
-//  JsonUtil.cpp
+//  JsonUtils+cocos2d.cpp
+//  MiniMonopoly
 //
-//  Created by Yujie Liu on 9/26/18.
+//  Created by Yujie Liu on 7/20/19.
 //
 
-#include "JsonUtil.hpp"
+#include "JsonUtils+cocos2d.hpp"
 
 cocos2d::Vec2 JsonUtils::getVec2FromJson(const nlohmann::json &json, const std::string &field, const cocos2d::Vec2 &defaultValue)
 {
@@ -22,14 +23,6 @@ cocos2d::Size JsonUtils::getSizeFromJson(const nlohmann::json &json, const std::
     auto vec = json.at(field);
     CCASSERT(vec.size() == 2, ("json is not Vec2 type : " + vec.dump()).c_str());
     return cocos2d::Size(vec.at(0).get<double>(), vec.at(1).get<double>());
-  }
-  return defaultValue;
-}
-
-std::string JsonUtils::getStringFromJson(const nlohmann::json &json, const std::string &field, const std::string &defaultValue)
-{
-  if (json.count(field)) {
-    return json.at(field).get<std::string>();
   }
   return defaultValue;
 }
@@ -68,62 +61,6 @@ cocos2d::Color4B JsonUtils::getColorFromJson(const nlohmann::json &json, const s
       
       CCASSERT(COLOR_MAP.count(j), ("Color must be color string, it's " + j.dump()).c_str());
       return COLOR_MAP.at(j);
-    }
-  }
-  return defaultValue;
-}
-
-float JsonUtils::getFloatFromJson(const nlohmann::json &json, const std::string &field, const float defaultValue)
-{
-  if (json.count(field)) {
-    return json.at(field).get<float>();
-  }
-  return defaultValue;
-}
-
-float JsonUtils::getDoubleFromJson(const nlohmann::json &json, const std::string &field, const float defaultValue)
-{
-  if (json.count(field)) {
-    return json.at(field).get<double>();
-  }
-  return defaultValue;
-}
-
-int JsonUtils::getIntFromJson(const nlohmann::json &json, const std::string &field, const int defaultValue)
-{
-  if (json.count(field)) {
-    return json.at(field).get<int>();
-  }
-  return defaultValue;
-}
-
-bool JsonUtils::getBoolFromJson(const nlohmann::json &json, const std::string &field, bool defaultValue)
-{
-  if (json.count(field)) {
-    return json.at(field).get<bool>();
-  }
-  return defaultValue;
-}
-
-std::vector<std::string> JsonUtils::getStringListFromJson(const nlohmann::json &json, const std::string &field)
-{
-  std::vector<std::string> defaultValue;
-  if (json.count(field)) {
-    auto vec = json.at(field);
-    for (auto content : vec) {
-      defaultValue.push_back(content.get<std::string>());
-    }
-  }
-  return defaultValue;
-}
-
-std::vector<nlohmann::json> JsonUtils::getJsonListFromJson(const nlohmann::json &json, const std::string &field)
-{
-  std::vector<nlohmann::json> defaultValue;
-  if (json.count(field)) {
-    auto vec = json.at(field);
-    for (auto content : vec) {
-      defaultValue.push_back(content.get<nlohmann::json>());
     }
   }
   return defaultValue;

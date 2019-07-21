@@ -9,7 +9,7 @@
 #define NodeJsonStruct_hpp
 
 #include "cocos2d.h"
-#include "JsonUtil.hpp"
+#include "JsonUtils.hpp"
 
 using namespace std;
 

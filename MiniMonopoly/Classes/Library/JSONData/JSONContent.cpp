@@ -37,13 +37,17 @@ const nlohmann::json& JSONContent::getContent() const
   return p_jsonContent;
 }
 
+nlohmann::json JSONContent::loadJsonFromPath(const std::string &filePath)
+{
+  return loadContentFromPath(filePath);
+}
+
 void JSONContent::verifyAllJsonFormatsUnder(const std::string &directoryPath)
 {
   auto fileUtils = FileUtils::getInstance();
   std::vector<std::string> files;
   fileUtils->listFilesRecursively(directoryPath, &files);
   for (auto file : files) {
-    CCLOG("===== %s", file.c_str());
     if (fileUtils->getFileExtension(file) == ".json") {
       CCLOG("start checking file x %s", file.c_str());
       auto j = new JSONContent(file);

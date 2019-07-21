@@ -21,6 +21,8 @@ public:
   JSONContent(const std::string &jsonFilePath);
   JSONContent(const nlohmann::json &jsonContent);
   const nlohmann::json& getContent() const;
+  
+  static nlohmann::json loadJsonFromPath(const std::string &filePath);
   static void verifyAllJsonFormatsUnder(const std::string &directoryPath);
 };
 
