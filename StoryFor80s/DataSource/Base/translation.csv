@@ -46,3 +46,6 @@ lab_parents_job,父母职业：%s
 lab_school,学校：%s
 lab_profile_title,个人档案
 lab_proficiency_value,%s：%s/%s
+lab_new_story_year,%s年，新学期开始前
+lab_start,出发
+lab_operation_hint,操作提示

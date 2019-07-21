@@ -1,0 +1,32 @@
+{
+  "id" : "city_2",
+  "name" : "村庄2",
+  "city_level" : 1,
+  "business_value" : 500,
+  "goods" : [
+    {
+      "goods_id" : "goods_3",
+      "level" : 1,
+      "maximum" : 10,
+      "produce_speed" : 1.0
+    }
+  ],
+  "invest_benefits" : [
+    {
+      "city_level" : 2,
+      "goods_id" : "goods_3",
+      "maximum" : 5
+    },
+    {
+      "city_level" : 3,
+      "goods_id" : "goods_3",
+      "produce_speed" : 0.5
+    },
+    {
+      "city_level" : 4,
+      "goods_id" : "goods_3",
+      "produce_speed" : 0.5,
+      "level" : 1
+    }
+  ]
+}

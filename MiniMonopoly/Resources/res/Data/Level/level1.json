@@ -1,0 +1,46 @@
+{
+  "id" : "level_1",
+  "name" : "第一关",
+  "map" : "res/Graph/Map/map1.png",
+  "cities" : [
+    {
+      "city_id" : "city_1",
+      "city_level" : 2,
+      "position" : [0.2, 0.5]
+    },
+    {
+      "city_id" : "city_2",
+      "position" : [0.5, 0.5]
+    },
+    {
+      "city_id" : "city_3",
+      "city_level" : 2,
+      "position" : [0.8, 0.5]
+    }
+  ],
+  "routes" : [
+    {
+      "cities" : ["city_1", "city_2"],
+      "distance" : 10
+    },
+    {
+      "cities" : ["city_2", "city_3"],
+      "distance" : 10
+    }
+  ],
+  "guilds" : [
+    {
+      "guild_id" : "guild_1",
+      "city_controls" : {
+        "city_1" : 20
+      },
+      "is_player" : true
+    },
+    {
+      "guild_id" : "guild_2",
+      "city_controls" : {
+        "city_3" : 20
+      }
+    }
+  ]
+}

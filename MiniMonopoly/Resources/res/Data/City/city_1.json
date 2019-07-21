@@ -1,0 +1,44 @@
+{
+  "id" : "city_1",
+  "name" : "城市1",
+  "city_level" : 1,
+  "business_value" : 1000,
+  "goods" : [
+    {
+      "goods_id" : "goods_1",
+      "level" : 1,
+      "maximum" : 10,
+      "produce_speed" : 1.0
+    },
+    {
+      "goods_id" : "goods_2",
+      "level" : 0,
+      "maximum" : 2,
+      "produce_speed" : 0.3
+    }
+  ],
+  "invest_benefits" : [
+    {
+      "city_level" : 2,
+      "goods_id" : "goods_1",
+      "maximum" : 5
+    },
+    {
+      "city_level" : 3,
+      "goods_id" : "goods_1",
+      "produce_speed" : 0.5
+    },
+    {
+      "city_level" : 4,
+      "goods_id" : "goods_1",
+      "produce_speed" : 0.5,
+      "level" : 1
+    },
+    {
+      "city_level" : 5,
+      "goods_id" : "goods_2",
+      "produce_speed" : 0.5,
+      "level" : 1
+    }
+  ]
+}

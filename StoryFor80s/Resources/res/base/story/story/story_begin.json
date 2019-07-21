@@ -37,36 +37,72 @@
       "action" : "remove",
       "name" : "text"
     },
-		{
-			"__comment" : "弹出对话框",
-			"type" : "dialog",
-			"name" : "dialogPanel",
-			"dialogs":[
-				{
-					"content" : "嗨！这就是我的故事。—— 80 后的故事，让我们一起来体验吧。"
-				},
-				{
-					"content" : "我叫%s，我的父母是%s，他们%s",
-					"parameters" : [
-						"function.my_full_name",
-						"game.parentJob.name",
-						"game.parentJob.description"
-					]
-				},
-				{
-					"content" : "今天是我开学的第一天。"
-				}
-			]
-		},
+    {
+      "__comment" : "添加文字",
+      "type" : "photo",
+      "action" : "add",
+      "text" : {
+        "text" : "时间旅行中......",
+        "speed" : 2,
+        "size" : 30,
+        "color" : "WHITE",
+        "typingEffect" : "res/base/SE/typing.wav"
+      },
+      "name" : "text",
+      "normalized_position" : [0.5, 0.5],
+      "anchor_point" : [0.5, 0.5]
+    },
+    {
+      "__comment" : "等待点击",
+      "type" : "wait",
+      "until_click" : true
+    },
+    {
+      "__comment" : "移除图片",
+      "type" : "photo",
+      "action" : "remove",
+      "name" : "text"
+    },
+    {
+      "__comment" : "添加文字",
+      "type" : "photo",
+      "action" : "add",
+      "text" : {
+        "text" : "function.lab_new_story_year",
+        "speed" : 2,
+        "size" : 30,
+        "color" : "WHITE",
+        "typingEffect" : "res/base/SE/typing.wav"
+      },
+      "name" : "text",
+      "normalized_position" : [0.5, 0.5],
+      "anchor_point" : [0.5, 0.5]
+    },
+    {
+      "__comment" : "等待点击",
+      "type" : "wait",
+      "until_click" : true
+    },
 		{
 			"__comment" : "popScene",
 			"type" : "popScene"
 		},
 		{
-			"__comment" : "等待3秒",
+			"__comment" : "等待0.5秒",
 			"type" : "wait",
-			"duration" : 3
+			"duration" : 0.5
 		},
+    {
+      "__comment" : "播放背景音乐",
+      "type" : "music",
+      "action" : "playMusic",
+      "path" : "res/Music/HappyLife.mp3"
+    },
+    {
+      "__comment" : "等待1秒",
+      "type" : "wait",
+      "duration" : 1
+    },
 		{
 			"__comment" : "弹出对话框",
 			"type" : "dialog",
@@ -74,7 +110,7 @@
 			"dialogs":[
 				{
 					"name": "translation.lab_mon",
-					"content" : "%s啊，今天你就要上学了，我吩咐你的事情你都记住了吗？",
+					"content" : "我们的%s长大啦，今天要去上学啦。记得要听老师话哟。",
 					"parameters" : [
 						"game.firstName"
 					]
@@ -103,8 +139,11 @@
 			"name" : "dialogPanel",
 			"dialogs":[
 				{
-					"name": "function.my_full_name",
-					"content" : "在上学之前，先决定下我这周闲暇时间会要做点什么吧。"
+					"name": "translation.lab_operation_hint",
+					"content" : "点击‘%s’按钮开始这个月的生活。",
+          "parameters" : [
+            "translation.lab_start"
+          ]
 				}
 			]
 		}

@@ -83,7 +83,7 @@
      },
      {
        "type": "button",
-       "text": "出发",
+       "text": "translation.lab_start",
        "normalized_position": [0.5, 0.05],
        "storyId" : "action/startStory"
      },
@@ -100,14 +100,14 @@
        "text": "商店",
        "normalized_position": [0.7, 0.05],
        "storyId" : "action/shop",
-       "hide_condition" : "FALSE"
+       "hide_condition" : "TRUE"
      },
      {
        "type": "button",
        "text": "任务",
        "normalized_position": [0.8, 0.05],
        "storyId" : "action/task",
-       "hide_condition" : "FALSE"
+       "hide_condition" : "TRUE"
      }
 	]
 }

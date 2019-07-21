@@ -1,0 +1,5 @@
+﻿levelId,name,path,status
+id,language,string,int
+string,chinese,-,-
+writable,N,N,Y
+level_1,第一关,res/Data/Level/level1,0

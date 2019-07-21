@@ -21,6 +21,7 @@ class MusicEventContent : public StoryEventContent
 private:
   string p_path;
   MusicEventAction p_action;
+  bool p_loop;
 public:
   MusicEventContent(const nlohmann::json &jsonContent);
   void runEvent(StoryEventCallback callback);

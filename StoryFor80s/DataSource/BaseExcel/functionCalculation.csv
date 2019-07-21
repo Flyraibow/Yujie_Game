@@ -25,3 +25,4 @@ lab_play_attribute_value_list,string,string_join_data,"tempdata.play.attributeCh
 lab_selfstudy_attribute_value_list,string,string_join_data,"tempdata.study.attributeChange;function.lab_selfstudy_attribute_value;, ","ex: 压力: 5, 智力: 4"
 lab_schoolstudy_attribute_value,string,string_format,lab_data_value;associate.name;gamedata.SchoolStudyData.(temp.classId).map.attributeChange.(associate.attributeId),ex: 压力 5
 lab_schoolstudy_attribute_value_list,string,string_join_data,lab_data_value;associate.name;gamedata.SchoolStudyData.(temp.classId).map.attributeChange.(associate.attributeId),"ex: 压力: 5, 智力: 4"
+lab_new_story_year,string,string_format,lab_new_story_year;game.gameDate.year,ex: 1994年，新学期开始前

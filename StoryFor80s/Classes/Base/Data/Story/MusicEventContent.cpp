@@ -22,6 +22,7 @@ MusicEventContent::MusicEventContent(const nlohmann::json &jsonContent) : StoryE
   };
   CCASSERT(actionMap.count(action), "unknown music story action");
   p_action = actionMap.at(action);
+  p_loop = Utils::getBoolFromJson(jsonContent, "loop");
 }
 
 void MusicEventContent::runEvent(StoryEventCallback callback)
@@ -32,10 +33,10 @@ void MusicEventContent::runEvent(StoryEventCallback callback)
       break;
     case MusicEventActionPlayBackgroundMusic:
       CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
-      CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(p_path.c_str());
+      CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(p_path.c_str(), p_loop);
       break;
     case MusicEventActionPlayEffect:
-      CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(p_path.c_str());
+      CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(p_path.c_str(), p_loop);
       break;
   }
   callback();
