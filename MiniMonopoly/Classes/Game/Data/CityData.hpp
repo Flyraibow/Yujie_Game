@@ -28,6 +28,38 @@ struct RouteData
   }
 };
 
+class CityGoodsData
+{
+private:
+  const GoodsData *p_goodsData;
+  int p_level;
+  int p_maxNum;
+  double p_produceSpeed;
+public:
+  CityGoodsData(const nlohmann::json &cityGoodsJson);
+  ~CityGoodsData();
+  string getId() const {return p_goodsData->getId();};
+  int getLevel() const {return p_level;};
+  int getMaxNum() const {return p_maxNum;};
+  double getProduceSpeed() const {return p_produceSpeed;};
+  
+  string getName() const {return p_goodsData->getName();};
+  int getPrice() const {return p_goodsData->getPrice();};
+};
+
+class InvestBenefitsData
+{
+private:
+  int p_cityLevel;  // key
+  string p_affectedGoodsId;
+  int p_addMaximum;
+  float p_addProduceSpeed;
+  int p_addLevel;
+public:
+  InvestBenefitsData(const nlohmann::json &investBenefitsJson);
+  int getCityLevel() const {return p_cityLevel;};
+};
+
 class CityData
 {
 private:
@@ -39,10 +71,12 @@ private:
   unordered_map<GuildData *, int> p_cityControls;
   int p_level;
   int p_businessValue;
-  vector<GoodsData *> p_goodsList;
-  unordered_map<string, GoodsData *> p_goodsMap;
+  vector<CityGoodsData *> p_goodsList;
+  unordered_map<string, CityGoodsData *> p_goodsMap;
+  unordered_map<int, InvestBenefitsData *> p_investMap;
 public:
   CityData(const string &id);
+  ~CityData();
   string getId() const {return p_id;};
   void setId(const string &id) {p_id = id;};
   void setPosition(const pair<double, double> &position);

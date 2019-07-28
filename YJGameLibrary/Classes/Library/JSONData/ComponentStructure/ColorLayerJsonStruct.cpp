@@ -10,5 +10,5 @@
 
 ColorLayerJsonStruct::ColorLayerJsonStruct(const nlohmann::json &json) : NodeJsonStruct(json) {
   type = NodeTypeColorLayer;
-//  color = JsonUtils::getColorFromJson(json, "color");
+  color = JsonUtils::getColorFromJson(json, "color");
 }

@@ -16,6 +16,7 @@ LevelData::LevelData(const string &fileName)
   p_id = JsonUtils::getStringFromJson(jsonContent, "id", fileName);
   p_name = JsonUtils::getStringFromJson(jsonContent, "name");
   p_mapPath = JsonUtils::getStringFromJson(jsonContent, "map");
+  p_iconPath = JsonUtils::getStringFromJson(jsonContent, "icon");
   auto cityJsonList = JsonUtils::getJsonListFromJson(jsonContent, "cities");
   for (auto jsonCity : cityJsonList) {
     auto cityData = CityData::loadCityDataWithOverrideJson(jsonCity);
@@ -40,7 +41,7 @@ LevelData::LevelData(const string &fileName)
   auto guildsList = JsonUtils::getJsonListFromJson(jsonContent, "guilds");
   for (auto jsonGuild : guildsList) {
     auto guildData = GuildData::loadGuildDataWithOverrideJson(jsonGuild);
-    p_guildData.push_back(guildData);
+    p_guildList.push_back(guildData);
     
     auto cityConrolsJson = JsonUtils::getChildJsonFromJson(jsonGuild, "city_controls");
     auto keys = JsonUtils::getKeysFromJson(cityConrolsJson);
@@ -55,6 +56,18 @@ LevelData::LevelData(const string &fileName)
   }
 }
 
+LevelData::~LevelData()
+{
+  for (auto city : p_cities) {
+    delete city;
+  }
+  p_cities.clear();
+  p_citiesMap.clear();
+  for (auto guild : p_guildList) {
+    delete guild;
+  }
+  p_guildList.clear();
+}
 
 CityData* LevelData::getCityData(const string &id)
 {

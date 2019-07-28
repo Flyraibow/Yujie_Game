@@ -9,6 +9,7 @@
 
 LayerColor* generateFromJsonStruct(const ColorLayerJsonStruct* nodeStruct, Node* parent)
 {
-  auto layer = LayerColor::create(nodeStruct->color, nodeStruct->contentSize.width, nodeStruct->contentSize.height);
+  auto contentSize = nodeStruct->getContentSize();
+  auto layer = LayerColor::create(nodeStruct->color, contentSize.width, contentSize.height);
   return layer;
 }

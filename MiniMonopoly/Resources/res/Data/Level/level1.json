@@ -1,5 +1,7 @@
 {
+  "id" : "level1",
   "name" : "第一关",
+  "icon" : "res/Graph/LevelIcon/level1.png",
   "map" : "res/Graph/Map/map1.png",
   "cities" : [
     {

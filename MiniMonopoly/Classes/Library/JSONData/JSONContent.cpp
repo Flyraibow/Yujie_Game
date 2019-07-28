@@ -9,8 +9,6 @@
 
 USING_NS_CC;
 
-
-
 nlohmann::json loadContentFromPath(const std::string &jsonFilePath)
 {
   CCASSERT( FileUtils::getInstance()->isFileExist(jsonFilePath), ("file doesn't exist : " + jsonFilePath).c_str());

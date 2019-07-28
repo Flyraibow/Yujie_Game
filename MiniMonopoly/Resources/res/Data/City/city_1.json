@@ -21,24 +21,23 @@
     {
       "city_level" : 2,
       "goods_id" : "goods_1",
-      "maximum" : 5
+      "add_maximum" : 5
     },
     {
       "city_level" : 3,
       "goods_id" : "goods_1",
-      "produce_speed" : 0.5
+      "add_produce_speed" : 0.5
     },
     {
       "city_level" : 4,
       "goods_id" : "goods_1",
-      "produce_speed" : 0.5,
-      "level" : 1
+      "add_produce_speed" : 0.5,
+      "add_level" : 1
     },
     {
       "city_level" : 5,
       "goods_id" : "goods_2",
-      "produce_speed" : 0.5,
-      "level" : 1
+      "add_level" : 1
     }
   ]
 }

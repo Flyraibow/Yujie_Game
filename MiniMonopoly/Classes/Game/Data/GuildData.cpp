@@ -7,10 +7,14 @@
 
 #include "GuildData.hpp"
 #include "JsonUtils.hpp"
+#include "JSONContent.hpp"
 
-GuildData::GuildData(const string &fileName)
+GuildData::GuildData(const string &id)
 {
-  
+  auto path = "res/Data/Guild/" + id + ".json";
+  auto jsonContent = JSONContent::loadJsonFromPath(path);
+  p_guildId = JsonUtils::getStringFromJson(jsonContent, "id");
+  p_guildName = JsonUtils::getIntFromJson(jsonContent, "name");
 }
 
 GuildData* GuildData::loadGuildDataWithOverrideJson(const nlohmann::json &guildJson)

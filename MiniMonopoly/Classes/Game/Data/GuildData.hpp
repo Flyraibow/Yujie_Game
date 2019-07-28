@@ -23,7 +23,7 @@ private:
   string p_guildName;
   unordered_map<CityData *, int> p_cityControls;
 public:
-  GuildData(const string &fileName);
+  GuildData(const string &id);
   string getId() const {return p_id;};
   void setId(const string &id) {p_id = id;};
   void setCityControl(CityData *city, int value) {p_cityControls[city] = value;};

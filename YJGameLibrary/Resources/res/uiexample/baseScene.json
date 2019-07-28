@@ -3,7 +3,8 @@
   "components": [
     {
       "type" : "ColorLayer",
-      "color" : "ORANGE"
+      "color" : "GRAY",
+      "positionType" : "full_screen"
     }
   ]
 }
