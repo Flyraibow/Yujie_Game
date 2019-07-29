@@ -8,7 +8,7 @@
 #ifndef MapChosenScene_hpp
 #define MapChosenScene_hpp
 
-#include <stdio.h>
+#include "cocos2d.h"
 
 class MapChosenScene : public cocos2d::Scene
 {

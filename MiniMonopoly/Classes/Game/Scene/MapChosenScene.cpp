@@ -108,8 +108,12 @@ void MapChosenScene::_showLevelsMethod1()
   levels.clear();
 }
 
+#include "GameScene.hpp"
+
 void MapChosenScene::_clickLevel(cocos2d::Ref* pSender)
 {
   auto btn = dynamic_cast<MenuItem*>(pSender);
-  CCLOG("click %s", btn->getName().c_str() );
+  auto levelId =  btn->getName();
+  auto gameScene = GameScene::createScene(levelId);
+  Director::getInstance()->pushScene(gameScene);
 }

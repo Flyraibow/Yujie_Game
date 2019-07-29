@@ -59,6 +59,8 @@
 		EC91E52C22ED38F000386F92 /* LevelManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC91E52922ED38F000386F92 /* LevelManager.cpp */; };
 		EC91E53022ED42D200386F92 /* BaseLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC91E52E22ED42D200386F92 /* BaseLabel.cpp */; };
 		EC91E53122ED42D200386F92 /* BaseLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC91E52E22ED42D200386F92 /* BaseLabel.cpp */; };
+		EC91E53522EE744A00386F92 /* SystemScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC91E53322EE744A00386F92 /* SystemScene.cpp */; };
+		EC91E53622EE744A00386F92 /* SystemScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC91E53322EE744A00386F92 /* SystemScene.cpp */; };
 		ECA4489B22E3CCEB00EA41FC /* MenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA4489922E3CCEB00EA41FC /* MenuScene.cpp */; };
 		ECA4489C22E3CCEB00EA41FC /* MenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA4489922E3CCEB00EA41FC /* MenuScene.cpp */; };
 		ECA4489F22E3CD1200EA41FC /* MapChosenScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECA4489D22E3CD1200EA41FC /* MapChosenScene.cpp */; };
@@ -178,6 +180,8 @@
 		EC91E52A22ED38F000386F92 /* LevelManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LevelManager.hpp; sourceTree = "<group>"; };
 		EC91E52E22ED42D200386F92 /* BaseLabel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BaseLabel.cpp; sourceTree = "<group>"; };
 		EC91E52F22ED42D200386F92 /* BaseLabel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BaseLabel.hpp; sourceTree = "<group>"; };
+		EC91E53322EE744A00386F92 /* SystemScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SystemScene.cpp; sourceTree = "<group>"; };
+		EC91E53422EE744A00386F92 /* SystemScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SystemScene.hpp; sourceTree = "<group>"; };
 		ECA4489922E3CCEB00EA41FC /* MenuScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MenuScene.cpp; sourceTree = "<group>"; };
 		ECA4489A22E3CCEB00EA41FC /* MenuScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MenuScene.hpp; sourceTree = "<group>"; };
 		ECA4489D22E3CD1200EA41FC /* MapChosenScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MapChosenScene.cpp; sourceTree = "<group>"; };
@@ -407,6 +411,8 @@
 				ECA4489E22E3CD1200EA41FC /* MapChosenScene.hpp */,
 				ECA448A122E3CDEF00EA41FC /* GameScene.cpp */,
 				ECA448A222E3CDEF00EA41FC /* GameScene.hpp */,
+				EC91E53322EE744A00386F92 /* SystemScene.cpp */,
+				EC91E53422EE744A00386F92 /* SystemScene.hpp */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -614,6 +620,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECA448D522E3FC6400EA41FC /* LevelData.cpp in Sources */,
+				EC91E53522EE744A00386F92 /* SystemScene.cpp in Sources */,
 				EC91E53022ED42D200386F92 /* BaseLabel.cpp in Sources */,
 				ECA448C522E3FC1700EA41FC /* CityData.cpp in Sources */,
 				1AF87B781F6F77F7007BE51C /* AppController.mm in Sources */,
@@ -656,6 +663,7 @@
 				ECA448DA22E3FEE100EA41FC /* TeamData.cpp in Sources */,
 				ECA448A022E3CD1200EA41FC /* MapChosenScene.cpp in Sources */,
 				ECA448B422E3EA1F00EA41FC /* JsonUtils.cpp in Sources */,
+				EC91E53622EE744A00386F92 /* SystemScene.cpp in Sources */,
 				EC91E52C22ED38F000386F92 /* LevelManager.cpp in Sources */,
 				ECA448A422E3CDEF00EA41FC /* GameScene.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,

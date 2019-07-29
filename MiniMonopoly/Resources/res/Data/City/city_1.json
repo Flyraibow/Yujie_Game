@@ -1,6 +1,7 @@
 {
   "id" : "city_1",
   "name" : "城市1",
+  "city_icon" : "res/Graph/Icon/cityIcon1.png",
   "city_level" : 1,
   "business_value" : 1000,
   "goods" : [

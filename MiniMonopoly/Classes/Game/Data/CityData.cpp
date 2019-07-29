@@ -41,6 +41,7 @@ CityData::CityData(const string &id)
   p_cityId = JsonUtils::getStringFromJson(jsonContent, "id");
   p_level = JsonUtils::getIntFromJson(jsonContent, "cit_level");
   p_businessValue = JsonUtils::getIntFromJson(jsonContent, "business_value");
+  p_cityIconPath = JsonUtils::getStringFromJson(jsonContent, "city_icon");
   
   auto goodJsonList = JsonUtils::getJsonListFromJson(jsonContent, "goods");
   for (auto cityGoodsJson : goodJsonList) {

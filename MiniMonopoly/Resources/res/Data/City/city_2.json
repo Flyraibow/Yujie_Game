@@ -2,6 +2,7 @@
   "id" : "city_2",
   "name" : "村庄2",
   "city_level" : 1,
+  "city_icon" : "res/Graph/Icon/cityIcon1.png",
   "business_value" : 500,
   "goods" : [
     {

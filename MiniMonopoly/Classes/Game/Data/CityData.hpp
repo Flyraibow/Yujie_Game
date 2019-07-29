@@ -66,6 +66,7 @@ private:
   string p_id;
   string p_cityId;
   string p_cityName;
+  string p_cityIconPath;
   pair<double, double> p_position;
   vector<const RouteData *> p_routes;
   unordered_map<GuildData *, int> p_cityControls;
@@ -78,6 +79,8 @@ public:
   CityData(const string &id);
   ~CityData();
   string getId() const {return p_id;};
+  string getIcon() const {return p_cityIconPath;};
+  pair<double, double> getPosition() const {return p_position;};
   void setId(const string &id) {p_id = id;};
   void setPosition(const pair<double, double> &position);
   void setLevel(int level);

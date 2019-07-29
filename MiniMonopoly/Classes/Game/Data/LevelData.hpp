@@ -30,6 +30,8 @@ private:
   CityData* getCityData(const string &id);
 public:
   LevelData(const string &id);
+  string getMapPath() const {return p_mapPath;};
+  vector<CityData *> getCities() const {return p_cities;};
   ~LevelData();
 };
 

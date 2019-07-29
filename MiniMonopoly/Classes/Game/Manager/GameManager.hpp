@@ -15,10 +15,25 @@
 class GameManager
 {
 private:
+  static GameManager* p_sharedInstance;
   LevelData* p_levelData;
-  
+  int p_gameSpeed;
+  bool p_paused;
+  void clear();
 public:
-  GameManager(const string &levelId);
+  static GameManager* getSharedInstance();
+  GameManager();
+  ~GameManager();
+  
+  GameManager* setLevelId(const string& levelId);
+  
+  LevelData* getLevelData() const {return p_levelData;};
+  void setGameSpeed(int speed) {p_gameSpeed = speed;};
+  int getGameSpeed() const {return p_gameSpeed;};
+  
+  void setPaused(bool isPaused) {p_paused = isPaused;};
+  bool isPaused() const {return p_paused;};
+  void restartLevel();
 };
 
 #endif /* GameManager_hpp */
