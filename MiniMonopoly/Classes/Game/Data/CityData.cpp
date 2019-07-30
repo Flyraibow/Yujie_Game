@@ -17,6 +17,7 @@ CityGoodsData::CityGoodsData(const nlohmann::json &cityGoodsJson)
   p_level = JsonUtils::getIntFromJson(cityGoodsJson, "level");
   p_maxNum = JsonUtils::getIntFromJson(cityGoodsJson, "maximum");
   p_produceSpeed = JsonUtils::getDoubleFromJson(cityGoodsJson, "produce_speed");
+  p_currentNum = 0;
 }
 
 CityGoodsData::~CityGoodsData()
@@ -39,6 +40,7 @@ CityData::CityData(const string &id)
   auto path = "res/Data/City/" + id + ".json";
   auto jsonContent = JSONContent::loadJsonFromPath(path);
   p_cityId = JsonUtils::getStringFromJson(jsonContent, "id");
+  p_cityName = JsonUtils::getStringFromJson(jsonContent, "name");
   p_level = JsonUtils::getIntFromJson(jsonContent, "cit_level");
   p_businessValue = JsonUtils::getIntFromJson(jsonContent, "business_value");
   p_cityIconPath = JsonUtils::getStringFromJson(jsonContent, "city_icon");

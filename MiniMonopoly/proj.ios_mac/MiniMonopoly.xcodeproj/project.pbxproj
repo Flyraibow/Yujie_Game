@@ -53,6 +53,8 @@
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
+		EC25F43422EFE1F20087013C /* CityInfoPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC25F43222EFE1F20087013C /* CityInfoPanel.cpp */; };
+		EC25F43522EFE1F20087013C /* CityInfoPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC25F43222EFE1F20087013C /* CityInfoPanel.cpp */; };
 		EC91E52722ED376D00386F92 /* SimpleLevelData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC91E52522ED376D00386F92 /* SimpleLevelData.cpp */; };
 		EC91E52822ED376D00386F92 /* SimpleLevelData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC91E52522ED376D00386F92 /* SimpleLevelData.cpp */; };
 		EC91E52B22ED38F000386F92 /* LevelManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC91E52922ED38F000386F92 /* LevelManager.cpp */; };
@@ -174,6 +176,9 @@
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
+		EC25F43222EFE1F20087013C /* CityInfoPanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CityInfoPanel.cpp; sourceTree = "<group>"; };
+		EC25F43322EFE1F20087013C /* CityInfoPanel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CityInfoPanel.hpp; sourceTree = "<group>"; };
+		EC25F43722EFECCF0087013C /* SceneConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneConstants.h; sourceTree = "<group>"; };
 		EC91E52522ED376D00386F92 /* SimpleLevelData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleLevelData.cpp; sourceTree = "<group>"; };
 		EC91E52622ED376D00386F92 /* SimpleLevelData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SimpleLevelData.hpp; sourceTree = "<group>"; };
 		EC91E52922ED38F000386F92 /* LevelManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LevelManager.cpp; sourceTree = "<group>"; };
@@ -382,6 +387,15 @@
 			name = mac;
 			sourceTree = "<group>";
 		};
+		EC25F43022EFE19B0087013C /* Panel */ = {
+			isa = PBXGroup;
+			children = (
+				EC25F43222EFE1F20087013C /* CityInfoPanel.cpp */,
+				EC25F43322EFE1F20087013C /* CityInfoPanel.hpp */,
+			);
+			path = Panel;
+			sourceTree = "<group>";
+		};
 		EC91E52D22ED423D00386F92 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -405,6 +419,7 @@
 		ECA4489822E3CC8D00EA41FC /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				EC25F43022EFE19B0087013C /* Panel */,
 				ECA4489922E3CCEB00EA41FC /* MenuScene.cpp */,
 				ECA4489A22E3CCEB00EA41FC /* MenuScene.hpp */,
 				ECA4489D22E3CD1200EA41FC /* MapChosenScene.cpp */,
@@ -413,6 +428,7 @@
 				ECA448A222E3CDEF00EA41FC /* GameScene.hpp */,
 				EC91E53322EE744A00386F92 /* SystemScene.cpp */,
 				EC91E53422EE744A00386F92 /* SystemScene.hpp */,
+				EC25F43722EFECCF0087013C /* SceneConstants.h */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -627,6 +643,7 @@
 				EC91E52722ED376D00386F92 /* SimpleLevelData.cpp in Sources */,
 				ECA448C122E3FBE400EA41FC /* GameManager.cpp in Sources */,
 				ECA448B322E3EA1F00EA41FC /* JsonUtils.cpp in Sources */,
+				EC25F43422EFE1F20087013C /* CityInfoPanel.cpp in Sources */,
 				ECA4489F22E3CD1200EA41FC /* MapChosenScene.cpp in Sources */,
 				ECA4489B22E3CCEB00EA41FC /* MenuScene.cpp in Sources */,
 				EC91E52B22ED38F000386F92 /* LevelManager.cpp in Sources */,
@@ -650,6 +667,7 @@
 			files = (
 				EC91E52822ED376D00386F92 /* SimpleLevelData.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				EC25F43522EFE1F20087013C /* CityInfoPanel.cpp in Sources */,
 				ECA448C622E3FC1700EA41FC /* CityData.cpp in Sources */,
 				EC91E53122ED42D200386F92 /* BaseLabel.cpp in Sources */,
 				ECA448D622E3FC6400EA41FC /* LevelData.cpp in Sources */,

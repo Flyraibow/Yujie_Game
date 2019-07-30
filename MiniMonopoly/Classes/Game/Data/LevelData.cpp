@@ -69,9 +69,9 @@ LevelData::~LevelData()
   p_guildList.clear();
 }
 
-CityData* LevelData::getCityData(const string &id)
+CityData* LevelData::getCityData(const string &id) const
 {
-  auto city = p_citiesMap[id];
-  CCASSERT(city != nullptr, ("Route's city is not defined" + id).c_str());
+  CCASSERT(p_citiesMap.count(id), ("Route's city is not defined" + id).c_str());
+  auto city = p_citiesMap.at(id);
   return city;
 }

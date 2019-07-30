@@ -7,7 +7,8 @@
 
 #include "GameScene.hpp"
 #include "GameManager.hpp"
-
+#include "Panel/CityInfoPanel.hpp"
+#include "SceneConstants.h"
 
 GameScene* GameScene::createScene(const std::string &levelId)
 {
@@ -52,7 +53,7 @@ bool GameScene::initWithLevelId(const std::string &levelId)
   sIcon->setPosition(Vec2(origin.x + visibleSize.width, origin.y));
   sIcon->setCallback(CC_CALLBACK_1(GameScene::clickSystem, this));
   
-  p_speedLab = Label::createWithSystemFont("× 1", "Helvetica", 30);
+  p_speedLab = Label::createWithSystemFont("× 1", SYSTEM_FONT, 30);
   p_speedMenuItem = MenuItemLabel::create(p_speedLab, CC_CALLBACK_1(GameScene::clickSpeed, this));
   p_speedMenuItem->setAnchorPoint(Vec2(1, 0));
   p_speedMenuItem->setPosition(Vec2(origin.x + visibleSize.width - sIcon->getContentSize().width - 10, origin.y));
@@ -91,7 +92,17 @@ void GameScene::clickCity(cocos2d::Ref* pSender)
 {
   auto btn = dynamic_cast<MenuItem*>(pSender);
   auto cityId = btn->getName();
-  CCLOG("click city : %s", cityId.c_str());
+  CityData* cityData = p_gameManager->getLevelData()->getCityData(cityId);
+  if (cityData != nullptr) {
+    CCLOG("click city : %s", cityData->getName().c_str());
+    auto cityPanel = generateCityPanel(cityData);
+    Vec2 pos = Vec2(btn->getPosition().x + btn->getContentSize().width / 2, btn->getPosition().y + btn->getContentSize().height / 2);
+    auto worldPos = btn->convertToWorldSpace(pos);
+    CCLOG("pos : %f, %f : %f,%f", btn->getPosition().x, btn->getPosition().y, worldPos.x, worldPos.y);
+    cityPanel->setAnchorPoint(Vec2(0, 0));
+    cityPanel->setPosition(worldPos);
+    this->addChild(cityPanel);
+  }
 }
 
 #include "SystemScene.hpp"

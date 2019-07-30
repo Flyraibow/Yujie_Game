@@ -7,6 +7,7 @@
 
 #include "MapChosenScene.hpp"
 #include "LevelManager.hpp"
+#include "SceneConstants.h"
 
 USING_NS_CC;
 
@@ -95,7 +96,7 @@ void MapChosenScene::_showLevelsMethod1()
     icon->setAnchorPoint(Vec2(0.5, 0));
     icon->setNormalizedPosition(Vec2(x, y));
     levelIcons.pushBack(icon);
-    auto levelName = Label::createWithSystemFont(levelData->getName(), "Helvetica", 24);
+    auto levelName = Label::createWithSystemFont(levelData->getName(), SYSTEM_FONT , 24);
     levelName->setAnchorPoint(Vec2(0.5, 1));
     levelName->setNormalizedPosition(Vec2(x, y));
     this->addChild(levelName);

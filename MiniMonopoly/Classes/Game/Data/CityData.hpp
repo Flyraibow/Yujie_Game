@@ -33,6 +33,7 @@ class CityGoodsData
 private:
   const GoodsData *p_goodsData;
   int p_level;
+  int p_currentNum;
   int p_maxNum;
   double p_produceSpeed;
 public:
@@ -41,6 +42,7 @@ public:
   string getId() const {return p_goodsData->getId();};
   int getLevel() const {return p_level;};
   int getMaxNum() const {return p_maxNum;};
+  int getCurrNum() const {return p_currentNum;};
   double getProduceSpeed() const {return p_produceSpeed;};
   
   string getName() const {return p_goodsData->getName();};
@@ -80,7 +82,9 @@ public:
   ~CityData();
   string getId() const {return p_id;};
   string getIcon() const {return p_cityIconPath;};
+  string getName() const {return p_cityName;};
   pair<double, double> getPosition() const {return p_position;};
+  vector<CityGoodsData *> getGoodsList() const {return p_goodsList;};
   void setId(const string &id) {p_id = id;};
   void setPosition(const pair<double, double> &position);
   void setLevel(int level);
