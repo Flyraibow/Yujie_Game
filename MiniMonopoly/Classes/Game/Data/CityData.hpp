@@ -85,12 +85,15 @@ public:
   string getName() const {return p_cityName;};
   pair<double, double> getPosition() const {return p_position;};
   vector<CityGoodsData *> getGoodsList() const {return p_goodsList;};
+  unordered_map<GuildData *, int> getGuildControls() const {return p_cityControls;};
   void setId(const string &id) {p_id = id;};
   void setPosition(const pair<double, double> &position);
   void setLevel(int level);
   void addRoute(const RouteData *route) {p_routes.push_back(route);};
   void setCityControl(GuildData *guild, int value) {p_cityControls[guild] = value;};
   static CityData* loadCityDataWithOverrideJson(const nlohmann::json &cityJson);
+  cocos2d::Color3B getControledCollor() const;
+  GuildData* getControledByGuild() const;
 };
 
 #endif /* CityData_hpp */

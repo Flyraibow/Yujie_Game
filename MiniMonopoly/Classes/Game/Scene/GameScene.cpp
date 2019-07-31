@@ -7,8 +7,8 @@
 
 #include "GameScene.hpp"
 #include "GameManager.hpp"
-#include "Panel/CityInfoPanel.hpp"
 #include "SceneConstants.h"
+#include "Panel/CityIcon.hpp"
 
 GameScene* GameScene::createScene(const std::string &levelId)
 {
@@ -62,9 +62,6 @@ bool GameScene::initWithLevelId(const std::string &levelId)
   menu->setPosition(Vec2::ZERO);
   this->addChild(menu, 2);
   
-  p_mapMenu = Menu::create();
-  p_mapMenu->setPosition(Vec2::ZERO);
-  p_map->addChild(p_mapMenu);
   
   this->showCityOnMap();
   
@@ -74,34 +71,9 @@ bool GameScene::initWithLevelId(const std::string &levelId)
 void GameScene::showCityOnMap()
 {
   auto cities = p_gameManager->getLevelData()->getCities();
-  float cityWidth = 0.03 * Director::getInstance()->getVisibleSize().width;
-  auto mapSize = p_map->getContentSize();
   for (auto city : cities) {
-    auto icon = city->getIcon();
-    auto cityButton = MenuItemImage::create(icon, icon, CC_CALLBACK_1(GameScene::clickCity, this));
-    cityButton->setName(city->getId());
-    cityButton->setScale(cityWidth / cityButton->getContentSize().width);
-    auto pos = city->getPosition();
-    cityButton->setPosition(mapSize.width * pos.first, mapSize.height * pos.second);
-    p_mapMenu->addChild(cityButton);
-  }
-}
-
-
-void GameScene::clickCity(cocos2d::Ref* pSender)
-{
-  auto btn = dynamic_cast<MenuItem*>(pSender);
-  auto cityId = btn->getName();
-  CityData* cityData = p_gameManager->getLevelData()->getCityData(cityId);
-  if (cityData != nullptr) {
-    CCLOG("click city : %s", cityData->getName().c_str());
-    auto cityPanel = generateCityPanel(cityData);
-    Vec2 pos = Vec2(btn->getPosition().x + btn->getContentSize().width / 2, btn->getPosition().y + btn->getContentSize().height / 2);
-    auto worldPos = btn->convertToWorldSpace(pos);
-    CCLOG("pos : %f, %f : %f,%f", btn->getPosition().x, btn->getPosition().y, worldPos.x, worldPos.y);
-    cityPanel->setAnchorPoint(Vec2(0, 0));
-    cityPanel->setPosition(worldPos);
-    this->addChild(cityPanel);
+    CityIcon* cityIcon = CityIcon::createCityIconWithCityData(city);
+    cityIcon->addCityToMap(p_map);
   }
 }
 

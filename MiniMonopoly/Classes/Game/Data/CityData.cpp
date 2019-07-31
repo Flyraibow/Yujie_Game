@@ -9,6 +9,7 @@
 #include "JSONContent.hpp"
 #include "JsonUtils.hpp"
 #include "GoodsData.hpp"
+#include "GuildData.hpp"
 
 CityGoodsData::CityGoodsData(const nlohmann::json &cityGoodsJson)
 {
@@ -81,6 +82,28 @@ void CityData::setLevel(int level)
 {
   p_level = level;
   // upgrade verything to latest level;
+}
+
+cocos2d::Color3B CityData::getControledCollor() const
+{
+  GuildData* maxControlGuild = getControledByGuild();
+  if (maxControlGuild != nullptr) {
+    return maxControlGuild->getColor();
+  }
+  return Color3B::GRAY;
+}
+
+GuildData* CityData::getControledByGuild() const
+{
+  int max = 0;
+  GuildData* maxControlGuild = nullptr;
+  for (auto guildControlPair : p_cityControls) {
+    if (guildControlPair.second > max) {
+      max = guildControlPair.second;
+      maxControlGuild = guildControlPair.first;
+    }
+  }
+  return maxControlGuild;
 }
 
 CityData* CityData::loadCityDataWithOverrideJson(const nlohmann::json &cityJson)

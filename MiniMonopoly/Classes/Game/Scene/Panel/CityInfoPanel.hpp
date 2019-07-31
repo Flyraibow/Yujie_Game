@@ -13,6 +13,16 @@
 
 USING_NS_CC;
 
+class CityInfoPanel
+{
+private:
+  static std::unordered_map<std::string, CityInfoPanel *> s_sharedCityInfoPanel;
+  CityData* p_cityData;
+  Node* p_node;
+public:
+  static Node* generateCityPanel(const CityData* cityData);
+};
+
 Node* generateCityPanel(const CityData* cityData);
 
 #endif /* CityInfoPanel_hpp */

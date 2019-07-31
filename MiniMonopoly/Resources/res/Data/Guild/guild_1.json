@@ -1,4 +1,5 @@
 {
   "id" : "guild_1",
-  "name" : "商会1"
+  "name" : "商会1",
+  "color" : "RED"
 }

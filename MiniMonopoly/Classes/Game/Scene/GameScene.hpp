@@ -21,11 +21,9 @@ private:
   Sprite* p_map;
   Label* p_speedLab;
   MenuItemLabel* p_speedMenuItem;
-  Menu* p_mapMenu;
   
   void showCityOnMap();
   
-  void clickCity(cocos2d::Ref* pSender);
   void clickSystem(cocos2d::Ref* pSender);
   void clickSpeed(cocos2d::Ref* pSender);
 public:

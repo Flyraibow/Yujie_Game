@@ -38,10 +38,12 @@
       "city_controls" : {
         "city_1" : 20
       },
+      "money" : 1000,
       "is_player" : true
     },
     {
       "guild_id" : "guild_2",
+      "money" : 1200,
       "city_controls" : {
         "city_3" : 20
       }
