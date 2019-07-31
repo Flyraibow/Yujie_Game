@@ -26,5 +26,6 @@ GuildData* GuildData::loadGuildDataWithOverrideJson(const nlohmann::json &guildJ
   auto guildData = new GuildData(guildId);
   guildData->setId(JsonUtils::getStringFromJson(guildJson, "id", guildId));
   guildData->setMoney(JsonUtils::getIntFromJson(guildJson, "money"));
+  guildData->setIsPlayer(JsonUtils::getBoolFromJson(guildJson, "is_player"));
   return guildData;
 }

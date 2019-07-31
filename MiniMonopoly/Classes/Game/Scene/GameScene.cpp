@@ -47,6 +47,11 @@ bool GameScene::initWithLevelId(const std::string &levelId)
   p_map->setScale(fmin(scaleX, scaleY));
   this->addChild(p_map);
   
+  p_myGuildMoney = Label::createWithSystemFont("", SYSTEM_FONT, 30);
+  p_myGuildMoney->setAnchorPoint(Vec2(1, 1));
+  p_myGuildMoney->setNormalizedPosition(Vec2(1, 1));
+  this->addChild(p_myGuildMoney);
+  
   static const string SYSTEM_ICON_PATH = "res/Graph/Icon/systemIcon.png";
   auto sIcon = MenuItemImage::create(SYSTEM_ICON_PATH, SYSTEM_ICON_PATH);
   sIcon->setAnchorPoint(Vec2(1, 0));
@@ -64,6 +69,7 @@ bool GameScene::initWithLevelId(const std::string &levelId)
   
   
   this->showCityOnMap();
+  this->updateMyGuildMoney();
   
   return true;
 }
@@ -75,6 +81,12 @@ void GameScene::showCityOnMap()
     CityIcon* cityIcon = CityIcon::createCityIconWithCityData(city);
     cityIcon->addCityToMap(p_map);
   }
+}
+
+void GameScene::updateMyGuildMoney()
+{
+  auto money = p_gameManager->getLevelData()->getMyGuild()->getMoney();
+  p_myGuildMoney->setString("$" + to_string(money));
 }
 
 #include "SystemScene.hpp"

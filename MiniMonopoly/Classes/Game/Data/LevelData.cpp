@@ -38,10 +38,14 @@ LevelData::LevelData(const string &fileName)
       }
     }
   }
+  p_myGuild = nullptr;
   auto guildsList = JsonUtils::getJsonListFromJson(jsonContent, "guilds");
   for (auto jsonGuild : guildsList) {
     auto guildData = GuildData::loadGuildDataWithOverrideJson(jsonGuild);
     p_guildList.push_back(guildData);
+    if (guildData->isPlayer()) {
+      p_myGuild = guildData;
+    }
     
     auto cityConrolsJson = JsonUtils::getChildJsonFromJson(jsonGuild, "city_controls");
     auto keys = JsonUtils::getKeysFromJson(cityConrolsJson);
@@ -54,6 +58,7 @@ LevelData::LevelData(const string &fileName)
       }
     }
   }
+  CCASSERT(p_myGuild != nullptr, "My guild is not set");
 }
 
 LevelData::~LevelData()
@@ -75,3 +80,4 @@ CityData* LevelData::getCityData(const string &id) const
   auto city = p_citiesMap.at(id);
   return city;
 }
+

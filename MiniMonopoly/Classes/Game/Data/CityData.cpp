@@ -116,3 +116,16 @@ CityData* CityData::loadCityDataWithOverrideJson(const nlohmann::json &cityJson)
   cityData->setLevel(JsonUtils::getIntFromJson(cityJson, "city_level"));
   return cityData;
 }
+
+bool CityData::isBelongToGuild(GuildData* guildData)
+{
+  return getControledByGuild() == guildData;
+}
+bool CityData::isMyCity() const
+{
+  auto guild = this->getControledByGuild();
+  if (guild != nullptr) {
+    return guild->isPlayer();
+  }
+  return false;
+}

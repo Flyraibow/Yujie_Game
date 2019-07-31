@@ -15,6 +15,7 @@
 using namespace std;
 
 class CityData;
+class TeamData;
 
 class GuildData
 {
@@ -25,13 +26,19 @@ private:
   unordered_map<CityData *, int> p_cityControls;
   int p_money;
   cocos2d::Color3B p_color;
+  bool p_isPlayer;
+  vector<TeamData *> p_teamList;
 public:
   GuildData(const string &id);
   string getId() const {return p_id;};
   int getMoney() const {return p_money;};
+  void setIsPlayer(bool isPlayer) {p_isPlayer = isPlayer;};
+  bool isPlayer() const {return p_isPlayer;};
   string getName() const {return p_guildName;};
   void setId(const string &id) {p_id = id;};
   void setMoney(int money) {p_money = money;};
+  void addTeam(TeamData *team) {p_teamList.push_back(team);};
+  vector<TeamData *> getTeams() const {return p_teamList;};
   cocos2d::Color3B getColor() const {return p_color;};
   void setCityControl(CityData *city, int value) {p_cityControls[city] = value;};
   unordered_map<CityData *, int> getCityControls() {return p_cityControls;};

@@ -11,11 +11,17 @@
 CityIcon::CityIcon(CityData* cityData)
 {
   p_cityData = cityData;
+  p_cityInfoData = new CityInfoPanel(cityData);
   p_parent = nullptr;
   p_cityIconButton = nullptr;
   p_cityInfoPanel = nullptr;
 }
 
+CityIcon::~CityIcon()
+{
+  delete p_cityInfoData;
+  p_cityInfoData = nullptr;
+}
 
 void CityIcon::addCityToMap(Node* parent)
 {
@@ -50,7 +56,7 @@ void CityIcon::clickCity(cocos2d::Ref* pSender)
     return;
   }
   if (p_cityInfoPanel == nullptr) {
-    auto cityPanel = generateCityPanel(p_cityData);
+    auto cityPanel = p_cityInfoData->generateCityPanel();
     auto position = p_cityIconButton->getPosition();
     auto size = p_cityIconButton->getContentSize();
     auto scale = p_cityIconButton->getScale();

@@ -94,6 +94,8 @@ public:
   static CityData* loadCityDataWithOverrideJson(const nlohmann::json &cityJson);
   cocos2d::Color3B getControledCollor() const;
   GuildData* getControledByGuild() const;
+  bool isBelongToGuild(GuildData* guildData);
+  bool isMyCity() const;
 };
 
 #endif /* CityData_hpp */

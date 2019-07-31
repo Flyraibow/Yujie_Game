@@ -19,10 +19,12 @@ class GameScene : public cocos2d::Scene
 private:
   GameManager* p_gameManager;
   Sprite* p_map;
+  Label* p_myGuildMoney;
   Label* p_speedLab;
   MenuItemLabel* p_speedMenuItem;
   
   void showCityOnMap();
+  void updateMyGuildMoney();
   
   void clickSystem(cocos2d::Ref* pSender);
   void clickSpeed(cocos2d::Ref* pSender);

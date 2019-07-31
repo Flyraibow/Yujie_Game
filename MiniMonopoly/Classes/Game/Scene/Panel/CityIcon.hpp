@@ -13,11 +13,14 @@
 
 USING_NS_CC;
 
+class CityInfoPanel;
+
 class CityIcon
 {
 private:
   // Data
   CityData* p_cityData;
+  CityInfoPanel* p_cityInfoData;
   
   // Sprite
   Node* p_parent;
@@ -27,6 +30,7 @@ private:
   void clickCity(cocos2d::Ref* pSender);
 public:
   CityIcon(CityData* cityData);
+  ~CityIcon();
   void addCityToMap(Node* parent);
   void setCityInfoPanelVisible(bool visible);
   bool getCityInfoPanelVisible() const;

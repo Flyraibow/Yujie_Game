@@ -17,12 +17,13 @@ class CityInfoPanel
 {
 private:
   static std::unordered_map<std::string, CityInfoPanel *> s_sharedCityInfoPanel;
-  CityData* p_cityData;
+  const CityData* p_cityData;
   Node* p_node;
+  
+  void clickCreateTeam(cocos2d::Ref* pSender);
 public:
-  static Node* generateCityPanel(const CityData* cityData);
+  CityInfoPanel(CityData* cityData);
+  Node* generateCityPanel();
 };
-
-Node* generateCityPanel(const CityData* cityData);
 
 #endif /* CityInfoPanel_hpp */

@@ -25,6 +25,7 @@ private:
   string p_iconPath;
   vector<CityData *> p_cities;
   vector<GuildData *> p_guildList;
+  GuildData* p_myGuild;
   unordered_map<string, CityData *> p_citiesMap;
   
 public:
@@ -32,6 +33,7 @@ public:
   string getMapPath() const {return p_mapPath;};
   vector<CityData *> getCities() const {return p_cities;};
   CityData* getCityData(const string &id) const;
+  GuildData* getMyGuild() const {return p_myGuild;};
   ~LevelData();
 };
 
