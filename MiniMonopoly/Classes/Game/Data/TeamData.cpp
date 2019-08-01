@@ -11,13 +11,16 @@
 TeamData::TeamData(GuildData* guildData)
 {
   p_guildData = guildData;
-  
+  p_currentCity = nullptr;
 }
 
 TeamData* TeamData::createTeam(GuildData* guildData, CityData* cityData)
 {
+  auto price = getCreatTeamPrice(guildData);
+  CCASSERT(guildData->getMoney() >= price, "Not enough money to create team!");
   auto teamData = new TeamData(guildData);
   guildData->addTeam(teamData);
+  guildData->setMoney(guildData->getMoney() - price);
   teamData->setName("name" + to_string(guildData->getTeams().size()));
   teamData->setCurrCity(cityData);
   return teamData;

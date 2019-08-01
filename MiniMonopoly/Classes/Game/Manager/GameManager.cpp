@@ -8,7 +8,6 @@
 #include "GameManager.hpp"
 #include "LevelData.hpp"
 
-
 GameManager* GameManager::p_sharedInstance = nullptr;
 
 GameManager* GameManager::getSharedInstance()

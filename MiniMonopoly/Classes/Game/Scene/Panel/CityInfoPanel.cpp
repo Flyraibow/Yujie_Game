@@ -10,6 +10,8 @@
 #include "SceneConstants.h"
 #include "GuildData.hpp"
 #include "TeamData.hpp"
+#include "QuickAlert.hpp"
+#include "GameScene.hpp"
 
 std::unordered_map<std::string, CityInfoPanel *> CityInfoPanel::s_sharedCityInfoPanel = std::unordered_map<std::string, CityInfoPanel *>();
 
@@ -101,7 +103,15 @@ Node* CityInfoPanel::generateCityPanel()
 void CityInfoPanel::clickCreateTeam(cocos2d::Ref* pSender)
 {
   // 创建商队
-  
-  
-  
+  auto myGuild = p_cityData->getControledByGuild();
+  auto price = TeamData::getCreatTeamPrice(myGuild);
+  CCASSERT(myGuild->isPlayer(), "must create team in a city controled by player.");
+  if (myGuild->getMoney() < price) {
+    QuickAlert::createAlertWithMsg("金钱不足");
+  } else {
+    auto teamData = TeamData::createTeam(myGuild, p_cityData);
+    auto scene = GameScene::getGameScene();
+    scene->addTeamOnMap(teamData);
+    scene->updateMyGuildMoney();
+  }
 }

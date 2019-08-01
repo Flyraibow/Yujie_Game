@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include "LevelData.hpp"
 
+class GameScene;
+
 class GameManager
 {
 private:

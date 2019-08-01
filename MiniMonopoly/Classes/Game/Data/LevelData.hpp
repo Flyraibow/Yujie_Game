@@ -34,6 +34,7 @@ public:
   vector<CityData *> getCities() const {return p_cities;};
   CityData* getCityData(const string &id) const;
   GuildData* getMyGuild() const {return p_myGuild;};
+  vector<GuildData *> getAllGuilds() const {return p_guildList;};
   ~LevelData();
 };
 

@@ -57,6 +57,10 @@
 		EC25F43522EFE1F20087013C /* CityInfoPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC25F43222EFE1F20087013C /* CityInfoPanel.cpp */; };
 		EC915FBA22F12C9B003D4ACA /* CityIcon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC915FB822F12C9B003D4ACA /* CityIcon.cpp */; };
 		EC915FBB22F12C9B003D4ACA /* CityIcon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC915FB822F12C9B003D4ACA /* CityIcon.cpp */; };
+		EC915FC022F28754003D4ACA /* QuickAlert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC915FBE22F28754003D4ACA /* QuickAlert.cpp */; };
+		EC915FC122F28754003D4ACA /* QuickAlert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC915FBE22F28754003D4ACA /* QuickAlert.cpp */; };
+		EC915FC422F298EE003D4ACA /* TeamIcon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC915FC222F298EE003D4ACA /* TeamIcon.cpp */; };
+		EC915FC522F298EE003D4ACA /* TeamIcon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC915FC222F298EE003D4ACA /* TeamIcon.cpp */; };
 		EC91E52722ED376D00386F92 /* SimpleLevelData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC91E52522ED376D00386F92 /* SimpleLevelData.cpp */; };
 		EC91E52822ED376D00386F92 /* SimpleLevelData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC91E52522ED376D00386F92 /* SimpleLevelData.cpp */; };
 		EC91E52B22ED38F000386F92 /* LevelManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC91E52922ED38F000386F92 /* LevelManager.cpp */; };
@@ -183,6 +187,10 @@
 		EC25F43722EFECCF0087013C /* SceneConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneConstants.h; sourceTree = "<group>"; };
 		EC915FB822F12C9B003D4ACA /* CityIcon.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CityIcon.cpp; sourceTree = "<group>"; };
 		EC915FB922F12C9B003D4ACA /* CityIcon.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CityIcon.hpp; sourceTree = "<group>"; };
+		EC915FBE22F28754003D4ACA /* QuickAlert.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = QuickAlert.cpp; sourceTree = "<group>"; };
+		EC915FBF22F28754003D4ACA /* QuickAlert.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = QuickAlert.hpp; sourceTree = "<group>"; };
+		EC915FC222F298EE003D4ACA /* TeamIcon.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TeamIcon.cpp; sourceTree = "<group>"; };
+		EC915FC322F298EE003D4ACA /* TeamIcon.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TeamIcon.hpp; sourceTree = "<group>"; };
 		EC91E52522ED376D00386F92 /* SimpleLevelData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleLevelData.cpp; sourceTree = "<group>"; };
 		EC91E52622ED376D00386F92 /* SimpleLevelData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SimpleLevelData.hpp; sourceTree = "<group>"; };
 		EC91E52922ED38F000386F92 /* LevelManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LevelManager.cpp; sourceTree = "<group>"; };
@@ -398,8 +406,19 @@
 				EC25F43322EFE1F20087013C /* CityInfoPanel.hpp */,
 				EC915FB822F12C9B003D4ACA /* CityIcon.cpp */,
 				EC915FB922F12C9B003D4ACA /* CityIcon.hpp */,
+				EC915FC222F298EE003D4ACA /* TeamIcon.cpp */,
+				EC915FC322F298EE003D4ACA /* TeamIcon.hpp */,
 			);
 			path = Panel;
+			sourceTree = "<group>";
+		};
+		EC915FBD22F2873A003D4ACA /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				EC915FBE22F28754003D4ACA /* QuickAlert.cpp */,
+				EC915FBF22F28754003D4ACA /* QuickAlert.hpp */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 		EC91E52D22ED423D00386F92 /* UI */ = {
@@ -425,6 +444,7 @@
 		ECA4489822E3CC8D00EA41FC /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				EC915FBD22F2873A003D4ACA /* Alert */,
 				EC25F43022EFE19B0087013C /* Panel */,
 				ECA4489922E3CCEB00EA41FC /* MenuScene.cpp */,
 				ECA4489A22E3CCEB00EA41FC /* MenuScene.hpp */,
@@ -649,12 +669,14 @@
 				EC91E52722ED376D00386F92 /* SimpleLevelData.cpp in Sources */,
 				ECA448C122E3FBE400EA41FC /* GameManager.cpp in Sources */,
 				EC915FBA22F12C9B003D4ACA /* CityIcon.cpp in Sources */,
+				EC915FC022F28754003D4ACA /* QuickAlert.cpp in Sources */,
 				ECA448B322E3EA1F00EA41FC /* JsonUtils.cpp in Sources */,
 				EC25F43422EFE1F20087013C /* CityInfoPanel.cpp in Sources */,
 				ECA4489F22E3CD1200EA41FC /* MapChosenScene.cpp in Sources */,
 				ECA4489B22E3CCEB00EA41FC /* MenuScene.cpp in Sources */,
 				EC91E52B22ED38F000386F92 /* LevelManager.cpp in Sources */,
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
+				EC915FC422F298EE003D4ACA /* TeamIcon.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				ECA448CD22E3FC3900EA41FC /* GuildData.cpp in Sources */,
 				1AF87B8A1F6F7822007BE51C /* main.m in Sources */,
@@ -677,6 +699,7 @@
 				EC25F43522EFE1F20087013C /* CityInfoPanel.cpp in Sources */,
 				ECA448C622E3FC1700EA41FC /* CityData.cpp in Sources */,
 				EC91E53122ED42D200386F92 /* BaseLabel.cpp in Sources */,
+				EC915FC522F298EE003D4ACA /* TeamIcon.cpp in Sources */,
 				ECA448D622E3FC6400EA41FC /* LevelData.cpp in Sources */,
 				ECA448C222E3FBE400EA41FC /* GameManager.cpp in Sources */,
 				ECA448BD22E3FB6100EA41FC /* PlayerManager.cpp in Sources */,
@@ -694,6 +717,7 @@
 				ECA448A422E3CDEF00EA41FC /* GameScene.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				ECA448CE22E3FC3900EA41FC /* GuildData.cpp in Sources */,
+				EC915FC122F28754003D4ACA /* QuickAlert.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

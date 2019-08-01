@@ -11,6 +11,7 @@
 #include "cocos2d.h"
 
 USING_NS_CC;
+class TeamData;
 
 class GameManager;
 
@@ -23,8 +24,8 @@ private:
   Label* p_speedLab;
   MenuItemLabel* p_speedMenuItem;
   
-  void showCityOnMap();
-  void updateMyGuildMoney();
+  void showCitiesOnMap();
+  void updateTeamsOnMap();
   
   void clickSystem(cocos2d::Ref* pSender);
   void clickSpeed(cocos2d::Ref* pSender);
@@ -35,6 +36,11 @@ public:
   bool initWithLevelId(const std::string &levelId);
   
   void popScene(cocos2d::Ref* pSender);
+  
+  void addTeamOnMap(TeamData* teamData);
+  void updateMyGuildMoney();
+  
+  static GameScene* getGameScene();
   
   CREATE_FUNC(GameScene);
 };

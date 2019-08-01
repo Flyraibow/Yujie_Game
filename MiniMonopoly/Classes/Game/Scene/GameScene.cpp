@@ -9,6 +9,7 @@
 #include "GameManager.hpp"
 #include "SceneConstants.h"
 #include "Panel/CityIcon.hpp"
+#include "Panel/TeamIcon.hpp"
 
 GameScene* GameScene::createScene(const std::string &levelId)
 {
@@ -68,13 +69,13 @@ bool GameScene::initWithLevelId(const std::string &levelId)
   this->addChild(menu, 2);
   
   
-  this->showCityOnMap();
+  this->showCitiesOnMap();
   this->updateMyGuildMoney();
   
   return true;
 }
 
-void GameScene::showCityOnMap()
+void GameScene::showCitiesOnMap()
 {
   auto cities = p_gameManager->getLevelData()->getCities();
   for (auto city : cities) {
@@ -83,10 +84,27 @@ void GameScene::showCityOnMap()
   }
 }
 
+void GameScene::addTeamOnMap(TeamData *teamData)
+{
+  TeamIcon* teamIcon = TeamIcon::createTeamIconWithTeamData(teamData);
+  teamIcon->addTeamToMap(p_map);
+}
+
 void GameScene::updateMyGuildMoney()
 {
   auto money = p_gameManager->getLevelData()->getMyGuild()->getMoney();
   p_myGuildMoney->setString("$" + to_string(money));
+}
+
+void GameScene::updateTeamsOnMap()
+{
+  auto guilds = p_gameManager->getLevelData()->getAllGuilds();
+  for (auto guild : guilds) {
+    auto teams = guild->getTeams();
+    for (auto team : teams) {
+      
+    }
+  }
 }
 
 #include "SystemScene.hpp"
@@ -109,4 +127,10 @@ void GameScene::clickSystem(cocos2d::Ref* pSender)
   p_gameManager->setPaused(true);
   auto scene = SystemScene::create();
   Director::getInstance()->pushScene(scene);
+}
+
+GameScene* GameScene::getGameScene()
+{
+  auto scene = Director::getInstance()->getRunningScene();
+  return dynamic_cast<GameScene *>(scene);
 }
