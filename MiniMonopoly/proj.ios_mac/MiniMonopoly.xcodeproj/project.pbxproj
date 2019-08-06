@@ -61,6 +61,10 @@
 		EC915FC122F28754003D4ACA /* QuickAlert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC915FBE22F28754003D4ACA /* QuickAlert.cpp */; };
 		EC915FC422F298EE003D4ACA /* TeamIcon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC915FC222F298EE003D4ACA /* TeamIcon.cpp */; };
 		EC915FC522F298EE003D4ACA /* TeamIcon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC915FC222F298EE003D4ACA /* TeamIcon.cpp */; };
+		EC915FC822F38D42003D4ACA /* TeamInfoPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC915FC622F38D42003D4ACA /* TeamInfoPanel.cpp */; };
+		EC915FC922F38D42003D4ACA /* TeamInfoPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC915FC622F38D42003D4ACA /* TeamInfoPanel.cpp */; };
+		EC915FCC22F39EA0003D4ACA /* TradePanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC915FCA22F39EA0003D4ACA /* TradePanel.cpp */; };
+		EC915FCD22F39EA0003D4ACA /* TradePanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC915FCA22F39EA0003D4ACA /* TradePanel.cpp */; };
 		EC91E52722ED376D00386F92 /* SimpleLevelData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC91E52522ED376D00386F92 /* SimpleLevelData.cpp */; };
 		EC91E52822ED376D00386F92 /* SimpleLevelData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC91E52522ED376D00386F92 /* SimpleLevelData.cpp */; };
 		EC91E52B22ED38F000386F92 /* LevelManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC91E52922ED38F000386F92 /* LevelManager.cpp */; };
@@ -191,6 +195,10 @@
 		EC915FBF22F28754003D4ACA /* QuickAlert.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = QuickAlert.hpp; sourceTree = "<group>"; };
 		EC915FC222F298EE003D4ACA /* TeamIcon.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TeamIcon.cpp; sourceTree = "<group>"; };
 		EC915FC322F298EE003D4ACA /* TeamIcon.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TeamIcon.hpp; sourceTree = "<group>"; };
+		EC915FC622F38D42003D4ACA /* TeamInfoPanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TeamInfoPanel.cpp; sourceTree = "<group>"; };
+		EC915FC722F38D42003D4ACA /* TeamInfoPanel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TeamInfoPanel.hpp; sourceTree = "<group>"; };
+		EC915FCA22F39EA0003D4ACA /* TradePanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TradePanel.cpp; sourceTree = "<group>"; };
+		EC915FCB22F39EA0003D4ACA /* TradePanel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TradePanel.hpp; sourceTree = "<group>"; };
 		EC91E52522ED376D00386F92 /* SimpleLevelData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleLevelData.cpp; sourceTree = "<group>"; };
 		EC91E52622ED376D00386F92 /* SimpleLevelData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SimpleLevelData.hpp; sourceTree = "<group>"; };
 		EC91E52922ED38F000386F92 /* LevelManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LevelManager.cpp; sourceTree = "<group>"; };
@@ -408,6 +416,10 @@
 				EC915FB922F12C9B003D4ACA /* CityIcon.hpp */,
 				EC915FC222F298EE003D4ACA /* TeamIcon.cpp */,
 				EC915FC322F298EE003D4ACA /* TeamIcon.hpp */,
+				EC915FC622F38D42003D4ACA /* TeamInfoPanel.cpp */,
+				EC915FC722F38D42003D4ACA /* TeamInfoPanel.hpp */,
+				EC915FCA22F39EA0003D4ACA /* TradePanel.cpp */,
+				EC915FCB22F39EA0003D4ACA /* TradePanel.hpp */,
 			);
 			path = Panel;
 			sourceTree = "<group>";
@@ -668,6 +680,7 @@
 				1AF87B781F6F77F7007BE51C /* AppController.mm in Sources */,
 				EC91E52722ED376D00386F92 /* SimpleLevelData.cpp in Sources */,
 				ECA448C122E3FBE400EA41FC /* GameManager.cpp in Sources */,
+				EC915FCC22F39EA0003D4ACA /* TradePanel.cpp in Sources */,
 				EC915FBA22F12C9B003D4ACA /* CityIcon.cpp in Sources */,
 				EC915FC022F28754003D4ACA /* QuickAlert.cpp in Sources */,
 				ECA448B322E3EA1F00EA41FC /* JsonUtils.cpp in Sources */,
@@ -675,6 +688,7 @@
 				ECA4489F22E3CD1200EA41FC /* MapChosenScene.cpp in Sources */,
 				ECA4489B22E3CCEB00EA41FC /* MenuScene.cpp in Sources */,
 				EC91E52B22ED38F000386F92 /* LevelManager.cpp in Sources */,
+				EC915FC822F38D42003D4ACA /* TeamInfoPanel.cpp in Sources */,
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
 				EC915FC422F298EE003D4ACA /* TeamIcon.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
@@ -707,6 +721,7 @@
 				EC915FBB22F12C9B003D4ACA /* CityIcon.cpp in Sources */,
 				ECA448B222E3EA1F00EA41FC /* JSONContent.cpp in Sources */,
 				ECA4489C22E3CCEB00EA41FC /* MenuScene.cpp in Sources */,
+				EC915FCD22F39EA0003D4ACA /* TradePanel.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				ECA448E022E4042300EA41FC /* JsonUtils+cocos2d.cpp in Sources */,
 				ECA448DA22E3FEE100EA41FC /* TeamData.cpp in Sources */,
@@ -718,6 +733,7 @@
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				ECA448CE22E3FC3900EA41FC /* GuildData.cpp in Sources */,
 				EC915FC122F28754003D4ACA /* QuickAlert.cpp in Sources */,
+				EC915FC922F38D42003D4ACA /* TeamInfoPanel.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

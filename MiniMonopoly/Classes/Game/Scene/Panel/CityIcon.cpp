@@ -88,7 +88,6 @@ void CityIcon::clickCity(cocos2d::Ref* pSender)
     p_parent->addChild(cityPanel);
     p_cityInfoPanel = cityPanel;
   } else {
-    
     setCityInfoPanelVisible(true);
   }
 }

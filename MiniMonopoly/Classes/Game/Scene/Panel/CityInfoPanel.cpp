@@ -19,6 +19,8 @@ std::unordered_map<std::string, CityInfoPanel *> CityInfoPanel::s_sharedCityInfo
 CityInfoPanel::CityInfoPanel(CityData* cityData)
 {
   p_cityData = cityData;
+  p_labCreateTeam = nullptr;
+  p_createTeamButton = nullptr;
 }
 
 Node* CityInfoPanel::generateCityPanel()
@@ -36,19 +38,15 @@ Node* CityInfoPanel::generateCityPanel()
   auto sample = Label::createWithSystemFont("1", SYSTEM_FONT, 18);
   float lineHeight = sample->getContentSize().height;
   float height = labName->getContentSize().height + 25 + (lineHeight + 4) * goodsList.size() + (lineHeight + 4) * guildControls.size();
-  MenuItem* createTeamButton = nullptr;
   if (cityData->isMyCity()) {
+    p_labCreateTeam = Label::createWithSystemFont("创建商队 ($500)" , SYSTEM_FONT, 18);
+    p_createTeamButton = MenuItemLabel::create(p_labCreateTeam, CC_CALLBACK_1(CityInfoPanel::clickCreateTeam, this));
     
-    auto myGuild = cityData->getControledByGuild();
-    auto price = TeamData::getCreatTeamPrice(myGuild);
-    auto createTeamLabel = Label::createWithSystemFont("创建商队 ($" + to_string(price) + ")" , SYSTEM_FONT, 18);
-    createTeamButton = MenuItemLabel::create(createTeamLabel, CC_CALLBACK_1(CityInfoPanel::clickCreateTeam, this));
-    createTeamButton->setAnchorPoint(Vec2(0.5, 1));
-    auto menu = Menu::createWithItem(createTeamButton);
+    auto menu = Menu::createWithItem(p_createTeamButton);
     menu->setPosition(Vec2::ZERO);
     sprite->addChild(menu);
     
-    height += createTeamButton->getContentSize().height + 5;
+    height += p_createTeamButton->getContentSize().height + 5;
   }
   float width = 220;
   auto size = Size(width, height);
@@ -93,11 +91,23 @@ Node* CityInfoPanel::generateCityPanel()
   
   // show create team button
   if (cityData->isMyCity()) {
-    createTeamButton->setPosition(width / 2, top);
-    top -= createTeamButton->getContentSize().height + 5;
+    p_createTeamButton->setAnchorPoint(Vec2(0.5, 1));
+    p_createTeamButton->setPosition(220 / 2, top);
+    top -= p_createTeamButton->getContentSize().height + 5;
   }
   
+  refresh();
+  
   return sprite;
+}
+
+void CityInfoPanel::refresh()
+{
+  if (p_labCreateTeam != nullptr) {
+    auto myGuild = p_cityData->getControledByGuild();
+    auto price = TeamData::getCreatTeamPrice(myGuild);
+    p_labCreateTeam->setString("创建商队 ($" + to_string(price) + ")");
+  }
 }
 
 void CityInfoPanel::clickCreateTeam(cocos2d::Ref* pSender)
@@ -113,5 +123,6 @@ void CityInfoPanel::clickCreateTeam(cocos2d::Ref* pSender)
     auto scene = GameScene::getGameScene();
     scene->addTeamOnMap(teamData);
     scene->updateMyGuildMoney();
+    refresh();
   }
 }

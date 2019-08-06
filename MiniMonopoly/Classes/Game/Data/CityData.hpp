@@ -32,6 +32,7 @@ class CityGoodsData
 {
 private:
   const GoodsData *p_goodsData;
+  CityData* p_city;
   int p_level;
   int p_currentNum;
   int p_maxNum;
@@ -39,6 +40,9 @@ private:
 public:
   CityGoodsData(const nlohmann::json &cityGoodsJson);
   ~CityGoodsData();
+  const GoodsData* getGoodsData() const {return p_goodsData;};
+  CityData* getCity() const {return p_city;};
+  void setCity(CityData *city) {p_city = city;};
   string getId() const {return p_goodsData->getId();};
   int getLevel() const {return p_level;};
   int getMaxNum() const {return p_maxNum;};

@@ -11,9 +11,24 @@
 #include "cocos2d.h"
 
 class CityData;
+class GoodsData;
 class GuildData;
+class CityGoodsData;
 
 using namespace std;
+
+class TeamGoodsData
+{
+private:
+  const GoodsData *p_goodsData;
+  int p_level;
+  int p_num;
+  int p_price;
+  CityData* p_fromCity;
+public:
+  TeamGoodsData(CityGoodsData* cityGoodData, int number);
+  int getNum() const {return p_num;};
+};
 
 class TeamData
 {
@@ -23,6 +38,8 @@ private:
   CityData* p_currentCity;
   cocos2d::Vec2 p_currentPos;
   string p_teamName;
+  int p_maxCapacity;
+  vector<TeamGoodsData *> p_goodsList;
 public:
   TeamData(GuildData* guildData);
   void setId(const string &id) {p_id = id;};
@@ -33,6 +50,9 @@ public:
   void setCurrCity(CityData* currentCity) {p_currentCity = currentCity;};
   GuildData* getGuild() const {return p_guildData;};
   string getName() const {return p_teamName;};
+  vector<TeamGoodsData *> getGoodsList() const {return p_goodsList;};
+  int getCurrentLoads() const;
+  
   static TeamData* createTeam(GuildData* guildData, CityData* cityData);
   static int getCreatTeamPrice(GuildData* guildData);
 };

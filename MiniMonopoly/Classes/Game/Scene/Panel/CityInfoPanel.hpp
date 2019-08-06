@@ -19,11 +19,14 @@ private:
   static std::unordered_map<std::string, CityInfoPanel *> s_sharedCityInfoPanel;
   CityData* p_cityData;
   Node* p_node;
+  Label* p_labCreateTeam;
+  MenuItem* p_createTeamButton;
   
   void clickCreateTeam(cocos2d::Ref* pSender);
 public:
   CityInfoPanel(CityData* cityData);
   Node* generateCityPanel();
+  void refresh();
 };
 
 #endif /* CityInfoPanel_hpp */

@@ -49,6 +49,7 @@ CityData::CityData(const string &id)
   auto goodJsonList = JsonUtils::getJsonListFromJson(jsonContent, "goods");
   for (auto cityGoodsJson : goodJsonList) {
     auto cityGoodData = new CityGoodsData(cityGoodsJson);
+    cityGoodData->setCity(this);
     p_goodsList.push_back(cityGoodData);
     p_goodsMap[cityGoodData->getId()] = cityGoodData;
   }

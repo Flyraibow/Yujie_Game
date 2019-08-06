@@ -8,10 +8,12 @@
 #include "TeamIcon.hpp"
 #include "CityData.hpp"
 #include "GuildData.hpp"
+#include "TeamInfoPanel.hpp"
 
 TeamIcon::TeamIcon(TeamData* teamData)
 {
   p_teamData = teamData;
+  p_teamInfoPanel = nullptr;
   p_teamIconButton = nullptr;
   p_parent = nullptr;
 }
@@ -54,6 +56,42 @@ void TeamIcon::addTeamToMap(Node* parent)
 void TeamIcon::clickTeam(cocos2d::Ref *pSender)
 {
   CCLOG("CLICK");
+  if (p_teamInfoPanel == nullptr) {
+    p_teamInfoPanel = new TeamInfoPanel(p_teamData);
+  } else {
+    p_teamInfoPanel->refresh();
+  }
+  
+  auto teamPanel = p_teamInfoPanel->getPanel();
+  auto position = p_teamIconButton->getPosition();
+  auto size = p_teamIconButton->getContentSize();
+  auto scale = p_teamIconButton->getScale();
+  teamPanel->setScale(1.0 / p_parent->getScale());
+  
+  auto cityNormalizedPosition = p_teamIconButton->getNormalizedPosition();
+  float x, y;
+  float anchorX, anchorY;
+  if (cityNormalizedPosition.x <= 0.5) {
+    // show in right side
+    x = position.x + size.width / 2 * scale;
+    anchorX = 0;
+  } else {
+    // show in left side
+    x = position.x - size.width / 2 * scale;
+    anchorX = 1;
+  }
+  if (cityNormalizedPosition.y <= 0.5) {
+    // show in up side
+    y = position.y + size.height / 2 * scale;
+    anchorY = 0;
+  } else {
+    // show in left side
+    y = position.y - size.height / 2 * scale;
+    anchorY = 1;
+  }
+  teamPanel->setAnchorPoint(Vec2(anchorX, anchorY));
+  teamPanel->setPosition(Vec2(x, y));
+  p_parent->addChild(teamPanel);
 }
 
 TeamIcon* TeamIcon::createTeamIconWithTeamData(TeamData* teamData)

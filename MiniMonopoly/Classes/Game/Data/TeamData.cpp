@@ -7,11 +7,31 @@
 
 #include "TeamData.hpp"
 #include "GuildData.hpp"
+#include "CityData.hpp"
+
+TeamGoodsData::TeamGoodsData(CityGoodsData* cityGoodData, int number)
+{
+  p_num = number;
+  p_level = cityGoodData->getLevel();
+  p_price = cityGoodData->getPrice();
+  p_goodsData = cityGoodData->getGoodsData();
+  p_fromCity = cityGoodData->getCity();
+}
 
 TeamData::TeamData(GuildData* guildData)
 {
   p_guildData = guildData;
   p_currentCity = nullptr;
+  p_maxCapacity = 10;
+}
+
+int TeamData::getCurrentLoads() const
+{
+  int load = 0;
+  for (auto goods : p_goodsList) {
+    load += goods->getNum();
+  }
+  return load;
 }
 
 TeamData* TeamData::createTeam(GuildData* guildData, CityData* cityData)

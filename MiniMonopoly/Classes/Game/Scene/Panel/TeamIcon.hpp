@@ -13,17 +13,18 @@
 
 USING_NS_CC;
 
+class TeamInfoPanel;
+
 class TeamIcon
 {
 private:
   // Data
   TeamData* p_teamData;
-//  CityInfoPanel* p_cityInfoData;
+  TeamInfoPanel* p_teamInfoPanel;
   
   // Sprite
   Node* p_parent;
   MenuItemImage* p_teamIconButton;
-//  Node* p_cityInfoPanel;
   
   void clickTeam(cocos2d::Ref* pSender);
 public:
