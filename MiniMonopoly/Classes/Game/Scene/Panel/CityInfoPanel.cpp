@@ -122,7 +122,6 @@ void CityInfoPanel::clickCreateTeam(cocos2d::Ref* pSender)
     auto teamData = TeamData::createTeam(myGuild, p_cityData);
     auto scene = GameScene::getGameScene();
     scene->addTeamOnMap(teamData);
-    scene->updateMyGuildMoney();
     refresh();
   }
 }

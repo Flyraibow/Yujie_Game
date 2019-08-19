@@ -47,6 +47,7 @@ public:
   int getLevel() const {return p_level;};
   int getMaxNum() const {return p_maxNum;};
   int getCurrNum() const {return p_currentNum;};
+  void removeNum(int num) {p_currentNum -= num;};
   double getProduceSpeed() const {return p_produceSpeed;};
   
   string getName() const {return p_goodsData->getName();};

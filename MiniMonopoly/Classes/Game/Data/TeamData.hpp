@@ -23,11 +23,17 @@ private:
   const GoodsData *p_goodsData;
   int p_level;
   int p_num;
-  int p_price;
+  int p_buyPrice;
   CityData* p_fromCity;
 public:
   TeamGoodsData(CityGoodsData* cityGoodData, int number);
+  string getName() const;
   int getNum() const {return p_num;};
+  int getLevel() const {return p_level;};
+  int getBuyPrice() const {return p_buyPrice;};
+  int getSellPrice(const CityData* cityData) const;
+  void setNum(int num) {p_num = num;};
+  const GoodsData* getGoodsData() const {return p_goodsData;};
 };
 
 class TeamData
@@ -52,6 +58,8 @@ public:
   string getName() const {return p_teamName;};
   vector<TeamGoodsData *> getGoodsList() const {return p_goodsList;};
   int getCurrentLoads() const;
+  void sellGoodsInCity(const unordered_map<TeamGoodsData *, int> &sellGoodsDict, CityData* cityData);
+  void buyGoodsInCity(const unordered_map<CityGoodsData *, int> &buyGoodsDict, CityData* cityData);
   
   static TeamData* createTeam(GuildData* guildData, CityData* cityData);
   static int getCreatTeamPrice(GuildData* guildData);

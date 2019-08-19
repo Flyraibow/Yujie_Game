@@ -9,6 +9,7 @@
       "goods_id" : "goods_1",
       "level" : 1,
       "maximum" : 10,
+      "currnum" : 5,
       "produce_speed" : 1.0
     },
     {

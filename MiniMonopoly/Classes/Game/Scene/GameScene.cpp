@@ -52,6 +52,7 @@ bool GameScene::initWithLevelId(const std::string &levelId)
   p_myGuildMoney->setAnchorPoint(Vec2(1, 1));
   p_myGuildMoney->setNormalizedPosition(Vec2(1, 1));
   this->addChild(p_myGuildMoney);
+  p_gameManager->getLevelData()->getMyGuild()->addMoneyChangeCallback("game_scene_update", CC_CALLBACK_0(GameScene::updateMyGuildMoney, this));
   
   static const string SYSTEM_ICON_PATH = "res/Graph/Icon/systemIcon.png";
   auto sIcon = MenuItemImage::create(SYSTEM_ICON_PATH, SYSTEM_ICON_PATH);

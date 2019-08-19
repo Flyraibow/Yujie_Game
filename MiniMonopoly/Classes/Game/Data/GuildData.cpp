@@ -9,6 +9,7 @@
 #include "JsonUtils.hpp"
 #include "JSONContent.hpp"
 #include "JsonUtils+cocos2d.hpp"
+#include "ObserverManager.h"
 
 GuildData::GuildData(const string &id)
 {
@@ -28,4 +29,26 @@ GuildData* GuildData::loadGuildDataWithOverrideJson(const nlohmann::json &guildJ
   guildData->setMoney(JsonUtils::getIntFromJson(guildJson, "money"));
   guildData->setIsPlayer(JsonUtils::getBoolFromJson(guildJson, "is_player"));
   return guildData;
+}
+
+
+void GuildData::setMoney(int money) {
+  p_money = money;
+  for (auto callbackPair : p_moneyChangeCallbacks) {
+    auto callback = callbackPair.second;
+    callback();
+  }
+}
+
+
+void GuildData::addMoneyChangeCallback(const string& key, mmGuildMoneyChangeCallback callback)
+{
+  if (p_moneyChangeCallbacks.count(key) == 0) {
+    p_moneyChangeCallbacks[key] = callback;
+  }
+}
+
+void GuildData::removeMoneyChangeCallback(const string& key)
+{
+  p_moneyChangeCallbacks.erase(key);
 }

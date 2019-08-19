@@ -55,6 +55,10 @@
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
 		EC25F43422EFE1F20087013C /* CityInfoPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC25F43222EFE1F20087013C /* CityInfoPanel.cpp */; };
 		EC25F43522EFE1F20087013C /* CityInfoPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC25F43222EFE1F20087013C /* CityInfoPanel.cpp */; };
+		EC739AB2230A1A1A0016742F /* ObserverManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC739AAF230A1A1A0016742F /* ObserverManager.cpp */; };
+		EC739AB3230A1A1A0016742F /* ObserverManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC739AAF230A1A1A0016742F /* ObserverManager.cpp */; };
+		EC739AB4230A1A1A0016742F /* BaseObserverProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC739AB0230A1A1A0016742F /* BaseObserverProtocol.cpp */; };
+		EC739AB5230A1A1A0016742F /* BaseObserverProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC739AB0230A1A1A0016742F /* BaseObserverProtocol.cpp */; };
 		EC915FBA22F12C9B003D4ACA /* CityIcon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC915FB822F12C9B003D4ACA /* CityIcon.cpp */; };
 		EC915FBB22F12C9B003D4ACA /* CityIcon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC915FB822F12C9B003D4ACA /* CityIcon.cpp */; };
 		EC915FC022F28754003D4ACA /* QuickAlert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC915FBE22F28754003D4ACA /* QuickAlert.cpp */; };
@@ -189,6 +193,11 @@
 		EC25F43222EFE1F20087013C /* CityInfoPanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CityInfoPanel.cpp; sourceTree = "<group>"; };
 		EC25F43322EFE1F20087013C /* CityInfoPanel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CityInfoPanel.hpp; sourceTree = "<group>"; };
 		EC25F43722EFECCF0087013C /* SceneConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneConstants.h; sourceTree = "<group>"; };
+		EC739AAD230A1A1A0016742F /* ObserverManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObserverManager.h; path = ObserverManager/ObserverManager.h; sourceTree = "<group>"; };
+		EC739AAE230A1A1A0016742F /* BaseObserverProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseObserverProtocol.h; path = ObserverManager/BaseObserverProtocol.h; sourceTree = "<group>"; };
+		EC739AAF230A1A1A0016742F /* ObserverManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ObserverManager.cpp; path = ObserverManager/ObserverManager.cpp; sourceTree = "<group>"; };
+		EC739AB0230A1A1A0016742F /* BaseObserverProtocol.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseObserverProtocol.cpp; path = ObserverManager/BaseObserverProtocol.cpp; sourceTree = "<group>"; };
+		EC739AB1230A1A1A0016742F /* ObserverContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObserverContainer.h; path = ObserverManager/ObserverContainer.h; sourceTree = "<group>"; };
 		EC915FB822F12C9B003D4ACA /* CityIcon.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CityIcon.cpp; sourceTree = "<group>"; };
 		EC915FB922F12C9B003D4ACA /* CityIcon.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CityIcon.hpp; sourceTree = "<group>"; };
 		EC915FBE22F28754003D4ACA /* QuickAlert.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = QuickAlert.cpp; sourceTree = "<group>"; };
@@ -424,6 +433,18 @@
 			path = Panel;
 			sourceTree = "<group>";
 		};
+		EC739AAC230A1A0D0016742F /* ObserverManager */ = {
+			isa = PBXGroup;
+			children = (
+				EC739AB0230A1A1A0016742F /* BaseObserverProtocol.cpp */,
+				EC739AAE230A1A1A0016742F /* BaseObserverProtocol.h */,
+				EC739AB1230A1A1A0016742F /* ObserverContainer.h */,
+				EC739AAF230A1A1A0016742F /* ObserverManager.cpp */,
+				EC739AAD230A1A1A0016742F /* ObserverManager.h */,
+			);
+			name = ObserverManager;
+			sourceTree = "<group>";
+		};
 		EC915FBD22F2873A003D4ACA /* Alert */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,6 +514,7 @@
 		ECA448A722E3E98E00EA41FC /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				EC739AAC230A1A0D0016742F /* ObserverManager */,
 				EC91E52D22ED423D00386F92 /* UI */,
 				ECA448A822E3E9F100EA41FC /* JSONData */,
 			);
@@ -675,6 +697,7 @@
 			files = (
 				ECA448D522E3FC6400EA41FC /* LevelData.cpp in Sources */,
 				EC91E53522EE744A00386F92 /* SystemScene.cpp in Sources */,
+				EC739AB4230A1A1A0016742F /* BaseObserverProtocol.cpp in Sources */,
 				EC91E53022ED42D200386F92 /* BaseLabel.cpp in Sources */,
 				ECA448C522E3FC1700EA41FC /* CityData.cpp in Sources */,
 				1AF87B781F6F77F7007BE51C /* AppController.mm in Sources */,
@@ -690,6 +713,7 @@
 				EC91E52B22ED38F000386F92 /* LevelManager.cpp in Sources */,
 				EC915FC822F38D42003D4ACA /* TeamInfoPanel.cpp in Sources */,
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
+				EC739AB2230A1A1A0016742F /* ObserverManager.cpp in Sources */,
 				EC915FC422F298EE003D4ACA /* TeamIcon.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				ECA448CD22E3FC3900EA41FC /* GuildData.cpp in Sources */,
@@ -718,6 +742,7 @@
 				ECA448C222E3FBE400EA41FC /* GameManager.cpp in Sources */,
 				ECA448BD22E3FB6100EA41FC /* PlayerManager.cpp in Sources */,
 				ECA448CA22E3FC2B00EA41FC /* GoodsData.cpp in Sources */,
+				EC739AB5230A1A1A0016742F /* BaseObserverProtocol.cpp in Sources */,
 				EC915FBB22F12C9B003D4ACA /* CityIcon.cpp in Sources */,
 				ECA448B222E3EA1F00EA41FC /* JSONContent.cpp in Sources */,
 				ECA4489C22E3CCEB00EA41FC /* MenuScene.cpp in Sources */,
@@ -729,6 +754,7 @@
 				ECA448B422E3EA1F00EA41FC /* JsonUtils.cpp in Sources */,
 				EC91E53622EE744A00386F92 /* SystemScene.cpp in Sources */,
 				EC91E52C22ED38F000386F92 /* LevelManager.cpp in Sources */,
+				EC739AB3230A1A1A0016742F /* ObserverManager.cpp in Sources */,
 				ECA448A422E3CDEF00EA41FC /* GameScene.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				ECA448CE22E3FC3900EA41FC /* GuildData.cpp in Sources */,

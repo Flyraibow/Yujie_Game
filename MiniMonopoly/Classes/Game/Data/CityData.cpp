@@ -17,8 +17,8 @@ CityGoodsData::CityGoodsData(const nlohmann::json &cityGoodsJson)
   p_goodsData = new GoodsData(goodsId);
   p_level = JsonUtils::getIntFromJson(cityGoodsJson, "level");
   p_maxNum = JsonUtils::getIntFromJson(cityGoodsJson, "maximum");
+  p_currentNum = JsonUtils::getIntFromJson(cityGoodsJson, "currnum");
   p_produceSpeed = JsonUtils::getDoubleFromJson(cityGoodsJson, "produce_speed");
-  p_currentNum = 0;
 }
 
 CityGoodsData::~CityGoodsData()
