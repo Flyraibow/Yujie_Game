@@ -13,22 +13,6 @@
 
 #include "SceneConstants.h"
 
-
-//string getGoodsText(const GoodsData* goodsData,  int level, int price, int num)
-//{
-//  return goodsData->getName() + "(lv" + to_string(level) + ")   $" + to_string(price) + "  × " + to_string(num);
-//}
-//
-//string getGoodsText(CityGoodsData* cityGoodsData, int num)
-//{
-//  return getGoodsText(cityGoodsData->getGoodsData(), cityGoodsData->getLevel(), cityGoodsData->getPrice(), num);
-//}
-//
-//string getGoodsText(TeamGoodsData* teamGoodsData, int num)
-//{
-//  return getGoodsText(teamGoodsData->getGoodsData(), teamGoodsData->getLevel(), num);
-//}
-
 static const float TRADE_PANEL_WIDTH = 1000;
 static const float TRADE_PANEL_HEIGHT = 650;
 static const float PANEL_HEIGHT = 500;
@@ -83,6 +67,11 @@ TradePanel::TradePanel(TeamData* teamData)
   
   p_menu = Menu::create();
   p_menu->setPosition(Vec2::ZERO);
+  
+  p_finalMoney = Label::createWithSystemFont("", SYSTEM_FONT, 25);
+  p_finalMoney->setAnchorPoint(Vec2(1, 1));
+  p_finalMoney->setNormalizedPosition(Vec2(0.99, 0.12));
+  p_panel->addChild(p_finalMoney);
   
   // Add title
   addCityGoodsTitle(p_buyPanel);
@@ -158,7 +147,7 @@ void TradePanel::addCityGoodsTitle(Node* sprite)
       goodsPriceLabel->setNormalizedPosition(Vec2(0.8, top));
       sprite->addChild(goodsPriceLabel);
       
-      auto buy1Label = Label::createWithSystemFont("1", SYSTEM_FONT, 22);
+      auto buy1Label = Label::createWithSystemFont("+", SYSTEM_FONT, 22);
       auto buy1Button = MenuItemLabel::create(buy1Label, [goods, this](cocos2d::Ref* pSender){
         auto willBuyNum = p_willBuyDict.count(goods) ? p_willBuyDict.at(goods) : 0;
         willBuyNum += 1;
@@ -167,6 +156,15 @@ void TradePanel::addCityGoodsTitle(Node* sprite)
       buy1Button->setAnchorPoint(Vec2(1, 1));
       buy1Button->setNormalizedPosition(Vec2(0.9, top));
       menu->addChild(buy1Button);
+      
+      auto buyAllLabel = Label::createWithSystemFont("All", SYSTEM_FONT, 22);
+      auto buyAllButton = MenuItemLabel::create(buyAllLabel, [goods, this](cocos2d::Ref* pSender){
+        auto willBuyNum = goods->getCurrNum();
+        this->willBuyGoods(goods, willBuyNum);
+      });
+      buyAllButton->setAnchorPoint(Vec2(1, 1));
+      buyAllButton->setNormalizedPosition(Vec2(0.99, top));
+      menu->addChild(buyAllButton);
       
       top -= 0.1;
     }
@@ -182,16 +180,21 @@ void TradePanel::addTeamGoodsTitle(Node* sprite)
   
   auto levelName = Label::createWithSystemFont("Lv", SYSTEM_FONT, 25);
   levelName->setAnchorPoint(Vec2(1, 1));
-  levelName->setNormalizedPosition(Vec2(0.5, 0.99));
+  levelName->setNormalizedPosition(Vec2(0.4, 0.99));
   sprite->addChild(levelName);
   
   auto countName = Label::createWithSystemFont("数量", SYSTEM_FONT, 25);
   countName->setAnchorPoint(Vec2(1, 1));
-  countName->setNormalizedPosition(Vec2(0.65, 0.99));
+  countName->setNormalizedPosition(Vec2(0.55, 0.99));
   sprite->addChild(countName);
   
+  auto buyPriceName = Label::createWithSystemFont("进价", SYSTEM_FONT, 25);
+  buyPriceName->setNormalizedPosition(Vec2(0.7, 0.99));
+  buyPriceName->setAnchorPoint(Vec2(1, 1));
+  sprite->addChild(buyPriceName);
+  
   auto priceName = Label::createWithSystemFont("售价", SYSTEM_FONT, 25);
-  priceName->setNormalizedPosition(Vec2(0.8, 0.99));
+  priceName->setNormalizedPosition(Vec2(0.85, 0.99));
   priceName->setAnchorPoint(Vec2(1, 1));
   sprite->addChild(priceName);
   
@@ -216,22 +219,27 @@ void TradePanel::addTeamGoodsTitle(Node* sprite)
       
       auto goodsLvLabel = Label::createWithSystemFont(to_string(goods->getLevel()), SYSTEM_FONT, 22);
       goodsLvLabel->setAnchorPoint(Vec2(1, 1));
-      goodsLvLabel->setNormalizedPosition(Vec2(0.5, top));
+      goodsLvLabel->setNormalizedPosition(Vec2(0.4, top));
       sprite->addChild(goodsLvLabel);
       
       auto numberStr = to_string(goods->getNum());
       auto goodsCountLabel = Label::createWithSystemFont(numberStr, SYSTEM_FONT, 22);
       goodsCountLabel->setAnchorPoint(Vec2(1, 1));
-      goodsCountLabel->setNormalizedPosition(Vec2(0.65, top));
+      goodsCountLabel->setNormalizedPosition(Vec2(0.55, top));
       sprite->addChild(goodsCountLabel);
+      
+      auto goodsBuyPriceLabel = Label::createWithSystemFont(to_string(goods->getBuyPrice()), SYSTEM_FONT, 22);
+      goodsBuyPriceLabel->setAnchorPoint(Vec2(1, 1));
+      goodsBuyPriceLabel->setNormalizedPosition(Vec2(0.7, top));
+      sprite->addChild(goodsBuyPriceLabel);
       
       auto getSellPrice = goods->getSellPrice(p_cityData);
       auto goodsPriceLabel = Label::createWithSystemFont(to_string(getSellPrice), SYSTEM_FONT, 22);
       goodsPriceLabel->setAnchorPoint(Vec2(1, 1));
-      goodsPriceLabel->setNormalizedPosition(Vec2(0.8, top));
+      goodsPriceLabel->setNormalizedPosition(Vec2(0.85, top));
       sprite->addChild(goodsPriceLabel);
       
-      auto sell1Label = Label::createWithSystemFont("1", SYSTEM_FONT, 22);
+      auto sell1Label = Label::createWithSystemFont("+", SYSTEM_FONT, 22);
       auto sell1Button = MenuItemLabel::create(sell1Label, [goods, this](cocos2d::Ref* pSender){
         auto willBuyNum = p_willSellDict.count(goods) ? p_willSellDict.at(goods) : 0;
         willBuyNum += 1;
@@ -240,6 +248,15 @@ void TradePanel::addTeamGoodsTitle(Node* sprite)
       sell1Button->setAnchorPoint(Vec2(1, 1));
       sell1Button->setNormalizedPosition(Vec2(0.9, top));
       menu->addChild(sell1Button);
+      
+      auto sellAllLabel = Label::createWithSystemFont("All", SYSTEM_FONT, 22);
+      auto sellAllButton = MenuItemLabel::create(sellAllLabel, [goods, this](cocos2d::Ref* pSender){
+        auto willBuyNum = goods->getNum();
+        this->willSellGoods(goods, willBuyNum);
+      });
+      sellAllButton->setAnchorPoint(Vec2(1, 1));
+      sellAllButton->setNormalizedPosition(Vec2(0.99, top));
+      menu->addChild(sellAllButton);
       
       top -= 0.1;
     }
@@ -294,34 +311,38 @@ void TradePanel::refreshWillBuyPanel()
   for (auto willBuyGoodsPair : p_willBuyDict) {
     auto goods = willBuyGoodsPair.first;
     auto count = willBuyGoodsPair.second;
-    auto goodsNameLabel = Label::createWithSystemFont(goods->getName(), SYSTEM_FONT, 22);
+    auto nameAndLevel = goods->getName() + "(Lv" + to_string(goods->getLevel()) + ")";
+    auto goodsNameLabel = Label::createWithSystemFont(nameAndLevel, SYSTEM_FONT, 22);
     goodsNameLabel->setAnchorPoint(Vec2(0, 0));
     goodsNameLabel->setNormalizedPosition(Vec2(0.01, bottom));
     p_willBuyPanel->addChild(goodsNameLabel);
     
-    auto goodsLvLabel = Label::createWithSystemFont(to_string(goods->getLevel()), SYSTEM_FONT, 22);
-    goodsLvLabel->setAnchorPoint(Vec2(1, 0));
-    goodsLvLabel->setNormalizedPosition(Vec2(0.5, bottom));
-    p_willBuyPanel->addChild(goodsLvLabel);
-    
-    auto numberStr = to_string(count);
+    auto numberStr =  "× " + to_string(count);
     auto goodsCountLabel = Label::createWithSystemFont(numberStr, SYSTEM_FONT, 22);
     goodsCountLabel->setAnchorPoint(Vec2(1, 0));
-    goodsCountLabel->setNormalizedPosition(Vec2(0.65, bottom));
+    goodsCountLabel->setNormalizedPosition(Vec2(0.5, bottom));
     p_willBuyPanel->addChild(goodsCountLabel);
     
-    auto goodsPriceLabel = Label::createWithSystemFont(to_string(goods->getPrice()), SYSTEM_FONT, 22);
+    auto goodsPriceLabel = Label::createWithSystemFont("= " + to_string( count * goods->getPrice()), SYSTEM_FONT, 22);
     goodsPriceLabel->setAnchorPoint(Vec2(1, 0));
-    goodsPriceLabel->setNormalizedPosition(Vec2(0.8, bottom));
+    goodsPriceLabel->setNormalizedPosition(Vec2(0.65, bottom));
     p_willBuyPanel->addChild(goodsPriceLabel);
     
-    auto buy1Label = Label::createWithSystemFont("取消", SYSTEM_FONT, 22);
-    auto buy1Button = MenuItemLabel::create(buy1Label, [goods, this](cocos2d::Ref* pSender){
+    auto cancel1Label = Label::createWithSystemFont("-", SYSTEM_FONT, 22);
+    auto cancel1Button = MenuItemLabel::create(cancel1Label, [goods, count, this](cocos2d::Ref* pSender){
+      this->willBuyGoods(goods, count - 1);
+    });
+    cancel1Button->setAnchorPoint(Vec2(1, 0));
+    cancel1Button->setNormalizedPosition(Vec2(0.92, bottom));
+    menu->addChild(cancel1Button);
+    
+    auto cancelLabel = Label::createWithSystemFont("×", SYSTEM_FONT, 22);
+    auto cancelButton = MenuItemLabel::create(cancelLabel, [goods, this](cocos2d::Ref* pSender){
       this->willBuyGoods(goods, 0);
     });
-    buy1Button->setAnchorPoint(Vec2(1, 0));
-    buy1Button->setNormalizedPosition(Vec2(0.99, bottom));
-    menu->addChild(buy1Button);
+    cancelButton->setAnchorPoint(Vec2(1, 0));
+    cancelButton->setNormalizedPosition(Vec2(0.99, bottom));
+    menu->addChild(cancelButton);
     
     bottom += 0.08;
     totalMoney += goods->getPrice() * count;
@@ -332,10 +353,11 @@ void TradePanel::refreshWillBuyPanel()
   buyTotalLabel->setNormalizedPosition(Vec2(0.01, 0.01));
   p_willBuyPanel->addChild(buyTotalLabel);
   
-  auto totalLabel = Label::createWithSystemFont(to_string(totalMoney), SYSTEM_FONT, 22);
+  auto totalLabel = Label::createWithSystemFont("$" + to_string(totalMoney), SYSTEM_FONT, 22);
   totalLabel->setAnchorPoint(Vec2(1, 0));
-  totalLabel->setNormalizedPosition(Vec2(0.8, 0.01));
+  totalLabel->setNormalizedPosition(Vec2(0.99, 0.01));
   p_willBuyPanel->addChild(totalLabel);
+  refreshFinalMoney();
 }
 
 void TradePanel::willSellGoods(TeamGoodsData* teamGoodsData, int num)
@@ -379,35 +401,41 @@ void TradePanel::refreshWillSellPanel()
   for (auto willSellGoodsPair : p_willSellDict) {
     auto goods = willSellGoodsPair.first;
     auto count = willSellGoodsPair.second;
-    auto goodsNameLabel = Label::createWithSystemFont(goods->getName(), SYSTEM_FONT, 22);
+    
+    auto nameAndLevel = goods->getName() + "(Lv" + to_string(goods->getLevel()) + ")";
+    auto goodsNameLabel = Label::createWithSystemFont(nameAndLevel, SYSTEM_FONT, 22);
     goodsNameLabel->setAnchorPoint(Vec2(0, 0));
     goodsNameLabel->setNormalizedPosition(Vec2(0.01, bottom));
     p_willSellPanel->addChild(goodsNameLabel);
     
-    auto goodsLvLabel = Label::createWithSystemFont(to_string(goods->getLevel()), SYSTEM_FONT, 22);
-    goodsLvLabel->setAnchorPoint(Vec2(1, 0));
-    goodsLvLabel->setNormalizedPosition(Vec2(0.5, bottom));
-    p_willSellPanel->addChild(goodsLvLabel);
-    
-    auto numberStr = to_string(count);
+    auto numberStr =  "× " + to_string(count);
     auto goodsCountLabel = Label::createWithSystemFont(numberStr, SYSTEM_FONT, 22);
     goodsCountLabel->setAnchorPoint(Vec2(1, 0));
-    goodsCountLabel->setNormalizedPosition(Vec2(0.65, bottom));
+    goodsCountLabel->setNormalizedPosition(Vec2(0.5, bottom));
     p_willSellPanel->addChild(goodsCountLabel);
     
     auto getSellPrice = goods->getSellPrice(p_cityData);
-    auto goodsPriceLabel = Label::createWithSystemFont(to_string(getSellPrice), SYSTEM_FONT, 22);
+    auto goodsPriceLabel = Label::createWithSystemFont("= " + to_string(getSellPrice * count), SYSTEM_FONT, 22);
     goodsPriceLabel->setAnchorPoint(Vec2(1, 0));
-    goodsPriceLabel->setNormalizedPosition(Vec2(0.8, bottom));
+    goodsPriceLabel->setNormalizedPosition(Vec2(0.65, bottom));
     p_willSellPanel->addChild(goodsPriceLabel);
     
-    auto sell1Label = Label::createWithSystemFont("取消", SYSTEM_FONT, 22);
-    auto sell1Button = MenuItemLabel::create(sell1Label, [goods, this](cocos2d::Ref* pSender){
+    
+    auto cancel1Label = Label::createWithSystemFont("-", SYSTEM_FONT, 22);
+    auto cancel1Button = MenuItemLabel::create(cancel1Label, [goods, count, this](cocos2d::Ref* pSender){
+      this->willSellGoods(goods, count - 1);
+    });
+    cancel1Button->setAnchorPoint(Vec2(1, 0));
+    cancel1Button->setNormalizedPosition(Vec2(0.92, bottom));
+    menu->addChild(cancel1Button);
+    
+    auto cancelAllLabel = Label::createWithSystemFont("×", SYSTEM_FONT, 22);
+    auto cancelAllButton = MenuItemLabel::create(cancelAllLabel, [goods, this](cocos2d::Ref* pSender){
       this->willSellGoods(goods, 0);
     });
-    sell1Button->setAnchorPoint(Vec2(1, 0));
-    sell1Button->setNormalizedPosition(Vec2(0.99, bottom));
-    menu->addChild(sell1Button);
+    cancelAllButton->setAnchorPoint(Vec2(1, 0));
+    cancelAllButton->setNormalizedPosition(Vec2(0.99, bottom));
+    menu->addChild(cancelAllButton);
     
     bottom += 0.08;
     totalMoney += getSellPrice * count;
@@ -418,10 +446,28 @@ void TradePanel::refreshWillSellPanel()
   sellTotalLabel->setNormalizedPosition(Vec2(0.01, 0.01));
   p_willSellPanel->addChild(sellTotalLabel);
   
-  auto totalLabel = Label::createWithSystemFont(to_string(totalMoney), SYSTEM_FONT, 22);
+  auto totalLabel = Label::createWithSystemFont("$" +to_string(totalMoney), SYSTEM_FONT, 22);
   totalLabel->setAnchorPoint(Vec2(1, 0));
-  totalLabel->setNormalizedPosition(Vec2(0.8, 0.01));
+  totalLabel->setNormalizedPosition(Vec2(0.99, 0.01));
   p_willSellPanel->addChild(totalLabel);
+  refreshFinalMoney();
+}
+
+
+void TradePanel::refreshFinalMoney()
+{
+  auto money = p_teamData->getGuild()->getMoney();
+  for (auto willSellGoodsPair : p_willSellDict) {
+    auto goods = willSellGoodsPair.first;
+    auto count = willSellGoodsPair.second;
+    money += goods->getSellPrice(p_cityData) * count;
+  }
+  for (auto willBuyGoodsPair : p_willBuyDict) {
+    auto goods = willBuyGoodsPair.first;
+    auto count = willBuyGoodsPair.second;
+    money -= goods->getPrice() * count;
+  }
+  p_finalMoney->setString("结算：$" + to_string(money));
 }
 
 

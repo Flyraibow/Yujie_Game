@@ -1,0 +1,854 @@
+{
+  "events" : [
+    {
+      "age" : 0.1,
+      "distance" : 0.5,
+      "text" : "You come to this world with nothing.",
+      "height" : 0.7
+    },
+    {
+      "age" : 0.1,
+      "distance" : 0.7,
+      "text" : "But you have a families.",
+      "height" : 0.6
+    },
+    {
+      "name" : "event_3",
+      "age" : 0.9,
+      "distance" : 0.5,
+      "condition" : [
+      ],
+      "text" : "And you have ages now.",
+      "height" : 0.5
+    },
+    {
+      "age" : 1,
+      "distance" : 0.5,
+      "text" : "You get food and cloth. You feel",
+      "force" : true,
+      "options" : [
+        {
+          "text" : "thankful and safe (tap here)",
+          "values" : [
+            {
+              "type" : "health",
+              "instant" : false,
+              "value" : 1,
+              "length" : 18
+            }
+          ]
+        }
+      ],
+      "height" : 0.7
+    },
+    {
+      "name" : "event_5",
+      "age" : 1.5,
+      "distance" : 0.5,
+      "text" : "You start to learn more about this world.",
+      "force" : true,
+      "options" : [
+        {
+          "text" : "confirm (tap here).",
+          "values" : [
+            {
+              "type" : "knowledge",
+              "instant" : false,
+              "value" : 2,
+              "length" : 18
+            }
+          ]
+        }
+      ],
+      "height" : 0.6
+    },
+    {
+      "name" : "event_6",
+      "age" : 1.8,
+      "distance" : 0.5,
+      "force" : true,
+      "text" : "You can express yourself now.",
+      "options" : [
+        {
+          "text" : "ask for food (tap here).",
+          "values" : [
+            {
+              "type" : "health",
+              "instant" : true,
+              "value" : 5
+            }
+          ]
+        }
+      ],
+      "height" : 0.5
+    },
+    {
+      "age" : 2.2,
+      "distance" : 0.5,
+      "force" : true,
+      "text" : "Sometimes you get hurt.",
+      "options" : [
+        {
+          "text" : "confirm (tap here).",
+          "values" : [
+            {
+              "type" : "health",
+              "instant" : true,
+              "value" : -3
+            }
+          ]
+        }
+      ],
+      "height" : 0.65
+    },
+    {
+      "age" : 2.7,
+      "distance" : 0.5,
+      "force" : true,
+      "text" : "But there always someone cares about you",
+      "options" : [
+        {
+          "text" : "confirm (tap here).",
+          "values" : [
+            {
+              "type" : "health",
+              "instant" : false,
+              "value" : 3,
+              "length" : 1
+            }
+          ]
+        }
+      ],
+      "height" : 0.6
+    },
+    {
+      "age" : 3.5,
+      "distance" : 0.5,
+      "text" : "You are now able to express your needs,",
+      "options" : [
+        {
+          "text" : "I love sports!",
+          "values" : [
+            {
+              "type" : "strength",
+              "instant" : false,
+              "value" : 3,
+              "length" : 3
+            }
+          ]
+        },
+        {
+          "text" : "I love reading",
+          "values" : [
+            {
+              "type" : "knowledge",
+              "instant" : false,
+              "value" : 3,
+              "length" : 3
+            }
+          ]
+        }
+      ],
+      "height" : 0.7
+    },
+    {
+      "age" : 4.2,
+      "distance" : 0.5,
+      "text" : "You don't always have time to make a careful decision.",
+      "height" : 0.5
+    },
+    {
+      "age" : 5,
+      "distance" : 0.5,
+      "text" : "Your relatives love asking you questions, e.g. 5 + 3 * 2 = ?",
+      "options" : [
+        {
+          "text" : "8",
+          "values" : [
+            {
+              "type" : "knowledge",
+              "instant" : true,
+              "value" : -1
+            }
+          ]
+        },
+        {
+          "text" : "11",
+          "values" : [
+            {
+              "type" : "knowledge",
+              "instant" : true,
+              "value" : 1
+            }
+          ]
+        },
+        {
+          "text" : "16",
+          "values" : [
+            {
+              "type" : "knowledge",
+              "instant" : true,
+              "value" : -1
+            }
+          ]
+        }
+      ],
+      "height" : 0.6
+    },
+    {
+      "age" : 5.5,
+      "distance" : 0.5,
+      "force" : true,
+      "text" : "You are making friends.",
+      "options" : [
+        {
+          "text" : "confirm",
+          "values" : [
+            {
+              "type" : "friendship",
+              "instant" : false,
+              "value" : 2,
+              "length" : 10
+            }
+          ]
+        }
+      ],
+      "height" : 0.6
+    },
+    {
+      "age" : 5.5,
+      "distance" : 0.5,
+      "force" : true,
+      "text" : "Sometimes you feel hard to make decision between friends.",
+      "height" : 0.65
+    },
+    {
+      "age" : 7,
+      "distance" : 0.5,
+      "force" : true,
+      "text" : "Some friends invite you to play sports.",
+      "options" : [
+        {
+          "text" : "I don't wanna play.",
+          "values" : [
+            {
+              "type" : "friendship",
+              "instant" : true,
+              "value" : -1
+            },
+            {
+              "type" : "friendship",
+              "instant" : false,
+              "value" : -0.5,
+              "length" : 3
+            }
+          ]
+        },
+        {
+          "text" : "I love it!",
+          "values" : [
+            {
+              "type" : "friendship",
+              "instant" : true,
+              "value" : 1
+            },
+            {
+              "type" : "friendship",
+              "instant" : false,
+              "value" : 0.5,
+              "length" : 3
+            },
+            {
+              "type" : "strength",
+              "instant" : false,
+              "value" : 1,
+              "length" : 3
+            },
+            {
+              "type" : "knowledge",
+              "instant" : false,
+              "value" : -0.5,
+              "length" : 3
+            }
+          ]
+        }
+      ],
+      "height" : 0.7
+    },
+    {
+      "age" : 7,
+      "distance" : 0.5,
+      "force" : true,
+      "text" : "Some friends invite you to study together",
+      "options" : [
+        {
+          "text" : "I don't wanna study.",
+          "values" : [
+            {
+              "type" : "friendship",
+              "instant" : true,
+              "value" : -1
+            },
+            {
+              "type" : "friendship",
+              "instant" : false,
+              "value" : -0.5,
+              "length" : 3
+            }
+          ]
+        },
+        {
+          "text" : "I love it!",
+          "values" : [
+            {
+              "type" : "friendship",
+              "instant" : true,
+              "value" : 1
+            },
+            {
+              "type" : "friendship",
+              "instant" : false,
+              "value" : 0.5,
+              "length" : 3
+            },
+            {
+              "type" : "knowledge",
+              "instant" : false,
+              "value" : 1,
+              "length" : 3
+            },
+            {
+              "type" : "strength",
+              "instant" : false,
+              "value" : -0.5,
+              "length" : 3
+            }
+          ]
+        }
+      ],
+      "height" : 0.6
+    },
+    {
+      "age" : 7.5,
+      "distance" : 0.5,
+      "force" : true,
+      "text" : "It is so great to have fun in primary school.",
+      "options" : [
+        {
+          "text" : "confirm",
+          "values" : [
+            {
+              "type" : "strength",
+              "instant" : false,
+              "value" : 2,
+              "length" : 5
+            }
+          ]
+        }
+      ],
+      "height" : 0.65
+    },
+    {
+      "age" : 8,
+      "distance" : 0.5,
+      "force" : true,
+      "text" : "But you also feel discipline.",
+      "options" : [
+        {
+          "text" : "confirm",
+          "values" : [
+            {
+              "type" : "discipline",
+              "instant" : false,
+              "value" : 2,
+              "length" : 12
+            }
+          ]
+        }
+      ],
+      "height" : 0.65
+    },
+    {
+      "age" : 8.5,
+      "distance" : 0.5,
+      "force" : true,
+      "text" : "What do you want to do when you grow up?",
+      "options" : [
+        {
+          "text" : "I haven't thought about it yet."
+        },
+        {
+          "text" : "Teacher",
+          "values" : [
+            {
+              "type" : "knowledge",
+              "instant" : false,
+              "value" : 1,
+              "length": 18
+            },
+            {
+              "type" : "discipline",
+              "instant" : false,
+              "value" : 0.5,
+              "length": 12
+            }
+          ]
+        },
+        {
+          "text" : "Athlete",
+          "values" : [
+            {
+              "type" : "strength",
+              "instant" : false,
+              "value" : 1,
+              "length": 18
+            },
+            {
+              "type" : "discipline",
+              "instant" : false,
+              "value" : 0.5,
+              "length": 12
+            }
+          ]
+        },
+        {
+          "text" : "Artist",
+          "values" : [
+            {
+              "type" : "art",
+              "instant" : false,
+              "value" : 2,
+              "length": 18
+            },
+            {
+              "type" : "discipline",
+              "instant" : false,
+              "value" : -0.5,
+              "length": 12
+            }
+          ]
+        }
+      ],
+      "height" : 0.65
+    },
+    {
+      "age" : 9,
+      "distance" : 0.5,
+      "force" : true,
+      "condition" : [
+        {
+          "type" : "strength",
+          "compare" : ">",
+          "value" : 20
+        }
+      ],
+      "text" : "You got 1st in school sports competition.",
+      "options" : [
+        {
+          "text" : "confirm",
+          "values" : [
+            {
+              "type" : "confidence",
+              "instant" : true,
+              "value" : 5
+            }
+          ]
+        }
+      ],
+      "height" : 0.7
+    },
+    {
+      "age" : 10,
+      "distance" : 0.5,
+      "force" : true,
+      "text" : "You got some pocket money from you parents.",
+      "options" : [
+        {
+          "text" : "confirm",
+          "values" : [
+            {
+              "type" : "money",
+              "instant" : true,
+              "value" : 100
+            }
+          ]
+        }
+      ],
+      "height" : 0.7
+    },
+    {
+      "age" : 11,
+      "distance" : 0.5,
+      "text" : "Sorry, seems I don't have time to complete the game",
+      "height" : 0.6
+    },
+    {
+      "age" : 12,
+      "distance" : 0.5,
+      "text" : "I can continue to tell my thoughs here.",
+      "height" : 0.5
+    },
+    {
+      "age" : 13,
+      "distance" : 0.5,
+      "force" : true,
+      "text" : "You may start to earn money.",
+      "options" : [
+        {
+          "text" : "confirm",
+          "values" : [
+            {
+              "type" : "money",
+              "instant" : false,
+              "value" : 10,
+              "length" : 5
+            }
+          ]
+        }
+      ],
+      "height" : 0.7
+    },
+    {
+      "age" : 14,
+      "distance" : 0.5,
+      "text" : "But you also need spend a lot of money, that's investment.",
+      "options" : [
+        {
+          "text" : "buy a basketball ($100)",
+          "values" : [
+            {
+              "type" : "money",
+              "instant" : true,
+              "value" : -100
+            },
+            {
+              "type" : "strength",
+              "instant" : false,
+              "value" : 3,
+              "length" : 10
+            }
+          ]
+        },
+        {
+          "text" : "buy books ($100)",
+          "values" : [
+            {
+              "type" : "money",
+              "instant" : true,
+              "value" : -100
+            },
+            {
+              "type" : "knowledge",
+              "instant" : false,
+              "value" : 3,
+              "length" : 10
+            }
+          ]
+        }
+      ],
+      "height" : 0.65
+    },
+    {
+      "age" : 15,
+      "distance" : 0.5,
+      "text" : "And you may feel you love someone.",
+      "options" : [
+        {
+          "text" : "confirm",
+          "values" : [
+            {
+              "type" : "love",
+              "instant" : true,
+              "value" : 10
+            },
+            {
+              "type" : "love",
+              "instant" : false,
+              "value" : 2,
+              "length" : 10
+            }
+          ]
+        }
+      ],
+      "height" : 0.5
+    },
+    {
+      "age" : 15.5,
+      "distance" : 0.5,
+      "text" : "There are so many great things happening.",
+      "height" : 0.5
+    },
+    {
+      "age" : 16,
+      "distance" : 0.5,
+      "force": true,
+      "text" : "You are preparing your college application.",
+      "options" : [
+        {
+          "text" : "confirm",
+          "values" : [
+            {
+              "type" : "pressure",
+              "instant" : false,
+              "value" : 10,
+              "length" : 2
+            }
+          ]
+        }
+      ],
+      "height" : 0.6
+    },
+    {
+      "age" : 16.2,
+      "distance" : 0.5,
+      "text" : "You start dating.",
+      "options" : [
+        {
+          "text" : "confirm",
+          "values" : [
+            {
+              "type" : "love",
+              "instant" : false,
+              "value" : 10,
+              "length" : 5
+            }
+          ]
+        }
+      ],
+      "height" : 0.55
+    },
+    {
+      "age" : 16.2,
+      "distance" : 0.5,
+      "text" : "You are traveling",
+      "options" : [
+        {
+          "text" : "confirm",
+          "values" : [
+            {
+              "type" : "knowledge",
+              "instant" : false,
+              "value" : 5,
+              "length" : 5
+            }
+          ]
+        }
+      ],
+      "height" : 0.65
+    },
+    {
+      "age" : 16.4,
+      "distance" : 0.5,
+      "text" : "You read a lot of great books.",
+      "options" : [
+        {
+          "text" : "confirm",
+          "values" : [
+            {
+              "type" : "knowledge",
+              "instant" : false,
+              "value" : 5,
+              "length" : 10
+            }
+          ]
+        }
+      ],
+      "height" : 0.55
+    },
+    {
+      "age" : 17,
+      "distance" : 0.5,
+      "text" : "Sorry I really don't have time now.",
+      "height" : 0.55
+    },
+    {
+      "age" : 17.5,
+      "distance" : 0.5,
+      "text" : "I will summary what will happen next quickly.",
+      "height" : 0.7
+    },
+    {
+      "age" : 18,
+      "distance" : 0.8,
+      "text" : "After you grow up, there would be too many things you have to decide.",
+      "height" : 0.55
+    },
+    {
+      "age" : 19,
+      "distance" : 0.8,
+      "text" : "And there are more factors you may need consider.",
+      "height" : 0.65
+    },
+    {
+      "age" : 20,
+      "distance" : 0.8,
+      "text" : "But the time will never wait, you don't have to think.",
+      "height" : 0.5
+    },
+    {
+      "age" : 21,
+      "distance" : 0.8,
+      "text" : "Some of the great deal may actually a bad one in ther long term.",
+      "height" : 0.55
+    },
+    {
+      "age" : 22,
+      "distance" : 0.8,
+      "text" : "You need to think twice.",
+      "height" : 0.7
+    },
+    {
+      "age" : 23,
+      "distance" : 0.8,
+      "text" : "And there are a lot of temptaions outside as well.",
+      "height" : 0.65
+    },
+    {
+      "age" : 24,
+      "distance" : 0.8,
+      "text" : "Some of the decision, you may regret for the life time.",
+      "height" : 0.5
+    },
+    {
+      "age" : 25,
+      "distance" : 0.8,
+      "text" : "After a certain age, you feel everything is going down.",
+      "height" : 0.55
+    },
+    {
+      "age" : 27,
+      "distance" : 0.8,
+      "force": true,
+      "text" : "First you feel you are become weaker.",
+      "options" : [
+        {
+          "text" : "confirm",
+          "values" : [
+            {
+              "type" : "strength",
+              "instant" : false,
+              "value" : -1,
+              "length" : 40
+            }
+          ]
+        }
+      ],
+      "height" : 0.65
+    },
+    {
+      "age" : 29,
+      "distance" : 0.8,
+      "force": true,
+      "text" : "And your are not that handsome anymore.",
+      "options" : [
+        {
+          "text" : "confirm",
+          "values" : [
+            {
+              "type" : "appearance",
+              "instant" : true,
+              "value" : 100
+            },
+            {
+              "type" : "appearance",
+              "instant" : false,
+              "value" : -1,
+              "length" : 60
+            }
+          ]
+        }
+      ],
+      "height" : 0.55
+    },
+    {
+      "age" : 33,
+      "distance" : 0.8,
+      "force": true,
+      "text" : "Your even start to forget things",
+      "options" : [
+        {
+          "text" : "confirm",
+          "values" : [
+            {
+              "type" : "knowledge",
+              "instant" : false,
+              "value" : -1,
+              "length" : 60
+            }
+          ]
+        }
+      ],
+      "height" : 0.7
+    },
+    {
+      "age" : 35,
+      "distance" : 0.8,
+      "force": true,
+      "text" : "Your are not that healthy any more",
+      "options" : [
+        {
+          "text" : "confirm",
+          "values" : [
+            {
+              "type" : "health",
+              "instant" : false,
+              "value" : -2,
+              "length" : 100
+            }
+          ]
+        }
+      ],
+      "height" : 0.6
+    },
+    {
+      "age" : 37,
+      "distance" : 0.8,
+      "force": true,
+      "text" : "Your spend money to make you healthy, but that may not work that good.",
+      "options" : [
+        {
+          "text" : "confirm",
+          "values" : [
+            {
+              "type" : "money",
+              "instant" : false,
+              "value" : -10,
+              "length" : 100
+            }
+          ]
+        }
+      ],
+      "height" : 0.6
+    },
+    {
+      "age" : 39,
+      "distance" : 0.8,
+      "text" : "The only thing you feel there is family, friends and love",
+      "height" : 0.5
+    },
+    {
+      "age" : 41,
+      "distance" : 0.8,
+      "text" : "Spend more time with them.",
+      "height" : 0.65
+    },
+    {
+      "age" : 45,
+      "distance" : 0.8,
+      "text" : "But also feel thankful all the time. You came from nothing, right?",
+      "height" : 0.55
+    },
+    {
+      "age" : 50,
+      "distance" : 0.8,
+      "text" : "Job 1:21 The Lord gave and the Lord has taken away; blessed the name of the Lord.",
+      "height" : 0.7
+    },
+    {
+      "age" : 52,
+      "distance" : 0.8,
+      "text" : "End",
+      "height" : 0.6
+    }
+  ]
+}

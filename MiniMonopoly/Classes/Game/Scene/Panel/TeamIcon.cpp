@@ -16,6 +16,7 @@ TeamIcon::TeamIcon(TeamData* teamData)
   p_teamInfoPanel = nullptr;
   p_teamIconButton = nullptr;
   p_parent = nullptr;
+  p_teamInfoPanelNode = nullptr;
 }
 
 TeamIcon::~TeamIcon()
@@ -55,47 +56,66 @@ void TeamIcon::addTeamToMap(Node* parent)
 
 void TeamIcon::clickTeam(cocos2d::Ref *pSender)
 {
-  CCLOG("CLICK");
+  CCLOG("CLICK team : %s", p_teamData->getName().c_str());
+  if (getTeamInfoPanelVisible()) {
+    setTeamInfoPanelVisible(false);
+    return;
+  }
   if (p_teamInfoPanel == nullptr) {
     p_teamInfoPanel = new TeamInfoPanel(p_teamData);
+    p_teamInfoPanelNode = p_teamInfoPanel->getPanel();
+    auto position = p_teamIconButton->getPosition();
+    auto size = p_teamIconButton->getContentSize();
+    auto scale = p_teamIconButton->getScale();
+    p_teamInfoPanelNode->setScale(1.0 / p_parent->getScale());
+    
+    auto cityNormalizedPosition = p_teamIconButton->getNormalizedPosition();
+    float x, y;
+    float anchorX, anchorY;
+    if (cityNormalizedPosition.x <= 0.5) {
+      // show in right side
+      x = position.x + size.width / 2 * scale;
+      anchorX = 0;
+    } else {
+      // show in left side
+      x = position.x - size.width / 2 * scale;
+      anchorX = 1;
+    }
+    if (cityNormalizedPosition.y <= 0.5) {
+      // show in up side
+      y = position.y + size.height / 2 * scale;
+      anchorY = 0;
+    } else {
+      // show in left side
+      y = position.y - size.height / 2 * scale;
+      anchorY = 1;
+    }
+    p_teamInfoPanelNode->setAnchorPoint(Vec2(anchorX, anchorY));
+    p_teamInfoPanelNode->setPosition(Vec2(x, y));
+    p_parent->addChild(p_teamInfoPanelNode);
   } else {
     p_teamInfoPanel->refresh();
+    setTeamInfoPanelVisible(true);
   }
-  
-  auto teamPanel = p_teamInfoPanel->getPanel();
-  auto position = p_teamIconButton->getPosition();
-  auto size = p_teamIconButton->getContentSize();
-  auto scale = p_teamIconButton->getScale();
-  teamPanel->setScale(1.0 / p_parent->getScale());
-  
-  auto cityNormalizedPosition = p_teamIconButton->getNormalizedPosition();
-  float x, y;
-  float anchorX, anchorY;
-  if (cityNormalizedPosition.x <= 0.5) {
-    // show in right side
-    x = position.x + size.width / 2 * scale;
-    anchorX = 0;
-  } else {
-    // show in left side
-    x = position.x - size.width / 2 * scale;
-    anchorX = 1;
-  }
-  if (cityNormalizedPosition.y <= 0.5) {
-    // show in up side
-    y = position.y + size.height / 2 * scale;
-    anchorY = 0;
-  } else {
-    // show in left side
-    y = position.y - size.height / 2 * scale;
-    anchorY = 1;
-  }
-  teamPanel->setAnchorPoint(Vec2(anchorX, anchorY));
-  teamPanel->setPosition(Vec2(x, y));
-  p_parent->addChild(teamPanel);
 }
 
 TeamIcon* TeamIcon::createTeamIconWithTeamData(TeamData* teamData)
 {
   auto teamIcon = new TeamIcon(teamData);
   return teamIcon;
+}
+
+bool TeamIcon::getTeamInfoPanelVisible() const
+{
+  if (p_teamInfoPanelNode == nullptr) {
+    return false;
+  }
+  return p_teamInfoPanelNode->isVisible();
+}
+
+void TeamIcon::setTeamInfoPanelVisible(bool visible)
+{
+  if (p_teamInfoPanelNode != nullptr) {
+    p_teamInfoPanelNode->setVisible(visible);
+  }
 }

@@ -1,0 +1,10 @@
+{
+  "events" : [
+    {
+      "name" : "event_1",
+      "distance" : 0.5,
+      "text" : "You come to this world with nothing.",
+      "height" : 0.7
+    }
+  ]
+}

@@ -33,6 +33,7 @@ private:
   Node* p_sellPanel;
   Node* p_willBuyPanel;
   Node* p_willSellPanel;
+  Label* p_finalMoney;
   
   void addCityGoodsTitle(Node* sprite);
   void addTeamGoodsTitle(Node* sprite);
@@ -41,6 +42,7 @@ private:
   void willSellGoods(TeamGoodsData* cityGoodsData, int num);
   void refreshWillBuyPanel();
   void refreshWillSellPanel();
+  void refreshFinalMoney();
   void clickClose(cocos2d::Ref* pSender);
   void clickConfirm(cocos2d::Ref* pSender);
 public:

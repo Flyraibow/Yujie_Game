@@ -21,8 +21,9 @@ private:
   TeamData* p_teamData;
   ui::Scale9Sprite* p_panel;
   Label* p_labelName;
-  Label* p_labelGuild;
   MenuItem* p_tradeBtn;
+  MenuItem* p_moveBtn;
+  std::vector<Node *> p_goodsNode;
   void generateTeamPanel();
   
   void clickTrade(cocos2d::Ref* pSender);

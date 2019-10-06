@@ -25,12 +25,16 @@ private:
   // Sprite
   Node* p_parent;
   MenuItemImage* p_teamIconButton;
+  Node* p_teamInfoPanelNode;
   
   void clickTeam(cocos2d::Ref* pSender);
 public:
   TeamIcon(TeamData* teamData);
   ~TeamIcon();
   void addTeamToMap(Node* parent);
+  
+  void setTeamInfoPanelVisible(bool visible);
+  bool getTeamInfoPanelVisible() const;
   static TeamIcon* createTeamIconWithTeamData(TeamData* teamData);
 };
 
